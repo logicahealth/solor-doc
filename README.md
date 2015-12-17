@@ -1,0 +1,2 @@
+# komet
+KnOwledge Management EnvironmenT

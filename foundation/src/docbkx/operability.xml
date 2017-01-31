@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0">
+    <title>Operability</title>
+    <para>The essential challenge of informatics practice within the healthcare enterprise, is to
+        quickly deliver a high-fidelity reasoned interpretation of principles and facts to the point
+        of care—and then to quickly aggregate these point of care experiences for analytic analysis
+        so that new principles and facts can be formulated and validated as part of a continuous
+        optimization of healthcare knowledge and delivery. To effectively answer this challenge, we
+        must focus on simplification and integration of knowledge assets, and on build, test,
+        deploy, and release processes for delivering these assets to the points of care and
+        analysis. This focus on perhaps mundane topics is not because we think that novelty has no
+        place in our work; rather, that without a focus on aspects of our delivery challenge that
+        are often treated as peripheral to the overall problem, we cannot achieve reliable, rapid,
+        low-risk knowledge-asset development and delivery in an efficient manner. </para>
+  
+    <para>The Veteran’s Administration ISAAC (InformaticS Architecture ACceleration) effort seeks a
+        holistic approach to architecture that supports novelty within a rigorous—and vertically
+        integrated—deployment pipeline that enables knowledge engineers, developers, testers, build
+        managers, and operations personnel to work together effectively to deliver assets to the
+        points of care and analysis. This pipeline must support integrated delivery of iterative
+        revisions of specifications, services, and content which are today delivered by isolated
+        silo organizations who place the implementation burden upon their consumers. This pipeline
+        will be built from existing software-based best practices, and will embrace DevOps culture
+        and practice by emphasizing collaboration and communication while automating the process of
+        product delivery. ISAAC’s KOMET (KnOwledge Management EnvironmenT) realizes ISAAC’s
+        architecture within a DevOps environment that integrates development, testing, publication,
+        and delivery of specifications, content, and services into a vertically integrated
+        environment that supports continuous delivery. </para>
+    <figure xml:id="de117c5e-5b71-457b-88f9-1bb939f7ba72">
+        <title>Overview of KOMET's domains of concern</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="foundation-images/content-services-specifications.svg"
+                    align="center" format="svg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+    <section>
+        <title>Modularity</title>
+        <para>KOMET defines a modular system and a service platform for clinical knowledge
+            management that implements a complete and dynamic component model. KOMET provides an
+            environment for the modularization of knowledge resources into bundles. Each bundle is a
+            tightly coupled, dynamically loadable collection of terminology, terminological
+            knowledge assertions, A-Box assertions regarding rules, transformation, and files that
+            explicitly declare their external dependencies (if any). <link
+                xlink:href="http://www.mkbergman.com/489/ontology-best-practices-for-data-driven-applications-part-2"
+            />
+        </para>
+    </section>
+</chapter>

@@ -1,0 +1,1375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0">
+    <info>
+        <title>Requirements driven</title>
+    </info>
+    <epigraph>
+        <attribution>[7]</attribution>
+        <para>Capturing requirements is difficult. Capturing architecturally significant
+            requirements is PARTICULARLY difficult.</para>
+    </epigraph>
+    <para>The goal is to provide an architecture that defines reference and interface aspects in a
+        way that provides robust solutions to the inherit complexity of the domain, but that does
+        not introduce accidental complexity via its implementation decisions, or unnecessary
+        complexity secondary to design-by-committee solutions or unnecessary complexity from failure
+        to refactor stovepipe efforts. </para>
+    <para/>
+    <!--NOTES ABOUT ADDED CONTENT:
+        1. Terms have been labeled for indexing.
+        2. Included content from the entire BRD: Sections, Requirements, Footnotes, Images, & Charts.
+        3. Included BRD appendixes as seperate files, located in the Principia  > Deriviate-Architecture folder. 
+        4. Included updates from Sarita's edited BRD file (from: 09042014), as well as all content from original BRD (from: 20100904) that may be lacking in Saritas 2014 version of the BRD.
+        5. Included content from Sarita's email on 9/24/2014 (Subj: Terminology Tooling BRD - Additional Suggestions).  Bracketed section with comments, and give reference numbers, so we know where it came from.
+        6. Included content from 08112014_TerminologyToolingBRD_AdditionalConsiderations.docx. Placed content in multiple parts of the foundational-architectural-requirements Docbook file, and the-solar-system Docbook file. Bracketed section with comments, and give reference numbers, so we know where it came from.
+        7. Input content from DRAFT IAR Chapter 38-Medical Device-For Review.docx into different file titled: Devices (found within Interoperability-Architecture Folder). Bracketed section with comments so that we know where content came from.       
+        8. Included content from 07092014_EditingEnvironmentElements (Email Subj: Fwd: Terminology editing application thoughts).  Bracketed section with comments so that we know where content came from.
+        9. Need To: 
+                    Include content from VA Terminology Service Final 8_18_2014.doc that Apurva send to Keith in an email on 9/17/2014. Bracketed section with comments, so we know where it came from.
+                    Include content from 20140930 VA Domain Reports and Summary (= a Zip File including 22 PDF's)
+-->
+    <para/>
+    <para><!--LIST OF STYLESHEET AND/OR BOOK-FILE EDITS TO MAKE:
+       1.) GENERAL EDITS: Content from multiple PDF and Word sources has been added (see above) HOWEVER, this content needs to be reviewed and edited for inclusion into Principia Informatica.  Further, content will likely need to be moved around within and between files as part of the editing process. 
+       1.) FIGURES: The tag-line/phrase listed below figures needs to be edited in the stylesheet so that it is visible in PDF output. Currently it only shows in Oxygen Text/Author view. 
+            a.) The spacing around the image also appears too small, as some images show a light grey border on 3 out of 4 sides, vs. all sides. I believe this can be edited in stylesheet as well. 
+            b.) Doublecheck in the book file that there is a Table of Figures, and Table of Tables, just as there is a Table of Contents showing Sections.  The table of Figures doesn't show in the Architectural Requirements file itself.
+        2.) INDEX: An Index location needs to be created in Book file. 
+        3.) HYPERLINKS: Need to edit stylesheet to format all links & hyperlinks so that they're visible in blue color with an underline in PDF output, for reader recognition/use of the embedded link/hyperlink features.  
+            a.) This goes for web addresses shown in the text itself (often times in parenthases).           
+            b.) This also goes for content that is hyper-linked to other sections within the document itself. 
+            c.) Here is a link to how to customize a patch in stylesheet:  https://jira.spring.io/browse/SPR-4296
+            d.) Currently, Tedra has italicized these links/hyperlinks, so that they're easier to find within Oxygen & the PDF output, for editing once stylesheet is updated. 
+        4.) CUSTOMIZE ORDERLIST: Need to determine if it possible to customize an orderlist, so that the secondary listitems will show as bullets vs. number/letter format in the PDF output. (See Section 4: Enterprise Need/Justification for example.) 
+        5.) CUSTOMIZE ITEMIZEDLIST: Need nested bullets to show as different bullet format in PDF output. (bullet & opencircle, etc.). I followed directions on tagging appropriately, but output doesn't correlate, so thinking this may need a stylesheet modification to work out the kinks. 
+        6.) TABLES:  Need to customized stylesheet for template formatting of  table rows to show shaded rows. (Most tables should have every other row shaded, starting with heading).  
+            a.) Also need to determine how to add itemized list (bullets) into a table row correctly.  I couldn't figure this out & get an error, though Oxygen does still allow for a PDF output with this error...
+            b.) The Funding Request tables from the VA TERMINOLOGY SERVICE FINAL 8_18_2014 document need to be larger than the page currently allows, to acomodate the additional column spacing needed.  --><!--
+        7.) SPACING: Need to customize stylesheet so that Lists (ItemizedLists/OrderedLists/VariableLists) are not broken apart over page breaks. There is a way to keep these together in stylesheet. 
+            a.) Also need to do the same for Tables so that they don't break over a page break.
+            b.) Look at Lists with sub-lists nested within, and determine if you like the spacing in the PDF output, or if you want to change. (I think the spacing looks a little wonky with each line evenly spaced, regardless of nested lines.)  (See Section 4: Enterprise Need/Justification for example.) 
+            c.) Also take a look at Section 7.6: Related Projects or Work Effects, as the even spacing there is also wonky. Maybe can fix this in Stylesheet so that links are closer to the bold headings? 
+        8.) FOOTNOTES: Need to left align footnotes. Currently Footnote #3 appears to be in justified alignment/spread out across page. Not sure how to fix, but thinking this may be the way? --></para>
+    <para/>
+    <para><!-- ISSUES:
+        1.) The footnotes from ordered list items (like requirements) don't show up on the bottoms of pgs. in PDF format.  I've since learned that Docbook considers footnotes a parent to orderedlists... could this be why?
+        2.) Some footnotes in the document simply aren't showing up in the PDF output, and I'm not sure why, as I'm convinced the markup tags are identical with other footnotes in the file that show up fine. (See Section 5.2.1: Status Time Author Module Path (STAMP) Versioning
+Component Database, as this issue appears to start there.)   I've additionally commented the areas where the footnotes appear faulty in Oxygen. --></para>
+    <para><!-- ALL 07092014 EDITING ENVIRONMENT ELEMENTS INFORMATION INPUT BELOW--></para>
+        
+        <para>A few caveats: </para>
+        <itemizedlist>
+            <listitem>
+                <para>Requirements will likely differ according to a terminology
+                    content developer’s intention (e.g., a developer creating content for the core
+                    of a standardized terminology vs. a developer creating a refset or value set).
+                    Depending on their use case, the elements listed below may seem superfluous or
+                    excessive to one content developer while the same element may be considered
+                    necessary or essential to another content developer. </para>
+            </listitem>
+            <listitem>
+                <para>The comments below reflect  thoughts on what would be useful for a SNOMED
+                    CT<indexterm type="general">
+                    <primary>SNOMED CT</primary>
+                </indexterm> editing application, but the general principles also apply to other
+                terminologies (i.e., LOINC and RxNorm) that would also be integrated in the editing
+                environment. </para>
+            </listitem>
+            <listitem>
+                <para>These comments reflect experiences using the IHTSDO Workbench and two of the
+                Apelon terminology editing applications: the Terminology Development Environment
+                    (TDE)<indexterm type="general">
+                    <primary>Terminology Development Environment (TDE)</primary>
+                </indexterm> and the Distributed Terminology System (DTS)<indexterm type="general">
+                    <primary>Distributed Terminology System (DTS)</primary>
+                </indexterm>. Each of these applications is unique and has highly beneficial
+                components. The list below reflects a brief composite of features found most useful
+                about these applications as well as a notes about elements that would have been
+                additionally helpful/useful. </para>
+            </listitem>
+        </itemizedlist>
+    <section xml:id="a515f3fbc-49c1-11e4-916c-0800200c9a66">
+        <title>User Interface<indexterm type="general"><primary>User
+            Interface</primary></indexterm></title>
+        <para><emphasis role="bold">Elements that have been helpful: </emphasis></para>
+        <itemizedlist>
+            <listitem>
+                <para>In general, the application is “simple” in design, making it easy to view and
+                    use for long periods of time </para>
+            </listitem>
+            <listitem>
+                <para>Easy log-in and launch process </para>
+            </listitem>
+            <listitem>
+                <para>Configurable “panels” or “areas” with clearly defined editing purposes (e.g.,
+                    terminology editing panels, taxonomy browser, search panel) o<itemizedlist>
+                        <listitem>
+                            <para>The user can choose which panels they want to see and can
+                                configure the editing window for their preference and need depending
+                                on the editing activity they are attempting to perform (i.e.,
+                                terminology editing vs. refset development) </para>
+                        </listitem>
+                        <listitem>
+                            <para>Information necessary to create or edit content is visible in one
+                                window/location (i.e., reduced toggling between windows) </para>
+                        </listitem>
+                        <listitem>
+                            <para>A variety of panels to perform editing tasks and view the
+                                terminology: </para>
+                            <para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Concept viewing/editing panel to see the full view of
+                                            the concept (including stated and classified/inferred
+                                            views; it is also helpful to be able to have at least 2
+                                            panels open simultaneously) </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Taxonomy browser (for SNOMED CT editing, this includes
+                                            being able to choose the stated vs. inferred view as
+                                            well as the ability to see the primitive vs. fully
+                                            defined status of the concept) </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Concept history (to view previous versions of a
+                                            concept) </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Immediate access to “recent” concepts viewed or edited
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Separate search panel </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Batch editing panel </para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                        </listitem>
+                    </itemizedlist></para>
+            </listitem>
+            <listitem>
+                <para>Appearance: </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Color contrast exists between text and background and there is ample
+                            white or negative space </para>
+                    </listitem>
+                    <listitem>
+                        <para>Text that is easy to read (perhaps even configurable by the user)
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>If there are multiple windows/panels, consistent labeling (titles) for
+                            each window for easier navigation </para>
+                    </listitem>
+                    <listitem>
+                        <para>Clearly delineated controls (“buttons”) (for saving, canceling,
+                            drop-down menus, etc.) and tooltips to explain what buttons are for if
+                            not immediately apparent </para>
+                    </listitem>
+                    <listitem>
+                        <para>Controls are consistent in labeling and functionality throughout the
+                            application </para>
+                    </listitem>
+                    <listitem>
+                        <para>Components of the concept are easy to read, color-coded (i.e., concept
+                            descriptions are one color, its definition status another color, and its
+                            defining relationships another color, etc.), and consistent for each
+                            concept </para>
+                    </listitem>
+                    <listitem>
+                        <para>Consistency of appearance (text, background, controls) across multiple
+                            panels and windows </para>
+                    </listitem>
+                    <listitem>
+                        <para>Alerts and error messages are obvious and explain what needs to be
+                            addressed </para>
+                    </listitem>
+                    <listitem>
+                        <para>Limited scrolling is required </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">Additional components that would be useful:</emphasis>
+        </para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>For SNOMED CT specifically, the content is so vast that it is difficult to
+                        view the taxonomy in its entirety in a single panel. The ability to view a
+                        “focused taxonomy browser” (a view limited to one concept and only its
+                        immediate subtypes and supertypes) would be especially helpful. </para>
+                </listitem>
+                <listitem>
+                    <para>It would be beneficial if the most often used functions/tasks had their
+                        own highly visible control/button in immediate view. (For example, in the
+                        case of SNOMED CT, this might mean having the new concept automation or the
+                        classifier function visible as controls/buttons in the arena window.) If
+                        multiple terminologies are edited in one application, this may not be
+                        feasible since the editing requirements will likely differ. </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+    <section xml:id="a515f3fbd-49c1-11e4-916c-0800200c9a66">
+        <title> Editing functionality<indexterm type="general"><primary>Editing
+                    functionality</primary></indexterm></title>
+        <para>Each terminology will have specific editing functionality requirements; however, there
+            are certain elements which will likely be relevant to all terminologies and the
+            application as a whole. </para>
+        <para><emphasis role="bold">Elements that have been helpful:</emphasis></para>
+        <itemizedlist>
+            <listitem>
+                <para>In general, the application is easy to use, efficient (minimizes the number of
+                    actions needed to perform tasks), and attempts to reduce user error </para>
+            </listitem>
+            <listitem>
+                <para>Drag/drop and copy/paste functionality for ease, efficiency, and accuracy (as
+                    opposed to typing, which is time-consuming and can increase errors) </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Right-click drop-down menus can also serve this function well (e.g.,
+                            for adding descriptions or components (attribute-value pairs)) </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Automations are helpful for certain processes such as creating and retiring
+                    content. They also make these processes more efficient and reduce user error. </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>o Example: New concept automation in the Workbench automatically
+                            creates the preferred term (including Great Britain preferred term if
+                            appropriate), removes erroneous spaces from fully specified names,
+                            allows easy assignment of parent concept and additional relationships,
+                            assignment of primitive/fully defined status, etc. </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Use of context-sensitive editing functionality increases efficiency by guiding
+                    the user to available next options </para>
+            </listitem>
+            <listitem>
+                <para>QA (quality assurance) rule implementation: As in the Workbench, multiple
+                    levels of QA implementation including “real-time QA” (with specific error alerts
+                    if a QA rule is violated to give the user immediate feedback and opportunity for
+                    error correction) and separate “batch QA” functionality to review any violations
+                    of all editorial rules </para>
+            </listitem>
+            <listitem>
+                <para>Classifier functionality (with error alerts (equivalency, cycle, etc.)) and
+                    identification of concepts in errors (Note: while this functionality may seem
+                    specific to SNOMED CT, due to mapping and content development efforts in
+                    progress by the IHTSDO and the Regenstrief Institute, this functionality may
+                    eventually apply to LOINC as well.) </para>
+            </listitem>
+            <listitem>
+                <para>Easy workflow integration </para>
+            </listitem>
+            <listitem>
+                <para>The ability to have a “test environment” to test content changes, especially
+                    those changes expected to have large-scale results (the UAT version of the
+                    Workbench was extremely helpful for this purpose) </para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">Additional components that would be useful:</emphasis>
+        </para>
+        <itemizedlist>
+            <listitem>
+                <para>Ability to add a “note” to the concept with information which would allow
+                    authors to add an internal (unpublished) comment which might communicate
+                    additional information about the concept such as why it was created, why it was
+                    modeled in a certain way, etc. </para>
+            </listitem>
+            <listitem>
+                <para>Ability to add a “tag” or “flag” to a concept to note that it is a member of
+                    an extension (or possibly even a mapping or value set) </para>
+            </listitem>
+            <listitem>
+                <para>Ability to use some functions found in common computer applications would be
+                    very helpful (e.g., undo, redo, copy/paste from word processing or spreadsheet
+                    documents, keyboard shortcuts) </para>
+            </listitem>
+            <listitem>
+                <para>For each standardized terminology that will be implemented in the editing
+                    environment, there will be unique editing and QA functionality requirements. It
+                    will be helpful to delineate and make clear to the user, which
+                    functions/buttons/actions pertain to each terminology. The same will likely be
+                    true for delineating which QA rules apply to each terminology as well. </para>
+            </listitem>
+        </itemizedlist>
+    </section>
+    <section xml:id="a515f3fbe-49c1-11e4-916c-0800200c9a66">
+        <title>Search and Query Functionality<indexterm type="general"><primary>Search and
+                    Query</primary></indexterm></title>
+        <para>The ability to search using multiple parameters simultaneously would be of immense
+            value for terminology content developers as well as implementers. In addition to finding
+            specific concepts, further reasons for the value of a robust search component include
+            the following:</para>
+        <itemizedlist>
+            <listitem>
+                <para>QA of the terminology, for example:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Finding concepts/content that are incorrectly or inadequately defined
+                            and further edit them such that they aggregate where one would normally
+                            expect </para>
+                    </listitem>
+                    <listitem>
+                        <para>Finding duplicate content that needs to be addressed </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Finding concepts appropriate for a refset, value set, or even mapping (the
+                    ability to use multiple search parameters will be helpful) </para>
+            </listitem>
+            <listitem>
+                <para>Finding post-coordinated expressions, if they are created </para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">Some search parameters which would be very helpful
+                include:</emphasis></para>
+        <itemizedlist>
+            <listitem>
+                <para>Ability to search for terms (fully specified names and synonyms) by: </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Word fragments </para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Example: Searching for *scop* will retrieve all instances of
+                                    “scop” within a word (endoscope / endoscopy, fluoroscope /
+                                    fluoroscopy, etc.) as well as anywhere within a term
+                                    (“Endoscopic biopsy of esophagus” and “Gastric endoscopy”)
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Terms/fragments in any order </para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Example: Searching for *aort*stenos* would return “aortic
+                                    valve stenosis” as well as “stenosis of fetal aortic valve”
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Fully specified name only vs. all descriptions/terms/synonyms
+                            (including option to only see a certain description type – FSN,
+                            preferred term – displayed) </para>
+                    </listitem>
+                    <listitem>
+                        <para>Numeric identifiers </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Ability to search for groups of concepts by: </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Specific content: </para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>IHTSDO SNOMED CT International Edition vs. NLM US Extension
+                                    vs. VA (or other) Extension </para>
+                            </listitem>
+                            <listitem>
+                                <para>Refset (e.g., Non-human refset, Allergy refset, etc.) </para>
+                            </listitem>
+                            <listitem>
+                                <para>Tag or flag (noted above) </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Parameters specific to the terminology such as: </para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Attribute (role) relationships (e.g., all concepts with
+                                    “finding site of X”) </para>
+                            </listitem>
+                            <listitem>
+                                <para>Hierarchy / group (e.g., all &lt;disorder> concepts with an
+                                    “associated morphology of X”) </para>
+                            </listitem>
+                            <listitem>
+                                <para>Fully defined vs. primitive status </para>
+                            </listitem>
+                            <listitem>
+                                <para>Stated vs. inferred concept definition </para>
+                            </listitem>
+                            <listitem>
+                                <para>Active vs. inactive status (as well as both) </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Ability to search for concepts using combinations of above parameters </para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">Useful search results display parameters:</emphasis>
+        </para>
+        <itemizedlist>
+            <listitem>
+                <para>Number returned (count) </para>
+            </listitem>
+            <listitem>
+                <para>Numeric identifier </para>
+            </listitem>
+            <listitem>
+                <para>Fully specified name of concept </para>
+            </listitem>
+            <listitem>
+                <para>Active vs. Inactive status </para>
+            </listitem>
+            <listitem>
+                <para>Ability to export the search results to a spreadsheet and other formats
+                </para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="italic"><emphasis role="bold">Examples of queries for content editing
+                    (SNOMED CT-specific) where the ability to query using the above parameters would
+                    be useful:</emphasis></emphasis></para>
+        <para><emphasis role="bold"> Example 1:Search for or exclude specific content</emphasis>
+        </para>
+        <para>The Office of National Coordinator has created a Clinical Quality Measure (CQM)
+            tracker that allows CQM implementers to submit questions and raise issues. One issue
+            noted by an implementer is that some CQM value sets contain non-human/veterinary
+            concepts from SNOMED CT. It might be helpful for authors of CQMs to exclude this content
+            when creating their value set content. See:
+            http://jira.oncprojectracking.org/browse/CQM-793 </para>
+        <para><emphasis role="bold">Example 2: Search for concepts using word fragments in any order
+            </emphasis></para>
+        <para>The ability to search for concepts using word fragments and in any order would by
+            highly beneficial. This allows the user to find concepts with variations in words. This
+            can be useful for finding concepts that may have been named inconsistently (e.g.,
+            “fluoroscopic guidance” vs. “fluoroscopy guided”) but should be modeled consistently so
+            that they aggregate appropriately together in the terminology. </para>
+        <para><emphasis role="bold">Example 3: Search for concepts using attribute relationships and
+                multiple simultaneous parameters </emphasis></para>
+        <para>The terms “intubation” and “insertion of tube” are used somewhat inconsistently with
+            respect to procedure concepts within SNOMED CT, and likewise, this subset of concepts
+            has also been modeled inconsistently. For example, some concepts have the term
+            “intubation” in the FSN, however, they are modeled with an attribute relationship
+            specifying a value of “Insertion – action (qualifier value).” The reverse is also true:
+            concepts with the term “insertion” in the FSN are modeled with the value “Intubation –
+            action (qualifier value).” The following images illustrate this issue and are taken from
+            the CliniClue SNOMED CT browser using the January 2014 SNOMED CT International Release. </para>
+        <para>The descendants of <emphasis role="bold">Intubation (procedure)</emphasis> are modeled
+            with the Method attribute value “Intubation – action (qualifier value)” and a Direct
+            Device attribute value “Tube, device (physical object)” (or one of its descendants). </para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>The descendants of Intubation (procedure) include <emphasis role="bold"
+                            >Intubation of gastrointestinal tract (procedure)</emphasis> and
+                            <emphasis role="bold">Inadvertent esophageal intubation
+                            (procedure)</emphasis>. </para>
+                </listitem>
+                <listitem>
+                    <para>Also note that there are concepts containing variations of the phrase
+                        “insertion of tube” in this sub-hierarchy and that they are modeled with the
+                        Method attribute value Intubation – action (qualifier value). </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <figure>
+            <title>Descendants of Intubation</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/Intubation.PNG"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <para>However, there is a separate sub-hierarchy, <emphasis role="bold">Intubation of
+                esophagus (procedure)</emphasis> and its descendants, due to the top-level concept
+            having been modeled with a Method attribute value of “Insertion – action (qualifier
+            value).” It is likely that an implementer of SNOMED CT would expect this sub-hierarchy
+            to be integrated with the Intubation (procedure) hierarchy – and that <emphasis
+                role="bold">Inadvertent esophageal intubation (procedure)</emphasis> would be a
+            subtype.</para>
+        <figure>
+            <title>Intubation of Esophagus</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/IntubationOfEsophagus.PNG"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <para>In order to determine whether and how this content could/should be harmonized within
+            SNOMED CT, it would be ideal to have the ability to search by: </para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>FSN only as well as word fragments </para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Number of concepts with FSNs containing variations of “intubation”
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>Number of concepts with FSNs containing variations of the phrase
+                                “insertion of tube” </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Attribute relationships as well as stated and inferred concept definitions </para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Number of concepts modeled with a Method attribute value of
+                                “Intubation – action (qualifier value)” </para>
+                        </listitem>
+                        <listitem>
+                            <para>Number of concepts modeled with a Method attribute value of
+                                “Insertion – action (qualifier value)” </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+    <section xml:id="a515f3fbf-49c1-11e4-916c-0800200c9a66">
+        <title>Summary</title>
+        <para>This document attempted to outline some of the elements which would be especially
+            helpful for a terminology editing application. The list of elements is not
+            comprehensive, and there are many areas that could be described in greater detail,
+            particularly with respect to SNOMED CT content development and editing (e.g., a list of
+            required editing functionality and all QA rules). For a terminology editing application
+            involving multiple terminologies, each section of the list will expand significantly. </para>
+    </section>
+
+
+
+    <section>
+        <title>Integrated development and operations</title>
+        <para>Challenges still remain around how demand for application functionality and updates
+            are managed within the business, and how this new development work is deployed into
+            production.</para>
+        <para>When paired with end-to-end (requirements-to-release) application release automation,
+            DevOps can increase the release flow and deliver killer apps to the business.</para>
+        <para>Improving communications and integrating processes between these long-divided groups
+            is a goal the entire IT industry should be working toward. This is particularly urgent
+            because the delivery speed software requires is always increasing and, at the same time,
+            the tolerance for application errors is decreasing.</para>
+        <section>
+            <title>Bridge gap between development and operations</title>
+            <para>While many businesses have invested in automating their development, few have the
+                ability to smoothly connect the critical components of the application lifecycle in
+                order to bridge the gap between application development and IT operations.
+                Delivering applications successfully requires organizations to marry the creation of
+                better apps with improved processes to put them into the hands of users.</para>
+            <para>As teams grow and face larger volumes of software, siloed paper-based practices
+                for the management of each stage of development and operations are evolving into
+                more automated and interconnected processes. This orchestrated approach to
+                application development does not mean throwing out all of the existing tools and
+                solutions; instead companies should integrate what they already have.</para>
+        </section>
+        <section>
+            <title>Release management</title>
+            <para>Release management is a prime example: Instead of automating the process and
+                release tasks so that each lovingly crafted application is deployed properly,
+                companies too often rely on manual deployments or scripts that are manually updated
+                each time, or both. In any case, time and effort are wasted in the release process,
+                and increased potential for errors and botched deployments results. Application
+                lifecycle-management processes and best practices in release management must be
+                considered as integral to the entire process. Working together, release management
+                and service management can further help DevOps.</para>
+            <para>The paradigm shift of DevOps results from the rapidly increasing number of
+                application releases being developed. Business demands more revenue growth through
+                online applications, and development is working hard to deliver the changes that
+                facilitate this shift. In distributed systems and mainframe environments, IT
+                operations departments aren’t equipped to handle this increase, resulting in a
+                backlog of applications to release. Organizations are adopting DevOps to respond to
+                the need to release more often and more apps each time.</para>
+            <para/>
+        </section>
+    </section>
+
+    <section>
+        <title>Terminology layer</title>
+
+        <para>The terminology layer will be populated with normalized SNOMEDCT, RxNorm, and LOINC
+            content, where normalized means that all overlapping content has been reconciled, and
+            that these three terminology systems function as a single coherent terminology for the
+            purposes of higher layers in the architecture. </para>
+        <section>
+            <title>Concept orientation</title>
+            <section>
+                <title>Standard metadata</title>
+                <para>The terminology layer will provide standard metadata for it’s own use as well
+                    as for use by the layers above. The standard metadata will be represented as
+                    Concepts within the terminology layer, and those Concepts will be appropriately
+                    organized taxonomically. </para>
+            </section>
+
+        </section>
+        <section>
+            <title>Content extension layer</title>
+            <para>The content extension layer enables organizations to add additional concepts and
+                descriptions to meet their local needs. These extensions will be made available to
+                the organization whose terminology they extend (SNOMED, RxNorm, and/or LOINC) in an
+                automated way so that they can be considered for addition to the standard. </para>
+            <para>The terminology with content extensions will appear as a single coherent
+                terminology for the purposes of higher layers in the architecture. </para>
+            <para>Content extensions allows:</para>
+            <itemizedlist>
+                <listitem> <para>A national or organizational definition of a concept, which is more rigorous or
+                    specific than existing concept;</para></listitem>
+                <listitem><para>Extension descriptions may be colloquial synonyms for concept or descriptions
+                    for an extension Concept.</para></listitem>
+            </itemizedlist>
+        </section>
+        <section>
+            <title>Reference extension layer</title>
+
+            <section>
+                <title>Refex member</title>
+                <para>The Refex member extends a component chronicle with a mandatory Assemblage id,
+                    and referenced component id fields, as well as optional extension fields. </para>
+                <section>
+                    <title>Member id</title>
+                    <para>Consistent with the requirement for every component to have a unique
+                        identifier, every refex member will have a unique identifier, referred to as
+                        the member id.</para>
+                </section>
+                <section>
+                    <title>Assemblage field</title>
+                    <para>Every Refex member must specify the Assemblage that it is a component of.
+                        Typically, this specification is accomplished by referencing the identifier
+                        of the Assemblage concept, although use of object pointers may be acceptable
+                        in some implementations. </para>
+                </section>
+                <section>
+                    <title>Extended component field</title>
+                    <para><!--Keith -This section is very confusing --></para>
+                    <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+                    <para>Each Refex member must specify the component it extends. Typically, this
+                        specification is accomplished by referencing the identifier of the component
+                        it extends, although use of object pointers may be acceptable in some
+                        implementations.</para>
+                    <para>Our development experience indicates that this is one of the fields that
+                        can be confusing to communicate properly. In this case, the order terms is
+                        important and “extended component” is reserved specifically for identifying
+                        the component that the Refex member extends, and should not be confused with
+                        a “component extension” which is an extension field, and discussed next.
+                        Historically “referenced component” has been used, but extension fields also
+                        have “referenced components” by nature of having an id for component in
+                        their data fields. This overlap of meaning has led to past confusion and
+                        difficulty in communicating Refex concepts. <?oxy_custom_end?></para>
+                </section>
+                <section>
+                    <title>Extension cardinality</title>
+                    <para> Refex members may have a one-to-one, or many-to-one relationship to the
+                        component they extend. The cardinality relationship between the extended
+                        component and the refex members must be defined as part of the Assemblage
+                        metadata. </para>
+                </section>
+                <section>
+                    <title>Extension Polymorphism</title>
+                    <para> Refex members of an Assemblage may have polymorphic fields. Each allowed
+                        polymorphic pattern must be specified as part of the Assemblage metadata,
+                        including the semantics of each field, presentation order of the fields, and
+                        information for labeling presentation of each field in an individual or
+                        tabular arrangement. </para>
+                </section>
+                <section>
+                    <title>Dynamic member definition</title>
+                    <para>The cardinality, and polymorphic data patterns must be definable at
+                        Assemblage author time, and certain aspects must be mutable (addition of a
+                        new pattern, updating a display name, or changing the order of
+                        presentation), other aspects must be immutable (cardanility, and semantics
+                        of an existing pattern cannot be modified, nor can the fields of the pattern
+                        change in size or data type)</para>
+                </section>
+                <section>
+                    <title>Component extension fields</title>
+                    <para>The Refex member may contain extension fields that reference another
+                        component: another concept, description, relationship, or another Refex
+                        member. For example, an extension field with unit of measure semantics in a
+                        reference range Refex may reference the concept milligrams per deciliter.
+                        Typically, this specification of an extension field’s value is accomplished
+                        by referencing the identifier of the component, although use of object
+                        pointers may be acceptable in some implementations.</para>
+                    <para>These extension fields are referred to as component extensions fields, not
+                        to be confused with the member’s extended component field. The order of term
+                        reference is significant, and must be used consistently. </para>
+                </section>
+                <section>
+                    <title>Scalar extension fields</title>
+                    <para>The Refex member may contain extension fields that contain scalar
+                        information: integers or floating point numbers. For example, an extension
+                        field with substance-concentration semantics in a reference range Refex may
+                        contain a value of 0.625.</para>
+                    <para>These extension fields are referred to as scalar extensions fields.
+                    </para>
+                </section>
+                <section>
+                    <title>String extension fields</title>
+                    <para>The Refex member may contain extension fields that contain text
+                        information. For example, an extension field with patient-instructions
+                        semantics in a laboratory test Refex may have the text “You must be fasting
+                        for 12 hours prior to this test”.</para>
+                    <para>These extension fields are referred to as string extensions fields.
+                    </para>
+                </section>
+            </section>
+            <section>
+                <title>Refex query requirements</title>
+                <section>
+                    <title>Component is member of an Assemblage</title>
+                    <para>Queries must enable a components membership in an Assemblage be part of
+                        the query criterion. For example, to determine if a dispensable medication
+                        concept is a member of a formulary Refex. </para>
+                </section>
+                <section>
+                    <title>Component field of Refex member matches criterion</title>
+                    <para>Refexes may include component fields where any valid component identifier
+                        (for a concept, description, or other Refex member) may be used. The match
+                        criterion may include any of the semantic query clauses (component is,
+                        component is kind-of, etc). For example, find all the medications who are
+                        members of the of the formulary Refex, and that are also members of the
+                        common side effects Refex, and the side effect type field of the Refex is a
+                        kind of kidney disease. </para>
+                </section>
+                <section>
+                    <title>Scalar field of Refex member matches criterion</title>
+                    <para>Refexes may include scalar fields such as integer, float, and long.
+                        Queries must enable scalar comparisons (&lt;, ≤, =, ≥, &gt;) of appropriate
+                        Refex fields as part of the query criterion. For example, find all diagnosis
+                        concepts where a diagnostic criterion Refex member’s “value” field is ≥ 13
+                        and the “units of measure field” references the concept value for
+                        “109/L”.</para>
+                </section>
+                <section>
+                    <title>Text field of Refex member matches criterion</title>
+                    <para>Refexes may include text fields. Queries must enable regular expression
+                        and full-featured text search clauses on these Refex fields. The necessary
+                        text search features are previously described in: 3.6.5 .</para>
+                </section>
+            </section>
+        </section>
+        <section>
+            <title>Logic layer</title>
+            <para>The logic layer provides axiomatic definition of underlying concepts using
+                references extensions associated with each concept. These logical reference
+                extensions can be modularized, and can support the representation of the stated and
+                inferred form of different description logics concurrently. The logical
+                representation must be able to support OWL Full semantics.</para>
+            <para>Logic is required to support semantic retrieval. </para>
+            <para>The logic requirements enable the reference-terminology characteristics of the
+                architecture.</para>
+            <section>
+                <title>Sufficient sets</title>
+                <para><!--This section needs images from SNOMED CT and need to link the figure numbers.  --></para>
+                <para>The architecture must allow for distinguishing between defining axioms that
+                    are necessary, and those that are part of a set that are both necessary and
+                    sufficient. </para>
+                <para>The following example illustrates the reason we must distinguish between
+                    necessary and sufficient conditions.
+                    <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>[The graphic
+                    notation used in these examples is described in Appendix B: SNOMEDCT Diagramming
+                    Standards .]</para>
+                <?oxy_custom_end?>
+                <para>
+                    <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>[insert
+                    Definition of tuberculous-arthritis figure here]</para>
+                <para/>
+                <para>[insert Definition of bacterial-arthritis figure here]
+                    <?oxy_custom_end?></para>
+                <para> The current SNOMEDCT model does not distinguish between relationships that
+                    are necessary conditions and those that are part of a set of necessary and
+                    sufficient conditions. For any fully defined concepts the set of defining
+                    relationships are regarded as necessary and sufficient.</para>
+                <para>As a result, some currently released fully defined concept definitions may
+                    include conditions that are necessarily true but are not required as part of the
+                    set of sufficient conditions.</para>
+                <para>Consider the examples shown in
+                    <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>Figure
+                    6<?oxy_custom_end?> Definition of tuberculous-arthritis and
+                    <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>Figure
+                    7<?oxy_custom_end?> Definition of bacterial-arthritis </para>
+                <para>The definition of tuberculous-arthritis differs from that of
+                    bacterial-arthritis in two respects. The first difference, the causative-agent
+                    of mycobacterium-tuberculosis-complex is sufficient to define the concept .
+                    However, the nature of the inflammation that results is, necessarily,
+                    granulomatous.</para>
+                <para>Thus an expression that specifies bacterial-arthritis with causative-agent
+                    mycobacterium-tuberculosis-complex is clinically equivalent to the concept
+                    tuberculous-arthritis even though it does not explicitly refine the nature of
+                    the inflammation.</para>
+                <para>In contrast the current SNOMEDCT model computes bacterial-arthritis with
+                    causative-agent mycobacterium-tuberculosis-complex as supertype of
+                    tuberculous-arthritis, rather than equivalent to tuberculous-arthritis. This
+                    computation occurs because the expression bacterial-arthritis with
+                    causative-agent mycobacterium-tuberculosis-complex does not specify of the
+                    nature of the inflammation.</para>
+                <para>This inability to represent multiple sufficient sets, and to distinguish
+                    between necessary and sufficient conditions leads to errors in retrieval, which
+                    in turn can lead to errors in decision support.
+                    <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>Figure
+                    8<?oxy_custom_end?> shows how necessary and sufficient sets to represent
+                    tuberculous-arthritis using multiple sets that separate necessary and sufficient
+                    conditions. </para>
+                <para> [<?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>insert
+                    Definition of tuberculous-arthritis using necessary and sufficient criterion
+                    figure here]<?oxy_custom_end?></para>
+                <para>The padstone is a type of simple foundation that consists of a single stone
+                    that both spreads the weight on the ground and raises the timber off of the
+                    ground.</para>
+                <para>Support for sufficient sets that distinguish between necessary and sufficient
+                    conditions is readily available in open-source classifiers, with acceptable
+                    scalability, and therefore, support for such distinctions is required. </para>
+            </section>
+            <section>
+                <title>Role hierarchies</title>
+                <para>Role hierarchies allow for the definition of inheritance relationships among
+                    roles.</para>
+            </section>
+            <section>
+                <title>General concept inclusions</title>
+                <para>General concept inclusion axioms are axioms that allow any Concept, primitive
+                    or defined, to be asserted to be a subclass of any other Concept. This ability
+                    leads to a unified classification hierarchy in which all Concept that include
+                    the presence of another given Concept occur together.</para>
+            </section>
+            <section>
+                <title>Concrete domains</title>
+               <!-- need to clarify this section-->
+                <para>Allow for values and relations between them</para>
+                <para>Mostly useful for full modeling of medications (strength, quantity), but also
+                    can be used for age groups, pressure ulcer size, and other similar clinical
+                    needs.</para>
+            </section>
+            <section>
+                <title>Incremental classification</title>
+                <para>This architecture assumes an incremental classification capability such than
+                    new concept definitions can be classified without needing to re-classify the
+                    rest of terminology content. Incremental classification supports sub-second
+                    classification time—subject to minimum hardware requirements.[1]
+                    <!-- is this referencing something? it is not clear how it is linking to a reference though. --></para>
+            </section>
+            <section>
+                <title>Single codes for post-coordinated expressions</title>
+                <para>Incorporating incremental classification as part of the Informatics
+                    Architecture enables real-time classification of post-coordinated expressions,
+                    enabling generation of single codes for complex expressions. Having single codes
+                    for post-coordinated expressions enables simplification of the information
+                    model, and corresponding database representations that support that information
+                    model. </para>
+            </section>
+            <section>
+                <title>Negation</title>
+                <para>Negation is currently only supported in the context model. Negation may be
+                    admitted to the logic and expression model if scalable solutions can be
+                    identified and proven reliable for an operational environment. </para>
+            </section>
+            <section>
+                <title>Semantic query requirements</title>
+                <para>The architecture must provide the ability to query by semantics—the ability to
+                    query based on the meaning of the Concepts—in addition to being able to query by
+                    regular expressions and text as provided by the terminology layer. Examples are
+                    given below. </para>
+                <section>
+                    <title>Semantic coordinate</title>
+                    <para>Semantic queries require specification of the description logic family
+                        against which the query will be performed (EL++, SH), and if the query will
+                        be against the stated concept axioms, or inferred concept axioms. </para>
+                </section>
+                <section>
+                    <title>Concept is </title>
+                    <para>Matches a concept from Concept Specification. </para>
+                </section>
+                <section>
+                    <title>Concept is child of</title>
+                    <para>Computes the set of concepts that are a child of the input concept. The
+                        set of children of a given concept is the set of all concepts that lie one
+                        step below the input concept in the terminology hierarchy. This Clause has
+                        an optional parameter for a previous ViewCoordinate which allows for queries
+                        of previous versions.</para>
+                </section>
+                <section>
+                    <title>Concept is descendent of</title>
+                    <para>Computes the set of concepts that are descendants of the specified concept
+                        spec. The set of descendants of a given concept is the set of concepts that
+                        lie beneath the input concept in the terminology hierarchy. This Clause has
+                        an optional parameter for a previous ViewCoordinate which allows for queries
+                        of previous versions.</para>
+                </section>
+                <section>
+                    <title>Concept is kind of</title>
+                    <para>Calculates the set of concepts that are a kind of the specified concept.
+                        The calculated set is the union of the input concept and all concepts that
+                        lie beneath the input concept in the terminology hierarchy. This Clause has
+                        an optional parameter for a previous ViewCoordinate which allows for queries
+                        of previous versions.</para>
+                </section>
+                <section>
+                    <title>Concept contains relationship of type</title>
+                    <para>Compute the set of concepts that have relationships of a particular type.
+                        The relationship type is qualified by is, is-kind-of, is-child-of, or
+                        is-descendent-of. For example, find all concepts that contain relationships
+                        that have a type that is a kind-of procedure-site.</para>
+                </section>
+                <section>
+                    <title>Concept contains relationship restriction</title>
+                    <para>Compute the set of concepts that have relationships with a restriction of
+                        a particular type. The relationship restriction is qualified by is,
+                        is-kind-of, is-child-of, or is-descendent-of. For example, find all concepts
+                        that contain relationships that have a restriction that is a kind-of eye
+                        structure. This clause can be combined with the relationships of type clause
+                        to find all concepts that contain relationships that have a type that is a
+                        kind-of procedure-site and have a restriction of kind-of eye structure.
+                    </para>
+                </section>
+                <section>
+                    <title>Concrete domains</title>
+                    <para>Concrete domains extend description logics by integrating numerical
+                        domains in a schematic way. For example, being able to represent and reason
+                        over scalars with predicates of ≤, &lt;, =, &gt;, and ≥. The ability to
+                        reason over such numerical domains is a requirement for decision support
+                        applications. </para>
+                </section>
+            </section>
+        </section>
+        <section>
+            <title>Expression layer</title>
+            <para>The expression layer supports the representation of post-coordinated expressions,
+                the incremental classification of those expressions with regard to the underlying
+                description logic definitions of the terminology. Each post-coordinated expression
+                will be given a unique identifier that can be persistently stored, and can be used
+                to retrieve the expression, as well as the indexing information generated from its
+                classification. </para>
+        </section>
+        <section>
+            <title>Clinical fact layer</title>
+            <para>Clinical facts are declarative bits of knowledge that extend concepts in the
+                underlying terminology. For example, a “may treat” reference extension may codify
+                that aspirin (from RxNorm) may treat headaches (from SNOMED). Higher layers may use
+                these clinical facts to provide decision support. The clinical facts layer provides
+                no independent means to provide decision support. It merely enables clinical facts
+                to be represented as identifiable components with the same versioning and modularity
+                capabilities as all the other components of the architecture. </para>
+        </section>
+        <section>
+            <title>Declarative knowledge artifacts</title>
+            <para>Declarative knowledge will be imported into—and exported from—the environment as a
+                maven-compatible artifact. This artifact will be a zip file that contains the data
+                of the artifact, and will have a fully qualified group identifier (e.g. org.ihtsdo),
+                artifact identifier (e.g. sct-concept-full-international-rf2), and a version (e.g.
+                201307310000). All the data associated with a module will be contained within the
+                artifact’s zip file. A Project Object Model (pom) file will describe the
+                dependencies of the artifact, and will also includes additional information such as
+                artifact license terms and information about the organization that produced the
+                artifact. </para>
+            <para>These artifacts, with associated pom files and checksum information, will be
+                published to—and primarily accessed from—an artifact repository than enables
+                automated transitive dependency resolution. </para>
+            <para>These sources of these artifacts must be under version control (subversion, git,
+                or otherwise), and must be released using a standard maven release process that
+                ensures an automated, comprehensive, verified, and reproducible release process with
+                a complete audit trail. </para>
+        </section>
+        <section>
+            <title>Assertion &amp; request layer</title>
+            <para>The assertion and request model defines how expressions populate assertion and
+                request objects. </para>
+            <para>This layer is not for tracking of pending and/or rejected requests such as
+                laboratory tests or pharmacy requests that have been requested but not collected or
+                processed. Such tracking is part of workflow management systems outside the scope of
+                this architecture. The assertion and request layer is to represent the reconciled
+                requests such as a patient’s medication list, as well as assertions made about a
+                patient such as laboratory assertions, and history and physical examination
+                assertions. </para>
+            <section>
+                <title>Negation</title>
+                <para>The assertion model provides the architectures support for negation. Clinical
+                    knowledge bases will depend on the assertion and request model to process
+                    clinical data.</para>
+            </section>
+        </section>
+        <section>
+            <title>Context layer</title>
+            <para>The context model determines how subject of information, subject of record, source
+                of information, time of encounter, encounter providers, and other related contextual
+                information are represented. </para>
+        </section>
+        <section>
+            <title>Clinical knowledge base layer</title>
+            <para>Clinical knowledge bases integrate the contextual model, the assertion and request
+                model, and clinical facts to provide </para>
+        </section>
+        <section>
+            <title>Clinical rules layer</title>
+            <para>The clinical rules layer provides a control structure for sending selected patient
+                data to the clinical knowledge base for analysis, and returns the results of that
+                analysis to the calling application. </para>
+        </section>
+        <section>
+            <title>Clinical classifications layer</title>
+            <para>Clinical classifications, such as ICD-10-CM are laden with context, and
+                determining if a patient meets one or more criterion within the classification
+                requires clinical rules that can process the assertion &amp; request and context
+                models. </para>
+            <para>The Situation with Explicit Context taxonomy of SNOMED CT will also be part of the
+                clinical classifications layer. </para>
+        </section>
+        <section>
+            <title>Documentation</title>
+            <para>Documentation must have the ability to derive selected content from the systems
+                they document. If a document references the definition of a particular concept, or
+                lists the children of that concept in a table or diagram, that table or diagram
+                should be derivable from the concept’s source as part of an automated build process,
+                assuring that the documentation remains up-to-date despite inevitable change within
+                the documented system. </para>
+            <para>The architecture must support the ability to generate documents with a static
+                linear narrative in a book-like output medium as well as support for topic-based
+                authoring.[2] Documentation sources must be under configuration management, and must
+                be part of a standard release process that is tightly coupled to the release process
+                of the components, implementations or other artifacts they describe. Documentation
+                sources must be managed in a way that supports distributed development of
+                documentation sources. </para>
+            <section>
+                <title>Modular authoring[3] </title>
+                <para>The architecture must include a standard means for documenting its components,
+                    implementations, and other artifacts using XML based open standards. Documents
+                    sources must be presentation neutral—and non-proprietary—and they must capture
+                    the logical structure of the content. Document sources must be able to include
+                    all or part of content from compatible external source files using XIncludes and
+                    XPointer as a means to specify what parts of which external source files to
+                    include. </para>
+                <section>
+                    <title>Reusable</title>
+                    <para>The ability to use reuse topics, illustrations, and other documentation
+                        written by others saves time when creating new works. The architecture must
+                        support such reuse without impediment.</para>
+                </section>
+                <section>
+                    <title>Contextually variable</title>
+                    <para>The ability to add variations to an existing topic and other documentation
+                        makes it possible to reuse existing documentation objects with minimal
+                        change--and without fear of creating dual-source documents whose contents
+                        will tend diverge over time.</para>
+                    <para>The output rendering must allow for displaying or hiding URIs of
+                        components, for providing hyperlinks to a designated server from these URIs;
+                        for display or suppression of text associated with the components; for
+                        choosing the type of term(s) to display within the document (preferred,
+                        fully specified, other) and the language and dialect of terms(s) to display;
+                        and must allow for generation of graphics where appropriate. </para>
+                </section>
+            </section>
+            <section>
+                <title>Modular delivery</title>
+                <para>Documentation must be generated as part of a continuous integration process,
+                    where documentation artifacts are automatically published when changes to source
+                    documentation is committed. Dependencies between documents from different
+                    modules must be resolved via an automated—and non-proprietary—dependency
+                    management system during the continuous integration process. </para>
+                <section>
+                    <title>Readable</title>
+                    <para>Modular documentation components must allow the material to be presented
+                        without distractions, once the user navigates to the page they need, whether
+                        by navigating, searching, or following a link.</para>
+                </section>
+                <section>
+                    <title>Regular</title>
+                    <para>When documentation artifacts stem from shared information templates and go
+                        through common production procedures, the delivered topics tend to be more
+                        regular in appearance and structure. That regularity helps a user anticipate
+                        where information will be found, and helps them skim for information more
+                        easily.</para>
+                </section>
+                <section>
+                    <title>Findable</title>
+                    <para>Users must be able to easily find the information they need, searching
+                        based on text search, topic type, indexes, table of contents, or metadata
+                        that applies to the information they need.</para>
+                </section>
+                <section>
+                    <title>Dynamically deliverable</title>
+                    <para>The document generation process must support a variety of publication
+                        formats, including HTML, XHTML, and PDF. Documentation must be able to
+                        include identified components from within the architecture using URIs—with
+                        document-generation time validation—and with output rendering options
+                        appropriate to the type of knowledge. </para>
+                    <para>Documents must be built from reusable components, and the components must
+                        have the ability for contextual variations. It must be possible to construct
+                        built-to-order documents &quot;on the fly&quot;, in response to user
+                        demands, rather than having to pre-create static versions of all possible
+                        variations. </para>
+                    <para>Once such a system is in place, it becomes possible for users to further
+                        customize the results by modifying the list of selected topics, rearranging
+                        their order, or even by adding new topics.</para>
+                </section>
+            </section>
+        </section>
+        <section>
+            <title>Execution qualities</title>
+            <para>Other execution qualities such as security are outside the scope of the
+                Informatics Architecture, and will be defined by the Systems Architecture. </para>
+        </section>
+        <section>
+            <title>Evolution qualities</title>
+            <para>The architecture must evolve gracefully to meet requirement and environmental
+                changes. As architecture provides a fundamental structure of a software system, its
+                evolution and maintenance would necessarily impact its fundamental structure. As
+                such, architecture evolution is concerned with adding new functionality as well as
+                maintaining existing functionality and system behavior.</para>
+            <section>
+                <title>Testability</title>
+                <para>Testability is the degree to which a software artifact (i.e. a software
+                    system, software module, requirements- or design document) supports testing in a
+                    given test context.</para>
+                <para>Testability is not an intrinsic property of a software artifact and cannot be
+                    measured directly (such as software size). Instead testability is an extrinsic
+                    property that results from interdependency of the software to be tested and the
+                    test goals, test methods used, and test resources (i.e., the test
+                    context).</para>
+                <para>A lower degree of testability results in increased test effort. In extreme
+                    cases a lack of testability may hinder testing parts of the software or software
+                    requirements at all.</para>
+            </section>
+            <section>
+                <title>Maintainability</title>
+                <para>Maintenance is the modification of a software product after delivery to
+                    correct faults, to improve performance or other attributes</para>
+                <para>Maintenance is a very broad activity that includes error correction,
+                    enhancements of capabilities, deletion of obsolete capabilities, and
+                    optimization. Because change is inevitable, mechanisms must be developed for
+                    evaluation, controlling and making modifications</para>
+            </section>
+            <section>
+                <title>Extensibility</title>
+                <para>Extensibility (not to be confused with <link
+                        xlink:href="http://en.wikipedia.org/wiki/Forward_compatibility">forward
+                        compatibility</link>) is a <link
+                        xlink:href="http://en.wikipedia.org/wiki/System_design">system design</link>
+                    principle where the implementation takes future growth into consideration. It is
+                    a systemic measure of the ability to extend a <link
+                        xlink:href="http://en.wikipedia.org/wiki/System">system</link> and the level
+                    of effort required to implement the extension. Extensions can be through the
+                    addition of new functionality or through modification of existing functionality.
+                    The central theme is to provide for change – typically enhancements – while
+                    minimizing impact to existing system functions.</para>
+                <para>Extensibility means the system is designed to include hooks and mechanisms for
+                    expanding/enhancing the system with anticipated capabilities without having to
+                    make major changes to the system infrastructure. A good architecture provides
+                    the design principles to ensure this—a roadmap for that portion of the road yet
+                    to be built. Note that this usually means that capabilities and mechanisms must
+                    be built into the final delivery which will not be used in that delivery and,
+                    indeed, may never be used. These excess capabilities are not frills, but are
+                    necessary for <link xlink:href="http://en.wikipedia.org/wiki/Maintainability"
+                        >maintainability</link>[1] and for avoiding early <link
+                        xlink:href="http://en.wikipedia.org/wiki/Obsolescence"
+                    >obsolescence</link>.</para>
+                <para>Extensibility can also mean that a software system&apos;s behavior is
+                    modifiable at <link
+                        xlink:href="http://en.wikipedia.org/wiki/Run_time_(program_lifecycle_phase)"
+                        >run time</link>, without recompiling or changing the original source code.
+                    For example, a software system may have a public <link
+                        xlink:href="http://en.wikipedia.org/wiki/Application_Programming_Interface"
+                        >Application Programming Interface</link> that allows its behavior to be
+                    extended or modified by people who don&apos;t have access to the original source
+                    code. The extra functionality can be provided through either internally or
+                    externally coded extensions.</para>
+            </section>
+            <section>
+                <title>Scalability</title>
+                <para>Scalability can be measured in various dimensions, such as:</para>
+               <itemizedlist>
+                   <listitem><para>Administrative scalability: The ability for an increasing number of
+                       organizations or users to easily share a single distributed system.</para></listitem>
+                   <listitem><para>Functional scalability: The ability to enhance the system by adding new
+                       functionality at minimal effort.</para></listitem>
+                   <listitem><para>Geographic scalability: The ability to maintain performance, usefulness, or
+                       usability regardless of expansion from concentration in a local area to a more
+                       distributed geographic pattern.</para></listitem>
+                   <listitem><para>Load scalability: The ability for a <link
+                       xlink:href="http://en.wikipedia.org/wiki/Distributed_system">distributed
+                       system</link> to easily expand and contract its resource pool to accommodate
+                       heavier or lighter loads or number of inputs. Alternatively, the ease with which
+                       a system or component can be modified, added, or removed, to accommodate
+                       changing load.</para></listitem>
+               </itemizedlist>
+            </section>
+        </section>
+        <section>
+            <title>Use cases </title>
+            <para>Given the architecture, we can pursue an architecture centric, use case driven,
+                iterative, and incremental approach.  Relevant internal and external efforts are
+                described below. </para>
+            <section>
+                <title>VA core research priorities for 2013</title>
+                <para>VA core research priorities in 2013 will include Mental Health, Gulf War
+                    Veterans&apos; Illnesses and Exposures, Prosthetics, Traumatic Brain Injury,
+                    Spinal Cord Injury, Women Veterans, and a special initiative on Researching
+                    Pain. [11] </para>
+            </section>
+            <section>
+                <title>Electronic quality measures</title>
+                <para>Electronic measures (eMeasures) are standardized performance measures in an
+                    electronic format. eMeasures can promote greater consistency in measure
+                    development and in measuring and comparing performance results. They also can
+                    provide more exact requirements about where information should be collected, and
+                    drive greater standardization across the measures and greater confidence in
+                    comparing outcomes and provider performance.</para>
+                <para>Under the Department of Health and Human Services (HHS) direction, the
+                    National Qualify Forum (NQF) was tasked with retooling 113 endorsed quality
+                    measures from a paper-based format to an eMeasure format. The architecture must
+                    allow for versioned representation of these 113 quality measures, and must
+                    support the ability to query patient data to determine if these quality measures
+                    have been met. Sample eMeasures are provided on the ONC HIT website eCQI
+                    Resource Center (https://ecqi.healthit.gov/ecqms).</para>
+            </section>
+            <section>
+                <title>Comparative effectiveness research</title>
+                <para>The 100 initial priority topics for comparative effectiveness research
+                    provides a rich source for use cases. [12] <!--what reference is this?-->This
+                    entire list of priority topics is provided in Appendix A .</para>
+            </section>
+            <section>
+                <title>Clinical Element Models</title>
+                <para>Clinical Element Models are Intermountain Healthcare’s strategy for
+                    representing detailed clinical models – granular, computable models defining the
+                    logical structure of data elements used in healthcare. [13]
+                    <!--what reference is this?-->The architecture must allow for versioned
+                    representations of Clinical Element Models to the extent those models are
+                    defined using terminology systems that are part of the informatics architecture. </para>
+            </section>
+            <section>
+                <title>Value sets</title>
+                <para>The Value Set Authority Center (VSAC) is provided by the National Library of
+                    Medicine (NLM), in collaboration with the Office of the National Coordinator for
+                    Health Information Technology and the Centers for Medicare &amp; Medicaid
+                    Services.</para>
+                <para>The VSAC provides downloadable access to all official versions of vocabulary
+                    value sets contained in current Clinical Quality Measures (CQMs). The value sets
+                    in the VSAC describe the specific populations included and excluded in order to
+                    properly calculate each CQM. Each value set consists of the numerical values and
+                    human-readable names, drawn from standard vocabularies such as SNOMED CT® and
+                    ICD-10-CM, which are used to define clinical concepts used in clinical quality
+                    measures (e.g., patients with diabetes, clinical visit).</para>
+                <para>The architecture must allow for versioned specifications and versioned value
+                    sets to the extent those models are defined using terminology systems that are
+                    part of the informatics architecture.</para>
+                <para>The architecture must allow for automated import and export of all value set
+                    artifacts into an authoring environment provided by VSAC for the terminologies
+                    that the architecture supports, and allow those value set artifacts to be
+                    transformed into an architecture-specific representation and published into the
+                    run-time environment. </para>
+            </section>
+            <section>
+                <title>Open Infobutton</title>
+                <para>Open Infobutton is a part of the Veterans Health Administration (VHA) Open
+                    Source Electronic Health Record Agent (<link xlink:href="http://www.osehra.org/"
+                        >OSEHRA</link>). Infobuttons are context-sensitive links embedded in
+                    electronic health record (EHR) systems. They use context such as patient
+                    demographics, user role, or clinical setting to help anticipate the information
+                    needs of the clinician. Open Infobutton is a Web service that enables Infobutton
+                    capabilities to be embedded in EHR systems.</para>
+                <para>http://www.openinfobutton.org</para>
+            </section>
+        </section>
+        <section>
+            <title>Architectural boundaries</title>
+            <para>The architecture addressed by this document is not about messaging between
+                external systems, nor is it about messages or data that do not relate specifically
+                to encoding patient data, and processing that encoded data. For example, we
+                    <emphasis role="underline">do not</emphasis> address:</para>
+            <itemizedlist>
+                <listitem><para> pharmacy order messages, laboratory order messages, Admission/Discharge/Transfer (ADT)
+                        messages </para></listitem>
+                <listitem><para>results reporting messages</para></listitem>
+                <listitem><para>order tracking</para></listitem>
+                <listitem><para>data interchange between incoherent systems</para></listitem>
+            </itemizedlist>
+            <para>In the future, a messaging architecture and data interchange architecture may
+                build upon the foundational informatics architecture defined here—if this
+                architecture meets their needs. We are happy to consider requirements concerning
+                messaging and data interchange architecture for inclusion in this architecture so we
+                may better support these needs. However, we are maintaining a singular focus for the
+                foundational informatics architecture which will be built on top of a coherent set
+                of ONC approved standards and will focus on encoding and retrieving clinical data
+                from this set of standards, and on reasoning over the retrieved clinical data for
+                clinical decision support. </para>
+        </section>
+        <section>
+            <title>Candidate architectures</title>
+            <para><!--Keith please read this --></para>
+            <para><?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>Some promote
+                the HL7 Reference Information Model (RIM) as an appropriate foundation for
+                application architecture. [14] However, the HL7 RIM has also been described as an
+                “incoherent standard” with “obstacles [that] are insurmountable” and that “the time
+                has come to abandon an unworkable paradigm.” [15] This later sentiment is consistent
+                with our own experience. </para>
+            <para>
+                <info>
+                    <author>
+                        <personname><firstname>Anthony</firstname><surname>Malia</surname></personname>
+                    </author>
+                </info> Here is an extract from the UML specification: </para>
+            <para>
+                <info>
+                    <author>
+                        <personname><firstname>Anthony</firstname><surname>Malia</surname></personname>
+                    </author>
+                </info> A Classifier defines a type. Type conformance between generalizable
+                Classifiers is defined so that a Classifier conforms to itself and to all of its
+                ancestors in the generalization hierarchy. Class is a kind of classifier whose
+                features are attributes and operations. Attributes of a class are represented by
+                instances of Property that are owned by the class. Some of these attributes may
+                represent the navigable ends of binary associations. </para>
+            <para>
+                <info>
+                    <author>
+                        <personname><firstname>Anthony</firstname><surname>Malia</surname></personname>
+                    </author>
+                </info> Type is therefore defined by the Classifier and its generalization
+                relationships not by Class Properties. However if for complexity of the model all
+                the instances of say Medication have the same attributes and behavior (operations)
+                then an attribute can be used to identify a medication using terminology. All the
+                rules for structure and behavior are contained in the Medication type class. </para>
+            <para>
+                <info>
+                    <author>
+                        <personname><firstname>Anthony</firstname><surname>Malia</surname></personname>
+                    </author>
+                </info> This mechanism is also in XML with Complex and Simple Types and in Classes
+                in Java. </para>
+            <para>The HL7 organization is well aware of the problems and criticisms of the RIM, and
+                in April 2011, the HL7 Board authorized a “fresh look” task force to focus on how
+                interoperability could be better achieved. This task force resulted in the Clinical
+                Information Modeling Initiative (CIMI), an effort that is currently focusing on
+                detailed clinical models rather than defining integrative architecture. [16] The
+                ability to represent CIMI developed models may provide validation use cases for
+                informatics architecture, but CIMI does not have a candidate architecture to build
+                upon at this time. </para>
+            <para>HL7 is primarily concerned with defining standards surrounding interoperability
+                and is less concerned with defining architecture for encoded knowledge. Therefore,
+                the HL7 RIM is not suitable as a candidate architecture. </para>
+            <para>The closest existing architectural foundation is SNOMEDCT’s architecture. Although
+                a good starting point, the SNOMEDCT architecture cannot meet our requirements
+                without minor modification and modest extension. We propose such modifications and
+                extensions—manifest as the DERIVIATE architecture—next. If successfully validated,
+                concepts from the DERIVIATE architecture may influence future refinement of
+                SNOMEDCT’s architecture. </para>
+            <para> [1] A modern 64 bit laptop with 8 GB of RAM (&lt;$1800 USD) is sufficient to
+                enable sub-second incremental classification performance. </para>
+            <para> [2] http://norman.walsh.name/2007/02/05/painting</para>
+            <para> [3]
+                https://blogs.oracle.com/coolstuff/entry/modular_docs_part_1_why<?oxy_custom_end?></para>
+            <para> </para>
+        </section>
+    </section>
+</chapter>

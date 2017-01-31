@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0">
+    <info>
+        <title>Boundaries and Principles</title>
+        <subtitle>How to distinguish between the chicken and the egg</subtitle>
+    </info>
+    <para>Text</para>
+    <section>
+        <title>Different types of architects</title>
+        <para>
+            <link xlink:href="http://blog.prabasiva.com/2008/08/21/different-types-of-architects/"
+                >Different types of architects</link> Without some understanding of how all these
+            architects, and types of architecture fit together, we might get stuck... </para>
+    </section>
+    <section>
+        <title>User stories</title>
+        <para><link
+                xlink:href="http://www.planetgeek.ch/2010/09/07/from-user-stories-to-architecture-long-version/"
+                >From user stories to architecture</link></para>
+    </section>
+    <section>
+        <title>Model view controller separation</title>
+        <para>This strict separation allows controlling the application logic on an enterprise
+            server while the views display the application state on a remote client machine with all
+            the capabilities of a desktop application. <link
+                xlink:href="http://open-dolphin.org/dolphin_website/Home.html">Open dolphin</link>
+            has some implementations of this approach.  </para>
+    </section>
+    <section>
+        <title>Normalized data model</title>
+        <para>Part of logical architecture</para>
+    </section>
+    <section>
+        <title>Denormalized data model</title>
+        <para>Not part of logical architecture</para>
+    </section>
+    <section>
+        <title>Representational approaches</title>
+        <para/>
+        <section>
+            <info>
+                <title>Primordial Thoughts in the Metasemantic soup</title>
+                <subtitle>The interrelation between tags and terms</subtitle>
+                <author>
+                    <personname>
+                        <firstname>Anthony</firstname>
+                        <surname>Mallia</surname>
+                    </personname>
+                </author>
+            </info>
+            <para> Health Semantic concepts are declared with coding systems. A code (term) is an
+                identity unique within a coding system. A value Set is a range of concepts allowed
+                in a context. </para>
+            <para> IT systems are largely declared using type, identity and state emerging from
+                object oriented methods pervasive in programming languages such as Java and in
+                information description languages such as UML and XML. An instance belongs to a type
+                classification and a type label (tag) is unique within a namespace. An instance can
+                only have one type (or a set within a generalization tree) but can have multiple
+                states. </para>
+            <para> The question is when should we use tags or terms and what should the translation
+                be between them? </para>
+            <para> From the object oriented methodology the class (a type) determines semantic
+                meaning, structural constraints and behavior. </para>
+            <para> Here is an extract from the UML specification: </para>
+            <para> A Classifier defines a type. Type conformance between generalizable Classifiers
+                is defined so that a Classifier conforms to itself and to all of its ancestors in
+                the generalization hierarchy. Class is a kind of classifier whose features are
+                attributes and operations. Attributes of a class are represented by instances of
+                Property that are owned by the class. Some of these attributes may represent the
+                navigable ends of binary associations. </para>
+            <para> Type is therefore defined by the Classifier and its generalization relationships
+                not by Class Properties. However if for complexity of the model all the instances of
+                say Medication have the same attributes and behavior (operations) then an attribute
+                can be used to identify a medication using terminology. All the rules for structure
+                and behavior are contained in the Medication type class. </para>
+            <para>This mechanism is also in XML with Complex and Simple Types and in Classes in
+                Java. </para>
+            <para> In knowledge systems the term can determine meaning – other extensions to the
+                terminology such as RDF can determine structural constraints. </para>
+            <para> However, if we want the structural constraints enforced in IT system technology
+                as opposed to a knowledge systems technology then we need to declare them in a way
+                that the IT Tools understand. </para>
+            <para> One possible match is to have type define every concept where structure or
+                behavior is needed and for all concepts which do not have this differentiation
+                declare them as codes. This means in a structure language such as XML the structured
+                concepts are tags and the codes are element content. </para>
+            <para> How the code is constructed is quite important. To date we have not seen very
+                sophisticated code representations in XML. </para>
+            <para> Here is the HL7 FHIR example of a coding in XML: </para>
+            <informalexample>
+                <programlisting>
+&lt;coding>
+    &lt;system value="www.loinc.org"/>
+    &lt;code value="28655-9"/>
+    &lt;display value="text">
+    &lt;valueSet> &lt;reference>www.loinc.org/123&lt;/reference>&lt;/valueSet
+&lt;/coding>
+        
+    </programlisting>
+            </informalexample>
+            <para> There is nothing which tells us that the code is unique within the system. </para>
+            <para> Here is the Code definition from the FHIM in a platform independent way. </para>
+            <table frame="all">
+                <title>Code definition from the FHIM in a platform independent way</title>
+                <tgroup cols="2">
+                    <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+                    <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+                    <thead>
+                        <row>
+                            <entry/>
+                            <entry/>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>String</para>
+                            </entry>
+                            <entry>
+                                <link
+                                    xlink:href="http://www.fhims.org/content/_G.mK.qYGA.fE.d6.a0.q.oC8D.h7.hA-content.html#_A.m.hAIA.e.wE.eCPO.dVNW49A.k.w"
+                                    >code</link></entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>String</para>
+                            </entry>
+                            <entry><link
+                                    xlink:href="http://www.fhims.org/content/_G.mK.qYGA.fE.d6.a0.q.oC8D.h7.hA-content.html#_A.m.i1U.w.e.wE.eCPO.dVNW49A.k.w"
+                                    >codeSystem</link></entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>String</para>
+                            </entry>
+                            <entry><link
+                                    xlink:href="http://www.fhims.org/content/_G.mK.qYGA.fE.d6.a0.q.oC8D.h7.hA-content.html#_.o-VSUF.x8E.eC.s.bYJDF.yC.u_A"
+                                    >codeSystemVersion</link></entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>String</para>
+                            </entry>
+                            <entry><link
+                                    xlink:href="http://www.fhims.org/content/_G.mK.qYGA.fE.d6.a0.q.oC8D.h7.hA-content.html#_A.m.iOQA.e.wE.eCPO.dVNW49A.k.w"
+                                    >displayText</link></entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para> The declaration for a context is that the code can be one of a set(valueSet)
+                which make sense. For example problem severity is a value set which can contain a
+                number of codes – in this case from SNOMED CT. The extent of the set of which the
+                code is a member is in fact the type of the code in object oriented methods. </para>
+            <para> Thus in XML ProblemSeverityCode could be the element name for a type
+                ProblemSeverityCodeType. The values within the tag can contain the code, the code
+                system, version, valueset and the displayText. However the code has been defined
+                within a coding system and so we must qualify the code name with the code system by
+                using its namespace </para>
+            <para>Here is the example of the codesystem as a namespace in XML with a prefix defined: </para>
+            <para>xmlns:ct="http://snomed.info/" </para>
+            <para>Here is the problem Severity code defined with its coding system, value set, code
+                and display value as its simple content. (the particulars of where display value is
+                put is not of particular concern at this stage FHIR puts the display as an
+                attribute). </para>
+            <informalexample>
+                <programlisting>&lt;Problem>
+    &lt;ct:ProblemSeverityCode code="399166001" valueSet="272141005"> Fatal&lt;/ct:ProblemSeverityCode>
+&lt;/tns:Problem></programlisting>
+            </informalexample>
+            <para>The instance is a problem severity code (type) and its code attribute provides the
+                identification (not type). All attributes of the element are in the same namespace
+                as the element – ct:</para>
+            <para>In theory we should be able to dereference <link
+                    xlink:href="http://snomed.info/272141005">http://snomed.info/272141005</link>to
+                find the allowable vale sets and code values – a RESTful CTS. We will see more of
+                this with FHIR.</para>
+            <para>Of more significance is that we have visual and computational bindings of the
+                terminology valueset into the context in the information model. Thus a concept such
+                as Problem Severity Code comes from the terminology itself and is identifiable. The
+                valuesetId attribute is used to show this binding. However it should not be declared
+                only in the instance document but in the schema as a precise semantic identifier for
+                ProblemSeverityCodeType.</para>
+            <informalexample>
+                <programlisting>&lt;schema targetNamespace="http://snomed.info/" xmlns:ct="http://snomed.info/" 
+
+	&lt;complexType name="ProblemSeverityCodeType">
+		&lt;simpleContent>
+			&lt;extension base="CodeType">
+				&lt;attribute name="code" type="string" use="required"/>
+				&lt;attribute name="valueSet" type="string" use="optional" fixed="272141005" />
+			&lt;/extension>
+		&lt;/simpleContent>
+	&lt;/complexType>
+
+&lt;element name="ProblemSeverityCode" type="ct:ProblemSeverityCodeType"/>
+&lt;/schema></programlisting>
+            </informalexample>
+            <para>So how can we make the Value Set usable for computational purposes? The value set
+                contains instances of concepts and the specific value set will have the restricted
+                instances.</para>
+            <informalexample>
+                <programlisting>
+	&lt;complexType name="ProblemSeverityValueSetType" xmlns:ct="http://snomed.info/" >
+		&lt;complexContent>
+			&lt;extension base="ValueSetType">
+				&lt;sequence>
+					&lt;element ref="ct:ProblemSeverityCode" maxOccurs="unbounded" />
+				&lt;/sequence>
+				&lt;attribute name="valueSet" type="string" use="required" fixed="272141005" />
+			&lt;/extension>
+		&lt;/complexContent>
+	&lt;/complexType>
+
+	&lt;element name="ProblemSeverityValueSet" type="ct:ProblemSeverityValueSetType" />
+                    
+                </programlisting>
+            </informalexample>
+            <para>The valueset document which has a tag &lt;ct:ProblemSeverityValueSet> contains the
+                set of allowable codes:</para>
+            <informalexample>
+                <programlisting>
+&lt;ct:ProblemSeverityValueSet valueSet="272141005" xmlns:ct="http://snomed.info/" 
+&lt;ct:ProblemSeverityCode code="255604002">Mild&lt;/ct:ProblemSeverityCode>
+&lt;ct:ProblemSeverityCode code="371923003">Mild to moderate&lt;/ct:ProblemSeverityCode>
+&lt;ct:ProblemSeverityCode code="6736007">Moderate&lt;/ct:ProblemSeverityCode>
+&lt;ct:ProblemSeverityCode code="371924009">Moderate to severe&lt;/ct:ProblemSeverityCode>
+&lt;ct:ProblemSeverityCode code="24484000">Severe&lt;/ct:ProblemSeverityCode>
+&lt;ct:ProblemSeverityCode code="399166001">Fatal&lt;/ct:ProblemSeverityCode>
+&lt;/ct:ProblemSeverityValueSet>
+                    
+                </programlisting>
+            </informalexample>
+            <para>The valueset of a state probably defines the rudimentary finite state machine in
+                OO.</para>
+            <para>Note that FHIR has a definition for ValueSet as a resource which is accessible via
+                the coding/valueset (shown earlier).</para>
+            <informalexample>
+                <programlisting>
+&lt;xs:element name="valueSet" type="ResourceReference" minOccurs="0" maxOccurs="1">
+	&lt;xs:annotation>
+		&lt;xs:documentation>The set of possible coded values this coding was chosen from or constrained by.&lt;/xs:documentation>
+	&lt;/xs:annotation>
+&lt;/xs:element>
+        
+    </programlisting>
+            </informalexample>
+            <para/>
+            <para> </para>
+            <section>
+                <info>
+                    <title>Difference between type and state</title>
+                    <author>
+                        <personname>
+                            <firstname>Anthony</firstname>
+                            <surname>Mallia</surname>
+                        </personname>
+                    </author>
+                </info>
+                <para> In the example above we have both type – ProblemSeverity and state – the
+                    values of the codes themselves. However an instance can have multiple states
+                    over time and therefore a state machine such as Problem Severity assigned to a
+                    unique problem could have multiple values delineated by a date time range in
+                    which it was observed to be in that state. We may therefore assume that a state
+                    is a result of an observation whereas a type is predetermined. </para>
+                <para>Given the previous assertion that a tag is declaration of type, it is
+                    reasonable to assume that state, when in finite state declaration (as opposed to
+                    measurements which yield scalar values), should be declared with a code. UML has
+                    a definition for discrete state XML does not (only the enumeration). In general
+                    states have been declared with enumerations however UML has a strong finite
+                    state modeling construct which controls what state can transition to another
+                    state. </para>
+                <para>A state whether it is discrete or scalar should be recorded along with other
+                    elements defining the observation (Who, when, where, how, why, whether etc.).
+                    These aspects are dimensions of the event which is usually an observation or
+                    act. The definition of the dimensions of description gives rise to robust
+                    ontologies. In EA the Zachman framework held separating viewpoints not defining
+                    description of an event. </para>
+                <para>A robust health informatics architecture would have these dimensions defined.
+                </para>
+            </section>
+            <section>
+                <info>
+                    <title>The Problem Severity observation</title>
+                    <author>
+                        <personname>
+                            <firstname>Anthony</firstname>
+                            <surname>Mallia</surname>
+                        </personname>
+                    </author>
+                </info>
+                <para>We can refine the example above to add the construct for the record of Problem
+                    Severity State</para>
+                <informalexample>
+                    <programlisting>
+&lt;problem>
+
+Other components
+
+    &lt;problemSeverityHistory concept=”123456” >
+        &lt;problemSeverityObservation>
+            &lt;ct:ProblemSeverityCode code="399166001" valueSet="272141005">Fatal&lt;/ct:ProblemSeverityCode>
+            &lt;observer/> &lt;!—A link to the observer of the state -->
+            &lt;dateRange>……….&lt;/dateRange>
+            &lt;location>      &lt;/location>
+            &lt;reason>      &lt;/reason>
+        &lt;/problemSeverityObservation>
+        &lt;problemSeverityObservation>
+            &lt;!-- Another observation →
+        &lt;/problemSeverityObservation>
+    &lt;problemSeverityHistory>
+&lt;/problem>
+                    </programlisting>
+                </informalexample>
+                <para>While not actually required in XML some may want a container for the set of
+                    Problem Severity States as shown above. This container might be defined as
+                    “problemSeverityHistory”. The container can have a semantic identity to bridge
+                    to the wider semantic namespace. This fixed semantic identity is not a Value set
+                    but a concept and may be articulated with a concept as an attribute for the tag
+                    and set as fixed in the schema. </para>
+                <para>Note that the concept attribute defines the semantics of the enclosing tag
+                    while code defines the semantics of the instance which is still of type
+                    ProlemSeverityCode. </para>
+            </section>
+            <section>
+                <info>
+                    <title>The Problem Severity observation</title>
+                    <author>
+                        <personname>
+                            <firstname>Anthony</firstname>
+                            <surname>Mallia</surname>
+                        </personname>
+                    </author>
+                </info>
+                <para>Without going very much further a recap of what is happening is needed. There
+                    are multiple meta models which are really meta-semantics – i.e. semantics about
+                    a semantic. We have collected a few from object oriented methods UML, XML and
+                    from terminology based systems such as CTS. Without changing these meta-models
+                    we can define the mappings reasonably well. </para>
+                <para>These primordial thoughts are attempts to get structure into the meta-semantic
+                    soup</para>
+                <table frame="all">
+                    <title>Meta-semantics table</title>
+                    <tgroup cols="3">
+                        <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+                        <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+                        <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+                        <thead>
+                            <row>
+                                <entry>
+                                    <para>OO meta-Concept</para>
+                                </entry>
+                                <entry>
+                                    <para>Terminology meta-Concept</para>
+                                </entry>
+                                <entry>
+                                    <para>Comments</para>
+                                </entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>
+                                    <para>Type - Classifier</para>
+                                </entry>
+                                <entry>
+                                    <para>Concept</para>
+                                </entry>
+                                <entry>
+                                    <para>Concept Identity can be applied to the Classifier.
+                                        Applying it to the instance is redundant but useful</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>Namespace</para>
+                                </entry>
+                                <entry>
+                                    <para>Code System</para>
+                                </entry>
+                                <entry>
+                                    <para>This is fundamentally different from common use where Code
+                                        System is declared as a property</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>Class </para>
+                                </entry>
+                                <entry>
+                                    <para>Value Set</para>
+                                </entry>
+                                <entry>
+                                    <para>The class defines the extension of contained instances
+                                        which are the concepts</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>Finite State instance </para>
+                                </entry>
+                                <entry>
+                                    <para>Code and Display value</para>
+                                </entry>
+                                <entry>
+                                    <para>The measurement of state is an observation</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>Continuous State attribute </para>
+                                </entry>
+                                <entry>
+                                    <para>n/a</para>
+                                </entry>
+                                <entry>
+                                    <para>The measurement of state is an observation</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>Generalization type </para>
+                                </entry>
+                                <entry>
+                                    <para>Value Set hierarchies</para>
+                                </entry>
+                                <entry>
+                                    <para>Generalizations define the union of instance sets of the
+                                        specializations</para>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <para> Thus we can see that terminologies are used to describe both state and type
+                    without distinction. The mappings to XML above show that type is mapped to
+                    concept with a concept attribute in the tag. Finite State is defined completely
+                    by the code instance and the code attribute in the tag provides its unique
+                    identification within the code system namespace. </para>
+                <para> The opportunity exists to produce an informatics architecture which makes
+                    sense to the terminologists by being implementable in knowledge based tools
+                    while implementable in current IT technology with existing tools. </para>
+            </section>
+        </section>
+    </section>
+</chapter>

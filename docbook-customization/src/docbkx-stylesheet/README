@@ -1,0 +1,64 @@
+Informatics DocBook Customizations
+===================================
+5 February 2016
+Bob Stayton
+Sagehill Enterprises
+bobs@sagehill.net
+
+This zip file contains new and updated XSL files for Informatics
+DocBook documentation. 
+
+docbook.xsl                - PDF customizations.
+docbook-html-chunk.xsl     - HTML chunking behavior customizations.
+docbook-html-elements.xsl  - HTML element customizations.
+docbook-common.xsl         - Code shared between PDF and HTML outputs.
+
+
+Features
+------------
+
+1.  Adds support for <editorial-rule> and <requirement> elements,
+formatting them like <example>.  
+
+2.  Numbers the new elements separately.
+
+3.  Generates a "List of" in the TOC for each of these.
+
+4.  Numbers sections.
+
+5.  Removes "Chapter" label from the chapter title page.
+
+6.  For PDF output, starts new chapters on an odd page.
+
+
+Installation
+---------------
+Before using these files, the xsl:import statements that
+reference the stock DocBook files must be updated.  They
+currently have relative paths, but these should be replaced with
+URNs and new entries in the XML catalog file that Informatics
+uses to map the URNs to file paths.
+
+Usage
+-----------
+docbook.xsl 
+   Use this to generate FO output suitable for processing
+   with FOP or other XSL-FO processor.  I did not set 
+   the fop1.extensions param in the stylesheet, because I wasn't
+   sure what XSL-FO processor you are using.  If you will only
+   use FOP, then put the parameter setting in the stylesheet.
+   Otherwise, set the extensions param appropriate for the XSL-FO
+   processor on the command line.
+
+docbook-html-chunk.xsl
+   Use this to generate chunked HTML output. You should set the
+   'base.dir' param on the command line to put the HTML output in
+   a separate directory.  You can style the HTML output most
+   efficiently with a CSS file.
+
+docbook-html-elements.xsl
+   You can use this stylesheet directly to generate
+   a single-page HTML output file. It is imported by
+   docbook-html-chunk.xsl.
+
+

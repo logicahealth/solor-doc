@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <info>
+        <title>Architectural Challenges</title>
+    </info>
+    <epigraph>
+        <para>Defining guidelines for an evolutionary architecture for the next decade is not an
+            easy task.<citation>30</citation></para>
+    </epigraph>
+
+    <para>How did we end up with a menagerie instead of a productive ecosystem? Before we embark on
+        our next adventure, we should spend time to understand how we got where we are, and how we
+        may avoid making the same mistakes. There are several antipatterns that are pervasive in
+        health IT systems. These antipatterns include <emphasis role="italic">accidental
+            complexity</emphasis>, <emphasis role="italic">design by committee</emphasis>, and
+            <emphasis role="italic">stovepipe</emphasis>. These antipatterns are discussed in the
+        following sections. </para>
+    <para/>
+    <section>
+        <title>Accidental complexity</title>
+        <para>Accidental (or incidental) complexity is complexity that arises in computer programs
+            or their development process that is non-essential to the problem to be solved. While
+            essential complexity is inherent and unavoidable, accidental complexity is caused by the
+            approach chosen to solve the problem.<citation>49</citation></para>
+        <para>Some examples of accidental complexity as they relate to informatics are described in
+            the following sections. </para>
+        <section>
+            <title>Semantic-laden identifiers</title>
+            <para>Solving a distributed identifier allocation problem by using namespaces that are
+                assigned to organizations (or committees in the case of HL7), semantics are often
+                introduced into the identifier, which some developers used to identify what
+                organization created the components that where associated with those identifiers. </para>
+            <para> Exposing derivable semantics in the identifier can lead to complexity when
+                users/developers demand that the semantics be maintained, which may result in
+                unnecessary retirement as described in the next section. </para>
+            <para> Reliance on UUIDs rather than on identifiers with derivable semantics would
+                eliminate this complexity. </para>
+        </section>
+        <section>
+            <title>Unnecessary retirement</title>
+            <para>An unintended side effect of using identified namespaces as part of distributed
+                identifier assignment, is an increase in the complexity of transferring
+                responsibility for a component from one organization to another. This complexity
+                includes an elaborate sequence of marking a component for retirement in one release,
+                actually retiring it in a subsequent release, and creating an essentially identical
+                component with an identifier derived from the new organizations namespace, and the
+                need for creation of mapping solutions to keep historical relationships between
+                components retired for these reasons to the current concepts that replace
+                them.</para>
+            <para> Again, reliance on UUIDs rather than on identifiers with derivable semantics
+                would eliminate this complexity. </para>
+        </section>
+        <section>
+            <title>Thingey which has a property called TypeOfThingey inside it</title>
+            <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+            <para> --FIX -add here --<?oxy_custom_end?>
+            </para>
+        </section>
+        <section>
+            <title>Post-coordination</title>
+            <para>Terminology models sometimes make it necessary to require post-coordination to provide domain
+                coverage at the point of care, however, the information models we use in healthcare
+                typically can’t handle post-coordination well. Reliance on the information model to
+                represent post-coordination has introduced complexity that might be avoided if we
+                used a dynamic means to assign unique identifiers to post-coordinated expressions.
+            </para>
+        </section>
+        <section>
+            <title>Accidental complexity solutions</title>
+            <para>Accidental complexity must be minimized in any good architecture, design, and
+                implementation. Working in short iterations with ongoing design reviews may help
+                reduce accidental complexity.</para>
+            <para>We must also develop an example implementation in parallel with the architecture,
+                so that complexity can be identified early, and evaluated critically with respect to
+                the essential or accidental nature of that complexity. </para>
+        </section>
+    </section>
+    <section>
+        <title>Design by committee</title>
+        <section>
+            <title>No unifying vision</title>
+            <para>Design by committee is the result of having many contributors to a project, but no
+                unifying vision.</para>
+            <para>A complex software design is the product of a committee process. The design has so
+                many features and variations that it is infeasible for any group of developers to
+                realize the specifications in a reasonable time frame.</para>
+        </section>
+        <section>
+            <title>Interoperability at the expense of operability</title>
+            <para>Interoperability provides an illusion of operability between disparate systems,
+                and therefore there is no need to standardize. </para>
+        </section>
+        <section>
+            <title>Design by committee solutions</title>
+            <para>A solution to design by committee is to articulate a set of architectural
+                principles to which architectural components will be evaluated against, and to have
+                the committee be advisory to an architect that provides the unifying vision.</para>
+        </section>
+    </section>
+    <section>
+        <title>Stovepipe</title>
+        <para>The Stovepipe Enterprise antipattern is characterized by a lack of coordination and
+            planning across a set of systems.<citation>36</citation></para>
+        <para>If every subsystem has a unique interface, then the system is overly complex. Absence
+            of common multisystem conventions is a key problem for systems. For example, currently,
+            essentially no terminology systems are the same with regard to their representation and
+            semantics, despite the requirement that they must work together.</para>
+        <section>
+            <title>Overlapping and unreconciled models</title>
+            <para>SNOMED CT and LOINC are classic examples of two terminologies that are proposed
+                for common use in health IT, but that are not well coordinated, and have
+                unreconciled content (content that is not made consistent or compatible).</para>
+            <para>As an example of unreconciled content, SNOMED CT and LOINC all have
+                representations for Amoxicillin. In LOINC, Amoxicillin is a textual value in the
+                has-component field of the concept:</para>
+            <informalexample>
+                <programlisting>
+AMOXICILLIN [MASS/VOLUME] IN SERUM OR PLASMA
+		HAS-COMPONENT: AMOXICILLIN
+                </programlisting>
+            </informalexample>
+            <para>While SNOMED CT has the concept: </para>
+            <informalexample>
+                <programlisting>
+AMOXICILLIN MEASUREMENT (PROCEDURE)
+	COMPONENT: AMOXICILLIN (SUBSTANCE)
+                </programlisting>
+            </informalexample>
+            <para>In SNOMED CT, Amoxicillin is also a concept, rather than just a text value. </para>
+            <para> From an end-users perspective, the artificial separation and uncoordinated
+                development of these important systems has been a burden. RxNorm may help bridge the
+                medication components of the overlap, but there are other overlapping domains
+                (method, type of scale, system, time aspect, and non-pharmaceutical components) that
+                RxNorm does not cover. The UMLS may help us formally reconcile some of these other
+                domains, but if coordination and reconciliation can be part of the development
+                processes for these sources, rather than a cleanup exercise for implementers, we can
+                allocate resources to solving more compelling problems. </para>
+            <para> We hope that the newly announced cooperative agreement between IHTSDO (owners of
+                SNOMED CT) and the Regenstrief Institute (owners of LOINC) will change the
+                coordination of these two systems in a significantly helpful way. </para>
+            <para> Although SNOMED CT and LOINC are classic examples of overlapping and unreconciled
+                models, there are many other examples. The UMLS Source Release Documentation
+                identifies 169 sources, most of which are uncoordinated, and have independent
+                models. These overlapping and unreconciled models create an unnecessary burden for
+                the implementer. </para>
+        </section>
+        <section>
+            <title>Uncoordinated development</title>
+            <para> Today, related components from different organizations do not share their work
+                prior to a release. The result of this lack of sharing is that dependent components
+                are always out of date with the latest release of the underlying standard. For
+                example, how can you keep a mapping of SNOMED CT to ICD-9-CM components up to date,
+                when it takes 6 months after the release of SNOMED CT to update and quality assure
+                the map? As an implementer, does that mean you should wait 6 months for the map to
+                be updated before deploying the latest SNOMED CT release? What if the new SNOMED CT
+                release contains new content that may improve the diagnosis, treatment, or
+                prevention of disease? Is it really acceptable to delay implementation of the latest
+                SNOMED CT release by 6 months while waiting for dependent system components to be
+                updated after the fact? </para>
+            <para/>
+        </section>
+        <section>
+            <title>Stovepipe solutions</title>
+            <para> The primary solution for the stovepipe systems we are working with is to break
+                down the barriers that prevent collaborative development of content, tools,
+                processes, and ultimately architecture. </para>
+            <para> Today, deployment delay is not a significant issue because clinical decision
+                support is nascent, and pharmacy, laboratory, and clinical systems are poorly
+                integrated. However, if we successfully create compelling decision support on an
+                integrated platform, coordination of development and release cycles among clinical
+                terminologies, logical representation, clinical facts, and clinical knowledge bases
+                will become increasingly important. We must prepare for success and work to better
+                coordinate development among dependent components. </para>
+            <para> In<?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?> [new
+                reference]<?oxy_custom_end?> Architectural opportunities we outlined many
+                opportunities that are helping to break down those barriers. Here we propose
+                leveraging those opportunities. Those opportunities include acquisition and
+                development of open-source tooling. Improvements in open-source tooling will help
+                break down collaborative barriers significantly. Such improvement is a fundamental
+                focus of our architecture effort. </para>
+            <para> The solution to the stovepipe antipattern is effective collaboration without
+                barriers of proprietary concern. </para>
+        </section>
+    </section>
+    <section>
+        <title>A collaborative path forward</title>
+        <para> The Health Information Technology Standards Committee (HITSC) is a federal advisory
+            committee which provides recommendations on health IT standards. They have identified
+            SNOMED CT, RxNorm, and LOINC as key clinical vocabularies for Meaningful Use and for
+            HIPAA transactions. </para>
+        <para> We plan to collaborate closely with these systems—indeed we plan to found the entire
+            architecture on top of them—rather than treat them as an architectural afterthought. As
+            these systems are foundational, we plan to collaborate closely and directly contributie
+            to SNOMED CT, RxNorm, and LOINC when possible. </para>
+    </section>
+</chapter>

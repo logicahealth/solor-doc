@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appendix xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Use cases</title>
+    <section>
+        <title>Angina 1: ED Care</title>
+        <para>This use case was created to evaluate the ontology created by the VistA Evolution GUI
+            Research project. It includes common assessments, observations, interventions, and
+            cognitive goals that arise while caring for a patient in this scenario to ensure that
+            the ontology can accommodate these concepts. All clinical data in this use case is
+            synthetic. Data was created to support the flow of this use case and provide examples of
+            clinical observations that are documented throughout the interaction. Clinical decision
+            making in this use case is based, primarily, on VA/DoD Clinical Practice Guidelines for
+            the Management of Ischemic Heart Disease, available at:
+            http://www.healthquality.va.gov/guidelines/CD/ihd/ Additional clinical resources are
+            listed below in the Reference section. The intent of this use case is to capture actions
+            that commonly occur when a patient presents with unstable angina. Many of the steps in
+            this use case occur concurrently in an emergent case. In similar scenarios, the same
+            actions may occur in slightly different order. Cognitive goals are included in some
+            ‘Actions’ to provide insight on the Provider or healthcare professional’s mental process
+            at that point of the encounter. Hyperlinks are included to provide examples of the data
+            fields and values that may be entered by the EHR user during this step of the use case.
+            Hyperlinks suggest standardized terminologies that may be used to capture data in this
+            step of the use case.</para>
+        <section>
+            <title>Actors</title>
+            <formalpara>
+                <title>Patient</title>
+                <para>A person receiving or registered to receive medical treatment</para>
+            </formalpara>
+            <formalpara>
+                <title>Provider</title>
+                <para>Physician, physician assistant (PA), or nurse practitioner (NP). All are
+                    skilled health-care professionals trained and licensed to diagnose and treat
+                    patients within their defined scope of practice. </para>
+            </formalpara>
+            <formalpara>
+                <title>Registration Clerk (Reg. Clerk)</title>
+                <para>A hospital employee that collects demographic, insurance and “reason for
+                    visit” information from a new patient and enters this information in to the
+                    Admission/Discharge/Transfer (ADT) system and/or the electronic health record
+                    (EHR). </para>
+            </formalpara>
+            <formalpara>
+                <title>Triage Nurse (Triage RN)</title>
+                <para>A licensed nurse that assesses symptoms, health-related complaints, and vital
+                    signs to determine the degree of urgency for care.</para>
+            </formalpara>
+            <formalpara>
+                <title>Unit Clerk (UC)</title>
+                <para>A hospital employee that performs administrative duties to facilitate workflow
+                    and patient care in the emergency department (ED) or a nursing unit.</para>
+            </formalpara>
+            <formalpara>
+                <title>Emergency Department Technician (ED Tech)</title>
+                <para>A hospital employee that is trained to provide basic tasks such as vital signs
+                    and laboratory draws under the supervision of an RN or Provider.</para>
+            </formalpara>
+            <formalpara>
+                <title>Registered Nurse (RN)</title>
+                <para>A licensed healthcare professional that is trained to provide nursing care to
+                    patients in inpatient and outpatient settings, within their defined scope of
+                    practice.</para>
+            </formalpara>
+            <formalpara>
+                <title>Licensed Social Worker (LSW)</title>
+                <para>A licensed healthcare professional that assists patients to improve their
+                    quality of life and social needs, and facilitates care after discharge.</para>
+            </formalpara>
+            <formalpara>
+                <title>Nurse’s Aide/Assistant (NA)</title>
+                <para>A trained healthcare worker that provides assistance with patient care, under
+                    the supervision of an RN.</para>
+            </formalpara>
+            <formalpara>
+                <title>Clinical Pharmacist</title>
+                <para>A licensed healthcare professional that often collaborates with physicians and
+                    other healthcare professionals to coordinate pharmaceutical interventions and
+                    promote health and disease prevention within their scope of practice.</para>
+            </formalpara>
+            <formalpara>
+                <title>Dispensing Pharmacist</title>
+                <para>A licensed healthcare professional that dispenses medications, monitors
+                    medication parameters and potential drug interactions, and provides information
+                    about medications, within their scope of practice.</para>
+            </formalpara>
+            <formalpara>
+                <title>Radiology Technician (Rad Tech)</title>
+                <para>A licensed radiography professional that performs diagnostic imaging exams on
+                    patients to help physicians assess illness and injury.</para>
+            </formalpara>
+            <formalpara>
+                <title>Radiologist</title>
+                <para>A licensed physician that specializes in diagnosing and treating diseases and
+                    injuries by using medical imaging.</para>
+            </formalpara>
+            <formalpara>
+                <title>EKG Technician (EKG Tech)</title>
+                <para>A cardiology technologist that administers basic electrocardiogram tests to
+                    patients. The results are then read by a cardiologist or other licensed
+                    physician.</para>
+            </formalpara>
+            <formalpara>
+                <title>Respiratory Therapist (RT)</title>
+                <para>A licensed healthcare practitioner that provides care and treatment to
+                    patients requiring breathing and oxygenation support.</para>
+            </formalpara>
+            <formalpara>
+                <title>Charge RN</title>
+                <para>A registered nurse that is responsible for the efficient management of a
+                    nursing unit or department, including admissions, discharges, and the oversight
+                    of all nursing and support staff.</para>
+            </formalpara>
+        </section>
+        <section>
+            <title>Description</title>
+            <para>53 year old white male presents to the ED with chest pain and is diagnosed as
+                having a ST-elevation myocardial infarction (STEMI)</para>
+        </section>
+        <section>
+            <title>Trigger</title>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para>Patient is brought to the ED by their family member</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient is experiencing crushing chest pain (radiating to their jaw
+                            and neck), shortness of breath (dyspnea), nausea, and sweating
+                            (diaphoresis) after attempting to shovel their front walkway.</para>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </section>
+        <section>
+            <title>Preconditions</title>
+            <orderedlist>
+                <listitem>
+                    <para>Patient has a history of stable angina that is usually relieved by rest, however the above symptoms worsened with rest.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>Patient has taken one sublingual (SL) nitroglycerin (NTG) tablet, without relief.</para>
+                </listitem>
+            </orderedlist>
+        </section>
+        <section>
+            <title>Postconditions</title>
+            <section>
+                <title>Minimal guarantees</title>
+                <orderedlist>
+                    <listitem>
+                        <para>Data fields required to support this clinical workflow will be present in the EHR. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Data entered will be stored utilizing the appropriate clinical terminology.
+                        </para>
+                    </listitem>
+                </orderedlist>
+            </section>
+            <section>
+                <title>Success guarantees</title>
+                <orderedlist>
+                    <listitem>
+                        <para>EHR supports patient-centered care, guided by goals set by the patient</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient receives evidence-based care based on the health concerns that are noted during the outpatient visit.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient will achieve improved outcomes and satisfaction as a result of care facilitated by EHR functionality.</para>
+                    </listitem>
+                </orderedlist>
+            </section>
+        </section>
+        <section>
+            <title>Normal flow</title>
+            <para>To be input</para>
+        </section>
+        <section>
+            <title>Data fields required</title>
+            <para>To be input</para>
+        </section>
+        <section>
+            <title>References for Clinical Management of Ischemic Heart Disease </title>
+            <para>To be input</para>
+        </section>
+        <section>
+            <title>Additional References</title>
+            <para>To be input</para>
+        </section>
+    </section>
+    <section>
+        <title>Angina 2: Telemetry Care</title>
+        <para>text</para>
+    </section>
+    <section>
+        <title>CHF: ED</title>
+        <para>text</para>
+    </section>
+    <section>
+        <title>CHF: IMC</title>
+        <para>text</para>
+    </section>
+    <section>
+        <title>Depression: Outpaitent follow-up</title>
+        <para>text</para>
+    </section>
+    <section>
+        <title>DM 1: Diagnosis of diabetes</title>
+        <para>text</para>
+    </section>
+    <section>
+        <title>DM 2: Follow-up outpatient visit</title>
+        <para>text</para>
+    </section>
+    <section>
+        <title>DM 3: Referral for annual podiatry screening</title>
+        <para>text</para>
+    </section>
+    <section>
+        <title>DM 4: Care coordinator telephone follow-up</title>
+        <para>text</para>
+    </section>
+
+</appendix>

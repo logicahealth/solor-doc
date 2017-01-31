@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    <info>
+        <title>Life-critical systems</title>
+    </info>
+        <para>The informatics architecture supports many use cases, some of which are
+            life-critical. The architecture must do its part to ensure timely and correct
+            diagnosis, prevention, and/or treatment with correct dose to the correct patient. If
+            the system supporting these use cases fails or malfunctions, death, serious injury,
+            failure of timely diagnosis, or failure of disease prevention may result. </para>
+        <para>We must be equally concerned with circumstances where systems give incorrect
+            information (such as advising a particular medication to treat a condition when the
+            patient is known to be allergic to that medication), as well as circumstances where
+            systems fail to give potentially life saving information (such as failing to
+            identify potential fatal interactions between patient’s known medical conditions and
+            a proposed treatment plan). </para>
+        <para>The architecture must provide a framework within which life-critical systems
+            support can be developed, but the responsibility of properly utilizing that
+            framework lies with the implementation of the architectural components. </para>
+        <para>If the architecture provides for safety, then all systems that build upon that
+            architecture can realize the safety benefits inherent in the architecture’s design. </para>
+        <section>
+            <title>Provenance</title>
+            <para>Evidence-based medicine requires that all evidence represented in the
+                environment have a known provenance—an accounting of the original source of the
+                information, and any subsequent processing that information has gone through.
+                This provenance is essential to provide justification of recommendations to the
+                end user, and to properly curate the evidence used by the system to make
+                recommendations. </para>
+            <para/>
+        </section>
+        <section>
+            <title>Audit trail</title>
+            <para>The architecture must provide for an audit trail of documentary evidence of
+                the sequence of activities that result in any changes to the declarative or
+                procedural knowledge provided within the architecture.</para>
+        </section>
+        <section>
+            <title>Medical device suitability</title>
+            <para>A medical device is any item that treats, diagnoses, or monitors patients. Medical
+            devices have come to increasingly rely on complex embedded software. This software needs
+            to ensure patient safety and meet regulations set by agencies like the Food and Drug
+            Administration (FDA). Coherent informatics architecture is a foundation that medical
+            devices should be able to depend upon. As such, the architecture must enable an
+            application to meet requirements for embedded medical device software. </para>
+        </section>
+        <section>
+            <title>Quality assurance</title>
+            <para>Part of the quality assurance process for life-critical systems must include a
+            hazard analysis, where the types of mistakes that could be present in a system are
+            categorized by potential severity of an event caused by a defect and likelihood of
+            encountering such a defect. </para>
+            <para>The severity levels are typically: </para>
+            <para>·      Catastrophic: defect results in multiple fatalities</para>
+            <para>·      Hazardous: defect results in serious or fatal injury</para>
+            <para>·      Major: defect results in major injury or illness</para>
+            <para>·      Minor: defect results in discomfort or minor illness </para>
+            <para>·      No safety effect: defect results in no consequences</para>
+            <para>The likelihood of encountering a defect are typically represented as: </para>
+            <para>·      Probable: Probability of occurrence per operational hour &gt; 1 x
+                10-5</para>
+            <para>·      Remote: Probability of occurrence per operational hour &gt; 1 x
+                10-7</para>
+            <para>·      Extremely remote: Probability of occurrence per operational hour &gt; 1
+                x 10-9</para>
+            <para>·      Extremely Improbable: Probability of occurrence per operational hour
+                &lt; 1 x 10-9</para>
+            <para>The quality assurance process must be able to ensure that the level of quality
+            assurance applied to a component of the system must be proportional to its severity and
+            likelihood, and should result in quantitative assessments of the risk of encountering
+            defects of different types. </para>
+            <para>The quality assurance must also consider the probably of defects from
+                interacting with data encoded with previous versions of the system. Ensuring the
+                quality of operations over historical data is a relatively unique concern for a
+                health-focused informatics architecture. </para>
+        </section>
+    <section>
+        <title>Encoded knowledge is software</title>
+        <para>Encoded knowledge elements—concepts, descriptions, logical definitions, clinical
+            facts, and clinical rules—are software instructions executed by a computer. Just as
+            java bytecodes are the form of instructions the Java virtual machine executes,
+            encoded knowledge elements are the form of instructions executed by terminology
+            servers, semantic query engines, and various forms of expert systems (rule based, or
+            otherwise).</para>
+        <para>As encoded knowledge is software, we must provide for the same tight controls for
+            encoded knowledge development as we would for any other software that was a
+            component of a life-critical system. </para>
+        <para>Encoded knowledge cannot be an afterthought or a design element that is not
+            architecturally significant. Applying encoded knowledge to clinical data is a
+            fundamental purpose of clinical information systems.</para>
+        <para>As knowledge is software, we must recognize that:</para>
+        <itemizedlist>
+            <listitem>
+                <para>The vast majority of knowledge encoding problems is traceable to errors
+                    made during the design and development process.</para>
+            </listitem>
+            <listitem>
+                <para>Typically, testing alone cannot fully verify that encoded knowledge is
+                    complete and correct. In addition to testing, other verification techniques
+                    and a structured and documented development process should be combined to
+                    ensure a comprehensive validation approach.</para>
+            </listitem>
+            <listitem>
+                <para>Encoded knowledge may improve with age, as latent defects are discovered
+                    and removed. However, as knowledge is constantly updated and changed, such
+                    improvements are sometimes countered by new defects introduced during the
+                    change.</para>
+            </listitem>
+            <listitem>
+                <para>Seemingly insignificant changes in encoded knowledge can create unexpected
+                    and very significant problems elsewhere. The development process should be
+                    sufficiently well planned, controlled, and documented to detect and correct
+                    unexpected results from encoded knowledge changes.</para>
+            </listitem>
+        </itemizedlist>
+        <para>(Adapted from General Principles for Software Validation</para>
+        <para>The architecture must play its role in ensuring the quality of encoded knowledge.
+            Principles of modularization, standardization, quality measurement, configuration
+            management, and management of changing knowledge over time must be part of the
+            architectural design. </para>
+    </section>
+    <section>
+        <info>
+            <title>FDA Principles of Software Validation</title>
+            <authorgroup>
+                <author>
+                    <orgname>PARASOFT</orgname>
+                </author>
+            </authorgroup>
+        </info>
+        <section>
+            <title>Requirements</title>
+            <para>A documented software requirements specification provides a baseline for both
+                validation and verification.</para>
+        </section>
+        <section>
+            <title>Defect Prevention</title>
+            <para>Software quality assurance needs to focus on preventing the introduction of
+                defects into the software development process rather than trying to "test
+                quality into" the software code after it is written.</para>
+        </section>
+        <section>
+            <title>Time and Effort</title>
+            <para>Preparation of software validation should begin early; i.e., during design and
+                development planning and design input.</para>
+        </section>
+        <section>
+            <title>Software Life Cycle</title>
+            <para>Software validation takes place within the environment of an established
+                software life cycle.</para>
+        </section>
+        <section>
+            <title>Plans</title>
+            <para>The software validation process is defined and controlled through the use of a
+                plan. The software validation plan defines "what" is to be accomplished through
+                the software validation effort.</para>
+        </section>
+        <section>
+            <title>Procedures</title>
+            <para>The software validation process is executed through the use of procedures.
+                These procedures establish "how" to conduct the software validation
+                effort.</para>
+        </section>
+        <section>
+            <title>Software Validation after a Change</title>
+            <para>Due to the complexity of software, a seemingly small local change may have a
+                significant global system impact.</para>
+            <para> Whenever software is changed, a validation analysis should be conducted not
+                just for validation of the individual change, but also to determine the extent
+                and impact of that change on the entire software system.</para>
+        </section>
+        <section>
+            <title>Validation Coverage</title>
+            <para>Validation coverage should be based on the software's complexity and safety
+                risk - not on firm size or resource constraints. The selection of validation
+                activities, tasks, and work items should be commensurate with the complexity of
+                the software design and the risk associated with the use of the software for the
+                specified intended use.</para>
+        </section>
+        <section>
+            <title>Independence of Review</title>
+            <para>Self-validation is extremely difficult. When possible, an independent
+                evaluation is always better, especially for higher risk applications.</para>
+        </section>
+        <section>
+            <title>Independence of Review</title>
+            <para>Self-validation is extremely difficult. When possible, an independent
+                evaluation is always better, especially for higher risk applications.</para>
+        </section>
+        <section>
+            <title>Flexibility and Responsibility</title>
+            <para>Software is designed, developed, validated, and regulated in a wide spectrum
+                of environments, and for a wide variety of devices with varying levels of
+                risk.</para>
+        </section>
+        <section>
+            <title>Software Life Cycle Activities</title>
+            <para>Software is designed, developed, validated, and regulated in a wide spectrum
+                of environments, and for a wide variety of devices with varying levels of
+                risk.</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Quality Planning</para>
+                    </listitem>
+                    <listitem>
+                        <para>System Requirements Definition</para>
+                    </listitem>
+                    <listitem>
+                        <para>Detailed Software Requirements Specification</para>
+                    </listitem>
+                    <listitem>
+                        <para>Software Design Specification</para>
+                    </listitem>
+                    <listitem>
+                        <para>Construction or Coding</para>
+                    </listitem>
+                    <listitem>
+                        <para>Testing</para>
+                    </listitem>
+                    <listitem>
+                        <para>Installation</para>
+                    </listitem>
+                    <listitem>
+                        <para>Operation and Support</para>
+                    </listitem>
+                    <listitem>
+                        <para>Maintenance</para>
+                    </listitem>
+                    <listitem>
+                        <para>Retirement</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Quality Planning</title>
+            <para>Design and development planning should culminate in a plan that identifies
+                necessary tasks, procedures for anomaly reporting and resolution, necessary
+                resources, and management review requirements, including formal design
+                reviews.</para>
+        </section>
+        <section>
+            <title>Requirements</title>
+            <para>The software requirements specification document should contain a written
+                definition of the software functions.</para>
+            <para> A software requirements traceability analysis should be conducted to trace
+                software requirements to (and from) system requirements and to risk analysis
+                results.</para>
+        </section>
+        <section>
+            <title>Design</title>
+            <para>In the design process, the software requirements specification is translated
+                into a logical and physical representation of the software to be implemented.
+                The software design specification is a description of what the software should
+                do and how it should do it.</para>
+            <para> At the end of the software design activity, a Formal Design Review should be
+                conducted to verify that the design is correct, consistent, complete, accurate,
+                and testable, before moving to implement the design.</para>
+        </section>
+        <section>
+            <title>Construction or Coding</title>
+            <para>Source code should be evaluated to verify its compliance with specified coding
+                guidelines. Such guidelines should include coding conventions regarding clarity,
+                style, complexity management, and commenting.</para>
+        </section>
+        <section>
+            <title>Testing by the Software Developer</title>
+            <para>Test plans and test cases should be created as early in the software
+                development process as feasible.</para>
+            <para> Once the prerequisite tasks (e.g., code inspection) have been successfully
+                completed, software testing begins. It starts with unit level testing and
+                concludes with system level testing.</para>
+            <para> Code-based testing is also known as structural testing or "white-box"
+                testing. It identifies test cases based on knowledge obtained from the source
+                code, detailed design specification, and other development documents. Structural
+                testing can identify “dead” code that is never executed when the program is
+                run.</para>
+            <para> The level of structural testing can be evaluated using metrics that are
+                designed to show what percentage of the software structure has been evaluated
+                during structural testing. These metrics are typically referred to as "coverage"
+                and are a measure of completeness with respect to test selection
+                criteria.</para>
+        </section>
+        <section>
+            <title>User Site Testing</title>
+            <para>User site testing should follow a pre-defined written plan with a formal
+                summary of testing and a record of formal acceptance. Documented evidence of all
+                testing procedures, test input data, and test results should be retained.</para>
+        </section>
+        <section>
+            <title>Maintenance and Software Changes</title>
+            <para>When changes are made to a software system, either during initial development
+                or during post release maintenance, sufficient regression analysis and testing
+                should be conducted to demonstrate that portions of the software not involved in
+                the change were not adversely impacted. This is in addition to testing that
+                evaluates the correctness of the implemented change(s).</para>
+        </section>
+    </section>
+    
+</chapter>

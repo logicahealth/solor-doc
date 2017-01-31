@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <info>
+        <title>The Menagerie</title>
+    </info>
+    <epigraph>
+        <attribution>Grady Booch</attribution>
+        <para>All architecture is design but not all design is architecture. Architecture represents
+            the significant design decisions that shape a system, where significant is measured by
+            cost of change.</para>
+
+    </epigraph>
+    <para>Health Informatics Architecture is a clinical and technical discipline that is concerned
+        with the representation of clinical knowledge, clinical organizational information and
+        patient-specific clinical data within health information systems and with the technical
+        methodologies used to process that data for patient care, quality assurance, and other
+        secondary uses. </para>
+    <para>The importance of defining informatics architecture is in part illustrated by the current
+        state of affairs surrounding informatics architecture. Today, a menagerie of inconsistent
+        and overlapping terminology, information, and messaging models hinders Clinical Decision
+        Support efforts that try to store and analyze encoded clinical data. The current complexity
+        encountered when trying to integrate these models—and the lack of coherence between (and
+        sometimes within) the models themselves—must be overcome to build a foundation for scalable
+        and extensible clinical decision-support architecture. </para>
+    <para> We believe that defining—and validating—a coherent informatics architecture is a first
+        step to enable implementation of meaningful clinical decision support that can be shared
+        between organizations. </para>
+    <section>
+        <title>Architectural opportunities</title>
+        <para>While our current state of affairs is less than desired, there has been tremendous
+            work and good progress over the last 25 years. Our challenge today is to leverage these
+            works to form the coherent architecture we seek. In the following subsections, we
+            describe the an incomplete inventory of systems that provide architectural opportunities
+            we hope to leverage. </para>
+        <section>
+            <title>Unified Medical Language System</title>
+            <para>In 1986, the National Library of Medicine (NLM) began a long-term research and
+                development project to build the Unified Medical Language System (UMLS®). The
+                purpose of the UMLS is to aid the development of systems that help health
+                professionals and researchers retrieve and integrate electronic biomedical
+                information from a variety of sources.
+                <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>REF-UMLS
+                FIX<?oxy_custom_end?>.</para>
+            <para>The UMLS efforts have been instrumental in focusing attention on issues
+                surrounding clinical terminology, as well as providing means of interoperation
+                between different terminology systems. We hope to leverage knowledge gained via the
+                UMLS experience&#8212;as well as content developed and curated as part of UMLS
+                efforts&#8212;to bootstrap our efforts. </para>
+        </section>
+        <section>
+            <title>SNOMED&#160;RT support for description logic</title>
+
+            <para>Kaiser Permanente developed SNOMED RT (Reference Terminology) and donated its work
+                to the College of American Pathologists in the hope that a robust standard for
+                encoding clinical data would evolve. SNOMED RT was first released in 2000.</para>
+
+            <para>&#160;SNOMED&#160;RT was the first clinical terminology outside of a research
+                environment to use description-logic as its knowledge representation foundation.
+                This effort made a distinction between reference uses of terminology (uses related
+                to knowledge representation and retrieval) and interface uses of terminology (uses
+                related to correctness and efficiency of user data input). </para>
+
+            <para>SNOMED RT was designed to complement the broad coverage of medical concepts in
+                SNOMED RT with a set of enhanced features that significantly increases its value as
+                a reference terminology for representing clinical data. SNOMED RT represented
+                multiple hierarchies and incorporates description logic.</para>
+        </section>
+        <section>
+            <title>SNOMED&#160;CT support for user interface customization</title>
+
+            <para>SNOMED&#160;CT (Clinical Terms) was first released in 2002. A distributed team
+                within the US and the United Kingdom integrated SNOMED RT and the UK's Clinical
+                Terms Version 3 (formerly known as the Read Codes) into a single terminology.
+                SNOMED&#160;CT has become the most comprehensive, multilingual clinical healthcare
+                terminology in the world. </para>
+
+            <para>SNOMED&#160;CT introduced expanded dialect support that allows language
+                customization to be represented as a core component of SNOMED&#160;CT. This
+                integrated approach eliminates the expensive and error-prone approach of mapping
+                interface terminologies to reference terminologies. </para>
+
+            <para>In addition to the expanded dialect support, SNOMED&#160;CT introduced reference
+                extensions&#8212;a standard means to extend terminology content by referencing
+                component identifiers. These reference extensions provide means to specify
+                alternative taxonomy navigation, ordering of items in taxonomy lists, and other
+                essential features of interface terminology. </para>
+
+            <para>This new SNOMED&#160;CT framework created a means by which an integrated
+                terminology system could provide for interface and reference needs of clinical
+                systems. </para>
+        </section>
+        <section>
+            <title>Standard extension model</title>
+
+            <para>SNOMED&#160;CT does not cover all the concepts required for representation of
+                clinical concepts in the informatics architecture. Therefore, we must have a
+                standard model to extend resources, and to contribute the extensions to responsible
+                organizations when appropriate. </para>
+
+            <para>The SNOMED&#160;CT extension model provides such a standard model for extension
+                that we can build upon. Organizations are currently using this standard extension
+                model with success.</para>
+            <section>
+                <title>Spanish extension</title>
+
+                <para>The Spanish extension of the International Release is updated each year in
+                    April and October. Although Spanish is the first language extension to
+                    SNOMED&#160;CT, it is not the only language extension. SNOMED&#160;CT is
+                    currently available in American English, British English, Spanish, Danish and
+                    Swedish, with other translations under way or nearly completed in French and
+                    Dutch.</para>
+            </section>
+            <section>
+                <title>United Kingdom SNOMED CT extension</title>
+
+                <para>The British National Health Service produces 2 extensions to SNOMED&#160;CT.
+                    The UK Clinical Extension, and the UK Drug Extension. </para>
+            </section>
+
+            <section>
+                <title>United States SNOMED CT extension</title>
+
+                <para>The US Extension to SNOMED&#160;CT® is a listing of the concepts,
+                    descriptions, relationships and their history for terminology content accepted
+                    by the NLM as a formal extension to the SNOMED&#160;CT International
+                    Release.</para>
+
+                <para>The main purposes of the US Extension to SNOMED&#160;CT are to:</para>
+                <orderedlist>
+                    <listitem>
+                        <para>Provide “rapid” access to concept IDs for use by implementers, pending
+                            action by IHTSDO on content submissions likely to be added to the
+                            SNOMED&#160;CT International Release.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Provide standard terminology needed for US clinical use cases, but not
+                            generally useful in other countries, e.g., regulatory or legislatively
+                            mandated terms specific to the US.</para>
+                    </listitem>
+                </orderedlist>
+
+                <para>The US Extension includes both active and inactive content that is harmonized
+                    with the most recently published version of the SNOMED&#160;CT International
+                    Release. As the content of the extension grows and undergoes consistent review,
+                    realignment and harmonization with the International Release, users should
+                    expect changes to the US Extension related to all future releases of
+                    SNOMED&#160;CT.</para>
+
+                <para>The US Extension is being developed to facilitate the use of SNOMED&#160;CT as
+                    the primary coding terminology for clinical information in electronic health
+                    records, research data bases and clinical trials databases, except in the
+                    domains of medications and laboratory tests, which are covered by RxNorm and
+                    LOINC respectively. As local vocabularies often provide variable ways of
+                    representing commonly used concepts, the use of a common set of SNOMED&#160;CT
+                    concepts will maximize data interoperability among institutions. Users unable to
+                    find terms they think are appropriate should contact the NLM to request
+                    additional content to the US Extension. Content suitable for inclusion in the
+                    International Release may be submitted by NLM to the IHTSDO contemporaneously
+                    with its evaluation, modeling and ID assignment in the US Extension. If accepted
+                    into the International Release, the corresponding US Extension entries will be
+                    linked to the International Release content and labeled as “retired” in the US
+                    Extension.</para>
+            </section>
+            <section>
+                <title>Australian SNOMED CT extension</title>
+
+                <para>SNOMED CT Australian Release (SNOMED CT-AU) is the Australian extension to
+                    SNOMED CT, providing local variations and customizations of terms relevant to
+                    the Australian healthcare community. It includes the international resources
+                    along with all Australian developed terminology and documentation for
+                    implementation in Australian clinical IT systems.</para>
+            </section>
+
+            <section>
+                <title>Canadian SNOMED CT extension</title>
+
+                <para>Canada Health Infoway’s Standards Collaborative is developing and maintaining
+                    a Canadian Extension that encompasses English and French components.</para>
+            </section>
+
+            <section>
+                <title>Other extensions</title>
+
+                <para>Many other organizations are developing extensions to SNOMED CT. The IHTSDO is
+                    currently comprised of Australia, Belgium, Brunei, Canada, Czech Republic,
+                    Denmark, Estonia, Hong Kong, China, Iceland, Israel, Lithuania, Malaysia, Malta,
+                    Netherlands, New Zealand, Poland, Singapore, Slovak Republic, Slovenia, Spain,
+                    Sweden, United Kingdom, United States, and Uruguay. Many of these members are
+                    either currently developing extensions to SNOMED&#160;CT, or are planning to.
+                    Healthcare organizations, knowledge base vendors, and other organizations may
+                    also create extensions to SNOMED&#160;CT as may be required to meet their
+                    operational and organizational needs. </para>
+            </section>
+        </section>
+        <section>
+            <title>RxNorm</title>
+
+            <para>Pharmacy related matters are of massive importance in our health care system. For
+                example, adverse drug events (ADEs) comprise the largest single category of adverse
+                events experienced by hospitalized patients, accounting for about 19 percent of all
+                injuries. Clinical information systems can play a critical role in preventing such
+                injuries, and in ensuring proper prescribing practices. </para>
+
+            <para>RxNorm was created to provide a means of interoperability between one pharmacy
+                information system and another. First released in 2005, RxNorm includes the VA’s
+                NDF-RT, which codes clinical drug properties, including mechanism of action,
+                physiologic effect, and therapeutic category.</para>
+
+            <para>RxNorm is the official HITSP standard for exchanging information on clinical
+                drugs, using the combination ingredient + strength + dose form. RxNorm is freely
+                available, and part of the UMLS, and can form a foundational component of an
+                informatics architecture. </para>
+        </section>
+        <section>
+            <title>SNOMED&#160;CT transition to the IHTSDO</title>
+
+            <para>In 2007,&#160;the SNOMED&#160;CT intellectual property
+                rights&#160;were&#160;transferred from the College of American Pathologists to the
+                SNOMED SDO® in the&#160;formal creation of the International Health Terminology
+                Standards Development Organization (IHTSDO). The IHTSDO is a not-for-profit
+                association that is owned and governed by its national Members. In January 2012
+                eighteen countries were Members of IHTSDO, more countries are joining every
+                year.</para>
+
+            <para>SNOMED&#160;CT is now owned, maintained and distributed by the IHTSDO. Historic
+                commercial proprietary concerns surrounding SNOMED&#160;CT licensing have been
+                eliminated, enabling SNOMED&#160;CT to serve as a foundation for open informatics
+                architecture. </para>
+        </section>
+
+        <section>
+            <title>IHTSDO open-source tooling</title>
+
+            <para>In 2009, the IHTSDO made a software workbench open source. This open-source
+                framework validated many architectural ideas, including change-set configuration
+                management to support distributed development. </para>
+
+            <para>The IHTSDO workbench validated a temporal model of </para>
+
+            <itemizedlist>
+                <listitem>
+                    <para>A time period datatype, including the ability to represent time periods
+                        with no end (infinity or forever)</para>
+                </listitem>
+                <listitem>
+                    <para>System-maintained transaction time</para>
+                </listitem>
+                <listitem>
+                    <para>Temporal queries at current time, time points in the past or future, or
+                        over durations</para>
+                </listitem>
+                <listitem>
+                    <para>Predicates for querying time periods</para>
+                </listitem>
+            </itemizedlist>
+
+
+            <para>This open source environment includes a description-logic classifier, and
+                distributed editing capabilities that can be leveraged in a architectural
+                implementation that can be used to validate the architecture. </para>
+        </section>
+        <section>
+            <title>SNOMED CT Release Format 2</title>
+
+            <para>In January 2012, SNOMED CT's RF2 format officially replaced the RF1 format. The
+                new format has better features for configuration management of and reference
+                extensions to SNOMED CT’s contents. This new format will accommodate evolving
+                requirements without the need for further fundamental change in the foreseeable
+                future.</para>
+        </section>
+        <section>
+            <title>IHTSDO and GMDNA</title>
+
+            <para>In 2012, the IHTSDO and the Global Medical Device Nomenclature Agency (GMDNA)
+                responsible for the international naming system for medical devices (GMDN) signed a
+                Cooperation Agreement with the IHTSDO, resulting in the use of GMDN as the medical
+                device component in SNOMED&#160;CT.</para>
+        </section>
+        <section>
+            <title>SNOMED&#160;CT and LOINC agreement</title>
+
+            <para>In 2013, the IHTSDO and the Regenstrief Institute agreed that they would work
+                together to link SNOMED&#160;CT and LOINC. This agreement means that LOINC can be
+                integrated into SNOMED&#160;CT by means of SNOMED description logic statements that
+                define LOINC codes, and that these description logic statements will be a part of
+                future SNOMED&#160;CT releases. </para>
+        </section>
+        <section>
+            <title>VA interagency agreement with NLM</title>
+
+            <para>In September of 2013, the VA and the National Library of Medicine (NLM) entered
+                into an interagency agreement (IAA) to accelerate the pace of clinical terminology
+                standards development and integration in areas that support Veterans health care and
+                benefits determination. The VA has a long history of successful use of health
+                information technology to support its mission and of effective collaboration with
+                other federal agencies to promote the development and use of health data standards.
+                VA seeks to accelerate the enhancement of clinical terminology standards and related
+                infrastructure for internal uses such as clinical decision support, quality
+                improvement, research and business processes and for external data sharing with key
+                partners including the Department of Defense and VA academic affiliates across the
+                country.</para>
+
+            <para>Under the IAA, NLM will work with the VA to make specific enhancements to SNOMED
+                CT, LOINC, and RxNorm in order to: <itemizedlist>
+                    <listitem>
+                        <para>Modify and add to SNOMED CT and/or the US Extension to SNOMED CT, to
+                            LOINC, and to RxNorm so they evolve more rapidly and effectively to
+                            support current and emerging priority use cases for the VA and its
+                            federal and private sector partners.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Coordinate enhancements to the IHTSDO Workbench/Open Tooling Framework
+                            so that NLM and VA development efforts are mutually beneficial and
+                            support more rapid improvements to SNOMED CT and more effective
+                            integration of SNOMED CT with other relevant health IT standards.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Expand the content and capabilities of the NLM Value Set Authority
+                            Center as needed to support more effective authoring, validation,
+                            maintenance, and use of vocabulary value sets for clinical decision
+                            support and other high priority VA use cases, as well as for clinical
+                            quality measures.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Allow predicates for querying time periods</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+
+
+            <para>The initial set of high priority tasks to be addressed by the VA and NLM under the
+                IAA include: <itemizedlist>
+                    <listitem>
+                        <para>Establish principled relationships between LOINC and SNOMED CT so that
+                            they form an interlocking set to support effective integrated use by the
+                            VA and other US health care providers.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Finalize specific rules and parameters for relating and connecting
+                            LOINC and SNOMED CT content in the laboratory test domain.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Initiate analysis for other domains of interest to the VA.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Determine the magnitude and prioritize the changes that must be made
+                            to LOINC and SNOMED CT to instantiate these relationships and
+                            connections in light of the VHA’s priority use cases.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>SNOMED CT, RxNorm, and LOINC</title>
+
+            <para>Today, thanks to all the prior efforts of many individuals and organizations, we
+                have an opportunity to leverage the combination of SNOMED&#160;CT, RxNorm, and LOINC
+                as a coherent foundation for informatics architecture. There is still work to be
+                done, as the integration of LOINC and SNOMED CT is only beginning, and how best to
+                utilize RxNORM will require careful consideration. But the opportunity is
+                compelling; we must take advantage of it. </para>
+        </section>
+    </section>
+    <section>
+        <title>Architectural Aspects</title>
+        <para>Informatics Architecture is a clinical and technical discipline that is concerned with
+            the <emphasis>representation</emphasis> of clinical knowledge, organization-specific
+            clinical information, and patient-specific clinical data. Successful representation
+            concerns a) the foundation of the architecture, b) how the representation is presented
+            to&#8212;and manipulated by&#8212;the user, and c) how the representation is made
+            interoperable with other environments. To meets these needs, we describe three aspects
+            of informatics architecture: <emphasis>foundational architecture</emphasis>,
+                <emphasis>interaction architecture</emphasis> and <emphasis> semantic
+                interoperability architecture</emphasis>, respectively. </para>
+
+        <para>Note that the role of the Informatics Architect differs from the role of other types
+            of business and technical architects involved in the field of enterprise architecture
+            (e.g., data architect, solution architect, enterprise architect, etc). More details are
+            available here: <link
+                xlink:href="http://blog.prabasiva.com/2008/08/21/different-types-of-architects/"
+                >Different types of architects (available from:
+                https://blog.prabasiva.com/2008/08/21/different-types-of-architects/)</link></para>
+        </section>
+
+    <section>
+            <title>Foundational architecture</title>
+            <para><emphasis>The foundational informatics architecture is the primary focus of this document</emphasis></para>
+            <para>The foundational architecture is concerned with the taxonomy, classification, and declarative and procedural search of an information pool. This architecture lives
+                within the logical architecture of the enterprise, but does not try to define the
+                overall systems architecture, or the physical architecture that supports the
+                foundational architecture.</para>
+        </section>
+<!-- ADDIN EN.CITE
+&lt;EndNote&gt;&lt;Cite&gt;&lt;Author&gt;Gent&lt;/Author&gt;&lt;Year&gt;2007&lt;/Year&gt;&lt;RecNum&gt;35&lt;/RecNum&gt;&lt;DisplayText&gt;&lt;style
+face=&quot;superscript&quot;
+size=&quot;10&quot;&gt;[4]&lt;/style&gt;&lt;/DisplayText&gt;&lt;record&gt;&lt;rec-number&gt;35&lt;/rec-number&gt;&lt;foreign-keys&gt;&lt;key
+app=&quot;EN&quot; db-id=&quot;fzfdxe9z3a0rd9ewv5cx5w5ivesaftr2dpz5&quot;
+timestamp=&quot;1378667225&quot;&gt;35&lt;/key&gt;&lt;/foreign-keys&gt;&lt;ref-type
+name=&quot;Blog&quot;&gt;56&lt;/ref-type&gt;&lt;contributors&gt;&lt;authors&gt;&lt;author&gt;Andrew
+Gent&lt;/author&gt;&lt;/authors&gt;&lt;/contributors&gt;&lt;titles&gt;&lt;title&gt;What
+is Information Architecture?&lt;/title&gt;&lt;secondary-title&gt;Incredibly
+Dull&lt;/secondary-title&gt;&lt;/titles&gt;&lt;volume&gt;2013&lt;/volume&gt;&lt;number&gt;6/27/2007&lt;/number&gt;&lt;dates&gt;&lt;year&gt;2007&lt;/year&gt;&lt;/dates&gt;&lt;urls&gt;&lt;related-urls&gt;&lt;url&gt;http://incrediblydull.blogspot.com/2007/06/what-is-information-architecture.html&lt;/url&gt;&lt;/related-urls&gt;&lt;/urls&gt;&lt;/record&gt;&lt;/Cite&gt;&lt;/EndNote&gt;<span
+style='mso-element:field-separator'></span>< [endif]--><!--[if supportFields]><span
+style='mso-element:field-end'></span>< [endif]-->
+                
+        <section>
+            <title>Interaction architecture</title>
+            <para>The interaction architecture is concerned with navigation, interface layout and
+                functionality, and other aspects of the user’s information access experience. This
+                document will only address the interaction architecture aspects of the authoring
+                environment. The interaction architecture for end user applications, such as patient
+                record systems or other clinical applications, is beyond the scope of this document. </para>
+
+<!-- NEED TO FIX THIS: ADDIN EN.CITE
+&lt;EndNote&gt;&lt;Cite&gt;&lt;Author&gt;Gent&lt;/Author&gt;&lt;Year&gt;2007&lt;/Year&gt;&lt;RecNum&gt;35&lt;/RecNum&gt;&lt;DisplayText&gt;&lt;style
+face=&quot;superscript&quot;
+size=&quot;10&quot;&gt;[4]&lt;/style&gt;&lt;/DisplayText&gt;&lt;record&gt;&lt;rec-number&gt;35&lt;/rec-number&gt;&lt;foreign-keys&gt;&lt;key
+app=&quot;EN&quot; db-id=&quot;fzfdxe9z3a0rd9ewv5cx5w5ivesaftr2dpz5&quot; timestamp=&quot;1378667225&quot;&gt;35&lt;/key&gt;&lt;/foreign-keys&gt;&lt;ref-type
+name=&quot;Blog&quot;&gt;56&lt;/ref-type&gt;&lt;contributors&gt;&lt;authors&gt;&lt;author&gt;Andrew
+Gent&lt;/author&gt;&lt;/authors&gt;&lt;/contributors&gt;&lt;titles&gt;&lt;title&gt;What
+is Information Architecture?&lt;/title&gt;&lt;secondary-title&gt;Incredibly
+Dull&lt;/secondary-title&gt;&lt;/titles&gt;&lt;volume&gt;2013&lt;/volume&gt;&lt;number&gt;6/27/2007&lt;/number&gt;&lt;dates&gt;&lt;year&gt;2007&lt;/year&gt;&lt;/dates&gt;&lt;urls&gt;&lt;related-urls&gt;&lt;url&gt;http://incrediblydull.blogspot.com/2007/06/what-is-information-architecture.html&lt;/url&gt;&lt;/related-urls&gt;&lt;/urls&gt;&lt;/record&gt;&lt;/Cite&gt;&lt;/EndNote&gt;<span
+style='mso-element:field-separator'></span>< [endif]--><!--[if supportFields]><span
+style='mso-element:field-end'></span>< [endif]-->
+        </section>
+    
+    
+        <section>
+            <title>Semantic interoperability architecture</title>
+            <para>The semantic interoperability architecture is concerned with the export and import
+                of knowledge and data from this architecture to another that does not share the same
+                semantic foundation. This <emphasis>semantic interoperability architecture</emphasis> would not be necessary if all systems shared the same
+                foundational architecture, but such homogeneity is unrealistic at this time.
+                Defining the semantic interoperability architecture will be a follow-on activity
+                after the basics of the foundational architecture are defined and validated. As
+                such, the semantic interoperability architecture is not a focus of this document at
+                this time. </para>
+            <para>While defining the particulars of the semantic interoperability architecture is
+                not the current focus, we are concerned with builidng a foundation that will support
+                semantic interoperability. We achieve this foundation in two ways: <orderedlist>
+                    <listitem>
+                        <para>Use of SNOMED&#160;CT, RxNorm, and LOINC as the primary building
+                            blocks for the foundational architecture.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Enablement of <emphasis>semantic operability</emphasis> within the
+                            foundational architecture through normalization of representation and
+                            achieving coherence within and among the primary building blocks of the
+                            architecture.</para>
+                    </listitem>
+                </orderedlist> Semantic interoperability of systems that do not share a common
+                foundation may be challenging or unattainable. Although we may seek
+                interoperability, it may be far easier to obtain <emphasis>semantic
+                    operability</emphasis> through shared coherent architecture. The more common the
+                foundations of systems that attempt to interoperate, the more likely successful
+                interoperability may be achieved. </para>
+        </section>
+
+    <section>
+        <title>Not all design is architecture</title>
+
+        <para>As previously highlighted at the beginning of this document:</para>
+        <blockquote>
+
+            <attribution>Grady Booch</attribution>
+            <para>All architecture is design but not all design is architecture. Architecture
+                represents the significant design decisions that shape a system, where significant
+                is measured by cost of change.</para>
+
+        </blockquote>
+
+        <para>The goal of defining the informatics architecture is not to specify all aspects of the
+            system as they relate to representation or display of clinical information. Rather the
+            goal is to provide an architectural foundation upon which higher-level designs can be
+            safely based. Support for evolutionary change is a critical feature of informatics
+            architecture&#8212;as support for changes in knowledge over time is a critical component
+            of health informatics. Without this architectural foundation, we cannot advance beyond
+            the circus of the menagerie. </para>
+
+        <para>In the next section, we discuss the challenges that contributed to our current state
+            of affairs, and present proposed solutions that may allow us to open the menagerie’s
+            cages. </para>
+    </section>
+
+</chapter>

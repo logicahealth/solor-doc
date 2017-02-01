@@ -48,11 +48,6 @@
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.0.0</version>
-                <configuration>
-<!--                    <overWriteReleases>true</overWriteReleases>
-                    <overWriteSnapshots>true</overWriteSnapshots>
-                    <ignorePermissions>true</ignorePermissions>-->
-                </configuration>
             </plugin>           
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
@@ -114,6 +109,21 @@
                     <url>http://artifactory.informatics.com/artifactory/ext-release-local</url>
                 </repository>
             </distributionManagement>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-dependency-plugin</artifactId>
+                            <configuration>
+                                <overWriteReleases>true</overWriteReleases>
+                                <overWriteSnapshots>true</overWriteSnapshots>
+                                <ignorePermissions>true</ignorePermissions>
+                                <silent>true</silent>
+                            </configuration>
+                        </plugin> 
+                    </plugins>          
+                </pluginManagement>
+            </build>
         </profile>
     </profiles>
 

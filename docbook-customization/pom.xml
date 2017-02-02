@@ -10,7 +10,13 @@
 
     <packaging>pom</packaging>
     <name>docbook customization</name>
-
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>doc-logging</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

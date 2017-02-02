@@ -41,6 +41,12 @@
                             <version>1.2.17</version>
                             <scope>compile</scope>
                         </dependency>
+                        <dependency>
+                            <artifactId>doc-logging</artifactId>
+                            <groupId>${project.groupId}</groupId>
+                            <version>${project.version}</version>
+                            <type>zip</type>
+                        </dependency>
                     </dependencies>
                 </plugin>
             </plugins>
@@ -102,6 +108,7 @@
         <module>terms-glossary</module>
         <module>isaacs-komet-book</module>
         <module>solor</module>
+        <module>doc-logging</module>
     </modules>
 
     <profiles>

@@ -9,3 +9,6 @@ This repository is to provide for collaborative development of documentation for
 This is a maven/docbook project. To build, run mvn clean install from the root directory. 
 
 Generated pdf and html files can be found in isaacs-komet-book/target/docbook/isaacs-komet-book.[html|pdf]
+=======
+# komet
+KnOwledge Management EnvironmenT

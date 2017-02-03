@@ -9,8 +9,28 @@
     <artifactId>isaacs-komet-book</artifactId>
 
     <name>ISAAC's KOMET Book</name>
-
     <packaging>pom</packaging>
+    
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>    
+    </licenses>
+
+    <issueManagement>
+        <url>http://issues.osehra.org/projects/ISAAC/summary</url>
+        <system>JIRA</system>
+    </issueManagement>
+    
+    <scm>
+        <url>https://github.com/OSEHRA/komet/tree/develop</url>
+        <connection>scm:git:https://github.com/OSEHRA/komet.git</connection>
+        <developerConnection>scm:git:https://github.com/OSEHRA/komet.git</developerConnection>
+    </scm>
+
     <properties>
         <docbook.root>${project.artifactId}.xml</docbook.root>
     </properties>

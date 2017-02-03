@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -6,17 +7,8 @@
         <version>0.11</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>docbook-customization</artifactId>
-
+    <artifactId>doc-logging</artifactId>
     <packaging>pom</packaging>
-    <name>docbook customization</name>
-    <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>doc-logging</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -24,10 +16,10 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>attach-docbook-customization</id>
+                        <id>attach</id>
                         <configuration>
                             <descriptors>
-                                <descriptor>src/main/assembly/docbook-customization.xml</descriptor>
+                                <descriptor>src/main/assembly/log-config-assembly.xml</descriptor>
                             </descriptors>
                         </configuration>
                         <goals>
@@ -36,7 +28,15 @@
                         <phase>package</phase>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>            
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>gov.vha.isaac</groupId>
+            <artifactId>isaacs-komet-doc</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
 </project>

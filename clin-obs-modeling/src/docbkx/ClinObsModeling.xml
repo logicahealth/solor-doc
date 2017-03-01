@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article version="5.0" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:ns5="http://www.w3.org/1999/xhtml"
+         xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+         xmlns:ns3="http://www.w3.org/2000/svg"
+         xmlns:ns="http://docbook.org/ns/docbook">
+  <info>
+    <title>Clinical Observation Modeling for Electronic Health Records:
+    Supporting Domain Semantics, Flexibility, and Interoperability</title>
+
+    <author>
+      <personname>Walter Sujansky</personname>
+    </author>
+
+    <date>2017-02-14</date>
+  </info>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>This white paper emerged from discussions among informaticists,
+    computer scientists, and medical doctors about the appropriate modeling of
+    clinical observations in information systems. The participants included
+    representatives of the VHA-DoD, CIMI, HL7-FHIR, FHIM, SNOMED-CT, and
+    OpenEHR initiatives<footnote xml:id="__FN1__">
+        <para>VHA = Veterans Health Administration; CIMI = Clinical
+        Information Modeling Initiative; HL7-FHIR = HL7 Fast Healthcare
+        Interoperability Resources working group; FHIM = Federal Health
+        Information Modeling.</para>
+      </footnote>. The paper does not necessarily represent a consensus among
+    the discussants or the viewpoint of any particular discussant. Its purpose
+    is to provide background on the topic, to summarize a number of the
+    viewpoints expressed, and to provide preliminary recommendations for
+    further consideration. The contents are subject to further modification as
+    the discussion evolves.</para>
+  </section>
+
+  <section>
+    <title>Clinical Observation Models</title>
+
+    <para>Clinical observation models (COMs<footnote xml:id="__FN2__">
+        <para>Clinical Observation Models are also referred to as
+        “Archetypes,” “Clinical Event Models,” and “Clinical Models” in the
+        informatics literature and vernacular.</para>
+      </footnote>) are conceptual-level data models of the discrete statements
+    about patients that can be stored in, processed by, and retrieved from a
+    clinical information system. COMs are defined for discrete types of
+    clinical statements such as blood pressure measurements, lab test results,
+    physical exam findings, patient-reported symptoms, clinical diagnoses, and
+    other observations.</para>
+
+    <para>COMs define the structure and semantics of discrete clinical
+    observations as formal “types” that are later instantiated to represent
+    specific recorded observations that apply to particular patients. Like
+    object types in programming languages, these type definitions include
+    enumerations of the specific data elements that may make up the
+    observation, the datatypes used to populate those elements, and which
+    elements must be populated in every instantiated object versus optionally
+    populated. <xref linkend="_Ref474327938"/> shows the graphical depiction
+    of an example COM for a blood pressure measurement.</para>
+
+    <figure xml:id="_Ref474327938">
+      <title>Example clinical object model for a blood pressure
+      measurement</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentdepth="300" contentwidth="549"
+                     fileref="images/image2.png"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <section>
+      <title>The Role of Clinical Observation Models</title>
+
+      <para>In general, clinical observation models serve at least two
+      purposes.</para>
+
+      <orderedlist>
+        <listitem>
+          <para>COMs <emphasis
+          role="underline"><emphasis>standardize</emphasis></emphasis> the
+          capture, retrieval, and exchange of clinical observations within and
+          between information systems. As seen in <xref
+          linkend="_Ref474327938"/>, even relatively basic observations can
+          comprise numerous sub-components. Different implementers of clinical
+          information systems may model these sub-components and their
+          relationships in arbitrarily different ways, which can prevent
+          different software modules from managing and processing the same
+          observations consistently and correctly. Formal and agreed-upon COMs
+          provide a shared model of each type of observation that enables
+          software modules created by different implementers to handle the
+          same observations uniformly. Note that such software modules may
+          comprise different parts of the same information system (such as the
+          user interface and the rules engine of a single EHR) or entirely
+          different information systems (such as distinct EHRs from different
+          commercial vendors).</para>
+        </listitem>
+
+        <listitem>
+          <para>COMs <emphasis
+          role="underline"><emphasis>de-couple</emphasis></emphasis> the
+          creation and maintenance of domain-specific objects in clinical
+          medicine (such as observations) from their technical implementation
+          in software code and database structures. The types of clinical
+          observations that may be recorded in software systems are numerous,
+          diverse, and subject to relatively frequent modification over time,
+          as well as customizations across clinical sub-domains. Meanwhile,
+          the technical implementation of software applications and clinical
+          databases is an arduous process that requires the careful design,
+          detailed writing, and extensive testing of software code. Whenever
+          changes are required to an application or database, a time-consuming
+          and costly implementation process must be applied. Clinical
+          applications and databases, however, that are implemented at a more
+          abstract level can process <emphasis>any </emphasis>COMs that
+          conform to a certain high-level reference model. Such
+          implementations may not need to change as COMs are added or updated.
+          COMs can therefore serve as conceptual-level objects that represent
+          domain-specific data and drive domain-specific functionality without
+          being tightly coupled, at least in theory, to the underling
+          implementation of the information system.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>Figure 2 shows how COMs serve both of these purposes in an
+      information system. Note how the set of clinical information models
+      serves as a “view” or “interface” to all clinical data that may be
+      stored by and retrieved from the information system. The design of the
+      COMs is flexible and must conform only to a “reference model” of basic
+      data structures. These basic structures are, in fact, the only objects
+      tightly coupled with the underlying application and database
+      implementations. In this manner, the COMs provide a standard conceptual
+      model against which all data-input, data-query, and data-exchange
+      functions operate, and that can be readily extended without (again, in
+      theory) costly modifications to the underlying application and database.
+      The approach for creating and maintaining information systems in this
+      way is called <emphasis>Model Driven Development</emphasis>.</para>
+
+      <figure xml:id="_Ref474505861">
+        <title>The role of clinical observation models in electronic health
+        record systems</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentdepth="281" contentwidth="435"
+                       fileref="images/image3.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+  </section>
+
+  <section>
+    <title>OpenEHR: An Example Framework for Clinical Observation
+    Modeling</title>
+
+    <para>In considering the appropriate design of COMs, it’s useful to review
+    how such models will be used in practice within a Model Driven Development
+    architecture. OpenEHR<footnote xml:id="__FN3__">
+        <para>Demski H, Garde S, Hildebrand C. Open data models for smart
+        health interconnected applications: the example of openEHR. BMC Med
+        Inform Decis Mak. 2016 Oct 22;16(1):137. (available at <link
+        xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/27770769">https://www.ncbi.nlm.nih.gov/pubmed/27770769</link>).</para>
+      </footnote><superscript>,</superscript><footnote xml:id="__FN4__">
+        <para><link
+        xlink:href="http://www.openehr.org/what_is_openehr">http://www.openehr.org/what_is_openehr</link>.</para>
+      </footnote> offers one such architecture that is relatively complete and
+    mature, so it serves as a good example. <xref linkend="_Ref474334719"/>
+    illustrates the components of the OpenEHR architecture, which are further
+    described below.</para>
+
+    <figure xml:id="_Ref474334719">
+      <title>OpenEHR architecture</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentdepth="230" contentwidth="474"
+                     fileref="images/image4.png"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <section xml:id="_Ref474420488">
+      <title>OpenEHR Reference Model</title>
+
+      <para>The foundation of the OpenEHR architecture is a reference model
+      that contains only the most generic set of objects and data types needed
+      to define the contents of an EHR. These objects include organizing
+      structures such as “Folders”, “Compositions”, and “Sections”, as well as
+      generic clinical data objects such as “Entries”, “Clusters” of entries,
+      and “Elements” that comprise the entries. The reference model also
+      includes several dozen data types that may be used to populate the
+      values of Elements, such as “Quantity”, “Text”, and “Timed Event”.
+      Collectively, these constructs define the general building blocks
+      available to construct more detailed models for representing clinical
+      observations, actions, and other data in EHRs. <xref
+      linkend="_Ref474335678"/> shows the constructs of the OpenEHR reference
+      model and how they are hierarchically organized to create the
+      “scaffolding” for patient records.</para>
+
+      <figure xml:id="_Ref474335678">
+        <title>OpenEHR Reference Model</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentdepth="314" contentwidth="413"
+                       fileref="images/image5.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Within the reference model, the “Observation” class is a specific
+      sub-type of the “Entry” object, and it is used to record information
+      from a direct observation or measurement on a patient or to record the
+      perspective of the patient, such as in history taking. The Observation
+      class includes only a small number of data elements that are inherited
+      by all clinical observation models, such as “Subject” (the person to
+      whom the observation applies) and “Information Provider” (the person or
+      agent who generated the observation). Otherwise, all Entries and
+      Elements used to record actual observations are specified within
+      sub-types of the Observation class, which OpenEHR calls
+      “Archetypes.”</para>
+    </section>
+
+    <section>
+      <title>OpenEHR Archetypes</title>
+
+      <para>Archetypes are clinical object models that specify:</para>
+
+      <orderedlist>
+        <listitem>
+          <para>the set of Elements that may be used to represent various
+          kinds of observations</para>
+        </listitem>
+
+        <listitem>
+          <para>the datatypes used to populate those Elements</para>
+        </listitem>
+
+        <listitem>
+          <para>which Elements must be populated versus being optional,
+          and</para>
+        </listitem>
+
+        <listitem>
+          <para>whether Elements can have only one or may have multiple
+          values.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>The values of Elements, themselves, may be collections of other
+      Elements (“Clusters”) or instances of other Archetypes (effectively,
+      nested Archetypes). <xref linkend="_Ref474337532"/> shows the graphical
+      representation of an OpenEHR archetype.</para>
+
+      <para>For primitive Elements, the Archetype may define further
+      constraints that define how the Element may be populated, as shown in
+      the callouts of <xref linkend="_Ref474337532"/>. For example, the value
+      of the “Systolic” Element in the Blood Pressure Artifact is specified to
+      be a “Quantity” datatype, to represent the property of “Pressure”, and
+      to be recorded using the units of measure “mm[Hg]”. Similarly, the
+      “Position” Element is specified to be a “Coded Text” datatype and to be
+      populated by one of several enumerated code values, with the code for
+      “Sitting” being the default if no other value is specified.</para>
+
+      <figure xml:id="_Ref474337532">
+        <title>Example of an OpenEHR Archetype</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentdepth="341" contentwidth="498"
+                       fileref="images/image6.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>OpenEHR Archetypes must be defined using only the constructs of
+      the underlying Reference Model, as shown in <xref
+      linkend="_Ref474334719"/>. This constraint ensures that the Archetypes
+      may be stored and processed by the underlying database and application
+      implementations, which are otherwise loosely bound to the specific
+      structures of the Archetypes themselves.</para>
+
+      <para>The OpenEHR framework uses a specific structured language to
+      define Archetypes, the Archetype Definition Language (ADL). <xref
+      linkend="_Ref474337532"/> shows the graphical rendering of an Archetype,
+      although the actual definition is specified using a text-based ADL
+      expression (not shown). Other Model-Driven Development frameworks, of
+      course, may use different languages for defining COMs and different
+      graphical rendering methods.</para>
+
+      <para>Like structured data types and object classes in programming
+      languages, Archetypes specify and constrain in detail how instances of
+      actual data (clinical observations, in this case) may be represented
+      within the information system. These specifications govern how software
+      modules must create instances of those observations (i.e., modules such
+      as graphical user interfaces or EDI interface engines) and how software
+      modules may retrieve and process instances of those observations (i.e.,
+      modules such as user displays or decision-support rule engines). Using
+      conceptual-level Archetypes rather than low-level data structures for
+      these purposes allows domain experts to formally specify Archetypes, and
+      (in theory, at least) de-couples Archetype specifications from low-level
+      implementation dependencies.</para>
+
+      <para>OpenEHR currently includes several hundred Archetypes<footnote
+          xml:id="__FN5__">
+          <para>See <link
+          xlink:href="http://www.openehr.org/ckm/">http://www.openehr.org/ckm/</link>
+          for an online listing.</para>
+        </footnote>, including many for clinical observations. The framework,
+      however, remains very much a work in progress, and many Archetypes
+      remain in draft form.</para>
+    </section>
+
+    <section>
+      <title>OpenEHR Templates</title>
+
+      <para>To support specific use cases and system functions, OpenEHR allows
+      Archetypes to be combined and/or further constrained to create
+      purpose-specific data structures called “Templates”. Templates may then
+      drive the automated generation of computing artifacts used to collect,
+      retrieve, or export clinical observations (see <xref
+      linkend="_Ref474334719"/>).</para>
+
+      <para><xref linkend="_Ref474415737"/> shows an example OpenEHR Template
+      that represents the information captured during an initial visit to a
+      heart failure clinic. Note that the template combines a number of
+      Archetypes, such as Blood Pressure, Pulse, and Full Blood Count, as well
+      as adds navigational and organizational nodes such as “Physical Exam.”
+      The latter nodes are also Archetypes, specifically sub-classes of the
+      Section object specified in the Reference Model.</para>
+
+      <figure xml:id="_Ref474415737">
+        <title>Example of an OpenEHR Template</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentdepth="238" contentwidth="697"
+                       fileref="images/image7.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Although not shown in <xref linkend="_Ref474415737"/>, Templates
+      may also include additional constraints applied to their constituent
+      Archetypes. Such constraints may entail the inclusion of only a subset
+      of the Archetype’s Elements, the allowance of only a subset of the coded
+      values specified for an Element, the designation of default values for
+      Elements, etc. The purpose of these constraints is to customize an
+      Archetypes for use in a specific context, while ensuring that any data
+      collected or retrieved using Templates that contain the Archetype
+      conform to the Archetype’s underlying constraints.</para>
+
+      <para>For example, <xref linkend="_Ref474416536"/> shows a graphical
+      user interface (“Screen Form”) for data entry generated from the
+      heart-failure Template in <xref linkend="_Ref474415737"/>. Because the
+      Template design constrained the Blood Pressure Archetype to include only
+      the “Systolic” and “Diastolic” Elements (as opposed to the full set of
+      Elements shown in <xref linkend="_Ref474337532"/>), the Screen Form
+      displays only those two Elements. Note that the display includes the
+      units of measure and allowed value ranges specified for the “Systolic”
+      and “Diastolic” Elements, as derived from the complete Archetype. In
+      this manner, all data collected via Screen Forms generated from the
+      Template in <xref linkend="_Ref474415737"/> will conform to the
+      constraints specified within the Archetypes that the Template includes.
+      This aspect of Model Driven Development allows the observation modeling
+      features and constraints that are formally specified in Archetypes to be
+      uniformly and automatically applied across various uses of the
+      Archetypes (through Templates) within and across information
+      systems.</para>
+
+      <figure xml:id="_Ref474416536">
+        <title>Example of a Screen Form generated from an OpenEHR
+        Template</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentdepth="172" contentwidth="697"
+                       fileref="images/image8.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+
+    <section>
+      <title>Querying OpenEHR Data</title>
+
+      <para>Although OpenEHR Templates may combine and further constraint
+      Archetypes to enable purpose-specific data collection and data
+      processing, the querying of OpenEHR data need not consider the structure
+      of any individual Templates that were used to instantiate clinical
+      observations. Rather, querying requires knowledge of only the
+      Archetypes, the underlying Reference Model, and any controlled
+      terminologies used in the definition of Archetypes (See <xref
+      linkend="_Ref474421318"/> for a graphical representation of these
+      dependencies).</para>
+
+      <figure xml:id="_Ref474421318">
+        <title>Architectural components used in querying of OpenEHR
+        data.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentdepth="233" contentwidth="480"
+                       fileref="images/image9.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>As discussed above, all persisted observation data must conform to
+      the constraints of the Archetypes used to collect them (even if those
+      Archetypes are combined and further constrained in Templates). Further,
+      none of the navigational elements of Templates (such as the grouping of
+      Archetypes into a “Physical Exam” category, as shown in <xref
+      linkend="_Ref474415737"/>) influence the semantics of the Archetype data
+      collected via Templates. Specifically, the semantics of a clinical
+      observation represented by an Archetype should exist independently of
+      any encompassing navigational or organizational category in which that
+      Archetype may appear within a Template (Archetypes must be carefully
+      designed to confer this property).</para>
+
+      <para>At the same time, queries may reference sub-parts of an OpenEHR
+      medical record in which the Archetype instances were recorded. These
+      named sub-parts of a record, such as “Problem List” and “Medication
+      Order List,” are also Archetypes defined to specialize the “Section”
+      class of the Reference Model (see Section <xref
+      linkend="_Ref474420488"/>).</para>
+
+      <para>Finally, queries may also reference the terminology model from
+      which specific codes were drawn when defining clinical observation
+      Archetypes. For example, a query could seek to retrieve any patient with
+      a diagnosis subsumed by the coded concept “Cardiovascular Disease,”
+      although no Archetype specifically references that very general disease
+      concept. Such a query would rely upon the hierarchical subsumption
+      relationships represented in the terminology model to associate the
+      general “Cardiovascular Disease” concept with the specific disease
+      concepts (such as “Atherosclerosis”) that are actually referenced in
+      defined Archetypes.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Patterns for Clinical Observation Modeling</title>
+
+    <para>Model-Driven Development provides a useful framework to build EHR
+    systems that include standardized representations of medical data and that
+    are flexible and extensible. However, the ultimate effectiveness of these
+    EHR systems depends to a great extent on the specific design of the
+    clinical observation models they include. As discussed, the same types of
+    observations may be modeled in many different ways, and the design choices
+    made influence the ease and consistency with which the clinical
+    observation models can be used. This section discusses some of those
+    choices and the design criteria that should govern them.</para>
+
+    <section>
+      <title>Clinical Observations in the Abstract</title>
+
+      <para>It’s useful to consider what clinical observations essentially
+      are. In the abstract, they are discrete patient descriptors that
+      document information gathering, diagnostic testing, and decision making
+      about patients. Such descriptors may include, for example, a diagnosis,
+      an LDL cholesterol level, a systolic blood pressure measurement, an
+      Apgar score, a patient-reported symptom, or a family history.</para>
+
+      <para>Each clinical observation pertaining to a patient consists in the
+      abstract of two general components:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>The <emphasis role="underline">Aspect</emphasis> of the
+          patient that is being described, either implicitly or explicitly.
+          For example, the observation “The patient’s systolic BP is 130 mmHg”
+          explicitly describes the Aspect “Systolic Blood Pressure,” whereas
+          the observation “The patient has asthma” implicitly describes the
+          aspect “Diagnosis”. If the general form of a patient descriptor is
+          “The patient has X of Y”, the aspect denotes “X”.</para>
+        </listitem>
+
+        <listitem>
+          <para>The <emphasis role="underline">Value or Magnitude</emphasis>
+          of the descriptor. For example, the observation “The patient’s
+          systolic BP is 130 mmHg” specifies the magnitude “130” whereas the
+          observation “The patient has asthma” specifies the value “Asthma”.
+          If the general form of a patient descriptor is “The patient has X of
+          Y”, the value or magnitude denotes “Y”.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The aspect and the value/magnitude of an observation may,
+      themselves, be further modified or qualified to denote the complete
+      semantics of the observation. For example, the aspect “Systolic Blood
+      Pressure” in the example above could be further qualified by the
+      date/time that the measurement was taken or the position of the patient
+      at the time it was taken. Likewise, the magnitude “130” in the example
+      above could be further qualified to specify that the units of measure
+      that apply are “mmHg”.</para>
+
+      <para>Sometimes, a third component of a clinical observation is
+      specified:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>The <emphasis role="underline">Context</emphasis> in which the
+          clinical observation occurred or was recorded. This component
+          typically denotes information that is important to record but does
+          not directly modify the Aspect or the Value/Magnitude. Examples may
+          include who specifically reported the observation (e.g., the patient
+          versus the patient’s mother) or what instrument or technique was
+          used to collect the observation (e.g., by rhythm strip versus
+          12-lead EKG). Notably, there is sometimes a fuzzy distinction
+          between information that modifies the Aspect of a clinical
+          observation and information that denotes its Context. For example,
+          the fasting state of a patient at the time a serum LDL cholesterol
+          measurement was taken could be considered to denote the Context of
+          the measurement (with the Aspect being simply “Serum LDL
+          Cholesterol”) or the fasting state could denote a qualifier of the
+          Aspect (with the Aspect being “Serum LDL Cholesterol, with
+          FastingState = True”).</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Based on these abstract components of a clinical observation, the
+      same observation can be modeled in different ways. The examples in <xref
+      linkend="_Ref474687508"/> show reasonable variations in the use of
+      aspect, value, and context to represent the same observation
+      semantics.</para>
+
+      <figure xml:id="_Ref474687508">
+        <title>Example variations in modeling of clinical observations</title>
+
+        <para><inlinemediaobject>
+            <imageobject>
+              <imagedata contentdepth="107" contentwidth="307"
+                         fileref="images/image10.png"/>
+            </imageobject>
+          </inlinemediaobject><inlinemediaobject>
+            <imageobject>
+              <imagedata contentdepth="104" contentwidth="315"
+                         fileref="images/image11.png"/>
+            </imageobject>
+          </inlinemediaobject></para>
+      </figure>
+    </section>
+
+    <section xml:id="_Ref474506814">
+      <title>General Design Patterns for Clinical Observations</title>
+
+      <para>At least three general structural patterns may be considered for
+      the design of clinical observation models, Assertion, Evaluation, and
+      Belief:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="underline">Assertion</emphasis> pattern. No
+          Aspect is explicitly specified; a Value, with possible qualifiers is
+          always specified; a Context is optionally specified. Example:</para>
+
+          <para>Aspect = NULL Value = (Asthma, with type = intrinsic, with
+          severity = mild, with status = active)</para>
+
+          <para>This pattern assumes that, for every Value, the Aspect of the
+          patient that is being described is implicit and unambiguous, and
+          therefore need not be explicitly specified. The pattern is most
+          naturally suited for symptoms, exam findings, past medical history
+          findings, and diagnoses, where the assumption usually holds.
+          However, exceptions exist. For example, the Assertion pattern cannot
+          distinguish between a patient-reported symptom of “arm weakness,”
+          and a physical exam finding of “arm weakness” (unless
+          “patient-reported” or “physical-exam” are denoted as Contexts).
+          .</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="underline">Evaluation</emphasis> pattern. An
+          Aspect is always specified; a Value, with possible qualifiers is
+          always specified; a Context is optionally specified. Example:</para>
+
+          <para>Aspect = Serum LDL Cholesterol Value = (185, with
+          units-of-measure = mmHg)</para>
+
+          <para>Context = Fasting</para>
+
+          <para>This pattern explicitly specifies the Aspect and considers it
+          the “question” that the observation is addressing. The Value
+          constitutes the “answer” to the question. The pattern is most
+          naturally suited to observations represented as “attribute/value”
+          pairs, such as simple testing results (blood glucose, FEV1), scoring
+          instruments (Apgar, Braden scores), and patient characteristics with
+          quantitative or ordinal values (pulse, pain intensity).</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="underline">Belief</emphasis> pattern. An
+          Aspect, with possible qualifiers, is always specified; a Value, with
+          possible qualifiers is always specified; a Context is optionally(but
+          rarely) specified. Examples:</para>
+
+          <para>Aspect = Diagnosis Value = (Asthma, with type = intrinsic,
+          with severity = mild, with status = active)</para>
+
+          <para>Aspect = Serum LDL Cholesterol, with Fasting-State = True
+          Value = (185, with units-of-measure = mg/dL)</para>
+
+          <para>This pattern is the most general and can be applied equally to
+          symptoms, findings, diagnoses, test results, scoring instruments,
+          and quantitative characteristics. It does require, however, that an
+          Aspect is explicitly specified in all cases as part of the
+          observation model (although this constraint does not necessarily
+          require that the Aspect be specified by users at the time the
+          observation is instantiated, since user-interface functionality may
+          populate the Aspect automatically and “behind the scenes” for
+          observations where it is implied and unambiguous).</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Desiderata for Clinical Observation Model Design Patterns</title>
+
+      <para>Given that multiple design patterns exist for clinical
+      observations, it’s useful to consider design criteria that can guide
+      modeling choice. Among the best known criteria for designing clinical
+      concepts are the properties of Understandability, Reproducibility, and
+      Usability<footnote xml:id="__FN6__">
+          <para>Walker D. GP Vocabulary Project—Stage 2 Report: SNOMED
+          Clinical Terms</para>
+
+          <para>(SNOMED CT); November, 2004. Available from: <link
+          xlink:href="https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd">https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd</link>.</para>
+        </footnote>, defined as follows:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="underline">Understandability</emphasis>:
+          Concept definitions should be understandable by average clinicians
+          and others who use the definitions (such as data analysts), given
+          brief explanations.</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="underline">Reproducibility</emphasis>: The
+          retrieval and representation of the same concept should not vary
+          according to the nature of the interface, user preferences, or the
+          time of entry.</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="underline">Usability</emphasis>: One should
+          not model concepts, concept properties, or distinction among
+          concepts for which there is no current use in healthcare.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Among these criteria, reproducibility is arguably the most
+      important in selecting optimal design pattern for clinical observations,
+      because the property of reproducibility most influences the value of
+      clinical observations as <emphasis>standardized</emphasis>
+      representations of clinical information that can be shared by different
+      software modules and information systems. As illustrated in <xref
+      linkend="_Ref474505861"/>, multiple software modules may use the same
+      clinical observation models to implement distinct functions. To ensure
+      that the creation, use, and exchange of clinical data is done uniformly,
+      the clinical object models must not vary according to the contexts in
+      which they are created or processed, i.e., they must be
+      reproducible.</para>
+
+      <para>To help ensure reproducibility, modelers should follow at least
+      two guidelines when creating clinical observation models: Avoid
+      arbitrary variation and explicitly represent clinically relevant
+      distinctions. <xref linkend="_Ref474506327"/> illustrates relevant
+      examples and counterexamples of these guidelines. Note that the first
+      example shows three different modeling patterns for the same type of
+      observation. In this case, it would be preferable to model all
+      observations of this type using only one of the patterns (applying any
+      one of the patterns to all three observations is left as an exercise for
+      the reader). The second example shows an observation for which the
+      complete clinical meaning of the finding (“Weakness in Right Arm”)
+      depends on whether it was objectively discerned by the physician through
+      examination, or just subjectively reported by the patient.</para>
+
+      <figure xml:id="_Ref474506327">
+        <title>Guidelines for designing clinical observation models</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentdepth="224" contentwidth="374"
+                       fileref="images/image12.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><xref linkend="_Ref474689633"/> shows a poorly designed clinical
+      observation model that violates the reproducibility criterion. Using
+      this model, the family history of a particular problem or diagnosis
+      could be represented in two different ways, depending on the user’s
+      preference. Such variation in the representation of the same observation
+      entered by one user or another will necessarily complicate subsequent
+      data querying and analysis. For example, a data analyst seeking all
+      patients with a family history of coronary artery disease would have to
+      search both the “Per problem” and the “Per family member” paths of each
+      “Family History” observation stored in the EHR.</para>
+
+      <figure xml:id="_Ref474689633">
+        <title>A poorly designed clinical observation model</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentdepth="336" contentwidth="649"
+                       fileref="images/image13.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+
+    <section>
+      <title>Recommendations</title>
+
+      <para>Given the Model-Driven Development approach and the design
+      considerations described above, two general options exist for specifying
+      clinical observation models:</para>
+
+      <orderedlist>
+        <listitem>
+          <para><emphasis role="underline">Standardize on a single design
+          pattern</emphasis> for all clinical observation models (i.e., either
+          the Assertion, Evaluation, or Belief pattern described in Sec. <xref
+          linkend="_Ref474506814"/>). This approach may facilitate the tasks
+          of data analysts and software developers, who will need to learn
+          many clinical observation models to use them effectively in
+          application development, CDS rule design, clinical measure
+          specifications, etc.</para>
+
+          <para>With this option, the “Belief” pattern is likely preferred, as
+          it is the most generic and supports all manner of clinical
+          observations, as described in Sec. <xref
+          linkend="_Ref474506814"/>.</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="underline">Allow multiple design
+          patterns</emphasis>, specific to individual types of observations
+          models (e.g., all lab results, all symptoms, all physical exam
+          findings), or even to specific observation models (e.g., distinct
+          models for skin turgor versus knee reflex). This approach offers
+          maximum flexibility in modeling specific clinical observations in
+          the most natural manner. Because individual clinical observation
+          models will often be quite complex and extensive in any case (as
+          seen from the examples in this report), the basic pattern they
+          follow (i.e., Assertion vs. Evaluation vs. Belief) may be the least
+          of the variations among them that data analysts and software
+          developers will need to be concerned with. Hence, it may not
+          practically matter whether clinical observation models conform to a
+          single pattern or to multiple patterns, as long as the models are
+          clearly documented.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>In net, option 2 may be the preferred approach. Modelers should
+      allow for multiple design patterns, as needed, but strive for maximum
+      standardization for any specific type of observation (i.e., lab result
+      versus symptom versus diagnosis, etc.). Such an approach will enable
+      maximum flexibility for modeling different observations in an optimal
+      fashion, while minimizing arbitrary variations among clinical
+      observation model designs.</para>
+    </section>
+  </section>
+</article>

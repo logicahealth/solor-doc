@@ -6,8 +6,8 @@
          xmlns:ns3="http://www.w3.org/2000/svg"
          xmlns:ns="http://docbook.org/ns/docbook">
   <info>
-    <title>Clinical Observation Modeling for Electronic Health Records:
-    Supporting Domain Semantics, Flexibility, and Interoperability</title>
+    <title>Clinical Observation Modeling</title>
+    <subtitle>Supporting Domain Semantics, Flexibility, and Interoperability</subtitle>
 
     <author>
       <personname>Walter Sujansky</personname>
@@ -55,7 +55,7 @@
     enumerations of the specific data elements that may make up the
     observation, the datatypes used to populate those elements, and which
     elements must be populated in every instantiated object versus optionally
-    populated. <xref linkend="_Ref474327938"/> shows the graphical depiction
+    populated. <xref linkend="_Ref474327938" xrefstyle="select:label"/> shows the graphical depiction
     of an example COM for a blood pressure measurement.</para>
 
     <figure xml:id="_Ref474327938">
@@ -64,7 +64,7 @@
 
       <mediaobject>
         <imageobject>
-          <imagedata contentdepth="300" contentwidth="549"
+          <imagedata width="5.5in"
                      fileref="images/image2.png"/>
         </imageobject>
       </mediaobject>
@@ -82,7 +82,7 @@
           role="underline"><emphasis>standardize</emphasis></emphasis> the
           capture, retrieval, and exchange of clinical observations within and
           between information systems. As seen in <xref
-          linkend="_Ref474327938"/>, even relatively basic observations can
+            linkend="_Ref474327938" xrefstyle="select:label"/>, even relatively basic observations can
           comprise numerous sub-components. Different implementers of clinical
           information systems may model these sub-components and their
           relationships in arbitrarily different ways, which can prevent
@@ -122,7 +122,8 @@
         </listitem>
       </orderedlist>
 
-      <para>Figure 2 shows how COMs serve both of these purposes in an
+      <para><xref
+        linkend="_Ref474505861" xrefstyle="select:label"/> shows how COMs serve both of these purposes in an
       information system. Note how the set of clinical information models
       serves as a “view” or “interface” to all clinical data that may be
       stored by and retrieved from the information system. The design of the
@@ -142,7 +143,7 @@
 
         <mediaobject>
           <imageobject>
-            <imagedata contentdepth="281" contentwidth="435"
+            <imagedata width="4in"
                        fileref="images/image3.png"/>
           </imageobject>
         </mediaobject>
@@ -165,7 +166,7 @@
         <para><link
         xlink:href="http://www.openehr.org/what_is_openehr">http://www.openehr.org/what_is_openehr</link>.</para>
       </footnote> offers one such architecture that is relatively complete and
-    mature, so it serves as a good example. <xref linkend="_Ref474334719"/>
+      mature, so it serves as a good example. <xref linkend="_Ref474334719" xrefstyle="select:label"/>
     illustrates the components of the OpenEHR architecture, which are further
     described below.</para>
 
@@ -174,7 +175,7 @@
 
       <mediaobject>
         <imageobject>
-          <imagedata contentdepth="230" contentwidth="474"
+          <imagedata width="4in"
                      fileref="images/image4.png"/>
         </imageobject>
       </mediaobject>
@@ -194,7 +195,7 @@
       Collectively, these constructs define the general building blocks
       available to construct more detailed models for representing clinical
       observations, actions, and other data in EHRs. <xref
-      linkend="_Ref474335678"/> shows the constructs of the OpenEHR reference
+        linkend="_Ref474335678" xrefstyle="select:label"/> shows the constructs of the OpenEHR reference
       model and how they are hierarchically organized to create the
       “scaffolding” for patient records.</para>
 
@@ -203,7 +204,7 @@
 
         <mediaobject>
           <imageobject>
-            <imagedata contentdepth="314" contentwidth="413"
+            <imagedata width="4in"
                        fileref="images/image5.png"/>
           </imageobject>
         </mediaobject>
@@ -227,7 +228,7 @@
 
       <para>Archetypes are clinical object models that specify:</para>
 
-      <orderedlist>
+      <orderedlist spacing="compact">
         <listitem>
           <para>the set of Elements that may be used to represent various
           kinds of observations</para>
@@ -250,12 +251,12 @@
 
       <para>The values of Elements, themselves, may be collections of other
       Elements (“Clusters”) or instances of other Archetypes (effectively,
-      nested Archetypes). <xref linkend="_Ref474337532"/> shows the graphical
+      nested Archetypes). <xref linkend="_Ref474337532" xrefstyle="select:label"/> shows the graphical
       representation of an OpenEHR archetype.</para>
 
       <para>For primitive Elements, the Archetype may define further
       constraints that define how the Element may be populated, as shown in
-      the callouts of <xref linkend="_Ref474337532"/>. For example, the value
+      the callouts of <xref linkend="_Ref474337532" xrefstyle="select:label"/>. For example, the value
       of the “Systolic” Element in the Blood Pressure Artifact is specified to
       be a “Quantity” datatype, to represent the property of “Pressure”, and
       to be recorded using the units of measure “mm[Hg]”. Similarly, the
@@ -268,7 +269,7 @@
 
         <mediaobject>
           <imageobject>
-            <imagedata contentdepth="341" contentwidth="498"
+            <imagedata width="6in"
                        fileref="images/image6.png"/>
           </imageobject>
         </mediaobject>
@@ -276,14 +277,14 @@
 
       <para>OpenEHR Archetypes must be defined using only the constructs of
       the underlying Reference Model, as shown in <xref
-      linkend="_Ref474334719"/>. This constraint ensures that the Archetypes
+        linkend="_Ref474334719" xrefstyle="select:label"/>. This constraint ensures that the Archetypes
       may be stored and processed by the underlying database and application
       implementations, which are otherwise loosely bound to the specific
       structures of the Archetypes themselves.</para>
 
       <para>The OpenEHR framework uses a specific structured language to
       define Archetypes, the Archetype Definition Language (ADL). <xref
-      linkend="_Ref474337532"/> shows the graphical rendering of an Archetype,
+        linkend="_Ref474337532" xrefstyle="select:label"/> shows the graphical rendering of an Archetype,
       although the actual definition is specified using a text-based ADL
       expression (not shown). Other Model-Driven Development frameworks, of
       course, may use different languages for defining COMs and different
@@ -320,9 +321,9 @@
       purpose-specific data structures called “Templates”. Templates may then
       drive the automated generation of computing artifacts used to collect,
       retrieve, or export clinical observations (see <xref
-      linkend="_Ref474334719"/>).</para>
+        linkend="_Ref474334719" xrefstyle="select:label"/>).</para>
 
-      <para><xref linkend="_Ref474415737"/> shows an example OpenEHR Template
+      <para><xref linkend="_Ref474415737" xrefstyle="select:label"/> shows an example OpenEHR Template
       that represents the information captured during an initial visit to a
       heart failure clinic. Note that the template combines a number of
       Archetypes, such as Blood Pressure, Pulse, and Full Blood Count, as well
@@ -335,13 +336,13 @@
 
         <mediaobject>
           <imageobject>
-            <imagedata contentdepth="238" contentwidth="697"
+            <imagedata width="6in"
                        fileref="images/image7.png"/>
           </imageobject>
         </mediaobject>
       </figure>
 
-      <para>Although not shown in <xref linkend="_Ref474415737"/>, Templates
+      <para>Although not shown in <xref linkend="_Ref474415737" xrefstyle="select:label"/>, Templates
       may also include additional constraints applied to their constituent
       Archetypes. Such constraints may entail the inclusion of only a subset
       of the Archetype’s Elements, the allowance of only a subset of the coded
@@ -351,17 +352,17 @@
       collected or retrieved using Templates that contain the Archetype
       conform to the Archetype’s underlying constraints.</para>
 
-      <para>For example, <xref linkend="_Ref474416536"/> shows a graphical
+      <para>For example, <xref linkend="_Ref474416536" xrefstyle="select:label"/> shows a graphical
       user interface (“Screen Form”) for data entry generated from the
-      heart-failure Template in <xref linkend="_Ref474415737"/>. Because the
+      heart-failure Template in <xref linkend="_Ref474415737" xrefstyle="select:label"/>. Because the
       Template design constrained the Blood Pressure Archetype to include only
       the “Systolic” and “Diastolic” Elements (as opposed to the full set of
-      Elements shown in <xref linkend="_Ref474337532"/>), the Screen Form
+      Elements shown in <xref linkend="_Ref474337532" xrefstyle="select:label"/>), the Screen Form
       displays only those two Elements. Note that the display includes the
       units of measure and allowed value ranges specified for the “Systolic”
       and “Diastolic” Elements, as derived from the complete Archetype. In
       this manner, all data collected via Screen Forms generated from the
-      Template in <xref linkend="_Ref474415737"/> will conform to the
+      Template in <xref linkend="_Ref474415737" xrefstyle="select:label"/> will conform to the
       constraints specified within the Archetypes that the Template includes.
       This aspect of Model Driven Development allows the observation modeling
       features and constraints that are formally specified in Archetypes to be
@@ -375,7 +376,7 @@
 
         <mediaobject>
           <imageobject>
-            <imagedata contentdepth="172" contentwidth="697"
+            <imagedata width="6in"
                        fileref="images/image8.png"/>
           </imageobject>
         </mediaobject>
@@ -392,7 +393,7 @@
       observations. Rather, querying requires knowledge of only the
       Archetypes, the underlying Reference Model, and any controlled
       terminologies used in the definition of Archetypes (See <xref
-      linkend="_Ref474421318"/> for a graphical representation of these
+        linkend="_Ref474421318" xrefstyle="select:label"/> for a graphical representation of these
       dependencies).</para>
 
       <figure xml:id="_Ref474421318">
@@ -401,7 +402,7 @@
 
         <mediaobject>
           <imageobject>
-            <imagedata contentdepth="233" contentwidth="480"
+            <imagedata width="4in"
                        fileref="images/image9.png"/>
           </imageobject>
         </mediaobject>
@@ -412,7 +413,7 @@
       Archetypes are combined and further constrained in Templates). Further,
       none of the navigational elements of Templates (such as the grouping of
       Archetypes into a “Physical Exam” category, as shown in <xref
-      linkend="_Ref474415737"/>) influence the semantics of the Archetype data
+        linkend="_Ref474415737" xrefstyle="select:label"/>) influence the semantics of the Archetype data
       collected via Templates. Specifically, the semantics of a clinical
       observation represented by an Archetype should exist independently of
       any encompassing navigational or organizational category in which that
@@ -423,8 +424,8 @@
       medical record in which the Archetype instances were recorded. These
       named sub-parts of a record, such as “Problem List” and “Medication
       Order List,” are also Archetypes defined to specialize the “Section”
-      class of the Reference Model (see Section <xref
-      linkend="_Ref474420488"/>).</para>
+      class of the Reference Model (see <xref
+        linkend="_Ref474420488" xrefstyle="select:label"/>).</para>
 
       <para>Finally, queries may also reference the terminology model from
       which specific codes were drawn when defining clinical observation
@@ -521,7 +522,7 @@
 
       <para>Based on these abstract components of a clinical observation, the
       same observation can be modeled in different ways. The examples in <xref
-      linkend="_Ref474687508"/> show reasonable variations in the use of
+        linkend="_Ref474687508" xrefstyle="select:label"/> show reasonable variations in the use of
       aspect, value, and context to represent the same observation
       semantics.</para>
 
@@ -530,12 +531,12 @@
 
         <para><inlinemediaobject>
             <imageobject>
-              <imagedata contentdepth="107" contentwidth="307"
+              <imagedata width="3in"
                          fileref="images/image10.png"/>
             </imageobject>
           </inlinemediaobject><inlinemediaobject>
             <imageobject>
-              <imagedata contentdepth="104" contentwidth="315"
+              <imagedata width="3in"
                          fileref="images/image11.png"/>
             </imageobject>
           </inlinemediaobject></para>
@@ -555,8 +556,16 @@
           Aspect is explicitly specified; a Value, with possible qualifiers is
           always specified; a Context is optionally specified. Example:</para>
 
-          <para>Aspect = NULL Value = (Asthma, with type = intrinsic, with
-          severity = mild, with status = active)</para>
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para>
+                Aspect = NULL
+              </para>
+            </listitem>
+            <listitem>
+              <para>Value = (Asthma, with type = intrinsic, with severity = mild, with status = active)</para>
+            </listitem>
+          </itemizedlist>
 
           <para>This pattern assumes that, for every Value, the Aspect of the
           patient that is being described is implicit and unambiguous, and
@@ -574,12 +583,22 @@
           <para><emphasis role="underline">Evaluation</emphasis> pattern. An
           Aspect is always specified; a Value, with possible qualifiers is
           always specified; a Context is optionally specified. Example:</para>
-
-          <para>Aspect = Serum LDL Cholesterol Value = (185, with
-          units-of-measure = mmHg)</para>
-
-          <para>Context = Fasting</para>
-
+          
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para>
+                Aspect = Serum LDL Cholesterol
+              </para>
+            </listitem>
+            <listitem>
+              <para>Value = (185, with units-of-measure = mmHg)</para>
+            </listitem>
+            <listitem>
+              <para>Context = Fasting</para>
+            </listitem>
+            
+          </itemizedlist>
+          
           <para>This pattern explicitly specifies the Aspect and considers it
           the “question” that the observation is addressing. The Value
           constitutes the “answer” to the question. The pattern is most
@@ -594,13 +613,28 @@
           Aspect, with possible qualifiers, is always specified; a Value, with
           possible qualifiers is always specified; a Context is optionally(but
           rarely) specified. Examples:</para>
-
-          <para>Aspect = Diagnosis Value = (Asthma, with type = intrinsic,
-          with severity = mild, with status = active)</para>
-
-          <para>Aspect = Serum LDL Cholesterol, with Fasting-State = True
-          Value = (185, with units-of-measure = mg/dL)</para>
-
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para>
+                Aspect = Diagnosis
+              </para>
+            </listitem>
+            <listitem>
+              <para>Value = (Asthma, with type = intrinsic, with severity = mild, with status = active)</para>
+            </listitem>
+          </itemizedlist>
+          
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para>
+                Aspect = Serum LDL Cholesterol, with Fasting-State = True
+              </para>
+            </listitem>
+            <listitem>
+              <para>Value = (185, with units-of-measure = mg/dL)</para>
+            </listitem>
+          </itemizedlist>
+          
           <para>This pattern is the most general and can be applied equally to
           symptoms, findings, diagnoses, test results, scoring instruments,
           and quantitative characteristics. It does require, however, that an
@@ -623,10 +657,8 @@
       concepts are the properties of Understandability, Reproducibility, and
       Usability<footnote xml:id="__FN6__">
           <para>Walker D. GP Vocabulary Project—Stage 2 Report: SNOMED
-          Clinical Terms</para>
-
-          <para>(SNOMED CT); November, 2004. Available from: <link
-          xlink:href="https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd">https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd</link>.</para>
+          Clinical Terms (SNOMED CT); November, 2004. Available from: <link
+            xlink:href="https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd">https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd</link>.</para>
         </footnote>, defined as follows:</para>
 
       <itemizedlist>
@@ -657,7 +689,7 @@
       clinical observations as <emphasis>standardized</emphasis>
       representations of clinical information that can be shared by different
       software modules and information systems. As illustrated in <xref
-      linkend="_Ref474505861"/>, multiple software modules may use the same
+        linkend="_Ref474505861" xrefstyle="select:label"/>, multiple software modules may use the same
       clinical observation models to implement distinct functions. To ensure
       that the creation, use, and exchange of clinical data is done uniformly,
       the clinical object models must not vary according to the contexts in
@@ -667,7 +699,7 @@
       <para>To help ensure reproducibility, modelers should follow at least
       two guidelines when creating clinical observation models: Avoid
       arbitrary variation and explicitly represent clinically relevant
-      distinctions. <xref linkend="_Ref474506327"/> illustrates relevant
+      distinctions. <xref linkend="_Ref474506327" xrefstyle="select:label"/> illustrates relevant
       examples and counterexamples of these guidelines. Note that the first
       example shows three different modeling patterns for the same type of
       observation. In this case, it would be preferable to model all
@@ -683,13 +715,13 @@
 
         <mediaobject>
           <imageobject>
-            <imagedata contentdepth="224" contentwidth="374"
+            <imagedata width="4in"
                        fileref="images/image12.png"/>
           </imageobject>
         </mediaobject>
       </figure>
 
-      <para><xref linkend="_Ref474689633"/> shows a poorly designed clinical
+      <para><xref linkend="_Ref474689633" xrefstyle="select:label"/> shows a poorly designed clinical
       observation model that violates the reproducibility criterion. Using
       this model, the family history of a particular problem or diagnosis
       could be represented in two different ways, depending on the user’s
@@ -705,7 +737,7 @@
 
         <mediaobject>
           <imageobject>
-            <imagedata contentdepth="336" contentwidth="649"
+            <imagedata width="6in"
                        fileref="images/image13.png"/>
           </imageobject>
         </mediaobject>
@@ -723,8 +755,8 @@
         <listitem>
           <para><emphasis role="underline">Standardize on a single design
           pattern</emphasis> for all clinical observation models (i.e., either
-          the Assertion, Evaluation, or Belief pattern described in Sec. <xref
-          linkend="_Ref474506814"/>). This approach may facilitate the tasks
+          the Assertion, Evaluation, or Belief pattern described in <xref
+            linkend="_Ref474506814" xrefstyle="select:label"/>). This approach may facilitate the tasks
           of data analysts and software developers, who will need to learn
           many clinical observation models to use them effectively in
           application development, CDS rule design, clinical measure
@@ -732,8 +764,8 @@
 
           <para>With this option, the “Belief” pattern is likely preferred, as
           it is the most generic and supports all manner of clinical
-          observations, as described in Sec. <xref
-          linkend="_Ref474506814"/>.</para>
+          observations, as described in <xref
+            linkend="_Ref474506814" xrefstyle="select:label"/>.</para>
         </listitem>
 
         <listitem>

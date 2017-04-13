@@ -8,7 +8,8 @@
 
     <artifactId>isaacs-komet-book</artifactId>
 
-    <name>ISAAC's KOMET Book</name>
+    <name>ISAAC's KOMET book</name>
+    <description>ISAAC's KOMET in html and pdf book form, assembled from dependencies.</description>
     <packaging>pom</packaging>
     
     <properties>
@@ -125,7 +126,7 @@
                                 ${project.build.directory}/extracted-dependencies/${project.groupId}/docbook-customization/fo/fop.xconf </externalFOPConfiguration>
                             <draftWatermarkImage>
                                 ${project.build.directory}/extracted-dependencies/${project.groupId}/docbook-customization/images/draft.svg </draftWatermarkImage>
-                            <targetDirectory>${project.build.directory}/docbook</targetDirectory>
+                            <targetDirectory>${project.build.directory}/site/docbook</targetDirectory>
                         </configuration>
                     </execution>
                 </executions>

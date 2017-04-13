@@ -8,6 +8,10 @@
 
     <artifactId>solor</artifactId>
     <packaging>pom</packaging>
+    <name>SOLOR</name>
+    <description>Documentation relating to the integration of SNOMED, Laboratory Observations, and RxNorm
+       into a single integrated resource. 
+    </description>
 
     <properties>
         <docbook.root>${project.artifactId}.xml</docbook.root>
@@ -74,7 +78,7 @@
                             <draftWatermarkImage>
                                 ${project.build.directory}/extracted-dependencies/${project.groupId}/docbook-customization/images/draft.svg
                             </draftWatermarkImage>
-                            <targetDirectory>${project.build.directory}/docbook</targetDirectory>
+                            <targetDirectory>${project.build.directory}/site/docbook</targetDirectory>
                         </configuration>
                     </execution>
                 </executions>

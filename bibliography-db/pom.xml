@@ -8,7 +8,8 @@
 
     <artifactId>bibliography-db</artifactId>
 
-    <name>bibliography-db</name>
+    <name>Bibliography database</name>
+    <description>Bibliography content for ISSAC's KOMET</description>
     <packaging>pom</packaging>
     <properties>
         <docbook.root>bibliography.xml</docbook.root>
@@ -76,7 +77,7 @@
                             <draftWatermarkImage>
                                 ${project.build.directory}/extracted-dependencies/${project.groupId}/docbook-customization/images/draft.svg
                             </draftWatermarkImage>
-                            <targetDirectory>${project.build.directory}/docbook</targetDirectory>
+                            <targetDirectory>${project.build.directory}/site/docbook</targetDirectory>
                         </configuration>
                     </execution>
                 </executions>

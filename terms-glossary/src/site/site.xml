@@ -1,27 +1,29 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
-<project name="Maven" xmlns="http://maven.apache.org/DECORATION/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
-  <bannerLeft>
-    <name>Maven</name>
-    <src>http://maven.apache.org/images/apache-maven-project.png</src>
-    <href>http://maven.apache.org/</href>
-  </bannerLeft>
-  <bannerRight>
-    <src>http://maven.apache.org/images/maven-small.gif</src>
-  </bannerRight>
-
-  <body>
-    <links>
-      <item name="Apache" href="http://www.apache.org/" />
-      <item name="Maven 1.0" href="http://maven.apache.org/"/>
-      <item name="Maven 2" href="http://maven.apache.org/maven2/"/>
-    </links>
-
-    <menu name="Maven 2.0">
-      <item name="APT Format" href="format.html"/>
-      <item name="FAQ" href="faq.html"/>
-      <item name="Xdoc Example" href="xdoc.html"/>
-    </menu>
-  </body>
+<project xmlns="http://maven.apache.org/DECORATION/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.1.0 http://maven.apache.org/xsd/decoration-1.1.0.xsd">
+   <skin>
+      <groupId>org.apache.maven.skins</groupId>
+      <artifactId>maven-fluido-skin</artifactId>
+      <version>1.6</version>
+   </skin>
+   <custom>
+      <fluidoSkin>
+         <breadcrumbDivider>»</breadcrumbDivider>
+         <copyrightClass>pull-left</copyrightClass>
+         <sourceLineNumbersEnabled>false</sourceLineNumbersEnabled>
+      </fluidoSkin>
+   </custom>
+   <body>
+      <menu ref="parent"/>
+      <menu name="DocBook output">
+         <item name="${project.name} html" href="./docbook/${project.artifactId}.html"/>
+         <item name="${project.name} pdf" href="./docbook/${project.artifactId}.pdf"/>
+      </menu>
+      <menu ref="reports"/>
+   </body>
+   <version position="bottom"/>
+   <publishDate position="right" format="yyyy-MM-dd HH:mm:ss z"/>
+   <poweredBy>
+    <logo name="Maven" href="http://maven.apache.org/"
+          img="http://maven.apache.org/images/logos/maven-feather.png"/>
+  </poweredBy>
 </project>

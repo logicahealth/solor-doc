@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0">
+    <title>Principia</title>
+    <section>
+        <title>Observation</title>
+        <para>Definition: Observation is the active acquisition of information from a primary
+            source. In living beings, observation employs the senses. In science, observation can
+            also involve the recording of data via the use of instruments. The term may also refer
+            to any data collected during the scientific activity. The human mind, and modern
+            scientific instruments can extensively process "observations" before they are
+            consciously surfaced to the observer. This unconscious or automated pre-processing of
+            data makes answering the question as to where in the data processing chain "observing"
+            ends and "drawing conclusions” begins difficult. For our purposes, we do not try to draw
+            a line between “observing” and “drawing conclusions” because for our analysis purposes,
+            the distinction is immaterial.  <link
+                xlink:href="https://www.revolvy.com/main/index.php?s=Qualitative%20property&amp;item_type=topic"
+            /></para>
+    </section>
+    <section>
+        <title>Anatomy</title>
+        <para>Definition: Standard (anatomy)…</para>
+        <para>Definition: Measurement consists of using observation to compare the phenomenon being
+            observed to a standard [not a normal range]. Measurement asserts something. These
+            standards can be qualitative, that is, only the absence or presence of a property is
+            noted, or quantitative if a numerical value is attached to the
+            observed phenomenon by counting or measuring. The standard of comparison can be an
+            artifact, process, or definition which can be duplicated or shared by all observers, if
+            not by direct measurement then by counting the number of aspects or properties of the
+            object that are comparable to the standard. Measurement reduces an observation to a
+            number which can be recorded, and two observations which result in the same number are
+            equal within the resolution of the process.</para>
+        <para>Technique: Transform qualitative values to quantitative properties Function(x). </para>
+        <para>[Age more than 40 years] scalar, [african american]:non-disjoint [male]:disjoint
+            classs</para>
+    </section>
+    <section>
+        <title>Concerns</title>
+        <section>
+            <title>Concern 1:</title>
+            <para> Observation measurement</para>
+            <para>We need a simple, and universally applicable way to represent  </para>
+            <para> Technique 1.1: A quantitative approach (limit to Analysis Normal Form) </para>
+            <para>As we’ve discussed: </para>
+            <para>[0,0] absent [0,3] possibly present, but no more than 3 [0,∞] unknown [1,∞]
+                present [4-6] 4-6 </para>
+        </section>
+       <section> <title>Concern 2:</title> <para> Identification of equivalent Observation Results Identification of
+            equivalence is imperative to enable data analytics, decision support, and other
+            secondary uses of data. </para>
+        <para>Technique 2.05: Quantitative/Qualitative Concepts A transform function that will
+            normalize a qualitative observation to a quantitative observation. </para>
+        <para>Define F(qual) -> quant</para>
+        <para>Technique 2.1 Inverse concepts Concepts which are considered opposites of another.
+            Loosely based on the idea of a multiplicative inverse. Cooperative = 1/Uncooperative.
+            Define Cooperative as the LEft Inverse Form (<acronym>LEIF</acronym>),
+            and Uncooperative as the Right Inverse Form (<acronym>RIF</acronym>). We create
+            editorial guidelines as to what constitutes a <acronym>LEIF</acronym> vs a
+                <acronym>RIF</acronym> concept. We start out with a straw man rule that “Concepts
+            that assert the positive are <acronym>LEIF</acronym> concepts, Concepts that are the
+            inverse of a <acronym>LEIF</acronym> concept are <acronym>RIF</acronym> concepts.” By
+            generically stating right and left hand sides of the inverse function Cooperative
+            inverse Uncooperative -> <acronym>LEIF</acronym> inverse <acronym>RIF</acronym>, we have
+            a semantically unburdened categorization, so <acronym>RIF</acronym> concepts are not
+            required to negate something… And we are not bound specifically to our first straw-man
+            rule of “asserting the positive” if we find better discriminators. </para>
+        <para>F(<acronym>RIF</acronym>) -> <acronym>LEIF</acronym></para>
+        <para>We then work to move RIF concepts to a set of RIF extensions. <acronym>RIF</acronym>
+            concepts will be excluded from the normalized form, and must be converted to
+                <acronym>LEIF</acronym> concepts as part of the normalization process. </para>
+        <para>The Inverse function will apply specifically to an Observation Result. We won’t try to
+            apply it to an expression for the purposes of using that expression in
+            classification. </para>
+        <para>Technique 2.2 <acronym>OWL EL</acronym> profile definitions and classification of
+            normalized form</para>
+        <para><acronym>OWL EL</acronym> profile with concrete domains supports multiple sufficient
+            sets, and necessary conditions, and an ability to include concrete domains, such as
+            ingredient strength, Concepts which have provably equivalent definitions by an
+            appropriate classifier are considered equivalent.  </para>
+        <para>Technique 2.3 Equivalence by generalization and subsumption </para>
+        <para>Technique 2.4 Equivalence among post-coordinated and pre-coordinated expressions
+             </para>
+        <para>All post-coordinated expressions are converted to concepts with a single identifiers,
+            and the equivalence of the post-coordinated and pre-coordinated expressions is
+            determined through the classifier's computation of logical equality, and through use of
+            the is-a taxonomy the classifier computes  </para>
+        <para>Technique 2.5: Multiple sufficient sets, independent of the necessary sets</para>
+        <para>Technique 2.6: Concrete domains</para>
+        <para>Technique 2.v: Volume (hypo/hyper) Technique 2.w: Pressure (hypo/hyper) Technique 2.y:
+            temperature (hypo/hyper) </para></section>
+       <section> <title>Concern 3:</title><para> Identification of logical inconsistencies</para>
+        <para/></section>
+    </section>
+</chapter>

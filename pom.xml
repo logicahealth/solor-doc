@@ -41,15 +41,10 @@
 
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
    </properties>
    <build>
       <pluginManagement>
          <plugins>
-            <plugin>
-               <artifactId>maven-javadoc-plugin</artifactId>
-               <version>${javadoc.plugin.version}</version>
-            </plugin>
             <plugin>
                <groupId>external.atlassian.jgitflow</groupId>
                <artifactId>jgitflow-maven-plugin</artifactId>
@@ -140,11 +135,6 @@
                   <plugin>
                      <artifactId>maven-project-info-reports-plugin</artifactId>
                      <version>2.9</version>
-                  </plugin>
-                  <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-javadoc-plugin</artifactId>
-                     <version>2.10.4</version>
                   </plugin>
                   <plugin>
                      <groupId>org.apache.maven.plugins</groupId>

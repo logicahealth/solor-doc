@@ -784,14 +784,13 @@ git push -u origin master</programlisting>
                     </step>
                     <step>
                         <para xml:id="para_f35a8931-340e-4c56-8494-cbcce5df6959">Release the
-                            project. </para>
-                        <programlisting xml:id="programlisting_d55c3f86-6f0e-484e-9f26-cc31d05c29ba">$ mvn -DaltDeploymentRepository=central::default::http://artifactory.informatics.com/artifactory/libs-release-local \
-  jgitflow:release-start jgitflow:release-finish</programlisting>
+                            project. (put altDeploymentRepository in a profile named
+                            release-deploy)</para>
+                        <programlisting xml:id="programlisting_d55c3f86-6f0e-484e-9f26-cc31d05c29ba">$ mvn -P release-deploy jgitflow:release-start jgitflow:release-finish</programlisting>
                         <para xml:id="para_828f9974-f448-408f-9797-677f712b02e5">If you know the
                             release and development versions, you can specify them directly, so that
                             you do not have to interactively enter
-                            them:<programlisting xml:id="programlisting_62935290-1aaa-42d2-8cf7-73a5d7ef45a1">$ mvn -DaltDeploymentRepository=central::default::http://artifactory.informatics.com/artifactory/libs-release-local \
-      jgitflow:release-start jgitflow:release-finish \
+                            them:<programlisting xml:id="programlisting_62935290-1aaa-42d2-8cf7-73a5d7ef45a1">$ mvn -P release-deploy jgitflow:release-start jgitflow:release-finish \
       -DreleaseVersion=3.08 -DdevelopmentVersion=3.09-SNAPSHOT</programlisting></para>
                     </step>
                     <step xml:id="step_c8dec792-0854-4ff5-9394-d1fe7328c662">

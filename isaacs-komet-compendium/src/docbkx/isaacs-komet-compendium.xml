@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <info>
+        <title>ISAAC's KOMET</title>
+        <subtitle>Architecture&#160;Centric Knowledge&#160;Management</subtitle>
+        <edition>Compendium Edition</edition>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Newton_Comet1680.jpg" format="jpg"/>
+            </imageobject>
+        </mediaobject>
+        <editor>
+            <personname>
+                <firstname>Keith</firstname>
+                <othername role="middle">Eugene</othername>
+                <surname>Campbell</surname>
+            </personname>
+            <affiliation>
+                <shortaffil>VHA</shortaffil>
+                <jobtitle>National Director of Informatics Architecture</jobtitle>
+                <orgname>US Veterans Health Administration</orgname>
+                <orgdiv>Office of Informatics and Analytics</orgdiv>
+            </affiliation>
+        </editor>
+        <collab>
+            <personname>
+                <firstname>Steve</firstname>
+                <surname>Brown</surname>
+            </personname>
+            <affiliation>
+                <shortaffil>VHA</shortaffil>
+                <jobtitle>National Director, Knowledge Based Systems</jobtitle>
+                <orgname>US Veterans Health Administration</orgname>
+                <orgdiv>Office of Informatics and Analytics</orgdiv>
+            </affiliation>
+        </collab>
+    </info>
+    <acknowledgements>
+        <title/>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Newton_Comet1680.jpg" format="jpeg" align="center"
+                    width="6in" scalefit="1"/>
+            </imageobject>
+        </mediaobject>
+        <para>C/1680 V1, also called the Great Comet of 1680, Kirch's Comet, and Newton's Comet, has
+            the distinction of being the first comet discovered by telescope. The orbit of C/1680
+            V1, fit to a parabola, as shown in Isaac Newton's <emphasis>Principia</emphasis>. Isaac
+            Newton used observations of C/1680 V1 to test and verify Kepler's laws of planetary
+            motion. </para>
+    </acknowledgements>
+    <part>
+        <title>Vision and Goal</title>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+    
+    <part>
+        <title>Problem Statement</title>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/life-critical.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/challenges.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+    
+    <part>
+        <title>Opportunities</title>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/menagerie.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" 
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/boundaries.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+    <part>
+        <title>Design approach</title>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/requirements-driven.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/cem-cimi/cem-cimi.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>  
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/clin-obs-modeling-chapter/clin-obs-modeling-chapter.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>  
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/architecture-centric.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/iterative-incremental.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+    <part>
+        <title>The SOLOR system</title>
+        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/modules.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/snomed.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/loinc.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/rxnorm.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/solor-enhancements.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/editorial-rules.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+
+    <part>
+        <title>Reference implementation</title>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/devops.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/specifications.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/services.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/tools.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/content.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+
+    <part>
+        <title>Appendices</title>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/use-cases.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/requirements-enumeration.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/diagram-spec.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/solor-references.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+
+    <xi:include
+        href="../../target/extracted-dependencies/sh.isaac.komet.doc/terms-glossary/terms-glossary.xml"
+        xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+    <index type="requirement">
+        <title>Requirement Index</title>
+    </index>
+    <index type="general">
+        <title>General Index</title>
+    </index>
+    <colophon>
+        <title>Colophon</title>
+        <formalpara>
+            <title>Document generation</title>
+            <para>This document was authored in DocBook 5.1, and generated with Apache Maven.
+                Document modules are defined using Maven, and docbook xml files are published for
+                each of these modules using standard maven methods and maven-compatible artifact
+                repositories. These modules are then declared as maven dependencies for other
+                document projects. The modules are unzipped and placed in the target directory,
+                where they can be selectively included in dependent documents using the XIncludes
+                methods. </para>
+        </formalpara>
+        <formalpara>
+            <title>Content management</title>
+            <para>Distributed development is supported using git repositories to store document
+                modules. </para>
+        </formalpara>
+        <formalpara>
+            <title>Concepts</title>
+            <para>Concepts mentioned in this book are included in <xref linkend="solor_references"
+                />, and concepts, such as <xref linkend="f251d463-f346-340a-b17c-d4a4622c7a91"
+                    annotations="systolic blood pressure (observable entity)"/>. The xml:id of the
+                concept is a UUID of the concept. xref elements should use the annotations attribute
+                to provide a human readable representation of the concept, preferably the fully
+                specified name of the concept. In <xref linkend="solor_references"/>, concepts are
+                represented as glossentry elements, with the fully-specified name of the concept
+                represented as a glossterm element, and the preferred name of the concept
+                represented as an acronym </para>
+        </formalpara>
+        <formalpara>
+            <title>Requirement</title>
+            <para>Requirements have been given their own element tag, &lt;requirement&gt; so that
+                they can have an independent table of contents, but still have the structure of an
+                &lt;example&gt; element.</para>
+        </formalpara>
+        <formalpara>
+            <title>Editorial Rules</title>
+            <para>Editorial Rules have been given their own element tag, &lt;editorial-rule&gt;, so
+                that they can have an independent table of contents, but still have the structure of
+                an &lt;example&gt; element.</para>
+        </formalpara>
+
+    </colophon>
+
+</book>

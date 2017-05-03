@@ -1,44 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>gov.vha.isaac</groupId>
-        <artifactId>isaacs-komet-doc</artifactId>
-        <version>0.13-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
-    <artifactId>doc-logging</artifactId>
-    <name>Document generation logging</name>
-    <description>Log4j resources to enable logging of DocBook generation and rendering. </description>
-    <packaging>pom</packaging>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach</id>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>src/main/assembly/log-config-assembly.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-            </plugin>            
-        </plugins>
-    </build>
-    <dependencies>
-        <dependency>
-            <groupId>gov.vha.isaac</groupId>
-            <artifactId>isaacs-komet-doc</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-        </dependency>
-    </dependencies>
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>sh.isaac.komet.doc</groupId>
+      <artifactId>isaacs-komet-doc</artifactId>
+      <version>0.13-SNAPSHOT</version>
+   </parent>
+   <artifactId>doc-logging</artifactId>
+   <name>ISAAC's KOMET: Document generation logging</name>
+   <description>Log4j resources to enable logging of DocBook generation and rendering. </description>
+   <packaging>pom</packaging>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>attach</id>
+                  <configuration>
+                     <descriptors>
+                        <descriptor>src/main/assembly/log-config-assembly.xml</descriptor>
+                     </descriptors>
+                  </configuration>
+                  <goals>
+                     <goal>single</goal>
+                  </goals>
+                  <phase>package</phase>
+               </execution>
+            </executions>
+         </plugin>            
+      </plugins>
+   </build>
+   <dependencies>
+      <dependency>
+         <groupId>gov.vha.isaac</groupId>
+         <artifactId>isaacs-komet-doc</artifactId>
+         <version>${project.version}</version>
+         <type>pom</type>
+      </dependency>
+   </dependencies>
 </project>

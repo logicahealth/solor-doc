@@ -1,43 +1,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>gov.vha.isaac</groupId>
-        <artifactId>isaacs-komet-doc</artifactId>
-        <version>0.13-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
-    <artifactId>docbook-customization</artifactId>
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>sh.isaac.komet.doc</groupId>
+      <artifactId>isaacs-komet-doc</artifactId>
+      <version>0.13-SNAPSHOT</version>
+   </parent>
+   <artifactId>docbook-customization</artifactId>
 
-    <packaging>pom</packaging>
-    <name>Docbook customization</name>
-    <description>Extensions to DocBook 5.1 to support structured requirements and editorial rules.</description>
-    <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>doc-logging</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-docbook-customization</id>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>src/main/assembly/docbook-customization.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+   <packaging>pom</packaging>
+   <name>ISAAC's KOMET: Docbook customization</name>
+   <description>Extensions to DocBook 5.1 to support structured requirements and editorial rules.</description>
+   <dependencies>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>doc-logging</artifactId>
+         <version>${project.version}</version>
+      </dependency>
+   </dependencies>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>attach-docbook-customization</id>
+                  <configuration>
+                     <descriptors>
+                        <descriptor>src/main/assembly/docbook-customization.xml</descriptor>
+                     </descriptors>
+                  </configuration>
+                  <goals>
+                     <goal>single</goal>
+                  </goals>
+                  <phase>package</phase>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+   </build>
 </project>

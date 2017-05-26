@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    <modelVersion>4.0.0</modelVersion>
 
-   <groupId>gov.vha.isaac</groupId>
+   <groupId>sh.isaac.komet.doc</groupId>
    <artifactId>isaacs-komet-doc</artifactId>
    <packaging>pom</packaging>
    <version>0.13-SNAPSHOT</version>
-   <name>ISAAC's KOMET Documentation</name>
+   <name>ISAAC's KOMET: (Multi-Module Documentation Project)</name>
    <url>http://informatics-architecture.net/isaacs-komet</url>
    
    <inceptionYear>2015</inceptionYear>
@@ -41,15 +41,10 @@
 
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
    </properties>
    <build>
       <pluginManagement>
          <plugins>
-            <plugin>
-               <artifactId>maven-javadoc-plugin</artifactId>
-               <version>${javadoc.plugin.version}</version>
-            </plugin>
             <plugin>
                <groupId>external.atlassian.jgitflow</groupId>
                <artifactId>jgitflow-maven-plugin</artifactId>
@@ -82,6 +77,28 @@
          </plugins>
       </pluginManagement>
       <plugins>
+         <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.0.2</version>
+            <executions>
+               <execution>
+                  <id>copy-resources</id>
+                  <phase>compile</phase>
+                  <goals>
+                     <goal>copy-resources</goal>
+                  </goals>
+                  <configuration>
+                     <outputDirectory>${project.build.directory}/site/docbook/images</outputDirectory>
+                     <resources>          
+                        <resource>
+                           <directory>${project.basedir}/src/docbkx/images</directory>
+                           <filtering>false</filtering>
+                        </resource>
+                     </resources>              
+                  </configuration>            
+               </execution>
+            </executions>
+         </plugin>
          <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>properties-maven-plugin</artifactId>
@@ -135,37 +152,7 @@
             <artifactId>maven-site-plugin</artifactId>
             <version>3.6</version>
             <configuration>
-               <locales>en</locales>
-               <reportPlugins>
-                  <plugin>
-                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                     <version>2.9</version>
-                  </plugin>
-                  <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-javadoc-plugin</artifactId>
-                     <version>2.10.4</version>
-                  </plugin>
-                  <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-jxr-plugin</artifactId>
-                     <version>2.5</version>
-                     <configuration>
-                        <aggregate>true</aggregate>
-                     </configuration>
-                  </plugin>
-                  <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-surefire-report-plugin</artifactId>
-                     <version>2.19.1</version>
-                  </plugin>
-                  <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-checkstyle-plugin</artifactId>
-                     <version>2.17</version>
-                  </plugin>
-               </reportPlugins>
-               
+               <locales>en</locales>               
             </configuration>
             <executions>
                <execution>
@@ -181,15 +168,16 @@
             <version>1.8</version>
             <executions>
                <execution>
+                  <id>color-banner</id>
                   <phase>post-site</phase>
                   <configuration>
-                     <tasks>
+                     <target>
                         <replace token='div id="banner"' 
                                  value='div id="banner" style="background-color:black;color:white;"' 
                                  dir="${project.build.directory}/site/">
                            <include name="**/*.html"/>
                         </replace>
-                     </tasks>
+                     </target>
                   </configuration>
                   <goals>
                      <goal>run</goal>
@@ -199,7 +187,37 @@
          </plugin>     
       </plugins>
    </build>
+   <reporting>
+      <plugins>
+         <plugin>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>2.9</version>
+            <configuration>
+               <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jxr-plugin</artifactId>
+            <version>2.5</version>
+            <configuration>
+               <aggregate>true</aggregate>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>2.19.1</version>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>2.17</version>
+         </plugin>
+      </plugins>
+   </reporting>
    <modules>
+      <module>cem-cimi</module>
       <module>docbook-customization</module>
       <module>foundation</module>
       <module>design</module>
@@ -207,10 +225,49 @@
       <module>appendices</module>
       <module>bibliography-db</module>
       <module>terms-glossary</module>
-      <module>isaacs-komet-book</module>
       <module>solor</module>
       <module>doc-logging</module>
       <module>clin-obs-modeling</module>
+      <module>isaacs-komet-abridged</module>
+      <module>isaacs-komet-compendium</module>
    </modules>
+   <profiles>
+      <profile>
+         <id>xep-profile</id>
+         <activation>
+            <file>
+               <exists>/Applications/XEP/xep</exists>
+            </file>
+         </activation>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>exec-maven-plugin</artifactId>
+                  <version>1.6.0</version>
+                  <executions>
+                     <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                           <goal>exec</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+                  <configuration>
+                     <executable>/Applications/XEP/xep</executable>
+                     <workingDirectory>${project.basedir}/src/docbkx</workingDirectory>
+                     <successCodes>0,1</successCodes>
+                     <arguments>
+                        <argument>-fo</argument>
+                        <argument>${project.build.directory}/site/docbook/${project.artifactId}.fo</argument>
+                        <argument>-pdf</argument>
+                        <argument>${project.build.directory}/site/docbook/${project.artifactId}.xep.pdf</argument>
+                     </arguments>
+                  </configuration>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
 
+   </profiles>
 </project>

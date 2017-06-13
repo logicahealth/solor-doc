@@ -979,7 +979,7 @@
                     service.</para>
             </section>
             <requirement xml:id="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5">
-                <title xml:id="title_28c92d5e-520f-4314-8fd3-b2c3feb4c798">Requirement B.9. Provide
+                <title xml:id="title_28c92d5e-520f-4314-8fd3-b2c3feb4c798">Provide
                     workflow management service</title>
                 <variablelist xml:id="variablelist_7d0d0cf7-ac44-42da-a3d5-8aebfabb058a">
                     <varlistentry xml:id="varlistentry_0ba28257-47f4-4fc5-ab57-662887583aa2">
@@ -1004,7 +1004,7 @@
                 </variablelist>
             </requirement>
             <requirement xml:id="requirement_c7fce126-81b0-4879-9a79-71ed06662248">
-                <title xml:id="title_b9f0e333-99f3-4d59-9f5c-9c6c944b2f75">Requirement B.10. Run
+                <title xml:id="title_b9f0e333-99f3-4d59-9f5c-9c6c944b2f75">Run
                     workflow management service engine within Java 8 SE</title>
                 <variablelist xml:id="variablelist_8f447e17-07a6-4d31-a8e9-f2b717fd667a">
                     <varlistentry xml:id="varlistentry_07b10e77-663a-46c7-a8cc-a331674019c0">
@@ -1027,7 +1027,7 @@
                 </variablelist>
             </requirement>
             <requirement xml:id="requirement_05d58695-b31a-49c2-bfd9-c71fe06b1862">
-                <title xml:id="title_7aefbbe5-0dd5-4187-bdfd-033f02fae333">Requirement B.11. Deploy
+                <title xml:id="title_7aefbbe5-0dd5-4187-bdfd-033f02fae333">Deploy
                     web service on Java</title>
                 <variablelist xml:id="variablelist_c5107670-9970-4bd4-8f36-dab496059b0d">
                     <varlistentry xml:id="varlistentry_a2b94a2a-371e-45e2-b16b-345661bca9c9">
@@ -1043,13 +1043,52 @@
                                         above)</link>
                                 </emphasis>shall run as a web service deployed on a Java EE 7/Java 8
                                 SE server<emphasis role="italic">
-                                    <link linkend="z6a1d4340-c50d-498e-87a6-ff368e8f600d"
-                                        >(FC-A-3)</link></emphasis>
+                                    <link linkend="6a1d4340-c50d-498e-87a6-ff368e8f600d">(FC-A-3).</link></emphasis>
                             </para>
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
+            <requirement xml:id="requirement_3935bc53-9e5e-4e14-84de-8c0f80d9cff7">
+                <title xml:id="title_tbd">Access through REST API</title>
+                <variablelist xml:id="variablelist_tbd">
+                    <varlistentry xml:id="varlistentry_2c8f2e57-b806-4d5d-9f7b-fb4369c6c7ce">
+                        <term>FC-12</term>
+                        <listitem xml:id="listitem_tbd">
+                            <para xml:id="para_tbd">The Workflow Management Service<indexterm
+                                    type="requirement">
+                                    <primary>FC-12</primary>
+                                    <seealso>Access through REST API</seealso>
+                                </indexterm>
+                                <emphasis role="italic">
+                                    <link linkend="z9a379ceb-51cb-4fd5-b573-009de7012bc5"
+                                        >(FC-9)</link>
+                                </emphasis>shall provide access to workflow services through a
+                                Representational State Transfer (REST) Application Program Interface
+                                    (API)<emphasis role="italic">
+                                    <link linkend="d1bc7caf-ba9e-470d-9bb6-d9e1e7cb0864"
+                                        >(FC-A-4).</link>
+                                </emphasis></para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </requirement>
+            <requirement xml:id="requirement_67108271-5bb4-4ec7-b220-7c33f2502829">
+                <title xml:id="title_tbd">Provide web services human task management capabilities</title>
+                    <variablelist xml:id="variablelist_tbd">
+                        <varlistentry xml:id="variablelistentry_tbd">
+                            <term>FC-13</term>
+                            <listitem xml:id="listitem_tbd">
+                                <para xml:id="para_tbd">The  Workflow Management Service<emphasis role="italic">
+                                    <link linkend="z9a379ceb-51cb-4fd5-b573-009de7012bc5">(FC-9)</link>
+                                </emphasis>shall provide Web Services Human Task (WS-HumanTask)(<link>http://docs.oasis-open.org/bpel4people/ws-humantask-1.1.html
+                                </link>)management capabilities, which shall include the ability to define the type of task, the priority of the task, 
+                                    the data associated with the task, and the ability to assign a task to an individual or a group.</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+            </requirement>
+
             <indexterm type="general">
                 <primary>Project Information System and Management Environment (PRISME)</primary>
             </indexterm>

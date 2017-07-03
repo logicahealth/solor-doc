@@ -705,7 +705,7 @@ db.para.blocks = db.anchor | db.para | db.formalpara | db.simpara
 db.all.blocks =
   (db.nopara.blocks | db.para.blocks | db.extension.blocks)
   | db.annotation
-db.formal.blocks = (db.example | db.figure | db.table | db.requirement) | db.equation
+db.formal.blocks = (db.example | db.figure | db.table | db.requirement | db.editorial-rule) | db.equation
 db.informal.blocks =
   (db.informalexample | db.informalfigure | db.informaltable)
   | db.informalequation
@@ -2313,6 +2313,129 @@ div {
     }
 }
 
+div {
+  db.editorial-rule.role.attribute = attribute role { text }
+  db.editorial-rule.label.attribute = db.label.attribute
+  db.editorial-rule.width.attribute = db.width.characters.attribute
+  db.editorial-rule.pgwide.attribute = db.pgwide.attribute
+  db.editorial-rule.floatstyle.attribute = db.floatstyle.attribute
+  db.editorial-rule.attlist =
+    db.example.role.attribute?
+    & db.common.attributes
+    & db.common.linking.attributes
+    & db.example.label.attribute?
+    & db.example.floatstyle.attribute?
+    & (db.example.width.attribute | db.example.pgwide.attribute)?
+  db.editorial-rule.info = db._info.title.onlyreq
+  db.editorial-rule =
+    
+    ## A formal example, with a title
+    [
+      s:pattern [
+        "\x{a}" ~
+        "               "
+        s:title [ "Element exclusion" ]
+        "\x{a}" ~
+        "               "
+        s:rule [
+          context = "db:editorial-rule"
+          "\x{a}" ~
+          "                  "
+          s:assert [
+            test = "not(.//db:editorial-rule)"
+            "editorial-rule must not occur among the children or descendants of editorial-rule"
+          ]
+          "\x{a}" ~
+          "               "
+        ]
+        "\x{a}" ~
+        "            "
+      ]
+      s:pattern [
+        "\x{a}" ~
+        "               "
+        s:title [ "Element exclusion" ]
+        "\x{a}" ~
+        "               "
+        s:rule [
+          context = "db:editorial-rule"
+          "\x{a}" ~
+          "                  "
+          s:assert [
+            test = "not(.//db:figure)"
+            "figure must not occur among the children or descendants of editorial-rule"
+          ]
+          "\x{a}" ~
+          "               "
+        ]
+        "\x{a}" ~
+        "            "
+      ]
+      s:pattern [
+        "\x{a}" ~
+        "               "
+        s:title [ "Element exclusion" ]
+        "\x{a}" ~
+        "               "
+        s:rule [
+          context = "db:editorial-rule"
+          "\x{a}" ~
+          "                  "
+          s:assert [
+            test = "not(.//db:table)"
+            "table must not occur among the children or descendants of editorial-rule"
+          ]
+          "\x{a}" ~
+          "               "
+        ]
+        "\x{a}" ~
+        "            "
+      ]
+      s:pattern [
+        "\x{a}" ~
+        "               "
+        s:title [ "Element exclusion" ]
+        "\x{a}" ~
+        "               "
+        s:rule [
+          context = "db:editorial-rule"
+          "\x{a}" ~
+          "                  "
+          s:assert [
+            test = "not(.//db:equation)"
+            "equation must not occur among the children or descendants of editorial-rule"
+          ]
+          "\x{a}" ~
+          "               "
+        ]
+        "\x{a}" ~
+        "            "
+      ]
+      s:pattern [
+        "\x{a}" ~
+        "               "
+        rng:title [ "Root must have version" ]
+        "\x{a}" ~
+        "               "
+        s:rule [
+          context = "/db:editorial-rule"
+          "\x{a}" ~
+          "                  "
+          s:assert [
+            test = "@version"
+            "If this element is the root element, it must have a version attribute."
+          ]
+          "\x{a}" ~
+          "               "
+        ]
+        "\x{a}" ~
+        "            "
+      ]
+    ]
+    element editorial-rule {
+      db.editorial-rule.info, db.mathphrase, db.all.blocks?, db.caption?
+    }
+}
 div {
   db.requirement.role.attribute = attribute role { text }
   db.requirement.label.attribute = db.label.attribute

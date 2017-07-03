@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.1">
     <title>The KOMET</title>
-    <para><!--NOTE ABOUT CONTENT: It would be very helpful to have an image that shows the relationship between the ISAAC strategy for the DERIVIATE architecture and the PRISME and KOMET environments--></para>
-    <para>The VA’s Foundational Informatics Architecture – which we call DERIVIATE – is an
+    <para><!--NOTE ABOUT CONTENT: It would be very helpful to have an image that shows the relationship between the ISAAC strategy for the architecture and the PRISME and KOMET environments--></para>
+    <para>The VA’s Informatics Analytic Architecture — which we call ISAAC– is an
         integrative logical architecture, which deliberately builds each new layer upon selected,
-        compatible elements of its underlying components to build a coherent system. The
-        Foundational Informatics Architecture builds primarily upon SNOMED CT, RxNorm, and LOINC by
+        compatible elements of its underlying components to build a coherent system. ISAAC
+       builds primarily upon SNOMED CT, RxNorm, and LOINC by
         integrating their content and semantics, and normalizing the means to identify and version
         components, lexically search, logically define, semantically retrieve, and collaboratively
-        extend. Support for evolutionary change is a critical feature of the Foundational
-        Informatics Architecture (DERIVIATE), given that support for changes in knowledge over time
+        extend. Support for evolutionary change is a critical feature of ISAAC, given that support for changes in knowledge over time
         is a critical aspect of health informatics. </para>
-    <para>The primary goal of the Foundational Informatics Architecture (DERIVIATE) is semantic
+    <para>The primary goal of ISAAC is semantic
         operability (vs. interoperability). Semantic operability is the meaningful (semantic) use of
         data within the various components and uses of a single health IT system (vertical
         integration). Semantic operability is achieved by using a coherent integration of SNOMED CT,
-        RxNorm, and LOINC as the primary building blocks upon which the foundational architecture is
-        based. DERIVIATES's strict separation of concerns enables terminology components, as well as
+        RxNorm, and LOINC as the primary building blocks upon which ISAAC is
+        based. ISAAC strict separation of concerns enables terminology components, as well as
         higher order derived structures such as clinical rules, to undergo evolutionary change
         without requiring changes to the architecture that it resides within. This allows for an
         agile environment with a stable architecture. </para>
-    <para>The lowest 'pad stone' layer of the DERIVIATE architecture is the integrated suite of
+    <para>The lowest layer of ISAAC is the integrated suite of
         standard terminologies including SNOMED CT, RxNorm and LOINC. Two higher layers build upon
-        this terminology 'pad stone'. A Clinical Data layer uses standardized terminology to
+        this terminology foundation. A Clinical Data layer uses standardized terminology to
         describe facts about a patient e.g., "John Doe has PNEUMONIA." A Procedural Knowledge layer
         uses standardized terminology to express biomedical and organizational knowledge,
         independent of any specific patient. For example, "Hydrochlorothiazide treats Hypertension"
@@ -37,8 +35,8 @@
         Specificaiton DSTU 1.3). Tools must also build CDS artifacts that contribute to an ecosystem
         of semantic operability. This necessarily means means building artifacts using
         standards-based “pad stone” building blocks of SNOMED CT, RxNorm and LOINC. CDS knowledge
-        engineering content development tools must create artifacts in the layered approach desribed
-        in DERIVIATE (i.e., tools must build more complex standards-based artifacts by reusing less
+        engineering content development tools must create artifacts using ISAAC's layered approach
+       (i.e., tools must build more complex standards-based artifacts by reusing less
         complex standards-based artifacts as components whenever possible). Tools supporting a
         highly collaborative, integrated and layered knowledge management environment must be
         carefully designed to be highly reusable within a common framework and use experience. </para>
@@ -89,10 +87,10 @@
         </itemizedlist>
         <para>CDS and other knowledge artifacts share many similarities. Certain similarities are
             manifest in their basic components and structure. All CDS and knowledge artifacts should
-            refer to standard terminologies (i.e., the lower layers of DERIVIATE) for the clinical
+            refer to standard terminologies (i.e., the lower layers of ISAAC) for the clinical
             entities and clinical actions comprising the higher order artifact. For example, a CDS
             rule that evaluates if a specific medication is being taken by a patient as a condition
-            for execution should refer to RxNorm medications. DERIVIATE layers more complex
+            for execution should refer to RxNorm medications. ISAAC layers more complex
             artifacts on top of the terminology pad stone and on top of each other. In general, more
             complex layers each specify an artifact-specific syntax to orchestrate terminological
             and other less complex components into the desired higher level artifact. This means

@@ -8,7 +8,7 @@
     xmlns:ns="http://docbook.org/ns/docbook">
     <info>
 <!--        <title>An Architecture for Managing Clinical Decision Support Knowledge Artifacts With Implications for Patient Safety</title> -->
-        <title>An Architecture for Clinical Decision Support</title>
+        <title>Architecture for Managing Knowledge Artifacts</title>
         <subtitle>Principles, Tools and Processes</subtitle>
         <author>
             <personname>Walter Sujansky</personname>
@@ -1076,7 +1076,7 @@
                 <mediaobject>
                     <imageobject>
                         <imagedata fileref="images/image13.png"
-                            width="5.5in"/>
+                            width="2.5in"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -1136,9 +1136,12 @@
                     <emphasis>software failure</emphasis> in a medical device or application may
                 contribute to a patient-safety <emphasis>hazard</emphasis>, which may cause actual
                 patient <emphasis>harm</emphasis>. </para>
-            <para><emphasis role="bold"> ? ?</emphasis>
-                <emphasis role="bold">Software failure =&gt; Hazard =&gt; Patient
-                Harm</emphasis></para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/image15.png"
+                        width="3.0in" align="center"/>
+                </imageobject> 
+            </mediaobject>
             <para>In CDS systems, software failures result in knowledge artifacts <emphasis>failing
                     to</emphasis>
                 <emphasis>prevent</emphasis> hazards and harms, rather than directly causing them.
@@ -1277,7 +1280,7 @@
                     knowledge artifact with a given software safety class will follow the same
                     development workflow, which will include the required development phases,
                     approvals, testing processes, and documentation. </para>
-                <para>Tools: Workflow-definition feature of the issue-tracking and workflow tool.
+                <para><emphasis role="bold">Tools:</emphasis> Workflow-definition feature of the issue-tracking and workflow tool.
                     Three distinct workflow processes will be defined for each type of artifact, one
                     corresponding to each safety class.</para>
             </section>
@@ -1291,7 +1294,7 @@
                     consistently, unambiguously, and in a manner that enables the definition of test
                     criteria/test cases to evaluate correct functioning with respect to
                     requirements. </para>
-                <para>Tool(s): Issue tracking tool, especially its ability to associate requirements
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking tool, especially its ability to associate requirements
                     documents with a tracked development project (“issue”), manage changes to the
                     requirements document, share the requirements documents with clinician experts
                     to solicit their review and approval, and require the approval of a clinician
@@ -1307,7 +1310,7 @@
                     required interfaces among the sub-artifacts or between the knowledge artifact
                     and any required external resources. Design of any new sub-artifacts or of
                     existing sub-artifacts that must be modified. </para>
-                <para>Tool(s): Issue-tracking tool, especially its ability to associate design
+                <para><emphasis role="bold">Tools:</emphasis> Issue-tracking tool, especially its ability to associate design
                     documents with a tracked issue, manage changes to the design documents, share
                     the design documents with supervisors or other knowledge engineers to solicit
                     review, verification, and approval; IDE to inspect the existing available
@@ -1320,7 +1323,7 @@
                 <title>Unit Implementation and Unit Testing</title>
                 <para>Implementation of new artifacts and required modifications to existing
                     artifacts. </para>
-                <para>Tool(s): Version-control system; IDE’s capabilities to browse the set of
+                <para><emphasis role="bold">Tools:</emphasis> Version-control system; IDE’s capabilities to browse the set of
                     released knowledge modules and associate the compiled artifacts within them with
                     their corresponding source artifacts in the version-control system; IDE’s
                     capabilities to author/edit knowledge artifacts and other source objects; </para>
@@ -1328,7 +1331,7 @@
                     order set, etc.). If existing sub-artifacts needed to be modified or new
                     sub-artifacts implemented, independent validation and unit testing of these
                     artifacts. These testing processes should include clear acceptance criteria. </para>
-                <para>Tool(s): Compilation and automated validation tools; issue-tracking tool to
+                <para><emphasis role="bold">Tools:</emphasis> Compilation and automated validation tools; issue-tracking tool to
                     store the test plan and to document the test results associated with the
                     artifact; IDE to execute automated unit testing.</para>
                 <para>If a sub-artifact is modified that is shared among multiple knowledge
@@ -1337,7 +1340,7 @@
                     use the value set should be regression tested. Similarly, if many changes are
                     made to the data repository’s information model or to the contents of the
                     terminology, then many or all CDS alert rules may need to be regression tested. </para>
-                <para>Tool(s): Configuration and dependency analysis tools to identify any dependent
+                <para><emphasis role="bold">Tools:</emphasis> Configuration and dependency analysis tools to identify any dependent
                     knowledge artifacts; Compilation and automated validation tools to perform
                     regression testing of those artifacts.</para>
             </section>
@@ -1348,13 +1351,13 @@
                     testing should be documented. The rigor of integration testing and the level of
                     detail of the documentation associated with integration testing should be
                     commensurate with the risk associated with the knowledge artifact. </para>
-                <para>Tools(s): Automated testing tools; issue-tracking tool to store the test plan
+                <para><emphasis role="bold">Tools:</emphasis> Automated testing tools; issue-tracking tool to store the test plan
                     and document the test results associated with the artifact.</para>
                 <para>Integration testing should be conducted in an appropriate test environment
                     that simulates the target production environment as closely as possible,
                     including with respect to external runtime components, such as the data
                     repository and terminology server. </para>
-                <para>Tool(s): Configuration management tool to specify a runtime environment that
+                <para><emphasis role="bold">Tools:</emphasis> Configuration management tool to specify a runtime environment that
                     simulates the production environment accurately; repository of released
                     knowledge modules to provide the modules currently used by the runtime
                     environment; compilation and validation tool to build a runtime environment that
@@ -1369,7 +1372,7 @@
                     tested is the same as the version that is being released, particularly with
                     regards to any shared sub-artifacts or external resources whose versions could
                     differ in the test and production environments. </para>
-                <para>Tool(s): Issue tracking and workflow to ensure that all prescribed steps in
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow to ensure that all prescribed steps in
                     preparing a release have been completed and approved; configuration management
                     tool to ensure that the released artifact(s) are consistent with other artifacts
                     and components of the production environment; automated testing tools to execute
@@ -1390,7 +1393,7 @@
                     knowledge artifact with a given software safety class will follow the same
                     modification workflow, which will include the required development phases,
                     approvals, testing processes, and documentation. . </para>
-                <para>Tool(s): Issue tracking and workflow tools to guide and track adherence to the
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow tools to guide and track adherence to the
                     prescribed processes, as well as to store the associated requirements documents,
                     test plans, etc.</para>
             </section>
@@ -1402,7 +1405,7 @@
                     surveillance. Careful consideration of the patient-safety impacts of collected
                     feedback. For identified defects, creation and tracking of problem reports per
                     the problem-resolution process (see <xref linkend="_Ref478711911" xrefstyle="select: label"/>). </para>
-                <para>Tool(s): Performance tracking and analysis tools; issue tracking tools to
+                <para><emphasis role="bold">Tools:</emphasis> Performance tracking and analysis tools; issue tracking tools to
                     collect the manually submitted or automatically generated trouble tickets on
                     behalf of the knowledge-engineering team.</para>
             </section>
@@ -1414,12 +1417,12 @@
                     Regression testing is a critical component of this process if any shared
                     knowledge artifacts or external resources were modified as part of implementing
                     the bug-fix or requested change. </para>
-                <para>Tool(s): Issue-tracking tool; Version control tool; configuration and
+                <para><emphasis role="bold">Tools:</emphasis> Issue-tracking tool; Version control tool; configuration and
                     dependency analysis tools; compilation and validation tools; automated testing
                     tools; IDE.</para>
                 <para>Release of modified knowledge artifact, either individually or part of a
                     wholesale version release of an entire CDA modality. </para>
-                <para>Tool(s): Configuration management tools; IDE.</para>
+                <para><emphasis role="bold">Tools:</emphasis> Configuration management tools; IDE.</para>
             </section>
         </section>
         <section>
@@ -1437,7 +1440,7 @@
                     sub-artifacts, or any external resources could result in artifact failures and
                     hazardous situations. Inclusion of 3<superscript>rd</superscript>-party software
                     components in this risk analysis.</para>
-                <para>Tool(s): Issue tracking tools, including document-management capabilities to
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking tools, including document-management capabilities to
                     associate risk analyses with development and maintenance projects;
                     performance-tracking and analysis tools to identify historical risks associated
                     with certain knowledge artifacts.</para>
@@ -1445,7 +1448,7 @@
                     verification and testing processes. Documentation of trace-ability between each
                     potential hazard that could result from the software’s failure and the
                     risk-control measures implemented to reduce its probability.</para>
-                <para>Tool(s): Issue tracking and workflow tools; configuration and dependency
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow tools; configuration and dependency
                     analysis tools; automated testing tools; integrated development
                     environment.</para>
             </section>
@@ -1459,14 +1462,14 @@
                     specification of the artifacts, not needed to be maintained actively by
                     personnel, which will be prone to error and quickly become outdated over
                     time.</para>
-                <para>Tool(s): Version control tools; configuration management tools; compilation
+                <para><emphasis role="bold">Tools:</emphasis> Version control tools; configuration management tools; compilation
                     and validation tools; IDE.</para>
                 <para>Explicit approval for any changes in the set of configuration items for a
                     knowledge artifact, and appropriate testing of such changes, including
                     regression testing (i.e., of other affected artifacts). Documented trace-ability
                     of any changes to configuration items with respect to the problem reports and
                     change requests that engendered such changes.</para>
-                <para>Tool(s): Issue-tracking tools; configuration and dependency analysis tools;
+                <para><emphasis role="bold">Tools:</emphasis> Issue-tracking tools; configuration and dependency analysis tools;
                     automated testing tools.</para>
             </section>
             <section xml:id="_Ref478711911">
@@ -1476,16 +1479,16 @@
                     evaluate its relevance to patient safety, using the risk-management process.
                     Notification of user community regarding identified problems in CDS
                     system.</para>
-                <para>Tool(s): Performance tracking tools; issue tracking tools; test
+                <para><emphasis role="bold">Tools:</emphasis> Performance tracking tools; issue tracking tools; test
                     environment.</para>
                 <para>Characterization of the type of modification(s) needed (including urgency) and
                     preparation of a change request to implement the modification(s). Use of
                     software-maintenance processes to implement the modification(s).</para>
-                <para>Tool(s): Issue tracking and workflow tools; tools for version control,
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow tools; tools for version control,
                     configuration management, testing, etc.</para>
                 <para>Tracking and verification of the problem’s resolution, culminating in the
                     closing of the problem report. </para>
-                <para>Tool(s): Issue tracking and workflow tools.</para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow tools.</para>
             </section>
         </section>
     </section>

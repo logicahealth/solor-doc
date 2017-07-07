@@ -2,13 +2,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<artifactId>isaacs-komet-doc</artifactId>
-		<groupId>gov.vha.isaac</groupId>
+		<groupId>sh.isaac.komet.doc</groupId>
 		<version>0.13-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>kbs-future-architecture-article</artifactId>
+
+
+	<artifactId>kbs-future-architecture-chapter</artifactId>
 	<packaging>pom</packaging>
+	<name>IA: KBS Future Architecture</name>
+	<description>KBS future architecture documentation</description>
 
 	<properties>
 		<docbook.root>${project.artifactId}.xml</docbook.root>
@@ -91,16 +95,8 @@
 					</foCustomization>
 
 					<customizationParameters>
-						<!-- additional XSLT parameters 
-						<parameter>
-							<name>key</name>
-							<value>value</value>
-						</parameter>
-						<parameter>
-							<name>header.rule</name>
-							<value>0</value>
-						</parameter>
-						-->
+						<!-- additional XSLT parameters <parameter> <name>key</name> <value>value</value> 
+							</parameter> <parameter> <name>header.rule</name> <value>0</value> </parameter> -->
 					</customizationParameters>
 				</configuration>
 			</plugin>

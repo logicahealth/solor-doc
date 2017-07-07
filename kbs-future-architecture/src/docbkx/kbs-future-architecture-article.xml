@@ -46,13 +46,13 @@
             and CPRS). Rather, it reflects the general requirements of a system to manage knowledge
             artifacts in a safe and reliable manner, which could be applied to any number of
             specific software infrastructures, including commercial off-the-shelf systems.</para>
-        <para>Section <xref linkend="_Ref486590485"/> of this report provides background and
-            definitions that are relevant to the remainder of the document. Section <xref
-                linkend="_Ref486442222"/> characterizes the specific tools that are needed to manage
+        <para><xref linkend="_Ref486590485" xrefstyle="select: label"/> of this report provides background and
+            definitions that are relevant to the remainder of the document. <xref
+                linkend="_Ref486442222" xrefstyle="select: label"/> characterizes the specific tools that are needed to manage
             knowledge artifacts in a safe and reliable manner consistent with industry best
-            practices. Section <xref linkend="_Toc478715575"/> specifies the processes for managing
+            practices. <xref linkend="_Toc478715575" xrefstyle="select: label"/> specifies the processes for managing
             knowledge artifacts as prescribed by the IEC-62304 standard, and relates each process to
-            the corresponding tools described in Section <xref linkend="_Ref486442222"/>.</para>
+            the corresponding tools described in <xref linkend="_Ref486442222" xrefstyle="select: label"/>.</para>
     </section>
     <section xml:id="_Ref486590485">
         <title>Background and Definitions</title>
@@ -73,7 +73,7 @@
             functions, and orderable items. Knowledge artifacts also include the
                 <emphasis>interfaces</emphasis> to EHRs, messaging applications, and other resources
             external to the CDS system that knowledge artifacts directly reference. The major types
-            of knowledge artifacts are listed and described in Section <xref linkend="_Toc486430915"
+            of knowledge artifacts are listed and described in <xref linkend="_Toc486430915" xrefstyle="select: label"
             />. </para>
         <para>Notably, knowledge artifacts do not include knowledge engines, i.e., the hard-coded
             software components that actually execute rules, order sets, and documentation
@@ -94,10 +94,10 @@
         <section xml:id="_Toc486430915">
             <title>Types of Knowledge Artifacts</title>
             <para>The major types of knowledge artifacts that determine the correct functioning of
-                CDS systems is listed in <xref linkend="_Ref486590586"/>. The list includes any
+                CDS systems is listed in <xref linkend="_Ref486590586" xrefstyle="template:Table %n"/>. The list includes any
                 modular software object that could be independently managed and released and that
                 may interact with other software objects in a CDS system. Note that the contents of
-                    <xref linkend="_Ref486590586"/> may not be exhaustive.</para>
+                <xref linkend="_Ref486590586"  xrefstyle="template:Table %n"/> may not be exhaustive.</para>
             <table xml:id="_Ref486590586">
                 <title>Types of knowledge artifacts used in CDS systems.</title>
                 <tgroup cols="2">
@@ -221,10 +221,10 @@
             <title>Terminology and Definitions Related to Knowledge Artifact Management</title>
             <para>Before describing the specific tools and processes of the future-state
                 architecture, it is useful to define certain terms relevant to the management of
-                knowledge artifacts in general. <xref linkend="_Ref204323820"/> lists a number of
+                knowledge artifacts in general. <xref linkend="_Ref204323820" xrefstyle="template:Table %n"/> lists a number of
                 the terms that figure prominently in the specification of the future-state
-                architecture that follows in Sections <xref linkend="_Ref486442222"/> and <xref
-                    linkend="_Toc478715575"/>. Note that certain of these terms may be entirely new
+                architecture that follows in <xref linkend="_Ref486442222" xrefstyle="select: label"/> and <xref
+                    linkend="_Toc478715575" xrefstyle="select: label"/>. Note that certain of these terms may be entirely new
                 or may be defined differently than in prior use or alternative contexts.</para>
             <table xml:id="_Ref204323820">
                 <title>Terms and concepts relevant to the management of knowledge artifacts in CDS
@@ -241,7 +241,7 @@
                         </row>
                         <row>
                             <entry><para><emphasis>Knowledge Artifact</emphasis></para></entry>
-                            <entry><para>See Section <xref linkend="_Toc486430915"/>.</para></entry>
+                            <entry><para>See <xref linkend="_Toc486430915" xrefstyle="select: label"/>.</para></entry>
                         </row>
                         <row>
                             <entry><para><emphasis>Sub- Artifacts and
@@ -279,8 +279,8 @@
                                     does not provide decision support outside of its inclusion in a
                                     rule, order set, or documentation template. High-level artifacts
                                     are distinct from other knowledge artifacts in that they require
-                                    a safety-class designation (as discussed in Section <xref
-                                        linkend="_Ref487105785"/>).</para></entry>
+                                    a safety-class designation (as discussed in <xref
+                                        linkend="_Ref487105785" xrefstyle="select: label"/>).</para></entry>
                         </row>
                         <row>
                             <entry><para><emphasis>Source Artifact</emphasis></para></entry>
@@ -391,29 +391,29 @@
         <section>
             <title>A CDS Knowledge-Management Architecture</title>
             <para>The architecture of the envisioned CDS knowledge-engineering environment is
-                depicted in <xref linkend="_Ref486576210"/>. The environment includes the following
+                depicted in <xref linkend="_Ref486576210" xrefstyle="template:Figure %n"/>. The environment includes the following
                 tools, which are described in the sections that follow:</para>
             <itemizedlist>
                 <listitem>
-                    <para><xref linkend="_Toc486430917"/></para>
+                    <para><xref linkend="_Toc486430917" xrefstyle="select:  labelnumber title"/></para>
                 </listitem>
                 <listitem>
-                    <para><xref linkend="_Toc486430918"/></para>
+                    <para><xref linkend="_Toc486430918" xrefstyle="select:  labelnumber title"/></para>
                 </listitem>
                 <listitem>
-                    <para><xref linkend="_Toc486430922"/></para>
+                    <para><xref linkend="_Toc486430922" xrefstyle="select:  labelnumber title"/></para>
                 </listitem>
                 <listitem>
-                    <para><xref linkend="_Toc486430925"/></para>
+                    <para><xref linkend="_Toc486430925" xrefstyle="select:  labelnumber title"/></para>
                 </listitem>
                 <listitem>
-                    <para><xref linkend="_Toc486430926"/></para>
+                    <para><xref linkend="_Toc486430926" xrefstyle="select:  labelnumber title"/></para>
                 </listitem>
                 <listitem>
-                    <para><xref linkend="_Toc486430927"/></para>
+                    <para><xref linkend="_Toc486430927" xrefstyle="select:  labelnumber title"/></para>
                 </listitem>
                 <listitem>
-                    <para><xref linkend="_Toc486430928"/></para>
+                    <para><xref linkend="_Toc486430928" xrefstyle="select:  labelnumber title"/></para>
                 </listitem>
             </itemizedlist>
             <para>Note that each tool may consist of a <emphasis>repository</emphasis> (for storing
@@ -422,7 +422,7 @@
                 knowledge artifacts and related resources), and/or an
                     <emphasis>application</emphasis> (for providing display and data-entry
                 capabilities for users). A variety of machine interfaces also exist among the tools
-                within the architecture, as depicted by the arrows in <xref linkend="_Ref486576210"
+                within the architecture, as depicted by the arrows in <xref linkend="_Ref486576210" xrefstyle="template:Figure %n"
                 />.</para>
             <figure xml:id="_Ref486576210">
                 <title>An architecture for managing CDS knowledge artifacts. </title>
@@ -521,7 +521,7 @@
                         will remain compatible with the latest version of the system.</para>
                 </listitem>
             </itemizedlist>
-            <para>For example, <xref linkend="_Ref486583915"/> illustrates the process by which a
+            <para>For example, <xref linkend="_Ref486583915" xrefstyle="template:Figure %n"/> illustrates the process by which a
                 set of knowledge artifacts could be edited concurrently by two different knowledge
                 engineers, each working in a separate branch of the version-control repository.
                 Engineer 1 working creates Branch 1 and makes changes to her copy of the knowledge
@@ -547,7 +547,7 @@
                     </imageobject>
                 </mediaobject>
             </figure>
-            <para><xref linkend="_Ref486584141"/> shows an example of tooling support to compare two
+            <para><xref linkend="_Ref486584141" xrefstyle="template:Figure %n"/> shows an example of tooling support to compare two
                 versions of the same source object at the time they are merged, in this case a value
                 set whose members differ. Note that the identifier of the value set is the same for
                 both versions (“valueset_id103_amiodarone”), whereas the unique version identifiers
@@ -618,7 +618,7 @@
                     </emphasis>A configuration file associated with the knowledge artifact should
                     contain the unique identifiers and version numbers of all the sub-artifacts on
                     which the knowledge artifact depends. This configuration file, which is further
-                    described in Section <xref linkend="_Toc486430923"/>, should be accessible to
+                    described in <xref linkend="_Toc486430923" xrefstyle="select: label"/>, should be accessible to
                     the build engine, as well as visible to knowledge engineers. During the build
                     process, consistency between the artifact being built and its sub-artifacts
                     should be validated by checking that any references to the sub-artifacts are
@@ -633,12 +633,12 @@
                     combination of Boolean expressions for a complex alert condition, although the
                     expressions are syntactically correct. For these types of errors, automated unit
                     testing is a valuable additional part of the build process. As described in
-                    Section <xref linkend="_Toc486430925"/>, an automated testing framework enables
+                    <xref linkend="_Toc486430925" xrefstyle="select: label"/>, an automated testing framework enables
                     a set of tests cases specific to the knowledge artifact to be programmed and
                     automatically executed each time the artifact is built. For example, the test
                     cases for a clinical alert rule might use various combinations of patient data
                     to confirm that the rule fires or does not fire correctly in each case.</para>
-                <para><xref linkend="_Ref486584826"/> shows the results of an automated unit test
+                <para><xref linkend="_Ref486584826" xrefstyle="template:Figure %n"/> shows the results of an automated unit test
                     executed during the build process for an alert rule. In this case, the rule
                     compiled and executed correctly, but it referenced the wrong value set,
                     resulting in the failure of one of the unit test cases. The display shows which
@@ -724,12 +724,12 @@
                     these configurations change as knowledge artifacts are added to or changed
                     within the system (i.e., new knowledge modules are added to the configuration,
                     or the version numbers of existing knowledge modules changed).</para>
-                <para><xref linkend="_Ref486585395"/> shows the configuration files (in the
+                <para><xref linkend="_Ref486585395" xrefstyle="template:Figure %n"/> shows the configuration files (in the
                     “dependencies” pane) for two knowledge modules to be used in a particular system
                     – valueset.id104 and rulefunction.id8642. Each configuration file indicates the
                     set of other knowledge modules (including version numbers) that the displayed
                     module depends upon. </para>
-                <para><xref linkend="_Ref486585743"/> shows the configuration file for the entire
+                <para><xref linkend="_Ref486585743" xrefstyle="template:Figure %n"/> shows the configuration file for the entire
                     CDS system, which results from analyzing and reconciling the configuration files
                     for each of the knowledge modules that make up the system. By analyzing the
                     configuration files of each knowledge module and reconciling any discrepancies,
@@ -772,7 +772,7 @@
                     knowledge engineers. This capability enables knowledge engineers to better
                     predict, track, and manage the effects of even small changes to knowledge
                     artifacts. </para>
-                <para>For example, <xref linkend="_Ref486585896"/> shows the dependencies that are
+                <para>For example, <xref linkend="_Ref486585896" xrefstyle="template:Figure %n"/> shows the dependencies that are
                     represented in the configuration-management files of four knowledge modules. At
                     this level, it’s only apparent that all three rule modules have dependencies on
                     the module that contains a library of data access objects (daos) for querying
@@ -788,8 +788,8 @@
                         </imageobject>
                     </mediaobject>
                 </figure>
-                <para>In contrast, <xref linkend="_Ref486586057"/> and <xref linkend="_Ref486586412"
-                    /> show how a dependency management tool can drill inside the dao library module
+                <para>In contrast, <xref linkend="_Ref486586057" xrefstyle="template:Figure %n"/> and <xref linkend="_Ref486586412"
+                    xrefstyle="template:Figure %n"/> show how a dependency management tool can drill inside the dao library module
                     to identify and display dependencies between specific dao knowledge artifacts
                     and the rule artifacts that depend on them. The latter knowledge allows
                     knowledge engineers to determine which specific rules would be affected by
@@ -839,7 +839,7 @@
         </section>
         <section xml:id="_Toc486430925">
             <title>Automated Testing Tools</title>
-            <para>As discussed in Section <xref linkend="_Ref486412590"/>, automated testing is an
+            <para>As discussed in  <xref linkend="_Ref486412590" xrefstyle="select: label"/>, automated testing is an
                 important part of validating knowledge artifacts in complex and frequently changing
                 CDS systems. Critically, automated testing allows knowledge engineers to quickly and
                 reliably test and re-test knowledge artifacts as changes are made to them or to the
@@ -872,8 +872,8 @@
                 configuration-management and build tools, such as Maven and Ant. Such frameworks
                 would be valuable in automatically testing alert rules by introducing various sets
                 of patient data into a test EHR, automatically executing the rules, and determining
-                whether they fired or did not fire correctly (see Section <xref
-                    linkend="_Ref486412590"/> and <xref linkend="_Ref486584826"/> for an example).
+                whether they fired or did not fire correctly (see  <xref
+                    linkend="_Ref486412590" xrefstyle="select: label"/> and <xref linkend="_Ref486584826"  xrefstyle="select: label"/> for an example).
                 When any configuration changes are made to any part of the CDS system, the test
                 suites for all of the alert rules could be re-run to check whether the changes
                 adversely affect the rule base. </para>
@@ -972,13 +972,13 @@
                             >https://trac.edgewall.org/</link>. Accessed July 6, 2017.</para>
                 </footnote>, which could be readily applied to the task of managing lifecycle
                 processes for knowledge artifacts. </para>
-            <para>For example, <xref linkend="_Ref486586067"/> shows a possible workflow for the
+            <para>For example, <xref linkend="_Ref486586067" xrefstyle="template:Figure %n"/> shows a possible workflow for the
                 creation of new clinical alert rules, modeled in the Jira issue-tracking system. The
                 workflow specifies each of the states that the rule-creation process must pass
                 through, and the gating criteria for transitioning from one state to another. Given
                 the specification of such a workflow, the Jira system then enforces that each
                 rule-creation project (“issue”) passes through each of these states, and each
-                transition takes place only as allowed. For example, <xref linkend="_Ref486587526"/>
+                transition takes place only as allowed. For example, <xref linkend="_Ref486587526" xrefstyle="template:Figure %n"/>
                 shows how the transition from “New Rule Requested” to “Request Approved” can only be
                 performed by a staff member who has the “Administer Projects” permission enabled for
                 her account. </para>
@@ -1057,7 +1057,7 @@
                         here with permission of the author: Wright A, et. al. Analysis of clinical
                         decision support system malfunctions: a case series and survey. J Am Med
                         Inform Assoc. 2016 Nov;23(6):1068-1076.</para>
-                </footnote>, <xref linkend="_Ref486588257"/> shows a scatter plot of the frequency
+            </footnote>, <xref linkend="_Ref486588257" xrefstyle="template:Figure %n"/> shows a scatter plot of the frequency
                 with which a rule fired that alerted clinicians to the need for thyroid testing in
                 patients taking the medication Amiodarone (a required screening test for such
                 patients). Although not apparent from even inspecting the scatter plot, the rate of
@@ -1105,8 +1105,8 @@
     </section>
     <section xml:id="_Toc478715575">
         <title>Processes for the Safe and Reliable Management of Knowledge Artifacts</title>
-        <para>Availability of the tools and architecture described in Section <xref
-                linkend="_Ref486442222"/> enables knowledge engineers to follow best practices for
+        <para>Availability of the tools and architecture described in  <xref
+            linkend="_Ref486442222" xrefstyle="select: label"/> enables knowledge engineers to follow best practices for
             developing and managing knowledge artifacts used in CDS systems. This section describes
             those best practices and how the tools specifically support them.</para>
         <para>In 2006, the International Electrotechnical Commission (IEC) published a set of
@@ -1217,7 +1217,7 @@
                             implications. Note that sub-artifacts, such as value sets, individual
                             coded concepts, and data-access functions, will not be assigned safety
                             classes of their own, because they only function in the context of
-                            high-level artifacts (see Section <xref linkend="_Ref486589560"/>), such
+                            high-level artifacts (see  <xref linkend="_Ref486589560" xrefstyle="select: label"/>), such
                             as rules and order sets. Therefore, sub-artifacts will automatically
                             inherit the safety class of the high-level artifacts that depend on
                             them.</para>
@@ -1234,7 +1234,7 @@
                             knowledge artifacts, this policy implies that sub-artifacts used by one
                             or more high-level artifacts should be assigned the
                                 <emphasis>highest</emphasis> software safety class among those
-                            high-level artifacts. <xref linkend="_Ref478710366"/> shows an example
+                            high-level artifacts. <xref linkend="_Ref478710366" xrefstyle="template:Figure %n"/> shows an example
                             of the correct application of this policy to the hierarchy of
                             sub-artifacts used by two rules with different software safety classes.
                             An effective dependency-management system is required to resolve such
@@ -1260,8 +1260,8 @@
                     and cross-cutting processes that apply to both development and
                     maintenance.</para>
                 <para>The sections below summarize each of the IEC-62304 processes that apply to
-                    knowledge artifacts, and indicate which of the tools described in Section <xref
-                        linkend="_Ref486442222"/> should be used in each process.</para>
+                    knowledge artifacts, and indicate which of the tools described in  <xref
+                        linkend="_Ref486442222" xrefstyle="select: label"/> should be used in each process.</para>
             </section>
         </section>
         <section xml:id="_Toc478715576">
@@ -1297,7 +1297,7 @@
                     to solicit their review and approval, and require the approval of a clinician
                     expert before the next phase of development can be initiated. </para>
                 <para>Assessment of patient-safety risks inherent in the new artifact (see Section
-                        <xref linkend="_Ref486443481"/>).</para>
+                    <xref linkend="_Ref486443481" xrefstyle="select: label"/>).</para>
             </section>
             <section>
                 <title>Architectural Design and Detailed Design</title>
@@ -1314,7 +1314,7 @@
                     sub-artifacts to use in the newly created artifact.</para>
                 <para>Assessment of the effects of any required changes to existing artifacts based
                     on the configuration and dependency relationships of the overall system (see
-                    Section <xref linkend="_Ref486443646"/>).</para>
+                     <xref linkend="_Ref486443646" xrefstyle="select: label"/>).</para>
             </section>
             <section>
                 <title>Unit Implementation and Unit Testing</title>
@@ -1401,7 +1401,7 @@
                     the active collection and analysis of log data to support automated
                     surveillance. Careful consideration of the patient-safety impacts of collected
                     feedback. For identified defects, creation and tracking of problem reports per
-                    the problem-resolution process (see <xref linkend="_Ref478711911"/>). </para>
+                    the problem-resolution process (see <xref linkend="_Ref478711911" xrefstyle="select: label"/>). </para>
                 <para>Tool(s): Performance tracking and analysis tools; issue tracking tools to
                     collect the manually submitted or automatically generated trouble tickets on
                     behalf of the knowledge-engineering team.</para>
@@ -1409,7 +1409,7 @@
             <section>
                 <title>Implementation of Needed and Requested Modifications</title>
                 <para>Use of similar development process as for initial creation of knowledge
-                    artifacts (see Section <xref linkend="_Toc478715576"/>), including requirements
+                    artifacts (see  <xref linkend="_Toc478715576" xrefstyle="select: label"/>), including requirements
                     analysis, solution design, dependency analysis, implementation, and testing.
                     Regression testing is a critical component of this process if any shared
                     knowledge artifacts or external resources were modified as part of implementing
@@ -1502,9 +1502,5 @@
         <para>The next phase of this work will lay out a roadmap for implementing the vision
             described above in a way that is consistent with the VHA’s current environment as well
             as its planned future health I.T. infrastructure.</para>
-    </section>
-    <section>
-        <title>References</title>
-        <para/>
     </section>
 </article>

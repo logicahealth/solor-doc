@@ -1795,458 +1795,6 @@
             </section>
         </section>
         <section xml:id="section_7309c209-6282-4fbb-a4f3-f994b1b72df8">
-<<<<<<< HEAD
-            <title xml:id="title_bc1b8315-08f3-44fa-bdc6-af5cd26807cc">Documentation template editor
-                requiremnts</title>
-            <para xml:id="para_a174b894-f38a-4068-98c6-199c678d888b"> The Documentation Template
-                editor shall allow an end user to create Documentation Templates that are adherent
-                to the standard stated in HL7 Version 3 Standard: CDS Knowledge Artifact
-                Specification, DSTU Release 1.3, and the Government-defined extension. </para>
-            <para xml:id="para_76979619-b51a-4330-bd4d-11f38dea1a64">The Documentation Template
-                editor will be a seamless component of an integrated Knowledge Development Platform
-                with other CDS artifact editors and essential supporting components such as
-                terminology editors. Requirements common to all editors shall be included. </para>
-            <para xml:id="para_bff438b8-8bb6-41a4-b78e-c62899eb4b87">Documentation Templates
-                applicable to all scenarios must be supported. Types of document templates that must
-                be supported include patient encounter summaries from the wide range of clinical
-                disciplines and types of patient encounters that may occur in the clinical setting,
-                including, but not limited to: </para>
-            <para xml:id="para_8d106fd8-b5a4-49ae-94ec-6c1d9e5e8bf0">• Initial patient visit
-                evaluations </para>
-            <para xml:id="para_75e74278-f192-4a9e-ac46-04dafc15ac8b">• Patient care follow-up visits </para>
-            <para xml:id="para_f5f6d43c-d81e-425f-bdfe-64922a3dff10"> • Primary care patient
-                encounters </para>
-            <para xml:id="para_51e9b05f-e4ba-4f3e-ac1b-5289280fb502"> • Specialty care patient
-                encounters </para>
-            <para xml:id="para_eb17ba20-de1b-48ef-bd1a-1518f5fe43b7"> • Nursing care patient
-                encounters </para>
-            <para xml:id="para_bcf97fe9-9c0d-49c4-8e61-5d442fa0e888"> • Mental health care patient
-                encounters </para>
-            <para xml:id="para_cb9be1e0-86cb-451e-aacc-ad1129396c2f"> • Consultation reports </para>
-            <para xml:id="para_f8693ba5-afae-4d02-aca1-2f9ca1c36ecd"> • Procedure notes </para>
-            <para xml:id="para_8b080a07-660c-4170-8224-14f1672b4bc7"> • Patient-reported outcomes </para>
-            <para xml:id="para_1820e336-090a-4dc2-b66f-97bc8c29a151"> • Clinical flowsheets </para>
-            <para xml:id="para_de357620-8f20-4787-8af1-df6c2891c4e3"> The Documentation Template
-                editor must: </para>
-            <para xml:id="para_914605d4-d6ce-42b6-8086-66c131189b3a"> • Produce documentation
-                templates that are capable of branching logic; the forms created must be able to
-                specify all the actions (such as action of type CollectInformationAction) within the
-                HL7 Version 3 Standard: CDS Knowledge Artifact Specification, DSTU Release 1.3. </para>
-            <para xml:id="para_b4313eed-da9b-4a6a-9e5e-23022698ea9d"> • Perform automatic interim
-                saving of a document, with versioning, while under construction. </para>
-            <para xml:id="para_9fd1169a-d4ca-43ac-bb15-dbfd1c96d5bc"> • Organize document concepts
-                hierarchically or non-hierarchically as requirements for content may dictate. </para>
-            <para xml:id="para_8044528f-a56a-4580-a81e-0bd71cdc22f8"> • Get documentation-specific
-                metadata as well as all other metadata. </para>
-            <para xml:id="para_df6cd04d-0e65-4269-9be3-41d1a87f7357"> • Access an expressions editor
-                and consume the output of an expressions editor. </para>
-            <para xml:id="para_b5f17622-1c93-42e1-a254-4b60a72c892e">The Documentation Template
-                editor must allow a user to: </para>
-            <para xml:id="para_88375b90-d41e-4e0f-b4f1-bb2f3629422d">• Search for other templates
-                with needed content, import portions of other document templates AND make sure there
-                are not duplicate titles. </para>
-            <para xml:id="para_f04783e9-11eb-44f9-9fe2-197ddfb33428"> • Create a new template. </para>
-            <para xml:id="para_cc16bae7-e317-49d3-9146-9d1ec79e2e1e"> • Import and modify an
-                existing template, selecting it from a library or list of existing templates. </para>
-            <para xml:id="para_1df93144-8d5b-48bc-aefe-fce1028f7ea2"> • Create or assign a Template
-                Name or Document Title, and check for and disallow duplicate names or titles. </para>
-            <para xml:id="para_e9e3a496-5bbd-4c1f-b467-f27b4137d609"> • Create a Template
-                Description including Category of Template, and select language for the description. </para>
-            <para xml:id="para_980a14db-48ea-4c41-9aa2-db49d91a01be"> • Define and impose required
-                content on the documentation template. </para>
-            <para xml:id="para_88645a7c-0897-4c2f-8850-8beee3ed7581"> • Embed hyperlinks into the
-                document template as may be clinically or operationally appropriate. </para>
-            <para xml:id="para_c2e2ccf8-9e1e-4f81-8cc9-092160a256d4"> • Assemble non-user interface
-                components for the documentation template, such as: </para>
-            <para xml:id="para_d3ca11d8-fdd2-4c6f-b40c-70714d1d9e7a"> • Questions and answers </para>
-            <para xml:id="para_207295de-d9f4-4ee3-a3d2-b885cbe3c3e5"> • Section headers </para>
-            <para xml:id="para_6c656bb2-6ec4-4f4d-9431-854a16a46c4a"> • Create sections and sub
-                sections. </para>
-            <para xml:id="para_af586eb5-efd0-456b-9f2f-69475f17540e"> • Specify groupings for
-                options as responses to questions, and specify behaviors of the groupings, such as: </para>
-            <para xml:id="para_0a089f92-6ce9-4378-b4c7-4fe62ec67d5c"> • Select only one of a group </para>
-            <para xml:id="para_ba5c730a-a5a7-4619-9f09-3ed6fd0257cd"> • Select one or more of a
-                group </para>
-            <para xml:id="para_e959fd7e-19de-41c7-87fd-ed6048e7eecd"> • Free text box </para>
-            <para xml:id="para_f128bb20-51f8-4328-bd78-2e0c836e63af"> • Create custom fields. </para>
-            <para xml:id="para_389c5b71-2205-43fa-a1fd-6524f00a7a94"> • </para>
-            <para xml:id="para_eb0ed02b-b4f3-455e-a283-c7cb3c4efd13"> • Skip forward to next
-                section. </para>
-            <para xml:id="para_d3f08e1d-ebd4-471c-8606-5da77dd64b0c"> • Skip backward to previous
-                section. </para>
-            <para xml:id="para_9ae3f695-9e06-4eed-8229-a5a0bd2a060f"> • Delete elements during
-                document creation. </para>
-            <para xml:id="para_cc259744-cf89-4e47-9a0e-c074e3965446"> • Export a portion or portions
-                of the documentation template in one or more formats (for example, as .pdf
-                document). </para>
-            <para xml:id="para_0df9b0d2-cb1d-42f2-a465-3423f6491f75"> • Export the entire
-                documentation template in one or more formats (for example, as .pdf document),
-                checking for duplicate titles and disallowing duplicates. </para>
-            <para xml:id="para_baf2bb56-882e-41b2-8dcf-0945d66dd1ff"> • Copy a documentation
-                template. </para>
-            <para xml:id="para_2722e462-b2fb-4877-bbb5-86c73d102be5"> • Export portion(s) of or
-                whole document and make sure there are not duplicate titles. </para>
-            <para xml:id="para_3e0096c1-3fbe-429f-bd3e-278e48f6bd89"> • Import images into the
-                documentation template. </para>
-        </section>
-        <section xml:id="section_e14db4ca-2d1d-4cd3-b83b-367d8821c77e">
-            <title xml:id="title_bd5f845c-44c1-4edd-8158-6e5e866b14fe">Event condition action rule
-                editor requirements</title>
-            <para xml:id="para_27dd2ec6-f553-4221-a33a-25895a2cb9a9">The ECA Rules editor must meet
-                the requirements described below. As previously mentioned, the editor must generate
-                ECA Rule knowledge artifacts that conform to the HeD Knowledge Artifact schema, per
-                the HL7 Version 3 Standard: CDS Knowledge Artifact Specification, Release 1.3 and
-                the Government-defined extension. Page 32 of the specification includes an
-                illustration of the ECA rule knowledge artifact in Figure 2, as show below. </para>
-            <para xml:id="para_f9718e98-84d0-49c8-b65d-c85f4373a00e"> ECA RULE TEMPLATE – CONCEPTUAL
-                OVERVIEW </para>
-            <para xml:id="para_a2165673-c8c9-49b6-b663-ecaf4b05208c"> As depicted in the preceding
-                diagram and described in the HL7 specification, the ECA Rules editor shall allow a
-                user to create an individual ECA rule that has the following characteristics and
-                behaviors when implemented: </para>
-            <para xml:id="para_087e69c0-ecce-41e8-89ad-167e5d4f2bb8"> 1. The ECA rule is activated
-                when a defined triggering event occurs (e.g., an encounter with a primary care
-                provider). </para>
-            <para xml:id="para_092e1112-ee9c-4e49-b619-7dcb47e37130"> 2. Conditions are evaluated
-                following rule activation. Conditions may reference external data, and conditions
-                may be composed of named, reusable expressions. </para>
-            <para xml:id="para_d042bd39-d1c9-44ca-a701-e901923420be"> o Example: Patient is 65 years
-                of age or older AND the patient has never had a pneumococcal vaccination. </para>
-            <para xml:id="para_c512a614-9460-47e2-9189-e1bf9b7cd434"> ♣ The patient’s medical record
-                would be checked for these two conditions. </para>
-            <para xml:id="para_3c532d09-437f-4690-b81e-0802857799a8"> ♣ Additionally, a value set
-                would be checked, such as an existing non-VA value set or a VA-defined value set,
-                which contains the standard codes that define a pneumococcal vaccination. </para>
-            <para xml:id="para_375ff78e-07e4-4a60-908c-0ce8236a798d"> 3. If the Condition is true,
-                then the action(s) specified in the “action” part of the rule are executed (e.g.,
-                recommend the patient receive a pneumococcal vaccination, document a reason why the
-                patient should not have a pneumococcal vaccination). </para>
-            <para xml:id="para_c56d94c3-3731-43ec-9e1e-f27d5fbebadf"> 4. Actions may be grouped and
-                structured hierarchically using action groups and behaviors to specify how the
-                actions should be shown to a clinical provider and to place restrictions on how a
-                provider chooses from the available set of actions (e.g., choose no more than one,
-                select all). </para>
-            <para xml:id="para_bfac83cb-4784-4fb6-92b4-eb4aafc22351"> 5. Actions may be orders that
-                are shown to a clinical provider. However, not all actions must be orders. For
-                example, actions may be the creation of a new event that triggers another rule, a
-                future encounter, or the creation of a state description of the patient. </para>
-            <para xml:id="para_69557888-a4e7-4a04-8852-09cb580ebaa2"> 6. Accommodate creation of ECA
-                knowledge artifacts (e.g., medication and clinical reminder rules) in all applicable
-                clinical domains. </para>
-            <para xml:id="para_e5f776d6-ad76-4bdf-9f0c-b4543351cbe1"> 7. Accommodate, indicate, and
-                list/display ECA rule based on metadata regarding care setting, such as women's
-                health, geriatric care, inpatient or ambulatory, and based on specific diseases,
-                such as hypertension or diabetes, as well immunizations that are due. </para>
-            <para xml:id="para_3c5c3132-3625-4307-963c-51294d9b8c15"> 8. Indicate the clinical
-                system of the ECA rules, such as standalone, embedded in ambulatory EHR, or
-                standalone web-based application. </para>
-            <para xml:id="para_bf5231de-71db-4093-8e14-26fa760bb224"> 9. The ECA Rule editor must be
-                able to specify all of the components, as noted in the HL7 specification, including
-                events, conditions, expression, actions, and behaviors. </para>
-            <para xml:id="para_99777582-4a16-4611-9e72-54ceeaafb6a6"> 10. Express different types of
-                clinical knowledge, including complex relationships and constraints. For example, an
-                ECA rule may have multiple conditions that have conditions within those conditions
-                that, when met, result in multiple actions to be taken. </para>
-            <para xml:id="para_cc74f720-0462-4798-9afe-b8845bd42ba9"> 11. Ability to notify user
-                when two or more rules potentially conflict with each other, such as two methods for
-                identifying patients with diabetes, such as by problem list and by lab results. </para>
-            <para xml:id="para_345026d4-e075-4e60-ae6f-0d38391f88e6"> 12. Topic specific
-                visualization </para>
-            <para xml:id="para_c6089e97-d3ec-4013-9e4c-aa3185959dab"> 13. Time pattern
-                visualization. </para>
-            <para xml:id="para_8bb875ed-3418-43ab-9322-d3780b21601d"> 14. Runtime simulation for
-                rule execution, including time patterns. </para>
-            <para xml:id="para_7379dd25-51c4-498b-b0ac-4f593094c304"> 15. ECA-specific refactoring
-                function. </para>
-            <para xml:id="para_505b1f60-ee47-44a1-996a-a4edeb8b8c92"> 16. The system should be able
-                to display the cost of acquiring any given piece of information to enable the user
-                to make cost efficient ECA rules. </para>
-            <para xml:id="para_8b379d2b-3da3-4480-9782-60d60f017008"> 17. ECA-unique metadata
-                read/edit. </para>
-            <para xml:id="para_1753da90-1ab9-41ee-b331-8783b72dc81c"> 18. Ability to check to
-                duplicate or overlapping rule logic. </para>
-            <para xml:id="para_81fda76e-36b5-45fe-9513-8b06f1655c5f"> 19. Ability to construct rule
-                artifacts such as decision tables and rule flows. </para>
-            <para xml:id="para_74ae0de8-3e7c-41b5-8241-2e3295b33c50"> 20. Provide analytical reports
-                to identify conflicting rules, incomplete rule coverage or rule redundancy. </para>
-            <para xml:id="para_116e31bb-2ea8-4daa-8bac-182068d466e2"> Test Rules </para>
-            <para xml:id="para_3bc333c0-72d3-493b-9e92-a5f120ff1d52"> A. Allow rule logic to be
-                validated independently from the upstream or downstream services and applications. </para>
-            <para xml:id="para_e929b3eb-a265-407a-9952-58ec4175b841"> B. Eventually integrate with
-                upstream and downstream services and applications in order to perform integration
-                and user acceptance testing activities. </para>
-            <para xml:id="para_e6e9ffb0-ad76-43b5-a33b-5d8799161233"> C. Develop and maintain test
-                patient data to support the rule logic. </para>
-            <para xml:id="para_fa320118-1798-4dd0-b70e-8187cd51519c"> D. Identify redundancy and
-                overlapping rule logic. </para>
-            <para xml:id="para_271cc7b8-8272-4e0b-8a5f-5eafa6696e3e"> E. Identify missing conditions
-                and actions. </para>
-            <para xml:id="para_d49f55d5-2a34-4c2f-b35a-12bfdfdc74f2"> F. Identify conflicts with
-                existing rules. </para>
-        </section>
-        <section xml:id="section_e1cc8f9c-4980-48de-bcef-9635ecbb4f1b">
-            <title xml:id="title_c1116813-ec95-4ca2-9d1f-fad267022dab">Condition Editor
-                requirements</title>
-            <para xml:id="para_454d7d97-f987-41e1-8cdf-8dfbc5ca9f20">The user must be supported in
-                creating Condition components that support CDS knowledge artifacts of varying types
-                that conform to conform to the specifications in the HL7 Version 3 Standard: CDS
-                Knowledge Artifact Specification, DSTU Release 1.3 (or later HL7 version or final
-                standard if one has been released during the period of performance of the current
-                effort).</para>
-        </section>
-        <section xml:id="section_848693b9-4bd2-4683-acf2-a8a85b58449f">
-            <title xml:id="title_d644cd64-92ae-456a-a438-f6f0626c2aee">Expression Editor
-                requirements</title>
-            <para xml:id="para_218159eb-1f63-4b62-b108-a61757dcc6fa"> The user must be supported in
-                creating Expression components that support CDS knowledge artifacts of varying types
-                that conform to conform to the specifications in the HL7 Version 3 Standard: CDS
-                Knowledge Artifact Specification, DSTU Release 1.3 (or later HL7 version or final
-                standard if one has been released during the period of performance of the current
-                effort). </para>
-        </section>
-        <section xml:id="section_45b7c581-e085-41ec-963f-ccd0ec454857">
-            <title xml:id="title_6e338aed-2ed2-49f7-af15-2e8500093b50">Action Editor
-                requirements</title>
-            <para xml:id="para_7872456a-e43e-4853-a6dd-71382048079a"> The user must be supported in
-                creating Action components that support CDS knowledge artifacts of varying types
-                that conform to conform to the specifications in the HL7 Version 3 Standard: CDS
-                Knowledge Artifact Specification, DSTU Release 1.3 (or later HL7 version or final
-                standard if one has been released during the period of performance of the current
-                effort). </para>
-        </section>
-        <section xml:id="section_76ffd50a-37fa-47de-a8b8-8194101b2c94">
-            <title xml:id="title_71111470-a5ee-4c42-aaa8-1b19495473aa">Order set editor
-                requirements</title>
-            <para xml:id="para_f905a934-2cd2-4bbd-8606-cce47ef97c54"> • The editor will allow an end
-                user to create orders and order sets that are adherent to the HL7 CDS Artifact
-                specification with government defined extensions. </para>
-            <para xml:id="para_767f49d7-c984-4395-bbf8-505f10801868"> • The editor will be a
-                seamless component of an integrated Knowledge Development Platform with other CDS
-                artifact editors and essential supporting components such as terminology editors.
-                Requirements common to all editors will be included. </para>
-            <para xml:id="para_0d5c892d-66a8-4ba9-9514-6a24913cddde"> • Orders and order sets
-                applicable to both inpatient and outpatient scenarios must be supported. The types
-                of orders that must be supported include the following: </para>
-            <para xml:id="para_69cb352d-eff8-49c2-932a-abc6f80c3410"> o Medication </para>
-            <para xml:id="para_59dba1fd-433f-4e05-8360-9549e68bebc4"> o Laboratory </para>
-            <para xml:id="para_60966aae-9dea-4cec-b388-287a4d080b5b"> o Diagnostic Imaging </para>
-            <para xml:id="para_f1c8e823-f5b7-4c34-b865-bdec4272c246"> o Diet </para>
-            <para xml:id="para_6cf9cfbe-6ac5-4f0d-91a4-4fcbd16dbad7"> o Nursing </para>
-            <para xml:id="para_e22a7bd6-d770-4741-b297-763e0f2a7b01"> o Activity </para>
-            <para xml:id="para_168665f6-3921-4a02-8c75-530933a7d937"> o Consult </para>
-            <para xml:id="para_98505c54-3df5-4552-8184-4da467d0b02b"> o Procedures </para>
-            <para xml:id="para_ef98ff23-c3a3-49f4-8b31-e1bdcf6ef89d"> o Blood Bank </para>
-            <para xml:id="para_e7808439-09bc-4a76-a798-579c464d3299"> o Clinic Scheduling </para>
-            <para xml:id="para_de8a2290-3182-40ba-877e-92a3314d1e3f"> • The editor will allow a user
-                to: </para>
-            <para xml:id="para_6586d093-b364-4703-a7b4-aee971629c14"> o Create an individual order. </para>
-            <para xml:id="para_d0c24d35-c473-4394-8894-6e68e7f3d3a9"> o Create an order set
-                comprised of both individual orders and order sets within user defined sections and
-                subsections. </para>
-            <para xml:id="para_b9f6bf05-4b84-4a1a-8b34-ae2b12319d4a"> o Define any data input
-                component of an individual order as required or optional. </para>
-            <para xml:id="para_6d0c7029-773d-4ddd-bdca-6f3ced57e051"> o Define any order set or
-                order within an order set as required or optional. </para>
-            <para xml:id="para_7cbff3d8-d8f3-439b-b3d6-dac46a1cbc11"> o Define a set of orders as
-                either mutually exclusive or not mutually exclusive. </para>
-            <para xml:id="para_a4e619a6-5f01-4513-99d1-808384f383e5"> o Define order and order set
-                metadata including artifact provenance, status, version, description, applicable
-                care context, etc. </para>
-            <para xml:id="para_9e6abb18-0ce0-4931-928a-77e9046c6c2e"> o Add text statements to any
-                part of an order or order set (e.g. a statement giving instructions to “choose one
-                order from the following list”). </para>
-            <para xml:id="para_71f37df4-246e-4c9e-a6f2-f4f8e8c11dbc"> o Add external data elements
-                to any part of an order or order set, including data pulled from a patient’s medical
-                record. </para>
-            <para xml:id="para_99581ee3-527e-4817-9b2b-436a7666ccee"> o Associate references and
-                documents with an order or order set (? How to manage documents). </para>
-            <para xml:id="para_9384b9f5-6958-4f3c-b1ef-fc51a3ce6b74"> o Identify the sequence of the
-                orders within an order set, such as this is order #1, this is order #2… </para>
-            <para xml:id="para_ec83107c-9c65-4a31-a097-7263c55294ff"> o Group orders and order sets,
-                such as separate group for medications and laboratory tests and sub-groups within
-                the groups, such as group for medication orders and a sub-group for beta blocker
-                orders. </para>
-        </section>
-        <section xml:id="section_20323fe7-ff77-4533-b370-68e946f802b2">
-            <title xml:id="title_c6f41ce2-e7c0-4b06-9d12-cba65c742d6a">Aggrigate artifact
-                editor</title>
-            <para xml:id="para_5b5ead8e-b803-40fa-bd39-2f74e013a558"> The Aggregate Artifact editor
-                will perform subcomponent integration consisting of several steps that the tools
-                must support including: </para>
-            <para xml:id="para_e1901ae9-d1eb-49f2-a62a-d426b2e87f77">1. Subcomponent assembly: The
-                aggregate artifact editor must be able to gather the KNART artifacts necessary for
-                creating the composite artifact such as documentation templates, order sets,
-                expressions, actions and references into a single specification </para>
-            <para xml:id="para_0a5933f6-872a-4b4b-96c2-394c354d5441"> 2. Harmonization: The editor
-                must support refactoring of included subcomponents including identification and
-                elimination of duplicate subcomponents, location and rationalization of
-                near-duplicates. </para>
-            <para xml:id="para_275e5a6d-d61a-41fb-84b5-6d2d238a6fad"> 3. Integration: The editor
-                must support the integration of component pieces via expressions and actions that
-                control the behavior of the composite whole. The user must be able to test the
-                integration with support from the editing environment </para>
-        </section>
-        <section xml:id="section_50bb50e9-8d7f-478d-b61c-71adad8836b4">
-            <title xml:id="title_390c9986-ffb5-49c3-8cbd-9461c890d765">Presentation layer
-                editor</title>
-            <para xml:id="para_73cdf8b1-80be-45fd-91f4-d8504f6d08eb"> The DTPLE (document template
-                presentation layer editor) will be able to import HL7 documentation template
-                artifacts and output executable packages of HTML5 and DRL. </para>
-            <para xml:id="para_5abcad2b-eb2e-414c-bd36-fe3d9970646e"> The DTPLE will Support: </para>
-            <para xml:id="para_e56d08dc-01e8-45c7-addb-24e3915a07e1"> • Widget Binding </para>
-            <para xml:id="para_5af7547e-f8a5-46b6-bdab-75f70cfea95c"> o Support the binding of HL7
-                artifact components, such as questions and permitted answer sets to appropriate
-                HTML5 widgets such as radio buttons, check boxes and drop down lists. </para>
-            <para xml:id="para_21cd8d5e-c945-4240-aeba-a8ea4f46f796"> o Support the storage of bound
-                widgets and artifacts in a common repository </para>
-            <para xml:id="para_90d96484-c1ac-4243-8540-d8cfbe36c43b"> o Support the search,
-                retrieval and reuse of bound widgets from the repository </para>
-            <para xml:id="para_099e6d81-249c-4fb0-bf08-6c8f9f10b752"> o Support the same for
-                collections of bound widgets and user interface contrivances </para>
-            <para xml:id="para_8d7d82ac-7186-47ed-ad9f-92def33e9e41"> • Layout and Design Support
-                (e.g., see Google web designer) </para>
-            <para xml:id="para_4d63ade9-0682-4ab4-a6dc-7ef4892ea9d1"> o Support the drag and drop
-                placement and movement of bound widgets on an HTML5 form </para>
-            <para xml:id="para_e774be31-d1f1-42c6-9032-4238b67b036b"> o Support the drag and drop
-                placement of other user interface components, such as frames and images supported by
-                HTML5 </para>
-            <para xml:id="para_8b4d51f4-819c-406e-96aa-9debeb26df36"> o Support fonts, colors,
-                alignment, borders and other design tools </para>
-            <para xml:id="para_9131757c-783e-430c-b05f-0397340f7017"> o Support outputs optimized
-                for various form factors </para>
-            <para xml:id="para_2ef98938-3295-47f5-b4cd-cd15b523ad37"> • Expression Language
-                Conversion </para>
-            <para xml:id="para_586d9715-289b-4c97-98c3-8c4ab4b85de1"> o Conversion of CQL statements
-                to DRL </para>
-            <para xml:id="para_b4e30c52-64c8-44ff-a96f-c22e7e26baa8"> o Need help here. </para>
-            <para xml:id="para_bf8d1084-1fe0-455e-9bf6-f1d2fbeb6755"> • Application Execution
-                Simulation and Debugging Support </para>
-            <para xml:id="para_f16bb604-2131-4bd5-98c3-172c740ab4e6"> • Creation of Executable
-                Artifacts that are/can be integrated with other execution System components such as
-                data read, data write and data updates </para>
-            <para xml:id="para_324fc442-5934-444e-b7a9-75aa42f9a425"> • Include other General
-                Editing Environment tools as well…. </para>
-            <para xml:id="para_b4a273ca-58eb-44b1-bda7-1841698527b2"> </para>
-        </section>
-        <section xml:id="section_8bcc8a06-8910-49a6-88d8-0f67921270f1">
-            <title xml:id="title_1c37c8b0-776e-4d92-a305-0355b8134adf">Governance workflow
-                requirements</title>
-            <para xml:id="para_69c970bd-88f0-4807-b84b-e6a5df01524a"> 1. Must be model-driven at all
-                levels and be flexible and adaptable </para>
-            <para xml:id="para_8cae1aa0-4b7d-4dda-bb4f-4a147ae59959"> 2. Artifacts may undergo
-                organization review by zero or more governance groups </para>
-            <para xml:id="para_74246892-99cf-4fe7-af8c-6ee34aa5f735"> 3. Review results must be
-                rationalized, either by harmonization or versioning. This decision is itself a
-                governance process. </para>
-            <para xml:id="para_60e74dc2-4a8f-49ef-8264-ef9607e0c031"> 4. Review results include
-                status such as: </para>
-            <para xml:id="para_5c6384ba-9916-400b-ab3a-2b398cc635e0"> a. Approved for implementation
-                (full, partial, pilot) </para>
-            <para xml:id="para_f0d996c0-2bbf-44d9-b72f-eff86a113347"> b. Approval pending resolution
-                of issues </para>
-            <para xml:id="para_f47fba97-5665-44d6-838e-5a458edf9efc"> c. Rejection with invitation
-                to resubmit </para>
-            <para xml:id="para_619596f4-a6ef-48f8-871a-ed487519a86a"> d. Rejection without
-                invitation to resubmit (core idea rejected, no remediation acceptable) Governance
-                Groups </para>
-            <para xml:id="para_50ecc87a-d58f-4a4d-ae84-01431139d3bb"> 1. Organizational home and
-                authority (need org models here) </para>
-            <para xml:id="para_8c9afc14-dad9-4ba7-867e-a3d5ce4f2d8e"> 2. Members – have one or more
-                members </para>
-            <para xml:id="para_fffb3e71-59d5-42d1-9d3c-d4ca16726f9c"> 3. Processes (model-driven) </para>
-            <para xml:id="para_38f4e243-8c4b-4c24-a422-806df3c137c5"> 4. Artifact Review Assignments </para>
-            <para xml:id="para_a16bd191-c8fe-4e18-a843-212a72d2182c"> a. Receive Assignments </para>
-            <para xml:id="para_210ebe4d-1f6c-4105-9b49-adea5eea169f"> b. Return and Reassign
-                Assignments </para>
-            <para xml:id="para_ff03bafd-11ca-407d-9be2-8cd31acc2fc0"> c. Track Group assignments </para>
-            <para xml:id="para_fea3bb1a-730d-4430-b9e1-8e8155510099"> d. Process Assignments </para>
-            <para xml:id="para_8adc966f-753c-4269-868d-e937674502ed"> i. Delegation to members </para>
-            <para xml:id="para_6dd40882-c7ec-42f5-a66d-5003e6cb50c7"> 1. Give members assignments </para>
-            <para xml:id="para_d2f5e21d-d791-4b90-b55d-1bdf1f22862b"> 2. Track members assignments </para>
-            <para xml:id="para_8736afb6-dd67-4f23-b394-c1ec655c05b9"> 3. Review members work
-                products </para>
-            <para xml:id="para_8c41da9a-0c44-4ab0-9daa-e09c11b392e2"> ii. Group Performance </para>
-            <para xml:id="para_4acab640-6a96-468a-90e7-e9d5458f850a"> 1. Review artifacts </para>
-            <para xml:id="para_d627bdb4-61a2-497e-b235-e7cbf76a8038"> 2. Create comments </para>
-            <para xml:id="para_45f2b681-2342-4095-ac5f-e5addaad9dd9"> 3. Identify issues </para>
-            <para xml:id="para_1a091e22-de8e-4582-a6bc-685d963d40b1"> 4. Propose resolutions </para>
-            <para xml:id="para_f4891cac-ab2c-4fed-8420-7171aa949275"> e. Make disposition of
-                assignments – approve, return for modification, terminate etc. </para>
-            <para xml:id="para_24bd486c-e65a-483a-b207-33248f2afd5f"> f. Monitor and track work
-                process and products </para>
-            <para xml:id="para_51d5a46c-e865-47be-8c0a-ca5da7868a0e"> Governance Group Members </para>
-            <para xml:id="para_f0904781-70f5-4918-989c-872649f2258d"> </para>
-            <para xml:id="para_82ea289e-d60b-482c-abc5-3ce9119237c9"> 1. Belong to Governance groups
-                in one or more roles </para>
-            <para xml:id="para_ffb10faf-8a81-4161-b557-94285505994a"> 2. Monitor Work queues </para>
-            <para xml:id="para_8b77bb40-dc8e-4508-bc49-c618ba7c8605"> 3. Artifact Review Assignments </para>
-            <para xml:id="para_5a1f9d54-d50d-4a55-aef1-7075cc2dba58"> a. Receive assignments </para>
-            <para xml:id="para_3e807c0a-d376-4129-8857-6982fb94d4f5"> b. Return or reassign
-                assignments </para>
-            <para xml:id="para_c94f5c80-a327-4ee8-84ee-006be1be2a1f"> c. Review artifacts </para>
-            <para xml:id="para_59cc283f-b437-4baa-a176-391b828c2d07"> d. Create comments regarding
-                the artifact or other members reviews </para>
-            <para xml:id="para_8a07684a-b35f-48f9-b9d1-ddcce2fb4f05"> e. Identify issues </para>
-            <para xml:id="para_e87581ef-6714-4dba-bf33-9bec897c7e73"> f. Propose resolutions </para>
-            <para xml:id="para_a423c8b3-9e8f-4f5b-ac54-ee3d5dd6c574"> g. Submit review work product
-                to committee </para>
-            <para xml:id="para_98393bff-5099-4fe3-8fbe-220cf0cb6e4c"> Governance Issue Management </para>
-            <para xml:id="para_5348df5c-ad48-4721-8203-2e70402c4237"> </para>
-            <para xml:id="para_666c9bd8-d08e-4af2-a315-014ab3d55704"> Issues are generated when
-                reviewing groups or group members have concerns, questions, comments or other inputs
-                regarding an artifact under review. </para>
-            <para xml:id="para_ab75546f-c110-4cf3-8746-420e3ce90a1a"> 1. Issue Generating Person </para>
-            <para xml:id="para_6628540d-e583-49cc-94e8-ce3f71bb03db"> a. Create Issue </para>
-            <para xml:id="para_a2cdf846-2cf4-4370-85c9-0e6207a1bc5f"> i. Must provide description of
-                issue linked to either a portion of the artifact or to the artifact as a whole </para>
-            <para xml:id="para_186dbbfa-ec14-4e38-86b5-5dd538e8daa4"> ii. Assign severity level –
-                issue severity could range from trivial to fatal. Required responses may vary with
-                severity. </para>
-            <para xml:id="para_635f2a1e-0367-4cd9-a614-bc7b16f4705a"> iii. Linked to artifact
-                version </para>
-            <para xml:id="para_91ef906e-1ce2-4764-b769-a198bee6eef9"> iv. Propose resolution </para>
-            <para xml:id="para_08cb6584-0637-4339-9eb6-f67fd8147518"> v. Propose receiver of issue
-                (default is review committee?) </para>
-            <para xml:id="para_36012638-8eb5-4f31-a9c9-4e75826b542a"> b. Review response to issue
-                and adjust status </para>
-            <para xml:id="para_ed51ef98-d89e-4d77-a1bf-7c3f015a504a"> c. Status flags modeled per
-                general requirements </para>
-            <para xml:id="para_bdb11ce8-aaec-4c7a-b956-7dedd3faaf74"> d. Track issue status by
-                artifact, governance group, governance group member and probably other stuff too. </para>
-            <para xml:id="para_5fdabba1-a733-4fba-a838-b9c656a3c6f4"> 2. Issue Resolving Person </para>
-            <para xml:id="para_a0568111-d037-4cc0-97db-979ba3859a61"> a. Reviews issue and proposed
-                resolution </para>
-            <para xml:id="para_88ce7260-d6fe-4d6b-8517-fe11c26ae715"> b. Collaborates with issue
-                generating person to arrive at acceptable solution </para>
-            <para xml:id="para_7a42249f-fcdf-415e-8b30-4c8e10027ef7"> c. Implements solution in
-                artifact </para>
-            <para xml:id="para_ea02b007-38b9-4550-8d77-927cddffe619"> d. Provides next version of
-                artifact to governance committee (probably in batches) </para>
-            <para xml:id="para_d2957a1e-843e-4b09-a0f2-6034ba85d199"> </para>
-        </section>
-        <section xml:id="f84e4137-48eb-11e4-916c-0800200c9a66">
-            <title xml:id="title_5728f299-43e8-4d02-9281-59ac7a78ed18">Project Information System
-                and Management Environment (PRISME)</title>
-            <section xml:id="section_bb7a8d95-6b30-4e24-b073-663114487ee4">
-                <title xml:id="title_6f99e681-4df2-46a4-ae2d-1d69a377612a">General
-                    Requirements</title>
-                <para xml:id="para_2c70e250-940c-49d5-a4f3-3cd4e56d26e1">The Project Information
-                    System and Management Environment (PRISME) will provide the general requirements
-                    listed below. Additional specific requirements are shown in the sections that
-                    follow. </para>
-            </section>
-            <requirement xml:id="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463">
-                <title xml:id="title_b2db4c0d-62e9-4895-9157-f1df41d0411a">Enable comprehension of
-                    the complete state of the development environment</title>
-                <variablelist xml:id="variablelist_6535f702-8c1f-482c-9d17-e443860287fd">
-                    <varlistentry xml:id="varlistentry_ff0a2609-6a9c-4377-bd8d-4ed4f420a890">
-                        <term>FC-1</term>
-                        <listitem xml:id="listitem_32a28baa-db7c-41a1-b2c0-6ef199b64fda">
-                            <para xml:id="para_dc1123fa-494e-41ed-bedf-259e570fce4e"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>Enable comprehension of the complete state of the
-                                        development environment</primary>
-=======
             <title>Documentation template editor requiremnts</title>
             <requirement>
                 <title>insertRequirementTitle</title>
@@ -2372,7 +1920,6 @@
                                 <indexterm type="requirement">
                                     <primary>insertRequirementShortId</primary>
                                     <seealso>insertRequirementTitle</seealso>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                                 </indexterm>
                                 <variablelist>
                                     <varlistentry>
@@ -2495,43 +2042,6 @@
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_4570af30-386c-4d4b-b5ef-945a04a93070">
-                <title xml:id="title_dcb374cf-9387-4995-b1d1-9aa23084d346">Provide project
-                    dashboards</title>
-                <variablelist xml:id="variablelist_d3a9b73e-335b-40e2-bdf0-d17623f01563">
-                    <varlistentry xml:id="varlistentry_4ad6a453-6b77-4d41-8287-05bb23498134">
-                        <term>FC-2</term>
-                        <listitem xml:id="listitem_8c0eb0b0-f61d-4dc5-bd8d-535f37399363">
-                            <para xml:id="para_bf0e020f-6a14-4811-8b79-92192bd313d4">PRISME
-                                    <indexterm type="requirement">
-                                    <primary>Provide project dashboards</primary>
-                                </indexterm>
-                                <indexterm type="requirement">
-                                    <primary>FC-2</primary>
-                                    <seealso>Provide project dashboards</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link></emphasis> shall provide a dashboard
-                                that shows all the projects known to PRISME, shows summary
-                                statistics for those projects, and shall provide links to more
-                                detailed project information including detailed build metrics
-                                generated by the Continuous Integration Service <emphasis
-                                    role="italic"><link
-                                        linkend="listitem_000b7c48-e3f6-4bb3-88fd-87c87a6a1666"
-                                        >(ETS-F-54 below)</link></emphasis>, the Tracker for each
-                                project <emphasis role="italic"><link
-                                    linkend="requirement_417cef01-7ab2-4f2c-bd39-3fc2e1dc5116">(ETS-F-36
-                                        below)</link></emphasis>, the artifacts deployed to the
-                                Artifact Repository <emphasis role="italic"><link
-                                        linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c">(ETS-F-27
-                                        below)</link></emphasis> for each project, and the version
-                                control system <emphasis role="italic"><link
-                                        linkend="f84e8f61-48eb-11e4-916c-0800200c9a66"/>(see section
-                                    5.1.6 below)</emphasis> for each project’s sources and generated
-                                website.</para>
-=======
 
             <para> The Documentation Template editor must: </para>
             <requirement>
@@ -2552,44 +2062,10 @@
                                 (such as action of type CollectInformationAction) within the HL7
                                 Version 3 Standard: CDS Knowledge Artifact Specification, DSTU
                                 Release 1.3. </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_d142643b-fb63-456e-8d4e-1b4e155f512d">
-                <title xml:id="title_937d4120-8e4a-407d-90b0-343b3e9ae741">Use declarative
-                    specifications with version-controlled POM</title>
-                <variablelist xml:id="variablelist_2d0fdc81-347f-4514-afb0-bbb1803e2e6e">
-                    <varlistentry xml:id="varlistentry_0083d025-2259-48c2-b826-bcb70c906a44">
-                        <term>FC-3</term>
-                        <listitem xml:id="listitem_fd000c63-5ce7-432d-99ca-a059450792c0">
-                            <para xml:id="para_36a310fc-3582-4ad5-b520-2a83eab51b58"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>Use declarative specifications with version-controlled
-                                        POM</primary>
-                                </indexterm>
-                                <indexterm type="requirement">
-                                    <primary>FC-3</primary>
-                                    <seealso>Use declarative specifications with version-controlled
-                                        POM</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link>
-                                </emphasis>shall use declarative specifications of a project’s
-                                build, deployment, release, reporting, and documentation within a
-                                version-controlled Project Object Model (POM) file. This POM file
-                                shall contains the Uniform Resource Locator (URL) locations of the
-                                version control system which hosts the project’s POM file as well as
-                                any configuration files, data files, and source files and shall also
-                                specify the project’s dependencies, the developers involved and the
-                                roles they play, the defect tracking system, the continuous
-                                integration system, the organizations participating in the project,
-                                and the licenses associated with artifacts generated by the
-                                project.</para>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -2605,33 +2081,10 @@
                         <listitem>
                             <para>Perform automatic interim saving of a document, with versioning,
                                 while under construction. </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_bf37c55a-4b29-4b71-85ed-9182eb10637b">
-                <title xml:id="title_8fb47dbb-0c8b-44ee-8010-292391e4c662">Automated change
-                    log</title>
-                <variablelist xml:id="variablelist_02f08d10-3677-4853-99ad-39fcfd496f88">
-                    <varlistentry xml:id="varlistentry_a8b7d476-53b3-4012-abac-dd2b64a000ff">
-                        <term>FC-4</term>
-                        <listitem xml:id="listitem_aa6ff2ab-41e5-4768-90ab-23ee9a98063b">
-                            <para xml:id="para_8c93613c-38ee-419e-a1a6-e74432b7bd0b"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>Automated change log</primary>
-                                </indexterm>
-                                <indexterm type="requirement">
-                                    <primary>FC-4</primary>
-                                    <seealso>Automated change log</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link>
-                                </emphasis>shall provide automated change log documentation created
-                                directly from source control. </para>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -2647,40 +2100,10 @@
                         <listitem>
                             <para>Organize document concepts hierarchically or non-hierarchically as
                                 requirements for content may dictate. </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_0af879c4-3b45-4ea8-8b83-427e9b522cbc">
-                <title xml:id="title_24036901-cfa9-4da0-8a2c-1b534411760e">Automated release
-                    management process</title>
-                <variablelist xml:id="variablelist_ca35959b-be21-4d3b-b166-a1965a7e9521">
-                    <varlistentry xml:id="varlistentry_efd3cee6-8b99-4e11-95c0-65f94451543d">
-                        <term>FC-5</term>
-                        <listitem xml:id="listitem_fa8f6259-eb72-43d5-9d82-fb05c6a0ae99">
-                            <para xml:id="para_022df763-4baf-49e5-bd7a-9d994a3bc409"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>Automated release management process</primary>
-                                </indexterm>
-                                <indexterm type="requirement">
-                                    <primary>FC-5</primary>
-                                    <seealso>Automated release management process</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463">(FC-1 above)</link>
-                                </emphasis>shall ensure reproducibility, accountability, and
-                                immutability of all aspects of a project’s release by ensuring that
-                                the release management process is fully automated, that all sources
-                                must be under version control, that all dependencies must be
-                                released, that no manual processes can participate in the release
-                                process, and that any subsequent modifications to release artifacts
-                                can be repudiated. The only way to change the release process shall
-                                be to modify the POM file and project sources, and to then check
-                                those changes into the project’s version control system and then to
-                                request a project release from PRISME.</para>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -2696,34 +2119,10 @@
                         <listitem>
                             <para>Get documentation-specific metadata as well as all other metadata.
                             </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_ba69ed8e-ab20-43db-be9b-f1d0f40c222e">
-                <title xml:id="title_b4227276-eb92-4ba0-9cf1-8029db503ee5">Integrate with issue
-                    tracking systems</title>
-                <variablelist xml:id="variablelist_31b24c91-d5c3-445d-aade-31c7a689986b">
-                    <varlistentry xml:id="varlistentry_a7c784f7-df16-4cfe-b4f2-12e071373dbf">
-                        <term>FC-6</term>
-                        <listitem xml:id="listitem_844c2ae4-eca7-4278-81b9-83430c5bb815">
-                            <para xml:id="para_6b60a9d9-a877-41e4-95fd-d7634df090a3"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>Integrate with issue tracking systems</primary>
-                                </indexterm>
-                                <indexterm type="requirement">
-                                    <primary>FC-6</primary>
-                                    <seealso>Integrate with issue tracking systems</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link>
-                                </emphasis>shall integrate with issue tracking systems and will
-                                provide automated reports of open issues and resolved issues at any
-                                time, and for any release.</para>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -2739,35 +2138,10 @@
                         <listitem>
                             <para>Access an expressions editor and consume the output of an
                                 expressions editor. </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_e848f33c-b236-4b4d-8087-d9373a594aae">
-                <title xml:id="title_8ab755fb-5a90-4f0a-aba9-16d7d3b93cf6">Provide cryptographic
-                    checksums for all artifacts</title>
-                <variablelist xml:id="variablelist_b3912844-3369-4933-926c-157a76d37f38">
-                    <varlistentry xml:id="varlistentry_e118c4e6-9252-48ae-9533-9f982a1e2057">
-                        <term>FC-7</term>
-                        <listitem xml:id="listitem_a5f35ee3-5840-473e-9de7-bb5792fdb729">
-                            <para xml:id="para_98d23160-8a29-4687-9e8e-5f6c1986a750"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>Provide cryptographic checksums for all
-                                        artifacts</primary>
-                                </indexterm>
-                                <indexterm type="requirement">
-                                    <primary>FC-7</primary>
-                                    <seealso>Provide cryptographic checksums for all
-                                        artifacts</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link>
-                                </emphasis>shall provide cryptographic (MD4 and SHA1) checksums for
-                                all artifacts to ensure their integrity. </para>
-=======
             <para>The Documentation Template editor must allow a user to: </para>
             <requirement>
                 <title>insertRequirementTitle</title>
@@ -2785,37 +2159,10 @@
                             <para>Search for other templates with needed content, import portions of
                                 other document templates AND make sure there are not duplicate
                                 titles. </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_3baac305-c23a-4e3b-9474-b9b662bcb46a">
-                <title xml:id="title_d61e7166-e636-45e7-be74-78945bd0a109">Accessible over public
-                    Internet</title>
-                <variablelist xml:id="variablelist_991c517e-411a-4665-bc17-2fd5a17ac468">
-                    <varlistentry xml:id="varlistentry_1c762460-58d9-4e72-b303-1cbe697c191f">
-                        <term>FC-8</term>
-                        <listitem xml:id="listitem_1f67eb7c-26b1-4d8c-81df-cbb0f37af46e">
-                            <para xml:id="para_50ccc2b8-55e4-4a49-af92-67e4db55cda5"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>Accessible over public Internet</primary>
-                                </indexterm>
-                                <indexterm type="requirement">
-                                    <primary>FC-8</primary>
-                                    <seealso>Accessible over public Internet</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link>
-                                </emphasis>shall be accessible over the public Internet so that our
-                                collaborators (United States National Library of Medicine, DoD, The
-                                Centers for Medicare and Medicaid Services [CMS], Office of the
-                                National Coordinator, Intermountain Healthcare, Kaiser Permanente,
-                                the IHTSDO, and others) may participate in, or subscribe to, PRISME
-                                supported projects.</para>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -2830,46 +2177,10 @@
                         <term>insertRequrementShortId</term>
                         <listitem>
                             <para>Create a new template. </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <section xml:id="section_adabf147-9d9e-4ff6-90ce-9e5368b1a312">
-                <title xml:id="title_51593738-efa5-4dc0-bf17-a25d76393e9a">Workflow Management
-                    Service</title>
-                <para xml:id="para_2e8e61e4-1152-498b-a7fb-7d420d503e33">PRISME will provide a
-                    workflow management service that is based on the <emphasis role="bold">Business
-                        Process Model and Notation (BPMN) 2.0</emphasis> specifications and supports
-                    the entire life cycle of the business process (from authoring through execution
-                    to monitoring and management). Java Business Process Model (jBPM)<superscript
-                        xml:id="superscript_e6a88d3a-6d41-44ec-b06f-7d00f49e28e0"><link linkend="footnote_ef3877a4-e36a-41db-bd53-89f823f8e2b5">1</link></superscript>is
-                    an open-source (Apache 2) prototypical example of such a workflow management
-                    service.</para>
-            </section>
-            <requirement xml:id="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5">
-                <title xml:id="title_28c92d5e-520f-4314-8fd3-b2c3feb4c798">Provide workflow
-                    management service</title>
-                <variablelist xml:id="variablelist_7d0d0cf7-ac44-42da-a3d5-8aebfabb058a">
-                    <varlistentry xml:id="varlistentry_0ba28257-47f4-4fc5-ab57-662887583aa2">
-                        <term>FC-9</term>
-                        <listitem xml:id="listitem_4bb35c55-3cf5-4b26-8e5c-ebb6c65d6434">
-                            <para xml:id="para_5b3ef3b3-0c80-4309-ab03-ad7378d3ffa3"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>Provide workflow management service</primary>
-                                </indexterm>
-                                <indexterm>
-                                    <primary>FC-9</primary>
-                                    <seealso>Provide workflow management service</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link>
-                                </emphasis>shall provide a workflow management service able to
-                                create, load, and execute rules, and able to coordinate workflows
-                                between FAR client applications.</para>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -2885,34 +2196,10 @@
                         <listitem>
                             <para>Import and modify an existing template, selecting it from a
                                 library or list of existing templates. </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_c7fce126-81b0-4879-9a79-71ed06662248">
-                <title xml:id="title_b9f0e333-99f3-4d59-9f5c-9c6c944b2f75">Run workflow management
-                    service engine within Java 8 SE</title>
-                <variablelist xml:id="variablelist_8f447e17-07a6-4d31-a8e9-f2b717fd667a">
-                    <varlistentry xml:id="varlistentry_07b10e77-663a-46c7-a8cc-a331674019c0">
-                        <term>FC-10</term>
-                        <listitem xml:id="listitem_020472d4-3388-4926-b800-cbd97f48b3c7">
-                            <para xml:id="para_ee43d583-cbaf-4e1e-b745-23088e17b3bc">The workflow
-                                management service engine must be able to run embedded within the
-                                default Java 8 Standard Edition (Java 8 SE) application
-                                    platform<indexterm type="requirement"
-                                    xml:id="indexterm_512d1f6a-6d03-4075-899e-859eed49a3e3">
-                                    <primary>FC-10</primary>
-                                    <seealso>Run workflow management service engine within Java 8
-                                        SE</seealso>
-                                </indexterm>
-                                <emphasis role="italic"
-                                    xml:id="emphasis_9c86e263-d861-4f8a-95cc-e6cd1890f680">
-                                    <link linked="requirement_7fd2b4dd-1844-480c-9d8c-634b26c879a1">(FC-A-1
-                                        below)</link>
-                                </emphasis></para>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -2928,37 +2215,10 @@
                         <listitem>
                             <para>Create or assign a Template Name or Document Title, and check for
                                 and disallow duplicate names or titles. </para>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <footnote xml:id="footnote_ef3877a4-e36a-41db-bd53-89f823f8e2b5">
-                <superscript xml:id="superscript_80020d9e-86ce-40b4-86ec-873705af0c3f"><link
-                    linkend="superscript_e6a88d3a-6d41-44ec-b06f-7d00f49e28e0"
-                    >1</link></superscript>
-                <link>http://jboss.org</link>
-            </footnote>
-            <requirement xml:id="requirement_05d58695-b31a-49c2-bfd9-c71fe06b1862">
-                <title xml:id="title_7aefbbe5-0dd5-4187-bdfd-033f02fae333">Deploy web service on
-                    Java</title>
-                <variablelist xml:id="variablelist_c5107670-9970-4bd4-8f36-dab496059b0d">
-                    <varlistentry xml:id="varlistentry_a2b94a2a-371e-45e2-b16b-345661bca9c9">
-                        <term>FC-11</term>
-                        <listitem xml:id="listitem_3d417f2b-56fe-4ef7-8ab1-90fbfebf10cc">
-                            <para xml:id="para_57a2ed56-9e07-409d-a1cd-604f8332146d">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-11</primary>
-                                    <seealso>Deploy web service on Java</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link>
-                                </emphasis>shall run as a web service deployed on a Java EE 7/Java 8
-                                SE server<emphasis role="italic">
-                                    <link linkend="requirement_6a1d4340-c50d-498e-87a6-ff368e8f600d">(FC-A-3).</link></emphasis>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -2992,35 +2252,11 @@
                         <term>insertRequrementShortId</term>
                         <listitem>
                             <para>Define and impose required content on the documentation template.
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                             </para>
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_3935bc53-9e5e-4e14-84de-8c0f80d9cff7">
-                <title xml:id="title_tbd">Access through REST API</title>
-                <variablelist xml:id="variablelist_tbd">
-                    <varlistentry xml:id="varlistentry_2c8f2e57-b806-4d5d-9f7b-fb4369c6c7ce">
-                        <term>FC-12</term>
-                        <listitem xml:id="listitem_7a57b98c-42b2-4db2-921e-c44562e0c25d">
-                            <para xml:id="para_b7030477-eabb-4c42-9792-836afb73954d">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-12</primary>
-                                    <seealso>Access through REST API</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9)</link>
-                                </emphasis>shall provide access to workflow services through a
-                                Representational State Transfer (REST) Application Program Interface
-                                    (API)<emphasis role="italic"
-                                    xml:id="emphasis_4853a0ca-c7bf-4400-8b6e-7782ada82216">
-                                    <link linkend="d1bc7caf-ba9e-470d-9bb6-d9e1e7cb0864"
-                                        >(FC-A-4).</link>
-                                </emphasis></para>
-=======
             <requirement>
                 <title>insertRequirementTitle</title>
                 <indexterm type="requirement">
@@ -3351,852 +2587,10 @@
                                     </varlistentry>
                                 </variablelist>
                             </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         </listitem>
                     </varlistentry>
                 </variablelist>
             </requirement>
-<<<<<<< HEAD
-            <requirement xml:id="requirement_67108271-5bb4-4ec7-b220-7c33f2502829">
-                <title xml:id="title_d54a085e-ed71-494b-8721-b21f411b2b84">Provide web services
-                    human task management capabilities</title>
-                <variablelist xml:id="variablelist_08133a76-dd8b-451a-bbd5-a1f94b08643b">
-                    <varlistentry xml:id="varlistentry_960a1167-3423-4df1-a5ad-3e4b0b712276">
-                        <term>FC-13</term>
-                        <listitem xml:id="listitem_a5cd7b90-48aa-4e9b-b89c-1f74c0ed3d0e">
-                            <para xml:id="para_1c88c177-a9d7-4f4f-a3ac-5f6cd0bcc75d">The Workflow
-                                Management Service <indexterm type="requirement">
-                                    <primary>FC-13</primary>
-                                    <seealso>Provide web services human task management
-                                        capabilities</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link>
-                                </emphasis>shall provide Web Services Human Task
-                                    (WS-HumanTask)(<link>http://docs.oasis-open.org/bpel4people/ws-humantask-1.1.html
-                                </link>)management capabilities, which shall include the ability to
-                                define the type of task, the priority of the task, the data
-                                associated with the task, and the ability to assign a task to an
-                                individual or a group.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_08447293-87b0-4fa4-ac17-218e9542e061">
-                <title xml:id="title_314c0733-9b0c-4f04-8da6-6125407cfbaa">Manage life-cycle of
-                    human tasks</title>
-                <variablelist xml:id="variablelist_bc529b0e-5111-4088-939d-a03ed9905dfd">
-                    <varlistentry xml:id="varlistentry_2ffad582-fa4a-4089-aa4d-d0787b4bc60f">
-                        <term>FC-14</term>
-                        <listitem xml:id="listitem_88a46e7e-b4ff-4510-94d7-18291c31b052">
-                            <para xml:id="para_130466c4-876a-4327-8a70-300067340d98">The Workflow
-                                Management Service <indexterm type="requirement">
-                                    <primary>FC-14</primary>
-                                    <seealso>Manage life-cycle of human tasks</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link></emphasis>shall manage the life-cycle
-                                of human tasks, including task creation, reservation, execution,
-                                completion, delegation, revocation, suspension, stopping a task in
-                                progress, skipping a task, and managing error states of human tasks.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_e41602f9-2b0d-4162-a91a-4d42bcc43f7e">
-                <title xml:id="title_dae96cf0-74dc-4fc7-9ecf-b9bfd24a61c9">View and edit workflow
-                    definitions using BPMN 2.0 </title>
-                <variablelist xml:id="variablelist_ef762750-d754-4bca-b8d8-a887716dd4b4">
-                    <varlistentry xml:id="varlistentry_c1084056-2ff5-4bf9-81d8-7729bc006964">
-                        <term>FC-15</term>
-                        <listitem xml:id="listitem_d6b52e34-2d03-4c60-b9d0-f74146406061">
-                            <para xml:id="para_61d3e4aa-a3ab-4b9b-9ae5-1fdc88690804">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-15</primary>
-                                    <seealso>View and edit workflow definitions using BPMN
-                                        2.0</seealso>
-                                </indexterm>
-                                <emphasis role="italic">
-                                    <link linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link>
-                                </emphasis>shall enable project managers to view and edit workflow
-                                definitions using the BPMN 2.0 standard( <link>http://www.omg.org/
-                                    spec/BPMN/2.0/ </link>). </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_41754543-ebb0-4675-b491-42b9df502497">
-                <title xml:id="title_7a6014f9-7085-4ca2-8438-b67fddff208f">Enable workflow
-                    definitions across independent projects</title>
-                <variablelist xml:id="variablelist_e960a067-1de7-4e72-bebb-b3f6f4025295">
-                    <varlistentry xml:id="varlistentry_edb71631-8030-4811-bb4b-e0e044480e16">
-                        <term>FC-16</term>
-                        <listitem xml:id="listitem_9d753915-2339-464b-8fdb-e31fba3b639b">
-                            <para xml:id="para_0ce8af5b-6210-47ae-ac54-691850bc02c5">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-16</primary>
-                                    <seealso>Enable workflow definitions across independent
-                                        projects</seealso>
-                                </indexterm>
-                                <emphasis>
-                                    <link linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link>
-                                </emphasis> shall enable workflow definitions that can coordinate
-                                work across independent projects. For example, when a new concept is
-                                created in one project, a workflow process may be transmitted to a
-                                second project to translate that concept’s description into another
-                                language, and another workflow process may be transmitted to a third
-                                project to ensure that the new concept is properly mapped to
-                                International Classification of Diseases, Tenth Edition, Clinical
-                                Modifications (ICD-10CM). </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_61efdcb9-319a-42fe-9831-dd925fda1b01">
-                <title xml:id="title_8351a80c-5cb0-4b8d-b401-fec23326ed27">Enable store and forward
-                    execution of human task</title>
-                <variablelist xml:id="variablelist_c70efe78-57b9-4a0f-bf08-c0e7faa892ac">
-                    <varlistentry xml:id="varlistentry_04e5c12b-f41e-4b23-a1fc-0e0dd3f71034">
-                        <term>FC-17</term>
-                        <listitem xml:id="listitem_fc9128c8-0ea6-440d-8e99-1087d55e2f04">
-                            <para xml:id="para_6e1c6ac1-ec5b-4d13-9e8b-749b8707dd67">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-17</primary>
-                                    <seealso>Enable store and forward execution of human
-                                        task</seealso>
-                                </indexterm>
-                                <emphasis>
-                                    <link linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link>
-                                </emphasis>shall enable “store and forward” execution of human tasks
-                                by client systems. The client systems would reserve a collection of
-                                tasks, which would then be executed offline, with the results
-                                transmitted back to the Workflow Management Service when the client
-                                comes back online.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_517a706e-4be0-4bc9-8734-92708357602f">
-                <title xml:id="title_2cbe3abf-cb19-4a76-9157-86fab480422f">Provide reporting
-                    capabilities</title>
-                <variablelist xml:id="variablelist_3e657c18-425c-461a-afc8-a4d946abb12a">
-                    <varlistentry xml:id="varlistentry_ef405177-5e0d-4fe0-b621-5e86ab699105">
-                        <term>FC-18</term>
-                        <listitem xml:id="listitem_d719d4eb-f573-4618-8e02-06a34d8d3ac4">
-                            <para xml:id="para_34de62f7-fac7-4405-bf56-8d1e477167de">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-18</primary>
-                                    <seealso>Provide reporting capabilities</seealso>
-                                </indexterm>
-                                <emphasis>
-                                    <link linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link>
-                                </emphasis>shall provide reporting capabilitiesthat provide summary
-                                statistics regarding process execution, as well as detailed
-                                information regarding the status of individual processes.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_085147c0-dbb7-4083-905d-6639d300ec64">
-                <title xml:id="title_9a15096c-77e1-4cba-b068-020c90e2dea1">Provide audit
-                    trail</title>
-                <variablelist xml:id="variablelist_0c9f6333-083a-4f06-a755-168a39c142a0">
-                    <varlistentry xml:id="varlistentry_96ebf490-6c42-4640-8905-aea5e918de42">
-                        <term>FC-19</term>
-                        <listitem xml:id="listitem_e8906053-f124-4c58-91fb-03874196794c">
-                            <para xml:id="para_838557d1-8fc8-4833-a43b-4a3e3bb4f02a">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-19</primary>
-                                    <seealso>Provide audit trail</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link>
-                                </emphasis>shall provide a reliable audit trail for all workflow
-                                task execution.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_5873836e-8bc8-420d-83e3-61e338506f4a">
-                <title xml:id="title_564836de-2d1e-46ef-a11a-c0c42ff54413">Publish workflow
-                    processes as Maven artifacts</title>
-                <variablelist xml:id="variablelist_d98fcdd9-a0a2-48bf-baa5-39b165f8faac">
-                    <varlistentry xml:id="varlistentry_e4e172f9-5a7c-440d-9162-b5faab0d037f">
-                        <term>FC-20</term>
-                        <listitem xml:id="listitem_f0052cd3-4eab-45cb-9aa1-3b1913af3531">
-                            <para xml:id="para_5a664d50-eb93-447d-87a8-3a1e7a3d2c78">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-20</primary>
-                                    <seealso>Publish workflow processes as Maven artifacts</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link></emphasis>shall publish
-                                workflow processes as Maven artifacts<emphasis>
-                                    <link linkend="requirement_66e4de5b-6ca6-4457-879f-7e3c00aa9435"
-                                        >(FC-A-6 below)</link>
-                                </emphasis> on the Artifact Repository Service<emphasis>
-                                    <link linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 below)</link>
-                                </emphasis>. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_a7607fcb-2e03-4e77-b2ee-13977561c597">
-                <title xml:id="title_0d1a394b-a1ce-4c21-a9f9-4b79907096f4">Support guided
-                    development of workflow processes </title>
-                <variablelist xml:id="variablelist_4636b977-c9b8-49b4-a246-d9f0e4479745">
-                    <varlistentry xml:id="varlistentry_ed931660-3268-43ca-ba98-715b6be56f4c">
-                        <term>FC-21</term>
-                        <listitem xml:id="listitem_9f8b8f28-4160-4fb8-8af2-0fe1a78ff194">
-                            <para xml:id="para_bd7e1e6b-f480-49a5-a7d4-d9684963bc37">The Workflow
-                                Management Service<indexterm type="requirement">
-                                    <primary>FC-21</primary>
-                                    <seealso>Support guided development of workflow
-                                        processes</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_9a379ceb-51cb-4fd5-b573-009de7012bc5"
-                                        >(FC-9 above)</link>
-                                </emphasis>shall provide support for guided development of workflow
-                                processes by project managers. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <section xml:id="section_4c8b6e12-9df5-4e67-a175-872d938dc378">
-                <title xml:id="title_76d6981c-4318-481d-aa23-550e0b288773">Identity and Access
-                    Management Service </title>
-            </section>
-            <requirement xml:id="requirement_58fb6caa-4217-4795-88fa-1e6788abb844">
-                <title xml:id="title_f7bc6fe1-110f-4d5f-af14-8936721cb37f">Provide single-sign-on
-                    capability </title>
-                <variablelist xml:id="variablelist_162163c2-109a-4058-b13c-2f24c3963db1">
-                    <varlistentry xml:id="varlistentry_fb195463-309a-4215-acf4-e571d0ffbe2f">
-                        <term>FC-22</term>
-                        <listitem xml:id="listitem_81d89305-fec2-46b8-a86a-daa2ae2e4c70">
-                            <para xml:id="para_2d01f821-156c-4a16-b70e-2dcad04a9ef8"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>FC-22</primary>
-                                    <seealso>Provide single-sign-on capability</seealso>
-                                </indexterm><emphasis>
-                                    <link linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                    />(FC-1 above)</emphasis> shall provide for a single-sign-on
-                                capability so that users only have to log on once to PRISME and all
-                                role-based access control is managed from this single-sign-on.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_3e40b2d2-0b1a-48e1-9b97-3334ef2f4f9e">
-                <title xml:id="title_471d9cc1-d526-4643-a7b4-406da6559c4f">Support publication of a
-                    terminology system </title>
-                <variablelist xml:id="variablelist_8a33872c-d6f2-4d26-8eb7-6fad1ab889aa">
-                    <varlistentry xml:id="varlistentry_35312f38-4050-4a9b-aff8-3ca6e31d67c5">
-                        <term>FC-23</term>
-                        <listitem xml:id="listitem_896d8e20-35f7-4542-aa13-5699173e2b79">
-                            <para xml:id="para_bc948888-63f8-4f1d-a7d3-fc3647300ae7">The Identity
-                                and Access Management service<indexterm type="requirement">
-                                    <primary>FC-23</primary>
-                                    <seealso>Support publication of a terminology system</seealso>
-                                </indexterm><emphasis>
-                                    <link linkend="requirement_58fb6caa-4217-4795-88fa-1e6788abb844"
-                                    />(FC-22 above) </emphasis>will support publication of a
-                                terminology system that consists of users and their roles, so that
-                                terminology development environments can use those concepts to
-                                identify editing actions of users, and to determine roles assigned
-                                to individual users.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_9d3a806d-b9c5-4aa6-a2f1-b5525a9a2137">
-                <title xml:id="title_816178c5-03bd-4833-a54f-92b56d80fe88">Allow stratification of
-                    users by level of expertise </title>
-                <variablelist xml:id="variablelist_3f3bc3f3-d682-4f42-8c1e-3d89bc31a854">
-                    <varlistentry xml:id="varlistentry_9d1a8e17-97ae-4f0f-86a2-f9081ac856c8">
-                        <term>FC-24</term>
-                        <listitem xml:id="listitem_c6945568-2249-4485-a720-1b12228d7ab5">
-                            <para xml:id="para_20d65abc-f452-4e02-bafd-0a6008e15ef4"><indexterm
-                                    type="requirement">
-                                    <primary>FC-24</primary>
-                                    <seealso>Allow stratification of users by level of
-                                        expertise</seealso>
-                                </indexterm>The system will allow stratification of users by level
-                                of expertise. Access to particular user functions and work flows may
-                                be granted or denied based on level of expertise. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_7e1b4ebd-fc5d-4974-9a6e-6167f490ced5">
-                <title xml:id="title_390841fb-1472-4ee5-8a23-64a3feda23c4">Allow stratification of
-                    users by level of domain knowledge</title>
-                <variablelist xml:id="variablelist_38991540-5925-4419-a958-5d6e7bad0b62">
-                    <varlistentry xml:id="varlistentry_5138cd24-1876-47bf-b480-775b2376caae">
-                        <term>FC-25</term>
-                        <listitem xml:id="listitem_3b7c4ea3-6c30-40f9-9ad4-25c5b4fc1407">
-                            <para xml:id="para_ceec7a3e-f51c-4ba3-bacb-218dd303649b"><indexterm
-                                    type="requirement">
-                                    <primary>FC-25</primary>
-                                    <seealso>Allow stratification of users by level of domain
-                                        knowledge</seealso>
-                                </indexterm>The system will allow stratification of users by level
-                                of domain knowledge expertise. Access to particular user functions
-                                and work flows may be granted or denied based on level of domain
-                                knowledge expertise.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_f531c090-92bc-47e4-9bfa-62df82012694">
-                <title xml:id="title_33deac3c-a549-4845-a0b6-cea589ed744f">Allow stratification of
-                    user's assigned role</title>
-                <variablelist xml:id="variablelist_8e4abdaf-0879-45dc-b646-8f81f02a90e9">
-                    <varlistentry xml:id="varlistentry_397c778f-6e7c-4877-82fc-af78e2b5345b">
-                        <term>FC-26</term>
-                        <listitem xml:id="listitem_41ef9626-6437-4a57-92f5-81d1f6abf2bf">
-                            <para xml:id="para_5287f610-3c67-41cb-b569-3534f310bfb7"><indexterm
-                                    type="requirement">
-                                    <primary>FC-26</primary>
-                                    <seealso>Allow stratification of user's assigned role</seealso>
-                                </indexterm>The system will allow stratification of user’s assigned
-                                role (e.g., modeler, quality assurance, reviewer, mentor). Access to
-                                particular user functions and work flows may be granted or denied
-                                based on user role.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <section xml:id="section_26d72522-afad-4303-a7e3-1696e21031cc">
-                <title xml:id="title_46a36eea-409d-41b7-ab8b-c3b26d4f81f0">Artifact Repository
-                    Service</title>
-                <para xml:id="para_7bbde355-b923-4753-a50f-3a27d09ae2e7">PRISME will provide an
-                    artifact repository service. Artifactory<superscript
-                        xml:id="superscript_abe0b2cc-e7e4-4ae2-a128-2da353eaedaf"><link linkend="footnote_b9eb646e-ad96-44b4-92c2-56dd0d7cba7d">2</link></superscript>
-                    Apache Archiva<superscript
-                        xml:id="superscript_803376ad-86cc-4506-8099-ac24f567052b"><link linkend="footnote_84f96c92-97ca-4173-bb79-a039b5e4da8e">3</link></superscript>
-                    and Sonotype Nexus<superscript
-                        xml:id="superscript_ed7234e9-f2fb-4336-9853-610a6c1e2316"><link linkend="footnote_ef0356c5-0a73-4949-96af-a11d3ea8448e">4</link></superscript>
-                    are prototypical examples of artifact repository services.</para>
-            </section>
-            <requirement xml:id="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c">
-                <title xml:id="title_ad668cfd-c7e2-4c6c-8e9d-a999adffd12b">Provide Artifact
-                    Repository Service</title>
-                <variablelist xml:id="variablelist_f25e1db3-fc3c-4a10-a1d5-34fb6006e626">
-                    <varlistentry xml:id="varlistentry_119bd89b-173f-4005-a860-1d88100726c4">
-                        <term>FC-27</term>
-                        <listitem xml:id="listitem_5a8455bf-e8c0-4b59-b3ee-3fae5a0d909f">
-                            <para xml:id="para_6de7316b-bad7-493e-adcf-581d4697343f">
-                                    PRISME<indexterm type="requirement">
-                                    <primary>FC-27</primary>
-                                    <seealso>Provide Artifact Repository Service</seealso>
-                                </indexterm><emphasis><link
-                                        linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link>
-                                </emphasis>shall provide an Artifact Repository Service to which
-                                project artifacts are published and from which project dependencies
-                                are obtained by developers and/or continuous integration
-                                servers.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_21b2c855-1ade-4b32-a493-e07b0de6ce0c">
-                <title xml:id="title_6d44c5a7-da63-4319-8292-4a27b7d0766e">Proxy artifact
-                    repositories from other organizations</title>
-                <variablelist xml:id="variablelist_06e4c308-582c-49d8-9615-7bb927c80bc0">
-                    <varlistentry xml:id="varlistentry_f233cb29-8883-44af-8f55-ef30a0bc02c2">
-                        <term>FC-28</term>
-                        <listitem xml:id="listitem_26c002d3-ac3e-4ec2-baec-5a5b0afb1c07">
-                            <para xml:id="para_b96b9ab7-d07c-416b-9c29-120ed2990521">The Proxy
-                                Artifact Service <indexterm type="requirement">
-                                    <primary>FC-28</primary>
-                                    <seealso>Proxy artifact repositories from other
-                                        organizations</seealso>
-                                </indexterm><emphasis>
-                                    <link linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 above)</link>
-                                </emphasis>shall be able to proxy artifact repositories from other
-                                organizations, and shall be able to be proxied by artifact
-                                repositories hosted by other organizations.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_32a67aa2-6b07-4e2a-8083-534699d94e73">
-                <title xml:id="title_87df87de-a1c3-4430-9ecc-67c5f1bb407e">Identify artifacts by
-                    identifier and version</title>
-                <variablelist xml:id="variablelist_2724325c-a01e-47d2-88b7-830a72ceb6e6">
-                    <varlistentry xml:id="varlistentry_f5c6154d-c4bf-4416-ad95-f85bda9bef80">
-                        <term>FC-29</term>
-                        <listitem xml:id="listitem_bbfa01cc-3090-452b-9c4d-efa07870e696">
-                            <para xml:id="para_7bdcc143-78e4-401f-ad6b-f47759c402d4">The Artifact
-                                Repository Service<indexterm type="requirement">
-                                    <primary>FC-29</primary>
-                                    <seealso>Identify artifacts by identifier and version</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 above)</link>
-                                </emphasis> will identify artifacts by a group identifier, an
-                                artifact identifier, and a version. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_c4af3a2f-6322-40e9-8520-39bbda48a24c">
-                <title xml:id="title_b56a6cbc-e6f4-4107-9a19-20148599ebf4">Classify artifacts with a
-                    classifier</title>
-                <variablelist xml:id="variablelist_0ac8fdc7-d56a-41b6-84a8-189462cf339d">
-                    <varlistentry xml:id="varlistentry_2419aca2-9b3d-4e88-a6cf-7330dbc936ca">
-                        <term>FC-30</term>
-                        <listitem xml:id="listitem_ee150117-2ece-4a2d-8cdf-ac206756dc79">
-                            <para xml:id="para_fd9d4bdd-addd-4395-86b3-a57d45255b1a">The Artifact
-                                Repository Service <indexterm type="requirement">
-                                    <primary>FC-30</primary>
-                                    <seealso>Classify artifacts with a classifier</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 above)</link></emphasis> will classify artifacts
-                                with a classifier that describes the type and format of a project
-                                artifact. An example classifier, such as “RF2” would indicate that
-                                the artifact contained terminology content represented as
-                                Systematized Nomenclature of Medicine (SNOMED) Release Format 2
-                                files.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_3562303a-199f-4814-900f-2edfbabcf243">
-                <title xml:id="title_27633287-a364-43c4-8ab3-0301e81451a6">Search Artifact
-                    Repository Service via a GUI </title>
-                <variablelist xml:id="variablelist_96b1927c-b13e-4022-85e6-67ea0324ac2d">
-                    <varlistentry xml:id="varlistentry_52bcd192-5c20-42f4-830f-186efbb744f4">
-                        <term>FC-31</term>
-                        <listitem xml:id="listitem_27d00ec7-db78-42a9-ac13-b5614d9afa63">
-                            <para xml:id="para_699c41c9-5945-467f-823d-c94e69693dc0">The Artifact
-                                Repository Service<indexterm type="requirement">
-                                    <primary>FC-31</primary>
-                                    <seealso>Search Artifact Repository Service via a GUI</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 above)</link></emphasis> will enable users to search
-                                the repository via a Graphical User Interface (GUI) for artifacts by
-                                checksum, group id, artifact id, classifier, version, license, and
-                                by full text search of selected project content, minimally including
-                                the project POM file. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_dfd7fffe-5841-4382-b81b-7d2d966d6f04">
-                <title xml:id="title_715977fa-46c6-4fcc-9fd0-a43ba039dea5">Obtain filtered lists of
-                    artifacts</title>
-                <variablelist xml:id="variablelist_baded9b9-8a46-41d9-b2e0-1d66d2abefe6">
-                    <varlistentry xml:id="varlistentry_8d6d3b2a-4690-4056-9661-3d8d1f275ba0">
-                        <term>FC-32</term>
-                        <listitem xml:id="listitem_69ee084d-e989-4cfa-8634-dd0edf786868">
-                            <para xml:id="para_0300b101-b971-4bb0-ac6e-72fecb34f9f4">The Artifact
-                                Repository Service<indexterm type="requirement">
-                                    <primary>FC-32</primary>
-                                    <seealso>Obtain filtered lists of artifact</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 above)</link></emphasis> will allow clients to
-                                programmatically obtain lists of artifacts filtered by regular
-                                expression pattern matching, checksum, group identifier, artifact
-                                identifier, classifier, version, license, and by full text search of
-                                selected project content, minimally including the project POM
-                                file.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <footnote xml:id="footnote_b9eb646e-ad96-44b4-92c2-56dd0d7cba7d">
-                <superscript xml:id="superscript_d77f41bb-52a6-40fa-a18d-bf99deca42e1"><link
-                        linkend="superscript_abe0b2cc-e7e4-4ae2-a128-2da353eaedaf"
-                    >2</link></superscript>
-                <link>http://www.jfrog.com/home/v_artifactory_opensource_overview</link>
-            </footnote>
-            <footnote xml:id="footnote_84f96c92-97ca-4173-bb79-a039b5e4da8e">
-                <superscript xml:id="superscript_7de01cde-02d9-4bd9-a2d5-384bf13a59b1"><link
-                        linkend="superscript_803376ad-86cc-4506-8099-ac24f567052b"
-                    >3</link></superscript>
-                <link>http://archiva.apache.org/index.cgi</link>
-            </footnote>
-            <footnote xml:id="footnote_ef0356c5-0a73-4949-96af-a11d3ea8448e">
-                <superscript xml:id="superscript_c26c4c9f-d3df-4729-a2ad-d2b3dac588df"><link
-                        linkend="superscript_ed7234e9-f2fb-4336-9853-610a6c1e2316"
-                    >4</link></superscript>
-                <link>http://www.sonatype.org/nexus/</link>
-            </footnote>
-            <requirement xml:id="requirement_62dc455f-8358-45dd-ab3f-7991dafb2b36">
-                <title xml:id="title_e93ec262-b500-46b0-9a06-8ec9d6e7c0ab">Control artifacts used by
-                    PRISME projects </title>
-                <variablelist xml:id="variablelist_da3a876d-7961-4039-b8fa-6767c82a2168">
-                    <varlistentry xml:id="varlistentry_33c1264c-f277-4178-9bc6-60f98b380aaa">
-                        <term>FC-33</term>
-                        <listitem xml:id="listitem_693710aa-c862-44f0-bdd5-89274bee261e">
-                            <para xml:id="para_7983f145-938a-447e-9a0f-9611a04d7332">The Artifact
-                                Repository Service<indexterm type="requirement">
-                                    <primary>FC-33</primary>
-                                    <seealso>Control artifacts used by PRISME projects</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 above)</link></emphasis> shall provide control over
-                                what artifacts are used by PRISME projects. The Artifact Repository
-                                Service must enable the organization to standardize on a specific
-                                version of a dependency, and to enforce this standardization by only
-                                providing access to a specific version of an artifact in a
-                                repository manager. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_bdafe3d3-fe68-40b0-a9bb-1de3f39e2616">
-                <title xml:id="title_90a8e5b5-8326-44a0-81ff-093db4af84b0">Control and reporting of
-                    repository's artifact licenses</title>
-                <variablelist xml:id="variablelist_bd180def-2c77-40ab-9956-7d448db7bde4">
-                    <varlistentry xml:id="varlistentry_fa1077e3-82ab-4337-9e6b-c6a3061bb5cc">
-                        <term>FC-34</term>
-                        <listitem xml:id="listitem_aa33221f-6157-48d2-b676-aa0642ff8f4c">
-                            <para xml:id="para_0324c740-f7c0-4ba5-864e-ebb8dd783cf2">The Artifact
-                                Repository Service<indexterm type="requirement">
-                                    <primary>FC-34</primary>
-                                    <seealso>Control and reporting of repository's artifact
-                                        licenses</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 above)</link></emphasis> shall provide control over
-                                the licenses of artifacts allowed in the repository, and shall
-                                provide reporting of the licenses used by each artifact currently
-                                within the repository. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_fed0d220-1604-491b-95f1-791d9a81ec87">
-                <title xml:id="title_5ebebffe-52e0-4110-8786-71405a755031">Allow client applications
-                    to remotely query repositor</title>
-                <variablelist xml:id="variablelist_b94a59fd-49a0-4cd7-b106-22298679ced4">
-                    <varlistentry xml:id="varlistentry_f250508b-60a8-4f0e-a1fa-5e0e776c5d23">
-                        <term>FC-35</term>
-                        <listitem xml:id="listitem_3d9579f2-6e85-40e2-80ba-4936a5f2f9a7">
-                            <para xml:id="para_5fee0c38-61e9-44c6-b513-6f1dabf56be4">The Artifact
-                                Repository Service<indexterm type="requirement">
-                                    <primary>FC-35</primary>
-                                    <seealso>Allow client applications to remotely query
-                                        repositor</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_31dd4ba8-ba32-43f1-a3cc-dd628838cc6c"
-                                        >(FC-27 above)</link></emphasis> shall allow client
-                                applications, such as the PRISME Project Creation
-                                        Application<emphasis><link
-                                        linkend="requirement_ad42116e-0ebc-46ab-ad65-3db8d2e23c9e"
-                                        >(FC-61 below)</link></emphasis> to remotely query the
-                                artifact repository, and to remotely download selected artifacts.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <section xml:id="section_28189ea9-6962-4e47-992a-b85aa70e72cd">
-                <title xml:id="title_07b697a3-55d2-4c49-a303-0a08d37582af">Tracker Service</title>
-                <para xml:id="para_60bb376d-d222-45f5-893f-d2a3956ec5b7">The PRISME environment
-                    shall provide a tracker service. A prototypical example of a tracker service
-                    would be Atlassian’s JIRA tracker.<superscript
-                        xml:id="superscript_07b5249f-9521-45d0-8c44-d86552461aa2"
-                        ><link linkend="footnote_06a92688-257e-49ad-a7e6-0e365253d720">5</link></superscript>JIRA is used by Open Source Electronic Health Record Alliance
-                        (OSEHRA)<superscript
-                            xml:id="superscript_74731295-5108-4058-8ba1-03f262242153"><link linkend="footnote_78d64b56-6d67-44c9-90b6-4919ed965f75">6</link></superscript>
-                    and synergism and/or integration with OSEHRA is worth considering. </para>
-            </section>
-            <requirement xml:id="requirement_417cef01-7ab2-4f2c-bd39-3fc2e1dc5116">
-                <title xml:id="title_62ef287f-7b2a-425f-8dcf-17a3aa48512f">Tracker service </title>
-                <variablelist xml:id="variablelist_581e855a-01f8-4704-916a-ecef912b1ea1">
-                    <varlistentry xml:id="varlistentry_262e3953-bc5a-4496-8cd6-6ff917f1294c">
-                        <term>FC-36</term>
-                        <listitem xml:id="listitem_cc427d16-ecc5-485e-b232-1b064df5e28a">
-                            <para xml:id="para_2d04fe2b-e4e8-4dd9-93c7-bb67b9e64e92"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>FC-36</primary>
-                                    <seealso>Tracker service</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463"
-                                        >(FC-1 above)</link></emphasis> shall provide a Tracker
-                                Service for each project.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <section xml:id="section_e9051e3e-cce4-4db7-9c89-4049ef2b07db">
-                <title xml:id="title_1687c68c-b797-4692-a392-adf1cc279cb6">Service Desk</title>
-                <para xml:id="para_2c197272-a3ca-4ca9-98b6-db0fc6d43b93">The PRISME environment
-                    shall provide a service desk. A prototypical example of a service desk would be
-                    Atlassian’s Service Desk extension to JIRA.<superscript
-                        xml:id="superscript_67528312-750f-43a3-8c54-9caa333aa7f2"><link linkend="footnote_0f773fa4-6fc1-4e40-9f17-a42d99eb9891">7</link></superscript>
-                    JIRA is used by OSEHRA,<superscript
-                        xml:id="superscript_96dd72da-56ba-4fe8-84e1-d3b553c6fc19"><link linkend="footnote_2486e252-fb28-4164-b338-c1984b217c0e">8</link></superscript>
-                    and synergism and/or integration with OSEHRA is worth considering. </para>
-            </section>
-            <requirement xml:id="requirement_85ac0c6c-9172-44ce-89b8-db1976e9c91e">
-                <title xml:id="title_eb908242-630e-4989-b386-a483c431d5ba">Provide Service Desk
-                    Portal</title>
-                <variablelist xml:id="variablelist_8ad9798b-58f6-45b4-9acf-f23824018db8">
-                    <varlistentry xml:id="varlistentry_65518c65-fc95-41b2-9d02-70d78a15b9da">
-                        <term>FC-37</term>
-                        <listitem xml:id="listitem_c89650d5-b1bb-4faf-bb1b-37e482fbcbc4">
-                            <para xml:id="para_3050549c-2502-4bcb-a31e-30cfdb4c1bde"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>FC-37</primary>
-                                    <seealso>Provide Service Desk Portal</seealso>
-                                </indexterm>
-                                <emphasis><link linkend="e99ab2ad-38b4-45d0-9c54-37712731e463">(FC-1
-                                        above)</link></emphasis> shall provide a Service Desk Portal
-                                to allow users to log service requests that relate to PRISME
-                                Services and Terminology Tooling.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_a7a9b413-9c26-4198-837e-3e8466667685">
-                <title xml:id="title_33e7f9f7-36e2-4c83-86e7-0e621ed295d5">Support Service Level
-                    Agreements </title>
-                <variablelist xml:id="variablelist_9e674899-b645-41d8-ba91-3448265f3568">
-                    <varlistentry xml:id="varlistentry_6c3360dc-1596-4eeb-91b2-a9887043b26d">
-                        <term>FC-38</term>
-                        <listitem xml:id="listitem_6a0d1dfe-dd1e-4325-80e5-3de84c4022a8">
-                            <para xml:id="para_0afc0748-7896-497d-a2d1-203d25df9ed3">The Sevice
-                                    Desk<indexterm type="requirement">
-                                    <primary>FC-38</primary>
-                                    <seealso>Support Service Level Agreements</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_85ac0c6c-9172-44ce-89b8-db1976e9c91e"
-                                        >(FC-37 above</link></emphasis> shall support Service Level
-                                Agreements that are automatically associated with user requests, and
-                                will enable real-time generation of performance metrics. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <footnote xml:id="footnote_06a92688-257e-49ad-a7e6-0e365253d720">
-                <superscript xml:id="superscript_ec5ac477-e3b4-4ae3-b85c-fc9d702dece1"><link
-                        linkend="superscript_07b5249f-9521-45d0-8c44-d86552461aa2"
-                    >5</link></superscript>
-                <link>https://www.atlassian.com/software/jira</link>
-            </footnote>
-            <footnote xml:id="footnote_78d64b56-6d67-44c9-90b6-4919ed965f75">
-                <superscript xml:id="superscript_a668516f-080f-4ae6-9e7f-6aa6c9158da4"><link
-                        linkend="superscript_74731295-5108-4058-8ba1-03f262242153"
-                    >6</link></superscript>
-                <link>http://issues.osehra.org/secure/Dashboard.jspa</link>
-            </footnote>
-            <footnote xml:id="footnote_0f773fa4-6fc1-4e40-9f17-a42d99eb9891">
-                <superscript xml:id="superscript_feadbfd7-3d39-4abf-aa25-9238ed653015"><link
-                        linkend="superscript_67528312-750f-43a3-8c54-9caa333aa7f2"
-                    >7</link></superscript>
-                <link>https://www.atlassian.com/software/jira/jsd</link>
-            </footnote>
-            <footnote xml:id="footnote_2486e252-fb28-4164-b338-c1984b217c0e">
-                <superscript xml:id="superscript_b82424ac-082f-41c8-9dc6-492e65d81ec9"><link
-                        linkend="superscript_96dd72da-56ba-4fe8-84e1-d3b553c6fc19"
-                    >8</link></superscript>
-                <link>http://issues.osehra.org/secure/Dashboard.jspa</link>
-            </footnote>
-            <section xml:id="section_4f670a2a-8972-4a0b-8dce-91f20e16232f">
-                <title xml:id="title_354b2789-1e06-4a1a-8c65-266fbcf4c82e">Version Control
-                    Service</title>
-                <para xml:id="para_c8ec5431-3393-4be2-86f9-81a6feb970f3">PRISME shall provide a
-                    version control service. A prototypical example of this version control service
-                    would be Git<superscript
-                        xml:id="superscript_a6c71ee9-e984-4fbe-a040-955dd1e9f66f"
-                        ><link>9</link></superscript>or Apache Subversion<superscript
-                        xml:id="superscript_f7937dd4-4e51-45cd-bbc5-80aabbadcc20"
-                        ><link>10</link></superscript>. Git is used by OSEHRA<superscript
-                        xml:id="superscript_54dd6beb-1c5f-491f-ad72-1cd2af878f8e"
-                        ><link>11</link></superscript> and synergism and/or integration with OSEHRA
-                    is worth considering.</para>
-            </section>
-            <requirement xml:id="requirement_4bed9798-59d5-4de2-b443-553699c5bb10">
-                <title xml:id="title_159f8ae8-1408-4e56-a036-f87e88c789e1">Provide Version Control
-                    Service </title>
-                <variablelist xml:id="variablelist_91cf228a-6271-4f2f-afd3-6089066754ea">
-                    <varlistentry xml:id="varlistentry_3825cb07-7082-4b52-956f-f8445ea98b5d">
-                        <term>FC-39</term>
-                        <listitem xml:id="listitem_6a622873-6a81-48ef-98dd-c5d7bf60f3e4">
-                            <para xml:id="para_b1591c9a-1600-414b-97c8-4cfa6126e047"
-                                    >PRISME<indexterm type="requirement">
-                                    <primary>FC-39</primary>
-                                    <seealso>Provide Version Control Service</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_e99ab2ad-38b4-45d0-9c54-37712731e463">(FC-1 above)</link>
-                                </emphasis>shall provide a Version
-                                Control Service.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_2bfab8b2-7994-4ca2-82e8-67612c428500">
-                <title xml:id="title_18d82330-4f5c-467d-a041-fd000760e388">Make Version Control
-                    Service available on Public Internet</title>
-                <variablelist xml:id="variablelist_87ed2df5-dfe0-4a9f-bc0f-6c5c2a6cd0a9">
-                    <varlistentry xml:id="varlistentry_3b1db084-4b47-4783-afef-1ecd19e08816">
-                        <term>FC-40</term>
-                        <term>FC-43</term>
-                        <listitem xml:id="listitem_17a17fe0-e7a8-4266-b5d6-b48eadc29079">
-                            <para xml:id="para_c0825c61-aa76-4600-a789-a6a8e19b556f">The Version
-                                Control Service<indexterm type="requirement">
-                                    <primary>FC-40</primary>
-                                    <secondary>FC-43</secondary>
-                                    <seealso>Make Version Control Service available on Public
-                                        Internet</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_4bed9798-59d5-4de2-b443-553699c5bb10"
-                                        >(FC-39 above)</link></emphasis> ETS-F-43 The Version
-                                Control Service shall be available on the Public Internet so that
-                                developers and collaborators with no access to the VA intranet can
-                                access the service. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <requirement xml:id="requirement_cf5d6c3c-90a6-4207-af81-a16eda7c81a0">
-                <title xml:id="title_65dbb3fa-e549-41e6-b651-c1f22a154566">Provide single-sign-on
-                    and access control for Version Control Service</title>
-                <variablelist xml:id="variablelist_77b5ef85-391d-4c82-a57e-6e398fcc1ec5">
-                    <varlistentry xml:id="varlistentry_4708c72e-93bb-4ad8-8af8-3acb360fe052">
-                        <term>FC-41</term>
-                        <listitem xml:id="listitem_70bc836f-df20-41b6-8de6-68b77e3a67fe">
-                            <para xml:id="para_2d0bda08-0409-412d-b18b-7ca9ec3f10c0">The Version
-                                Control Service<indexterm type="requirement">
-                                    <primary>FC-41</primary>
-                                    <seealso>Provide single-sign-on and access control for Version
-                                        Control Service</seealso>
-                                </indexterm>
-                                <emphasis><link
-                                        linkend="requirement_4bed9798-59d5-4de2-b443-553699c5bb10">(FC-39 above)</link>
-                                        </emphasis> shall allow single-sign-on
-                                and role-based access control via the Identity and Access Management
-                                Service <emphasis><link
-                                        linkend="requirement_58fb6caa-4217-4795-88fa-1e6788abb844"
-                                        >(FC-22 above)</link></emphasis>.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-            </requirement>
-            <indexterm type="general">
-                <primary>Project Information System and Management Environment (PRISME)</primary>
-            </indexterm>
-            <variablelist xml:id="variablelist_399ae441-6ecc-4c14-b842-b4f6d3caa42b">
-                <varlistentry xml:id="f84e413a-48eb-11e4-916c-0800200c9a66">
-                    <term>ETS-F-3</term>r <listitem
-                        xml:id="listitem_905d9be2-07f1-40da-a23a-69733294bf08">
-                        <para xml:id="para_390ff14a-7926-449e-acf6-398f29f3455d">PRISME <emphasis
-                                role="italic"><link
-                                    linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                    >(ETS-F-1 above)</link></emphasis> shall use declarative
-                            specifications of a project’s build, deployment, release, reporting, and
-                            documentation within a version-controlled Project Object Model (POM)
-                            file. This POM file shall contains the Uniform Resource Locator (URL)
-                            locations of the version control system which hosts the project’s POM
-                            file as well as any configuration files, data files, and source files
-                            and shall also specify the project’s dependencies, the developers
-                            involved and the roles they play, the defect tracking system, the
-                            continuous integration system, the organizations participating in the
-                            project, and the licenses associated with artifacts generated by the
-                            project.</para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry xml:id="f84e413b-48eb-11e4-916c-0800200c9a66">
-                    <term>ETS-F-4</term>
-                    <listitem xml:id="listitem_85122a2a-e5a9-4fb0-9a48-c20d53b2bdd1">
-                        <para xml:id="para_81ccd74e-1657-442a-a6ec-730ad5e743f2">PRISME <emphasis
-                                role="italic"><link
-                                    linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                    >(ETS-F-1 above)</link></emphasis> shall provide automated
-                            change log documentation created directly from source control.</para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry xml:id="f84e413c-48eb-11e4-916c-0800200c9a66">
-                    <term>ETS-F-5</term>
-                    <listitem xml:id="listitem_f282f136-4a4a-4977-ae4b-f7f829afc0e4">
-                        <para xml:id="para_1bd280fc-ab9e-4baa-b938-6a09f62b272b">PRISME <emphasis
-                                role="italic"><link
-                                    linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                    >(ETS-F-1 above)</link></emphasis> shall ensure reproducibility,
-                            accountability, and immutability of all aspects of a project’s release
-                            by ensuring that the release management process is fully automated, that
-                            all sources must be under version control, that all dependencies must be
-                            released, that no manual processes can participate in the release
-                            process, and that any subsequent modifications to release artifacts can
-                            be repudiated. The only way to change the release process shall be to
-                            modify the POM file and project sources, and to then check those changes
-                            into the project’s version control system and then to request a project
-                            release from PRISME.</para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry xml:id="f84e413d-48eb-11e4-916c-0800200c9a66">
-                    <term>ETS-F-6</term>
-                    <listitem xml:id="listitem_e0dd4f30-e9ea-433a-8b99-27f4e3a7fc8d">
-                        <para xml:id="para_633037ff-d762-4f53-b06d-9bdb5b540929">PRISME <emphasis
-                                role="italic"><link
-                                    linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                    >(ETS-F-1 above)</link></emphasis> shall integrate with issue
-                            tracking systems and will provide automated reports of open issues and
-                            resolved issues at any time, and for any release. </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry xml:id="f84e413e-48eb-11e4-916c-0800200c9a66">
-                    <term>ETS-F-7</term>
-                    <listitem xml:id="listitem_16f2d89b-34a4-4dc5-a055-39fd55992ba3">
-                        <para xml:id="para_ff18fc34-b34c-4285-b5e1-8da7d5a8af28">PRISME <emphasis
-                                role="italic"><link
-                                    linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                    >(ETS-F-1 above)</link></emphasis> shall provide cryptographic
-                            (MD4 and SHA1) checksums for all artifacts to ensure their
-                            integrity.</para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry xml:id="f84e413f-48eb-11e4-916c-0800200c9a66">
-                    <term>ETS-F-8</term>
-                    <listitem xml:id="listitem_b8d88c77-9c52-40a2-bef6-1d66fd81d1cf">
-                        <para xml:id="para_97e2aadc-8573-48a5-a982-dba5dad5f88e">PRISME <emphasis
-                                role="italic"><link
-                                    linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                    >(ETS-F-1 above)</link></emphasis> shall be accessible over the
-                            public Internet so that our collaborators (United States National
-                            Library of Medicine, DoD, The Centers for Medicare and Medicaid Services
-                            [CMS], Office of the National Coordinator, Intermountain Healthcare,
-                            Kaiser Permanente, the IHTSDO, and others) may participate in, or
-                            subscribe to, PRISME supported projects.</para>
-                    </listitem>
-                </varlistentry>
-            </variablelist>
-            <section xml:id="f84e4140-48eb-11e4-916c-0800200c9a66">
-                <title xml:id="title_44c42164-1a12-4b44-b40d-03714cbaa789">Workflow Management
-                    Service <indexterm type="general">
-=======
         </section>
         <section xml:id="section_e14db4ca-2d1d-4cd3-b83b-367d8821c77e">
             <title>Event condition action rule editor requirements</title>
@@ -4945,185 +3339,10 @@
 
             <section xml:id="f84e4140-48eb-11e4-916c-0800200c9a66">
                 <title>Workflow Management Service <indexterm type="general">
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                         <primary>Project Information System and Management Environment
                             (PRISME)</primary>
                         <secondary>Workflow Management Service</secondary>
                     </indexterm></title>
-<<<<<<< HEAD
-                <para xml:id="para_b516569f-3a6d-4170-82d8-2c41ec791cfb">PRISME will provide a
-                    workflow management service that is based on the <emphasis role="bold">Business
-                        Process Model and Notation (BPMN) 2.0</emphasis> specifications and supports
-                    the entire life cycle of the business process (from authoring through execution
-                    to monitoring and management). Java Business Process Model (jBPM)
-                    (http://jboss.org) is an open-source (Apache 2) prototypical example of such a
-                    workflow management service. </para>
-                <variablelist xml:id="variablelist_5e5d24b7-f1e9-4493-81f4-6eb8305cdd8a">
-                    <varlistentry xml:id="f84e4141-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-9</term>
-                        <listitem xml:id="listitem_98b156c8-3a85-4976-a350-66c455073487">
-                            <para xml:id="para_af7902c8-2135-4329-a1d6-eaa2631be525">PRISME
-                                    <emphasis role="italic"><link
-                                        linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-1 above)</link></emphasis> shall provide a workflow
-                                management service able to create, load, and execute rules, and able
-                                to coordinate workflows between FAR client applications.</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e4142-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-10</term>
-                        <listitem xml:id="listitem_b58bee78-d494-49a1-aaf4-25c23cd80e70">
-                            <para xml:id="para_234f1395-2812-4b70-bec7-f12cb6cb15a5">The workflow
-                                management service engine must be able to run embedded within the
-                                default Java 8 Standard Edition (Java 8 SE) application platform
-                                    <emphasis role="italic"><link
-                                        linkend="a515ef1a7-49c1-11e4-916c-0800200c9a66">(ETS-A-1
-                                        below)</link></emphasis>. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6840-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-11</term>
-                        <listitem xml:id="listitem_b3d7f3af-d2cf-48a6-8dc8-efb96fb647c0">
-                            <para xml:id="para_187ff5bc-9ab4-4f86-a8e6-865b382d6362">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall run as a web service deployed
-                                on a Java EE 7/Java 8 SE server <emphasis role="italic"><link
-                                        linkend="a515ef1a9-49c1-11e4-916c-0800200c9a66">(ETS-A-3
-                                        below)</link></emphasis>. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6841-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-12</term>
-                        <listitem xml:id="listitem_1b615411-7559-4628-9cd7-e1697ebada73">
-                            <para xml:id="para_f34b6db0-5ff9-43ec-9d52-758c3852dc13">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall provide access to workflow
-                                services through a Representational State Transfer (REST)
-                                Application Program Interface (API) <emphasis role="italic"><link
-                                        linkend="a515ef1aa-49c1-11e4-916c-0800200c9a66">(ETS-A-4
-                                        below)</link></emphasis>. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6842-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-13</term>
-                        <listitem xml:id="listitem_f3a820a1-6fa0-4695-bded-7898b120efa0">
-                            <para xml:id="para_8324b2b1-6313-4edd-9485-ffdaa99f8ed8">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall provide Web Services Human
-                                Task (WS-HumanTask) <emphasis role="italic"
-                                    >(http://docs.oasis-open.org/bpel4people/ws-humantask-1.1.html)</emphasis>
-                                management capabilities, which shall include the ability to define
-                                the type of task, the priority of the task, the data associated with
-                                the task, and the ability to assign a task to an individual or a
-                                group. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6843-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-14</term>
-                        <listitem xml:id="listitem_2433f37c-4a98-40a0-8ca9-1a51b3ca4f09">
-                            <para xml:id="para_7fb48206-d62c-4756-9612-4b7b8b7fe132">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall manage the life-cycle of
-                                human tasks, including task creation, reservation, execution,
-                                completion, delegation, revocation, suspension, stopping a task in
-                                progress, skipping a task, and managing error states of human tasks.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6844-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-15</term>
-                        <listitem xml:id="listitem_f4cfa61b-1a8b-470a-a822-3e196098a162">
-                            <para xml:id="para_bf60c4f0-477e-4c9c-a7f4-707693e2ad3c">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall enable project managers to
-                                view and edit workflow definitions using the BPMN 2.0 standard
-                                    <emphasis role="italic"
-                                    >(http://www.omg.org/spec/BPMN/2.0/)</emphasis></para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6845-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-16</term>
-                        <listitem xml:id="listitem_796ba741-e1a1-40e2-8d78-35c450ccc231">
-                            <para xml:id="para_5bf8133f-cb24-410e-98e1-ec0bba3c61c8">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall enable workflow definitions
-                                that can coordinate work across independent projects. For example,
-                                when a new concept is created in one project, a workflow process may
-                                be transmitted to a second project to translate that concept’s
-                                description into another language, and another workflow process may
-                                be transmitted to a third project to ensure that the new concept is
-                                properly mapped to International Classification of Diseases, Tenth
-                                Edition, Clinical Modifications (ICD-10-CM).</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6846-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-17</term>
-                        <listitem xml:id="listitem_d8d57d9e-932b-4403-ae5e-379db65fb35f">
-                            <para xml:id="para_7dbd2427-54bf-4bc6-8cbf-aa0b68236839">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall enable “store and forward”
-                                execution of human tasks by client systems. The client systems would
-                                reserve a collection of tasks, which would then be executed offline,
-                                with the results transmitted back to the Workflow Management Service
-                                when the client comes back online.</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6847-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-18</term>
-                        <listitem xml:id="listitem_702bc834-32ec-4846-838e-fa603a20f9a7">
-                            <para xml:id="para_6d4fab59-d793-46d8-be2b-3bd09b17da2d">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall provide reporting
-                                capabilities that provide summary statistics regarding process
-                                execution, as well as detailed information regarding the status of
-                                individual processes.</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6848-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-19</term>
-                        <listitem xml:id="listitem_55b8692d-3b7b-4523-bcbb-cd1635a4ec4d">
-                            <para xml:id="para_04cb7b97-b465-4869-b5b7-becac58b40c0">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall provide a reliable audit
-                                trail for all workflow task execution.</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e6849-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-20</term>
-                        <listitem xml:id="listitem_598e8bbb-811b-45d5-810b-6e8120caa169">
-                            <para xml:id="para_1ef69453-88b6-40f8-b951-ef29f3b27719">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall publish workflow processes as
-                                Maven artifacts <emphasis role="italic"><link
-                                        linkend="a515ef1ac-49c1-11e4-916c-0800200c9a66">(ETS-A-6
-                                        below)</link></emphasis> on the Artifact Repository Service
-                                    <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        below)</link></emphasis>.</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e684a-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-21</term>
-                        <listitem xml:id="listitem_c1bb6f4d-6284-4b40-b8ee-1ffb808f7287">
-                            <para xml:id="para_76387fc8-18bc-4a00-a5c4-9b0f07cea250">The Workflow
-                                Management Service <emphasis role="italic"><link
-                                        linkend="f84e4141-48eb-11e4-916c-0800200c9a66">(ETS-F-9
-                                        above)</link></emphasis> shall provide support for guided
-                                development of workflow processes by project managers.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-=======
                 <para>PRISME will provide a workflow management service that is based on the
                         <emphasis role="bold">Business Process Model and Notation (BPMN)
                         2.0</emphasis> specifications and supports the entire life cycle of the
@@ -5390,7 +3609,6 @@
                         </varlistentry>
                     </variablelist>
                 </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
             </section>
             <section xml:id="f84e684b-48eb-11e4-916c-0800200c9a66">
                 <title>Identity and Access Management Service<indexterm type="general">
@@ -5401,14 +3619,8 @@
                 <variablelist>
                     <varlistentry xml:id="f84e684c-48eb-11e4-916c-0800200c9a66">
                         <term>ETS-F-22</term>
-<<<<<<< HEAD
-                        <listitem xml:id="listitem_982c8607-a847-4d69-bf88-62d3ecdd90b4">
-                            <para xml:id="para_2324847d-53b8-4519-8ace-b9bcdaf96507">PRISME
-                                    <emphasis role="italic"><link
-=======
                         <listitem>
                             <para>PRISME <emphasis role="italic"><link
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
                                         linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
                                         >(ETS-F-1 above)</link></emphasis> shall provide for a
                                 single-sign-on capability so that users only have to log on once to
@@ -5469,124 +3681,6 @@
                     </footnote> and Sonotype Nexus<footnote>
                         <para>http://www.sonatype.org/nexus/</para>
                     </footnote> are prototypical examples of artifact repository services. </para>
-<<<<<<< HEAD
-                <variablelist xml:id="variablelist_83b88723-fe47-414b-b86a-ba38ae2c2f44">
-                    <varlistentry xml:id="f84e8f53-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-27</term>
-                        <listitem xml:id="listitem_83d49c48-e01a-42dd-afa0-0fa2e8e80a84">
-                            <para xml:id="para_ecb962c8-44e4-43d8-9f7d-43ca95cb6a4a">PRISME
-                                    <emphasis role="italic"><link
-                                        linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-1 above)</link></emphasis> shall provide an Artifact
-                                Repository Service to which project artifacts are published and from
-                                which project dependencies are obtained by developers and/or
-                                continuous integration servers. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f54-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-28</term>
-                        <listitem xml:id="listitem_0bcfea44-267d-4eb0-b835-c6ae44360a55">
-                            <para xml:id="para_b290ef1f-474a-4efc-bcdd-2815e1f4af87"> The Artifact
-                                Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis> shall be able to proxy artifact
-                                repositories from other organizations, and shall be able to be
-                                proxied by artifact repositories hosted by other organizations.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f55-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-29</term>
-                        <listitem xml:id="listitem_64f0e3bb-c185-487b-8b56-248db6ad851f">
-                            <para xml:id="para_1ab49f9e-116e-4aaa-b13f-33842adec2f1"> The Artifact
-                                Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis> will identify artifacts by a group
-                                identifier, an artifact identifier, and a version. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f56-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-30</term>
-                        <listitem xml:id="listitem_20372076-e546-42ce-add8-23862ba981d4">
-                            <para xml:id="para_351b4aa3-3713-4b94-9768-e1d4de9e8265"> The Artifact
-                                Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis> will classify artifacts with a
-                                classifier that describes the type and format of a project artifact.
-                                An example classifier, such as “RF2” would indicate that the
-                                artifact contained terminology content represented as Systematized
-                                Nomenclature of Medicine (SNOMED) Release Format 2 files. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f57-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-31</term>
-                        <listitem xml:id="listitem_8f127fb0-e086-4881-97b1-55db4efc6a2c">
-                            <para xml:id="para_a99400e0-adb0-4006-9685-624219306a3f"> The Artifact
-                                Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis> will enable users to search the
-                                repository via a Graphical User Interface (GUI) for artifacts by
-                                checksum, group id, artifact id, classifier, version, license, and
-                                by full text search of selected project content, minimally including
-                                the project POM file. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f58-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-32</term>
-                        <listitem xml:id="listitem_98ae33e2-d371-4bd4-aa12-a173e96556ca">
-                            <para xml:id="para_75ec780c-3ee2-404a-aa32-c2dd4dadd6ce"> The Artifact
-                                Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis> will allow clients to
-                                programmatically obtain lists of artifacts filtered by regular
-                                expression pattern matching, checksum, group identifier, artifact
-                                identifier, classifier, version, license, and by full text search of
-                                selected project content, minimally including the project POM file.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f59-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-33</term>
-                        <listitem xml:id="listitem_783e4783-e509-4116-8514-383ff079d6ed">
-                            <para xml:id="para_bab335e0-cbac-4e29-85c1-29da74fce203">The Artifact
-                                Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis> shall provide control over what
-                                artifacts are used by PRISME projects. The Artifact Repository
-                                Service must enable the organization to standardize on a specific
-                                version of a dependency, and to enforce this standardization by only
-                                providing access to a specific version of an artifact in a
-                                repository manager. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f5a-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-34 </term>
-                        <listitem xml:id="listitem_ce799c09-f8e1-4dbd-a686-a9efba62af48">
-                            <para xml:id="para_8684a91a-ff10-435b-91c1-405cf0b9bc79">The Artifact
-                                Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis> shall provide control over the
-                                licenses of artifacts allowed in the repository, and shall provide
-                                reporting of the licenses used by each artifact currently within the
-                                repository. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f5b-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-35</term>
-                        <listitem xml:id="listitem_09327b59-5f7f-4a19-a575-2fc96bb3d1e3">
-                            <para xml:id="para_d9df483d-0075-4614-9e75-ac7e3d1e5dc1"> The Artifact
-                                Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis> shall allow client applications,
-                                such as the PRISME Project Creation Application <emphasis
-                                    role="italic"><link
-                                        linkend="f84eb663-48eb-11e4-916c-0800200c9a66">(ETS-F-61
-                                        below)</link></emphasis> to remotely query the artifact
-                                repository, and to remotely download selected artifacts. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-=======
                 <requirement xml:id="requirement_07242f2f-5ff3-4d52-aeaa-8331f59d9792">
                     <title>insertRequirementTitle</title>
                     <indexterm>
@@ -5765,7 +3859,6 @@
                         </varlistentry>
                     </variablelist>
                 </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
             </section>
             <section xml:id="f84e8f5c-48eb-11e4-916c-0800200c9a66">
                 <title>Tracker Service <indexterm type="general">
@@ -5779,20 +3872,6 @@
                     </footnote> JIRA is used by Open Source Electronic Health Record Alliance (OSEHRA)<footnote>
                         <para>http://issues.osehra.org/secure/Dashboard.jspa</para>
                     </footnote> and synergism and/or integration with OSEHRA is worth considering. </para>
-<<<<<<< HEAD
-                <variablelist xml:id="variablelist_d860c1e9-3f0b-470b-a2f4-190ec389b493">
-                    <varlistentry xml:id="f84e8f5d-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-36</term>
-                        <listitem xml:id="listitem_f4c50f8c-4fa5-4b57-86e5-0796f2cecc88">
-                            <para xml:id="para_f6e46cd0-d196-4c2a-b380-65d8c563e579"> PRISME
-                                    <emphasis role="italic"><link
-                                        linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-1 above)</link></emphasis> shall provide a Tracker
-                                Service for each project. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-=======
                 <requirement xml:id="requirement_acc0d150-279e-48b4-8b11-63b0b8ba8e82">
                     <title>insertRequirementTitle</title>
                     <indexterm>
@@ -5810,7 +3889,6 @@
                         </varlistentry>
                     </variablelist>
                 </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
             </section>
             <section xml:id="f84e8f5e-48eb-11e4-916c-0800200c9a66">
                 <title>Service Desk<indexterm type="general">
@@ -5825,32 +3903,6 @@
                         <para>http://issues.osehra.org/secure/Dashboard.jspa</para>
                     </footnote> and synergism and/or integration with OSEHRA is worth
                     considering.</para>
-<<<<<<< HEAD
-                <variablelist xml:id="variablelist_74111e3e-2f81-40fb-aab9-c5f550283d27">
-                    <varlistentry xml:id="f84e8f5f-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-37</term>
-                        <listitem xml:id="listitem_af0431a4-9c3b-446c-9b7f-725bbc32dbbd">
-                            <para xml:id="para_acc802e5-79cb-4107-939b-633a6ea70fbe">PRISME
-                                    <emphasis role="italic"><link
-                                        linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-1 above)</link></emphasis> shall provide a Service
-                                Desk Portal to allow users to log service requests that relate to
-                                PRISME Services and Terminology Tooling. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f60-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-38</term>
-                        <listitem xml:id="listitem_a8075ab4-c766-4a00-b7b4-13c9a342a354">
-                            <para xml:id="para_ca2ba21c-9190-42a4-a6d0-e94d82d73845">The Service
-                                Desk <emphasis role="italic"><link
-                                        linkend="f84e8f5f-48eb-11e4-916c-0800200c9a66">(ETS-F-37
-                                        above)</link></emphasis>shall support Service Level
-                                Agreements that are automatically associated with user requests, and
-                                will enable real-time generation of performance metrics. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-=======
                 <requirement xml:id="requirement_0d37f8f4-1d4a-4cb8-b767-368e1800ec3f">
                     <title>insertRequirementTitle</title>
                     <indexterm>
@@ -5888,7 +3940,6 @@
                         </varlistentry>
                     </variablelist>
                 </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
             </section>
             <section xml:id="f84e8f61-48eb-11e4-916c-0800200c9a66">
                 <title>Version Control Service <indexterm type="general">
@@ -5905,102 +3956,6 @@
                         <para>http://www.osehra.org/page/osehra-code-repository</para>
                     </footnote> and synergism and/or integration with OSEHRA is worth
                     considering.</para>
-<<<<<<< HEAD
-                <variablelist xml:id="variablelist_c64a8199-c1e6-4291-b87f-19bbc202e9f2">
-                    <varlistentry xml:id="f84e8f62-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-39</term>
-                        <listitem xml:id="listitem_86b148d5-171f-4862-988b-140a7932880f">
-                            <para xml:id="para_54909814-3a32-48c6-a663-daec09e4f030"> PRISME
-                                    <emphasis role="italic"><link
-                                        linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-1 above)</link></emphasis> shall provide a Version
-                                Control Service.</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f63-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-40</term>
-                        <listitem xml:id="listitem_909d8faf-5ae7-4c09-8150-3cc648391748">
-                            <para xml:id="para_410d22fa-e39d-4076-b3e8-fc3f88d78964"> The Version
-                                Control Service <emphasis role="italic"><link
-                                        linkend="f84e8f62-48eb-11e4-916c-0800200c9a66">(ETS-F-39
-                                        above)</link></emphasis> shall be available on the Public
-                                Internet.</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f64-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-41</term>
-                        <listitem xml:id="listitem_bded21cb-f66d-4455-b7f8-ff847b4f28c0">
-                            <para xml:id="para_4f6297eb-433a-44a3-9697-969bbbea5600">The Version
-                                Control Service <emphasis role="italic"><link
-                                        linkend="f84e8f62-48eb-11e4-916c-0800200c9a66">(ETS-F-39
-                                        above)</link></emphasis> shall allow single-sign-on and
-                                role-based access control via the Identity and Access Management
-                                Service <emphasis role="italic"><link
-                                        linkend="f84e684c-48eb-11e4-916c-0800200c9a66">(ETS-F-22
-                                        above)</link></emphasis>.</para>
-                        </listitem>
-                    </varlistentry>
-                    <!--ETS-F-42 was a duplicate, so removed & kept numbering in continuation as before. Verified with Keith on 09/09/2014-->
-                    <varlistentry xml:id="f84e8f65-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-43</term>
-                        <listitem xml:id="listitem_0c7f798f-21cf-4966-b258-5493a2b5d32b">
-                            <para xml:id="para_7db6856d-26a3-409c-8ee1-09b4938fac1d"> The Version
-                                Control Service <emphasis role="italic"><link
-                                        linkend="f84e8f62-48eb-11e4-916c-0800200c9a66">(ETS-F-39
-                                        above)</link></emphasis> shall be available on the Public
-                                Internet so that developers and collaborators with no access to the
-                                VA intranet can access the service.</para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f66-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-44</term>
-                        <listitem xml:id="listitem_14e96915-274c-43a5-b99d-738308873ef9">
-                            <para xml:id="para_a9727d6a-6b29-4f1f-bd27-4d8095407c19"> The Version
-                                Control Service <emphasis role="italic"><link
-                                        linkend="f84e8f62-48eb-11e4-916c-0800200c9a66">(ETS-F-39
-                                        above)</link></emphasis> shall have the necessary storage,
-                                configuration, and bandwidth to support version control of large
-                                textual data sources, such as a complete history of all SNOMED
-                                release files (Systematized Nomenclature of Medicine Clinical Terms
-                                [SNOMED CT] is released biannually, and the data files of the
-                                release are ~1.3 GB, compressible to ~200 MB). </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f67-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-45</term>
-                        <listitem xml:id="listitem_b42eb33d-5f5d-4fe3-b871-53a2f515e1b6">
-                            <para xml:id="para_6b40fe2d-78b1-4f65-b40d-f1ccb47804f9"> The Version
-                                Control Service shall have one master repository for each
-                                terminology system or independent module of a terminology system
-                                that is used within VA, or are of collaborative importance. Today
-                                these terminology systems include, but are not limited to: SNOMED CT
-                                International Edition, SNOMED CT US Extension, SNOMED CT Spanish
-                                Edition, Logical Observation Identifiers, Names, and Codes (LOINC),
-                                International Classification of Diseases, Ninth Edition, Clinical
-                                Modification (ICD-9-CM), ICD-10-CM, RxNorm, National Drug File
-                                (NDF), National Drug File-Reference Terminology (NDF-RT), Current
-                                Procedural Terminology (CPT), Healthcare Common Procedure Coding
-                                System (HCPCS), Diagnosis Related Group (DRG), and VHA Terminology
-                                (VHAT). </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f68-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-46</term>
-                        <listitem xml:id="listitem_0dba8d6c-1183-4745-9dc0-04a8b0600f6e">
-                            <para xml:id="para_ab920555-6142-4f5c-9e58-d93c21ab8dec"> The Version
-                                Control Service <emphasis role="italic"><link
-                                        linkend="f84e8f62-48eb-11e4-916c-0800200c9a66">(ETS-F-39
-                                        above)</link></emphasis> shall support hosting of project
-                                websites generated by the continuous integration service <emphasis
-                                    role="italic"><link
-                                        linkend="f84e8f72-48eb-11e4-916c-0800200c9a66">(ETS-F-54
-                                        below)</link></emphasis> and will thereby provide for
-                                historical records of all project metrics published via the website.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-=======
                 <requirement xml:id="requirement_b79cb40e-1682-4392-a747-fb7f1c6ee45d">
                     <title>insertRequirementTitle</title>
                     <indexterm>
@@ -6144,7 +4099,6 @@
                         </varlistentry>
                     </variablelist>
                 </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
             </section>
             <section xml:id="f84e8f69-48eb-11e4-916c-0800200c9a66">
                 <title>Quality Management Platform <indexterm type="general">
@@ -6159,84 +4113,6 @@
                         <para>www.sonorcube.org</para>
                     </footnote>
                 </para>
-<<<<<<< HEAD
-                <variablelist xml:id="variablelist_9c4887d8-368b-4090-bb6c-d954c39f2552">
-                    <varlistentry xml:id="f84e8f6a-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-47</term>
-                        <listitem xml:id="listitem_d9201217-7b39-47b3-83e6-7795d69e6261">
-                            <para xml:id="para_be4b3abf-ef84-4cd4-8daf-954be09627a7"> PRISME
-                                    <emphasis role="italic"><link
-                                        linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-1 above)</link></emphasis> shall provide a quality
-                                management platform that will enable tracking of quality metrics for
-                                each project over time. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f6b-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-48</term>
-                        <listitem xml:id="listitem_db654c4a-eae1-4e44-a8fb-c82f5a0573bc">
-                            <para xml:id="para_f8344179-8938-4ef8-a37e-4522061fc17b"> The Quality
-                                Management Platform <emphasis role="italic"><link
-                                        linkend="f84e8f6a-48eb-11e4-916c-0800200c9a66">(ETS-F-47
-                                        above)</link></emphasis> shall provide trend analysis tools
-                                to monitor quality evolution and milestones. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f6c-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-49</term>
-                        <listitem xml:id="listitem_285c2a36-cd3d-44ea-a44f-7a6880099104">
-                            <para xml:id="para_2132a9e6-adbb-41ee-8b95-20f7ebc8c9bf"> The Quality
-                                Management Platform <emphasis role="italic"><link
-                                        linkend="f84e8f6a-48eb-11e4-916c-0800200c9a66">(ETS-F-47
-                                        above)</link></emphasis> shall provide detailed reporting of
-                                complexity, compliance, and coverage metrics. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f6d-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-50</term>
-                        <listitem xml:id="listitem_8d83826e-b95b-4a36-9f15-98e0522c8a71">
-                            <para xml:id="para_3b48b1dc-b98b-45bb-8868-c2f471634e3e"> The Quality
-                                Management Platform <emphasis role="italic"><link
-                                        linkend="f84e8f6a-48eb-11e4-916c-0800200c9a66">(ETS-F-47
-                                        above)</link></emphasis> shall be extensible by writing
-                                plugins that can support terminology specific metrics. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f6e-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-51</term>
-                        <listitem xml:id="listitem_0959c791-680d-4e18-a0fc-d720ecfdffa0">
-                            <para xml:id="para_cc80f030-3fdc-4b7a-89f5-ec529e0c92c4"> The Quality
-                                Management Platform <emphasis role="italic"><link
-                                        linkend="f84e8f6a-48eb-11e4-916c-0800200c9a66">(ETS-F-47
-                                        above)</link></emphasis> shall provide Individual-level,
-                                team-level and project-level monitoring of metrics. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f6f-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-52 </term>
-                        <listitem xml:id="listitem_d9cb01d7-69af-41c8-b858-03360e3e4072">
-                            <para xml:id="para_7355bf3f-42c2-4f20-a074-b299665ab4d0">The Quality
-                                Management Platform <emphasis role="italic"><link
-                                        linkend="f84e8f6a-48eb-11e4-916c-0800200c9a66">(ETS-F-47
-                                        above)</link></emphasis> shall support rule-based defect
-                                detection, and shall support white listing of rule violations, that
-                                are identified as allowed exemptions to the rule after a manual
-                                review of the rule violations. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f70-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-53</term>
-                        <listitem xml:id="listitem_b0a90cea-6f3f-49dc-902f-a570c3ec9b75">
-                            <para xml:id="para_eb78df1f-7eca-4b0e-a425-c294845818fc"> The Quality
-                                Management Platform <emphasis role="italic"><link
-                                        linkend="f84e8f6a-48eb-11e4-916c-0800200c9a66">(ETS-F-47
-                                        above)</link></emphasis> shall support rule-based defect
-                                detection and shall support a comprehensive audit trail of all white
-                                listing activities. </para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-=======
                 <requirement xml:id="requirement_0bbdcabf-df74-4397-bb01-01aec75e9555">
                     <title>insertRequirementTitle</title>
                     <indexterm>
@@ -6361,7 +4237,6 @@
                         </varlistentry>
                     </variablelist>
                 </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
             </section>
             <section xml:id="f84e8f71-48eb-11e4-916c-0800200c9a66">
                 <title>Continuous Integration Service <indexterm type="general">
@@ -6382,65 +4257,6 @@
                     </footnote> and TeamCity.<footnote>
                         <para>http://www.jetbrains.com/teamcity/</para>
                     </footnote></para>
-<<<<<<< HEAD
-                <variablelist xml:id="variablelist_5652db95-817f-41b0-95e0-e5432f12ecc1">
-                    <varlistentry xml:id="f84e8f72-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-54</term>
-                        <listitem xml:id="listitem_000b7c48-e3f6-4bb3-88fd-87c87a6a1666">
-                            <para xml:id="para_49772c6f-0d81-434a-a13e-5ef030d05010">PRISME
-                                    <emphasis role="italic"><link
-                                        linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-1 above)</link></emphasis> shall provide a
-                                continuous integration service that is able to build and test
-                                projects as defined by the project’s POM. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f73-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-55 </term>
-                        <listitem xml:id="listitem_f5214a1f-1928-4be5-9b82-d1a8a30d2272">
-                            <para xml:id="para_7d9b7cfa-86f2-4041-9e6f-72bbb1f2dc7a">The Continuous
-                                Integration Service <emphasis role="italic"><link
-                                        linkend="f84e8f72-48eb-11e4-916c-0800200c9a66">(ETS-F-54
-                                        above)</link></emphasis> shall support feature branching or
-                                a branch-per-issue workflow by automatically detecting new project
-                                branches in the Version Control Service <emphasis role="italic"
-                                        ><link linkend="f84e8f62-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-39 above)</link></emphasis> project repository, and
-                                then to automatically apply the main line's continuous integration
-                                scheme to the new branches, so that branch metrics are automatically
-                                generated and available from the Dashboard. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f74-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-56 </term>
-                        <listitem xml:id="listitem_ec8f99fc-9c94-437d-8cdb-f21636696397">
-                            <para xml:id="para_33b7d979-bf72-48d5-a3f5-8707822ae178">The Continuous
-                                Integration Service <emphasis role="italic"><link
-                                        linkend="f84e8f72-48eb-11e4-916c-0800200c9a66">(ETS-F-54
-                                        above)</link></emphasis> shall be configurable to listen to
-                                commit triggers from the Continuous Integration Service <emphasis
-                                    role="italic"><link
-                                        linkend="f84e8f72-48eb-11e4-916c-0800200c9a66">(ETS-F-54
-                                        above)</link></emphasis>, and to enable those triggers to
-                                initiate a project build on the continuous integration server.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84e8f75-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-57</term>
-                        <listitem xml:id="listitem_1529c151-888a-469c-878e-f5ba1e7072b3">
-                            <para xml:id="para_e99bb8ae-a397-4049-8151-d96580ded0d7">The Continuous
-                                Integration Service <emphasis role="italic"><link
-                                        linkend="f84e8f72-48eb-11e4-916c-0800200c9a66">(ETS-F-54
-                                        above)</link></emphasis> shall ensure the integrity of all
-                                dependent artifacts used in a project build by verifying the
-                                cryptographic checksums of all artifacts. If checksums do not match,
-                                the Continuous Integration service must force the build to
-                                fail.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-=======
                 <requirement xml:id="requirement_eeda0cc3-2461-4cdb-a166-379cb6892369">
                     <title>insertRequirementTitle</title>
                     <indexterm>
@@ -6529,7 +4345,6 @@
                         </varlistentry>
                     </variablelist>
                 </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
             </section>
             <section xml:id="f84e8f76-48eb-11e4-916c-0800200c9a66">
                 <title>Project Creation Application <indexterm type="general">
@@ -6537,125 +4352,6 @@
                             (PRISME)</primary>
                         <secondary>Project Creation Application</secondary>
                     </indexterm></title>
-<<<<<<< HEAD
-                <para xml:id="para_e611969f-bc82-4a43-8786-44b0a83a6e75">The project creation
-                    application will guide the selection of options necessary to create a project
-                    POM and to create the necessary infrastructure components (version control
-                    repository, continuous integration server setup, web site deployment location,
-                    issue trackers) and to select the proper project options. The goal of the
-                    project creation application is to enable technical users to create projects
-                    more efficiently and to also enable non-technical project managers to be able to
-                    set up their own projects with guidance from the application. </para>
-                <variablelist xml:id="variablelist_6b9d3f34-7e98-4a10-97c3-61d22121351a">
-                    <varlistentry xml:id="f84eb660-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-58</term>
-                        <listitem xml:id="listitem_91699850-2055-49c9-8623-249c749e443f">
-                            <para xml:id="para_f05152ac-25f2-44a5-8e27-b71dc736d07a">PRISME
-                                    <emphasis role="italic"><link
-                                        linkend="requirement_f84e4138-48eb-11e4-916c-0800200c9a66"
-                                        >(ETS-F-1 above)</link></emphasis> shall provide a Project
-                                Creation Application, which will enable a PRISME project
-                                administrator to create and deploy new projects. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84eb661-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-59</term>
-                        <listitem xml:id="listitem_7ed7e741-e51f-4de8-bbf1-4835a4404d10">
-                            <para xml:id="para_86e419f2-90d4-4f60-996f-74511f69247d">The Project
-                                Creation Application <emphasis role="italic"><link
-                                        linkend="f84eb661-48eb-11e4-916c-0800200c9a66">(ETS-F-59
-                                        above)</link></emphasis> shall automate the creation and
-                                initialization of the Version Control Service <emphasis
-                                    role="italic"><link
-                                        linkend="f84e8f62-48eb-11e4-916c-0800200c9a66">(ETS-F-39
-                                        above)</link></emphasis> repository for a project, and check
-                                in initial project sources into the Version Control Service. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84eb662-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-60</term>
-                        <listitem xml:id="listitem_998996fe-4826-4177-bc93-bd31a996562f">
-                            <para xml:id="para_46baf389-d7a5-46bd-a774-af9057211f52">The Project
-                                Creation Application <emphasis role="italic"><link
-                                        linkend="f84eb661-48eb-11e4-916c-0800200c9a66">(ETS-F-59
-                                        above)</link></emphasis> shall automatically configure the
-                                Continuous Integration Service <emphasis role="italic"><link
-                                        linkend="f84e8f72-48eb-11e4-916c-0800200c9a66">(ETS-F-54
-                                        above)</link></emphasis> to check out the project from the
-                                Version Control Service <emphasis role="italic"><link
-                                        linkend="f84e8f62-48eb-11e4-916c-0800200c9a66">(ETS-F-39
-                                        above)</link></emphasis>, build the project, and then deploy
-                                the project to the Artifact Repository Service <emphasis
-                                    role="italic"><link
-                                        linkend="f84e8f53-48eb-11e4-916c-0800200c9a66">(ETS-F-27
-                                        above)</link></emphasis>. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84eb663-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-61</term>
-                        <listitem xml:id="listitem_13e6e153-e59f-46d3-bdfe-be46365629c6">
-                            <para xml:id="para_030ac915-e5fc-49c7-9383-3598712c14bd">The Project
-                                Creation Application <emphasis role="italic"><link
-                                        linkend="f84eb661-48eb-11e4-916c-0800200c9a66">(ETS-F-59
-                                        above)</link></emphasis> shall allow a project administrator
-                                to select filtered project dependencies (such as a version of SNOMED
-                                or LOINC) from a list of dependencies of the proper classification
-                                (java library, terminology content, etc.) obtained from searching
-                                the PRISME Artifact Repository Service <emphasis role="italic"><link
-                                        linkend="f84e8f58-48eb-11e4-916c-0800200c9a66">(ETS-F-32
-                                        above)</link></emphasis> in real time. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84eb664-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-62</term>
-                        <listitem xml:id="listitem_aba074e4-56bf-4e1e-a777-6a1de9711ea8">
-                            <para xml:id="para_2e369288-d036-4ad7-99a7-6677729b146f">The Project
-                                Creation Application <emphasis role="italic"><link
-                                        linkend="f84eb661-48eb-11e4-916c-0800200c9a66">(ETS-F-59
-                                        above)</link></emphasis> shall allow a project administrator
-                                to create an archetype<footnote>
-                                    <para xml:id="para_84157ce3-c923-4527-833e-baab388f941d"
-                                        >http://maven.apache.org/guides/introduction/introduction-to-archetypes.html</para>
-                                </footnote> from a configured project and to configure all necessary
-                                services to version control, test, and release the archetype.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84eb665-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-63</term>
-                        <listitem xml:id="listitem_447095a4-ea11-464c-b1e6-af319f506dcf">
-                            <para xml:id="para_10b35969-176d-498f-a048-e0cf7bf017e0">The Project
-                                Creation Application <emphasis role="italic"><link
-                                        linkend="f84eb661-48eb-11e4-916c-0800200c9a66">(ETS-F-59
-                                        above)</link></emphasis> shall allow a project administrator
-                                to update an existing archetype and to commit that update to version
-                                control and to release the updated archetype. </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84eb666-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-64</term>
-                        <listitem xml:id="listitem_ada38512-95ca-4acd-ac75-20f27fa1bb93">
-                            <para xml:id="para_6e0b82f4-894d-4f0a-941d-7e61d2c33676">The Project
-                                Creation Application <emphasis role="italic"><link
-                                        linkend="f84eb661-48eb-11e4-916c-0800200c9a66">(ETS-F-59
-                                        above)</link></emphasis> shall allow a project administrator
-                                to create projects from selectable list of available archetypes.
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry xml:id="f84eb667-48eb-11e4-916c-0800200c9a66">
-                        <term>ETS-F-65</term>
-                        <listitem xml:id="listitem_b14a82f8-4ef0-439f-b7e3-e3dd98817fd4">
-                            <para xml:id="para_f4583b9a-07c8-4b45-a510-27f713e0fff2">The Project
-                                Creation Application <emphasis role="italic"><link
-                                        linkend="f84eb661-48eb-11e4-916c-0800200c9a66">(ETS-F-59
-                                        above)</link></emphasis> shall allow a project administrator
-                                to select workflow processes that will be available within a
-                                project.</para>
-                        </listitem>
-                    </varlistentry>
-                </variablelist>
-=======
                 <para>The project creation application will guide the selection of options necessary
                     to create a project POM and to create the necessary infrastructure components
                     (version control repository, continuous integration server setup, web site
@@ -6829,7 +4525,6 @@
                         </varlistentry>
                     </variablelist>
                 </requirement>
->>>>>>> 5c0c0b7c44e40751f48ee0ec454bd67bfbd5d580
             </section>
         </section>
         <section xml:id="f84eb668-48eb-11e4-916c-0800200c9a66">

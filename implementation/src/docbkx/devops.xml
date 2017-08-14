@@ -968,7 +968,23 @@ git push -u origin master</programlisting>
                 <para xml:id="para_a28c7533-03ef-42f9-814f-def77517f3eb">Then add the following
                     plugin specification inside the project so that the file will be extracted into
                     the default jindent directory:</para>
+                <para/>
             </section>
+        </section>
+        <section xml:id="section_42c1ba8a-baf1-4147-858d-aba46e1da2be">
+            <title>yFiles for JavaFX</title>
+            <para>yFiles jar file needs to be installed in the developers local repository if yFiles
+                development is planned.</para>
+            <programlisting>
+mvn install:install-file -DgroupId=yfiles \
+  -DartifactId=yfiles-for-javafx \
+  -Dversion=3.0 \
+  -Dpackaging=jar \
+  -DcreateChecksum=true \
+  -DgeneratePom=true \
+  -DupdateReleaseInfo=true \
+  -Dfile=yfiles-for-javafx.jar 
+            </programlisting>
         </section>
     </section>
     <section>

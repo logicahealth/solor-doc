@@ -52,19 +52,17 @@ This is a maven/docbook project. To edit docbook XML files, following installati
     + select **File** > **Open** > go to the folder created in _Target Directory step of Git GUI installation_ > select **isaacs-komet-doc.xpr**
 
 ### Committing and pushing edited files to GitHub ###
-It is generally a good practice to perform a **mvn clean install** prior to committing/pushing edited files back to GitHub
+It is generally a good practice to perform a **mvn clean install** prior to committing/pushing edited files back to GitHub.
 
 Contact Keith Campbell for write priviliges.
 
-1. Git GUI (update this with sourcetree)
-    + Open Git GUI and select recent repository
-       ![src/site/resources/images/readme_screenshot_gitgui_push.JPG](src/site/resources/images/readme_screenshot_gitgui_push.JPG)  
-&nbsp;
-    + Stage the files you want to commit  
-       ![src/site/resources/images/readme_screenshot_gitgui_push_unstaged.JPG](src/site/resources/images/readme_screenshot_gitgui_push_unstaged.JPG)  
-&nbsp;
-    + Select **Commit** > **Stage to Commit**  
-       ![src/site/resources/images/readme_screenshot_gitgui_push_stageToCommit.jpg](src/site/resources/images/readme_screenshot_gitgui_push_stageToCommit.jpg)  
-&nbsp;  
-    + Enter comment and press Commit
-       ![src/site/resources/images/readme_screenshot_gitgui_push_comment.JPG](src/site/resources/images/readme_screenshot_gitgui_push_comment.JPG)  
+1. SourceTree  
+&nbsp;      
+      ![src/site/resources/images/readme_screenshot_sourcetree_commit_00.jpg](src/site/resources/images/readme_screenshot_sourcetree_commit_00.jpg)  
+      ![src/site/resources/images/readme_screenshot_sourcetree_commit_01.jpg](src/site/resources/images/readme_screenshot_sourcetree_commit_01.jpg)  
+      ![src/site/resources/images/readme_screenshot_sourcetree_commit_02.jpg](src/site/resources/images/readme_screenshot_sourcetree_commit_02.jpg)  
+    + select files or stage all files (1), and press **commit** (2)
+    + Enter comment and press **commit** button below the comment textbox (3)
+    + Press **Push** putton (4)
+    + Make sure Local and Remote branches is set to "develop"
+      ![src/site/resources/images/readme_screenshot_sourcetree_commit_03.jpg](src/site/resources/images/readme_screenshot_sourcetree_commit_03.jpg)

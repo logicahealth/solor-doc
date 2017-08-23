@@ -11,18 +11,18 @@
             the ontology can accommodate these concepts. All clinical data in this use case is
             synthetic. Data was created to support the flow of this use case and provide examples of
             clinical observations that are documented throughout the interaction. Clinical decision
-            making in this use case is based, primarily, on VA/DoD Clinical Practice Guidelines for
-            the Management of Ischemic Heart Disease, available at:
-            http://www.healthquality.va.gov/guidelines/CD/ihd/ Additional clinical resources are
-            listed below in the Reference section. The intent of this use case is to capture actions
-            that commonly occur when a patient presents with unstable angina. Many of the steps in
-            this use case occur concurrently in an emergent case. In similar scenarios, the same
-            actions may occur in slightly different order. Cognitive goals are included in some
-            ‘Actions’ to provide insight on the Provider or healthcare professional’s mental process
-            at that point of the encounter. Hyperlinks are included to provide examples of the data
-            fields and values that may be entered by the EHR user during this step of the use case.
-            Hyperlinks suggest standardized terminologies that may be used to capture data in this
-            step of the use case.</para>
+            making in this use case is based, primarily, on <link
+                xlink:href="http://www.healthquality.va.gov/guidelines/CD/ihd/">VA/DoD Clinical
+                Practice Guidelines for the Management of Ischemic Heart Disease.</link> Additional
+            clinical resources are listed below in the Reference section. The intent of this use
+            case is to capture actions that commonly occur when a patient presents with unstable
+            angina. Many of the steps in this use case occur concurrently in an emergent case. In
+            similar scenarios, the same actions may occur in slightly different order. Cognitive
+            goals are included in some ‘Actions’ to provide insight on the Provider or healthcare
+            professional’s mental process at that point of the encounter. Hyperlinks are included to
+            provide examples of the data fields and values that may be entered by the EHR user
+            during this step of the use case. Hyperlinks suggest standardized terminologies that may
+            be used to capture data in this step of the use case.</para>
         <section>
             <title>Actors</title>
             <formalpara>
@@ -142,7 +142,8 @@
                         symptoms worsened with rest. </para>
                 </listitem>
                 <listitem>
-                    <para>Patient has taken one sublingual (SL) nitroglycerin (NTG) tablet, without relief.</para>
+                    <para>Patient has taken one sublingual (SL) nitroglycerin (NTG) tablet, without
+                        relief.</para>
                 </listitem>
             </orderedlist>
         </section>
@@ -152,11 +153,12 @@
                 <title>Minimal guarantees</title>
                 <orderedlist>
                     <listitem>
-                        <para>Data fields required to support this clinical workflow will be present in the EHR. </para>
+                        <para>Data fields required to support this clinical workflow will be present
+                            in the EHR. </para>
                     </listitem>
                     <listitem>
-                        <para>Data entered will be stored utilizing the appropriate clinical terminology.
-                        </para>
+                        <para>Data entered will be stored utilizing the appropriate clinical
+                            terminology. </para>
                     </listitem>
                 </orderedlist>
             </section>
@@ -164,16 +166,1927 @@
                 <title>Success guarantees</title>
                 <orderedlist>
                     <listitem>
-                        <para>EHR supports patient-centered care, guided by goals set by the patient</para>
+                        <para>EHR supports patient-centered care, guided by goals set by the
+                            patient</para>
                     </listitem>
                     <listitem>
-                        <para>Patient receives evidence-based care based on the health concerns that are noted during the outpatient visit.</para>
+                        <para>Patient receives evidence-based care based on the health concerns that
+                            are noted during the outpatient visit.</para>
                     </listitem>
                     <listitem>
-                        <para>Patient will achieve improved outcomes and satisfaction as a result of care facilitated by EHR functionality.</para>
+                        <para>Patient will achieve improved outcomes and satisfaction as a result of
+                            care facilitated by EHR functionality.</para>
                     </listitem>
                 </orderedlist>
             </section>
+        </section>
+        <section>
+            <title>Normal flow</title>
+            <para>To be input</para>
+            <para>
+                <table frame="topbot" colsep="0" rowsep="1">
+                    <title/>
+                    <tgroup cols="4">
+                        <colspec colname="c1" colnum="1" colwidth="22.74pt" colsep="0" rowsep="1"/>
+                        <colspec colname="c2" colnum="2" colwidth="81.74pt" colsep="0" rowsep="1"/>
+                        <colspec colname="c3" colnum="3" colwidth="248.48pt" colsep="0" rowsep="1"/>
+                        <colspec colname="newCol4" colnum="4" colwidth="1*"/>
+                        <thead>
+                            <row rowsep="1">
+                                <entry colsep="0" rowsep="1">Step</entry>
+                                <entry colsep="0" rowsep="1">Attribute</entry>
+                                <entry colsep="0" rowsep="1" namest="c3" nameend="newCol4"
+                                    >Value</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row rowsep="1">
+                                <entry morerows="2">1</entry>
+                                <entry colsep="0" rowsep="0">Action</entry>
+                                <entry colsep="0" rowsep="0" namest="c3" nameend="newCol4">Patient’s
+                                    family member (wife) pulls up to ED entrance, runs in to waiting
+                                    area and calls for help. </entry>
+                            </row>
+                            <row rowsep="1">
+                                <entry colsep="0" rowsep="0">Actor(s)</entry>
+                                <entry colsep="0" rowsep="0" namest="c3" nameend="newCol4">
+                                    <para>Patient’s family member, Patient, Triage RN, ED
+                                        Tech</para>
+                                </entry>
+                            </row>
+                            <row rowsep="1">
+                                <entry colsep="0" rowsep="1">Action Breakdown</entry>
+                                <entry colsep="0" rowsep="1" namest="c3" nameend="newCol4">
+                                    <para>ED Tech and Triage RN run to the car (bringing a
+                                        stretcher), assist patient on to stretcher and wheel the
+                                        patient in to the Triage area.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="6">2</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">Triage RN completes a brief
+                                    assessment to determine the patient’s condition and the urgency
+                                    of required care.</entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">Rapid assessment of patient
+                                    condition. </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Patient, Triage RN, ED Tech, Family member</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Chief Complaint: Crushing chest pain (8 out of 10),
+                                        unrelieved by rest and 1 sub-lingual nitroglycerin (SL-NTG)
+                                        tablet.</para>
+                                    <para>PMH: Stable angina, dyslipidemia, hypertension
+                                        (HTN)</para>
+                                    <para>Allergies: NKDA</para>
+                                    <para>Current medications: <itemizedlist>
+                                            <listitem>
+                                                <para>SL-NTG as needed. One taken 10 minutes
+                                                  ago.</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Lovastatin 40 mg once daily – taken last
+                                                  night.</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>HCTZ 12.5 mg daily – taken this
+                                                  morning.</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Lisinopril 10 mg daily – taken this
+                                                  morning.</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para> High level assessment:</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>LOC: Alert and fully oriented</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Temp: 99 F</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>BP: 169/98</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>HR: 106 and slightly irregular</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Cardiac rhythm by ECG monitor: Sinus
+                                                  tachycardia (ST) with rare pre-mature ventricular
+                                                  contractions (PVCs)</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Resp: 24 and shallow</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Pulse Oximetry: 94% on room air </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Skin: pale and diaphoretic</para>
+                                            </listitem>
+                                        </itemizedlist></para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para><emphasis role="underline">Data
+                                                Entry</emphasis></para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>SNOMED-CT</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>LOINC</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Appendix</entry>
+                                <entry namest="c3" nameend="newCol4">Sample Triage Assessment
+                                    Form</entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">3</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">Triage RN determines that
+                                    patient has a severity index of ‘2’ requiring immediate
+                                    emergency nursing care. Note: Steps 2 and 3 often occur
+                                    concurrently.</entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">Assessment of severity of
+                                    condition. Is the patient’s condition life threatening?</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Triage RN, Patient, ED Charge RN, ED Physician, ED
+                                        RN</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <procedure>
+                                        <title> Triage RN does the following: </title>
+                                        <step>
+                                            <para>Moves the patient via stretcher to the ‘Emergent’
+                                                section of the ED.</para>
+                                        </step>
+                                        <step>
+                                            <para>Notifies the ED charge nurse and ED attending
+                                                physician of the new ED patient and their
+                                                condition.</para>
+                                        </step>
+                                        <step>
+                                            <para>Flags the patient as requiring Emergent care by an
+                                                RN in the EHR</para>
+                                        </step>
+                                    </procedure>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4"><para>EHR</para><itemizedlist>
+                                        <listitem>
+                                            <para><emphasis role="underline">Status
+                                                entry</emphasis></para>
+                                        </listitem>
+                                        <listitem>
+                                            <para><emphasis role="underline">Data visualization for
+                                                  report</emphasis></para>
+                                        </listitem>
+                                    </itemizedlist></entry>
+                            </row>
+                            <row>
+                                <entry>Appendix </entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Refer to Emergency Severity Index Triage Tool for
+                                                EDs </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Refer to Sidebar B Initial Evaluation of Ischemic
+                                                Heart Disease/ VHA Clinical Guidelines</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="6">4</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">ED RN initiates standing orders
+                                    for emergency interventions that are indicated in the management
+                                    of ischemic heart disease.</entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Select and implement appropriate emergency interventions
+                                        to stabilize ischemia. </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN, ED Tech, Patient</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <procedure>
+                                        <title>ED RN does the following (unless noted as being
+                                            delegated to the ED Tech):</title>
+                                        <step>
+                                            <para>Places the patient on a cardiac monitor (patient
+                                                is still in ST with rare PVCs)</para>
+                                        </step>
+                                        <step>
+                                            <para>Obtains updated set of vital signs (BP: 158/90,
+                                                HR: 102, RR: 22)</para>
+                                        </step>
+                                        <step>
+                                            <para>Places the patient on 2L of oxygen via nasal
+                                                cannula (NC)</para>
+                                        </step>
+                                        <step>
+                                            <para>Evaluates chest pain (still 8 out of 10, crushing,
+                                                radiating to jaw)</para>
+                                        </step>
+                                        <step>
+                                            <para>Obtains 12 lead electrocardiogram (ECG) <itemizedlist>
+                                                  <listitem>
+                                                  <para>ST-elevation is noted on the ECG</para>
+                                                  </listitem>
+                                                  <listitem>
+                                                  <para>ECG interpretation (by machine): Anterior
+                                                  wall MI<itemizedlist>
+                                                  <listitem>
+                                                  <para>ED Provider is notified</para>
+                                                  </listitem>
+                                                  </itemizedlist></para>
+                                                  </listitem>
+                                                </itemizedlist></para>
+                                        </step>
+                                        <step>
+                                            <para>Starts a peripheral intravenous (IV) line –
+                                                performed by EDT </para>
+                                        </step>
+                                        <step>
+                                            <para>Sends blood sample for Chem 7, CBC, cardiac
+                                                enzymes (troponin, CK, and CK-MB), Lipid profile,
+                                                PT/PTT – orders for labs entered by RN, blood drawn
+                                                and sent by EDT </para>
+                                        </step>
+                                        <step>
+                                            <para>Administers medications<itemizedlist>
+                                                  <listitem>
+                                                  <para>325 mg chewable aspirin<itemizedlist>
+                                                  <listitem>
+                                                  <para>Highlights the medication in the eMAR, scans
+                                                  the medication, next scans the patient, then
+                                                  administers the medication after receiving BCMA
+                                                  verification of appropriate administration</para>
+                                                  </listitem>
+                                                  </itemizedlist></para>
+                                                  </listitem>
+                                                  <listitem>
+                                                  <para>2 mg Morphine Sulfate IV<itemizedlist>
+                                                  <listitem>
+                                                  <para>Follows process noted above for aspirin
+                                                  administration. Enters pain level of 8 out of 10
+                                                  when prompted by BCMA system since administration
+                                                  of a pain medication requires documentation of the
+                                                  patient’s pain level.</para>
+                                                  </listitem>
+                                                  </itemizedlist></para>
+                                                  </listitem>
+                                                  <listitem>
+                                                  <para>1 tablet of .4 mg SL-NTG (Note: this is the
+                                                  second dose that the patient has received)<itemizedlist>
+                                                  <listitem>
+                                                  <para>Follows process noted above for aspirin
+                                                  administration. Enters BP: 158/90, when prompted
+                                                  by BCMA system since administration of a SL-NTG
+                                                  should be held if SBP &lt; 100.</para>
+                                                  </listitem>
+                                                  </itemizedlist></para>
+                                                  </listitem>
+                                                </itemizedlist></para>
+                                        </step>
+                                        <step>
+                                            <para>Orders Chest X-ray (CXR)- PA and Lateral
+                                                views</para>
+                                            <para>Note: Each of these interventions is ‘ordered’ by
+                                                activating the “Standard ED Order Set for Chest
+                                                Pain.” The ED RN enters the orders as verbal orders,
+                                                which are then “signed off” by the Provider. </para>
+                                            <para>Note: RN specifies ‘Nurse draw’ when entering
+                                                order for lab work. EHR integrates with department
+                                                printer, which prints labels for blood tubes. If the
+                                                RN had specified ‘Lab draw’ the blood draw would
+                                                have been added to a Laboratory Technician’s work
+                                                list.</para>
+                                        </step>
+                                    </procedure>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR</para>
+                                    <para> • Biomedical device integration to record VS and pulse
+                                        oximetry</para>
+                                    <para> • Data entry of care performed</para>
+                                    <para> • Activation of standing order set for chest pain via
+                                        CPOE by RN </para>
+                                    <para> • Documents medications that were administered in the
+                                        Medication Administration Record (MAR) </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• SNOMED-CT</para>
+                                    <para> • LOINC</para>
+                                    <para> • RXNORM</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Appendix</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para> • Refer to Standard ED Order Set for Chest Pain </para>
+                                    <para> • Refer to MAR Sample</para>
+                                    <para> • Refer to VA Clinical Practice Guidelines for the
+                                        Management of Ischemic Heart Disease</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="3">5</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Provider receives notification that a verbal order has
+                                        been placed in his/her name</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Provider</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Provider opens notification and views the task listed in
+                                        their work queue</para>
+                                    <para> • Provider opens patient record in EHR and views data
+                                        entered to date</para>
+                                    <para> • Provider enters ED room to assess patient (assessment
+                                        results are documented in Step 13)</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR</para>
+                                    <para> • Notification system</para>
+                                    <para> • Data visualization</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">6</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Registration clerk enters insurance and demographic
+                                        information in to the EHR system via tablet as verified by
+                                        the patient’s wife.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Registration Clerk, Family member</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Registration Clerk enters the following information in to
+                                        the system:</para>
+                                    <para> • Demographic information </para>
+                                    <para> • Primary and Secondary Insurance information: Tricare,
+                                        member #: xxx-xx, etc.</para>
+                                    <para> • Next of Kin contact information</para>
+                                    <para> • Religious preference</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technolgy</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR Registration System </para>
+                                    <para> • Data entry </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4"/>
+                            </row>
+                            <row>
+                                <entry>Appendix</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>G: Hospital Registration Form</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">7</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN evaluates status of chest pain and vital signs
+                                    </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">Evaluate effectiveness of
+                                    interventions and need for escalation of therapy.</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN, Patient</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• Patient reports pain is a 5 out of 10</para>
+                                    <para> • VS: BP 150/90, HR 95, RR 20, Pulse Ox: 98% on
+                                        2LNC</para>
+                                    <para> • ED RN administers 1 tablet of .4 mg SL-NTG (Note: this
+                                        is the third dose that the patient has received. Standing
+                                        orders cover up to 3 administrations of SL-NTG. BCMA is used
+                                        to record this administration.)</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR</para>
+                                    <para> • Biomedical device integration to record VS and pulse
+                                        oximetry</para>
+                                    <para> • Data entry of care performed</para>
+                                    <para> • Documents medications that were administered in the
+                                        electronic Medication Administration Record (eMAR)</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para> • SNOMED-CT</para>
+                                    <para> • LOINC</para>
+                                    <para> • RXNORM</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">8</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Radiology Technician (Rad Tech) receives notification that
+                                        a diagnostic X-ray for an Emergent ED patient has been added
+                                        to his/her work list</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Management of work queue. Ensure the proper diagnostic
+                                        test is performed on the proper patient.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Rad Tech, Patient</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Rad Tech receives notification that a task has been added
+                                        to his/her work list for an Emergent ED patient.</para>
+                                    <para> • Rad Tech checks work list in EHR, completes the
+                                        procedure as ordered and documents completion.</para>
+                                    <para> • Rad Tech flags the CXR as ‘ready for interpretation’ by
+                                        Radiologist</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR </para>
+                                    <para> • Integration with Notification system</para>
+                                    <para> • Data entry</para>
+                                    <para> • Status entry</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para> • LOINC</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="6">9</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Radiologist receives notification that a CXR is ready for
+                                        interpretation for an Emergent ED patient.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">Accurate evaluation of CXR
+                                    (taking reason for CXR and old films in to
+                                    consideration)</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Radiologist</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Radiologist receives notification that a chest film is
+                                        ready for interpretation.</para>
+                                    <para> • Radiologist checks work list in EHR, views the
+                                        indicated CXR and enters the CXR results and
+                                        interpretation.</para>
+                                    <para> • Radiologist flags the CXR as ‘Resulted’.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology </entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR integration with PACS and Notification system </para>
+                                    <para> • Image visualization</para>
+                                    <para> • Data entry</para>
+                                    <para> • Status entry</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• SNOMED-CT</para>
+                                    <para> • LOINC</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Appendix</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>H: CXR Result Format</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">10</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">Provider receives notification
+                                    that the CXR results are available.</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Provider</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Provider receives notification that a CXR ordered in their
+                                        name has been ‘resulted’.</para>
+                                    <para> • Provider pulls up results via hospital issued
+                                        cellphone.</para>
+                                    <para> • Provider utilizes EHR to view chest film to compare
+                                        against previous images (if available).</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR integration with PACS and Notification system</para>
+                                    <para> • Image visualization</para>
+                                    <para> • Data visualization</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• SNOMED-CT</para>
+                                    <para> • LOINC</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Appendix</entry>
+                                <entry namest="c3" nameend="newCol4">I: CXR Result Format</entry>
+                            </row>
+                            <row>
+                                <entry morerows="4">11</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Registration clerk (Reg. Clerk) obtains Advance Directive
+                                        and Authorization for Disclosure of Personal Health
+                                        Information (PHI) from patient.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Reg. Clerk, Patient</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para> Reg. Clerk provides tablet with Advance Directive and
+                                        Authorization for Disclosure of PHI information of forms. </para>
+                                    <para> • Patient completes Advance Directive form.</para>
+                                    <para> • Patient waives Authorization for Disclosure of PHI at
+                                        this time.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">EHR integration with hand held
+                                    tablets</entry>
+                            </row>
+                            <row>
+                                <entry>Appendix</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>J: Advance Directives Form</para>
+                                    <para>K: Authorization for Disclosure of Protected Health
+                                        Information</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">12</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN receives notification that diagnostic results have
+                                        been returned for this patient.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Ensure results are not life threatening or will not affect
+                                        indicated treatment. Evaluate initial of cardiac enzymes for
+                                        ischemic indications.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN receives alert that lab and CXR results have been
+                                        returned. He/she accesses lab results in the EHR. Relevant
+                                        lab values include:</para>
+                                    <para> • Troponin: 0.1 mcg/ml</para>
+                                    <para> • CK: 150 ng/ml </para>
+                                    <para> • CK-MB: 3 ng/ml </para>
+                                    <para> • K+: 4.1</para>
+                                    <para> • Hgb: 15 g/dl</para>
+                                    <para> • Hct: 45%</para>
+                                    <para> • PT: 12 seconds</para>
+                                    <para> • PTT: 63 seconds</para>
+                                    <para> • Cholesterol, total: 180</para>
+                                    <para> • HDL: 50 mg/dl</para>
+                                    <para> • LDL: 170</para>
+                                    <para> • Triglycerides: 190</para>
+                                    <para> • CXR: Normal. No mediastinal widening, valve disease, or
+                                        CHF</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR</para>
+                                    <para> • Visualization of lab and diagnostic reports</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• SNOMED-CT</para>
+                                    <para> • LOINC</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="6">13</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Provider assesses patient.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">Expedite History and Physical.
+                                    Formulate differential diagnosis (i.e. Acute Coronary Syndrome
+                                    vs. STEMI). Determine if patient is a candidate for emergency
+                                    reperfusion.</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Provider, Patient</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• Confirms past medical history (PMH) and enters active
+                                        conditions to the Problem List (Stable Angina, HTN,
+                                        Dyslipidemia)</para>
+                                    <para> • Confirms allergies: NKDA</para>
+                                    <para> • Confirms current medications: <itemizedlist>
+                                            <listitem>
+                                                <para>Lovastatin 40 mg once daily – taken last
+                                                  night</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>HCTZ 12.5 mg daily – taken this morning</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Lisinopril 10 mg daily – taken this
+                                                  morning</para>
+                                            </listitem>
+                                        </itemizedlist></para>
+                                    <para> • Smoking history: No tobacco use</para>
+                                    <para> • Completes physical assessment<itemizedlist>
+                                            <listitem>
+                                                <para>Neuro: Alert and fully oriented</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>CV: Chest pressure 5 out of 10 after 3 SL-NTG
+                                                  tablets, S1S2, No murmurs or gallop</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Resp: 20 and slightly shallow. Lungs
+                                                  clear</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>GI: Abdomen soft, flat with bowel sounds in
+                                                  all quadrants</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>GU: Verbalizes no problems with voiding</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Skin: Slightly pale. Diaphoretic. Warm and
+                                                  intact</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Psych: Calm and cooperative with wife
+                                                  present</para>
+                                            </listitem>
+                                        </itemizedlist></para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR</para>
+                                    <para> • Data entry to Problem List, Allergies and Current
+                                        Medication</para>
+                                    <para> • Visualization of lab and diagnostic reports</para>
+                                    <para> • Data entry of assessment </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• SNOMED-CT</para>
+                                    <para> • ICD-10</para>
+                                    <para> • LOINC</para>
+                                    <para> • RXNORM</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Appendix</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>L. Adult Health History</para>
+                                    <para>M. Head to Toe Physical Assessment Components</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="4">14</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Provider discusses clinical findings and treatment options
+                                        with patient.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Engage and educate patient. Assess patient understanding
+                                        to facilitate informed decisions.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Provider, Patient </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4"><para>• New diagnosis confirmed by
+                                    ECG: Anterior Wall Myocardial Infarction</para><itemizedlist>
+                                        <listitem>
+                                            <para>This diagnosis is added to the Problem List</para>
+                                        </listitem>
+                                    </itemizedlist><para> • Since chest pain started 45 minutes ago,
+                                        it is too early to see any elevation in cardiac enzymes
+                                        (Troponin, CK-MB)</para><para> • Recommend emergent
+                                        revascularization of coronary artery with cardiac
+                                        catheterization and possible balloon inflation and/or stent
+                                        placement based on clinical studies showing the best
+                                        outcomes for this scenario. A referral to an Interventional
+                                        Cardiologist can be placed immediately.<itemizedlist>
+                                            <listitem>
+                                                <para>Alternative treatment is intravenous
+                                                  thrombolytic therapy</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Pros and cons of each treatment discussed with
+                                                  patient</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Provider can access Clinical Care Guidelines,
+                                                  American Cardiology Recommendations, and Risk
+                                                  Evaluation Following a MI resources via hyperlink
+                                                  or Infobutton, as needed</para>
+                                            </listitem>
+                                        </itemizedlist></para><para> • Continued chest pain after
+                                        administration of 3 SL-NTG tablets and elevated blood
+                                        pressure indicate need for intravenous nitroglycerin (IV
+                                        NTG)</para><para> • Beta-blocker medication is indicated for
+                                        ischemic heart disease</para></entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR</para>
+                                    <para> • Data entry to Problem List</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="3">15</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Patient conveys their Goal, in relation to their new
+                                        diagnosis</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Patient, Provider</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">Patient states that they, “Want
+                                    to do whatever is necessary to maintain optimal heart function
+                                    so that they can live a full life. That includes having a
+                                    catheter placed in my heart.”</entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR </para>
+                                    <para> • Data entry of Patient Goal</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="3">16</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Patient conveys their treatment preference and agrees to a
+                                        plan of care.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Patient, Provider</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry><para>Care Plan Avtivities:</para><itemizedlist>
+                                        <listitem>
+                                            <para>Signs verbal order that ED RN entered to activate
+                                                ED standing orders for patients presenting with
+                                                chest pain</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Emergency consultation with Interventional
+                                                Cardiologist – initiated by Provider</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Probable emergent cardiac catheterization (if
+                                                confirmed by Interventional Cardiologist)<itemizedlist>
+                                                  <listitem>
+                                                  <para>Nothing to eat or drink in preparation for
+                                                  procedure</para>
+                                                  </listitem>
+                                                </itemizedlist></para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Start IV NTG to manage chest pain</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Start Beta-blocker (Metoprolol)</para>
+                                        </listitem>
+                                    </itemizedlist></entry>
+                                <entry><para>Targeted Completion:</para><itemizedlist>
+                                        <listitem>
+                                            <para>Immediately</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Immediately</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Within one hour</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Immediately</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Immediately</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Immediately</para>
+                                        </listitem>
+                                    </itemizedlist></entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR </para>
+                                    <para> • Data entry of Care Plan</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">17</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">Provider utilizes CPOE to enter
+                                    orders for agreed upon care.</entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Determine appropriate orders for this patient with
+                                        continued chest pain and a potential pending PCI. </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Provider</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Provider enters the following orders:</para>
+                                    <para> • Interventional Cardiology Consult STAT<itemizedlist>
+                                            <listitem>
+                                                <para>Reason: Acute Anterior Wall MI. Evaluate for
+                                                  Percutaneous Coronary Intervention (PCI)</para>
+                                            </listitem>
+                                        </itemizedlist></para>
+                                    <para> • NPO (Nothing by mouth) for possible cardiac
+                                        catheterization with PCI</para>
+                                    <para> • IV NTG. Start at 10 mcg/min – increase by 10 mcg/min
+                                        every 5 minutes until pain free or SBP &lt; 100. Maximum
+                                        dose 200 mcg/min.</para>
+                                    <para> • Metoprolol 5 mg IV x 3 doses, at 2 minute intervals if
+                                        HR >50 and SBP > 100.</para>
+                                    <para> • Give Metoprolol 50 mg p.o. 15 minutes after last dose
+                                        of IV Metroprolol</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR </para>
+                                    <para> • CPOE</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• SNOMED-CT</para>
+                                    <para> • RXNORM</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="2">18</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">Provider pages Interventional
+                                    Cardiologist (IC).</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Provider, Int. Cardiologist</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">Provider pages Interventional
+                                    Cardiologist on call to notify of STAT consult for John Doe,
+                                    PatientID 233433. Int. Cardiologist accepts consult and will
+                                    come to the ED to evaluate the patient immediately.</entry>
+                            </row>
+                            <row>
+                                <entry morerows="3">19</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">ED RN receives notification of
+                                    new order for PatientID 233433.</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">ED RN</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN receives notification that the provider has ordered
+                                        IV NTG for the patient.</para>
+                                    <para> • Metoprolol 5 mg IV and IV NTG bag is obtained from the
+                                        medication Pyxis. IV tubing obtained from the supply
+                                        cart.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR integration with Notification system</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">20</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN administers cardiac medications, as ordered.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">Evaluate chest pain and how BP
+                                    has been affected by NTG. Safe administration of additional meds
+                                    to reduce cardiac ischemia.</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">ED RN, Patient</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• ED RN evaluates vital signs and chest pain</para>
+                                    <para> • BP: VS: BP 150/88, HR 90, RR 20, Pulse Ox: 98% on
+                                        2LNC</para>
+                                    <para> • Patient reports chest pain 4 out of 10, in chest
+                                        only</para>
+                                    <para> • ED RN opens eMAR for the patient and views the IV NTG
+                                        order</para>
+                                    <para> • Scans IV NTG bag and then patient’s wristband</para>
+                                    <para> • Enters BP 150/88 when prompted to evaluate patient’s
+                                        BP.</para>
+                                    <para> • Enters ‘I’ for Infusing in eMAR and rate of 10
+                                        mcg/min</para>
+                                    <para> • Primes IV tubing, sets IV pump to infuse 10 mcg/min,
+                                        and starts infusion</para>
+                                    <para> • ED RN views Metoprolol 5 mg IV (x 3 doses) order in
+                                        eMAR</para>
+                                    <para> • Scans Metoprolol 5 mg IV ampule (ED RN receives pop up
+                                        notification to check heart rate prior to administration of
+                                        Metoprolol. If HR &lt; 50 the medication should be
+                                        held)</para>
+                                    <para> • Scans patient’s wristband</para>
+                                    <para> • Enters ‘G’ for Given in BCMA and HR 90 </para>
+                                    <para> • (Note: ED RN would go on to administer remaining IV and
+                                        PO doses of Metoprolol as ordered, if well tolerated by
+                                        patient)</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR</para>
+                                    <para> • Biomedical device integration to record VS and pulse
+                                        oximetry</para>
+                                    <para> • Data entry of care performed</para>
+                                    <para> • Integration with BCMA System</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• SNOMED-CT</para>
+                                    <para> • LOINC</para>
+                                    <para> • RXNORM</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="5">21</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Interventional Cardiologist arrives in ED and enters
+                                        PatientID in to EHR.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Form differential diagnosis from information gathered.
+                                        Identify additional questions or clarifications that need to
+                                        be answered.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Int. Cardiologist</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">Interventional Cardiologist
+                                    views PMH, current medication list, allergies, chief complaint,
+                                    diagnosis, provider and nursing notes, and diagnostic results
+                                    (including labs, ECG, and CXR).</entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR </para>
+                                    <para> • Query </para>
+                                    <para> • Data visualization</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para> • SNOMED-CT</para>
+                                    <para> • ICD-10</para>
+                                    <para> • LOINC</para>
+                                    <para> • RXNORM</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="3">22</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">Interventional Cardiologist
+                                    enters patient room to evaluate for emergent
+                                    catheterization.</entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">Diagnose patient. Determine
+                                    eligibility for reperfusion therapy. Assess patient
+                                    understanding of the recommended intervention to obtain informed
+                                    consent.</entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Int. Cardiologist, Patient</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Interventional Cardiologist: </para>
+                                    <para> • Assesses patient, reviews health history and new
+                                        diagnosis of acute myocardial infarction. </para>
+                                    <para> • Evaluates for contraindications of reperfusion
+                                        therapy</para>
+                                    <para> • Confirms recommendation of immediate cardiac
+                                        catheterization with possible intervention</para>
+                                    <para> • Confirms that the patient has only had a small glass of
+                                        water earlier that morning to take meds. Last solid food was
+                                        the evening before.</para>
+                                    <para> • Explains the procedure, along with risks and
+                                        benefits.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="2">23</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Patient provides consent for procedure recommended by the
+                                        Int. Cardiologist.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Patient, Int. Cardiologist</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Patient signs informed consent for Percutaneous Angiogram,
+                                        Diagnostic Cardiac Catheterization, and possible
+                                        Percutaneous Coronary Intervention with possible balloon
+                                        angioplasty and possible stent placement.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="6">24</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">Interventional Cardiologist
+                                    enters pre-catheterization orders.</entry>
+                            </row>
+                            <row>
+                                <entry>Cognitive Goal</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Determine indicated pre-cath orders for this patient.
+                                    </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">Int. Cardiologist</entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Examples of entered orders:</para>
+                                    <para> • Admit to Cardiac Outpatient Surgery</para>
+                                    <para> • Diagnosis: Acute Anterior Wall Myocardial
+                                        Infarction</para>
+                                    <para> • Code status: Full</para>
+                                    <para> • Ensure consent for procedure is on chart</para>
+                                    <para> • Prep bilateral femoral sites</para>
+                                    <para> • Start new IV line in left arm<itemizedlist>
+                                            <listitem>
+                                                <para>Infuse 0.9% Sodium Chloride at 100
+                                                  cc/hr</para>
+                                            </listitem>
+                                        </itemizedlist></para>
+                                    <para> • Pre-op medications:<itemizedlist>
+                                            <listitem>
+                                                <para>Diphenhydramine 50 mg IV ON CALL</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Valium 5 mg PO ON CALL</para>
+                                            </listitem>
+                                        </itemizedlist></para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR </para>
+                                    <para> • CPOE</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Standard</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>• SNOMED-CT</para>
+                                    <para> • ICD-10</para>
+                                    <para> • RXNORM</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Appendix</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>N. Pre-Cardiac Catheterization Orders</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="3">25</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN provides transition of care report to the Cath Lab
+                                        RN that will be caring for the patient.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN, Cath Lab RN</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">Report is completed verbally,
+                                    over the phone. Cath Lab RN enters PatientID in computer, views
+                                    all documentation entered in ED, along with Pre-Catheterization
+                                    orders.</entry>
+                            </row>
+                            <row>
+                                <entry>Technology</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>EHR </para>
+                                    <para> • Query </para>
+                                    <para> • Data visualization</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry morerows="2">26</entry>
+                                <entry>Action</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Patient is transferred to ‘Holding’ area of Cath Lab via
+                                        stretcher.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Actor(s)</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>ED RN, Patient, Cath Lab RN</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Action Breakdown</entry>
+                                <entry namest="c3" nameend="newCol4">
+                                    <para>Cath Lab RN assumes care of the patient and will complete
+                                        Pre-Catheterization orders while procedure room is being
+                                        prepped.</para>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
+            <para>
+                <table frame="all">
+                    <title/>
+                    <tgroup cols="7">
+                        <colspec colname="c1" colnum="1"/>
+                        <colspec colname="c2" colnum="2"/>
+                        <colspec colname="c3" colnum="3"/>
+                        <colspec colname="c4" colnum="4"/>
+                        <colspec colname="c5" colnum="5"/>
+                        <colspec colname="c6" colnum="6"/>
+                        <colspec colname="c7" colnum="7"/>
+                        <thead>
+                            <row>
+                                <entry/>
+                                <entry>Action/ <emphasis>Cognitive Goal </emphasis></entry>
+                                <entry>Actor(s)</entry>
+                                <entry>Action Breakdown </entry>
+                                <entry>Technology</entry>
+                                <entry>Standard</entry>
+                                <entry>Appendix</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>1</entry>
+                                <entry>
+                                    <para>Patient’s family member (wife) pulls up to ED entrance,
+                                        runs in to waiting area and calls for help. </para>
+                                </entry>
+                                <entry>
+                                    <para>Patient’s family member</para>
+                                    <para>Patient</para>
+                                    <para>Triage RN</para>
+                                    <para>ED Tech</para>
+                                </entry>
+                                <entry>
+                                    <para>ED Tech and Triage RN run to the car (bringing a
+                                        stretcher), assist patient on to stretcher and wheel the
+                                        patient in to the Triage area.</para>
+                                </entry>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry>2</entry>
+                                <entry>
+                                    <para>Triage RN completes a brief assessment to determine the
+                                        patient’s condition and the urgency of required care.</para>
+                                </entry>
+                                <entry>
+                                    <para>Patient</para>
+                                    <para>Triage RN </para>
+                                    <para>ED Tech</para>
+                                    <para>Family member</para>
+                                </entry>
+                                <entry>
+                                    <para>Chief Complaint: Crushing chest pain (8 out of 10),
+                                        unrelieved by rest and 1 sub-lingual nitroglycerin (SL-NTG)
+                                        tablet.</para>
+                                    <para>PMH: Stable angina, dyslipidemia, hypertension
+                                        (HTN)</para>
+                                    <para>Allergies: NKDA</para>
+                                    <para>Current medications: <itemizedlist>
+                                            <listitem>
+                                                <para>SL-NTG as needed. One taken 10 minutes
+                                                  ago.</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Lovastatin 40 mg once daily – taken last
+                                                  night.</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>HCTZ 12.5 mg daily – taken this
+                                                  morning.</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Lisinopril 10 mg daily – taken this
+                                                  morning.</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para> High level assessment:</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>LOC: Alert and fully oriented</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Temp: 99 F</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>BP: 169/98</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>HR: 106 and slightly irregular</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Cardiac rhythm by ECG monitor: Sinus
+                                                  tachycardia (ST) with rare pre-mature ventricular
+                                                  contractions (PVCs)</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Resp: 24 and shallow</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Pulse Oximetry: 94% on room air </para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>Skin: pale and diaphoretic</para>
+                                                <para> </para>
+                                            </listitem>
+                                        </itemizedlist></para>
+                                </entry>
+                                <entry><para>EHR</para><itemizedlist>
+                                        <listitem>
+                                            <para><emphasis role="underline">Data
+                                                Entry</emphasis></para>
+                                        </listitem>
+                                    </itemizedlist></entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>SNOMED-CT</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>LOINC</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Sample Triage Assessment Form</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry>
+                                    <para><emphasis>Cognitive Goal</emphasis>: Rapid assessment of
+                                        patient condition. </para>
+                                </entry>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry>3</entry>
+                                <entry>Triage RN determines that patient has a severity index of ‘2’
+                                    requiring immediate emergency nursing care. Note: Steps 2 and 3
+                                    often occur concurrently.</entry>
+                                <entry>
+                                    <para>Triage RN</para>
+                                    <para>Patient</para>
+                                    <para>ED Charge RN</para>
+                                    <para>ED Physician</para>
+                                    <para>ED RN</para>
+                                </entry>
+                                <entry><para>Triage RN does the following:</para><itemizedlist>
+                                        <listitem>
+                                            <para>Moves the patient via stretcher to the ‘Emergent’
+                                                section of the ED.</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Notifies the ED charge nurse and ED attending
+                                                physician of the new ED patient and their
+                                                condition.</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Flags the patient as requiring Emergent care by an
+                                                RN in the EHR</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Flags the patient as requiring Emergent care by an
+                                                RN in the EHR</para>
+                                        </listitem>
+                                    </itemizedlist></entry>
+                                <entry><para>EHR</para><itemizedlist>
+                                        <listitem>
+                                            <para><emphasis role="underline">Status
+                                                entry</emphasis></para>
+                                        </listitem>
+                                        <listitem>
+                                            <para><emphasis role="underline">Data visualization for
+                                                  report</emphasis></para>
+                                        </listitem>
+                                    </itemizedlist></entry>
+                                <entry/>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Refer to Emergency Severity Index Triage Tool for
+                                                EDs </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Refer to Sidebar B Initial Evaluation of Ischemic
+                                                Heart Disease/ VHA Clinical Guidelines</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry>
+                                    <para><emphasis>Cognitive Goal</emphasis>: Assessment of
+                                        severity of condition. Is the patient’s condition life
+                                        threatening?</para>
+                                </entry>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry>4</entry>
+                                <entry>
+                                    <para>ED RN initiates standing orders for emergency
+                                        interventions that are indicated in the management of
+                                        ischemic heart disease.</para>
+                                </entry>
+                                <entry>
+                                    <para>ED RN</para>
+                                    <para>ED Tech</para>
+                                    <para>Patient</para>
+                                </entry>
+                                <entry><para>ED RN does the following (unless noted as being delegated to
+            the ED Tech):</para><itemizedlist>
+                                        <listitem>
+                                            <para>Places the patient on a cardiac monitor (patient
+                                                is still in ST with rare PVCs)</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Obtains updated set of vital signs (BP: 158/90,
+                                                HR: 102, RR: 22)</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Places the patient on 2L of oxygen via nasal
+                                                cannula (NC)</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Evaluates chest pain (still 8 out of 10, crushing,
+                                                radiating to jaw)</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Obtains 12 lead electrocardiogram (ECG) <itemizedlist>
+                                                  <listitem>
+                                                  <para>ST-elevation is noted on the ECG</para>
+                                                  </listitem>
+                                                  <listitem>
+                                                  <para>ECG interpretation (by machine): Anterior
+                                                  wall MI<itemizedlist>
+                                                  <listitem>
+                                                  <para>ED Provider is notified</para>
+                                                  </listitem>
+                                                  </itemizedlist></para>
+                                                  </listitem>
+                                                </itemizedlist></para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Starts a peripheral intravenous (IV) line –
+                                                performed by EDT </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para> Sends blood sample for Chem 7, CBC, cardiac
+                                                enzymes (troponin, CK, and CK-MB), Lipid profile,
+                                                PT/PTT – orders for labs entered by RN, blood drawn
+                                                and sent by EDT</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Administers medications <itemizedlist>
+                                                  <listitem>
+                                                  <para>325 mg chewable aspirin<itemizedlist>
+                                                  <listitem>
+                                                  <para>Highlights the medication in the eMAR, scans
+                                                  the medication, next scans the patient, then
+                                                  administers the medication after receiving BCMA
+                                                  verification of appropriate administration</para>
+                                                  </listitem>
+                                                  </itemizedlist></para>
+                                                  </listitem>
+                                                  <listitem>
+                                                  <para>2 mg Morphine Sulfate IV<itemizedlist>
+                                                  <listitem>
+                                                  <para>Follows process noted above for aspirin
+                                                  administration. Enters pain level of 8 out of 10
+                                                  when prompted by BCMA system since administration
+                                                  of a pain medication requires documentation of the
+                                                  patient’s pain level.</para>
+                                                  </listitem>
+                                                  </itemizedlist></para>
+                                                  </listitem>
+                                                  <listitem>
+                                                  <para>1 tablet of .4 mg SL-NTG (Note: this is the
+                                                  second dose that the patient has received)<itemizedlist>
+                                                  <listitem>
+                                                  <para>Follows process noted above for aspirin
+                                                  administration. Enters BP: 158/90, when prompted
+                                                  by BCMA system since administration of a SL-NTG
+                                                  should be held if SBP &lt; 100</para>
+                                                  </listitem>
+                                                  </itemizedlist></para>
+                                                  </listitem>
+                                                </itemizedlist></para>
+                                        </listitem>
+                                    </itemizedlist></entry>
+                                <entry><para>EHR</para><itemizedlist>
+                                        <listitem>
+                                            <para><emphasis role="underline">Biomedical device
+                                                  integration to record VS and pulse
+                                                  oximetry</emphasis></para>
+                                        </listitem>
+                                        <listitem>
+                                            <para><emphasis role="underline">Data entry of care
+                                                  performed</emphasis></para>
+                                        </listitem>
+                                        <listitem>
+                                            <para><emphasis role="underline">Activation of standing
+                                                  order set for chest pain via CPOE by
+                                                RN</emphasis></para>
+                                        </listitem>
+                                        <listitem>
+                                            <para><emphasis role="underline">Documents medications
+                                                  that were administered in the Medication
+                                                  Administration Record (MAR)</emphasis>
+                                            </para>
+                                        </listitem>
+                                    </itemizedlist></entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>SNOMED-CT</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>LOINC</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>RXNORM</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Refer to Standard ED Order Set for Chest
+                                                Pain</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para> Refer to MAR Sample</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Refer to VA Clinical Practice Guidelines for the
+                                                Management of Ischemic Heart Disease</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                                <entry/>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
         </section>
         <section>
             <title>Normal flow</title>

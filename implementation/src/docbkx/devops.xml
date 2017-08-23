@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
-<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
-    xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="chapter_02331e99-7c03-4583-863b-4950d863d13e">
+<chapter version="5.0" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+    xmlns:ns3="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook" 
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xml:id="chapter_02331e99-7c03-4583-863b-4950d863d13e"
+    >
     <info>
         <title>Development operations</title>
         <author><personname>KEC</personname></author>
@@ -968,7 +975,23 @@ git push -u origin master</programlisting>
                 <para xml:id="para_a28c7533-03ef-42f9-814f-def77517f3eb">Then add the following
                     plugin specification inside the project so that the file will be extracted into
                     the default jindent directory:</para>
+                <para/>
             </section>
+        </section>
+        <section xml:id="section_42c1ba8a-baf1-4147-858d-aba46e1da2be">
+            <title>yFiles for JavaFX</title>
+            <para>yFiles jar file needs to be installed in the developers local repository if yFiles
+                development is planned.</para>
+            <programlisting>
+mvn install:install-file -DgroupId=yfiles \
+  -DartifactId=yfiles-for-javafx \
+  -Dversion=3.0 \
+  -Dpackaging=jar \
+  -DcreateChecksum=true \
+  -DgeneratePom=true \
+  -DupdateReleaseInfo=true \
+  -Dfile=yfiles-for-javafx.jar 
+            </programlisting>
         </section>
     </section>
     <section>
@@ -989,10 +1012,13 @@ Listening for transport dt_socket at address: 8000</programlisting>
     </section>
     <section xml:id="section_78677b26-88cd-4166-85a3-886d761ea3a7">
         <title>Docker</title>
-        <para xml:id="para_9a703400-68ff-4407-85fa-88e926cadc65"><link
-                xlink:href="https://whyistheinternetbroken.wordpress.com/2016/03/25/docker-mac-install-fails/"
-            /></para>
-        <programlisting>$ sudo chown $(whoami):admin /usr/local &amp;&amp; sudo chown -R $(whoami):admin /usr/local</programlisting>
+        <para xml:id="para_9a703400-68ff-4407-85fa-88e926cadc65"/>
+        <programlisting xml:id="programlisting_f01e2e3a-7554-4618-8b1e-d73ebf2407b0">$<link xlink:href="https://whyistheinternetbroken.wordpress.com/2016/03/25/docker-mac-install-fails/"/> sudo chown $(whoami):admin /usr/local &amp;&amp; sudo chown -R $(whoami):admin /usr/local</programlisting>
         <para xml:id="para_dbbc9d49-dedf-4ce1-817c-19d10e8b1fa6"/>
+    </section>
+    <section xml:id="section_af6c916b-bd73-495e-af6d-28d29124daef">
+        <title>DocBook</title>
+        <xi:include href="converting-msdoc-to-docbook.xml" xpointer="section_a6f845ea-1cbc-4550-88da-f6ba2916176b"/>
+        
     </section>
 </chapter>

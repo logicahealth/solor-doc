@@ -18,27 +18,25 @@ This is a maven/docbook project. To edit docbook XML files, following installati
 2. Maven
     + Download and unzip from: [Maven Download](https://maven.apache.org/download.cgi)  
 &nbsp;
-3. Git GUI (update this with sourcetree)
-    + Download and install from: [Git GUI Download](https://git-scm.com/downloads)
-    + Recommend keeping all default options
-    + Run **Git GUI** and select **Clone Existing Repository**
-    + Clone Existing Repository  
-      ![src/site/resources/images/readme_screenshot_gitgui.jpg](src/site/resources/images/readme_screenshot_gitgui.jpg)
-      
+3. SourceTree
+    + Download and install from: [Atlassian SourceTree](https://confluence.atlassian.com/get-started-with-sourcetree/install-sourcetree-847359094.html) - Be sure to follow installation instructions from this site
+    + Run **Source Tree** and select **Clone**  
+      ![src/site/resources/images/readme_screenshot_sourcetree_setup.jpg](src/site/resources/images/readme_screenshot_sourcetree_setup.jpg)  
+&nbsp;
         + Source Location
             + get link and copy into **Source Location**
                 + Go to [KOMET github](https://github.com/OSEHRA/komet)
                 + Select **Clone or download** and copy link:
-                  ![src/site/resources/images/readme_screenshot_gitgui_sourceLocation.jpg](src/site/resources/images/readme_screenshot_gitgui_sourceLocation.jpg)  
+                  ![src/site/resources/images/readme_screenshot_sourcetree_sourceLocation.jpg](src/site/resources/images/readme_screenshot_sourcetree_sourceLocation.jpg)  
 &nbsp;
         + Target Directory – enter the path of the directory & folder name
-            + Note: do not create the folder itself – Git will create the folder in the specified directory path
+        + Branch - be sure it is "develop"
         + Click on **Clone**
-        + Close Git Gui once the project has been downloaded  
+        + Close SourceTree once the project has been downloaded  
 &nbsp;
 4.	Build the clone source code
     + Open command prompt 
-    + Change directory to directory created in __Target Directory step of Git GUI installation__
+    + Change directory to directory created in __Target Directory step of SourceTree installation__
     + Type **mvn clean install** and close command prompt after clean install  
 &nbsp;
 5.	Oxygen XML Editor
@@ -54,6 +52,9 @@ This is a maven/docbook project. To edit docbook XML files, following installati
     + select **File** > **Open** > go to the folder created in _Target Directory step of Git GUI installation_ > select **isaacs-komet-doc.xpr**
 
 ### Committing and pushing edited files to GitHub ###
+It is generally a good practice to perform a **mvn clean install** prior to committing/pushing edited files back to GitHub
+
+Contact Keith Campbell for write priviliges.
 
 1. Git GUI (update this with sourcetree)
     + Open Git GUI and select recent repository

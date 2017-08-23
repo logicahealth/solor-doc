@@ -34,7 +34,7 @@ This is a maven/docbook project. To edit docbook XML files, following installati
         + Click on **Clone**
         + Close SourceTree once the project has been downloaded  
 &nbsp;
-4.	Build the clone source code
+4.	Build the clone source code (ISAAC-58: Backlogged to incorporate this step in Oxygen)
     + Open command prompt 
     + Change directory to directory created in __Target Directory step of SourceTree installation__
     + Type **mvn clean install** and close command prompt after clean install  
@@ -47,9 +47,11 @@ This is a maven/docbook project. To edit docbook XML files, following installati
       ![src/site/resources/images/readme_screenshot_oxygen_trial.jpg](src/site/resources/images/readme_screenshot_oxygen_trial.jpg)  
 &nbsp;
     + Once opened, Oxygen XML Editor should look like:
-      ![TEST|](src/site/resources/images/readme_screenshot_oxygen_mainInterface.jpg)  
+      ![src/site/resources/images/readme_screenshot_oxygen_mainInterface.jpg](src/site/resources/images/readme_screenshot_oxygen_mainInterface.jpg)  
 &nbsp;
     + select **File** > **Open** > go to the folder created in _Target Directory step of Git GUI installation_ > select **isaacs-komet-doc.xpr**
+
+You are now able to edit files within Oxygen
 
 ### Committing and pushing edited files to GitHub ###
 It is generally a good practice to perform a **mvn clean install** prior to committing/pushing edited files back to GitHub.

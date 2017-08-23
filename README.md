@@ -64,5 +64,5 @@ Contact Keith Campbell for write priviliges.
     + select files or stage all files (1), and press **commit** (2)
     + Enter comment and press **commit** button below the comment textbox (3)
     + Press **Push** putton (4)
-    + Make sure Local and Remote branches is set to "develop"
+    + Make sure Local and Remote branches is set to "develop"  
       ![src/site/resources/images/readme_screenshot_sourcetree_commit_03.jpg](src/site/resources/images/readme_screenshot_sourcetree_commit_03.jpg)

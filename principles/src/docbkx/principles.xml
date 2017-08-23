@@ -30,13 +30,80 @@
   <para> http://tdg.docbook.org/tdg/5.1/toc.html </para>
   <section>
     <title>Principles</title>
-    <para/>
+    <para><?oxy_comment_start author="steph" timestamp="20170816T140623-0700" comment="My draft wording.  It probably should be revised."?>This
+      section identifies the fundamental principles that will be applied when creating the models
+      for Clinical Decision Support (CDS) Knowledge Artifacts ("KNARTs").<?oxy_comment_end?></para>
     <section>
-      <title>Principle 1: Seperation of concerns</title>
-      <para> </para>
+      <title>Principle 1: Separation of Concerns</title>
+      <para> Definition: Separation of Concerns<footnote>
+          <para><?oxy_comment_start author="steph" timestamp="20170814T133939-0700" comment=" I can&apos;t remember where we would put the link to the wikipedia site for this definition.  I didn&apos;t see one for the Observation of Phenomenon definition below-only for the embedded links within it.
+ 
+ The link is:  https://en.wikipedia.org/wiki/Separation_of_concerns"?>wikipedia:
+            <?oxy_comment_end?>In <link xlink:href="https://en.wikipedia.org/wiki/Computer_science"
+              >computer science</link>, separation of concerns (SoC) is a design principle for
+            separating a <link xlink:href="https://en.wikipedia.org/wiki/Computer_program">computer
+              program</link> into distinct sections, such that each section addresses a separate
+              <link xlink:href="https://en.wikipedia.org/wiki/Concern_(computer_science)"
+              >concern</link>. A concern is a set of information that affects the code of a computer
+            program. A concern can be as general as the details of the hardware the code is being
+            optimized for, or as specific as the name of a class to instantiate. A program that
+            embodies SoC well is called a <link
+              xlink:href="https://en.wikipedia.org/wiki/Modular_programming"
+              ><?oxy_comment_start author="steph" timestamp="20170814T135830-0700" comment="In wikipedia, there is also a reference for this and I&apos;m not sure how to note it here.  It is:  https://en.wikipedia.org/wiki/Separation_of_concerns#cite_note-laplante-1"?>modular<?oxy_comment_end?></link>
+            program. Modularity, and hence separation of concerns, is achieved by <link
+              xlink:href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)"
+              >encapsulating</link> information inside a section of code that has a well-defined
+            interface. Encapsulation is a means of <link
+              xlink:href="https://en.wikipedia.org/wiki/Information_hiding"
+              ><?oxy_comment_start author="steph" timestamp="20170814T140340-0700" comment="In wikipedia, there is also a reference to this that needs to be added:  https://en.wikipedia.org/wiki/Separation_of_concerns#cite_note-mitchell-2"?>information<?oxy_comment_end?>
+              hiding</link>.
+            <?oxy_comment_start author="steph" timestamp="20170814T140530-0700" comment="In wikipedia, there is a reference for this that needs to be added:  https://en.wikipedia.org/wiki/Separation_of_concerns#cite_note-microsoft-3"?>Layered
+            designs in information systems are another embodiment of separation of concerns (e.g.,
+            presentation layer, business logic layer, data access layer, persistence
+            layer.<?oxy_comment_end?> The value of separation of separation of concerns is
+            simplifying development and maintenance of computer programs. When concerns are
+            well-separated, individual sections can be reused, as well as developed and updated
+            independently. Of special value is the ability to later improve or modify one section of
+            code without having to know the details of the other sections, and without having to
+            make corresponding changes to those sections. </para>
+        </footnote>
+      </para>
+      <para>The use of Immutable Objects is a technique that fulfills the Separation of Concerns
+        principle.</para>
+      <para><?oxy_comment_start author="steph" timestamp="20170816T104255-0700" comment="Source:  Claude&apos;s AttributePlacementMatrix spreadsheet
+Joey&apos;s Comment:  I think this should read more inline with &apos;Separation of Concern&apos; as it is currently described in the inverse, that we shouldn&apos;t spread across a number of classes. This really came up when we were talking about recording status changes within the model. It was felt that even though these status changes are regarding the semantic concept, it doesn&apos;t describe the semantic concept, and this &apos;concern&apos; should be separated out."?>Attributes
+        that describe specific semantic concepts should be grouped together into a single class and
+        not be spread across a number of classes. Doing the latter leads to tight coupling between
+        classes. Doing the former leads to better decomposition of a potentially complex
+        domain.</para>
+      <para>Example: Attributes for a Role (e.g., Practitioner) should not be mixed with attributes
+        for an Entity (e.g., Person). This allows a person to assume a number of roles over their
+        lifetime or to function in more than one role.<?oxy_comment_end?></para>
     </section>
     <section>
-      <title>Principle 2: Phenomenon</title>
+      <title>Principle 2: Immutability</title>
+      <para> Definition:
+        <?oxy_comment_start author="steph" timestamp="20170815T085116-0700" comment="Keith may want to revise this definition, which is my attempt at paraphrasing&apos;s wiki&apos;s definition."?>Immutable Object<?oxy_comment_end?><footnote>
+          <para>wikipedia: Used in object-oriented and functional programming, an immutable object
+            is something that cannot be changed after it is created, in contrast to mutable objects
+            that can be changed after they are created. There are multiple reasons for using
+            immutable objects, including improved readability and runtime efficiency and higher
+            security.</para>
+        </footnote>Although building immutable objects ... requires a bit more up-front complexity,
+        the downstream simplification forced by this abstraction easily offsets the effort. One of
+        the benefits of switching to a functional mindset is the realization that tests exist to
+        check that changes occur succesfully in code. In other words, testing's real purpose is to
+        validate mutation - and the more mutation you have, the more testing is required to make
+        sure you get it right. If you isolate the places where changes occur by severely restricting
+        mutation, you create a much smaller space for errors to occur and have fewer places to test. </para>
+      <para>Finally, one of the best features of immutable classes is how well they fit into the
+          <emphasis>composition</emphasis> abstraction. </para>
+      <para><?oxy_comment_start author="steph" timestamp="20170815T103900-0700" comment="Is this the correct way to reference the above information?  I followed what is shown in Principle 3: Phenomenon below."?><link
+          xlink:href="https://www.ibm.com/developerworks/library/j-ft4/index.html"
+        /><?oxy_comment_end?></para>
+    </section>
+    <section>
+      <title>Principle 3: Phenomenon</title>
       <para> Definition: Observation of Phenomenon<footnote>
           <para>wikipedia: In scientific usage, a phenomenon is any event that is observable,
             however common it might be, even if it requires the use of instrumentation to observe,
@@ -52,22 +119,23 @@
               >gravity</link>, or <link xlink:href="https://en.wikipedia.org/wiki/Galileo_Galilei"
               >Galileo Galilei</link>'s observations of the motion of a <link
               xlink:href="https://en.wikipedia.org/wiki/Pendulum">pendulum</link>.</para>
-        </footnote> is the active acquisition of information from a primary source. In living
-        beings, observation employs the senses. In science, observation can also involve the
-        recording of data via the use of instruments. The term may also refer to any data collected
-        during the scientific activity. The human mind, and modern scientific instruments can
-        extensively process "observations" before they are consciously surfaced to the observer.
-        This unconscious or automated pre-processing of data makes answering the question as to
-        where in the data processing chain "observing" ends and "drawing conclusions” begins
-        difficult. For our purposes, we do not try to draw a line between “observing” and “drawing
-        conclusions” because for our analysis purposes, the distinction is immaterial.  </para>
+        </footnote><?oxy_comment_start author="steph" timestamp="20170815T101929-0700" comment="I added this because it appeared to be missing."?>Observation<?oxy_comment_end?> is
+        the active acquisition of information from a primary source. In living beings, observation
+        employs the senses. In science, observation can also involve the recording of data via the
+        use of instruments. The term may also refer to any data collected during the scientific
+        activity. The human mind, and modern scientific instruments can extensively process
+        "observations" before they are consciously surfaced to the observer. This unconscious or
+        automated pre-processing of data makes answering the question as to where in the data
+        processing chain "observing" ends and "drawing conclusions” begins difficult. For our
+        purposes, we do not try to draw a line between “observing” and “drawing conclusions” because
+        for our analysis purposes, the distinction is immaterial.  </para>
       <para>
         <link
           xlink:href="https://www.revolvy.com/main/index.php?s=Qualitative%20property&amp;item_type=topic"
         /></para>
     </section>
     <section>
-      <title>Principle 3: Measurement</title>
+      <title>Principle 4: Measurement</title>
       <para> Definition: Standard… </para>
       <para> Definition: Measurement consists of using observation to compare the phenomenon being
         observed to a standard [not a normal range]. Measurement asserts something. These standards
@@ -86,74 +154,338 @@
         cases cannot be met? We can call it something other than units of measure if that is the
         underlying problem... <link
           xlink:href="https://en.wikipedia.org/wiki/Level_of_measurement#Nominal_scale">Level of
-          measurement or scale of measure</link> may provide a basis for what we are looking for.</para>
-      <blockquote><para><emphasis role="bold">Level of measurement</emphasis> or <emphasis role="bold">scale of
-            measure</emphasis> is a classification that describes the nature of information within
-          the values assigned to <link
+          measurement or scale of measure</link> may provide a basis for what we are looking
+        for.</para>
+      <blockquote>
+        <para><emphasis role="bold">Level of measurement</emphasis> or <emphasis role="bold">scale
+            of measure</emphasis> is a classification that describes the nature of information
+          within the values assigned to <link
             xlink:href="https://en.wikipedia.org/wiki/Dependent_and_independent_variables"
-            >variables</link>.</para></blockquote>
+            >variables</link>.</para>
+      </blockquote>
     </section>
+    <section>
+      <title>Principle 5: Composition Over Inheritance</title>
+      <para><?oxy_comment_start author="steph" timestamp="20170815T123010-0700" comment="For the info that Keith provided, it&apos;s not clear to me when it should be a definition (e.g., from wikipedia) and included as a footnote vs. just including a link after the text, which is what I did here."?>Definition:
+        TBD<?oxy_comment_end?>
+      </para>
+      <para><?oxy_comment_start author="steph" timestamp="20170816T131405-0700" comment="Claude&apos;s Comments: The choice of composition or inheritance should really be driven by domain requirements as both have pros and cons."?>Composition
+        over inheritance<?oxy_comment_end?> (or composite reuse principle) in object-oriented
+        programming is the principle that classes should achieve polymorphic behavior and code reuse
+        by their composition (by containing those instances of other classes that implement the
+        desired functionality) rather than inheritance from a base or parent class. </para>
+      <para>To favor composition over inheritance is a design principle that gives the design higher
+        flexibility. It is more natural to build business-domain classes out of various components
+        than trying to find commonality between them and creating a family tree. </para>
+      <para>Initial design is simplified by identifying system object behaviors in separate
+        interfaces instead of creating a hierarchical relationship to distribute behaviors among
+        business- domain classes via inheritance. This approach more easily accommodates future
+        requirements changes that would otherwise require a complete restructuring of
+        business-domain classes in the inheritance model.</para>
+      <para>
+        <link xlink:href="https://en.wikipedia.org/wiki/Composition_over_inheritance"/></para>
+      <para>
+        <emphasis role="bold">Item for Consideration: </emphasis>Should we say that we only allow
+        inheritance for a single concern, i.e., we can subtype measurement but not subtype a
+        combination of phenomenon type and measurement type? </para>
+    </section>
+    <section>
+      <title>Principle 6: Analysis Normal Form Clinical Statements Represent the Minimum Disjoint
+        Set</title>
+      <para>Analysis Normal Form (ANF) clinical statement represent the minimum disjoint set of
+        statement topic and circumstances and may not be further specified.</para>
+      <para>Current examples of naming these top-level clinical statement types are shown in the
+        table below. HOwever, it is possible that a few more will need to be added. The proof would
+        be if we find a use case that does not fit into any of the top-level statements shown below. </para>
+      <para>
+        <table frame="all">
+          <title>Current Top-Level Clinical Statements</title>
+          <tgroup cols="3">
+            <colspec colname="c1" colnum="1" colwidth="1.09*"/>
+            <colspec colname="c2" colnum="2" colwidth="1*"/>
+            <colspec colname="newCol3" colnum="3" colwidth="1*"/>
+            <thead>
+              <row>
+                <entry/>
+                <entry namest="c2" nameend="newCol3">Clinical Statement</entry>
+              </row>
+              <row>
+                <entry>Top-Level Clinical Statement Type</entry>
+                <entry> Topic</entry>
+                <entry>Circumstance</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Phenomena Measurement</entry>
+                <entry>Phenomena</entry>
+                <entry>Measurement</entry>
+              </row>
+              <row>
+                <entry>Phenomena Measurement Goal</entry>
+                <entry>Phenomena</entry>
+                <entry>Goal</entry>
+              </row>
+              <row>
+                <entry>Action Request</entry>
+                <entry>Action</entry>
+                <entry>Request</entry>
+              </row>
+              <row>
+                <entry>Action Performance</entry>
+                <entry>Action</entry>
+                <entry>Performance</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </para>
+    </section>
+    <section>
+      <title>Principle 7: Analysis Normal Form Classes Cleanly Separate Concerns</title>
+      <para>Analysis Normal Form (ANF) classes must cleanly separate the concerns of concept
+        definition and the concerns of domain models.</para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para>Need to define thoroughly the domain models here. The strawman description is that
+              domain model use concept definitions as a building block to define non-defining
+              relationships or associations between concepts. The domain model represent
+              cardinality, optionality, and other constraints.</para>
+            <itemizedlist>
+              <listitem>
+                <para>Example: Laterality should be a concern of either the concept definition or
+                  the domain model, but not both. We can relax this principle for the Clinical Input
+                  Form but for ANF, we need a clean and invariant separation of concerns.</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para>Need to determine better names for "concept definition" and "domain
+              models."</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </section>
+    <section>
+      <title>Principle 8: Unique Concerns are Part of the ANF Topic</title>
+      <para>Concerns unique to a discipline are included as part of the topic in Analysis Normal
+        Form.</para>
+      <para>Example: Route of administration specification within a request is unique to a
+        discipline (pharmacological therapeutics), but not part of requests from other disciplines
+        (e.g., homework requests from school) and would be represented in the topic, not in the
+        circumstance.</para>
+    </section>
+    <section>
+      <title>Principle 9: Universal Concerns are Part of the ANF Circumstance</title>
+      <para>Concerns that are universal to all disciplines are included as part of the circumstance
+        in Analysis Normal Form.</para>
+      <para>Example: All requests have a requestor; therefore, the requestor would be part of the
+        circumstance in Analysis Normal Form.</para>
+    </section>
+    
+    <section>
+      <title>Principle 10: Clinical Statement Model Stability</title>
+      <para>Stability is different from immutability. Stable means that the model can still meet
+        unanticipated requirements without having to change. It is not acceptable to change the
+        model every time a new way to administer a drug or to treat a condition is identified. By
+        representing these types of potentially dynamic concerns in the terminology expressions, as
+        opposed to static fields in a class structure, we do not have to change the model every time
+        something new is discovered. As Terry Winograd said, anticipating breakdowns, and providing
+        a space for action when they occur, is a design imperative.</para>
+      <para>In some regards, in this context "stable" means "not brittle." A model easily broken by
+        changes that someone could anticipate is one possible definition of brittle. A stable model
+        is critical in the phase of a known changing landscape. We do that by isolating areas of
+        anticipated change into a dynamic data structure. That dynamic data structure may also be
+        immutable in an object that represents a clinical statement.</para>
+    </section>
+    <section>
+      <title>Principle 11: Overall Model Simplicity</title>
+      <para>In cases where different principles collide, we shall favor the enhancement of
+        simplicity of the entire system over simplicity in one area of the system.</para>
+    
+    </section>
+    <section>
+      <title>Principle 12:
+        <?oxy_comment_start author="steph" timestamp="20170816T104533-0700" comment="Source:  Claude&apos;s AttributePlacementMatrix spreadsheet.  This principle is proposed by Claude."?>Cohesion<?oxy_comment_end?></title>
+      <para>Related classes should reside in the same module or construction. The placement of a
+        class in a module should reduce the dependencies between modules.</para>
+    </section>
+    <section>
+      <title>Principle
+        13:<?oxy_comment_start author="steph" timestamp="20170816T125516-0700" comment="Source:  Claude&apos;s AttributePlacementMatrix spreadsheet.  This principle is proposed by Claude."?>Reusability<?oxy_comment_end?></title>
+      <para>Architectural patterns should encourage class reusability where possible. Reusability
+        may further refine encapsulation when composition is considered.</para>
+    </section>
+    <section>
+      <title>Principle 14:
+        <?oxy_comment_start author="steph" timestamp="20170816T130359-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude."?>Assumption-free<?oxy_comment_end?></title>
+      <para>Implied semantics must be surfaced explicitly in the model.</para>
+      <para>Example: Implicit in the statement "I order a book from Amazon" are: paying for the
+        book, delivery of the book to some location, and the transfer of ownership of the book from
+        the vendor to the client.</para>
+    </section>
+    
+    <section>
+      <title>Principle 15:
+        <?oxy_comment_start author="steph" timestamp="20170816T130948-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude.
+Joey&apos;s Comments: As I have previously stated, class specialization includes both extension and constraint. So this principle as stated doesn&apos;t state what is in the explanation. I know you like to avoid the word &quot;extension&quot; because HL7 uses that word for something very different, but we can&apos;t let HL7 co-opt a long-standing principle of computer science. But i you must, maybe state the principle as &quot;Design by class specialization without constraint and/or composition.&quot;  This then matches the explanation."?>Design
+        by Class <?oxy_comment_end?>Specialization and/or Composition</title>
+      <para>The capture of additional model expressivity must be captured by composition and/or by
+        class specialization. The modeling approach should avoid the use of design by constraint
+        (except for terminology binding and attribute type constraints) as it violates proper decoupling
+        and encapsulation. An example of design by constraint is to create a single procedure class 
+        containing all attributes for all known procedures and constraining out irrelevant attributes in
+        a more specialized model. This approach is very difficult to implement and violates numerous
+        object-oriented best practices</para>
+    </section>
+    
+    <section>
+      <title>Principle 16:
+        <?oxy_comment_start author="steph" timestamp="20170816T131720-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Keith."?>No
+        False Dichotomies<?oxy_comment_end?></title>
+      <para>Dichotomies that are not completely disjoint (mutually exclusive) lead to arbitrary
+        classification rules and result in ambiguity based on different assumptions about the domain.
+        These must be avoided.</para>
+    </section>
+    
+    <section>
+      <title>Principle 17:
+        <?oxy_comment_start author="steph" timestamp="20170816T132350-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude."?>Model
+        Should Avoid Semantic Overloading<?oxy_comment_end?></title>
+      <para>Semantic overloading occurs when a model attribute's meaning changes entirely, depending
+        on context. While the refinement of the semantics of an attribute in a subclass is acceptable,
+        a change of meaning is problematic. For instance, in FHIR, the Composition class defines an 
+        attribute called Subject. In some subclasses, the attribute may be the entity that this composition
+        refers to (e.g., the patient in a medical record). In other cases, it is the topic being discussed
+        by the composition (e.g., a medication orderable catalog).</para>
+    </section>
+    
+    <section>
+      <title>Principle 18:
+        <?oxy_comment_start author="steph" timestamp="20170816T132918-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude.
+Joey&apos;s Comments: I don&apos;t understand this one without googling. Can we include a brief description of how the paradigm works?"?>Convention
+        over Configuration<?oxy_comment_end?></title>
+      <para>Convention over configuration (also known as coding by convention) is a software design
+        paradigm used by software frameworks that attempt to decrease the number of decisions that a
+        developer using the framework is required to make without necessarily losing flexibility.</para>
+    </section>
+    
+    <section>
+      <title>Principle 19:
+        <?oxy_comment_start author="steph" timestamp="20170816T134203-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude.
+Question from Stephanie: How is this different from the Reusability principle?"?>Model
+        Consistency</title><?oxy_comment_end?>
+      <para>Patterns should allow the consistent representation of information that is commonly
+        shared across models. For instance, attribution and participation information should be
+        captured consistently. Failure to do so forces implementers to develop heuristics to capture
+        and normalize attribution information that is represented or extended differently in
+        different classes (e.g., FHIR).</para>
+    </section>
+    
+    <section>
+      <title>Principle 20: Model Symmetry</title>
+      <para>There should be symmetry in the models wherever we can have it.</para>
+    </section>
+  </section>
+  
+  <section>
+  <title><?oxy_comment_start author="steph" timestamp="20170816T140746-0700" comment="I made this as a separate section from Principles.  Let me know if you don&apos;t want it this way."?>Concerns<?oxy_comment_end?></title>
+  <para>This section identifies concerns related to the application of the fundamental principles
+      that will be applied when creating the models for Clinical Decision Support (CDS) Knowledge
+      Artifacts ("KNARTs").</para>
+
+
     <section xml:id="section_8f62f599-4897-4afc-9fc1-c6c7588b97d3">
       <title>Concern 1: Phenomenon Measurement</title>
-      <para> We need a simple, and universally applicable way to represent  </para>
-      <para> Technique 1.1: A quantitative approach </para>
-      <para> As we’ve discussed:  </para>
-      <para> [0,0] absent </para>
-      <para> [0,3] possibly present, but no more than 3 </para>
-      <para> [0,∞] unknown </para>
-      <para> [1,∞] present </para>
-      <para> [4-6] 4-6 </para>
+      <para>We need a simple, and universally applicable way to represent phenomenon measurement. </para>
+      <section xml:id="section_4c0ba3f9-69c4-412d-a533-2f535cc320d1">
+        <title><?oxy_comment_start author="steph" timestamp="20170815T110738-0700" comment="I made this as a sub-section since it looked like it should be one, particularly since the next section includes multiple techniques.  Is that correct?  If yes, I&apos;ll do the same for Section 1.1.6 below, which has mutliple techniques.  O/W, I&apos;ll change back to how it was."?>Technique
+          1.1<?oxy_comment_end?>: A quantitative approach</title>
+        <para> As we’ve discussed:  </para>
+        <para> [0,0] absent </para>
+        <para> [0,3] possibly present, but no more than 3 </para>
+        <para> [0,∞] unknown </para>
+        <para> [1,∞] present </para>
+        <para> [4-6] 4-6 </para>
+      </section>
     </section>
+    
     <section xml:id="section_35228d10-cd7c-432d-9bcd-e3c83b782889">
-      <title>Concern 2: Identification of equivalent Observation Results</title>
-      <para/>
-    </section>
-    <section xml:id="section_2cbcaaef-efcd-4fa3-8de1-78ab44577bb7">
-      <title>Title</title>
-      <para> </para>
-      <para> Identification of equivalence is imperative to enable data analytics, decision support,
+      <title>Concern 2:
+        <?oxy_comment_start author="steph" timestamp="20170815T105112-0700" comment="Previously there was a blank section w/no title and I believe I fixed it.  If not, let me know."?>Identification
+        of Equivalent Observation Results<?oxy_comment_end?></title>
+      <para>Identification of equivalence is imperative to enable data analytics, decision support,
         and other  secondary uses of data. </para>
-      <para> Technique 2.1 Inverse concepts Concepts which are considered opposites of another.
-        Loosely based on the idea of a multiplicative inverse. Cooperative = 1/Uncooperative.
-        Define Cooperative as the LEft Inverse Form (LEIF), and Uncooperative as the Right Inverse
-        Form (RIF). We create editorial guidelines as to what constitutes a LEIF vs a RIF concept.
-        We start out with a straw man rule that “Concepts that assert the positive are LEIF
-        concepts, Concepts that are the inverse of a LEIF concept are RIF concepts.” By generically
-        stating right and left hand sides of the inverse function Cooperative inverse Uncooperative
-        -> LEIF inverse RIF, we have a semantically unburdened categorization, so RIF concepts are
-        not required to negate something… And we are not bound specifically to our first straw-man
-        rule of “asserting the positive” if we find better discriminators.  </para>
-      <para> We then work to move RIF concepts to a set of RIF extensions. RIF concepts will be
-        excluded from the normalized form, and must be converted to LEIF concepts as part of the
-        normalization process.  </para>
-      <para> The Inverse function will apply specifically to an Observation Result. We won’t try to
-        apply it to an expression for the purposes of using that expression in classification.  </para>
-      <para> Technique 2.2 OWL EL profile definitions and classification of normalized form </para>
-      <para> OWL EL profile with concrete domains supports multiple sufficient sets, and necessary
-        conditions, and an ability to include concrete domains, such as ingredient strength,
-        Concepts which have provably equivalent definitions by an appropriate classifier are
-        considered equivalent.  </para>
-      <para> Technique 2.3 Equivalence by generalization and subsumption  </para>
-      <para> Often, equivalence is most appropriately considered with regard to a generalization.
-        For example, all patients with presence or absence of diabetes mellitus. The equivalence to
-        diabetes mellitus is determined though the use of an is-a taxonomy computed as part of
-        Technique 2.2... </para>
-      <para> Technique 2.4 Equivalence among post-coordinated and pre-coordinated expressions   </para>
-      <para> All post-coordinated expressions are converted to concepts with a single identifiers,
+      <section>
+        <title>Technique 2.1 Inverse Concepts</title>
+        <para>Inverse concepts are concepts which are considered opposites of another.
+          Loosely based on the idea of a multiplicative inverse. Cooperative = 1/Uncooperative.
+          Define Cooperative as the LEft Inverse Form (LEIF), and Uncooperative as the Right Inverse
+          Form (RIF). We create editorial guidelines as to what constitutes a LEIF vs a RIF concept.
+          We start out with a straw man rule that “Concepts that assert the positive are LEIF
+          concepts, Concepts that are the inverse of a LEIF concept are RIF concepts.” By generically
+          stating right and left hand sides of the inverse function Cooperative inverse Uncooperative
+          -> LEIF inverse RIF, we have a semantically unburdened categorization, so RIF concepts are
+          not required to negate something… And we are not bound specifically to our first straw-man
+          rule of “asserting the positive” if we find better discriminators.  </para>
+         <para>We then work to move RIF concepts to a set of RIF extensions. RIF concepts will be
+          excluded from the normalized form, and must be converted to LEIF concepts as part of the
+          normalization process.  </para>
+        <para>The Inverse function will apply specifically to an Observation Result. We won’t try to
+          apply it to an expression for the purposes of using that expression in classification.  </para>
+      </section>
+      <section>
+        <title>Technique 2.2 OWL EL Profile Definitions and Classification of Normalized Form</title>
+        <para>OWL EL profile with concrete domains supports multiple sufficient sets, and necessary
+          conditions, and an ability to include concrete domains, such as ingredient strength,
+          Concepts which have provably equivalent definitions by an appropriate classifier are
+          considered equivalent.  </para>
+      </section>
+      
+      <section>
+        <title>Technique 2.3 Equivalence by Generalization and Subsumption</title>
+        <para>Often, equivalence is most appropriately considered with regard to a generalization.
+          For example, all patients with presence or absence of diabetes mellitus. The equivalence to
+          diabetes mellitus is determined though the use of an is-a taxonomy computed as part of
+          Technique 2.2.</para>
+      </section>
+      
+      <section>
+      <title>Technique 2.4 Equivalence Among Post-coordinated and Pre-coordinated Expressions</title>
+      <para>All post-coordinated expressions are converted to concepts with a single identifiers,
         and the equivalence of the post-coordinated and pre-coordinated expressions is determined
         through the classifier's computation of logical equality, and through use of the is-a
         taxonomy the classifier computes  </para>
-      <para> Technique 2.4: Multiple sufficient sets, independent of the necessary sets </para>
-      <para> Technique 2.5: Concrete domains </para>
-      <para> Concern 3: Identification of logical inconsistencies </para>
-      <para> Technique 3.1 Disjoint Concepts </para>
-      <para> Identifying concepts as disjoint can be used to identify logical inconsistencies, at
-        data entry time, or during other   </para>
-      <para/>
+      </section>
+      
+      <section>
+        <title>Technique 2.5: Multiple Sufficient Sets, Independent of the Necessary Sets </title>
+        <para>Need to insert description here.</para>
+      </section>
+      
+      <section>
+        <title>Technique 2.6: Concrete Domains</title>
+        <para>Need to insert description here.</para>
+      </section>
+      
     </section>
-
-    <section xml:id="section_2d7ee8e3-4f7d-462c-bb0e-1bccfb48078d">
-      <title>"Not elsewhere classified" revisited</title>
+    
+    <section>    
+      <title>Concern 3: Identification of Logical Inconsistencies</title>
+      <para>Need description for this concern.</para>
+      
+      <section>
+        <title>Technique 3.1 Disjoint Concepts </title>
+        <para> Identifying concepts as disjoint can be used to identify logical inconsistencies, at
+        data entry time, or during other   </para>
+      </section>
+    </section>
+  </section>
+  
+  <section xml:id="section_2d7ee8e3-4f7d-462c-bb0e-1bccfb48078d">
+      <title><?oxy_comment_start author="steph" timestamp="20170816T143204-0700" comment="I made this its own section since it wasn&apos;t labeled as a principle or concern.  However, the description seems to read as a principle.  Should it be moved to the Principles section?"?>"Not
+      Elsewhere Classified" Revisited<?oxy_comment_end?></title>
       <para>Each concept used as a [interpretation, qualifier, ?], within a value set, must be
         accompanied by sufficient information to reconstruct the value set, and the value set must
         provide a partial order such that the concept's "range" of meaning can be determined. </para>
@@ -165,14 +497,12 @@
         intrepretation of that concept when constrainted by a value set...</para>
       <para>Same preferred name, fully specified name incorporates the identify of the refset that
         constrained the concept. </para>
-      <para/>
       <section xml:id="section_9869b6ed-bff6-465c-a282-c5a642e53861">
-        <title>values from constraints</title>
-        <para>if an concept is used as an intrepretation, the values they where selected from must
-          accompany somehown so that the value can be determined against a partial ordering. </para>
+        <title>Values from Constraints</title>
+        <para>If a concept is used as an intrepretation, the values from which they were selected
+        must accompany somehow so that the value can be determined against a partial ordering. </para>
         <para>Interpretation concepts can have children just like the can have units of
           measure?</para>
       </section>
-    </section>
   </section>
 </chapter>

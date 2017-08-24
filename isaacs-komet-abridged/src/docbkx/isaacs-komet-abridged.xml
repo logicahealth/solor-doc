@@ -51,95 +51,38 @@
             Newton used observations of C/1680 V1 to test and verify Kepler's laws of planetary
             motion. </para>
     </acknowledgements>
+    
     <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170823T131846-0400" comment="This section introduces the current challenges that we are facing; the gaps."?>
-        <title>The Challenge<?oxy_comment_end?></title>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>   
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/challenges.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>  
+        <title>Preface</title>   
+        <!-- We will need to create a separate "Preface" document and reference it into this section. 
+
+The Preface will indicate the purpose of this document: This document is an overview. It will include: the current healthcare informatics challenge, summary of SOLOR, the general strategy (how we are solving the challenge), 1-2 examples of use case(s), and where to found information on tool configuration. -->
+    </part>
+    <part>
+        <title>The Challenge</title>
+        <!-- This section will describle current challenges in healthcare informatics. -->
     </part>
     
     <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170823T132013-0400" comment="This section explains the approach or the &quot;how&quot;; how will we tackle these challenges; description of the solution."?>
-        <title>Hollistic Approach<?oxy_comment_end?></title>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/life-critical.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    </part>
-    
+        <title>Hollistric Approach: SOLOR</title>
+        <!-- This section will two subsections: (1) introduction of SOLOR (ISAAC/KOMET), (2) desciption of the general strategy that we are using to solve the challenges mentioned in the first section, "The Challenge". -->
+    </part>  
+
     <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170823T132145-0400" comment="This section introduces the solution of these challenges and how there exists a solution, SOLOR. This section also indicates the objective and goal of SOLOR."?>
-        <title>Introduction to SOLOR<?oxy_comment_end?></title>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/menagerie.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/modules.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/loinc.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/rxnorm.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/snomed.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    </part>
-    
-    <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170823T132307-0400" comment="This section details the features and enhancements of SOLOR. This section should list out all the functionalities and their descriptions and significances."?>
-        <title>Features and Functionalities<?oxy_comment_end?></title>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/requirements-driven.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/architecture-centric.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/editorial-rules.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/solor-enhancements.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    </part>
-    
-    <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170823T133254-0400" comment="This section captures the completed development work and development in progress."?>
-        <title>Current Progress<?oxy_comment_end?></title>
+        <title>Use Cases</title>
+        <!-- This section will provide 1-2 Use Cases of SOLOR to explain where SOLOR is applicable. Below indicate all use cases, but we will pick our top 1-2.-->
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/use-cases.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/requirements-enumeration.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     
     <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170823T142852-0400" comment="This section includes the &quot;Next Release&quot; of SOLOR or what we&apos;d like to do once all currently set functionalities are developed; what the future of SOLOR holds."?>
-        <title>Future of SOLOR<?oxy_comment_end?></title>
-    </part>
+        <title>Configuration</title>
+        <!-- This section will cover where to obtain information to set up the tool. -->
+    </part>    
     
     <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170823T143518-0400" comment="This section covers the instructions for tool set-up, installation, documentation procedures (e.g., GitHub, DocBook)."?>
-        <title>Development Operations<?oxy_comment_end?></title>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/devops.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    </part>
-    
-    <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170823T143518-0400" comment="This section includes SOLOR references and the glossary."?>
-        <title>Appendices<?oxy_comment_end?></title>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/diagram-spec.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <title>Appendices</title>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/solor-references.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -149,12 +92,6 @@
         href="../../target/extracted-dependencies/sh.isaac.komet.doc/terms-glossary/terms-glossary.xml"
         xmlns:xi="http://www.w3.org/2001/XInclude"/>
     
-    <index type="requirement">
-        <title>Requirement Index</title>
-    </index>
-    <index type="general">
-        <title>General Index</title>
-    </index>
     <colophon>
         <title>Colophon</title>
         <formalpara>

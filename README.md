@@ -30,13 +30,13 @@ This is a maven/docbook project. To edit docbook XML files, following installati
                   ![src/site/resources/images/readme_screenshot_sourcetree_sourceLocation.jpg](src/site/resources/images/readme_screenshot_sourcetree_sourceLocation.jpg)  
 &nbsp;
         + Target Directory – enter the path of the directory & folder name
-        + Branch - be sure it is "develop"
+        + Branch - be sure it is set to "develop"
         + Click on **Clone**
         + Close SourceTree once the project has been downloaded  
 &nbsp;
 4.	Build the clone source code
     + Skip this step if you are not familiar with command prompt operations
-    + If you are familiar with command prompt, execute mvn clean install in the directory created in __Target Directory step of SourceTree installation__  
+    + If you are familiar with command prompt, execute _mvn clean install_ in the directory created in __Target Directory step of SourceTree installation__  
 &nbsp;
 5.	Oxygen XML Editor
     + Download and install from [Oxygen XML Editor](https://www.oxygenxml.com/)
@@ -61,19 +61,19 @@ This is a maven/docbook project. To edit docbook XML files, following installati
             + Name: Enter a name
             + Description: Enter a description
             + Working Directory: paste the copied location of **isaacs-komet-doc.xpr** from above
-                + remove **file:/**
-                + replace **%20** with a space
-                + remove **isaacs-komet-doc.xpr**
+                + remove **file:/** (beginning of the pasted path text)
+                + replace all instances of **%20** with a space
+                + remove **isaacs-komet-doc.xpr** (end of the pasted path text)
             + **Apply** > **OK**
         + You should now have a new button in the toolbar. Press this button to start _mvn clean install_  
           ![src/site/resources/images/readme_screenshot_oxygen_mvn_03.jpg](src/site/resources/images/readme_screenshot_oxygen_mvn_03.jpg)  
-        + When the process is completed, you will see the icon change from red square to gree 'play' icon  
+        + When the process is completed, you will see the icon change from red square to green 'play' icon  
           ![src/site/resources/images/readme_screenshot_oxygen_mvn_04.jpg](src/site/resources/images/readme_screenshot_oxygen_mvn_04.jpg)  
 &nbsp;
 You are now able to edit files within Oxygen!
 
 ### Committing and pushing edited files to GitHub ###
-_Note: It is generally a good practice to perform a **mvn clean install** prior to committing/pushing edited files back to GitHub._  
+_Note: It is generally a good practice to perform a **mvn clean install** to ensure that there's no errors prior to committing/pushing edited files back to GitHub._  
 
 Contact **Keith Campbell** for write priviliges.
 

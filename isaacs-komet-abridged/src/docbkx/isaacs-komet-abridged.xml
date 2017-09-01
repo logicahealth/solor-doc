@@ -53,27 +53,46 @@
     </acknowledgements>
     
     <part>
-        <title>Preface</title>   
-        <!-- We will need to create a separate "Preface" document and reference it into this section. 
-
-The Preface will indicate the purpose of this document: This document is an overview. It will include: the current healthcare informatics challenge, summary of SOLOR, the general strategy (how we are solving the challenge), 1-2 examples of use case(s), and where to found information on tool configuration. -->
+        <title>Overview</title>   
+        <!--This section will speak to "what is it" at a 20K' level.
+-->
     </part>
     <part>
         <title>The Challenge</title>
-        <!-- This section will describle current challenges in healthcare informatics. -->
+        <!--This section will describle current state & challenges.
+
+Potentially a good section to include the problems discussed in "menagerie"-->
     </part>
     
     <part>
-        <title>Hollistric Approach: SOLOR</title>
-        <!-- This section will two subsections: (1) introduction of SOLOR (ISAAC/KOMET), (2) desciption of the general strategy that we are using to solve the challenges mentioned in the first section, "The Challenge". -->
-    </part>  
+        <title>Hollistric Approach</title>
+        <!-- This section will introduce the "pie diagram", with a high level description for each quadrant of the pie
 
+It will then introduce:
+  Komet:   front end [UI]
+  ISAAC: service / backend [API/algorithm/computation]
+ SOLOR : data store / persistance layer [database]-->
+    </part>
     <part>
-        <title>Use Cases</title>
-        <!-- This section will provide 1-2 Use Cases of SOLOR to explain where SOLOR is applicable. Below indicate all use cases, but we will pick our top 1-2.-->
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/use-cases.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <title>Differentiator &amp; Applicability</title>
+        <!--How is KOMET/ISAAC different (vs other open/commercial products)
+How is SOLOR different (i.e. vs HL7)
+What does this solution bring to the table?
+Examples of applicability-->
+    </part>
+    <part>
+        <title>[TBD name] - section for terminologists</title>
+        <!--What terminologies are available
+How is it procured
+What happens (transformation)
+Equivalence
+TBD topics that's 'terminologist' relevant-->
+    </part>
+    <part>
+        <title>[TBD name] - section for developers</title>
+        <!-- This section will introduce the modeling building blocks (Concept, sememe, assemblage)
+ STAMP
+ ISAAC functionalities-->
     </part>
     
     <part>
@@ -83,6 +102,11 @@ The Preface will indicate the purpose of this document: This document is an over
     
     <part>
         <title>Appendices</title>
+        <!--This section will have:
+  Configurations
+  How to's
+  References
+  Glossary-->
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/solor-references.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>

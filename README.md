@@ -87,3 +87,6 @@ Contact **Keith Campbell** for write priviliges.
     + Press **Push** putton (4)
     + Make sure Local and Remote branches are set to "develop" and press the **Push** button  
       ![src/site/resources/images/readme_screenshot_sourcetree_commit_03.jpg](src/site/resources/images/readme_screenshot_sourcetree_commit_03.jpg)
+      
+    Note: you may need to "Pull" before you can "Push". In which case, press on the "Pull" button (next to "Push" button described above). Be sure to **uncheck** "Commit merged changes immediately" checkbox to avoid any conflicts.  
+    ![src/site/resources/images/readme_screenshot_sourcetree_commit_04.jpg](src/site/resources/images/readme_screenshot_sourcetree_commit_04.jpg)

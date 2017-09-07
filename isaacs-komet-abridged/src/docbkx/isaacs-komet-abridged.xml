@@ -54,22 +54,62 @@
     
     <part>
         <title>Overview</title>   
-        <!--This section will speak to "what is it" at a 20K' level.-->
+        <!--This section will speak to "what is it" at a 20K' level. [Need an introduction / general blurb about SOLOR]-->
     </part>
     <part>
         <title>The Challenge</title>
         <!--This section will describle current state & challenges.
 Potentially a good section to include the problems discussed in "menagerie"-->
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/challenges.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     
     <part>
         <title>Holistic Approach</title>
         <!-- This section will introduce the "pie diagram", with a high level description for each quadrant of the pie
-
 It will then introduce:
   Komet:   front end [UI]
   ISAAC: service / backend [API/algorithm/computation]
- SOLOR : data store / persistance layer [database]-->
+ SOLOR : data store / persistance layer [database]"-->
+        <chapter>
+            <title>Domain of Concerns</title> 
+            <!-- This section is to introduce the quadrant-->
+            <xi:include
+                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml"
+                xpointer="para_t4z_wsk_dbb"/>
+            <xi:include
+                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml"
+                xpointer="de117c5e-5b71-457b-88f9-1bb939f7ba72"/>
+        </chapter>     
+        
+            <chapter>  
+            <title>KOMET</title>
+            <xi:include
+                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
+                xpointer="para_rl2_jtk_dbb"/>
+            <xi:include
+                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
+                xpointer="para_tl2_jtk_dbb"/>
+            <xi:include
+                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
+                xpointer="para_ul2_jtk_dbb"/>
+            <xi:include
+                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
+                xpointer="para_vl2_jtk_dbb"/>
+            <xi:include
+                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
+                xpointer="para_wl2_jtk_dbb"/>
+        </chapter>
+        
+        <chapter>  
+            <title>ISAAC</title>
+        </chapter>
+        
+        <chapter>  
+            <title>SOLOR</title>
+        </chapter>
+        
     </part>
     <part>
         <title>Differentiator &amp; Applicability</title>

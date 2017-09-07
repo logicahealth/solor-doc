@@ -4,46 +4,48 @@
     version="5.0">
     <title>The KOMET</title>
     <para><!--NOTE ABOUT CONTENT: It would be very helpful to have an image that shows the relationship between the ISAAC strategy for the DERIVIATE architecture and the PRISME and KOMET environments--></para>
-    <para>The VA’s Foundational Informatics Architecture – which we call DERIVIATE – is an
-        integrative logical architecture, which deliberately builds each new layer upon selected,
-        compatible elements of its underlying components to build a coherent system. The
-        Foundational Informatics Architecture builds primarily upon SNOMED CT, RxNorm, and LOINC by
-        integrating their content and semantics, and normalizing the means to identify and version
-        components, lexically search, logically define, semantically retrieve, and collaboratively
-        extend. Support for evolutionary change is a critical feature of the Foundational
-        Informatics Architecture (DERIVIATE), given that support for changes in knowledge over time
-        is a critical aspect of health informatics. </para>
-    <para>The primary goal of the Foundational Informatics Architecture (DERIVIATE) is semantic
-        operability (vs. interoperability). Semantic operability is the meaningful (semantic) use of
-        data within the various components and uses of a single health IT system (vertical
-        integration). Semantic operability is achieved by using a coherent integration of SNOMED CT,
-        RxNorm, and LOINC as the primary building blocks upon which the foundational architecture is
-        based. DERIVIATES's strict separation of concerns enables terminology components, as well as
-        higher order derived structures such as clinical rules, to undergo evolutionary change
-        without requiring changes to the architecture that it resides within. This allows for an
-        agile environment with a stable architecture. </para>
-    <para>The lowest 'pad stone' layer of the DERIVIATE architecture is the integrated suite of
-        standard terminologies including SNOMED CT, RxNorm and LOINC. Two higher layers build upon
-        this terminology 'pad stone'. A Clinical Data layer uses standardized terminology to
-        describe facts about a patient e.g., "John Doe has PNEUMONIA." A Procedural Knowledge layer
-        uses standardized terminology to express biomedical and organizational knowledge,
-        independent of any specific patient. For example, "Hydrochlorothiazide treats Hypertension"
-        or "Myocardial Infarction elevates Troponin T Levels." CDS rules, order sets and
-        documentation templates are also expressed in the "Procedural Knowledge" layer. </para>
-    <para>The VA must have tools to help knowledge workers create and maintain standards-based
-        clinical decision support artifacts at enterprise scal. Tools must be able to produce CDS
-        content that is standards compliant when such standards exist (e.g. HL7 CDS Artifact
-        Specificaiton DSTU 1.3). Tools must also build CDS artifacts that contribute to an ecosystem
-        of semantic operability. This necessarily means means building artifacts using
-        standards-based “pad stone” building blocks of SNOMED CT, RxNorm and LOINC. CDS knowledge
-        engineering content development tools must create artifacts in the layered approach desribed
-        in DERIVIATE (i.e., tools must build more complex standards-based artifacts by reusing less
-        complex standards-based artifacts as components whenever possible). Tools supporting a
-        highly collaborative, integrated and layered knowledge management environment must be
-        carefully designed to be highly reusable within a common framework and use experience. </para>
-    <para>In the following sections we will first describe the common features required of all
-        components in the integrated standards-based knowledge management tool suite and then
-        document tool-specific requirements necessary for each artifact type. </para>
+    <para xml:id="para_rl2_jtk_dbb">The VA’s Foundational Informatics Architecture – which we call
+        DERIVIATE – is an integrative logical architecture, which deliberately builds each new layer
+        upon selected, compatible elements of its underlying components to build a coherent system.
+        The Foundational Informatics Architecture builds primarily upon SNOMED CT, RxNorm, and LOINC
+        by integrating their content and semantics, and normalizing the means to identify and
+        version components, lexically search, logically define, semantically retrieve, and
+        collaboratively extend. Support for evolutionary change is a critical feature of the
+        Foundational Informatics Architecture (DERIVIATE), given that support for changes in
+        knowledge over time is a critical aspect of health informatics. </para>
+    <para xml:id="para_tl2_jtk_dbb">The primary goal of the Foundational Informatics Architecture
+        (DERIVIATE) is semantic operability (vs. interoperability). Semantic operability is the
+        meaningful (semantic) use of data within the various components and uses of a single health
+        IT system (vertical integration). Semantic operability is achieved by using a coherent
+        integration of SNOMED CT, RxNorm, and LOINC as the primary building blocks upon which the
+        foundational architecture is based. DERIVIATES's strict separation of concerns enables
+        terminology components, as well as higher order derived structures such as clinical rules,
+        to undergo evolutionary change without requiring changes to the architecture that it resides
+        within. This allows for an agile environment with a stable architecture. </para>
+    <para xml:id="para_ul2_jtk_dbb">The lowest 'pad stone' layer of the DERIVIATE architecture is
+        the integrated suite of standard terminologies including SNOMED CT, RxNorm and LOINC. Two
+        higher layers build upon this terminology 'pad stone'. A Clinical Data layer uses
+        standardized terminology to describe facts about a patient e.g., "John Doe has PNEUMONIA." A
+        Procedural Knowledge layer uses standardized terminology to express biomedical and
+        organizational knowledge, independent of any specific patient. For example,
+        "Hydrochlorothiazide treats Hypertension" or "Myocardial Infarction elevates Troponin T
+        Levels." CDS rules, order sets and documentation templates are also expressed in the
+        "Procedural Knowledge" layer. </para>
+    <para xml:id="para_vl2_jtk_dbb">The VA must have tools to help knowledge workers create and
+        maintain standards-based clinical decision support artifacts at enterprise scal. Tools must
+        be able to produce CDS content that is standards compliant when such standards exist (e.g.
+        HL7 CDS Artifact Specificaiton DSTU 1.3). Tools must also build CDS artifacts that
+        contribute to an ecosystem of semantic operability. This necessarily means means building
+        artifacts using standards-based “pad stone” building blocks of SNOMED CT, RxNorm and LOINC.
+        CDS knowledge engineering content development tools must create artifacts in the layered
+        approach desribed in DERIVIATE (i.e., tools must build more complex standards-based
+        artifacts by reusing less complex standards-based artifacts as components whenever
+        possible). Tools supporting a highly collaborative, integrated and layered knowledge
+        management environment must be carefully designed to be highly reusable within a common
+        framework and use experience. </para>
+    <para xml:id="para_wl2_jtk_dbb">In the following sections we will first describe the common
+        features required of all components in the integrated standards-based knowledge management
+        tool suite and then document tool-specific requirements necessary for each artifact type. </para>
     <para/>
     <section>
         <title>Heuristic principles</title>

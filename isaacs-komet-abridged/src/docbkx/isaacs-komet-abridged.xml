@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <info>
-        <title>ISAAC's KOMET</title>
+        <title>SOLOR Release Documentation</title>
         <subtitle>Architecture&#160;Centric Knowledge&#160;Management</subtitle>
         <edition>Abridged Edition</edition>
         <mediaobject>
@@ -41,8 +40,7 @@
         <title/>
         <mediaobject>
             <imageobject>
-                <imagedata fileref="images/Newton_Comet1680.jpg" format="jpeg" align="center"
-                    width="6in" scalefit="1"/>
+                <imagedata fileref="images/Newton_Comet1680.jpg" format="jpeg" align="center" width="6in" scalefit="1"/>
             </imageobject>
         </mediaobject>
         <para>C/1680 V1, also called the Great Comet of 1680, Kirch's Comet, and Newton's Comet, has
@@ -54,105 +52,96 @@
     
     <part>
         <title>Overview</title>   
-        <!--This section will speak to "what is it" at a 20K' level. [Need an introduction / general blurb about SOLOR]-->
+        <!--This section will speak to "what is it" at a 20K' level. [Need an introduction / general blurb about SOLOR]. 
+<Need Eric to add content here>-->
     </part>
     <part>
         <title>The Challenge</title>
-        <!--This section will describle current state & challenges.
-Potentially a good section to include the problems discussed in "menagerie"-->
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/challenges.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <!--This section will describle current state & challenges. Potentially a good section to include the problems discussed in "menagerie".
+**Please note: The below section, "Archtiectural Challenges", will be reduced in content on a later update.-->
+        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/challenges.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     
     <part>
         <title>Holistic Approach</title>
         <!-- This section will introduce the "pie diagram", with a high level description for each quadrant of the pie
-It will then introduce:
-  Komet:   front end [UI]
-  ISAAC: service / backend [API/algorithm/computation]
- SOLOR : data store / persistance layer [database]"-->
+It will then introduce: (1) Komet, (2) ISAAC, and (3) SOLOR"-->
         <chapter>
-            <title>Domain of Concerns</title> 
+            <title>Domain of Concern</title> 
             <!-- This section is to introduce the quadrant-->
-            <xi:include
-                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml"
-                xpointer="para_t4z_wsk_dbb"/>
-            <xi:include
-                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml"
-                xpointer="de117c5e-5b71-457b-88f9-1bb939f7ba72"/>
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="para_t4z_wsk_dbb"/>
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="de117c5e-5b71-457b-88f9-1bb939f7ba72"/>
         </chapter>     
         
             <chapter>  
-            <title>KOMET</title>
-            <xi:include
-                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
-                xpointer="para_rl2_jtk_dbb"/>
-            <xi:include
-                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
-                xpointer="para_tl2_jtk_dbb"/>
-            <xi:include
-                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
-                xpointer="para_ul2_jtk_dbb"/>
-            <xi:include
-                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
-                xpointer="para_vl2_jtk_dbb"/>
-            <xi:include
-                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
-                xpointer="para_wl2_jtk_dbb"/>
+            <title>&lt;Introduction to> KOMET</title>
+                <!--This chapter will introduce: (1) Komet: front end [UI]-->
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_rl2_jtk_dbb"/>
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_tl2_jtk_dbb"/>
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_ul2_jtk_dbb"/>
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_vl2_jtk_dbb"/>
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_wl2_jtk_dbb"/>
         </chapter>
         
         <chapter>  
-            <title>ISAAC</title>
+            <title>&lt;Introduction to> ISAAC</title>
+            <!--This chapter will introduce: (2) ISAAC: service / backend [API/algorithm/computation]-->
         </chapter>
         
         <chapter>  
-            <title>SOLOR</title>
+            <title>&lt;Introduction to> SOLOR</title>
+            <!--This chapter will introduce: (3) SOLOR : data store / persistance layer [database]"-->
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/requirements-enumeration-kc.xml" xpointer="para_l1n_vrr_dbb"/>
+            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/requirements-enumeration-kc.xml" xpointer="itemizedlist_q1n_vrr_dbb"/>
         </chapter>
         
     </part>
     <part>
-        <title>Differentiator &amp; Applicability</title>
-        <!--How is KOMET/ISAAC different (vs other open/commercial products)
-How is SOLOR different (i.e. vs HL7)
-What does this solution bring to the table?
-Examples of applicability-->
+        <title>Differentiator</title>
+        <!--More of a comparison analysis with other products that currently exist in the market.-->
+        <chapter>
+            <title>Differentiating Factors: KOMET/ISAAC</title>
+            <!--How is KOMET/ISAAC different (vs other open/commercial products)-->
+        </chapter>
+        <chapter>
+            <title>Differentiating Factors: SOLOR</title>
+            <!--How is SOLOR different (i.e. vs HL7); what does this solution bring to the table?-->
+        </chapter>
     </part>
     <part>
-        <title>[TBD name] - section for terminologists</title>
-        <!--What terminologies are available
-How is it procured
-What happens (transformation)
-Equivalence
-TBD topics that's 'terminologist' relevant-->
+        <title><emphasis>[TBD name] - section for terminologists</emphasis></title>
+        <!--(1) What terminologies are available
+(2) How is it procured
+(3) What happens (transformation)
+(4) Equivalence
+(5) TBD topics that's 'terminologist' relevant-->
     </part>
+    
     <part>
-        <title>[TBD name] - section for developers</title>
-        <!-- This section will introduce the modeling building blocks (Concept, sememe, assemblage)
- STAMP
- ISAAC functionalities-->
+        <title><emphasis>[TBD name] - section for developers</emphasis></title>
+        <!-- This section will introduce the modeling building blocks (Concept, sememe, assemblage), STAMP, ISAAC functionalities-->
     </part>
     
     <part>
         <title>Application</title>
         <!-- This section will areas where SOLOR is applicable (i.e. process of determining which order set component will the 4 models - Phenomenon Measurement, Phenomenon Measurement Goal, Action Request, and Action Performance) -->
+        <chapter>  
+            <title>Implementation of SOLOR</title>
+            <!--Examples of applicability-->
+        </chapter>
     </part>    
     
     <part>
         <title>Appendices</title>
-        <!--This section will have:
-  Configurations links and information (GitHub)
-  How to's
-  References
-  Glossary-->
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/solor-references.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <!--This section will include:
+  (1) Configurations links and information (GitHub)
+  (2) How to's
+  (3) References
+  (4) Glossary-->
+        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/solor-references.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     
-    <xi:include
-        href="../../target/extracted-dependencies/sh.isaac.komet.doc/terms-glossary/terms-glossary.xml"
-        xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/terms-glossary/terms-glossary.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     
     <colophon>
         <title>Colophon</title>
@@ -173,9 +162,7 @@ TBD topics that's 'terminologist' relevant-->
         </formalpara>
         <formalpara>
             <title>Concepts</title>
-            <para>Concepts mentioned in this book are included in <xref linkend="solor_references"
-            />, and concepts, such as <xref linkend="f251d463-f346-340a-b17c-d4a4622c7a91"
-                annotations="systolic blood pressure (observable entity)"/>. The xml:id of the
+            <para>Concepts mentioned in this book are included in <xref linkend="solor_references"/>, and concepts, such as <xref linkend="f251d463-f346-340a-b17c-d4a4622c7a91" annotations="systolic blood pressure (observable entity)"/>. The xml:id of the
                 concept is a UUID of the concept. xref elements should use the annotations attribute
                 to provide a human readable representation of the concept, preferably the fully
                 specified name of the concept. In <xref linkend="solor_references"/>, concepts are

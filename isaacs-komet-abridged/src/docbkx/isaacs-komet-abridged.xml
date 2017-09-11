@@ -38,11 +38,7 @@
     </info>
     <acknowledgements>
         <title/>
-        <mediaobject>
-            <imageobject>
-                <imagedata fileref="images/Newton_Comet1680.jpg" format="jpeg" align="center" width="6in" scalefit="1"/>
-            </imageobject>
-        </mediaobject>
+
         <para>C/1680 V1, also called the Great Comet of 1680, Kirch's Comet, and Newton's Comet, has
             the distinction of being the first comet discovered by telescope. The orbit of C/1680
             V1, fit to a parabola, as shown in Isaac Newton's <emphasis>Principia</emphasis>. Isaac
@@ -56,69 +52,29 @@
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="para_t4z_wsk_dbb"/>
         </partintro>
     </part>
+    
     <part>
         <title>The Challenge</title>
         <!--This section will describle current state & challenges. Potentially a good section to include the problems discussed in "menagerie".
 **Please note: The below section, "Archtiectural Challenges", will be reduced in content on a later update.-->
         <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/challenges.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
+    
     <part>
         <title>Holistic Approach</title>
-        <!-- This section will introduce: (1) Komet, (2) ISAAC, and (3) SOLOR"-->
-        
+        <!-- General intro / overview of the approaoch-->
         <partintro>
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="para_w4z_wsk_dbb"/>
             
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="para_ty5_lcy_dbb"/>
-        </partintro>
-        
-        
-        
-        <chapter>
-            <title>Domain of Concern</title> 
-            <!-- This section is to introduce the quadrant-->
+            
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="de117c5e-5b71-457b-88f9-1bb939f7ba72"/>
-        </chapter>     
-        
-            <chapter>  
-            <title>&lt;Introduction to> KOMET</title>
-                <!--This chapter will introduce: (1) Komet: front end [UI]-->
-            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_rl2_jtk_dbb"/>
-            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_tl2_jtk_dbb"/>
-            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_ul2_jtk_dbb"/>
-            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_vl2_jtk_dbb"/>
-            <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" xpointer="para_wl2_jtk_dbb"/>
-             <itemizedlist>
-                 <listitem>
-                     <para>Leverages current Javafx 8 techonology</para>
-                 </listitem>
-                 <listitem>
-                     <para>Designed to support multiple workflow and asynchronous processes in one desktop application</para>
-                 </listitem>
-                 <listitem>
-                     <para>Implements a FLOWR based paradigm for desiging custom searcheds</para>
-                 </listitem>
-             </itemizedlist>
-            </chapter>
+            <!-- Intro blurb [ransition statement] on SOLOR here -->
+        </partintro>
+
         
         <chapter>  
-            <title>&lt;Introduction to> ISAAC</title>
-            <!--This chapter will introduce: (2) ISAAC: service / backend [API/algorithm/computation]-->
-            <itemizedlist>
-                <listitem>
-                    <para>Contains a robust Core set of Microservices to facilitate the API </para>
-                </listitem>
-                <listitem>
-                    <para>Utilizes Lucene searching functionality to provide "smart" computed searches against the SOLOR data store</para>
-                </listitem>
-                <listitem>
-                    <para>Designed to be extensable for various data store providers and back-ends</para>
-                </listitem>
-            </itemizedlist>
-        </chapter>
-        
-        <chapter>  
-            <title>&lt;Introduction to> SOLOR</title>
+            <title>SOLOR</title>
             <!--This chapter will introduce: (3) SOLOR : data store / persistance layer [database]"-->
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/requirements-enumeration-kc.xml" xpointer="para_l1n_vrr_dbb"/>
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/requirements-enumeration-kc.xml" xpointer="itemizedlist_q1n_vrr_dbb"/>
@@ -134,23 +90,30 @@
                 </listitem>
             </itemizedlist>
         </chapter>
-        
     </part>
+    
     <part>
         <title>Differentiator</title>
         <!--More of a comparison analysis with other products that currently exist in the market.-->
         <chapter>
-            <title>Differentiating Factors: KOMET/ISAAC</title>
-            <!--How is KOMET/ISAAC different (vs other open/commercial products)-->
-        </chapter>
-        <chapter>
             <title>Differentiating Factors: SOLOR</title>
-            <!--How is SOLOR different (i.e. vs HL7); what does this solution bring to the table?-->
+            <!--How is SOLOR different (i.e., vs. HL7); what does this solution bring to the table?-->
         </chapter>
     </part>
+    
     <part>
-        <title><emphasis>[TBD name] - section for terminologists</emphasis></title>
-        <!--(1) What terminologies are available
+        <title>Application</title>
+        <!-- This section will areas where SOLOR is applicable (i.e., process of determining which order set component will the 4 models - Phenomenon Measurement, Phenomenon Measurement Goal, Action Request, and Action Performance) -->
+        <chapter>  
+            <title>Implementation of SOLOR</title>
+            <!--Examples of applicability-->
+        </chapter>
+    </part>
+    
+    <part>
+        <title><emphasis>For the Informaticists</emphasis></title>
+        <!--This section will include:
+(1) What terminologies are available
 (2) How is it procured
 (3) What happens (transformation)
 (4) Equivalence
@@ -159,39 +122,21 @@
     
     <part>
         <title><emphasis>Developers Always Welcome!</emphasis></title>
-        <preface>
-            <info>
-                <title>Notes on Getting Started</title>
-            </info>
-            <para>Basic Steps to start contributing today...</para>
-        </preface>
-        <chapter>
-            <title>Overview</title>
-            <para></para>
-        </chapter>
-        <chapter>
-            <title>Key Concepts and Functionality</title>
-            <para></para>
-        </chapter>
-        <!-- This section will introduce the modeling building blocks (Concept, sememe, assemblage), STAMP, ISAAC functionalities-->
+        <!--This section will inlcude:
+(1) Notes on getting started
+(2) Overview for Developers
+(3) Key concepts and functionality -->
+        <!--For section 3: Will introduce the modeling building blocks (Concept, sememe, assemblage), STAMP, ISAAC functionalities-->
     </part>
-    
-    <part>
-        <title>Application</title>
-        <!-- This section will areas where SOLOR is applicable (i.e. process of determining which order set component will the 4 models - Phenomenon Measurement, Phenomenon Measurement Goal, Action Request, and Action Performance) -->
-        <chapter>  
-            <title>Implementation of SOLOR</title>
-            <!--Examples of applicability-->
-        </chapter>
-    </part>    
+        
     
     <part>
         <title>Appendices</title>
         <!--This section will include:
-  (1) Configurations links and information (GitHub)
-  (2) How to's
-  (3) References
-  (4) Glossary-->
+(1) Configurations links and information (GitHub)
+(2) How to's
+(3) References
+(4) Glossary-->
         <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/appendices/solor-references.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     

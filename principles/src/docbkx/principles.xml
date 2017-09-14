@@ -192,7 +192,7 @@ Joey&apos;s Comment:  I think this should read more inline with &apos;Separation
     <section>
       <title>Principle 6: Analysis Normal Form Clinical Statements Represent the Minimum Disjoint
         Set</title>
-      <para>Analysis Normal Form (ANF) clinical statement represent the minimum disjoint set of
+      <para>Analysis Normal Form (ANF) clinical statements represent the minimum disjoint set of
         statement topic and circumstances and may not be further specified.</para>
       <para>Current examples of naming these top-level clinical statement types are shown in the
         table below. HOwever, it is possible that a few more will need to be added. The proof would
@@ -283,7 +283,6 @@ Joey&apos;s Comment:  I think this should read more inline with &apos;Separation
       <para>Example: All requests have a requestor; therefore, the requestor would be part of the
         circumstance in Analysis Normal Form.</para>
     </section>
-    
     <section>
       <title>Principle 10: Clinical Statement Model Stability</title>
       <para>Stability is different from immutability. Stable means that the model can still meet
@@ -303,7 +302,6 @@ Joey&apos;s Comment:  I think this should read more inline with &apos;Separation
       <title>Principle 11: Overall Model Simplicity</title>
       <para>In cases where different principles collide, we shall favor the enhancement of
         simplicity of the entire system over simplicity in one area of the system.</para>
-    
     </section>
     <section>
       <title>Principle 12:
@@ -325,7 +323,6 @@ Joey&apos;s Comment:  I think this should read more inline with &apos;Separation
         book, delivery of the book to some location, and the transfer of ownership of the book from
         the vendor to the client.</para>
     </section>
-    
     <section>
       <title>Principle 15:
         <?oxy_comment_start author="steph" timestamp="20170816T130948-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude.
@@ -333,34 +330,32 @@ Joey&apos;s Comments: As I have previously stated, class specialization includes
         by Class <?oxy_comment_end?>Specialization and/or Composition</title>
       <para>The capture of additional model expressivity must be captured by composition and/or by
         class specialization. The modeling approach should avoid the use of design by constraint
-        (except for terminology binding and attribute type constraints) as it violates proper decoupling
-        and encapsulation. An example of design by constraint is to create a single procedure class 
-        containing all attributes for all known procedures and constraining out irrelevant attributes in
-        a more specialized model. This approach is very difficult to implement and violates numerous
-        object-oriented best practices</para>
+        (except for terminology binding and attribute type constraints) as it violates proper
+        decoupling and encapsulation. An example of design by constraint is to create a single
+        procedure class containing all attributes for all known procedures and constraining out
+        irrelevant attributes in a more specialized model. This approach is very difficult to
+        implement and violates numerous object-oriented best practices</para>
     </section>
-    
     <section>
       <title>Principle 16:
         <?oxy_comment_start author="steph" timestamp="20170816T131720-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Keith."?>No
         False Dichotomies<?oxy_comment_end?></title>
       <para>Dichotomies that are not completely disjoint (mutually exclusive) lead to arbitrary
-        classification rules and result in ambiguity based on different assumptions about the domain.
-        These must be avoided.</para>
+        classification rules and result in ambiguity based on different assumptions about the
+        domain. These must be avoided.</para>
     </section>
-    
     <section>
       <title>Principle 17:
         <?oxy_comment_start author="steph" timestamp="20170816T132350-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude."?>Model
         Should Avoid Semantic Overloading<?oxy_comment_end?></title>
       <para>Semantic overloading occurs when a model attribute's meaning changes entirely, depending
-        on context. While the refinement of the semantics of an attribute in a subclass is acceptable,
-        a change of meaning is problematic. For instance, in FHIR, the Composition class defines an 
-        attribute called Subject. In some subclasses, the attribute may be the entity that this composition
-        refers to (e.g., the patient in a medical record). In other cases, it is the topic being discussed
-        by the composition (e.g., a medication orderable catalog).</para>
+        on context. While the refinement of the semantics of an attribute in a subclass is
+        acceptable, a change of meaning is problematic. For instance, in FHIR, the Composition class
+        defines an attribute called Subject. In some subclasses, the attribute may be the entity
+        that this composition refers to (e.g., the patient in a medical record). In other cases, it
+        is the topic being discussed by the composition (e.g., a medication orderable
+        catalog).</para>
     </section>
-    
     <section>
       <title>Principle 18:
         <?oxy_comment_start author="steph" timestamp="20170816T132918-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude.
@@ -368,9 +363,9 @@ Joey&apos;s Comments: I don&apos;t understand this one without googling. Can we 
         over Configuration<?oxy_comment_end?></title>
       <para>Convention over configuration (also known as coding by convention) is a software design
         paradigm used by software frameworks that attempt to decrease the number of decisions that a
-        developer using the framework is required to make without necessarily losing flexibility.</para>
+        developer using the framework is required to make without necessarily losing
+        flexibility.</para>
     </section>
-    
     <section>
       <title>Principle 19:
         <?oxy_comment_start author="steph" timestamp="20170816T134203-0700" comment="Source: Claude&apos;s AttributePlacementMatrix spreadsheet. This principle is proposed by Claude.
@@ -382,20 +377,16 @@ Question from Stephanie: How is this different from the Reusability principle?"?
         and normalize attribution information that is represented or extended differently in
         different classes (e.g., FHIR).</para>
     </section>
-    
     <section>
       <title>Principle 20: Model Symmetry</title>
       <para>There should be symmetry in the models wherever we can have it.</para>
     </section>
   </section>
-  
   <section>
-  <title><?oxy_comment_start author="steph" timestamp="20170816T140746-0700" comment="I made this as a separate section from Principles.  Let me know if you don&apos;t want it this way."?>Concerns<?oxy_comment_end?></title>
-  <para>This section identifies concerns related to the application of the fundamental principles
+    <title><?oxy_comment_start author="steph" timestamp="20170816T140746-0700" comment="I made this as a separate section from Principles.  Let me know if you don&apos;t want it this way."?>Concerns<?oxy_comment_end?></title>
+    <para>This section identifies concerns related to the application of the fundamental principles
       that will be applied when creating the models for Clinical Decision Support (CDS) Knowledge
       Artifacts ("KNARTs").</para>
-
-
     <section xml:id="section_8f62f599-4897-4afc-9fc1-c6c7588b97d3">
       <title>Concern 1: Phenomenon Measurement</title>
       <para>We need a simple, and universally applicable way to represent phenomenon measurement. </para>
@@ -410,7 +401,6 @@ Question from Stephanie: How is this different from the Reusability principle?"?
         <para> [4-6] 4-6 </para>
       </section>
     </section>
-    
     <section xml:id="section_35228d10-cd7c-432d-9bcd-e3c83b782889">
       <title>Concern 2:
         <?oxy_comment_start author="steph" timestamp="20170815T105112-0700" comment="Previously there was a blank section w/no title and I believe I fixed it.  If not, let me know."?>Identification
@@ -419,90 +409,85 @@ Question from Stephanie: How is this different from the Reusability principle?"?
         and other  secondary uses of data. </para>
       <section>
         <title>Technique 2.1 Inverse Concepts</title>
-        <para>Inverse concepts are concepts which are considered opposites of another.
-          Loosely based on the idea of a multiplicative inverse. Cooperative = 1/Uncooperative.
+        <para>Inverse concepts are concepts which are considered opposites of another. Loosely based
+          on the idea of a multiplicative inverse. Cooperative = 1/Uncooperative.
           Define Cooperative as the LEft Inverse Form (LEIF), and Uncooperative as the Right Inverse
           Form (RIF). We create editorial guidelines as to what constitutes a LEIF vs a RIF concept.
           We start out with a straw man rule that “Concepts that assert the positive are LEIF
-          concepts, Concepts that are the inverse of a LEIF concept are RIF concepts.” By generically
-          stating right and left hand sides of the inverse function Cooperative inverse Uncooperative
-          -> LEIF inverse RIF, we have a semantically unburdened categorization, so RIF concepts are
-          not required to negate something… And we are not bound specifically to our first straw-man
-          rule of “asserting the positive” if we find better discriminators.  </para>
-         <para>We then work to move RIF concepts to a set of RIF extensions. RIF concepts will be
+          concepts, Concepts that are the inverse of a LEIF concept are RIF concepts.” By
+          generically stating right and left hand sides of the inverse function Cooperative inverse
+          Uncooperative -> LEIF inverse RIF, we have a semantically unburdened categorization, so
+          RIF concepts are not required to negate something… And we are not bound specifically to
+          our first straw-man rule of “asserting the positive” if we find better discriminators.  </para>
+        <para>We then work to move RIF concepts to a set of RIF extensions. RIF concepts will be
           excluded from the normalized form, and must be converted to LEIF concepts as part of the
           normalization process.  </para>
         <para>The Inverse function will apply specifically to an Observation Result. We won’t try to
-          apply it to an expression for the purposes of using that expression in classification.  </para>
+          apply it to an expression for the purposes of using that expression in classification. 
+        </para>
       </section>
       <section>
-        <title>Technique 2.2 OWL EL Profile Definitions and Classification of Normalized Form</title>
+        <title>Technique 2.2 OWL EL Profile Definitions and Classification of Normalized
+          Form</title>
         <para>OWL EL profile with concrete domains supports multiple sufficient sets, and necessary
           conditions, and an ability to include concrete domains, such as ingredient strength,
           Concepts which have provably equivalent definitions by an appropriate classifier are
           considered equivalent.  </para>
       </section>
-      
       <section>
         <title>Technique 2.3 Equivalence by Generalization and Subsumption</title>
         <para>Often, equivalence is most appropriately considered with regard to a generalization.
-          For example, all patients with presence or absence of diabetes mellitus. The equivalence to
-          diabetes mellitus is determined though the use of an is-a taxonomy computed as part of
+          For example, all patients with presence or absence of diabetes mellitus. The equivalence
+          to diabetes mellitus is determined though the use of an is-a taxonomy computed as part of
           Technique 2.2.</para>
       </section>
-      
       <section>
-      <title>Technique 2.4 Equivalence Among Post-coordinated and Pre-coordinated Expressions</title>
-      <para>All post-coordinated expressions are converted to concepts with a single identifiers,
-        and the equivalence of the post-coordinated and pre-coordinated expressions is determined
-        through the classifier's computation of logical equality, and through use of the is-a
-        taxonomy the classifier computes  </para>
+        <title>Technique 2.4 Equivalence Among Post-coordinated and Pre-coordinated
+          Expressions</title>
+        <para>All post-coordinated expressions are converted to concepts with a single identifiers,
+          and the equivalence of the post-coordinated and pre-coordinated expressions is determined
+          through the classifier's computation of logical equality, and through use of the is-a
+          taxonomy the classifier computes  </para>
       </section>
-      
       <section>
         <title>Technique 2.5: Multiple Sufficient Sets, Independent of the Necessary Sets </title>
         <para>Need to insert description here.</para>
       </section>
-      
       <section>
         <title>Technique 2.6: Concrete Domains</title>
         <para>Need to insert description here.</para>
       </section>
-      
     </section>
-    
-    <section>    
+    <section>
       <title>Concern 3: Identification of Logical Inconsistencies</title>
       <para>Need description for this concern.</para>
-      
       <section>
         <title>Technique 3.1 Disjoint Concepts </title>
         <para> Identifying concepts as disjoint can be used to identify logical inconsistencies, at
-        data entry time, or during other   </para>
+          data entry time, or during other   </para>
       </section>
     </section>
   </section>
-  
   <section xml:id="section_2d7ee8e3-4f7d-462c-bb0e-1bccfb48078d">
-      <title><?oxy_comment_start author="steph" timestamp="20170816T143204-0700" comment="I made this its own section since it wasn&apos;t labeled as a principle or concern.  However, the description seems to read as a principle.  Should it be moved to the Principles section?"?>"Not
+    <title><?oxy_comment_start author="steph" timestamp="20170816T143204-0700" comment="I made this its own section since it wasn&apos;t labeled as a principle or concern.  However, the description seems to read as a principle.  Should it be moved to the Principles section?"?>"Not
       Elsewhere Classified" Revisited<?oxy_comment_end?></title>
-      <para>Each concept used as a [interpretation, qualifier, ?], within a value set, must be
-        accompanied by sufficient information to reconstruct the value set, and the value set must
-        provide a partial order such that the concept's "range" of meaning can be determined. </para>
-      <para>For example, a concept representing a color selected from the value set {Red, Green,
-        Blue} will have a different range than a color selected from the value set {Red, Orange,
-        Green, Yellow, Blue (get a better example of a granular color set ordered properly by em
-        spectrum)}.</para>
-      <para>Create a set of "intrepretative concepts," or a similar construct, that is the
-        intrepretation of that concept when constrainted by a value set...</para>
-      <para>Same preferred name, fully specified name incorporates the identify of the refset that
-        constrained the concept. </para>
-      <section xml:id="section_9869b6ed-bff6-465c-a282-c5a642e53861">
-        <title>Values from Constraints</title>
-        <para>If a concept is used as an intrepretation, the values from which they were selected
-        must accompany somehow so that the value can be determined against a partial ordering. </para>
-        <para>Interpretation concepts can have children just like the can have units of
-          measure?</para>
-      </section>
+    <para>Each concept used as a [interpretation, qualifier, ?], within a value set, must be
+      accompanied by sufficient information to reconstruct the value set, and the value set must
+      provide a partial order such that the concept's "range" of meaning can be determined. </para>
+    <para>For example, a concept representing a color selected from the value set {Red, Green, Blue}
+      will have a different range than a color selected from the value set {Red, Orange, Green,
+      Yellow, Blue (get a better example of a granular color set ordered properly by em
+      spectrum)}.</para>
+    <para>Create a set of "intrepretative concepts," or a similar construct, that is the
+      intrepretation of that concept when constrainted by a value set...</para>
+    <para>Same preferred name, fully specified name incorporates the identify of the refset that
+      constrained the concept. </para>
+    <section xml:id="section_9869b6ed-bff6-465c-a282-c5a642e53861">
+      <title>Values from Constraints</title>
+      <para>If a concept is used as an intrepretation, the values from which they were selected must
+        accompany somehow so that the value can be determined against a partial ordering. </para>
+      <para>Interpretation concepts can have children just like the can have units of
+        measure?</para>
+    </section>
   </section>
 </chapter>

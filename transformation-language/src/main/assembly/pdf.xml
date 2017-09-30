@@ -1,0 +1,18 @@
+<assembly>
+    <id>pdf</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/site/docbook</directory>
+            <includes>
+                <include>*.pdf</include>
+            </includes>
+            <outputDirectory>${project.groupId}/${project.artifactId}</outputDirectory>
+            <fileMode>0444</fileMode>
+            <directoryMode>0444</directoryMode>
+        </fileSet>
+    </fileSets>
+    <includeBaseDirectory>false</includeBaseDirectory>
+</assembly>

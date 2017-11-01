@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<article version="5.0" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+    xmlns:ns3="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook">
+    <info>
+        <title>“Data Element” Modeling and Its Relationship to Clinical Domain Models and SOLOR</title>
+        <author>
+            <personname>Walter Sujansky</personname>
+        </author>
+        <date>2017-10-23</date>
+    </info>
+    <section>
+        <title>Introduction</title>
+        <para>Recently, there has been lively discussion regarding the appropriate role of “clinical
+            data elements” and forms-based data collection as a data-representation system for EHRs.
+            This white paper attempts to characterize the “data-element” model for representing
+            clinical data, and assess its strengths and weaknesses relative to alternative models,
+            particularly with regards to supporting data retrieval and analysis. The paper also
+            provides general recommendations for retaining the advantages of data elements for data
+            collection, while mitigating their limitations for data analysis.</para>
+    </section>
+    <section>
+        <title>Data Elements</title>
+        <para>“Data element” is a longstanding concept used in information technology and data
+                modeling<footnote xml:id="__EN1__">
+                <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="https://en.wikipedia.org/wiki/Data_element"
+                        >https://en.wikipedia.org/wiki/Data_element</link>. </para>
+            </footnote>. Recently, the definition and use of data elements has been proposed as the
+            basis for structured data capture within EHRs and other clinical applications.</para>
+        <section>
+            <title>Context for Recent Consideration of Data Elements: Structured Data
+                Capture</title>
+            <para>In 2013, the Office of the National Coordinator (ONC) Standards &amp;
+                Interoperability (S&amp;I) Framework launched an initiative to develop “Structured
+                Data Capture” standards for EHRs<footnote xml:id="__EN2__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/SDC+Home"
+                            >https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/SDC+Home</link>.
+                    </para>
+                </footnote>. The purpose of structured data capture (SDC) in the context of this
+                initiative was to enable the collection of structured data within EHRs <emphasis>to
+                    supplement data collected for other purposes, including clinical research,
+                    adverse event reporting, and public health reporting</emphasis>. In other words,
+                SDC was not intended as a model for primary data entry into EHRs, but rather as a
+                mechanism to collect data from EHRs and/or from the users of EHRs for secondary
+                purposes, such as research and specific reporting needs. </para>
+            <para><xref linkend="_Ref493845583"/> illustrates the envisioned model for such data
+                collection. The model entails an EHR user selecting a “form” or “template” from a
+                forms repository that is external to the EHR (steps 1 and 2). This form, which
+                specifies the exact data elements needed for the intended research or reporting
+                purpose, becomes the artifact used to collect the requisite structured data. The EHR
+                “auto-populates” whichever of the form’s data elements it can from the EHR’s own
+                database - via mappings specified within the form – (step 3), and then prompts the
+                user to enter manually values for the remaining data elements (step 4). The
+                completed form is then locally saved (step 5), as well as transmitted to an external
+                data repository (step 6), from which it can be accessed for its intended research,
+                reporting, and analytical purposes (step 7).</para>
+            <figure xml:id="_Ref493845583">
+                <title>Envisioned model for structured data capture (SDC) using data
+                    elements.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image2.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>Within this model, “data elements” comprise the individual units of information
+                that are collected when each “question/answer” pair in a form is populated. Examples
+                range from simple concepts, such as a patient’s height, to complex concepts, such as
+                the severity of a medication adverse event. In all cases, the precise meaning,
+                allowable values, and other attributes of the data elements are carefully
+                defined.</para>
+            <para>“Common data elements” (CDEs) are data elements that are shared across a community
+                of interest. The standardized and mutually agreed-upon definitions of CDEs enable
+                their re-use in different contexts and aide in the exchange and repurposing of
+                clinical data. The SDC model envisions the definition of many CDEs for use in
+                various data-collection use cases.</para>
+        </section>
+        <section>
+            <title>The Attributes of Data Elements</title>
+            <para>The ONC S&amp;I SDC initiative did not actually define common data elements that
+                may be used in forms, but only standardize the set of <emphasis>defining</emphasis>
+                <emphasis>attributes</emphasis> that may be used to specify such data elements
+                (leaving it to others to actually define the elements). The standardized attributes
+                defined by S&amp;I number approximately 75, and the full set is available in a
+                document from the ONC S&amp;I web site<footnote xml:id="__EN3__">
+                    <para>See (“SDC Data Element Attributes” tab in <link
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://oncprojectracking.healthit.gov/wiki/download/attachments/16123327/SDC%20SWG%20Data%20Element%20Mapping%20Templatev4%20%282%29.xlsx?version=1&amp;modificationDate=1489605858000&amp;api=v2"
+                            >https://oncprojectracking.healthit.gov/wiki/download/attachments/16123327/SDC%20SWG%20Data%20Element%20Mapping%20Templatev4%20%282%29.xlsx?version=1&amp;modificationDate=1489605858000&amp;api=v2</link>
+                    </para>
+                </footnote>.</para>
+            <para>The most important required attributes for each data element include:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Data Element Unique Identifier</para>
+                </listitem>
+                <listitem>
+                    <para>Data Element Name</para>
+                </listitem>
+                <listitem>
+                    <para>Text definition</para>
+                </listitem>
+                <listitem>
+                    <para>Datatype of permitted values</para>
+                </listitem>
+                <listitem>
+                    <para>Set of permitted values when enumerated (including display text and code,
+                        if coded)</para>
+                </listitem>
+            </itemizedlist>
+            <para>Notably, coded values from standard terminologies must be
+                    <emphasis>pre-coordinated</emphasis> (i.e., the SDC standard does not allow
+                post-coordinated expressions as the values of data elements). </para>
+            <para>Other relevant attributes include the units of measure and high/low ranges for
+                numerically-valued data elements, as well as mappings to corresponding data elements
+                in standardized clinical data representations, such as C/CDA (to facilitate the
+                automated population of data elements from EHR contents). </para>
+        </section>
+        <section>
+            <title>Data Element Examples</title>
+            <para>Although the ONC S&amp;I SDC initiative did not define any specific data elements,
+                other similar initiatives have produced libraries of defined data elements that
+                serve as good examples of the concept. Notable among these libraries is the NIH
+                Common Data Element (CDE) repository<footnote xml:id="__EN4__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://cde.nlm.nih.gov/form/search"
+                            >https://cde.nlm.nih.gov/form/search</link>.</para>
+                </footnote>. The repository contains data elements that have been recommended or
+                required by NIH Institutes and Centers and other organizations, including the NCI,
+                NLM, and AHRQ.</para>
+            <para>The repository also contains libraries of structured data collection forms in
+                which the specified data elements appear. Together, the forms and the CDEs exemplify
+                the envisioned role of data elements in capturing and representing clinical
+                information. Among examples of defined data elements in the repository are the
+                following (with their definitions and allowable values):</para>
+            <para><inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image3-1.jpg"
+                            width="5.5in"/>
+                    </imageobject>
+                </inlinemediaobject></para>
+            <para>As evident from these examples, CDEs may represent simple, familiar clinical
+                concepts, or complex esoteric concepts. Complexity can arise from either the
+                definition of a CDE (as with the “Tissue Donor Sex Behavior” example), and/or from
+                the definitions of its allowable values (as with the “Adverse Event Severity Grade”
+                example). In either case, complex CDEs can pack a lot of clinical semantics into
+                concise, atomic representations.</para>
+        </section>
+    </section>
+    <section>
+        <title>The Limitations of Data Elements</title>
+        <para>The model of forms and data elements prescribed by the S&amp;I SDC initiative has
+            certain advantages with respect to standardizing data collection for secondary purposes.
+            If different parties within a community do, indeed, use the same forms containing the
+            same common data elements when collecting data, those data will be more uniform and
+            amenable to aggregation, exchange, and pooled analysis. </para>
+        <para>However, if a community creates and uses forms and data elements in a
+            less-than-disciplined fashion, the resulting data sets will lack uniform semantics,
+            preventing pooled analysis or (worse) generating incorrect analytical results. Given the
+            inherent limitations of common data elements as a paradigm for modeling clinical
+            semantics, there is a real danger of this occurring.</para>
+        <para>The primary limitation of common data elements is that they are defined and used
+            independently of any information model representing the context in which they are
+            populated or the relationship among their populated values. The context of and
+            relationships among populated data elements are represented only by the structure of the
+            forms in which they are populated. These forms, however, lack any formal model to, for
+            example, denote the relationships among their constituent data elements. Further, the
+            same data elements can appear in different forms, such that the context in which the
+            data elements are populated (and, hence, the complete semantics of the collected data)
+            can vary depending on the form in which they appear. </para>
+        <para>For example, a form may include the data element “Adverse event name,” followed by the
+            data element “Adverse event severity”. The value of the latter is meaningless for
+            purposes of data analysis unless associated with the value of the former (in particular,
+            if multiple adverse events were present, with differing severities). Other than the
+            sequence of the two data elements, however, forms have no way to formally represent this
+            association. Also, “Adverse event severity” could appear in a different form, following
+            the data element “Past adverse event name”. In this case, the semantics and implications
+            of the value of “Adverse event severity” would be different than if it were associated
+            with a currently experienced adverse event (for example, if it were “life threatening”).
+            None of these contexts of and associations between data elements are formally
+            represented, however. The result is that the values of data elements cannot be reliably
+            aggregated or analyzed without access to the form(s) in which each the values was
+            collected and a manual assessment of the semantics of the values when collected via each
+            such form. Lastly, in the absence of a uniform information model, data analysts would
+            have trouble determining the set of attributes that could have been populated to
+            describe a particular clinical event, such as an adverse event, diagnosis, or treatment. </para>
+        <para>The independent creation of common data elements in the absence of an information
+            model also increases the chances that duplicative or overlapping data elements may be
+            created by a community if great care and coordination are not exercised, with no
+            guaranteed means of subsequent reconciliation or mapping. For example, the following two
+            data elements could be defined and used by different parties within the same
+            community:</para>
+        <para><inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="images/image4-1.jpg"
+                        width="5.5in"/>
+                </imageobject>
+            </inlinemediaobject></para>
+        <para>In this case, a data analyst searching a pooled data set for all instances of
+            life-threatening adverse events would have to know that both of these data elements
+            existed, and would have to query for instances of the first data element with a value of
+            “Life-threatening” or “Death”, and instances of the second data element with a value of
+            “Present”. Many other such situations could arise, because of the variable ways that the
+            same or similar clinical concepts can be modeled as data elements.</para>
+    </section>
+    <section>
+        <title>Recommendations and Relationship to SOLOR</title>
+        <para>To enable the consistent analysis of populated data elements without requiring
+            detailed knowledge of the myriad forms used to collect those values, it is important to
+            specify a clinical data model that exists independently of the forms. This data model
+            should consist of (1) an <emphasis>information model</emphasis> (a.k.a., “clinical
+            domain model”) to represent the context of and relationships among individual data
+            elements, akin to a relational or object-oriented schema, and (2) a
+                <emphasis>terminology model</emphasis> to represent the discrete clinical concepts
+            represented by individual data elements and their allowed values. </para>
+        <para>For example, the information model would specify <emphasis>Adverse Event</emphasis> as
+            a clinical object type, which could be instantiated and further described by a set of
+            explicitly related attributes, such as “AE Name”, “AE Code”, “AE Manifestation”, “AE
+            Severity”, and “AE Start Date”. Any enumerated value sets for these attributes would be
+            specified by reference to the terminology model or to other objects of the information
+            model. For example, the values of the “AE Manifestation” attribute could be constrained
+            to any concept in the terminology that was an Observation or a Disease. Together, the
+            information model and terminology model would specify a clinical data model that
+            represented the scope, structure, and semantics of any collected data and that supported
+            data aggregation and analysis regardless of the specific data-entry instruments
+            (including forms) that were used for data collection. </para>
+        <para>Examples of information models consistent with this approach include OpenEHR<footnote
+                xml:id="__EN5__">
+                <para>Demski H, Garde S, Hildebrand C. Open data models for smart health
+                    interconnected applications: the example of openEHR. BMC Med Inform Decis Mak.
+                    2016 Oct 22;16(1):137. (available at <link
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/27770769"
+                        >https://www.ncbi.nlm.nih.gov/pubmed/27770769</link>).</para>
+            </footnote><superscript>,</superscript><footnote xml:id="__EN6__">
+                <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="http://www.openehr.org/what_is_openehr"
+                        >http://www.openehr.org/what_is_openehr</link>. </para>
+            </footnote> and CIMI<footnote xml:id="__EN7__">
+                <para>Goossen, W. Detailed Clinical Models: Representing Knowledge, Data and
+                    Semantics in Healthcare Information Technology. Healthc Inform Res. 2014 Jul;
+                    20(3): 163–172.</para>
+            </footnote><superscript>,</superscript><footnote xml:id="__EN8__">
+                <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="http://wiki.hl7.org/index.php?title=Detailed_Clinical_Models"
+                        >http://wiki.hl7.org/index.php?title=Detailed_Clinical_Models</link>.
+                </para>
+            </footnote>. Examples of applicable terminology models include SNOMED-CT<footnote
+                xml:id="__EN9__">
+                <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="http://www.snomed.org/snomed-ct"
+                        >http://www.snomed.org/snomed-ct</link>. </para>
+            </footnote> and SOLOR<footnote xml:id="__EN10__">
+                <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="http://www.solor.io/">http://www.solor.io/</link>. </para>
+            </footnote>. </para>
+        <para>The specification of a clinical data model, as described above, still allows for the
+            use of common data elements and standardized forms for data collection, as defined by
+            the S&amp;I SDC model. However, achieving the benefits of both forms-based data entry
+            and model-based data analysis requires the <emphasis>mapping </emphasis> of data
+            elements that appear in forms to semantically equivalent representations that are
+            consist with the clinical data model. These mappings allow data collected via forms to
+            be transformed to equivalent data that conform to the clinical data model, which can
+            then serve as a single, uniform point of reference for querying and analyzing the data.
+            In this manner, clinicians can use familiar forms and data elements to enter data
+            (without requiring any knowledge of the more complex underlying data model), and
+            analysts can use the clinical data model to query and analyze the collected data
+            (without requiring any knowledge of the data-collection forms that were used to enter
+            them). <xref linkend="_Ref493941874"/> illustrates this approach to collecting and
+            analyzing clinical data.</para>
+        <figure xml:id="_Ref493941874">
+            <title>Proposed model for the collection and analysis of structured data.</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/image5.png"
+                        width="5.5in"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <para>Importantly, the forms and data elements that will be used by clinicians must be
+            created and maintained in coordination with the clinical data model that will be used by
+            analysts. Such coordination is required to ensure that the former remains consistent
+            with and can be reliably mapped to the latter as both evolve over time.</para>
+        <para>Also, transformation between the forms-based view of collected data and the
+            clinical-model-based view can occur in real time, as the forms are completed and their
+            data stored. Alternatively, the transformation could occur later, when data are moved
+            from an initial (forms-based) data store to a secondary (model-based) data store. The
+            appropriate strategy will depend on the intended uses of the collected data and how
+            promptly data analysis will follow data collection. </para>
+        <para>Lastly, the SOLOR terminology plays an important role in both the forms-based model
+            and the clinical data model. As mentioned, a terminology model, such as SOLOR, is needed
+            as part of the clinical data model to rigorously represent the individual clinical
+            concepts within the model. However, the definition of common data elements and
+            data-collection forms in the forms-based model must also take into account the content
+            of SOLOR, because the common data elements and their values will need to map to SOLOR
+            concepts (to support the transformations described above). In practice, it is much
+            better to consider such mappings at the time that the common data elements and forms are
+            defined, rather than define them independently and hope that a mapping to SOLOR is
+            possible at a later time.</para>
+    </section>
+</article>

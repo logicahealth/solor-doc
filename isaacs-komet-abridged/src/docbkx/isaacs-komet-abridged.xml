@@ -71,24 +71,33 @@
     
     <part>
         <title>Introduction to SOLOR</title>
-        <!-- General intro / overview of KOMET/ISAAC/SOLOR-->
-        <partintro>
-            <para>Include "Terminology System (2.2)" of "Current State White paper" <link xlink:href="https://issues.osehra.org/browse/ISAAC-100">JIRA ISAAC-100</link></para>
-            
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/introduction.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/> 
+    </part>   
+  
+                <!--Whitepaper candidates below 
+                
+                Include "Terminology System (2.2)"
+                of "Current State White paper" <link
+                    xlink:href="https://issues.osehra.org/browse/ISAAC-100">JIRA
+                ISAAC-100</link>
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="para_w4z_wsk_dbb"/>
             
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="para_ty5_lcy_dbb"/>
             
             <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml" xpointer="de117c5e-5b71-457b-88f9-1bb939f7ba72"/>
-            <!-- Intro blurb [ransition statement] on SOLOR here -->
-        </partintro>
-    </part>
-    
+             
+    --> 
     <part>
         <title>Implementation of SOLOR</title>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/implementation.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>   
         <!-- ***This section will showcase examples where SOLOR is applicable (i.e., process of determining which order set component will the 4 models - Phenomenon Measurement, Phenomenon Measurement Goal, Action Request, and Action Performance) -->
-        <partintro>
-            <!-- Whitepapers below are good candidates for this section. Work is needed to tie these work back to how SOLOR can be applied -->
+        
+        <!--
+            Whitepapers below are good candidates for this section. Work is needed to tie these work back to how SOLOR can be applied
             <para>Disjoint Content <link xlink:href="https://issues.osehra.org/browse/ISAAC-103"
                     >JIRA ISAAC-103</link></para>
             <para>Concrete Domain <link xlink:href="https://issues.osehra.org/browse/ISAAC-104">JIRA
@@ -99,7 +108,7 @@
             <para>Topic vs. Instructions <link
                     xlink:href="https://issues.osehra.org/browse/ISAAC-111">JIRA
                 ISAAC-111</link></para>
-        </partintro>
+       -->
         <chapter>
             <title>Use Case &lt;Example></title>
             <!--Use Case example(s)-->

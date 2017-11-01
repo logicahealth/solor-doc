@@ -71,6 +71,32 @@
     
     <part>
         <title>Introduction to SOLOR</title>
+        <partintro> <para>Prior to discussion of SOLOR, the Department of Veterans Affairs's ISAAC (InformaticS
+                Architecture Acceleration) must be referenced. ISAAC is an architecture framework
+                that strives for a holistic approach to support an integrated delivery of iterative
+                revisions of specifications, services, and
+                <?oxy_comment_start author="soychoi" timestamp="20171101T173448-0400" comment="Do we want to be specific on the type of content or no?"?>content<?oxy_comment_end?>.
+                ISAAC design philosophy calls for an approach that supports novelty within a
+                rigorous—and vertically integrated—deployment pipeline and is based on existing
+                software development best practices. Moreover, it embraces DevOps culture and
+                practice by emphasizing collaboration and communication while automating the process
+                of product delivery. The vision for development within the ISAAC framework is one
+                that enables knowledge engineers, developers, testers, build managers, and
+                operations personnel to work together effectively to deliver assets to the points of
+                care and analysis. </para>
+            <para>Within the ISAAC architecture, KOMET (KnOwledge Management EnvironmenT) defines a
+                modular system and a service platform for clinical knowledge management that
+                implements a complete and dynamic component model. KOMET provides an environment for
+                the modularization of knowledge resources into bundles. Each bundle is a tightly
+                coupled, dynamically loadable collection of terminology, terminological knowledge
+                assertions, A-Box assertions regarding rules, transformation, and files that
+                explicitly declare their external dependencies—if any. To support the content within
+                the ISAAC architecture, SOLOR's main goal is to provide an open-source
+                <?oxy_comment_start author="soychoi" timestamp="20171101T174023-0400" comment="Are we okay with saying &quot;platform&quot; for SOLOR?"?>terminology
+                platfor<?oxy_comment_end?>m that cultivates the relationships between terminologies
+                and allows knowledge to be shared in one consumable format. Moreover, it strives to
+                remove the complexities of various content which are today delivered by isolated
+                silo organizations who place the implementation burden upon their consumers.</para></partintro>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/introduction.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/> 

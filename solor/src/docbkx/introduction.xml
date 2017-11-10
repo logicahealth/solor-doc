@@ -15,21 +15,155 @@
                 2. GitHub (collaborative infrastructure)-->
     
     <title>What is SOLOR?</title>
-    <para>intro text</para>
+    <para>As alluded to above, content is currently delivered by various organizations in which the
+        content is often times created in silos, are stored in different formats, are represented by
+        different models, and are released with different cycles and mechanisms. As a result, end
+        users are taxed heavily to monitor, retrieve, implement, and analyze the ramifications of an
+        update. This burden is compounded even further when a new set of content is required for
+        use. While designed to provide the content within the ISAAC architecture, SOLOR was created
+        as an open-source terminology platform that is intended to shield users from the burden and
+        complexities of content management. This is achieved by representing disparate content via
+        two SOLOR components: Concepts and Semantics, which are controlled by a versioning mechanism
+        known as STAMP.</para>
     
     <section>
-        <title>Separation of Concern</title>
-        <para>text</para>
+        <title>SOLOR Building Blocks: Concepts and Semantics</title>
+        <para>Concept is defined as an idea or a general notion. When abstracted out, it can be used
+            to represent any idea, whether that is a medically related idea, e.g. heart attack, or
+            an idea to represent a metadata, e.g. a synonym or a fully specified name.</para>
+        <para>When semantics or context is given to a concept, it allows for further refinement or
+            definition of the concept or idea. For example, there may be a string. When given
+            semantics, that string could be defined as a 'Description Type'. When further semantics
+            are given, that 'Description Type' may be further defined as a 'Synonym'. A concept of
+            'Synonym' with sufficient semantics associated with is now understood as a description
+            type which is a piece of string. This concept of 'Synonym' could now be used to define
+            any idea (e.g. heart attack) to provide a string representation for human comprehension
+            - the idea of 'heart attack', devoid of any semantic meaning, could now have a semantic
+            identity with the string value of "Heart attack" to give semantic meaning to the
+            concept. </para>
+        <para>These abstract semantic identities are generic and reusable to represent content
+            provided by disparate organizations. For example, the semantic identity of 'Synonym'
+            could be used to represent a description that originiated from SNOMED or LOINC. This
+            notion of semantics can be used to create various semantic identities such as
+            Descriptions (Fully Specified Name, Synonym, Abbreviation, etc), Relationships (Is-A,
+            Broader-than, Narrower-than, etc), Attributes (SNOMED Concept ID, LOINC ID, etc) or even
+            identities to capture EL++ description logic. As a result, SOLOR component is used to
+            represent any and all content regardless of where it originated or how it is
+            conceptually represented in its native form (polyhierarchy representation of SNOMED vs.
+            'flat' representation of LOINC). In essence, SOLOR has two fundamental building blocks:
+            a concept, and semantics that can be attached to a concept to provide contexual meaning
+            to the concept.</para>
     </section>
     
     <section>
-        <title>Dynamic Model</title>
-        <para>text</para>
-    </section>
+        <title>STAMP Versioning</title>
+        <para>While aggregating content from different sources using similar SOLOR building blocks,
+            there is also a need to be able to separate these disparate content as well as its
+            history. This is accomplished in SOLOR by a consistent version managment system using a
+            set of attributes known as STAMP coordinates. Components of STAMP and its defniitions
+            are:</para>
+        <para> Status - indicates whether the object is active or inactive</para>
+        <para> Time - indicates the effetive time/date of the object's status</para>
+        <para> Author - captures the origin of the object</para>
+        <para> Module - associates the object with an applicable set</para>
+        <para> Path - stores the branch in which the object resides in (see: <link
+                xlink:href="https://git-scm.com/book/en/v2/Git-Branching-What-a-Branch-Is"
+                >https://git-scm.com/book/en/v2/Git-Branching-What-a-Branch-Is</link>)</para>
+        <para> </para>
+        <para>From a combination of these coordinates, SOLOR would allow one to associate the
+            'where' and 'when' aspects with an object. Below are few examples of STAMP coodrinates
+            in action.</para>
+        <para> Versioning of a concept</para>
+        <para> -----------------------</para>
+        <para> In this example, let's assume that NLM released a concept named "X" during the SNOMED
+            US Extension January 2017 release. In the source file, X has an effective date of
+            1/31/2017. During the processing of SNOMED source file into SOLOR, concept X would have
+            the following coordinates:</para>
+        <para> Status = Active</para>
+        <para> Time = 1/31/2017</para>
+        <para> Author = NLM</para>
+        <para> Module = SNOMED US Extension</para>
+        <para> Path = [enter info here]</para>
+        <para> </para>
+        <para> Fast forwarding to the second release, NLM retires "X" and is effective as of
+            7/31/2017. After processing, "X" would have the following coordinates:</para>
+        <para> Status = Inactive</para>
+        <para> Time = 7/31/2017</para>
+        <para> Author = NLM</para>
+        <para> Module = SNOMED US Extension</para>
+        <para> Path = [enter info here]</para>
+        <para> </para>
+        <para> Creation of local concept</para>
+        <para> -------------------------</para>
+        <para> In this example, let's assume that organization "ABC" requires the representation of
+            disease "Y" along with SNOMED US Extension content, and requires immediate use. If a
+            knowledge worker creates this concept in SOLOR, it would have the following
+            coordinates:</para>
+        <para> Status = Active</para>
+        <para> Time = [some effective date]</para>
+        <para> Author = ABC</para>
+        <para> Module = SNOMED US Extension</para>
+        <para> Path = [enter info here]</para>
+        <para> </para>
+        <para> Concept belonging to multiple modules</para>
+        <para> -------------------------------------</para>
+        <para> In this example, let's assume that concept "X" (same concept as NLM example above) is
+            a concept representing a particular diagnosis, and on 5/1/2017, an organization requires
+            concept "X" to be present along with other diagnosis for the purpose of allowing users
+            to populate a particular section of a form. This concept X would have an additional
+            coordinate of:</para>
+        <para> Status = Active</para>
+        <para> Time = 5/1/2017</para>
+        <para> Module = 'name of module that aggregates desired set of concepts'</para>
+        <para> [are there more coordinates to use here?]</para>
+     </section>
+    
+        <section>
+            <title>Chronology Identity</title>
+        <para>As alluded to by the examples, an object is allowed to have more than one set of STAMP
+            coordinates. Therefore, continuing with the example of concept "X" from above, it would
+            have a set of STAMP coordinates:</para>
+        <para>Version Status Time Author Module Path</para>
+        <para>V1 Active 1/31/2017 NLM SNOMED US Extension []</para>
+        <para>V2 Active 5/1/2017 N/A 'name of module that aggregates desired set of concepts'
+            []</para>
+        <para>V3 Inactive 7/31/2017 NLM SNOMED US Extension []</para>
+        <para>This collection of STAMP coordinates is known in SOLOR as Chronology Identity.</para>
+        </section>
+        
+
     
     <section>
-        <title>Continuous Delivery</title>
-        <para>text</para>
+        <title>Language Coordinate</title>
+        <para>While the initial audience is expected to be users of English content, SOLOR supports
+            foreign language content by its language coordinate. This allows representation of data
+            in different languages and allows one to specify desired language for usage when using
+            SOLOR.</para>
     </section>
-    
+
+    <section>
+        <title>Putting It All Together</title>
+        <para>After an Authoring Body releases its content, a process will need to occur to
+            transform data from its native format into SOLOR components described below. This
+            programmatic process is tailored to each incoming data stream, where it will account for
+            data represented in its original format. Other than transformation and applying STAMP
+            coordinates, the underlying process will also address the notion of dependency. For
+            example, SNOMED US Extension will have a dependency on SNOMED International, and
+            relationships from the LOINC-SNOMED collaboration effort will have a dependency on
+            SNOMED and LOINC. </para>
+        <para>Once the content is in SOLOR, there is a step where equivalency is determined through
+            various methods where concepts of same idea are aggregated. For example, Gentamycin from
+            SNOMED is the same as Gentamycin from LOINC, and is also the same Gentamycin from
+            RxNorm. End result from this process is the creation of a SOLOR concept that is devoid
+            of any source information (but will have traceability). This end result is what will be
+            exposed to the user to view and use. In the Gentamycin example, a user will find this
+            concept that is devoid of any source information and will not need to know if this is
+            the SNOMED/LOINC/RxNorm Gentamycin that needs to be selected.</para>
+        <para>To complete the example walkthrough, if the Gentamycin was used in the context of
+            identifying what medication the patient is currently taking, then the underlying process
+            will be able to transmit the RxNorm code if the receiving system is expecting RxNorm
+            codes. Conversely, when SOLOR is adopted more globally, the transmitted information
+            could be isolated to the SOLOR Gentamycin rather than a specific code from a specific
+            terminology.</para>
+    </section>
 </chapter>

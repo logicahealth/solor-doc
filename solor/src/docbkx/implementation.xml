@@ -2,41 +2,68 @@
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
     xmlns:xlink="http://www.w3.org/1999/xlink">
-                <!-- a. Create examples (outline) 
-        i. Maintaining Terminology Standards Update 
-            1. Current state and future state + the how 
-        ii. Data retrieval; siloed databases
-            1. Current state and future state + the how
-        iii. Need to define a bit more… Model + and using SOLOR content
-            1. First need to define model  (which model)
-                a. Describing what the model is with SOLOR
-                b. ISAAC MODEL: Lowest model STAMP version (everything is version chronologies), everything has an identifier, every version with ID is given a STAMP  2 kinds of thing: (1) concepts (status and identity) and (2) semantic extension / sememe (description, description logic, etc.)  
-                        i. Given ISAAC model, still unconstrained – thus need to define the use of specific kind of extension -->
-    
     <title>Examples of SOLOR Application</title>
-    <para>intro text</para>
-    
+    <para>Below are examples of where SOLOR content can be applied.</para>
     <section>
         <title>Maintaining Terminology Standards Update</title>
-        <para>While the use of Standard terminology is a critical step toward interoperability, it is not a trivial process especially if an institution needs to stay current and use up-to-date content. Standard bodies typically releases their developed content in asynchronous release cycles (SNOMED - twice/year, LOINC - once/year, RxNorm - monthly), and are distributed in different formats (SNOMED - 3-6 text files, LOINC - Excel workbook or CVS, RxNorm - 9 Rich Release Files). As a result, users of Standard Terminologies are often times required to budget time and money for resources to monitor and obtain the latest release files. When obtained, due to its disparate model and source file format, users will also maintain separate databases to store the data within the release files. Without a robust versioning control mechanism, latest version of content is typically the only version available to users because history is often lost or will require significant effort to query into historical content. As a result, it creates a barrier for users or institutions to create and maintain content that are dependent on these Standard content.
-        </para>
-        <para>SOLOR avoids this unnecessary complexity with its Versioning Model. By utilizing a common set of building blocks (Concepts and Semantics), content from disparate sources are transformed into the same model, which allows for a single place for storage and a single set of retrieval mechanism. In addition, with STAMP coordinates, history of a particular set of content could be maintained by allowing historical versions of the same content to exist. Utilizing an automated and repeatable process, SOLOR back-end processes will retrieve the content as they are released by the Authoring Bodies, transform the disparate files into SOLOR and apply STAMP coordinates to the created objects within SOLOR. Once a SOLOR user provides licensing information to the content within, they are able to freely access the most current and historical content within SOLOR.
-        </para>
+        <para>While the use of Standard terminology is a critical step toward interoperability, it
+            is not a trivial process especially if an institution needs to stay current and use
+            up-to-date content. Standard bodies typically releases their developed content in
+            asynchronous release cycles (SNOMED - twice/year, LOINC - once/year, RxNorm - monthly),
+            and are distributed in different formats (SNOMED - 3-6 text files, LOINC - Excel
+            workbook or CSV, RxNorm - 9 Rich Release Files). As a result, users of Standard
+            Terminologies are often times required to budget time and money for resources to monitor
+            and obtain the latest release files. When obtained, due to its disparate model and
+            source file format, users will also maintain separate databases to store the data within
+            the release files. Without a robust versioning control mechanism, latest version of
+            content is typically the only version available to users as history is often lost or
+            will require significant effort to query into historical content. As a result, it
+            creates a barrier for users or institutions to create and maintain content that are
+            dependent on these standard content. </para>
+        <para>SOLOR avoids this unnecessary complexity with its Versioning Model. By utilizing a
+            common set of building blocks (Concepts and Semantics), content from disparate sources
+            are transformed into the same model, which allows for a single place for storage and a
+            single set of retrieval mechanism. In addition, with STAMP coordinates, history of a
+            particular set of content could be maintained by allowing historical versions of the
+            same content to exist. Utilizing an automated and repeatable process, SOLOR's back-end
+            processes will retrieve the content as they are released by the Authoring Bodies,
+            transform the disparate files into SOLOR, and apply STAMP coordinates to the created
+            objects within SOLOR. Once a SOLOR user provides licensing information to the content
+            within, the user is able to freely access the most current and historical content within
+            SOLOR. </para>
     </section>
-    
     <section>
         <title>Locally Created Content</title>
-        <para>Other than handling asynchronous content update cycles, SOLOR will support the ongoing maintenance of locally created content. By using STAMP coordinates, locally created content are stored together with, and at the same time, segregated from standard content. This is achieved by marking these locally created content with a different STAMP coordinates such as Author and/or Module where the set of locally created content are organized by the same Author and/or Module. Furthermore, with dependency information, SOLOR allows for quick identification of impacted locally created content when the underlying dependent content is updated. During updates, these locally created content could be treated as a set of potentially impacted content that will need to be reviewed. 
-        </para>
-        <para>For example, if a set of concepts requires locally created descriptions, then that set of locally created terms could be retrieved by indicating the desired Author and/or Module. Similarly, a set of concepts that requires these locally created terms could be queried upon to determine which concepts are now inactive and will therefore need to have the locally created term inactivated as well. The result is a clean separation of content while maintaining dependency information. This results in a quicker turnaround time for knowledge worker to address locally created content affected by a standard content update without the need to query across multiple disparate databases.
-        </para>
+        <para>Other than handling asynchronous content update cycles, SOLOR will support the ongoing
+            maintenance of locally created content. By using STAMP coordinates, locally created
+            content are stored together with, and at the same time, segregated from standard
+            content. This is achieved by marking these locally created content with a different
+            STAMP coordinates such as Author and/or Module, where the set of locally created content
+            are organized by the same Author and/or Module. Furthermore, with dependency
+            information, SOLOR allows for quick identification of the impacted locally created
+            content when the underlying dependent content is updated. During updates, these locally
+            created content can be treated as a set of potentially impacted content that will need
+            to be reviewed. </para>
+        <para>For example, if a set of concepts requires locally created descriptions, then that set
+            of locally created terms could be retrieved by indicating the desired Author and/or
+            Module. Similarly, a set of concepts that requires these locally created terms can be
+            queried upon to determine which concepts are now inactive and will therefore need to
+            have the locally created term inactivated as well. The result is a clean separation of
+            content while maintaining dependency information. This results in a quicker turnaround
+            time for knowledge worker to address locally created content affected by a standard
+            content update without the need to query across multiple disparate databases. </para>
     </section>
-    
     <section>
-        <title>Data Retrieval</title> 
-        <para>Because all content are stored in same repository, using the same SOLOR Versioning Model, only a single set of retrieval mechanism is required to obtain data. By utilizing the STAMP coordinates, one could locate the desired set of content. Moreover, by querying for certain values of a semantic, one could easily retrieve data from SOLOR. For example, "set of locally created Descriptions created on SNOMED concepts that have been placed into the 'diagnosis' module where SNOMED concepts were active from 2 releases prior" is easily retrieved by entering the appropriate values of the STAMP coordinates. Contrast this with typical current mechanism of querying across multiple disparate databases that may or may not contain the up-to-date version and/or historical versions.
-        </para>
+        <title>Data Retrieval</title>
+        <para>Because all content are stored in the same repository, using the same SOLOR Versioning
+            Model, only a single set of retrieval mechanism is required to obtain data. By utilizing
+            the STAMP coordinates, one could locate the desired set of content. Moreover, by
+            querying for certain values of a semantic, one could easily retrieve data from SOLOR.
+            For example, "set of locally created Descriptions created on SNOMED concepts that have
+            been placed into the 'diagnosis' module where SNOMED concepts were active from 2
+            releases prior" is easily retrieved by entering the appropriate values of the STAMP
+            coordinates, which is in contrast with the current mechanism of querying across multiple
+            disparate databases that may or may not contain the up-to-date version and/or historical
+            versions. </para>
     </section>
-   
-    
 </chapter>

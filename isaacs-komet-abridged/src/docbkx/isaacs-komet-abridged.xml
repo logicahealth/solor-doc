@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <info>
         <title>SOLOR Release Documentation</title>
         <subtitle>Architecture&#160;Centric Knowledge&#160;Management</subtitle>
@@ -38,52 +39,28 @@
     </info>
     <acknowledgements>
         <title/>
-
         <para>C/1680 V1, also called the Great Comet of 1680, Kirch's Comet, and Newton's Comet, has
             the distinction of being the first comet discovered by telescope. The orbit of C/1680
             V1, fit to a parabola, as shown in Isaac Newton's <emphasis>Principia</emphasis>. Isaac
             Newton used observations of C/1680 V1 to test and verify Kepler's laws of planetary
             motion. </para>
     </acknowledgements>
-    
-    <part>
-        <?oxy_comment_start author="soychoi" timestamp="20170911T162324-0400" comment="Add link the JIRA Issue Tracker, on which whitepaper should be included in whichever section of the SOLOR Release Documentation along with the notes. And add Issues, asking for content develop (and put the placeholder). "?>
-        <title>Overview<?oxy_comment_end?></title>
-        <partintro>
-            <xi:include
-                href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml"
-                xpointer="para_t4z_wsk_dbb"/>
-        </partintro>
-    </part>
-    
-    <part>
-        <title>The Challenge</title>
-        <!--This section will describle current state & challenges. Potentially a good section to include the problems discussed in "menagerie".
-           **Please note: The below section, "Archtiectural Challenges", will be reduced in content on a later update.-->
-        
-        <partintro>
-            <para>Include "Examples of Errors in Knowledge Artifacts (1.1 and subsections)" of "Current State White paper" <link xlink:href="https://issues.osehra.org/browse/ISAAC-100">JIRA ISAAC-100</link></para>
-            
-        </partintro>
-        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/challenges.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    </part>
-    
-    
+
     <part>
         <title>Introduction to SOLOR</title>
-        <partintro> <para>Prior to discussion of SOLOR, the Department of Veterans Affairs's ISAAC (InformaticS
-                Architecture Acceleration) must be referenced. ISAAC is an architecture framework
-                that strives for a holistic approach to support an integrated delivery of iterative
-                revisions of specifications, services, and
-                <?oxy_comment_start author="soychoi" timestamp="20171101T173448-0400" comment="Do we want to be specific on the type of content or no?"?>content<?oxy_comment_end?>.
-                ISAAC design philosophy calls for an approach that supports novelty within a
-                rigorous—and vertically integrated—deployment pipeline and is based on existing
-                software development best practices. Moreover, it embraces DevOps culture and
-                practice by emphasizing collaboration and communication while automating the process
-                of product delivery. The vision for development within the ISAAC framework is one
-                that enables knowledge engineers, developers, testers, build managers, and
-                operations personnel to work together effectively to deliver assets to the points of
-                care and analysis. </para>
+        <partintro>
+            <para>Prior to discussion of the System Of Logically Oriented Representation (SOLOR),
+                the Department of Veterans Affairs's ISAAC (InformaticS Architecture Acceleration)
+                must be referenced. ISAAC is an architecture framework that strives for a holistic
+                approach to support an integrated delivery of iterative revisions of specifications,
+                services, and content. ISAAC's design philosophy calls for an approach that supports
+                novelty within a rigorous—and vertically integrated—deployment pipeline that is
+                based on existing software development best practices. Moreover, it embraces DevOps
+                culture and practice by emphasizing collaboration and communication while automating
+                the process of product delivery. The vision for development within the ISAAC
+                framework is one that enables knowledge engineers, developers, testers, build
+                managers, and operations personnel to work together effectively to deliver assets to
+                the points of care and analysis. </para>
             <para>Within the ISAAC architecture, KOMET (KnOwledge Management EnvironmenT) defines a
                 modular system and a service platform for clinical knowledge management that
                 implements a complete and dynamic component model. KOMET provides an environment for
@@ -91,28 +68,22 @@
                 coupled, dynamically loadable collection of terminology, terminological knowledge
                 assertions, A-Box assertions regarding rules, transformation, and files that
                 explicitly declare their external dependencies—if any. To support the content within
-                the ISAAC architecture, SOLOR's main goal is to provide an open-source
-                <?oxy_comment_start author="soychoi" timestamp="20171101T174023-0400" comment="Are we okay with saying &quot;platform&quot; for SOLOR?"?>terminology
-                platfor<?oxy_comment_end?>m that cultivates the relationships between terminologies
-                and allows knowledge to be shared in one consumable format. Moreover, it strives to
-                remove the complexities of various content which are today delivered by isolated
-                silo organizations who place the implementation burden upon their consumers.</para>
+                the ISAAC architecture, SOLOR's main goal is to provide an open-source terminology
+                architecture that cultivates the relationships between terminologies and allows
+                knowledge to be shared in one consumable format. Moreover, it strives to remove the
+                complexities of various content, which are currently delivered by isolated silo
+                organizations who place the implementation burden upon their consumers.</para>
         </partintro>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/introduction.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/> 
-    </part> 
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
     <part>
         <title>Implementation of SOLOR</title>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/implementation.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>   
-        <chapter>
-            <title>Use Case &lt;Example></title>
-            <!--Use Case example(s)-->
-        </chapter>
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
-    
     <part>
         <title><emphasis>For more information</emphasis></title>
         <partintro>
@@ -126,7 +97,7 @@
                                 <link>https://github.com/OSEHRA/komet</link></para>
                     </listitem>
                     <listitem>
-                        <para>Architecture and UI Installation (SOLOR, ISAAC, KOMET):  TBD</para>
+                        <para>Architecture and UI Installation (SOLOR, ISAAC, KOMET): TBD</para>
                         <para><emphasis>SOLOR is a free and open source software distributed under
                                 the Apache License 2.0 (</emphasis><link
                                 xlink:href="http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN"
@@ -143,5 +114,4 @@
             </para>
         </partintro>
     </part>
-    
 </book>

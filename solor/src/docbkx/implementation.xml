@@ -89,7 +89,21 @@
             <info>
                 <title>Equivalence</title>
             </info>
-            <para>Currently, it is left to users to determine which concept from which terminology must be used. For example, for diagnosis, users will typically choose a SNOMED concept from the Clinical Finding / Disorder hierarchy while a LOINC concept is typically chosen for laboratory related patient data. This requires the user to have a significant terminology training or experience. Many systems will also require developers to either have the same knowledge or rely heavily on terminologists to expose required content (e.g. RxNorm concepts in medication related area) to the users. SOLOR addresses this issue by shielding users from needing to know which terminology to use. In order to accomplish this, SOLOR will address equivalency during the transformation step from native source file into SOLOR. By utilizing various techniques, concepts that are equivalent will have a single representation in SOLOR, while having linkages to the source contributor. Therefore, a user could simply search for the desired content (e.g. Measurement of Gentamycin peak and trough for a laboratory test) rather than searching for a specific concept within a desired terminology.</para>
+            <para>Currently, it is left to users to determine which concept from which terminology
+                must be used. For example, for diagnosis, users will typically choose a SNOMED
+                concept from the Clinical Finding / Disorder hierarchy, while a LOINC concept is
+                typically chosen for laboratory related patient data. This requires the user to have
+                a significant terminology training or experience. Many systems will also require
+                developers to either have the same knowledge or rely heavily on terminologists to
+                expose required content (e.g. RxNorm concepts in medication related area) to the
+                users. SOLOR addresses this issue by shielding users from needing to know which
+                terminology to use. In order to accomplish this, SOLOR will address equivalency
+                during the transformation step from native source file into SOLOR. By utilizing
+                various techniques, concepts that are equivalent will have a single representation
+                in SOLOR, while having linkages to the source contributor. Therefore, a user could
+                simply search for the desired content (e.g. Measurement of Gentamycin peak and
+                trough for a laboratory test) rather than searching for a specific concept within a
+                desired terminology.</para>
         </section>
         <section>
             <info>

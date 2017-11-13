@@ -66,4 +66,96 @@
             disparate databases that may or may not contain the up-to-date version and/or historical
             versions. </para>
     </section>
+    <section>
+        <title>Use Case</title>
+        <para>Current state of utilizing disparate siloed terminologies and/or with information
+            models has many implications that could impact patient safety. One of the main goals of
+            SOLOR is to provide the ability to transmit information without information loss.
+            Following examples highlights potential points of failure and how SOLOR could address
+            the underlying issue.</para>
+        <section>
+            <info>
+        <title>Inability to express clinically important concept</title>
+            </info>
+        <para>Medicine is an ever-evolving field with new discoveries occurring at a rapid pace.
+            Although Standard Development Organizations work tirelessly to bring content up-to-date,
+            there will inevitably be a lag if content is released at scheduled intervals. SOLOR
+            addresses this gap by providing the capability for organizations to create local
+            content. While the desired content is under evaluation by Standard Development
+            Organizations, localized content could be utilized and even shared by the SOLOR
+            community.</para>
+        </section>
+        <section>
+            <info>
+                <title>Equivalence</title>
+            </info>
+            <para>Currently, it is left to users to determine which concept from which terminology must be used. For example, for diagnosis, users will typically choose a SNOMED concept from the Clinical Finding / Disorder hierarchy while a LOINC concept is typically chosen for laboratory related patient data. This requires the user to have a significant terminology training or experience. Many systems will also require developers to either have the same knowledge or rely heavily on terminologists to expose required content (e.g. RxNorm concepts in medication related area) to the users. SOLOR addresses this issue by shielding users from needing to know which terminology to use. In order to accomplish this, SOLOR will address equivalency during the transformation step from native source file into SOLOR. By utilizing various techniques, concepts that are equivalent will have a single representation in SOLOR, while having linkages to the source contributor. Therefore, a user could simply search for the desired content (e.g. Measurement of Gentamycin peak and trough for a laboratory test) rather than searching for a specific concept within a desired terminology.</para>
+        </section>
+        <section>
+            <info>
+                <title>Separation of Concerns</title>
+            </info>
+            <para>In order to exchange information, numerous efforts have been taken to develop an information models to transmit patient data. Unfortunately, many models will often have a tight binding to a terminology component, which in turn will cause ambiguity over time and will force users to know the intricacies of the model to properly utilize it.</para>
+            <para><emphasis role="bold">Example 1</emphasis>: Laterality is a notion that is present
+                in SNOMED and HL7 FHIR profile. Having a lack of separation of concerns would allow
+                data entry of both a SNOMED concept that explicitly states a laterality as well as a
+                SNOMED concept without laterality and utilizing FHIR profile to enter the
+                laterality. While this is convenient, it would allow an user to enter the same data
+                in different ways. A user could potentially select a precordinated concept of "Pain
+                in the left arm" or a user could select "Pain of the arm" and use the laterality
+                segment to enter "Left". This would now require one to account for both cases when
+                querying for data - an user is required to know that the pre-coordinated concept of
+                "Pain in the left arm" speaks to laterality of left, and will also need to know to
+                look for "Left" in the laterality segment.</para>
+            <para><emphasis role="bold">Example 2</emphasis>: Another example is seen in the
+                specimen attribute of the HL7 OBR segment. HL7 OBR segment transmits information
+                about an exam, diagnostic study/observation, or assessment that is specific to an
+                order or result (<link
+                    xlink:href="https://corepointhealth.com/resource-center/hl7-resources/hl7-obr-segment"
+                    >https://corepointhealth.com/resource-center/hl7-resources/hl7-obr-segment</link>).
+                Prior to HL7 version 2.5, sequence 15 of the OBR segment allows one to capture
+                specimen source information. This is a composite field that requires combination of
+                different data fields (<link
+                    xlink:href="http://hl7-definition.caristix.com:9010/HL7%20v2.3.1/segment/OBR?version=HL7%20v2.3.1&amp;dataType=SPS"
+                    >http://hl7-definition.caristix.com:9010/HL7%20v2.3.1/segment/OBR?version=HL7%20v2.3.1&amp;dataType=SPS</link>),
+                which in turn requires use of HL7 codes from tables 0070 and 0163 to capture the
+                specimen source and body site, respectively. This structure is complex and difficult
+                to use and does not allow an user to capture information such as specimen did not
+                originate for the patient. As a result, many users leveraged the z-segments (<link
+                    xlink:href="http://healthstandards.com/blog/2006/10/05/what-are-z-segments/"
+                    >http://healthstandards.com/blog/2006/10/05/what-are-z-segments/</link>), which
+                is a "catch all" to provide additional information. This echoes the issues raised in
+                the previous example where an user will need to know to look for sequence 15 as well
+                as segment 15 AND z-segment to capture all of the variations of specimen source.
+                Moreover, z-segment is a String type which would allow any free text entry, which
+                results in variability. </para>
+            <para>To address this issue, OBR15 has been deprecated and SPM segment was introduced in
+                HL7 version 2.5 (<link
+                    xlink:href="http://hl7-definition.caristix.com:9010/Default.aspx?version=HL7%20v2.5.1&amp;segment=SPM"
+                    >http://hl7-definition.caristix.com:9010/Default.aspx?version=HL7%20v2.5.1&amp;segment=SPM</link>),
+                which describes the characteristics of a specimen. Although more robust, it now
+                require users to have the knowledge to look for specimen source in three different
+                manners. Furthermore, codes that were once used to support sequence 15 are no longer
+                necessary as the model evolve over time.</para>
+        </section>
+    </section>
+    <section>
+        <title>Conclusion </title>
+        <para>It is therefore a goal of SOLOR to work toward a solution by following the principle
+            of separation of concerns. This is accomplished with current development work to create
+            an information model implemented as Clinical Input Form and Analysis Normal Form, and
+            relevant fields from the information model would call on terminology and allow
+            terminology to capture and represent the appropriate information. As the information
+            model or terminology evolve over time, one would not impact the other. Using examples
+            from above, laterality could be modeled as a precoordinated concept within SOLOR or
+            could be represented as a post-coordinated concept - either approach would leverage
+            terminology to handle the expression without requiring the information model to handle
+            the laterality component. In the second example, terminology could be leveraged to
+            express specimen source. Furthermore, a fully defined concept could express additional
+            information regarding the specimen, similar to the attempt of SPM segment. The
+            differentiating factor is that it is isolated in the terminology layer, thus leaving the
+            information model untouched. Lastly, SOLOR's Module of the STAMP coordinates would allow
+            an aggregation of concepts, such as specimens, such that a set of relevant concepts
+            could be utilized by appropriate segment of fields of the information model. </para>
+    </section>
 </chapter>

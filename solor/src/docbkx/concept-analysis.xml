@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Concept Analysis</title>
+    <!--DRAFT, more content to be added next week-->
+    <section>
+        <title>Purpose</title>
+        <para>The creation of RefSets containing SNOMED CT concepts that require special handling supports the maintenance of this content over time without the necessity of re-reviewing the entire content. </para>
+        <para>Concepts may require special handling for a number of reasons:<itemizedlist>
+                <listitem>
+                    <para>Hierarchies may be incorrect and could affect retrieval</para>
+                </listitem>
+            <listitem>
+                <para>Concepts may require retirement or movement to the “Situation” hierarchy</para>
+            </listitem>
+            <listitem>
+                <para>Use of concepts may have to be limited</para>
+            </listitem>
+            </itemizedlist></para>
+        <para>The concepts identified in this task as either meeting inclusion or exclusion criteria
+            belong to the following categories: <itemizedlist>
+                <listitem>
+                    <para>Concept includes negation</para>
+                </listitem>
+                <listitem>
+                    <para>Concept is not related to the subject of record</para>
+                </listitem>
+                <listitem>
+                    <para>Concept is a compound observations concept</para>
+                </listitem>
+                <listitem>
+                    <para>Concept is ambiguous within a RefSet</para>
+                </listitem>
+            </itemizedlist></para>
+        <para>This document outlines the agreed upon rules, the reasoning for applying those rules and provides practical examples of how they are applied. Also, included are the inter-rater reliability metrics for the concepts evaluated and specificity and sensitivity metrics for the keywords used to find relevant concepts. </para>
+    </section>
+    
+    <section>
+        <title>General Approach</title>
+        <para>The initial task was to evaluate 50,000 concepts and determine their potential membership in one or more of the RefSets.</para>
+        <para>For each of the RefSets for inclusion, word patterns that explicitly or implicitly
+            identify a concept as a member of the RefSet were developed. As a first automated step,
+            queries using string matching of those patterns or keywords were applied to the
+            following SNOMED CT hierarchies:<itemizedlist>
+                <listitem>
+                    <para>Clinical Findings</para>
+                </listitem>
+                <listitem>
+                    <para>Procedures</para>
+                </listitem>
+                <listitem>
+                    <para>Body Structures</para>
+                </listitem>
+            </itemizedlist></para>
+        <para>Based on the keywords, terminologists developed a set of rules for each inclusion/exclusion to be applied to each RefSet. </para>
+        <para>The sets of concepts that resulted from the initial automated query were then assigned to at least two independent reviewers to confirm or deny RefSet membership for each concept based on the rule sets. Disagreements between the reviewers were extracted and analyzed to determine if the rules needed to be adjusted in order to achieve maximum reproducibility. Adjustments included clarifying rules, adding rules or in some cases eliminating ambiguous rules. </para>
+        <para>Certain concepts such as “Dental referral - child (procedure)” or “Fetal distress affecting management of mother (disorder)”, which were identified as ambiguous to an extent, where inclusion or exclusion from RefSet membership could not be determined were extracted and added to a separate RefSet.</para>
+    </section>
+    
+    <section>
+        <title>Concepts Including Negation</title>
+        <para>“Negation” vs. “Affirmation” are two polar opposite paradigms within the SNOMED CT Concept Model. Where “Affirmation” represents a statement that e.g. a finding or a disorder is present, negation states their absence.</para>
+        <para><emphasis role="bold"><emphasis role="underline">Example:</emphasis></emphasis></para>
+        <para>65124004 |Swelling (finding)| vs. 300890009 |Swelling absent (situation)|</para>
+        <para>“Negation” concepts are generally located in the “situation with explicit context” hierarchy, where the Context terminological model is consistently applied. Concepts including or implying negation, which are located outside this hierarchy pose challenges for the logical semantic hierarchies they reside in.  For the purpose of this project we focused only on identifying concepts that are currently not located within the “situation with explicit context” hierarchy.  Some of these identified concepts may need to be relocated to the situation hierarchy as a result of this project.</para>
+        <para>Currently the logical hierarchy for negation concepts remains “upside-down”.</para>
+        <para><emphasis role="bold"><emphasis role="underline">Example:</emphasis></emphasis></para>
+        <para>162298006 |No headache (situation)| is a subtype of 81765008 |No pain (situation)|,
+            but “no headache” does not mean, the patient has no pain.'</para>
+        
+        <section>
+            
+            <title>Rule Set Considerations</title>
+            <para>
+                Besides clearly stated negation in the SNOMED CT (SCT) Fully Specified Names (FSN), implied negation had to be considered in a number of contexts. 
+            </para>
+            <para><emphasis role="bold"><emphasis role="underline">Example:</emphasis></emphasis>
+                Symptom not changed (finding) vs. Late syphilis with clinical manifestations other
+                than neurosyphilis (disorder) </para>
+            <para>The first concept clearly states the negation (“NOT changed”), the words “other than” in the second concept implies it.
+            </para>
+        </section>
+        
+        <section>
+            <title>Rules Defined For Inclusion in “Negation” RefSet</title>
+            <itemizedlist>
+                    <listitem>
+                        <para> FSN states that something about the Subject of Record is “absent”. </para>
+                        <para><emphasis>Example: Ankle movement absent in “No ankle movement
+                                (finding)” </emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para> FSN states that something about a procedure is “absent” (Assumption:
+                            Procedures are documented, when they are carried out on a Subject of
+                            Record). </para>
+                        <para><emphasis>Example: Use of contrast media absent in “Magnetic resonance
+                                imaging without contrast (procedure)” </emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para> FSN negates everything “other” than what it describes. </para>
+                        <para><emphasis>Example: Perception of anything other than light in
+                                “Perceives light only (finding)” </emphasis></para>
+                    </listitem>
+            </itemizedlist>
+        </section>
+        
+        <section>
+            <title>Queries to Identify Candidate Concepts for Negation RefSet</title>
+            <para>Identify content that would need to be evaluated for negated concepts: <itemizedlist>
+                    <listitem>
+                        <para>All Situations with a Finding Context = Known Absent </para>
+                    </listitem>
+                    <listitem>
+                        <para>All Situations with a Procedure Context assigned</para>
+                    </listitem>
+                    <listitem>
+                        <para>Any concept in Clinical Findings, Procedures, Situation with Explicit
+                            Context*, and Body Structures hierarchies with strings matching: </para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>lower(term) like '% no %' </para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like 'no %' </para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like '% not %' </para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like 'not %' </para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like '%unilateral%' </para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like '%none %'</para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like '%without%'</para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like '% only %' </para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like '%unable%' </para>
+                            </listitem>
+                            <listitem>
+                                <para>or lower(term) like '%inability%' </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist></para>
+            <para>The query results were reviewed and either accepted or denied
+                based on the development of a set of rules as described above.
+            </para>
+        </section>
+        
+        <section>
+            <title>Examples for Inclusion/Exclusion in Negation RefSet</title>
+            <!--Table / pictures will be added. The table will include examples for inclusion/exclusion of negation refets, specifically Keywords: NO, NOT, WITHOUT, NONE or NON-X, ONLY, UNABLE, INABILITY, and REJECTED -->
+        </section>
+        
+    </section>
+    
+    
+    <section>
+        <title>Concepts Where Patient Is Not Subject of Record</title>
+        <para>The default context of SNOMED CT concepts as stated in the SNOMED CT Editorial Guide means that, unless stated otherwise within the description or the definition of the concept, clinical findings are occurring to the subject of record (the patient) and procedures are performed on the subject of record (the patient). </para>
+        <para>The only exceptions are concepts whose description actually contains a specific context (e.g. father smokes), and these are all grouped in the “situation with explicit context” hierarchy. Concepts, where the patient is not the subject of record outside this hierarchy do not adhere to the guidelines.  For the purposes of this project we are not focusing on the concepts within the “situation with explicit context” hierarchy as they have their context already identified using the context attributes.</para>
+    </section>
+    
+    <section>
+        <title>Concepts Including Compound Observation</title>
+        <para>XXX</para>
+    </section>
+   
+    <section>
+        <title>Reliability of Rule Sets</title>
+        <para>In order to determine reliability of the identified keywords and rule sets for each RefSet, metrics of agreement/disagreement for the initial review were used.</para>
+        <para>After the first two Terminologists reviewed the 50,000 SNOMED CT concepts individually, applying the initial set of rules for each RefSet. After this first review, disagreements between the two Terminologists were extracted from the concept files and re-assigned for discussion and reconciliation. </para>
+    </section>
+    
+    <section>
+        <title>Final Set of Keywords and Rules</title>
+        <para>Based on the metrics and findings above, the set of keywords for <emphasis role="bold"
+                >automatic queries</emphasis> remained unchanged for all RefSets. The rules for
+            manual reviews was adjusted. This final set represents the criteria with the highest
+            reproducibility.</para>
+    </section>
+    
+    <section>
+        <title>Sensitivity and Specificity</title>
+        <para>Using the defined set of keywords the sensitivity and specificity of the initial
+            automated queries was tested against the final RefSets. By running the queries against
+            the original 50,000 concepts the following metrics were applied to the results: <itemizedlist>
+                <listitem>
+                    <para>Percentage of concepts from the final RefSets returned by the query
+                        (Sensitivity)</para>
+                </listitem>
+                <listitem>
+                    <para>Percentage of concepts returned by the query that were false
+                        positives/false negatives (Specificity)</para>
+                </listitem>
+            </itemizedlist></para>
+    </section>
+    
+    <section>
+        <title>Conclusion</title>
+        <para>For all three categories of RefSets, the set of keywords for automated queries returned results with a high rate of Specificity. The Sensitivity for the “Compound Observation” RefSet was also high. However, the Sensitivity of the queries for “Negation” and “Patient not Subject of Information” was lower. Identifying additional keywords may be useful to elevate the Sensitivity in those categories.</para>
+        <para>The reproducibility of the rules stated and applied during the two manual review cycles was perceived positive. </para>
+        <para>Overall, this approach to identify SNOMED CT concepts that require special handling shows that automated queries can be very useful as a first “screening” step, but manual review and reconciliation still has to be performed to arrive at evaluated RefSets that adhere to reliable inclusion/exclusion criteria.</para>
+    </section>
+</chapter>

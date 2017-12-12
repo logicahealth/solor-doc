@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Disjoint Content</title>
+    <!--Template for now, will add more content next week-->
+    <section>
+        <title>Introduction</title>
+        <para>Concrete domains can be used in SNOMED CT to represent and reason over values like integers in Description Logic. Our initial work focused on medications and evaluating the use of concrete domains to represent not only the product strength, but also the unit of use size. To fully test the feasibility of concrete domains, additional attributes were also added, in order to fully represent all information regarding medications, which will then allow concepts to be fully defined. Thus, this will enable testing the equivalence and subsumption of concepts by the Description Logic classifiers within the tooling.</para>
+        <para>At the beginning of the project there was no ability to represent numeric attributes of concepts in SNOMED CT, which made machine readability of numeric attributes difficult, prone to error, and left a large portion of Products as primitive concepts.  Without the ability to fully represent the numeric properties, equivalence checking and subsumption using the Description Logic classifier is not possible. With the introduction of the new Drug Concept Model in the July 2017 International Release the representation of product strength and units will begin to be modelled over the next few releases.  However, this new Drug Concept Model does not utilize concrete domains but instead creates the strength numbers as concepts themselves to be used as values for the product strength attributes.  </para>
+    </section>
+    
+    <section>
+        <title>XXX</title>
+        <para>By using a lexical search for string containing integers and textual representation of integers, 10,114 potential Pharmaceutical / Biologic Product concepts were identified, which were modeled with the proposed attributes including one attribute to represent product strength. To properly represent the numeric information contained in these products, the Australian Medicines Terminology Approach that applied to its Australian extension content and not to the International SNOMED CT content was utilized.</para>
+    </section>
+    
+    <section>
+        <title>XX</title>
+        <para>XXX</para>
+        <para>XXX</para>
+    </section>
+    
+    <section>
+        <title>XXX</title>
+        <para>XXX</para>
+        <para>XXX</para>
+        <para>XXX</para>
+        
+    </section>
+    
+    
+</chapter>

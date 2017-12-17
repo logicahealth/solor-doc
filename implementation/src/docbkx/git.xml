@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Source code managment</title>
+    <para xml:id="para_665fcbf1-d9ad-477a-9e6a-f8cef9e1d627">GitFlow</para>
+    <para xml:id="para_3d7c0117-a734-4ae1-9168-f8076866794b">JGitFlow</para>
+    <section>
+        <title>GitFlow release</title>
+        <programlisting>$ mvn jgitflow:release-start</programlisting>
+    </section>
+    <section xml:id="section_3f59144a-8166-4d12-b1d1-5065148ef5ac">
+        <title>Project refactoring</title>
+        <para xml:id="para_4ae4d938-389d-4710-8ddb-781a5cd99d19">ISAAC &amp; KOMET software packages
+            are moving from organizational namespaces to project namespaces, so that organizational
+            transitions will not require an additional refactoring step in the future. Two
+            namespaces have been acquired for the refactoring: sh.isaac and sh.komet. The sh prefix
+            can be thought of an acronym for <emphasis>semiotic history</emphasis>, since a
+            foundational goal of ISAAC and KOMET is to enable evolutionary development of semiotic
+            artifacts, in a way that supports version control and comprehensive audit trails with
+            respect to these artifacts. Other useful interpretations of sh such as <emphasis>short
+                handle</emphasis>, <emphasis>super hero</emphasis>, and <emphasis>Sherlock
+                Holmes</emphasis> are possible, in addition to sh being the Internet country code
+            top-level domain for <emphasis>Saint Helena</emphasis>. Saint Helena is one of the most
+            remote islands in the world. In 1815, Napoleon was imprisoned on Saint Helena in exile
+            by the British. He died there in 1821. </para>
+        <para xml:id="para_6cba5033-69f9-4223-b26a-394cb61b423e">Packages and artifacts prefixed
+            with sh.isaac are used for </para>
+        <para xml:id="para_5a029100-72fc-4a31-93ee-76de42624b29">Existing packages will be renamed
+            according to the following table:<table frame="topbot"
+                xml:id="table_1fa1a63d-e27e-41ec-93c0-e8e3f1d3f63a">
+                <title>Package refactor table</title>
+                <tgroup cols="2">
+                    <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+                    <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+                    <thead>
+                        <row>
+                            <entry>Old Package Prefix</entry>
+                            <entry>New Package Prefix</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>gov.va.oia.terminology</entry>
+                            <entry>sh.isaac</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.va.isaac</entry>
+                            <entry>sh.isaac</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac</entry>
+                            <entry>sh.isaac</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>sh.isaac.ochre</entry>
+                            <entry>sh.isaac</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.commit.manager</entry>
+                            <entry>sh.isaac.provider.commit</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.concept.provider</entry>
+                            <entry>sh.isaac.provider.concept</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.coordinate.provider</entry>
+                            <entry>sh.isaac.provider.coodinate</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.ibdf.provider</entry>
+                            <entry>sh.isaac.provider.ibdf</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.identifier</entry>
+                            <entry>sh.isaac.provider.identifier</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.logic.provider</entry>
+                            <entry>sh.isaac.provider.logic</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.logic.csiro</entry>
+                            <entry>sh.isaac.provider.logic.csiro</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.metacontent</entry>
+                            <entry>sh.isaac.provider.metacontent</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.observable.provider</entry>
+                            <entry>sh.isaac.provider.observable</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.path.provider</entry>
+                            <entry>sh.isaac.provider.path</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.progress.provider</entry>
+                            <entry>sh.isaac.provider.progress</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.va.isaac.ochre.search</entry>
+                            <entry>sh.isaac.provider.query.search</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.query.provider</entry>
+                            <entry>sh.isaac.provider.query</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.sememe.provider</entry>
+                            <entry>sh.isaac.provider.sememe</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.stamp.provider</entry>
+                            <entry>sh.isaac.provider.stamp</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.va.isaac.sync.git</entry>
+                            <entry>sh.isaac.provider.sync.git</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.taxonomy</entry>
+                            <entry>sh.isaac.provider.taxonomy</entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre.workflow.provider</entry>
+                            <entry>sh.isaac.provider.workflow</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table></para>
+        <para xml:id="para_d74a3e9a-a849-429c-be08-2f5a9fc2bc93">Maven artifact identifers shoud
+            match the enclosing directory that contains the source code of the artifact. As part of
+            the refactoring effort, Maven artifact coordinates, and the corresponding directory
+            names will be renamed according to the following table: </para>
+        <para xml:id="para_30304cea-f5a3-4be3-90b5-fadd10eff66f">
+            <table frame="topbot" xml:id="table_721939e3-5d4d-4704-875b-1da0607082ef" rowsep="0"
+                colsep="0">
+                <title>Artifact coordinate refactor table</title>
+                <tgroup cols="4" align="left">
+                    <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+                    <colspec colname="c2" colnum="2" colwidth="1.0*" colsep="1"/>
+                    <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+                    <colspec colname="c4" colnum="4" colwidth="1.0*"/>
+                    <thead>
+                        <row rowsep="1">
+                            <entry>Old Group Identifier</entry>
+                            <entry>Old Artifact Identifier</entry>
+                            <entry>New Group Identifier</entry>
+                            <entry>New Artifact Identifier</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>gov.vha.isaac.ochre</entry>
+                            <entry>isaac-parent</entry>
+                            <entry>sh.isaac</entry>
+                            <entry>isaac</entry>
+                        </row>
+                        <row>
+                            <entry>gov.vha.isaac.ochre.modules</entry>
+                            <entry>commit-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>commit</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>concept-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>concept</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>coordinate-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>coordinate</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>db-builder</entry>
+                            <entry>sh.isaac.integration</entry>
+                            <entry>db-builder</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>db-config-builder</entry>
+                            <entry>sh.isaac.integration</entry>
+                            <entry>db-config-builder</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>ibdf-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>ibdf</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>identifier-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>identifier</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>import-utils</entry>
+                            <entry>sh.isaac.integration</entry>
+                            <entry>import-utils</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>integration-tests</entry>
+                            <entry>sh.isaac.integration</entry>
+                            <entry>integration-tests</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>logic-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>logic</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>metacontent-store</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>metacontent</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>metadata</entry>
+                            <entry>sh.isaac.core</entry>
+                            <entry>metadata</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>metadata-source</entry>
+                            <entry>sh.isaac.core</entry>
+                            <entry>metadata-source</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>observable-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>observable</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>ochre-api</entry>
+                            <entry>sh.isaac.core</entry>
+                            <entry>api</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>ochre-mapping</entry>
+                            <entry>sh.isaac.core</entry>
+                            <entry>mapping</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>ochre-model</entry>
+                            <entry>sh.isaac.core</entry>
+                            <entry>model</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>ochre-mojo</entry>
+                            <entry>sh.isaac.core</entry>
+                            <entry>mojo</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>ochre-mojo-log-config</entry>
+                            <entry>sh.isaac.core</entry>
+                            <entry>log-config</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>path-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>path</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>progress-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>progress</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>query-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>query</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>sememe-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>sememe</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>stamp-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>stamp</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>sync-git</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>sync-git</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>taxonomy-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>taxonomy</entry>
+                        </row>
+                        <row>
+                            <entry/>
+                            <entry>workflow-provider</entry>
+                            <entry>sh.isaac.provider</entry>
+                            <entry>workflow</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </para>
+        <section xml:id="section_3672fa1b-2dc3-46fb-a00a-c6d02a9c69f5">
+            <title>Automation-enforced conventions</title>
+            <para xml:id="para_93d6f393-ce86-4149-a758-2945c1760d5a">The ISAAC and KOMET projects
+                aspire to have well-documented, structured, and readable source code to speeds up
+                bug hunting and feature enhancements development. Predecessor projects suffered from
+                lack of automation of coding conventions, resulting in wide variations of coding
+                styles, as well as difficulty improving the quality of the source code without
+                creating difficulty analyzing differences from one version to another. Going
+                forward, these projects will have automated transformation of source code to ensure
+                that the source code is well structured and readable. The automated transformation
+                of source files will include: </para>
+            <para xml:id="para_a23555f9-8c82-4c49-b462-fdb134d8cca9">
+                <orderedlist>
+                    <listitem xml:id="listitem_56953014-9a6b-41a0-934f-4369b3e59558">
+                        <para xml:id="para_dc0607f4-7708-4918-ac54-be93a5583e0a">Algorthmic
+                            tree-like sorting of all source code elements. By having all source
+                            files adhere to an automated sort order of classes, fields, variables,
+                            and other elements, we make it easier for developers to consistenty find
+                            what they are looking for, and to also minimize identification of
+                            non-semantic differences which would otherwise be caused by simple
+                            rearrangment of source content. </para>
+                    </listitem>
+                    <listitem xml:id="listitem_24fb7742-9747-417a-863b-f8c111c8937a">
+                        <para xml:id="para_be9f3cb2-049f-480e-b334-6582e815c44f">Use of 'this.'
+                            qualifier for all field accesses. Use of the 'this.' qualifier
+                            eliminates the need for other conventions such as an underscore prefix
+                            or suffix for field names such as _fieldName or fieldName_. These
+                            underscore conventions have been used inconsistently within the source
+                            in the past, and brings the code into consistency with most standard
+                            java coding conventions. The recommended style for handling method
+                            parameters that have the same name as fields is to use the 'this.'
+                            qualifier with paramaters of the same name, as in this example: </para>
+                        <programlisting xml:id="programlisting_86ee68a6-e165-4089-9f76-8fc471c01370">public void setFoo(String foo) {
+    this.foo = foo;
+}</programlisting>
+                        <para xml:id="para_53e42911-7223-4665-97d3-12cb48b5ebd3">In addition, use of
+                            'this.' qualifiers with 'that.' parameter names for equals, clone, and
+                            similar types of methods can lead to improved readibility of the code: </para>
+                        <programlisting xml:id="programlisting_dc2a8b67-1699-4a1f-b7bc-960772463268">public boolean isSame(MyClass that) {
+    return this.uuid().equals(that.uuid());
+}</programlisting>
+                    </listitem>
+                    <listitem xml:id="listitem_3af5f620-2862-4991-b658-4ccfc25bd045">
+                        <para xml:id="para_6a9c3fb8-5ba5-4c3c-a154-51a8fba8e982">Elimination of
+                            inconsistent conventsions such as use of an underscore prefix or suffix
+                            for field names such as _fieldName or fieldName_</para>
+                    </listitem>
+                    <listitem xml:id="listitem_8ff7529f-eb67-48a3-b033-bb76c8fabc01">
+                        <para xml:id="para_58f6b773-5bd5-4e23-9ed8-bb05dff0736e">Template-driven
+                            JavaDoc insertion and completion to facitate consistency and ease of
+                            entry for JavaDoc comments. </para>
+                    </listitem>
+                    <listitem xml:id="listitem_6204a1c3-3914-4708-9046-114ce929361f">
+                        <para xml:id="para_89ee9102-557d-4d41-868a-65e1984084c8">Automated
+                            insertion, removal, indentation, and alignment of parantheses, braces,
+                            white space, declerations, assignments, and comments.</para>
+                    </listitem>
+                    <listitem xml:id="listitem_cd322216-4c8b-4f8c-8d88-19c4af9deed3">
+                        <para xml:id="para_4ba1b30f-aebd-424d-8692-385f9075851c">Add missing
+                            @override and @deprecation annotations.</para>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </section>
+        <section xml:id="section_6ca431fd-0d4d-4a4e-93d1-31f86411773a">
+            <title>Source code transformation</title>
+            <para xml:id="para_93046e32-91a6-4332-8107-85b7c760363d">Unfortunately, we are not aware
+                of any single, headless tool that can perform the automated transformation we
+                describe above. Here we describe the steps in the refactoring and maintenance
+                process of ISAAC and KOMET sources. </para>
+            <task xml:id="task_6b568224-a5cc-4a9b-9488-17307c5fb723">
+                <title>Fix order-sensitive elements </title>
+                <tasksummary xml:id="tasksummary_17641565-b0c3-4bdf-8df4-8085ae8114ca">
+                    <title>Summary</title>
+                    <para xml:id="para_1703b871-fabb-42c1-9d87-8a9ec94fbc01">Identify any order
+                        sensitive references that may become illegal forward references when
+                        transformed. </para>
+                </tasksummary>
+                <taskprerequisites xml:id="taskprerequisites_76b224ce-a6b6-4165-94e6-2db6f0220760">
+                    <title>Prerequisites</title>
+                    <para xml:id="para_f307f722-2a07-43a9-be55-6422c7d0f82e">
+                        <itemizedlist>
+                            <listitem xml:id="listitem_ca2e761e-1361-49f0-8b42-b17cfac82a1a">
+                                <para xml:id="para_ec2a82c4-38a7-4c91-a65b-d189e11954fc">Ability to
+                                    checkout a project from git</para>
+                            </listitem>
+                            <listitem xml:id="listitem_85fa6eaa-678b-4811-928e-68cf80a55cc2">
+                                <para xml:id="para_6549e513-8c18-49f0-9078-7c6e4940d450">Ability to
+                                    execute maven builds on project</para>
+                            </listitem>
+                            <listitem xml:id="listitem_bb9aeafe-d8d3-4882-b835-a3b9142b2848">
+                                <para xml:id="para_70879e01-0781-4ea9-b57e-06f4c89d0629">A licensed
+                                    Jindent install on the computer where the transformation will be
+                                    performed</para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </taskprerequisites>
+                <procedure xml:id="procedure_01b5a896-aabf-4b8c-82fa-a67a4d44ab3a">
+                    <step xml:id="step_e1f8632f-c571-40d6-9085-252b6651059e">
+                        <para xml:id="para_d203b2d1-c657-4c66-9f9b-7b1cc9529c43">Checkout the source
+                            of the project to be refactored.</para>
+                        <programlisting>$ mkdir origva
+$ cd origva/
+$ git clone https://[insert url here]/git/r/ISAAC.git
+$ cd ISAAC/</programlisting>
+                    </step>
+                    <step xml:id="step_b295951b-5b74-46a0-928a-b51212d55ba9">
+                        <para xml:id="para_cdf9c86e-069c-4dda-96ea-77aa9ad35dff">Compile the
+                            project, and verify there are no compiler errors. If compiler errors are
+                            identified, work to resolve those problems with the original sources of
+                            the project, and restart at Step 1. </para>
+                        <programlisting>$ mvn clean install
+[INFO] Scanning for projects...
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 46.207 s
+[INFO] Finished at: 2017-03-12T08:57:18-07:00
+[INFO] Final Memory: 414M/1626M
+[INFO] ------------------------------------------------------------------------
+$                                </programlisting>
+
+                    </step>
+                    <step>
+                        <para>Open project in NetBeans 8.2, and optimize imports. Note that
+                            optimization was attempted with Eclipse Neon.2 Release (4.6.2), and the
+                            optimization inappropriately removed imports for annotations, and thus
+                            the Eclipe optimize import routines cannot be used. </para>
+                    </step>
+                    <step xml:id="step_5984e6b0-66c3-4282-84ce-2be414d40e17">
+                        <para xml:id="para_a15c2e15-3af5-40c0-857e-70350a6595a4">Apply the
+                            algorthmic sorting of all source code elements. In our case, we will use
+                            Jindent for this purpose. </para>
+                        <substeps>
+                            <step>
+                                <para>Add a profile for Jindent formatting to the top-level project
+                                    pom</para>
+                                <programlisting>&lt;profile>
+    &lt;id>refactor-transform&lt;/id>
+    &lt;activation>
+        &lt;activeByDefault>false&lt;/activeByDefault>
+    &lt;/activation>
+    &lt;dependencies>
+        &lt;dependency>
+            &lt;groupId>one.isaac.jindent&lt;/groupId>
+            &lt;artifactId>isaac-conventions&lt;/artifactId>
+            &lt;version>1.0&lt;/version>
+            &lt;type>zip&lt;/type>
+        &lt;/dependency>
+    &lt;/dependencies>
+    &lt;build>
+        &lt;plugins>
+            &lt;plugin>
+                &lt;groupId>org.apache.maven.plugins&lt;/groupId>
+                &lt;artifactId>maven-dependency-plugin&lt;/artifactId>
+                &lt;version>3.0.0&lt;/version>
+                &lt;executions>
+                    &lt;execution>
+                        &lt;id>extract-conventions&lt;/id>
+                        &lt;phase>generate-sources&lt;/phase>
+                        &lt;goals>
+                            &lt;goal>unpack&lt;/goal>
+                        &lt;/goals>
+                        &lt;configuration>
+                            &lt;artifactItems>
+                                &lt;artifact>
+                                    &lt;groupId>one.isaac.jindent&lt;/groupId>
+                                    &lt;artifactId>isaac-conventions&lt;/artifactId>
+                                    &lt;type>zip&lt;/type>
+                                &lt;/artifact>
+                            &lt;/artifactItems>
+                            &lt;outputDirectory>${project.build.directory}/jindent&lt;/outputDirectory>
+                        &lt;/configuration>
+                    &lt;/execution>
+                &lt;/executions>
+            &lt;/plugin>
+            &lt;plugin>
+                &lt;groupId>komet.one&lt;/groupId>
+                &lt;artifactId>repackage-mojo&lt;/artifactId>
+                &lt;version>1.0-SNAPSHOT&lt;/version>
+                &lt;dependencies>
+                    &lt;dependency>
+                        &lt;groupId>one.solor&lt;/groupId>
+                        &lt;artifactId>jindent&lt;/artifactId>
+                        &lt;version>1.0&lt;/version>
+                        &lt;scope>system&lt;/scope>
+                        &lt;systemPath>/Applications/Jindent/lib/Jindent.jar&lt;/systemPath>
+                    &lt;/dependency>
+                &lt;/dependencies>
+                &lt;executions> 
+                    &lt;execution>
+                        &lt;id>repackage&lt;/id>
+                        &lt;phase>process-sources&lt;/phase>
+                        &lt;goals>
+                            &lt;goal>repackage&lt;/goal>                    
+                        &lt;/goals>
+                        &lt;configuration>
+                            &lt;inputDirectory>${project.basedir}&lt;/inputDirectory>
+                        &lt;/configuration>
+                    &lt;/execution>
+                &lt;/executions>
+            &lt;/plugin>
+        &lt;/plugins>
+    &lt;/build>
+&lt;/profile></programlisting>
+                            </step>
+                            <step>
+                                <title>Transform sources</title>
+                                <programlisting>$mvn -e --non-recursive -Prefactor-transform clean install     </programlisting>
+                            </step>
+                        </substeps>
+
+                    </step>
+                    <step xml:id="step_336d7a96-4714-43fb-a8d1-c3beba348c47">
+                        <para xml:id="para_46091e41-1a3d-4571-9dae-05cec1601d94">Compile the
+                            transformed project, and identify any compiler errors. These errors are
+                            a result of the sorting of field declerations within the classes. </para>
+                        <programlisting>$cd target/output/
+$mvn clean install
+...
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.3:compile (default-compile) \
+        on project import-utils: Compilation failure
+[ERROR] import-utils/src/main/java/sh/isaac/converters/sharedUtils/ComponentReference.java:[36,64] \
+        illegal forward reference
+...
+$                        </programlisting>
+                    </step>
+
+                    <step xml:id="step_71047b8a-bce3-4190-b217-f5cc9706b6fc">
+                        <title>Fix compile errors</title>
+                        <para xml:id="para_0071cab3-441c-4382-8d54-ada39c8738ab"> Identify the
+                            untransformed original source file responsible for failing to compile
+                            after transformation. Fix the issue that resulted in the compile error.
+                            In this case, the forward references was caused by implicit order
+                            dependent initialization of fields, prior to the constructor being
+                            called. Modify the initialization to take place in the constructor for
+                            the class, where order will be preserved. </para>
+                    </step>
+                    <step xml:id="step_fd558529-a3a7-4fd2-8864-21be79d0d3fe">
+                        <para xml:id="para_03f25b25-c93f-4c96-93e6-3c70e2d08179">Change back to the
+                            original directory, and repeat the transformation. </para>
+                        <programlisting>$ cd ../..
+$ mvn -e --non-recursive -Prefactor-transform clean install</programlisting>
+                        <para>Repeat Steps 4-6 until all compile errors are resolved. </para>
+                    </step>
+                    <step xml:id="step_128b578e-19fa-404f-bed6-70e04033d844">
+                        <para xml:id="para_b3fa0108-eefc-4e49-ab8f-74efae252b5a">Create a refactor
+                            branch, and commit pom changes, and source changes to to this branch.
+                            For subsequent integration of ongoing work from the unrefactored
+                            sources, changes will be merged against the refactor branch.</para>
+                        <programlisting>git checkout -b refactor
+git commit -m "package refactoring"                               </programlisting>
+                    </step>
+                    <step>
+                        <para xml:id="para_22477e74-8047-4f95-83d2-a2710b9e536d">Eclipse Mars;
+                            Install JAutoDoc, m2e; configure AutoDoc, cleanup. </para>
+                        <para xml:id="para_6b242e85-f98e-42d1-b384-40f78ef1f548">Set to external
+                            maven. </para>
+                        <para xml:id="para_e4042936-8bfb-42eb-bae3-3491b1fb8a1b">Turn off build
+                            automatic. </para>
+                        <para>Open Eclipe. Select the menu item: File -> Import->existing
+                            project</para>
+                        <para xml:id="para_53202331-d436-43b0-8b71-0730b3e7e520">Use JAutoDoc to add
+                            comments to each project</para>
+                        <para xml:id="para_3379a8a2-6918-4e6f-b389-86c2673af5c9">Cleanup to add
+                            this. to all variables... </para>
+                        <para xml:id="para_d499e7fa-1e56-4ce8-8077-39ae0cd3562a">Class Artifact is
+                            an example of variables with </para>
+                        <para xml:id="para_43d7bec8-c76c-46e9-a5ea-db19af189125">After verifying
+                            that the Cleanup and JAutoDoc settings are proper, run the generation of
+                            the refactor project. </para>
+                        <para xml:id="para_05e8c110-53e9-432d-b213-cde9bc07aff7"/>
+                    </step>
+                    <step>
+                        <para>Create a new git repository from the refactored project in the target
+                            directory of the original project.</para>
+                        <programlisting>cd existing-project
+git init
+git add --all
+git commit -m "Initial Commit"
+git remote add origin http://kec@stash.informatics.com/scm/shisaac/isaac-sh.git
+git push -u origin master</programlisting>
+                    </step>
+                    <step>
+                        <para>Open project in eclipse. Configure code cleanup to insert this. for
+                            all references to fields. Run code cleanup. Commit changes to repository
+                            so we have stepwise history, and easy ability to rollback.</para>
+                        <programlisting>git commit -m "after code cleanup"</programlisting>
+                    </step>
+                    <step>
+                        <para>In eclipse, run JAutoDoc. Commit changes to repository so we have
+                            stepwise history, and easy ability to rollback.</para>
+                        <programlisting>git commit -m "after JAutoDoc"</programlisting>
+                    </step>
+                    <step>
+                        <para>Open in NetBeans. Batch format with JIndent to make JAutoDoc changes
+                            consistent. Commit changes to repository so we have stepwise history,
+                            and easy ability to rollback.</para>
+                        <programlisting>git commit -m "after JIndent format"</programlisting>
+                    </step>
+                    <step>
+                        <para>In NetBeans. Search for fields that match "_;", "_ ", " _", and then
+                            selectively refactor to remove prefix and suffix underscores from field
+                            names. Commit changes to repository so we have stepwise history, and
+                            easy ability to rollback.</para>
+                        <programlisting>git commit -m "remove field underscore prefix and suffix to have consistent naming policy."</programlisting>
+                    </step>
+                    <step>
+                        <para>In NetBeans, search for fields that match "_;", "_ ", " _", and then
+                            selectively refactor to remove prefix and suffix underscores from field
+                            names. Commit changes to repository so we have stepwise history, and
+                            easy ability to rollback.</para>
+                        <programlisting>git commit -m "remove field underscore prefix and suffix to have consistent naming policy."</programlisting>
+                    </step>
+                    <step>
+                        <para>In NetBeans, use inspect and transform to use enhanced for loops, String switch statements, and try with resources. Commit changes to repository so we have stepwise history, and
+                            easy ability to rollback.</para>
+                        <programlisting>git commit -m "Move to enhanced for loops, String switch statements, try with resources."</programlisting>
+                    </step>
+                    <step>
+                        <para xml:id="para_f35a8931-340e-4c56-8494-cbcce5df6959">Release the
+                            project. (put altDeploymentRepository in a profile named
+                            release-deploy)</para>
+                        <programlisting xml:id="programlisting_d55c3f86-6f0e-484e-9f26-cc31d05c29ba">$ mvn -P release-deploy jgitflow:release-start jgitflow:release-finish</programlisting>
+                        <para xml:id="para_828f9974-f448-408f-9797-677f712b02e5">If you know the
+                            release and development versions, you can specify them directly, so that
+                            you do not have to interactively enter
+                            them:<programlisting xml:id="programlisting_62935290-1aaa-42d2-8cf7-73a5d7ef45a1">$ mvn -P release-deploy jgitflow:release-start jgitflow:release-finish \
+      -DreleaseVersion=3.08 -DdevelopmentVersion=3.09-SNAPSHOT</programlisting></para>
+                    </step>
+                    <step xml:id="step_c8dec792-0854-4ff5-9394-d1fe7328c662">
+                        <para xml:id="para_5e88e049-f930-4db3-874e-0fc9a8a65078">Push the entire
+                            repository to GitHub... </para>
+                    </step>
+
+                </procedure>
+            </task>
+
+            <para xml:id="para_aaf37011-0980-4a9c-b558-87c29d5cae48"/>
+        </section>
+        <section xml:id="section_0dd75639-6c29-45c7-b64f-1e791ee60342">
+            <title>Jindent</title>
+            <para xml:id="para_5081be7b-cc7f-46c2-82a6-2b41b375525d">JIndent is used to ensure that
+                all Java sourcecode comples with a consistent format, and that content within the
+                file are consistently sorted (method calls are sorted by features including the
+                method name). This formating is applied when sourcecode is checked into the git
+                repository. This formatting and sorting of source code enables diff-tools to analyse
+                differences more efficiently—only revealing real semantic diffs which will be
+                recognized and commited. Changes in formatting, white space, order of methods will
+                be eliminated by the formatting process.</para>
+            <para xml:id="para_8145b0e4-c544-4d3c-ac97-94e36d81dff4">JIndent can be used within many
+                editors, as maven plugins developed by this project, and using the batch tools
+                provided by the developer. </para>
+            <section xml:id="section_58318668-7e13-471e-81a8-4d23ffb4849d">
+                <title>JIndent Maven plugins</title>
+                <para xml:id="para_98445faa-d07a-4285-9239-42a37b2ac813">JIndent provides java
+                    libraries that we have integrated into a maven mojo to process sources in a
+                    batch fashion as part of a maven project. </para>
+                <para xml:id="para_db85dc08-eb20-400c-92a1-747804b3ad34">Deploying JIntent libraries
+                    to an artifact repository. Use a terminal to navigate to the JIndent install lib
+                    directory, and execute the following commands. <variablelist
+                        xml:id="variablelist_73209501-c6d8-4aaa-a3fb-e627434f8788">
+                        <varlistentry xml:id="varlistentry_12f54b3f-9070-492e-8b6a-78cb14dbbcfa">
+                            <term>Jindent.jar</term>
+                            <listitem xml:id="listitem_75bf7849-2af4-4e1e-9302-e9c11f54e856">
+                                <programlisting xml:id="programlisting_95a66f85-4d45-4abf-890b-ee3a1c452e1f">mvn deploy:deploy-file -DgroupId=jindent.java\
+  -DartifactId=jindent \
+  -Dversion=5.0.1 \
+  -Dpackaging=jar \
+  -Dfile=Jindent.jar \
+  -DrepositoryId=central \
+  -Durl=http://artifactory.informatics.com/artifactory/ext-release-local/ </programlisting>
+                                <para xml:id="para_4103e3c8-0b3c-4bb5-b33a-4758f7871544"/>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry xml:id="varlistentry_133c77a8-929d-428a-9454-d9e0bd4f6ed4">
+                            <term>JindentHelp.jar</term>
+                            <listitem xml:id="listitem_15036380-cd05-4a17-93bd-e4ce65bf3c85">
+                                <programlisting xml:id="programlisting_bacf5a9e-7ba3-4323-841e-f33f4cd4ae0a">mvn deploy:deploy-file -DgroupId=jindent.java\
+  -DartifactId=jindent-help \
+  -Dversion=5.0.1 \
+  -Dpackaging=jar \
+  -Dfile=JindentHelp.jar \
+  -DrepositoryId=central \
+  -Durl=http://artifactory.informatics.com/artifactory/ext-release-local/ </programlisting>
+                                <para xml:id="para_7c44e110-ad11-4fbd-b54b-899011727e53"/>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry xml:id="varlistentry_393c76d8-119c-4f9f-987c-50b54300839a">
+                            <term>jhall.jar</term>
+                            <listitem xml:id="listitem_c894e5bb-2aaa-40ff-89ed-175f9fa7cd1e">
+                                <programlisting xml:id="programlisting_9ce47800-c83e-4b88-bad0-0faf834c3290">mvn deploy:deploy-file -DgroupId=jindent.java\
+  -DartifactId=jhall \
+  -Dversion=5.0.1 \
+  -Dpackaging=jar \
+  -Dfile=jhall.jar \
+  -DrepositoryId=central \
+  -Durl=http://artifactory.informatics.com/artifactory/ext-release-local/    </programlisting>
+                                <para xml:id="para_fc38eb91-1932-43a2-a403-02f5605ef490"/>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry xml:id="varlistentry_7962dab6-0927-4343-84df-060efb02c248">
+                            <term>l2fprod-common-all.jar</term>
+                            <listitem xml:id="listitem_947ee520-15d7-4b80-962c-a1c9233b8c0d">
+                                <programlisting xml:id="programlisting_d85c891e-2a68-4fbf-bc9b-1f4845bcf9c6">mvn deploy:deploy-file -DgroupId=jindent.java\
+  -DartifactId=l2fprod-common-all \
+  -Dversion=5.0.1 \
+  -Dpackaging=jar \
+  -Dfile=l2fprod-common-all.jar \
+  -DrepositoryId=central \
+  -Durl=http://artifactory.informatics.com/artifactory/ext-release-local/   </programlisting>
+                                <para xml:id="para_f3cb5f70-4b2f-4848-aa60-38bc4812dd88"/>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist></para>
+                <para xml:id="para_b31def26-1579-446c-bf82-f83cecd69604">Once the libraries are
+                    deployed to an artifact repository, the maven plugins can depend on these
+                    artifacts, by including the following dependency information in the project
+                    pom:</para>
+                <programlisting xml:id="programlisting_9440a196-b2b4-4b08-9583-1feb7154bae5">&lt;dependency&gt;
+    &lt;groupId&gt;jindent.java&lt;/groupId&gt;
+    &lt;artifactId&gt;jindent&lt;/artifactId&gt;
+    &lt;version&gt;5.0.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;jindent.java&lt;/groupId&gt;
+    &lt;artifactId&gt;jindent-help&lt;/artifactId&gt;
+    &lt;version&gt;5.0.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;jindent.java&lt;/groupId&gt;
+    &lt;artifactId&gt;jhall&lt;/artifactId&gt;
+    &lt;version&gt;5.0.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;jindent.java&lt;/groupId&gt;
+    &lt;artifactId&gt;l2fprod-common-all&lt;/artifactId&gt;
+    &lt;version&gt;5.0.1&lt;/version&gt;
+&lt;/dependency&gt;             </programlisting>
+            </section>
+            <section xml:id="section_4d5a0309-a644-4912-8daf-7adae0bbb0b6">
+                <title xml:id="title_f8c6eb1d-aae0-46be-85f3-a64c1cb07e22">JIndent
+                    settings.xml</title>
+                <para xml:id="para_f15ccd8a-e081-42bb-a761-33d5b3470e33"/>
+                <para xml:id="para_6c21dd95-abd8-4524-a5f8-f8f1f7bea5e9">JIndent requires a
+                    jindent-settings.xjs file to define formatting options, and this file is
+                    necessary to execute. We use a standard jindent-settings.xjs file (it is an xml
+                    file) to standardize options across users. This settings file is deployed as a
+                    standard maven artifact. First, zip the settings file, such as:
+                    isaac-java-conventions.xjs.zip. Navigate to the folder in which the zipped file
+                    is located, and then execute the following command:
+                    <programlisting xml:id="programlisting_ca8ced80-70b4-4ee6-9d7a-c1fde5cd30fb">mvn deploy:deploy-file -DgroupId=one.isaac.jindent\
+  -DartifactId=isaac-conventions \
+  -Dversion=1.0 \
+  -Dpackaging=zip \
+  -Dfile=isaac-java-conventions.xjs.zip \
+  -DrepositoryId=central \
+  -Durl=http://artifactory.informatics.com/artifactory/libs-release-local/</programlisting></para>
+                <para xml:id="para_3e38afe7-c921-4ed9-9a58-9822a36ae349">Once the artifact is
+                    available, it can be made available to projects that require it. First add the
+                    artifact as a dependency to the project: </para>
+                <programlisting xml:id="programlisting_be3b450a-9222-4a73-b0e2-3d3898b48d5f">&lt;dependencies&gt;
+   &lt;dependency&gt;
+      &lt;groupId&gt;one.isaac.jindent&lt;/groupId&gt;
+      &lt;artifactId&gt;isaac-conventions&lt;/artifactId&gt;
+      &lt;version&gt;1.0&lt;/version&gt;
+      &lt;type&gt;zip&lt;/type&gt;
+   &lt;/dependency&gt;
+&lt;/dependencies&gt;          </programlisting>
+                <para xml:id="para_667a8d4d-c18c-41c0-8511-3467c41f3bb1">Then add the following
+                    plugin specification inside the project so that the file will be extracted into
+                    the default jindent directory:</para>
+                <programlisting xml:id="programlisting_404d6c97-10b1-48ec-9666-e4764bf5213b">&lt;plugin&gt;
+     &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+     &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
+     &lt;version&gt;3.0.0&lt;/version&gt;
+     &lt;executions&gt;
+         &lt;execution&gt;
+             &lt;id&gt;extract-conventions&lt;/id&gt;
+             &lt;phase&gt;generate-sources&lt;/phase&gt;
+             &lt;goals&gt;
+                 &lt;goal&gt;unpack&lt;/goal&gt;
+             &lt;/goals&gt;
+             &lt;configuration&gt;
+                &lt;artifactItems&gt;
+                     &lt;artifact&gt;
+                         &lt;groupId&gt;one.isaac.jindent&lt;/groupId&gt;
+                         &lt;artifactId&gt;isaac-conventions&lt;/artifactId&gt;
+                         &lt;type&gt;zip&lt;/type&gt;
+                     &lt;/artifact&gt;
+                &lt;/artifactItems&gt;
+                &lt;outputDirectory&gt;${project.build.directory}/jindent&lt;/outputDirectory&gt;
+             &lt;/configuration&gt;
+         &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;    </programlisting>
+            </section>
+            <section xml:id="section_26e02c2f-67b2-4a1e-9fbf-81fa75669a58">
+                <title>JIndent license</title>
+                <para xml:id="para_6df3c6b5-0d8a-4cf2-8d5a-1a812976acb2">After the license is
+                    installed on your local computer </para>
+                <para xml:id="para_a28c7533-03ef-42f9-814f-def77517f3eb">Then add the following
+                    plugin specification inside the project so that the file will be extracted into
+                    the default jindent directory:</para>
+                <para/>
+            </section>
+        </section>
+        <section xml:id="section_42c1ba8a-baf1-4147-858d-aba46e1da2be">
+            <title>yFiles for JavaFX</title>
+            <para>yFiles jar file needs to be installed in the developers local repository if yFiles
+                development is planned.</para>
+            <programlisting>
+mvn install:install-file -DgroupId=yfiles \
+  -DartifactId=yfiles-for-javafx \
+  -Dversion=3.0 \
+  -Dpackaging=jar \
+  -DcreateChecksum=true \
+  -DgeneratePom=true \
+  -DupdateReleaseInfo=true \
+  -Dfile=yfiles-for-javafx.jar 
+            </programlisting>
+        </section>
+    </section>
+</chapter>
+

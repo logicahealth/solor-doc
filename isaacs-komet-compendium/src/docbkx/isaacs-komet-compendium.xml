@@ -5,7 +5,7 @@
 ]>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <info>
         <title>ISAAC's Compendium</title>
         <subtitle>Architecture&#160;Centric Knowledge&#160;Management</subtitle>
@@ -85,6 +85,15 @@
                 Philosophy),[1] often referred to as simply the Principia, is a work in three books
                 by Isaac Newton, in Latin, first published 5 July 1687.</para>
         </preface>
+        <chapter>
+            <title>Informatics Self-describing Agile Architecture</title>
+            <para>An architecture is more than a thin veneer on top of a bunch of unstructured
+                database tables. </para>
+            <para>The architecture provides a foundation. We need a principled foundation so we stop
+                building the sykscraper from the third floor up. </para>
+            <para>ISAAC provides a robustly versioned and self-describing architecture for knowledge
+                representation and execution. </para>
+        </chapter>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/principles/principles.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -106,21 +115,11 @@
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>
-        <title>ISAAC</title>
+        <title>The SOLOR System</title>
         <preface>
-            <title>An Informatics Self-describing Agile Architecture</title>
-            <para>An architecture is more than a thin veneer on top of a bunch of unstructured
-                database tables. </para>
-            <para>The architecture provides a foundation. We need a principled foundation so we stop
-                building the sykscraper from the third floor up. </para>
-            <para>ISAAC provides a robustly versioned and self-describing architecture for knowledge
-                representation and execution. </para>
-        </preface>
-    </part>
-    <part>
-        <title>SOLOR</title>
-        <preface>
-            <title>SNOMED, Laboratory Observations, Rx</title>
+            <title>Signs, Laboratory Observations, and Reciperes</title>
+            <subtitle>System of Logical Representation</subtitle>
+            <titleabbrev>SOLOR</titleabbrev>
             <para> According to most sources, Rx is derived from the Latin word “recipe,” meaning
                 “take.” Among several alternative theories, however, is the belief that the Rx
                 symbol evolved from the Eye of Horus, an ancient Egyptian symbol associated with
@@ -148,8 +147,8 @@
         <title>ISAAC's KOMET</title>
         <preface>
             <title>ISAAC's Knowledge Managent Environment</title>
-            <para>KOMET can manage SOLOR and layered knowledge build upon SOLOR&mdash;and SOLOR extensions&mdash;as defined by the
-                ISAAC Architecture. </para>
+            <para>KOMET can manage SOLOR and layered knowledge build upon SOLOR&mdash;and SOLOR
+                extensions&mdash;as defined by the ISAAC Architecture. </para>
         </preface>
     </part>
     <part>
@@ -199,12 +198,17 @@
         <title>DevOps</title>
         <preface>
             <title>Development Operations</title>
-            <para>Development Operations </para>
             <para>The practice that aims at unifying software development (executable and software
                 operation. </para>
         </preface>
         <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/devops.xml"
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/maven.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/git.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/docbook.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/specifications.xml"
@@ -214,6 +218,12 @@
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/tools.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/content.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/collaborating-guideline.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>

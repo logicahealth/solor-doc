@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+  <title>Meta Data</title>
+
+  <para>
+    The final attribute on the Clinical Statement pattern is the ‘meta’ attribution which is a collection of attribution/provenance information regarding the topic/context that is being described by the clinical statement.
+  </para>
+
+           
+  <sect2>
+    <title>Attribution/Provenance Patterns</title>
+
+    <para>
+        In the CIMI model, provenance information is represented by the Attribution class shown in <xref linkend="cimi_msg_attibution_0135"/>. The Attribution class provides a pattern for the capture of provenance information such as the what, who, when, where, why, and how associated with a particular activity – e.g., provenance attributes about the verification of a clinical statement.
+    </para>
+
+        <figure xml:id="cimi_msg_attibution_0135">
+                <title>Attribution Class</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/attribution.jpg" align="center" format="jpg" width="40%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+    <para> 
+        CIMI currently includes two attribution patterns:
+    </para>
+
+    <orderedlist numeration="arabic">
+      <listitem>
+        <para>Attribution information as a part of the clinical statement – In this pattern, the ClinicalStatement pattern contains a number of attributes of type Attribution (e.g., ClinicalStatement.authored and ClinicalStatement.verified). This pattern provides a consistent way to capture attribution information that extends beyond simply the agent of an activity (e.g., the author). When attribution is part of the ClinicalStatement model, any change to the attribution for an activity will result in a version change. </para>
+      </listitem>
+      <listitem>
+        <para>Attribution information external to the clinical statement - CIMI allows the capture of provenance information external to the clinical statement through the Provenance class. The provenance class extends the Attribution class with pointers to one or more clinical statements (the Provenance.target attribute). This pattern allows the modification of provenance information of a clinical statement without impacting its version.</para>
+      </listitem>
+    </orderedlist>
+
+
+ </sect2>
+   
+    
+
+</section>

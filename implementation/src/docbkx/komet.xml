@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>KOMET</title>
+    <para><!--NOTE ABOUT CONTENT: It would be very helpful to have an image that shows the relationship between the ISAAC strategy for the DERIVIATE architecture and the PRISME and KOMET environments--></para>
+    <para xml:id="para_rl2_jtk_dbb">The VA’s Foundational Informatics Architecture – which we call
+        ISAAC – is an integrative logical architecture, which deliberately builds each new layer
+        upon selected, compatible elements of its underlying components to build a coherent system.
+        The Foundational Informatics Architecture builds primarily upon SNOMED CT, RxNorm, and LOINC
+        by integrating their content and semantics, and normalizing the means to identify and
+        version components, lexically search, logically define, semantically retrieve, and
+        collaboratively extend. Support for evolutionary change is a critical feature of the
+        Foundational Informatics Architecture (DERIVIATE), given that support for changes in
+        knowledge over time is a critical aspect of health informatics. </para>
+    <para xml:id="para_tl2_jtk_dbb">The primary goal of the Foundational Informatics Architecture
+        (DERIVIATE) is semantic operability (vs. interoperability). Semantic operability is the
+        meaningful (semantic) use of data within the various components and uses of a single health
+        IT system (vertical integration). Semantic operability is achieved by using a coherent
+        integration of SNOMED CT, RxNorm, and LOINC as the primary building blocks upon which the
+        foundational architecture is based. DERIVIATES's strict separation of concerns enables
+        terminology components, as well as higher order derived structures such as clinical rules,
+        to undergo evolutionary change without requiring changes to the architecture that it resides
+        within. This allows for an agile environment with a stable architecture. </para>
+    <para xml:id="para_ul2_jtk_dbb">The lowest 'pad stone' layer of the DERIVIATE architecture is
+        the integrated suite of standard terminologies including SNOMED CT, RxNorm and LOINC. Two
+        higher layers build upon this terminology 'pad stone'. A Clinical Data layer uses
+        standardized terminology to describe facts about a patient e.g., "John Doe has PNEUMONIA." A
+        Procedural Knowledge layer uses standardized terminology to express biomedical and
+        organizational knowledge, independent of any specific patient. For example,
+        "Hydrochlorothiazide treats Hypertension" or "Myocardial Infarction elevates Troponin T
+        Levels." CDS rules, order sets and documentation templates are also expressed in the
+        "Procedural Knowledge" layer. </para>
+    <para xml:id="para_vl2_jtk_dbb">The VA must have tools to help knowledge workers create and
+        maintain standards-based clinical decision support artifacts at enterprise scal. Tools must
+        be able to produce CDS content that is standards compliant when such standards exist (e.g.
+        HL7 CDS Artifact Specificaiton DSTU 1.3). Tools must also build CDS artifacts that
+        contribute to an ecosystem of semantic operability. This necessarily means means building
+        artifacts using standards-based “pad stone” building blocks of SNOMED CT, RxNorm and LOINC.
+        CDS knowledge engineering content development tools must create artifacts in the layered
+        approach desribed in DERIVIATE (i.e., tools must build more complex standards-based
+        artifacts by reusing less complex standards-based artifacts as components whenever
+        possible). Tools supporting a highly collaborative, integrated and layered knowledge
+        management environment must be carefully designed to be highly reusable within a common
+        framework and use experience. </para>
+    <para xml:id="para_wl2_jtk_dbb">In the following sections we will first describe the common
+        features required of all components in the integrated standards-based knowledge management
+        tool suite and then document tool-specific requirements necessary for each artifact type. </para>
+    <para/>
+    <section>
+        <title>Heuristic principles</title>
+        <para> To develop an optimal user interface (UI) for all of the editors that will be used to
+            create and update clinical decision support artifacts, the Contractor shall execute an
+            agile, User-Centered Design (UCD) and implementation process that addresses the stages
+            shown in the figure below. <!--NOTE ABOUT CONTENT: what image is expected?--> Note that
+            each stage is meant to be iterative and repeated as often as needed for each editor
+            before moving to the next editor. </para>
+        <para> Part of user-centered design includes measuring usability. </para>
+        <para> Measuring usability starts with the five attributes of usability commonly referenced
+            in the literature, shown below. </para>
+        <itemizedlist>
+            <listitem>
+                <para>Easy to learn (and re-learn)</para>
+            </listitem>
+            <listitem>
+                <para>Efficient to use (performance)</para>
+            </listitem>
+            <listitem>
+                <para>Effective to use (completion) </para>
+            </listitem>
+            <listitem>
+                <para>Prevents errors (not cause harm)</para>
+            </listitem>
+            <listitem>
+                <para>Satisfying to use (subjective impression</para>
+            </listitem>
+        </itemizedlist>
+        <para> To accomplish this, the usability testing strategy consists of two main components: </para>
+        <itemizedlist>
+            <listitem>
+                <para> 1) Formative Testing: Evaluating the usability of early designs of the user
+                    interface for the CDS editors and Governance Tool prior to and/or during
+                    software development. </para>
+            </listitem>
+            <listitem>
+                <para> 2) Summative Testing: Measuring and testing system usability of the coded
+                    software that is stable and releasable in a test account with valid test data.
+                </para>
+            </listitem>
+        </itemizedlist>
+        <para>CDS and other knowledge artifacts share many similarities. Certain similarities are
+            manifest in their basic components and structure. All CDS and knowledge artifacts should
+            refer to standard terminologies (i.e., the lower layers of DERIVIATE) for the clinical
+            entities and clinical actions comprising the higher order artifact. For example, a CDS
+            rule that evaluates if a specific medication is being taken by a patient as a condition
+            for execution should refer to RxNorm medications. DERIVIATE layers more complex
+            artifacts on top of the terminology pad stone and on top of each other. In general, more
+            complex layers each specify an artifact-specific syntax to orchestrate terminological
+            and other less complex components into the desired higher level artifact. This means
+            that more complex CDS artifacts may be composed of CDS artifacts of lesser complexity. </para>
+        <para>CDS artifacts of different levels of complexity may be developed by the same knowledge
+            engineers. This has important implications for design and functionality of the user
+            interface. The user interface must be consistent and provide an integrated view of
+            knowledge artifacts at all levels of complexity. CDS artifacts must be searchable in
+            clinically relevant ways, regardless of their final composition. An obvious example is
+            finding artifacts containing identical or similar terminological concepts. Another is
+            that basic editing functions must be consistent, easily learned and similar to typical
+            editing conventions (e.g., copy, paste) </para>
+        <para>Knowledge engineers must collaborate to develop CDS artifacts in several ways. First,
+            knowledge engineers may request review and critique of their work products by others,
+            both informally during the build process and formally prior to release. Some CDS
+            artifacts will be complex due their sheer size or because they are composed of
+            collections of sub-artifacts. For example, a complex artifact for ordering clinical
+            subspecialty consults may contain sub-artifacts of ECA rules, order sets and
+            documentation templates. Knowledge engineers may take responsibility for portions of a
+            complex knowledge artifact, divided by section or by sub-artifact type. Knowledge
+            engineers must be able to request the development of sub-artifacts by other knowledge
+            engineers and to track fulfillment. Tools must be able to support collaboration amongst
+            knowledge engineers. </para>
+        <para>CDS artifacts share common metadata because they are formally dependent on each other
+            (i.e., expression of asset to asset linkages). Artifacts must share common metadata
+            regarding time stamps, editing, versioning and tracking. Other types of metadata are
+            common because of overlapping requirements for linking the assets to the deploying
+            organization, to the literature and to clinical work processes. </para>
+        <para>The fact that there are numerous similarities among CDS and other knowledge artifacts
+            has important implications for the knowledge engineering tools used to create them. In
+            short, CDS knowledge engineering tools share many common features and capabilities that
+            will be described in the sections below. We acknowledge the work done by Zhou and
+            colleagues regarding rule authoring environments requirements and reuse certain of their
+            best practice requirements in this document. </para>
+    </section>
+    <section>
+        <title>Look and feel</title>
+        <para><!--NOTE ABOUT CONTENT: Need content--></para>
+    </section>
+    <section>
+        <title>Document template editor</title>
+        <para>The HL7 Version 3 Standard: CDS Knowledge Artifact Specification, DSTU (Draft Standard
+            for Trial Use) Release 1.3, page 38, presents the following definition of documentation
+            template from the HeD (Health eDecisions) Artifact Sharing Use Case: </para>
+        <para> “… a documentation template is a structured form for recording information on a
+            patient into a set of pre-defined data slots. These templates are used to guide
+            structured data entry within an EHR or other clinical information system.” </para>
+        <para> The types of clinical documents that can be represented using documentation template
+            artifacts include, but are not limited to, patient visit (encounter) summaries,
+            procedure notes, consultation reports, patient-reported outcomes, and flowsheets. </para>
+        <para> A Documentation Template editor should be able to create documentation template
+            artifacts representing a variety of clinical document types for use at both the VA local
+            (facility) and enterprise level. </para>
+        <para> The HL7 Version 3 Standard: CDS Knowledge Artifact Specification, DSTU Release 1.3
+            includes Documentation Templates as a primary artifact type and Figure 4 on page 39 of
+            the specification, provides a conceptual overview diagram of required and optional
+            components. </para>
+        <para>The purpose of the Documentation Template editor tool is to support the creation of
+            standardized Documentation Template knowledge artifacts. The Government requires a
+            model-based Documentation Template editor that will allow the user to create
+            documentation template knowledge artifacts that are based on SME-defined content that
+            can be implemented within the VA's electronic health record (EHR) at the point of care
+            and within the clinical workflow, and that conforms to the specifications in the HL7
+            Version 3 Standard: CDS Knowledge Artifact Specification, DSTU Release 1.3 (or later HL7
+            version or final standard if one is released). </para>
+        <para>The VA requires a Documentation Template Editor that can be used by the VA and non-VA
+            end users to generate Documentation Templates of various types as may be needed in the
+            full spectrum of medical practice. The Documentation Template Editor shall generate
+            documentation templates that ultimately will be used by VA clinicians to manage patient
+            care in a production environment. </para>
+        <para>The Documentation Template Editor shall be able to be used to create any type of
+            documentation template as a structured collection of documentation concepts (also
+            referred to as “form elements” or “observation items”). Per the HL7 Version 3 Standard:
+            CDS Knowledge Artifact Specification, DSTU Release 1.3, “Each documentation concept …
+            also can be thought of as a question to the user entering the data”. Elements within the
+            documentation concept serve a purpose to guide and constrain the user’s responses -- for
+            example, a list from which to choose an answer; whether an answer is a number, a date,
+            or some other type; and the cardinality of the answer. (HL7 Version 3 Standard: CDS
+            Knowledge Artifact Specification, DSTU Release 1.3, pages 38 and 39.) </para>
+        <para>Documentation concepts are contained in an action of type CollectInformationAction,
+            enabling these concepts to be presented to the user conditionally (e.g., to ask
+            questions appropriate to a patient’s gender or to ask questions based on other
+            responses), to compute responses for a concept based on previous responses or data from
+            an EHR score (e.g., a risk score), and to bind the responses into expressions that can
+            drive logic elsewhere in the documentation template (e.g., ask questions conditionally
+            as described above). Thus, resulting documentation templates are capable of branching
+            logic, and the forms created must be able to specify all the actions (such as action of
+            type CollectInformationAction) within the HL7 Version 3 Standard: CDS Knowledge Artifact
+            Specification, DSTU Release 1.3. </para>
+        <para>The documentation concepts in a template typically are organized hierarchically, into
+            sections and sub-sections with the concepts themselves at the very bottom of the
+            structure. In HeD Knowledge Artifact schema, these “sections” are called actionGroups -
+            which in documentation templates may have behavior indicators associated with each
+            actionGroup, e.g., whether a documentation concept must have a response. </para>
+    </section>
+    <section>
+        <title>Event condition action rule editor</title>
+        <para>The HL7 Version 3 Standard: CDS Knowledge Artifact Specification, Release 1.3, page
+            31, presents this definition of an event condition action (ECA) rule from the HeD
+            (Health eDecisions) Artifact Sharing Use Case: </para>
+        <para>… an event condition action rule is an artifact with the general syntax “on event, if
+            condition is true, then do action.” The event triggers the invocation of the rule. The
+            condition is a logical test that, if satisfied or evaluates “true,” causes an action.
+            The action part consists of a set of operations to execute. These actions may in turn
+            cause further events to occur, which may in turn cause other ECA rules to fire…The
+            action groups are the containers and organizers of the actions in an ECA rule. A rule
+            typically has a single action group (top level section), but may have more.
+            Conceptually, a set of actions in a rule could be considered a “mini order set” which is
+            presented to a clinician at certain times and under certain conditions. As such, the
+            actions may be structured hierarchically using action groups and behaviors to specify
+            how the orders should be a shown to a provider, and to place restrictions on how a
+            provider chooses from the available set of orders. It should be noted that this is just
+            a conceptual example, and that not all actions are necessarily orders. For example, an
+            action can be a creation of a new event that triggers another rule, a future encounter,
+            or the creation of a state description of the patient. </para>
+        <para>“Efficient rule authoring tools are critical to allow clinical Knowledge Engineers
+            (KEs), Software Engineers (SEs), and Subject Matter Experts (SMEs) to convert medical
+            knowledge into machine executable clinical decision support rules.” </para>
+        <para>An ECA Rules editor should be able to facilitate the user’s ability to generate both
+            local (i.e., for a single facility), VISN (i.e, for a group of facilities), and
+            enterprise-level ECA rules that are standardized, sharable, interoperable, and
+            extensible. </para>
+        <para>The VA requires a model-based ECA Rules editor that will allow the user to generate
+            ECA Rule knowledge artifacts based on SME-defined content that can be implemented within
+            VA's electronic health record (EHR) at the point of care and within the clinical
+            workflow. The ECA Rules editor shall generate CDS knowledge artifacts with the general
+            syntax "on event, if condition is true, then do action." </para>
+        <para>The VA requires an ECA Rules editor that will be used by government and non-government
+            end users to generate ECA rules applicable to the full spectrum of medical practice,
+            including generation of ECA rules that support the application of clinical practice
+            guidelines and protocols in patient care as well as the dynamic management of these
+            guidelines and protocols. The ECA Rules editor shall generate ECA rules that ultimately
+            will be used by VA clinicians to manage patient care in a production environment. </para>
+        <para>The CDS knowledge artifacts generated by the ECA Rules editor shall conform to
+            specifications defined in the HL7 Version 3 Standard: CDS Knowledge Artifact
+            Specification, Release 1.3 (or later version or final standard if one is released).
+        </para>
+    </section>
+    <section>
+        <title>Condition editor</title>
+        <para><!--NOTE ABOUT CONTENT: Need content--></para>
+    </section>
+    <section>
+        <title>Expression editor</title>
+        <para><!--NOTE ABOUT CONTENT: Need content--></para>
+    </section>
+    <section>
+        <title>Action editor</title>
+        <para><!--NOTE ABOUT CONTENT: Need content--></para>
+    </section>
+    <section>
+        <title>Order set editor</title>
+        <para> Clinical orders are used to initiate the majority of healthcare delivery activities
+            in the US and thus are a major driver of cost, quality and safety. Orders are used in
+            virtually all healthcare settings including (but clearly not limited to) medication
+            prescribing, laboratory tests, imaging, procedures, consultations, encounters and
+            hospital admissions. In the VA, for example, well over 1.2 million orders are entered
+            every day and VistA contains billions of orders in aggregate. </para>
+        <para> Clinical orders’ ubiquity and impact on healthcare delivery has made ordering a
+            central focus of quality improvement efforts. Health Information Technology (HIT) was
+            used to improve the ordering process when paper was the only available medium.
+            Computerized provider order entry has taken clinical quality, safety and efficiency
+            improvement initiatives to another level. Order related interventions are manifold and
+            include allergy and interaction checking among medications and foods, appropriateness
+            checks amongst all combinations of disease, drugs and labs; the establishment and
+            enforcement of ordering prerequisites; and limitation of authority to place orders. </para>
+        <para> Order sets are an important category of order related interventions that enjoy
+            widespread use because they have been shown to improve quality while enhancing the
+            efficiency of the ordering provider (a rarity). </para>
+        <para> The HL7 Version 3 Standard: CDS Knowledge Artifact Specification, DSTU Release 1.3,
+            includes order sets as a primary artifact and on page 34, presents this definition of an
+            order set from the HeD (Health eDecisions) Artifact Sharing Use Case: </para>
+        <para> …an order set is a pre-defined and approved group of orders related to a particular
+            clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g.,
+            hospital admission to Coronary Care Unit). An order set is used as a checklist for the
+            clinician when managing a patient with a specific condition. It is a structured
+            collection of orders (or actions in the HeD schema) relevant to that condition and
+            presented to the clinician in a computerized provider order entry system (CPOE). </para>
+        <para> Ordering providers use order sets as check lists, menus, and order construction
+            shortcuts. Order sets are often embellished with clinical rational and guidance about
+            their proper use and literature references for the ordering provider. </para>
+        <para> The HL7 CDS specification provides a conceptual overview diagram of required and
+            optional components. </para>
+        <para> An order/order set editor is needed that will be used to create knowledge artifacts
+            for individual orders and order sets applicable to the full spectrum of medical practice
+            and which conform to specifications defined in the HL7 version 3 Standard: CDS Knowledge
+            Artifact Specification, Release 1.3 (or later version or final standard if one is
+            released). </para>
+    </section>
+    <section>
+        <title>Aggregate artifact editor</title>
+        <para> The VA intends to use HL7 KNART artifacts for a variety of purposes in addition to
+            documentation. In particular, we will include document templates as a core component for
+            the ordering of specialty consults in combination with orders and order sets. We refer
+            the class of artifacts that are composed of multiple KNART artifacts as “composite
+            artifacts”. We anticipate that there will be need for multiple types of composite
+            artifacts in addition to specialty consultations. </para>
+        <para> The majority of the effort of creating specialty consults and other composite
+            artifacts above and beyond construction of the subcomponents will be devoted to
+            subcomponent integration into the desired consult. Other requirements can be met using
+            editing environments for the individual subcomponents.</para>
+    </section>
+    <section>
+        <title>Presentation layer editor</title>
+        <para>The HL7 CDS Artifact specification is designed as an interchange format for CDS
+            artifacts. This approach promotes the exchange of clinical decision support content
+            because poorly shareable platform-specific implementation details are not included in
+            the exchanged artifacts. While platform-specific implementation details are absolutely
+            needed in order to execute the artifact in a given live HIT system, they might impede
+            efforts to implement the clinical components of CDS artifact in some other environment.
+            The separation of CDS artifact interchange format from implementation format is an
+            important step towards creating an ecosystem of shareable standards-based CDS on
+            shareable standards-based data. As a result of these beneficial tradeoffs, HL7 CDS
+            Artifacts must be transformed from an interchange format to an implementation format in
+            order to be executed. </para>
+        <para> The purpose of presentation layer tools is to support the conversion of standardized
+            interchange artifacts into implementable CDS artifacts. The scope included in this
+            section includes any type of tool needed for CDS exchange artifact conversion. The
+            initial tool to be constructed will support the conversion of HL7 CDS Documentation
+            Templates with CQL into HTML5 templates with Drools DRL.</para>
+    </section>
+    <section>
+        <title>Governance workflow management</title>
+        <para> Achieving standards-based shared clinical decision support at the enterprise scale is
+            a complex undertaking with many technical and organizational steps that require careful
+            orchestration. Knowledge management tools supporting organizational processes are as
+            important as technical tools for achieving wide-spread support, implementation and
+            adoption of knowledge products such as clinical decision support rules, order sets and
+            documentation templates. Numerous organizational challenges must be met at different
+            phases of the CDS lifecycle, including problem identification, solution analysis,
+            knowledge development, organizational vetting, impact assessment and periodic assessment
+            (fig x in introduction). </para>
+        <para>CDS enterprise governance tools are designed to support organizational vetting and
+            periodic review of enterprise knowledge artifacts. The desired end results are high
+            quality knowledge artifacts that have been reviewed and approved for implementation by
+            appropriate and authoritative bodies. Organizational vetting and periodic review
+            involves various subject matter experts and governing bodies to perform the following
+            functions: </para>
+        <itemizedlist>
+            <listitem>
+                <para>Critically assess and evaluate the proposed CDS artifact </para>
+            </listitem>
+            <listitem>
+                <para>Document potential issues </para>
+            </listitem>
+            <listitem>
+                <para>Decide to pursue or ignore identified issues </para>
+            </listitem>
+            <listitem>
+                <para>Develop potential resolutions to those issues </para>
+            </listitem>
+            <listitem>
+                <para>Approve of one or more resolutions and re-evaluate the proposed remediated
+                    artifact.
+                    <!--NOTE ABOUT CONTENT: a diagram was suggested. I think the diagram should be used when the requirements are defined.--></para>
+            </listitem>
+        </itemizedlist>
+        <para>To complicate matters, different groups may be involved in vetting and periodic review
+            of the same artifacts. Methods to integrate and harmonize or version and track different
+            CDS artifacts are an essential feature of governance tools. Business requirements
+            supporting these essential steps are described below. </para>
+    </section>
+    <section xml:id="section_3c55c9c7-1167-4121-8604-a899817a143a">
+        <title>Metrics and refactoring support</title>
+        <para xml:id="para_da3b0e7b-e8b6-42c5-92ff-3e430bc71a94">We need to think through the types
+            of metrics and refactoring. Look at some of Fowler's books on these topics, and then
+            come up with analogies for our domain. </para>
+        <section xml:id="section_45e1e916-3f2c-4f10-8924-06e99d682bee">
+            <title>Linguistic knowledge refactoring</title>
+            <para xml:id="para_0701d59a-65df-4241-8c41-72a2965a32d3">Linguistic knowledge codifies
+                the relationship between our words, and the shared concepts we hope they adequately
+                represent. In ISAAC, we depend on several aspects of linguistics to make abstract
+                concepts, initially defined with only a set of identifiers, sufficiently concrete to
+                prove a shared understanding of the thoughts those concepts represent.  For ISAAC,
+                relevant aspects of linguistics include morphology (the structure of words), syntax
+                (the structure of sentences), semantics (meaning), pragmatics (language in context),
+                language variation (i.e., dialects), and language change over time.</para>
+        </section>
+        <section xml:id="section_28a9c10a-67cf-4ec5-a6ec-fe397fc2f959">
+            <title>Definitional knowledge refactoring</title>
+            <para xml:id="para_689cb659-a987-40c5-9f0b-b2a061e0964e">T-Box semantics</para>
+        </section>
+        <section xml:id="section_93034099-6e35-4509-b566-8886b7785032">
+            <title>Declarative knowledge refactoring</title>
+            <para xml:id="para_9b43c4fd-c657-48b8-be5c-0604ebb7608a">A-Box semantics</para>
+        </section>
+        <section xml:id="section_ec14bf0f-d34e-4de6-9f4d-878a29a44ae7">
+            <title>Imperative knowledge refactoring</title>
+            <para xml:id="para_5a7722a1-9b36-4937-93c3-ea59ac1124a9"/>
+        </section>
+    </section>
+</chapter>
+

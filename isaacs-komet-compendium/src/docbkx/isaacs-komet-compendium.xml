@@ -77,9 +77,9 @@
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>
-        <title>ISAAC's Principia</title>
+        <title>Principia</title>
         <preface>
-            <title>Philosophiæ Logica Empirismus Principia Informatica</title>
+            <title>ISAAC's Philosophiæ Logica Empirismus Principia Informatica</title>
             <para>Philosophiæ Naturalis Principia Mathematica (pron. /fɪləˈsɒfi.iː nætʃərˈɑːlɪs
                 prɪnˈsɪpi.ə mæθəˈmætɪkə/, Latin for Mathematical Principles of Natural
                 Philosophy),[1] often referred to as simply the Principia, is a work in three books
@@ -113,9 +113,17 @@
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/iterative-incremental.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/quantifying-negation-article/quantifying-negation-article.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/post-coordination-implementation-article/post-coordination-implementation-article.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+
     </part>
     <part>
-        <title>The SOLOR System</title>
+        <title>SOLOR</title>
         <preface>
             <title>Signs, Laboratory Observations, and Reciperes</title>
             <subtitle>System of Logical Representation</subtitle>
@@ -144,17 +152,20 @@
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>
-        <title>ISAAC's KOMET</title>
+        <title>KOMET</title>
         <preface>
             <title>ISAAC's Knowledge Managent Environment</title>
             <para>KOMET can manage SOLOR and layered knowledge build upon SOLOR&mdash;and SOLOR
                 extensions&mdash;as defined by the ISAAC Architecture. </para>
         </preface>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/komet.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>
-        <title>ISAAC's OPTICKS</title>
+        <title>OPTICKS</title>
         <preface>
-            <title>Open Platform to Illustrate Clinical Knowledge Services</title>
+            <title>ISAAC's Open Platform to Illustrate Clinical Knowledge Services</title>
             <para>Newton’s Opticks</para>
             <para>The publication of Opticks represented a major contribution to science, different
                 from but in some ways rivalling the Principia. Opticks is largely a record of
@@ -190,9 +201,35 @@
                 </listitem>
             </itemizedlist>
         </preface>
-        <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/content.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <chapter>
+            <title>HL7 FHIR</title>
+            <para>Introduction to genreal notion of HL7 FHIR resources and profiles. Details of
+                specific resources and profiles</para>
+            <section>
+                <title>Observation</title>
+                <para>Define what it is. What the challenges are.</para>
+                <section>
+                    <title>FHIR Observation Resource</title>
+                    <para/>
+                </section>
+                <section>
+                    <title>ISAAC FHIR Observation Profile</title>
+                    <para/>
+                </section>
+            </section>
+            <section>
+                <title>Condition</title>
+                <para>Define what it is. What the challenges are.</para>
+                <section>
+                    <title>FHIR Condition Resource</title>
+                    <para/>
+                </section>
+                <section>
+                    <title>ISAAC FHIR Condition Profile</title>
+                    <para/>
+                </section>
+            </section>
+        </chapter>
     </part>
     <part>
         <title>DevOps</title>
@@ -209,6 +246,9 @@
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/docbook.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/transformation-language-article/transformation-language-article.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/specifications.xml"

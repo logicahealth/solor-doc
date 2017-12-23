@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Concept Analysis</title>
-    <para><emphasis role="bold">Identify SOLOR Content that Requires Special
-        Handling</emphasis></para>
+    <title>Concept Analysis: Identify SOLOR Content that Requires Special Handling</title>
     <section>
         <title>Purpose</title>
         <para>The creation of RefSets containing SNOMED CT concepts that require special handling supports the maintenance of this content over time without the necessity of re-reviewing the entire content. </para>
@@ -331,7 +329,56 @@
         
         <section>
             <title>Rule Set Considerations</title>
-            <para></para>
+            <para><emphasis role="bold">Definition for Inclusion: The SNOMED CT concept describes
+                    more than one observation or procedure</emphasis></para>
+            <para><emphasis role="bold">Rules for Inclusion in “Compound Observation”
+                    RefSet:</emphasis></para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Concept is about X <emphasis><emphasis role="bold"
+                                >and</emphasis></emphasis> Y, e.g., <emphasis>Malaise and fatigue
+                                (finding)</emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para>Concept is about X <emphasis><emphasis role="bold"
+                                >or</emphasis></emphasis> Y, e.g., <emphasis>Mass in head or neck
+                                (finding)</emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para>Concept is about X <emphasis><emphasis role="bold"
+                                >with</emphasis></emphasis> Y, e.g., <emphasis role="italic">Cough
+                                with fever (finding)</emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para>Concept is about X <emphasis role="bold"><emphasis role="italic"
+                                    >without</emphasis></emphasis> Y, e.g., <emphasis role="italic"
+                                >Bee sting without reaction (disorder)</emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para>Concept is about X <emphasis role="bold"><emphasis role="italic"
+                                    >not</emphasis></emphasis> Y, e.g., <emphasis role="italic"
+                                >Radiographic image not correlated with tumor pathology finding
+                                (finding)</emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para>Concept is about X <emphasis role="bold"><emphasis role="italic">due
+                                    to</emphasis></emphasis> Y, e.g., <emphasis role="italic"
+                                >Malnutrition due to child maltreatment (disorder)</emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para>Concept is about X <emphasis role="bold"><emphasis role="italic"
+                                    >associated with</emphasis></emphasis> Y, e.g., <emphasis
+                                role="italic">Limited duction associated with other condition of eye
+                                (disorder)</emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para>Concept is about X <emphasis role="bold"><emphasis role="italic">after
+                                    to </emphasis></emphasis>Y, e.g., <emphasis role="italic"
+                                >Seizure after head injury (finding)</emphasis></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
         </section>
         
         <section>
@@ -418,6 +465,59 @@
         <title>Reliability of Rule Sets</title>
         <para>In order to determine reliability of the identified keywords and rule sets for each RefSet, metrics of agreement/disagreement for the initial review were used.</para>
         <para>After the first two Terminologists reviewed the 50,000 SNOMED CT concepts individually, applying the initial set of rules for each RefSet. After this first review, disagreements between the two Terminologists were extracted from the concept files and re-assigned for discussion and reconciliation. </para>
+        <section>
+            <title>Initial Metrics for Inter-Rater Reliability</title>
+            <para>In the course of the reconciliation discussion, the initial rules were re-evaluated and either confirmed, adjusted, clarified or eliminated to achieve a set of rules that is sufficiently expressive and reproducible.</para>
+            <para>The RefSet membership status of all reconciled concepts was updated in the RefSets.</para>
+            <para>The following metrics for agreement/disagreement percentages between the first two reviewers were calculated:</para>
+            <para>
+                            <informaltable frame="all">
+                                <tgroup cols="2">
+                                    <colspec colname="c1" colnum="1" colwidth="1*"/>
+                                    <colspec colname="c2" colnum="2" colwidth="1*"/>
+                                    <thead>
+                                        <row>
+                                            <entry>Concepts</entry>
+                                            <entry>Agreement (%)</entry>
+                                        </row>
+                                    </thead>
+                                    <tbody>
+                                        <row>
+                                            <entry>Negated </entry>
+                                            <entry>95.89</entry>
+                                        </row>
+                                        <row>
+                                            <entry>Ambigous</entry>
+                                            <entry>99.72</entry>
+                                        </row>
+                                        <row>
+                                            <entry>Compound Observation</entry>
+                                            <entry>94.75</entry>
+                                        </row>
+                                        <row>
+                                            <entry>Patient is not Subject of Record</entry>
+                                            <entry>99.13</entry>
+                                        </row>
+                                    </tbody>
+                                </tgroup>
+                            </informaltable>
+            </para>
+        </section>
+        <section>
+            <title>Second Review for Inter-Rater Reliability</title>
+            <para>After producing the “baseline” RefSets on which the two Terminologists agreed, another team of two reviewers reviewed a random 10% of the concepts in the baseline RefSets, applying the rules for Inclusion/Exclusion. Inter-rater reliability was calculated again between the two new reviewers. </para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/ConceptAnalysis_img_sect6.2.jpg" format="jpg"/>
+                </imageobject>
+            </mediaobject>
+            <para>The results of this exercise show that the rules for the “Compound Observation” RefSet appear to be the most reproducible. The numbers for “Negation” and “Patient not subject of information” are lower.</para>
+            <para>However, considering that the second team of reviewers have not been part of the
+                previous discussions around the inclusion/exclusion criteria and were only given the
+                rule sets to follow, we perceive the results as positive.</para>
+            <para>The results of these metrics informed the final decision on the
+                Inclusion/Exclusion criteria for each final RefSet.</para>
+        </section>
     </section>
     
     <section>
@@ -501,7 +601,36 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para/>
+                        <para>Finding related to X, e.g. “Finding related to provision of home help
+                            (finding)”</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Closer examination of this concept pattern revealed that these
+                                    concepts appear to be navigational in their intent</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Procedure X using Y, e.g. “External fixation using unilateral bar
+                            (procedure)”</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>The “using” pattern simply specifies the way the procedure is
+                                    performed, rather than constituting a separate procedure</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Procedure X by technique Y, e.g. “Microbial identification by nucleic
+                            acid probe, with amplification (polymerase chain reaction)
+                            (procedure)”</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>The “technique” patterns, too, simply specifies the way the
+                                    procedure is performed, rather than constituting a separate
+                                    procedure</para>
+                            </listitem>
+                        </itemizedlist>
                     </listitem>
                 </itemizedlist>
             </para>

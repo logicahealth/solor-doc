@@ -1,0 +1,1509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter version="5.1" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+    xmlns:ns3="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook">
+    <info>
+<!--        <title>An Architecture for Managing Clinical Decision Support Knowledge Artifacts With Implications for Patient Safety</title> -->
+        <title>Architecture for Managing Knowledge Artifacts</title>
+        <subtitle>Principles, Tools and Processes</subtitle>
+        <author>
+            <personname>Walter Sujansky</personname>
+        </author>
+        <date>2017-07-05</date>
+    </info>
+
+    <section>
+        <title>Introduction</title>
+        <para>This report specifies an envisioned “future state” for the tools and processes used by
+            the Veterans Health Administration (VHA) to manage knowledge artifacts in its clinical
+            decision support (CDS) systems. A prior report<footnote xml:id="__EN1__">
+                <para> Processes for the Management of Clinical Decision Support Knowledge Artifacts
+                    With Implications for Patient Safety - Background, Best Practices, and Current
+                    State. VA Knowledge Based Systems Group. March 31, 2017. </para>
+            </footnote> described the current state of the tools and processes used by VHA for this
+            purpose and identified certain gaps between VHA’s current practices and industry best
+            practices for the management of software used in safety-critical medical devices and
+            healthcare applications. As described in the prior report, the application of industry
+            best practices is important to prevent errors and failures in CDS systems that can
+            result in serious patient-safety risks. </para>
+        <para xml:id="_Ref487113442">This report draws on industry best practices, as specified in
+            the IEC-62304 Standard for Medical Device Software Lifecycle Processes<footnote
+                xml:id="__EN2__">
+                <para>
+                    <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="https://www.iso.org/standard/38421.html"
+                        >https://www.iso.org/standard/38421.html</link>. Accessed July 5,
+                    2017.</para>
+            </footnote>, as well as on software-development tools that have long been available and
+            are commonly used in industry. The result is a consolidated “future state” architecture
+            consisting of both processes and tools for the management of knowledge artifacts. </para>
+        <para>Note that the prescribed architecture is not necessarily defined relative to the
+            existing technologies, processes, and tools used for CDS at VHA facilities (i.e., Vista
+            and CPRS). Rather, it reflects the general requirements of a system to manage knowledge
+            artifacts in a safe and reliable manner, which could be applied to any number of
+            specific software infrastructures, including commercial off-the-shelf systems.</para>
+        <para><xref linkend="_Ref486590485" xrefstyle="select: label"/> of this report provides background and
+            definitions that are relevant to the remainder of the document. <xref
+                linkend="_Ref486442222" xrefstyle="select: label"/> characterizes the specific tools that are needed to manage
+            knowledge artifacts in a safe and reliable manner consistent with industry best
+            practices. <xref linkend="_Toc478715575" xrefstyle="select: label"/> specifies the processes for managing
+            knowledge artifacts as prescribed by the IEC-62304 standard, and relates each process to
+            the corresponding tools described in <xref linkend="_Ref486442222" xrefstyle="select: label"/>.</para>
+    </section>
+    <section xml:id="_Ref486590485">
+        <title>Background and Definitions</title>
+        <para>Knowledge artifacts<footnote xml:id="__FN1__">
+                <para>The term “knowledge artifact” was introduced by HL7 in its specification of a
+                    standard format for sharing and distributing decision-support rules, order sets,
+                    and documentation templates (see <link
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="http://wiki.hl7.org/index.php?title=Knowledge_Artifact_Specification"
+                        >http://wiki.hl7.org/index.php?title=Knowledge_Artifact_Specification</link>).
+                    The term is used more generally here, including but not limited to those types
+                    of artifacts.</para>
+            </footnote> are configurable units of biomedical knowledge (declarative or procedural)
+            that are machine readable and can be processed by a knowledge engine to analyze data,
+            facilitate clinical documentation, or support medical decision making. Examples include
+            clinical alert rules, order sets, and documentation templates, as well as the smaller
+            units of knowledge that these artifacts may depend upon, such as value sets, data-access
+            functions, and orderable items. Knowledge artifacts also include the
+                <emphasis>interfaces</emphasis> to EHRs, messaging applications, and other resources
+            external to the CDS system that knowledge artifacts directly reference. The major types
+            of knowledge artifacts are listed and described in <xref linkend="_Toc486430915" xrefstyle="select: label"
+            />. </para>
+        <para>Notably, knowledge artifacts do not include knowledge engines, i.e., the hard-coded
+            software components that actually execute rules, order sets, and documentation
+            templates. Nor do knowledge artifacts include the hardcoded software components external
+            to the knowledge engine that store patient data or deliver messages on behalf of rules,
+            order sets, and documentation templates. These components are also critical to the
+            functioning of a CDS system, but are typically managed within the core
+            software-engineering lifecycle of the EHR.</para>
+        <para>Like other software artifacts, knowledge artifacts undergo a natural lifecycle in
+            which they are designed, implemented, tested, released, used, and (when necessary)
+            modified and re-released. Unlike many other software artifacts, however, knowledge
+            artifacts are highly modular and configurable components that get added and changed
+            frequently within a CDS system to meet the frequently changing requirements of clinical
+            decision support. The fluid nature of knowledge artifacts within a CDS system, the
+            significant degree of interdependence among these artifacts, and the patient-safety
+            implications of introducing errors into the artifacts necessitate a highly rigorous
+            process for their management.</para>
+        <section xml:id="_Toc486430915">
+            <title>Types of Knowledge Artifacts</title>
+            <para>The major types of knowledge artifacts that determine the correct functioning of
+                CDS systems is listed in <xref linkend="_Ref486590586" xrefstyle="template:Table %n"/>. The list includes any
+                modular software object that could be independently managed and released and that
+                may interact with other software objects in a CDS system. Note that the contents of
+                <xref linkend="_Ref486590586"  xrefstyle="template:Table %n"/> may not be exhaustive.</para>
+            <table xml:id="_Ref486590586">
+                <title>Types of knowledge artifacts used in CDS systems.</title>
+                <tgroup cols="2">
+                    <colspec colname="c1" colwidth="31*"/>
+                    <colspec colname="c2" colwidth="69*"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry align="center"><para><emphasis role="bold">Knowledge
+                                        Artifact</emphasis></para></entry>
+                            <entry align="center"><para><emphasis role="bold"
+                                    >Description</emphasis></para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Clinical Alert Rule</emphasis></para></entry>
+                            <entry><para>An “Event-Condition-Action” rule. Upon the occurrence of
+                                    some discrete triggering event (such as the refilling of a
+                                    medication prescription), the rule evaluates whether some
+                                    condition related to the patient is true (such as the patient
+                                    having no recent lab tests that screen for a side-effect of the
+                                    medication) and if it is true, automatically invokes some action
+                                    (such as notifying a physician or ordering the required lab test
+                                    directly).</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Order Set</emphasis></para></entry>
+                            <entry><para>A collection of orders for medications, diagnostic tests,
+                                    imaging studies, nursing interventions, etc. that should all be
+                                    placed together in a particular clinical situation.
+                                </para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Documentation Template</emphasis></para></entry>
+                            <entry><para>A prescribed framework for documenting clinical
+                                    observations or interventions in a particular context. These
+                                    templates may specify the types of items that should be
+                                    documented, provide pick lists, data-entry controls, or
+                                    boilerplate text to facilitate the documentation of these items,
+                                    and automatically retrieve certain patient data from the EHR and
+                                    add it to the documentation.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Data Access Function</emphasis></para></entry>
+                            <entry><para>A modular query command that automatically retrieves a
+                                    specified set of data about a patient from the EHR and makes it
+                                    available to the knowledge engine. For example, a query command
+                                    to retrieve all of the lab tests performed on a patient in the
+                                    preceding six months.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Data Manipulation
+                                Function</emphasis></para></entry>
+                            <entry><para>A modular algorithm that takes one or more data objects as
+                                    input, analyzes or manipulates these objects, and generates a
+                                    resulting data object as output. For example, a function that
+                                    takes as input a set of lab tests and returns as output a
+                                    Boolean value indicating whether at least one of the tests
+                                    measures the blood glucose level. </para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Coded Clinical Concept</emphasis></para></entry>
+                            <entry><para>A symbol representing a semantic concept in the realm of
+                                    biomedicine that can be stored and manipulated by a computer
+                                    system. Coded clinical concepts may include text
+                                    descriptions/labels, as well as logical definitions with respect
+                                    to other coded clinical concepts.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Controlled Terminology</emphasis></para></entry>
+                            <entry><para>A collection of coded clinical concepts and certain
+                                    semantic relationships among them, such as hierarchical
+                                    subsumption (is-a), partonomy (part-of), association
+                                    (caused-by), etc. </para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Value Set</emphasis></para></entry>
+                            <entry><para>An enumerated set of coded clinical concepts, such as all
+                                    of the SNOMED codes that indicate a diagnosis of diabetes
+                                    mellitus or all of the RxNorm codes for antibiotics that could
+                                    be used to treat pneumococcal pneumonia. </para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Clinical Concept
+                                Mapping</emphasis></para></entry>
+                            <entry><para>The representation of equivalence or subsumption among a
+                                    set of coded clinical concepts from different controlled
+                                    terminologies. For example, a mapping between the ICD-10 code
+                                    and the SNOMED code for Type-2 Diabetes Mellitus.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Data Entry Control</emphasis></para></entry>
+                            <entry><para>A user-interface control and related data model for
+                                    recording a specific type of clinical observation, such as a
+                                    blood pressure reading or smoking history.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Orderable Item</emphasis></para></entry>
+                            <entry><para>A data model representing a specific type of orderable
+                                    intervention (medication, imaging study, procedure, diet, etc.),
+                                    including the set of modifiers for the intervention that
+                                    must/may be specified (such as available dosage forms for the
+                                    medication or imaging views for an x-ray). Orderable items may
+                                    be included in order sets or ordered
+                                individually.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>External System
+                                Interface</emphasis></para></entry>
+                            <entry><para>A machine-processible representation of the commands and
+                                    the data objects that a knowledge artifact may use to interact
+                                    with an external computing resource, such as an EHR, messaging
+                                    system, terminology server, etc. Examples of external system
+                                    interfaces include the database schema and data dictionary of an
+                                    EHR or the application programming interface (API) for a
+                                    messaging and notification system.</para></entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </section>
+        <section xml:id="_Ref486589560">
+            <title>Terminology and Definitions Related to Knowledge Artifact Management</title>
+            <para>Before describing the specific tools and processes of the future-state
+                architecture, it is useful to define certain terms relevant to the management of
+                knowledge artifacts in general. <xref linkend="_Ref204323820" xrefstyle="template:Table %n"/> lists a number of
+                the terms that figure prominently in the specification of the future-state
+                architecture that follows in <xref linkend="_Ref486442222" xrefstyle="select: label"/> and <xref
+                    linkend="_Toc478715575" xrefstyle="select: label"/>. Note that certain of these terms may be entirely new
+                or may be defined differently than in prior use or alternative contexts.</para>
+            <table xml:id="_Ref204323820">
+                <title>Terms and concepts relevant to the management of knowledge artifacts in CDS
+                    systems.</title>
+                <tgroup cols="2">
+                    <colspec colname="c1" colwidth="29*"/>
+                    <colspec colname="c2" colwidth="71*"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry align="center"><para><emphasis role="bold"
+                                >Term</emphasis></para></entry>
+                            <entry align="center"><para><emphasis role="bold"
+                                    >Definition</emphasis></para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Knowledge Artifact</emphasis></para></entry>
+                            <entry><para>See <xref linkend="_Toc486430915" xrefstyle="select: label"/>.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Sub- Artifacts and
+                                        </emphasis></para><para><emphasis>Parent
+                                        Artifacts</emphasis></para></entry>
+                            <entry><para>A sub-artifact is a knowledge artifact that another
+                                    (parent) knowledge artifact directly uses and depends upon to
+                                    perform its function. For example, a rule may depend on a
+                                    data-access function to retrieve relevant patient data and on a
+                                    value set to determine whether that data meets a specific
+                                    clinical criterion. In this case, the rule is the parent
+                                    artifact, and the data-access function and value set are the
+                                    sub-artifacts. Note that sub-artifacts may, themselves, be
+                                    parent artifacts with respect to other knowledge artifacts. For
+                                    example, a value set used by a rule itself depends upon a set of
+                                    coded clinical concepts from a controlled terminology. Note also
+                                    that a sub-artifact may be used (shared) by multiple parent
+                                    artifacts, creating the potential for many-to-many dependency
+                                    relationships among parent and sub-artifacts.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>High-Level Artifacts</emphasis></para></entry>
+                            <entry><para>Knowledge artifacts that a knowledge engine can use
+                                    directly to provide useful CDS functionality. For example, a
+                                    complete alert rule, order set, or documentation template is a
+                                    high-level artifact. Such artifacts may be comprised of
+                                    sub-artifacts, i.e., other knowledge artifacts that are integral
+                                    to their functioning. For example, an alert rule may include one
+                                    or more data-access functions, and an order set may reference
+                                    multiple orderable items. Note that certain high-level artifacts
+                                    may also be sub-artifacts, such as a rule that is called by
+                                    another rule or an order set that is contained within another
+                                    order set. On the other hand, a single clinical concept or data
+                                    access function would not be a high-level artifact, since it
+                                    does not provide decision support outside of its inclusion in a
+                                    rule, order set, or documentation template. High-level artifacts
+                                    are distinct from other knowledge artifacts in that they require
+                                    a safety-class designation (as discussed in <xref
+                                        linkend="_Ref487105785" xrefstyle="select: label"/>).</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Source Artifact</emphasis></para></entry>
+                            <entry><para>A collection of <emphasis>source objects</emphasis> (see
+                                    below) that specify and describe a single knowledge artifact.
+                                    The source objects that comprise a source artifact must remain
+                                    mutually consistent and be managed as a coherent
+                                whole.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Source Object</emphasis></para></entry>
+                            <entry><para>A unit of information that is related to a specific
+                                    knowledge artifact, that can be directly inspected and edited by
+                                    a knowledge engineer, and that may be managed under version
+                                    control. Source objects include the source code files for the
+                                    artifacts, themselves (e.g., rules), configuration files listing
+                                    other knowledge artifacts that the rules depend upon (such as
+                                    value sets), documentation files describing the intent of the
+                                    rules, test plan files describing verification processes, etc.
+                                    Source objects are typically individual files, but could also be
+                                    database rows or other persisted objects to which versioning
+                                    meta-data are attached. </para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Compiled Artifact</emphasis></para></entry>
+                            <entry><para>A source artifact transformed and packaged into a
+                                    representation that can be directly loaded into and used by a
+                                    knowledge engine. Compiled artifacts include an executable
+                                    representation of the knowledge artifact, as well as meta data
+                                    that may be useful when the artifact is combined with other
+                                    artifacts in a functioning system, such as copies of or links to
+                                    configuration information, documentation, source code, and other
+                                    source objects. Note that certain source artifacts may be
+                                    directly executable by a knowledge engine, such that the source
+                                    artifact and compiled artifact are
+                                        identical<emphasis>.</emphasis></para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Knowledge Module</emphasis></para></entry>
+                            <entry><para>A collection of one or more compiled knowledge artifacts
+                                    that are released and made available as a unit for deployment in
+                                    a CDS system. A knowledge module could comprise a single rule,
+                                    several dozen value sets, or an entire controlled terminology
+                                    consisting of thousands of concepts and relationships. The
+                                    “granularity” with which compiled knowledge artifacts are
+                                    combined into knowledge modules and released together depends on
+                                    several factors, including the frequency with which artifacts
+                                    are added or updated as well as the number of mutual
+                                    dependencies among artifacts. Typically, greater frequency of
+                                    updates calls for fewer artifacts in each released module,
+                                    whereas greater dependency among artifacts calls for more
+                                    artifacts in each released module.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Dependency Management</emphasis></para></entry>
+                            <entry><para>The representation and analysis of dependencies among
+                                    knowledge artifacts. A complete depiction of such dependencies
+                                    allows knowledge engineers to predict the effects of changing an
+                                    artifact on other artifacts, enabling the sharing and re-use of
+                                    sub-artifacts without risking inadvertent and harmful
+                                    consequences when they are modified. Dependency management also
+                                    helps to maintain a sound architecture within a corpus of
+                                    knowledge artifacts (e.g., avoiding unnecessary dependencies,
+                                    circular dependencies, etc.)</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Configuration
+                                Management</emphasis></para></entry>
+                            <entry><para>The representation and analysis of dependencies among
+                                    knowledge modules (i.e., compiled and packaged knowledge
+                                    artifacts). A depiction of such dependencies enables knowledge
+                                    engineers to ensure that the correct set of modules and versions
+                                    of modules are used when testing knowledge artifacts and
+                                    deploying knowledge artifacts into production environments.
+                                    Rigorous configuration management helps to avoid, for example,
+                                    testing a new parent artifact in an environment that uses one
+                                    version of a sub-artifact and deploying it in a production
+                                    environment that used a different version.</para></entry>
+                        </row>
+                        <row>
+                            <entry><para><emphasis>Release Management</emphasis></para></entry>
+                            <entry><para>The orderly transition of knowledge artifacts from a
+                                    development/testing environment into a production environment.
+                                    Release management ensures that all testing, documentation, and
+                                    approvals that serve as pre-conditions to releasing new or
+                                    updated knowledge artifacts have been completed. It also ensures
+                                    that all of the knowledge modules in a CDS system that were
+                                    updated are released at the same time (including documentation).
+                                    Lastly, release management ensures that the versions of the
+                                    knowledge modules that were tested and approved are the same
+                                    versions that are release to production.</para></entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </section>
+    </section>
+    <section xml:id="_Ref486442222">
+        <title> Tools for the Management of Knowledge Artifacts in CDS Systems</title>
+        <para>The complexity of knowledge engineering for CDS systems exceeds the capabilities of
+            the unaided mind and demands robust tools to aid personnel in maintaining quality,
+            avoiding errors, and quickly detecting and addressing problems. Today, most
+            knowledge-engineering teams lack the full complement of tools they need for these tasks,
+            although such tools are available and commonly used in other software-engineering
+            domains. The envisioned future-state architecture for managing knowledge artifacts
+            includes many of these tools, integrated into a coherent whole and specifically crafted
+            to support best practices for knowledge engineering in CDS systems. </para>
+        <section>
+            <title>A CDS Knowledge-Management Architecture</title>
+            <para>The architecture of the envisioned CDS knowledge-engineering environment is
+                depicted in <xref linkend="_Ref486576210" xrefstyle="template:Figure %n"/>. The environment includes the following
+                tools, which are described in the sections that follow:</para>
+            <itemizedlist>
+                <listitem>
+                    <para><xref linkend="_Toc486430917" xrefstyle="select:  labelnumber title"/></para>
+                </listitem>
+                <listitem>
+                    <para><xref linkend="_Toc486430918" xrefstyle="select:  labelnumber title"/></para>
+                </listitem>
+                <listitem>
+                    <para><xref linkend="_Toc486430922" xrefstyle="select:  labelnumber title"/></para>
+                </listitem>
+                <listitem>
+                    <para><xref linkend="_Toc486430925" xrefstyle="select:  labelnumber title"/></para>
+                </listitem>
+                <listitem>
+                    <para><xref linkend="_Toc486430926" xrefstyle="select:  labelnumber title"/></para>
+                </listitem>
+                <listitem>
+                    <para><xref linkend="_Toc486430927" xrefstyle="select:  labelnumber title"/></para>
+                </listitem>
+                <listitem>
+                    <para><xref linkend="_Toc486430928" xrefstyle="select:  labelnumber title"/></para>
+                </listitem>
+            </itemizedlist>
+            <para>Note that each tool may consist of a <emphasis>repository</emphasis> (for storing
+                knowledge artifacts in various states of development), an
+                    <emphasis>engine</emphasis> (for performing certain “headless” operations on
+                knowledge artifacts and related resources), and/or an
+                    <emphasis>application</emphasis> (for providing display and data-entry
+                capabilities for users). A variety of machine interfaces also exist among the tools
+                within the architecture, as depicted by the arrows in <xref linkend="_Ref486576210" xrefstyle="template:Figure %n"
+                />.</para>
+            <figure xml:id="_Ref486576210">
+                <title>An architecture for managing CDS knowledge artifacts. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image2.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+        <section xml:id="_Toc486430917">
+            <title>Version Control Tools</title>
+            <para>Version control tools<footnote xml:id="__EN3__">
+                    <para> Kaur P, Singh H. A layered structure for uniform version management in
+                        component based systems. ACM SIGSOFT Software Engineering Notes. Volume 34
+                        Issue 6, November 2009. Pages 1-7.</para>
+                </footnote> record all versions of software source files as they are created and
+                undergo changes. They serve several purposes: They provide a shared repository of
+                all the current and prior versions of each file, they communicate file changes
+                across all the members of a software-development team, and they enable sets of files
+                to be developed and tested concurrently in separate “branches” of the repository
+                before they are incorporated into the overall software system. </para>
+            <para>Version-control systems should serve similar purposes in the creation and
+                maintenance of knowledge artifacts, which can be represented as sets of files under
+                version control. Such files include alert rules, data-access routines,
+                data-manipulation functions, coded concepts, value sets, information-model
+                definitions, order sets, individual orders, documentation templates, and data-entry
+                controls. Important meta data related to knowledge artifacts, such as requirements,
+                documentation, configuration, and test cases, should also be maintained under
+                version control, associated with the artifacts. Collectively, all of these files are
+                    <emphasis>source objects</emphasis> that may change over time and, hence, should
+                managed under version control.</para>
+            <para>A variety of version-controlled systems exist for software objects, such as
+                    Subversion<footnote xml:id="__EN4__">
+                    <para>
+                        <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://subversion.apache.org/"
+                            >https://subversion.apache.org/</link>. Accessed July 6, 2017.</para>
+                </footnote> or Git<footnote xml:id="__EN5__">
+                    <para>
+                        <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://git-scm.com/">https://git-scm.com/</link>. Accessed
+                        July 6, 2017.</para>
+                </footnote>. Most such tools have similar data models and capabilities, as well as
+                application programming interfaces that enable integration into larger software
+                development environments. Whichever existing system is used within the CDS
+                management environment, it should have the following features:</para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Unique object identification</emphasis>. Every
+                        object under version control must have a unique identifier, and the
+                        identifier must remain unchanged as the object is modified and different
+                        versions of it are created and saved. Knowledge artifacts developed at
+                        different VHA facilities should be assigned identifiers in different
+                        namespaces to maintain global uniqueness among them all.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Version history retention</emphasis>. Each version
+                        of an object must be persisted as the object changes over time, along with
+                        meta-data indicating its version identifier, time of creation, creating
+                        author, and branch of the version control system on which it was created
+                        (see below). Further, every version of each object must remain available for
+                        retrieval and inspection.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Version comparison</emphasis>. It must be easy to
+                        compare two versions of the same object and identify all differences between
+                        them. Among other things, this capability is important to determine whether
+                        updates to a sub-artifact have changed its semantics in a way that may
+                        affect the behavior of one or more of its parent artifacts. Ready comparison
+                        is also important when merging two or more concurrent development efforts
+                        involving the same knowledge artifacts (see below).</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Branching capabilities</emphasis>. It must be
+                        possible to create a virtual copy of the entire version-control repository
+                        in a new “branch,” such that changes made to objects in this branch do not
+                        appear in the original repository. This capability allows individual
+                        knowledge engineers to make and test changes to knowledge artifacts without
+                        affecting the work of other knowledge engineers or the integrity of
+                        knowledge artifacts currently in production. This facility is critical to
+                        the orderly and safe management of a clinical decision support system (see
+                        example below).</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Merging capabilities. </emphasis>It must be possible
+                        to incorporate all of the changes made on one branch of the version-control
+                        repository into another branch, such that any conflicts between different
+                        versions of the same objects are detected and resolved. This capability is
+                        important to enable work done by multiple knowledge engineers concurrently
+                        to be combined and incorporated into the main branch of the repository. The
+                        merging capability is also important to allow knowledge engineers to update
+                        their local branches of the repository with changes that may have been made
+                        by others to the main branch, enabling them to ensure that their own changes
+                        will remain compatible with the latest version of the system.</para>
+                </listitem>
+            </itemizedlist>
+            <para>For example, <xref linkend="_Ref486583915" xrefstyle="template:Figure %n"/> illustrates the process by which a
+                set of knowledge artifacts could be edited concurrently by two different knowledge
+                engineers, each working in a separate branch of the version-control repository.
+                Engineer 1 working creates Branch 1 and makes changes to her copy of the knowledge
+                artifacts entirely independently of the changes made concurrently by engineer 2
+                working on Branch 2. Engineer 1 tests her changes, merges them back into the main
+                (Trunk) branch of the repository, and releases a version of the system that includes
+                her changes. Meanwhile, engineer 2 has continued working on his own project, unaware
+                and undistracted by any of the changes engineer 1 made. At some point, he updates
+                his branch with the new version of the Trunk (via a merge operation), thereby
+                becoming aware of and reconciling his work with engineer 1’s own changes. After
+                testing his updated changes, he merges them back into the Trunk and releases a new
+                version of the system that includes both his and engineer 1’s changes. In this
+                manner, the ability to branch versions of the source objects enabled engineer 1 and
+                engineer 2 to work concurrently on their projects and to ultimately
+                combine/reconcile their work in an orderly and safe manner.</para>
+            <figure xml:id="_Ref486583915">
+                <title>Example of branching and merging in a version control tool, enabling
+                    concurrent work. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image3.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para><xref linkend="_Ref486584141" xrefstyle="template:Figure %n"/> shows an example of tooling support to compare two
+                versions of the same source object at the time they are merged, in this case a value
+                set whose members differ. Note that the identifier of the value set is the same for
+                both versions (“valueset_id103_amiodarone”), whereas the unique version identifiers
+                differ (“dad5f3s” versus “1046bf0”). The comparison shows that the two versions are
+                different, and the exact discrepancies between them, to enable
+                reconciliation.</para>
+            <figure xml:id="_Ref486584141">
+                <title>Comparing conflicting versions of a knowledge artifact in a version-control
+                    system </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image4.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+        <section xml:id="_Toc486430918">
+            <title>Compilation and Automated Validation Tools</title>
+            <para>Before source artifacts under version control can deployed to and executed in a
+                runtime environment, they must undergo certain transformation and processing steps.
+                In the general software-engineering lifecycle, these steps are referred to as the
+                “build” process<footnote xml:id="__EN6__">
+                    <para> Smith, P. Software Build Systems: Principles and Experience.
+                        Addison-Wesley, 2011.</para>
+                </footnote>. A number of open-source and commercial tools exist to automate and
+                facilitate the build process, such as Maven<footnote xml:id="__EN7__">
+                    <para>
+                        <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://maven.apache.org/">https://maven.apache.org/</link>.
+                        Accessed July 6, 2017.</para>
+                </footnote>, Gradle<footnote xml:id="__EN8__">
+                    <para>
+                        <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://gradle.org/">https://gradle.org/</link>. Accessed
+                        July 6, 2017.</para>
+                </footnote>, and Ant<footnote xml:id="__EN9__">
+                    <para>
+                        <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://ant.apache.org/">http://ant.apache.org/</link>.
+                        Accessed July 6, 2017.</para>
+                </footnote>.</para>
+            <para>The build process for knowledge artifacts performs three functions: </para>
+            <para>(1) It translates the artifacts into a form that can be directly executed by a
+                knowledge engine.</para>
+            <para>(2) It performs a number of automated validation steps to check that the compiled
+                artifacts will function properly in the expected runtime environment (which may
+                include other knowledge artifacts on which they depend). </para>
+            <para>(3) It packages the artifacts into knowledge modules that contains one or more
+                compiled artifacts, as well as meta-data needed to manage those artifacts.</para>
+            <section>
+                <title>Compilation</title>
+                <para>Compilation is typically needed to convert source objects that can be directly
+                    edited by knowledge engineers into alternative representations that can be more
+                    efficiently executed by knowledge engines. The representations required by
+                    knowledge engines can range from machine code to interpretable byte code to the
+                    source code itself (the latter form requiring no transformation at all from the
+                    source version). </para>
+            </section>
+            <section xml:id="_Ref486412590">
+                <title>Validation</title>
+                <para>The compilation process performs certain basic validations of syntactic
+                    correctness and consistency, primarily to identify errors that would prevent
+                    parsing or translation of the editable (source) form into a computable
+                    (compiled) form. However, other important validation steps should also be
+                    performed during the automated build process for knowledge artifacts.</para>
+                <para><emphasis role="bold">Consistency checking with respect to sub-artifacts.
+                    </emphasis>A configuration file associated with the knowledge artifact should
+                    contain the unique identifiers and version numbers of all the sub-artifacts on
+                    which the knowledge artifact depends. This configuration file, which is further
+                    described in <xref linkend="_Toc486430923" xrefstyle="select: label"/>, should be accessible to
+                    the build engine, as well as visible to knowledge engineers. During the build
+                    process, consistency between the artifact being built and its sub-artifacts
+                    should be validated by checking that any references to the sub-artifacts are
+                    valid and correctly formulated. For example, if an artifact calls a data access
+                    function to retrieve a patient’s lab results over a specific date range, a
+                    validation check should confirm that the date parameters in the call are in the
+                    correct format recognized by the data access function. </para>
+                <para><emphasis role="bold">Automated Unit testing. </emphasis>Not all errors in an
+                    artifact can be caught by the compilation and validation steps. For example, a
+                    rule may inadvertently specify the wrong data access function, albeit with
+                    correctly formatted date parameters. Alternatively, a rule may specify the wrong
+                    combination of Boolean expressions for a complex alert condition, although the
+                    expressions are syntactically correct. For these types of errors, automated unit
+                    testing is a valuable additional part of the build process. As described in
+                    <xref linkend="_Toc486430925" xrefstyle="select: label"/>, an automated testing framework enables
+                    a set of tests cases specific to the knowledge artifact to be programmed and
+                    automatically executed each time the artifact is built. For example, the test
+                    cases for a clinical alert rule might use various combinations of patient data
+                    to confirm that the rule fires or does not fire correctly in each case.</para>
+                <para><xref linkend="_Ref486584826" xrefstyle="template:Figure %n"/> shows the results of an automated unit test
+                    executed during the build process for an alert rule. In this case, the rule
+                    compiled and executed correctly, but it referenced the wrong value set,
+                    resulting in the failure of one of the unit test cases. The display shows which
+                    specific test case failed and what test data were used in that case,
+                    facilitating the debugging process.</para>
+                <figure xml:id="_Ref486584826">
+                    <title>The displayed results from the automated testing of a clinical alert
+                        rule, indicating a failure and the details of the failed test case.</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image5.png"
+                                width="5.5in"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+            <section>
+                <title>Packaging</title>
+                <para>Upon successful compilation and validation, a knowledge artifact is ready for
+                    use in a runtime knowledge engine. Artifacts in this state are stored in a
+                    library or repository, from which they may be loaded into a runtime environment
+                    for integration testing or production use. To facilitate the management of
+                    knowledge artifacts in such repositories, it is helpful to package them into
+                    knowledge modules consisting of one or more artifacts and containing a set of
+                    related information for each artifact. This information should include:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>The compiled knowledge artifact, itself, in a form ready for loading
+                            into a runtime environment</para>
+                    </listitem>
+                    <listitem>
+                        <para>The unique identifier of the artifact and its version number, for
+                            organizing the artifact in the repository and for referencing the
+                            artifact from the configuration files of other artifacts that may depend
+                            on it.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The configuration file that was used to build the artifact, containing
+                            the identifiers and version numbers of any sub-artifacts on which the
+                            artifact depends and with respect to which it was previously validated
+                            and tested. This information helps to determine the environments in
+                            which the artifact is known to function correctly.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Copies of or links to the source objects from which the knowledge
+                            artifact was built. Access to these source objects allows knowledge
+                            engineers to determine the specific contents or behavior of a knowledge
+                            artifact within a specific knowledge module, as well as whether and how
+                            the artifact was changed from a previous version of the module. This
+                            information allows engineers to effectively and safely combine knowledge
+                            artifacts from a knowledge module repository when those artifacts may
+                            have been created or maintained independently of each other. </para>
+                    </listitem>
+                </itemizedlist>
+            </section>
+        </section>
+        <section xml:id="_Toc486430922">
+            <title>Configuration and Dependency Management Tools</title>
+            <para>Clinical decision support systems are complex assemblies of knowledge artifacts,
+                along with knowledge engines that execute the artifacts and EHRs, messaging systems,
+                terminology servers, etc. with which the artifacts interoperate. Typically, numerous
+                interdependencies exist among these components and even small changes to any one of
+                them can undermine the integrity of the system and lead to software failures. It is
+                therefore imperative to have tools that assist knowledge engineers to maintain
+                consistency among the components as changes are made over time. </para>
+            <section xml:id="_Toc486430923">
+                <title>Configuration Management</title>
+                <para>Configuration management tools<footnote xml:id="__EN10__">
+                        <para>
+                            <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="http://www.sei.cmu.edu/productlines/frame_report/config.man.htm"
+                                >http://www.sei.cmu.edu/productlines/frame_report/config.man.htm</link>.
+                            Accessed July 6, 2017.</para>
+                    </footnote> define the combination of knowledge modules that are mutually
+                    consistent and must be deployed together in a runtime system to ensure reliable
+                    functioning. As mentioned, a knowledge module is a particular version of a
+                    particular package of knowledge artifacts that has been built and is ready for
+                    runtime use. Configuration management files specify, for each knowledge module,
+                    what other knowledge modules it depends upon. </para>
+                <para>Based on the configuration files of all the knowledge modules to be used in
+                    the CDS system, it is possible to determine the overall combination of knowledge
+                    modules that must be available for the system to function correctly. Over time,
+                    these configurations change as knowledge artifacts are added to or changed
+                    within the system (i.e., new knowledge modules are added to the configuration,
+                    or the version numbers of existing knowledge modules changed).</para>
+                <para><xref linkend="_Ref486585395" xrefstyle="template:Figure %n"/> shows the configuration files (in the
+                    “dependencies” pane) for two knowledge modules to be used in a particular system
+                    – valueset.id104 and rulefunction.id8642. Each configuration file indicates the
+                    set of other knowledge modules (including version numbers) that the displayed
+                    module depends upon. </para>
+                <para><xref linkend="_Ref486585743" xrefstyle="template:Figure %n"/> shows the configuration file for the entire
+                    CDS system, which results from analyzing and reconciling the configuration files
+                    for each of the knowledge modules that make up the system. By analyzing the
+                    configuration files of each knowledge module and reconciling any discrepancies,
+                    it is possible (and necessary) to arrive at a configuration of knowledge modules
+                    that will allow all of the knowledge artifacts in the CDS system to function
+                    correctly. Configuration management tools enable this process at any point in
+                    time, and as individual knowledge modules get added or updated.</para>
+                <figure xml:id="_Ref486585395">
+                    <title>The contents of configuration files (“dependencies”) for two knowledge
+                        modules. </title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image6.png"
+                                width="5.5in"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <figure xml:id="_Ref486585743">
+                    <title>The contents of the configuration file for an entire CDS system.</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image7.png"
+                                width="5.5in"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+            <section>
+                <title>Dependency Management</title>
+                <para>Dependency-management tools discover and display dependencies among the
+                    knowledge artifacts that comprise a CDS system, down to a highly granular level.
+                    These tools have some similarities to configuration-management tools, but go
+                    further. Whereas configuration-management tools represent and manage the
+                    dependencies between a knowledge module and all of the other knowledge modules
+                    it depends upon, dependency-management tools can analyze dependencies among
+                    individual knowledge artifacts within these knowledge modules. </para>
+                <para>Most dependency management tools build a directed graph of dependencies among
+                    all of the knowledge artifacts in an entire CDS system, which enables the
+                    subsequent inspection and rules-based processing of the dependencies to assist
+                    knowledge engineers. This capability enables knowledge engineers to better
+                    predict, track, and manage the effects of even small changes to knowledge
+                    artifacts. </para>
+                <para>For example, <xref linkend="_Ref486585896" xrefstyle="template:Figure %n"/> shows the dependencies that are
+                    represented in the configuration-management files of four knowledge modules. At
+                    this level, it’s only apparent that all three rule modules have dependencies on
+                    the module that contains a library of data access objects (daos) for querying
+                    the EHR. If a change were required to one of the knowledge artifacts (daos) in
+                    the library, this information would only inform knowledge engineers that the
+                    change could affect any one of the rules. </para>
+                <figure xml:id="_Ref486585896">
+                    <title>A dependency graph among 4 knowledge modules. </title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image8.png"
+                                width="5.5in"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <para>In contrast, <xref linkend="_Ref486586057" xrefstyle="template:Figure %n"/> and <xref linkend="_Ref486586412"
+                    xrefstyle="template:Figure %n"/> show how a dependency management tool can drill inside the dao library module
+                    to identify and display dependencies between specific dao knowledge artifacts
+                    and the rule artifacts that depend on them. The latter knowledge allows
+                    knowledge engineers to determine which specific rules would be affected by
+                    changes to a specific dao artifact, and therefore focus on only those rules when
+                    evaluating the effects of the change.</para>
+                <figure xml:id="_Ref486586057">
+                    <title>A dependency graph showing the relationship(s) among a set of rules and
+                        one specific data access function within a knowledge module</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image9.png"
+                                width="5.5in"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <figure xml:id="_Ref486586412">
+                    <title>A dependency graph showing the relationship(s) among a set of rules and a
+                        different data access function within the knowledge module </title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image10.png"
+                                width="5.5in"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <para>At least one dependency-management tool (Semedy<footnote xml:id="__EN11__">
+                        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="http://www.semedy.com/">http://www.semedy.com/</link>.
+                            Accessed July 6, 2017.</para>
+                    </footnote>), exists that is specifically designed for managing knowledge
+                    artifacts for clinical decision-support systems. Other existing open-source
+                    tools (such as depan<footnote xml:id="__EN12__">
+                        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="https://github.com/google/depan"
+                                >https://github.com/google/depan</link>. Accessed July 6,
+                            2017.</para>
+                    </footnote>) and commercial tools (such as Structure101<footnote
+                        xml:id="__EN13__">
+                        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="http://structure101.com/"
+                                >http://structure101.com/</link>. Accessed July 6, 2017.</para>
+                    </footnote>) are designed for managing dependencies among the components of
+                    conventional programming languages, such as Java and C++, but certain of these
+                    tools may be configurable or extensible to also manage knowledge
+                    artifacts</para>
+            </section>
+        </section>
+        <section xml:id="_Toc486430925">
+            <title>Automated Testing Tools</title>
+            <para>As discussed in  <xref linkend="_Ref486412590" xrefstyle="select: label"/>, automated testing is an
+                important part of validating knowledge artifacts in complex and frequently changing
+                CDS systems. Critically, automated testing allows knowledge engineers to quickly and
+                reliably test and re-test knowledge artifacts as changes are made to them or to the
+                other knowledge artifacts on which they depend. Although automated test cases are,
+                themselves, small software programs that must be created and maintained by knowledge
+                engineers, the effort is worthwhile in safety-critical systems because automated
+                testing enables more frequent and more thorough re-testing of such systems as
+                changes are made to their components. </para>
+            <para>In the absence of automated testing, additions of or changes to knowledge
+                artifacts must either (1) be bundled into large, infrequent releases to allow time
+                for the slow, manual regression testing otherwise needed, or (2) be released without
+                thorough regression testing, risking runtime failure of the new/updated knowledge
+                artifacts or the failure of other knowledge artifacts that depend on them. Neither
+                alternative is acceptable in a CDS system.</para>
+            <para>A variety of frameworks exist to support automated unit testing of software code,
+                including JUnit<footnote xml:id="__EN14__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://en.wikipedia.org/wiki/JUnit"
+                            >https://en.wikipedia.org/wiki/JUnit</link>. Accessed July 6,
+                        2017.</para>
+                </footnote>, Mockito<footnote xml:id="__EN15__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://site.mockito.org/">http://site.mockito.org/</link>.
+                        Accessed July 6, 2017.</para>
+                </footnote>, and TestNG<footnote xml:id="__EN16__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://testng.org/doc/">http://testng.org/doc/</link>.
+                        Accessed July 6, 2017.</para>
+                </footnote>, and many of these systems are readily integrated with common
+                configuration-management and build tools, such as Maven and Ant. Such frameworks
+                would be valuable in automatically testing alert rules by introducing various sets
+                of patient data into a test EHR, automatically executing the rules, and determining
+                whether they fired or did not fire correctly (see  <xref
+                    linkend="_Ref486412590" xrefstyle="select: label"/> and <xref linkend="_Ref486584826"  xrefstyle="select: label"/> for an example).
+                When any configuration changes are made to any part of the CDS system, the test
+                suites for all of the alert rules could be re-run to check whether the changes
+                adversely affect the rule base. </para>
+            <para>Other tools exist for automating integration testing of complete applications
+                through simulation of the human use of graphical user interfaces. These tools, such
+                as Selenium<footnote xml:id="__EN17__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://www.seleniumhq.org/"
+                            >http://www.seleniumhq.org/</link>. Accessed July 6, 2017.</para>
+                </footnote>, AutoIt<footnote xml:id="__EN18__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://www.autoitscript.com/site/autoit/"
+                            >https://www.autoitscript.com/site/autoit/</link>. Accessed July 6,
+                        2017.</para>
+                </footnote>, and TestComplete<footnote xml:id="__EN19__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://smartbear.com/product/testcomplete/overview/"
+                            >https://smartbear.com/product/testcomplete/overview/</link>. Accessed
+                        July 6, 2017.</para>
+                </footnote>, would be valuable in also automating certain testing of documentation
+                templates or order sets to ensure their correct behavior. </para>
+            <para>It is possible that customized versions of existing testing frameworks or
+                customized interfaces to them may be needed to incorporate these tools into an
+                environment specifically for managing knowledge artifacts. However, certain of these
+                tools are open-source or highly configurable, likely allowing such customizations
+                and interfacing.</para>
+        </section>
+        <section xml:id="_Toc486430926">
+            <title>Issue Tracking and Workflow Tools</title>
+            <para>The creation and maintenance of knowledge artifacts for a CDS system is a complex
+                undertaking that must be done carefully, reliably, and efficiently. The avoidance of
+                errors and oversights requires a systematic and reproducible process, and adherence
+                to a process requires appropriate software tools. Such tools must support the
+                following general functions:</para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Issue Tracking</emphasis>: The recording and
+                        prioritization of discrete issues that concern knowledge artifacts and need
+                        to be addressed, including bug reports, change orders, and requests for new
+                        capabilities. The formal tracking of such issues as they are addressed and
+                        resolved, including their transition across various states (“submitted”,
+                        “evaluated”, “implemented”, “tested”, “released”, “closed”, etc.). Note:
+                        “Issue” is a generic term in the context of these tools’ capabilities, and
+                        may encompass problems, tasks, or entire projects.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Communication and Sharing</emphasis>: The assignment
+                        of issues to specific personnel during the course of their resolution. The
+                        ability for personnel to seek review and receive approval of their work on
+                        an issue. The ability to share with other personnel information or assets
+                        related to an issue (such as software code or requirements documents), as
+                        well as comments related to the resolution of an issue (questions, problems,
+                        completion status, code snippets, etc.).</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Workflow Support</emphasis>: The ability to define
+                        and enforce specific workflows for certain types of issues. These workflows
+                        specify the states that an issue may move through during its resolution, the
+                        specific requirements for transitioning from one state to the next (such as
+                        approval of a design or completion of testing) , and types of personnel
+                        allowed to perform various tasks in the workflow (such as approving
+                        requirements or performing testing).</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Documentation</emphasis>: The ability to associate
+                        relevant documents with a specific issue, such as requirements documents,
+                        risk-analysis documents, design documents, test plans, release plans, etc.
+                        The ability to maintain a change history for these documents as they are
+                        updated during the course of resolving the issue. The ability to maintain an
+                        audit trail of all activity related to an issue from its creation to its
+                        resolution, including assignments, approvals, state transitions,
+                        communications, and documents.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Reporting</emphasis>:<emphasis role="bold"
+                        > </emphasis>The ability to generate dashboards and reports based on current
+                        issue-tracking data and past audit-trail data. The ability to track and
+                        report metrics related to the knowledge engineering process, including types
+                        of issues, average resolution time, personnel productivity, and conformance
+                        to prescribed workflows.</para>
+                </listitem>
+            </itemizedlist>
+            <para>Numerous commercial and open-source tools exist for issue tracking, such as
+                    JIRA<footnote xml:id="__EN20__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://www.atlassian.com/software/jira"
+                            >https://www.atlassian.com/software/jira</link>. Accessed July 6,
+                        2017.</para>
+                </footnote>, Bugzilla<footnote xml:id="__EN21__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://bugzilla.mozilla.org/"
+                            >https://bugzilla.mozilla.org/</link>. Accessed July 6, 2017.</para>
+                </footnote>, and Trac<footnote xml:id="__EN22__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://trac.edgewall.org/"
+                            >https://trac.edgewall.org/</link>. Accessed July 6, 2017.</para>
+                </footnote>, which could be readily applied to the task of managing lifecycle
+                processes for knowledge artifacts. </para>
+            <para>For example, <xref linkend="_Ref486586067" xrefstyle="template:Figure %n"/> shows a possible workflow for the
+                creation of new clinical alert rules, modeled in the Jira issue-tracking system. The
+                workflow specifies each of the states that the rule-creation process must pass
+                through, and the gating criteria for transitioning from one state to another. Given
+                the specification of such a workflow, the Jira system then enforces that each
+                rule-creation project (“issue”) passes through each of these states, and each
+                transition takes place only as allowed. For example, <xref linkend="_Ref486587526" xrefstyle="template:Figure %n"/>
+                shows how the transition from “New Rule Requested” to “Request Approved” can only be
+                performed by a staff member who has the “Administer Projects” permission enabled for
+                her account. </para>
+            <figure xml:id="_Ref486586067">
+                <title>A sample workflow for the creation of new clinical alert rules. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image11.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure xml:id="_Ref486587526">
+                <title>A constraint in the workflow that specifies which users may approve new rule
+                    requests.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image12.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>Adherence to formal processes enforced by tools may take more effort in the short
+                run, as it entails additional documentation, waiting for approvals, etc. However, in
+                the long run, it saves effort by avoiding oversights, re-work, and low-priority
+                distractions. More importantly, it maximizes the chances that all CDS knowledge
+                artifacts released to production will function in a correct and safe manner. </para>
+        </section>
+        <section xml:id="_Toc486430927">
+            <title>Performance Tracking and Analysis Tools</title>
+            <para>Even with careful version control, configuration management, validation, testing,
+                and adherence to rigorous development processes, knowledge artifacts containing
+                errors may be released to the production environment. No amount of tooling or
+                process can prevent all software errors. However, given the safety implications of
+                errors within CDS systems, it is important to perform ongoing surveillance of the
+                knowledge artifacts used in production to detect residual errors as quickly as
+                possible. </para>
+            <para>Tools that track and analyze the behavior of knowledge artifacts in use can
+                greatly assist such surveillance activities. These tools should be able to perform
+                the following functions:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Collection of feedback from clinician end-users and testers regarding
+                        perceived problems or bugs in the CDS system; the means to submit such
+                        reports as “trouble tickets” to the issue-tracking system used by CDS
+                        knowledge engineers.</para>
+                </listitem>
+                <listitem>
+                    <para>Automated and detailed logging of CDS events, in particular the invocation
+                        and behavior of CDS alert rules and the circumstances in which they
+                        executed; ability to review these logs and “drill down” on individual
+                        events, including the specific patient data evaluated by the CDS
+                        logic.</para>
+                </listitem>
+                <listitem>
+                    <para>Automated detection of statistically significant changes in the rates that
+                        CDS alerts fire; automated notification of the appropriate personnel when
+                        such aberrations occur, with sufficient information to enable them to be
+                        investigated and resolved by the knowledge engineering team.</para>
+                </listitem>
+                <listitem>
+                    <para>Automated logging of rule overrides by users; statistical analysis to
+                        detect changes in the rate of overrides or to identify rules that are
+                        getting overridden an inordinate percentage of time (suggesting their logic
+                        may be incorrect or insufficiently specific).</para>
+                </listitem>
+            </itemizedlist>
+            <para>The ability to automatically detect statistically significant changes in the
+                behavior of alert rules is particularly important for identifying subtle errors. In
+                the absence of such capabilities, the failure of an alert rule to fire in all
+                applicable circumstances could go unnoticed for a long period of time. In these
+                cases, only automated surveillance involving statistical analysis may detect such
+                errors. </para>
+            <para>For example<footnote xml:id="__FN2__">
+                    <para>This example was originally published in the following paper and is used
+                        here with permission of the author: Wright A, et. al. Analysis of clinical
+                        decision support system malfunctions: a case series and survey. J Am Med
+                        Inform Assoc. 2016 Nov;23(6):1068-1076.</para>
+            </footnote>, <xref linkend="_Ref486588257" xrefstyle="template:Figure %n"/> shows a scatter plot of the frequency
+                with which a rule fired that alerted clinicians to the need for thyroid testing in
+                patients taking the medication Amiodarone (a required screening test for such
+                patients). Although not apparent from even inspecting the scatter plot, the rate of
+                firing steadily decreased in 2011 and 2012 to a statistically significant degree
+                (the time period indicated by the blue bar). In this case, a change made by the
+                pharmacy in 2012 to the clinical code used in new prescriptions for Amiodarone was
+                not properly reflected in the alert rule. This inadvertent discrepancy caused the
+                rule to miss the increasing number of patients who were issued new prescriptions
+                using the updated code (patients started on the medication prior to 2012 still
+                triggered the rule). With the aid of statistical analysis, the discrepancy was
+                discovered and corrected, resulting in the rate of rule firing to return to its
+                correct levels in 2013.</para>
+            <figure xml:id="_Ref486588257">
+                <title>A visual display of subtle errors in alert rules that may go unnoticed in the
+                    absence of automated surveillance and statistical analysis. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image13.png"
+                            width="2.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+        <section xml:id="_Toc486430928">
+            <title>Integrated Development Environment for Knowledge Engineering</title>
+            <para>To maximize the convenience, and therefore actual use, of the tools described
+                above, knowledge engineers should have access to them from an integrated development
+                environment (IDE). This environment should share and link the relevant underlying
+                data (such as the version-control repository, knowledge-module repository, and
+                issue-tracking database), and enable knowledge engineers to view information from
+                and issue commands to all of the tools from a single user interface. Note that
+                certain of the tools may also offer alternative interfaces for use by personnel
+                outside of the development team, such as the issue-tracking, performance analysis,
+                and testing tools.</para>
+            <para>The development of an appropriate IDE for managing knowledge artifacts will
+                require the integration of tools with varying capabilities and (possibly) from
+                various sources. However, there already exist examples of IDE frameworks for general
+                software engineering, which can seamlessly integrate various tools and capabilities
+                using a “plug-in” architecture (notably, the Eclipse IDE). It may possible to extend
+                these frameworks to both customize them for the authoring/editing of CDS knowledge
+                artifacts and to integrate them with existing tools that provide the types of
+                version control, configuration management, automated testing, and issue tracking
+                capabilities described above.</para>
+        </section>
+    </section>
+    <section xml:id="_Toc478715575">
+        <title>Processes for the Safe and Reliable Management of Knowledge Artifacts</title>
+        <para>Availability of the tools and architecture described in  <xref
+            linkend="_Ref486442222" xrefstyle="select: label"/> enables knowledge engineers to follow best practices for
+            developing and managing knowledge artifacts used in CDS systems. This section describes
+            those best practices and how the tools specifically support them.</para>
+        <para>In 2006, the International Electrotechnical Commission (IEC) published a set of
+            standard processes specifically for developing software used in medical devices and
+            clinical processes. The “International Standard 62304: Medical Dev ice Software
+            Lifecycle Processes” (IEC-62304)<xref linkend="_Ref487113442"/> applies not only to
+            software embedded in medical devices, but to any software used in the “diagnosis,
+            prevention, monitoring, treatment or alleviation of disease.” Hence, the IEC-62304
+            standard provides an appropriate benchmark for the software lifecycle processes used to
+            develop and maintain CDS systems, including the knowledge artifacts that drive the
+            behavior of CDS alert rules, order sets, and documentation templates</para>
+        <para>IEC-62304 address two complementary sets of processes, and both should be applied in
+            the future for developing and maintaining knowledge artifacts:</para>
+        <orderedlist>
+            <listitem>
+                <para>Processes to characterize the risks associated with a knowledge
+                    artifact</para>
+            </listitem>
+            <listitem>
+                <para>Processes to achieve an appropriately low level of failure in the artifact,
+                    given those risks</para>
+            </listitem>
+        </orderedlist>
+        <section xml:id="_Ref487105785">
+            <title>Risk-Assessment Processes</title>
+            <para>The risk model used by IEC-62304 is based on the proposition that a
+                    <emphasis>software failure</emphasis> in a medical device or application may
+                contribute to a patient-safety <emphasis>hazard</emphasis>, which may cause actual
+                patient <emphasis>harm</emphasis>. </para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/image15.png"
+                        width="3.0in" align="center"/>
+                </imageobject> 
+            </mediaobject>
+            <para>In CDS systems, software failures result in knowledge artifacts <emphasis>failing
+                    to</emphasis>
+                <emphasis>prevent</emphasis> hazards and harms, rather than directly causing them.
+                Nevertheless, the same risk model applies, and the IEC-62304 standard requires that
+                a software safety class be assigned to knowledge artifacts based on the degree of
+                harm that may result from their failure to function correctly.</para>
+            <section>
+                <title>Software Safety Classes</title>
+                <para>IEC-62304 specifies three software safety classes:</para>
+                <informaltable>
+                    <tgroup cols="2">
+                        <colspec colname="c1" colwidth="36*"/>
+                        <colspec colname="c2" colwidth="64*"/>
+                        <tbody valign="top">
+                            <row>
+                                <entry align="center"><para><emphasis role="bold">Software Safety
+                                            Class</emphasis></para></entry>
+                                <entry align="center"><para><emphasis role="bold">Potential Harm
+                                            From Software Failure</emphasis></para></entry>
+                            </row>
+                            <row>
+                                <entry align="center"><para>A</para></entry>
+                                <entry><para>No injury or damage to health is
+                                    possible</para></entry>
+                            </row>
+                            <row>
+                                <entry align="center"><para>B</para></entry>
+                                <entry><para>Non-serious injury is possible</para></entry>
+                            </row>
+                            <row>
+                                <entry align="center"><para>C</para></entry>
+                                <entry><para>Death or serious injury is possible</para></entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </informaltable>
+                <para>For purposes of this classification, IEC-62304 defines “serious injury” as “an
+                    injury or illness that directly or indirectly (a) is life threatening, (b)
+                    results in permanent impairment of a body function or permanent damage to a body
+                    structure, or (c) necessitates medical or surgical intervention to prevent
+                    permanent impairment of a body function or permanent damage to a body
+                    structure.</para>
+                <para>Note that safety classes are assigned based on <emphasis>possible</emphasis>
+                    harm resulting from a software failure, regardless of the probability of the
+                    failure occurring or the probability of the failure causing the harm. In other
+                    words, a software system should be assigned a safety class corresponding to the
+                    highest level of harm that the failure of system could conceivably cause. </para>
+                <para>The purpose of assigning software safety classes is to guide which specific
+                    software-lifecycle processes should be used in the development and maintenance
+                    of specific software systems. The greater the potential harm that may result
+                    from a software failure, the more rigorous the processes that one should employ. </para>
+                <para>The IEC-62304 model for assigning and using software safety classes
+                    specifically to knowledge artifacts raises two important practical
+                    questions:</para>
+                <orderedlist>
+                    <listitem>
+                        <para><emphasis role="underline">In CDS systems, what specific components
+                                should be assigned a safety class?</emphasis> One option is to
+                            assign a single safety class to all of the components of an entire CDS
+                            modality, such as the alert-rule modality or the documentation-template
+                            modality. This approach would indicate that the lifecycle for all
+                            individual rules or all individual documentation templates should be
+                            managed using the same set of processes. A better option, however, is to
+                            assign a separate safety class to each high-level artifact (i.e.,
+                            individual alert rule, documentation template, and order set) based on
+                            its specific contents, and subsequently apply only the workflow
+                            appropriate for that safety class when creating and maintaining the
+                            artifact. For example, an alert rule that advises a physician to
+                            substitute a generic medication for an equivalent brand-name medication
+                            might be assigned a safety class of “A”, whereas a rule that reminds a
+                            physician to order monitoring tests when prescribing a potentially toxic
+                            medication would be assigned a safety class of “C”. The approach of
+                            assigning safety classes to individual high-level knowledge artifacts is
+                            more efficient, in that it avoids the application of the most rigorous
+                            processes for knowledge artifacts that have minimal patient-safety
+                            implications. Note that sub-artifacts, such as value sets, individual
+                            coded concepts, and data-access functions, will not be assigned safety
+                            classes of their own, because they only function in the context of
+                            high-level artifacts (see  <xref linkend="_Ref486589560" xrefstyle="select: label"/>), such
+                            as rules and order sets. Therefore, sub-artifacts will automatically
+                            inherit the safety class of the high-level artifacts that depend on
+                            them.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="underline">What safety classes should be assigned to
+                                sub-artifacts that may be shared by multiple high-level
+                                artifacts?</emphasis> Certain knowledge artifacts, such as value
+                            sets and coded concepts, may be shared by multiple alert rules or
+                            documentation templates, each with potentially different safety classes.
+                            IEC-62304 specifies that, if a software system depends on the correct
+                            functioning of a software component, then the component should inherit
+                            the same software safety class as the overall system. Applied to
+                            knowledge artifacts, this policy implies that sub-artifacts used by one
+                            or more high-level artifacts should be assigned the
+                                <emphasis>highest</emphasis> software safety class among those
+                            high-level artifacts. <xref linkend="_Ref478710366" xrefstyle="template:Figure %n"/> shows an example
+                            of the correct application of this policy to the hierarchy of
+                            sub-artifacts used by two rules with different software safety classes.
+                            An effective dependency-management system is required to resolve such
+                            inheritance relationships across many artifacts and lengthy chains of
+                            dependencies to ensure that each artifact and sub-artifact is assigned
+                            the appropriate patient safety class. </para>
+                    </listitem>
+                </orderedlist>
+                <figure xml:id="_Ref478710366">
+                    <title>Example of appropriate assignment of patient safety classes to
+                        sub-artifacts. </title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image14.png"
+                                width="5.5in"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <para>Based on the safety class that a knowledge artifact is assigned or inherits,
+                    it should be managed using the appropriate software-lifecycle processes
+                    specified by the IEC-62304 standard. The specified processes fall into three
+                    categories, as addressed below: Development processes, maintenance processes,
+                    and cross-cutting processes that apply to both development and
+                    maintenance.</para>
+                <para>The sections below summarize each of the IEC-62304 processes that apply to
+                    knowledge artifacts, and indicate which of the tools described in  <xref
+                        linkend="_Ref486442222" xrefstyle="select: label"/> should be used in each process.</para>
+            </section>
+        </section>
+        <section xml:id="_Toc478715576">
+            <title>Development Processes</title>
+            <para>The initial development of knowledge artifacts must conform to a careful and
+                well-documented process to minimize the potential for error and failure when the
+                artifacts are initially released to production.</para>
+            <section>
+                <title>Development Plan</title>
+                <para>Specification and documentation of the processes that will be employed in the
+                    development of each type of knowledge artifact (rule, documentation template,
+                    data access object, value set, etc.) in each software safety class. Each type of
+                    knowledge artifact with a given software safety class will follow the same
+                    development workflow, which will include the required development phases,
+                    approvals, testing processes, and documentation. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Workflow-definition feature of the issue-tracking and workflow tool.
+                    Three distinct workflow processes will be defined for each type of artifact, one
+                    corresponding to each safety class.</para>
+            </section>
+            <section>
+                <title>Requirements Analysis</title>
+                <para>Determination and documentation of the <emphasis>clinical</emphasis>
+                    requirements of the knowledge artifact, including the clinical purpose of the
+                    artifact, the logic it will apply, the contents it should include, and the
+                    actions that it should produce. The requirements-analysis process should include
+                    a verification step to ensure that the requirements have been expressed fully,
+                    consistently, unambiguously, and in a manner that enables the definition of test
+                    criteria/test cases to evaluate correct functioning with respect to
+                    requirements. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking tool, especially its ability to associate requirements
+                    documents with a tracked development project (“issue”), manage changes to the
+                    requirements document, share the requirements documents with clinician experts
+                    to solicit their review and approval, and require the approval of a clinician
+                    expert before the next phase of development can be initiated. </para>
+                <para>Assessment of patient-safety risks inherent in the new artifact (see Section
+                    <xref linkend="_Ref486443481" xrefstyle="select: label"/>).</para>
+            </section>
+            <section>
+                <title>Architectural Design and Detailed Design</title>
+                <para>Specification of how the contents or logic of the artifact will be encoded.
+                    Specification of how the knowledge artifact will be divided into sub-artifacts
+                    (if applicable), and/or use any existing sub-artifacts. Specification of any
+                    required interfaces among the sub-artifacts or between the knowledge artifact
+                    and any required external resources. Design of any new sub-artifacts or of
+                    existing sub-artifacts that must be modified. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue-tracking tool, especially its ability to associate design
+                    documents with a tracked issue, manage changes to the design documents, share
+                    the design documents with supervisors or other knowledge engineers to solicit
+                    review, verification, and approval; IDE to inspect the existing available
+                    sub-artifacts to use in the newly created artifact.</para>
+                <para>Assessment of the effects of any required changes to existing artifacts based
+                    on the configuration and dependency relationships of the overall system (see
+                     <xref linkend="_Ref486443646" xrefstyle="select: label"/>).</para>
+            </section>
+            <section>
+                <title>Unit Implementation and Unit Testing</title>
+                <para>Implementation of new artifacts and required modifications to existing
+                    artifacts. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Version-control system; IDE’s capabilities to browse the set of
+                    released knowledge modules and associate the compiled artifacts within them with
+                    their corresponding source artifacts in the version-control system; IDE’s
+                    capabilities to author/edit knowledge artifacts and other source objects; </para>
+                <para>Validation and testing of the implemented knowledge artifact (e.g., rule,
+                    order set, etc.). If existing sub-artifacts needed to be modified or new
+                    sub-artifacts implemented, independent validation and unit testing of these
+                    artifacts. These testing processes should include clear acceptance criteria. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Compilation and automated validation tools; issue-tracking tool to
+                    store the test plan and to document the test results associated with the
+                    artifact; IDE to execute automated unit testing.</para>
+                <para>If a sub-artifact is modified that is shared among multiple knowledge
+                    artifacts, all of the affected knowledge artifacts should undergo regression
+                    testing. For example, if a shared value set is updated, all CDS alert rules that
+                    use the value set should be regression tested. Similarly, if many changes are
+                    made to the data repository’s information model or to the contents of the
+                    terminology, then many or all CDS alert rules may need to be regression tested. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Configuration and dependency analysis tools to identify any dependent
+                    knowledge artifacts; Compilation and automated validation tools to perform
+                    regression testing of those artifacts.</para>
+            </section>
+            <section>
+                <title>Integration and Integration Testing</title>
+                <para>All components and sub-artifacts of the knowledge artifact under design should
+                    be assembled and tested in a complete runtime environment. The results of this
+                    testing should be documented. The rigor of integration testing and the level of
+                    detail of the documentation associated with integration testing should be
+                    commensurate with the risk associated with the knowledge artifact. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Automated testing tools; issue-tracking tool to store the test plan
+                    and document the test results associated with the artifact.</para>
+                <para>Integration testing should be conducted in an appropriate test environment
+                    that simulates the target production environment as closely as possible,
+                    including with respect to external runtime components, such as the data
+                    repository and terminology server. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Configuration management tool to specify a runtime environment that
+                    simulates the production environment accurately; repository of released
+                    knowledge modules to provide the modules currently used by the runtime
+                    environment; compilation and validation tool to build a runtime environment that
+                    includes the new and updated knowledge modules from the development environment,
+                    along with the released knowledge modules currently used in the production
+                    system.</para>
+            </section>
+            <section>
+                <title>Release</title>
+                <para>Assurance that all prescribed processes have been completed and documented.
+                    Assurance that the version of the knowledge artifact that has been developed and
+                    tested is the same as the version that is being released, particularly with
+                    regards to any shared sub-artifacts or external resources whose versions could
+                    differ in the test and production environments. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow to ensure that all prescribed steps in
+                    preparing a release have been completed and approved; configuration management
+                    tool to ensure that the released artifact(s) are consistent with other artifacts
+                    and components of the production environment; automated testing tools to execute
+                    final testing in an environment identical to the target production environment;
+                    IDE. </para>
+            </section>
+        </section>
+        <section>
+            <title>Maintenance Processes</title>
+            <para>Appropriate change-management and artifact-update processes are at least as
+                important as the initial development processes, because many errors in production
+                CDS systems are related to modifications of knowledge artifacts that have unintended
+                consequences.</para>
+            <section>
+                <title>Maintenance Plan</title>
+                <para>Specification and documentation of the processes and workflow that will be
+                    employed in the maintenance of each type of knowledge artifact. Each type of
+                    knowledge artifact with a given software safety class will follow the same
+                    modification workflow, which will include the required development phases,
+                    approvals, testing processes, and documentation. . </para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow tools to guide and track adherence to the
+                    prescribed processes, as well as to store the associated requirements documents,
+                    test plans, etc.</para>
+            </section>
+            <section>
+                <title>Collection and Analysis of Data on Performance</title>
+                <para>Monitoring of feedback regarding the use and behavior of the knowledge
+                    artifact, including review of end-user reports and change requests, as well as
+                    the active collection and analysis of log data to support automated
+                    surveillance. Careful consideration of the patient-safety impacts of collected
+                    feedback. For identified defects, creation and tracking of problem reports per
+                    the problem-resolution process (see <xref linkend="_Ref478711911" xrefstyle="select: label"/>). </para>
+                <para><emphasis role="bold">Tools:</emphasis> Performance tracking and analysis tools; issue tracking tools to
+                    collect the manually submitted or automatically generated trouble tickets on
+                    behalf of the knowledge-engineering team.</para>
+            </section>
+            <section>
+                <title>Implementation of Needed and Requested Modifications</title>
+                <para>Use of similar development process as for initial creation of knowledge
+                    artifacts (see  <xref linkend="_Toc478715576" xrefstyle="select: label"/>), including requirements
+                    analysis, solution design, dependency analysis, implementation, and testing.
+                    Regression testing is a critical component of this process if any shared
+                    knowledge artifacts or external resources were modified as part of implementing
+                    the bug-fix or requested change. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue-tracking tool; Version control tool; configuration and
+                    dependency analysis tools; compilation and validation tools; automated testing
+                    tools; IDE.</para>
+                <para>Release of modified knowledge artifact, either individually or part of a
+                    wholesale version release of an entire CDA modality. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Configuration management tools; IDE.</para>
+            </section>
+        </section>
+        <section>
+            <title>Cross-Cutting Processes</title>
+            <para>Several categories of processes apply to both the software development and
+                software maintenance phases.</para>
+            <section xml:id="_Ref486443481">
+                <title>Software Risk-Management Processes</title>
+                <para>Identification of each component of a knowledge artifact that could lead to a
+                    hazardous situation were it to malfunction. Assignment of appropriate safety
+                    classes to knowledge artifacts. Analysis of potential ways that failures in
+                    knowledge artifacts could contribute to hazardous situations, including through
+                    incorrect requirements or specifications, implementation defects, or reasonably
+                    foreseeable misuse. Consideration of how changes to a knowledge artifact, its
+                    sub-artifacts, or any external resources could result in artifact failures and
+                    hazardous situations. Inclusion of 3<superscript>rd</superscript>-party software
+                    components in this risk analysis.</para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking tools, including document-management capabilities to
+                    associate risk analyses with development and maintenance projects;
+                    performance-tracking and analysis tools to identify historical risks associated
+                    with certain knowledge artifacts.</para>
+                <para>Planning and execution of risk-control measures, including appropriate
+                    verification and testing processes. Documentation of trace-ability between each
+                    potential hazard that could result from the software’s failure and the
+                    risk-control measures implemented to reduce its probability.</para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow tools; configuration and dependency
+                    analysis tools; automated testing tools; integrated development
+                    environment.</para>
+            </section>
+            <section xml:id="_Ref486443646">
+                <title>Software Configuration-Management Process</title>
+                <para>Establishment of a scheme for the unique identification of configuration items
+                    and their versions, such as alert rules, order sets, documentation templates,
+                    data-access routines, value sets, information models, and terminologies.
+                    Documentation of the set of configuration items and their versions that comprise
+                    every knowledge artifact, which should be generated automatically from the
+                    specification of the artifacts, not needed to be maintained actively by
+                    personnel, which will be prone to error and quickly become outdated over
+                    time.</para>
+                <para><emphasis role="bold">Tools:</emphasis> Version control tools; configuration management tools; compilation
+                    and validation tools; IDE.</para>
+                <para>Explicit approval for any changes in the set of configuration items for a
+                    knowledge artifact, and appropriate testing of such changes, including
+                    regression testing (i.e., of other affected artifacts). Documented trace-ability
+                    of any changes to configuration items with respect to the problem reports and
+                    change requests that engendered such changes.</para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue-tracking tools; configuration and dependency analysis tools;
+                    automated testing tools.</para>
+            </section>
+            <section xml:id="_Ref478711911">
+                <title>Software Problem-Resolution Processes</title>
+                <para>Preparation of formal problem reports for each problem or failure detected in
+                    a knowledge artifact. Investigation of each problem to identify its causes and
+                    evaluate its relevance to patient safety, using the risk-management process.
+                    Notification of user community regarding identified problems in CDS
+                    system.</para>
+                <para><emphasis role="bold">Tools:</emphasis> Performance tracking tools; issue tracking tools; test
+                    environment.</para>
+                <para>Characterization of the type of modification(s) needed (including urgency) and
+                    preparation of a change request to implement the modification(s). Use of
+                    software-maintenance processes to implement the modification(s).</para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow tools; tools for version control,
+                    configuration management, testing, etc.</para>
+                <para>Tracking and verification of the problem’s resolution, culminating in the
+                    closing of the problem report. </para>
+                <para><emphasis role="bold">Tools:</emphasis> Issue tracking and workflow tools.</para>
+            </section>
+        </section>
+    </section>
+    <section>
+        <title>Summary and Next Steps</title>
+        <para>The future-state architecture and processes described in this document are an
+            ambitious vision for the management of CDS knowledge artifacts in a manner that
+            minimizes software defects and maximizes patient safety. Although similar tools and
+            processes have been implemented in mission-critical software systems in other domains,
+            they have yet to all be applied for the management of CDS systems in healthcare
+            settings. The implementation of this vision will require the careful assessment of
+            available tools, desired workflows, and the manner in which they may be combined to
+            optimize the management of CDS knowledge artifacts. </para>
+        <para>The next phase of this work will lay out a roadmap for implementing the vision
+            described above in a way that is consistent with the VHA’s current environment as well
+            as its planned future health I.T. infrastructure.</para>
+    </section>
+</chapter>

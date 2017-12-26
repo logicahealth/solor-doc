@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+  <title>Terminology Binding</title>
+
+  <para>
+    Terminology binding refers to “the assertion of a relationship between the information model and the terminology” [CIMI Glossary]. This binding involves attaching terminology concepts, reference sets or expressions to a node or link in an information model. 
+  </para>
+
+  <para>
+    There are four main use cases motivating terminology binding to CIMI models:
+  </para>
+
+      <orderedlist numeration="arabic">
+      <listitem>
+        <para>To support the management and quality control of clinical model libraries, including: </para>
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+                <para>
+                    Searching model libraries (using the meaning of the models and their contents).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Identifying semantic overlap between models.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Identifying inconsistency of model interdependencies (e.g. the meaning of a constrained archetype is not subsumed by the meaning of the base archetype).
+                </para>
+            </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>To determine the iso-semanticity of two or more instances of models that are semantically equivalent, but structurally different; and to be able to transform between these iso-semantic representations, including:</para>
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+                <para>
+                    Models using a different level of pre-coordination versus structure.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Models making different modelling design choices (e.g. Representing a laboratory test method as a data element, versus a CLUSTER containing data elements).
+                </para>
+            </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>To enable querying over data instances of iso-semantic model representations (as described above)</para>
+      </listitem>
+      <listitem>
+        <para>To support data validation and semantic interoperability (e.g. exchanging data between systems that use different native information structures):</para>
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+                <para>
+                    By confirming instance data conforms to the semantic specification.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    By supporting the construction of valid description logics for instance classification and application of decision support and other analytic tools.
+                </para>
+            </listitem>
+        </itemizedlist>
+      </listitem>
+    </orderedlist>
+
+
+    <para>
+      It is proposed these use cases be met by the fulfilment of the following requirements:
+    </para>
+
+    <orderedlist numeration="arabic">
+      <listitem>
+        <para>A standard, reproducible methodology for defining the meaning of each node in the model using an association with a terminology.</para>
+      </listitem>
+      <listitem>
+        <para>A standard, reproducible methodology for defining the valid set of values of each coded data element in the model (either explicitly or as a constraint expression).</para>
+      </listitem>
+      <listitem>
+        <para>A standard, reproducible methodology for establishing semantic relationships between nodes in the same model, such as through SNOMED-CT Template syntax.</para>
+      </listitem>
+      <listitem>
+        <para>Terminology bindings allowing the values to be represented in a way agnostic to the degree of pre-coordination versus structure.</para>
+      </listitem>
+      <listitem>
+        <para>Terminology bindings enabling the transformation between iso-semantic representations of the same model.</para>
+      </listitem>
+      <listitem>
+        <para>Terminology bindings allowing consistency to be checked within models and between models related by specialisation or slot filling.</para>
+      </listitem>
+    </orderedlist>
+
+
+    <sect2>
+      <title>Terminology Binding Guidelines</title>
+
+      <para>
+        All finalised CIMI Clinical Models shall:
+      </para>
+
+      <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+                <para>
+                    Include a semantic “concept binding” for each data element in the model to a terminology concept (expression or pattern) which represents the meaning of the data element.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Include a “value binding” from each node of type CODED_TEXT to a terminology reference set indicating the valid values for the node – either defined intentionally using a constraint expression, or extensionally as a list of terminology components.
+                </para>
+            </listitem>
+        </itemizedlist>
+
+        <para>
+          All finalised CIMI Clinical Models may (where appropriate):
+        </para>
+
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+                <para>
+                    Include a constructor binding on appropriate container-type nodes (e.g. ENTRY, CLUSTER) in the form of a terminology expression to help determine its iso-semanticity with other model representations.
+                </para>
+            </listitem>
+            
+        </itemizedlist>
+
+        <sect3>
+          <title>Semantic Model Binding</title>
+          <para>
+            Information models are often developed independently of clinical ontologies. As a result, many information models align poorly with the terminologies or ontologies upon which they ultimately depend for their formal semantics. Moreover, by not explicitly specifying the model’s semantics, the meaning of the model is left open for interpretation during implementation further hindering interoperability. CIMI is designed to align closely with the SNOMED CT Concept Model with particular influence from the Situation with Explicit Context expression semantics. If the CIMI attribute aligns with the SNOMED CT concept model, attributes will be bound to descendants of Concept model  attribute ID 410662002 | Concept model attribute (note, children of Unapproved attribute (attribute) ID 408739003 should not be used). If there is no attribute binding (e.g. temporal attributes such as “start time”) then CIMI will use descendents from the “observable entity” domain if an equivalence exists.
+          </para>
+
+          <para>
+            To support terminology bindings to SNOMED CT components not available in the international release, CIMI will develop a SNOMED CT extension in the CIMI Namespace (namespace id: 1000160). This namespace has been allocated and registered by the SNOMED International.
+          </para>
+
+        </sect3>
+
+        <sect3>
+          <title>Semantic Model Range Binding</title>
+
+          <para>
+            Value bindings will use SNOMED CT wherever possible – however, where the values are outside the scope of SNOMED CT, other terminologies (e.g. LOINC answers) may be selected (on a case-by-case basis).
+          </para>
+
+          <para>
+            When a data element is further refined as a specialization (e.g. skin assessment site is a body location), the value set range must come from the range of the parent data element (e.g. skin assessment site is a subtype of body location).
+          </para>
+
+        </sect3>
+
+
+        <sect3>
+          <title>Value Set Binding</title>
+
+          <para>
+            Work is currently being done within the HL7 Vocabulary work-group to define terminology binding semantics that remain valid across multiple implementation domains (V2, V3, C-CDA, FHIR and CIMI).  CIMI is an active participant in these efforts and it is our intent to align CIMI Value Set bindings as closely as possible to this effort. 
+          </para>
+
+
+        </sect3>
+
+      </sect2>
+   
+    
+
+</section>

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!ENTITY % isopub SYSTEM "http://www.w3.org/2003/entities/iso8879/isopub.ent">
+%isopub;
+]>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <info>
-        <title>ISAAC's KOMET</title>
+        <title>ISAAC's Compendium</title>
         <subtitle>Architecture&#160;Centric Knowledge&#160;Management</subtitle>
         <edition>Compendium Edition</edition>
         <mediaobject>
@@ -52,7 +56,7 @@
             motion. </para>
     </acknowledgements>
     <part>
-        <title>The Challenge</title>
+        <title>Challenges</title>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/operability.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -65,53 +69,72 @@
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/menagerie.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml" 
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/orchestra.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/foundation/boundaries.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>
-        <title>Principles</title>
+        <title>Principia</title>
         <preface>
-            <title>Philosophiæ Logica Empirismus Principia Informatica</title>
-            <para>Philosophiæ Naturalis Principia Mathematica (pron. /fɪləˈsɒfi.iː nætʃərˈɑːlɪs prɪnˈsɪpi.ə mæθəˈmætɪkə/, 
-                Latin for Mathematical Principles of Natural Philosophy),[1] often referred to as simply the Principia, 
-                is a work in three books by Isaac Newton, in Latin, first published 5 July 1687.</para>
+            <title>ISAAC's Philosophiæ Logica Empirismus Principia Informatica</title>
+            <para>Philosophiæ Naturalis Principia Mathematica (pron. /fɪləˈsɒfi.iː nætʃərˈɑːlɪs
+                prɪnˈsɪpi.ə mæθəˈmætɪkə/, Latin for Mathematical Principles of Natural
+                Philosophy),[1] often referred to as simply the Principia, is a work in three books
+                by Isaac Newton, in Latin, first published 5 July 1687.</para>
         </preface>
+        <chapter>
+            <title>Informatics Self-describing Agile Architecture</title>
+            <para>An architecture is more than a thin veneer on top of a bunch of unstructured
+                database tables. </para>
+            <para>The architecture provides a foundation. We need a principled foundation so we stop
+                building the sykscraper from the third floor up. </para>
+            <para>ISAAC provides a robustly versioned and self-describing architecture for knowledge
+                representation and execution. </para>
+        </chapter>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/principles/principles.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        
+
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/requirements-driven.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/cem-cimi/cem-cimi.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>  
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/clin-obs-modeling-chapter/clin-obs-modeling-chapter.xml"
-            xmlns:xi="http://www.w3.org/2001/XInclude"/>  
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/architecture-centric.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/design/iterative-incremental.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/quantifying-negation-article/quantifying-negation-article.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/post-coordination-implementation-article/post-coordination-implementation-article.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+
     </part>
     <part>
-        <title>The SOLOR system</title>
+        <title>SOLOR</title>
         <preface>
-            <title>SNOMED, Laboratory Observations, Rx</title>
-            <para>
-                 According to most sources, Rx is derived from the Latin word “recipe,” meaning “take.” Among several alternative theories, however, is the belief that the Rx symbol evolved from the Eye of Horus, an ancient Egyptian symbol associated with healing powers.
-            </para>
-            <para>
-                It is generally thought that it has medieval roots as an abbreviation for a form of the Late Latin word “recipere” meaning “to take.” 
-            </para>
-            <para>
-                compositio, conpositio, praescriptum, recipe
-            </para>
+            <title>Signs, Laboratory Observations, and Reciperes</title>
+            <subtitle>System of Logical Representation</subtitle>
+            <titleabbrev>SOLOR</titleabbrev>
+            <para> According to most sources, Rx is derived from the Latin word “recipe,” meaning
+                “take.” Among several alternative theories, however, is the belief that the Rx
+                symbol evolved from the Eye of Horus, an ancient Egyptian symbol associated with
+                healing powers. </para>
+            <para> It is generally thought that it has medieval roots as an abbreviation for a form
+                of the Late Latin word “recipere” meaning “to take.” </para>
+            <para> compositio, conpositio, praescriptum, recipe </para>
         </preface>
         <xi:include href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/modules.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -129,23 +152,33 @@
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>
-        <title>Opticks</title>
+        <title>KOMET</title>
         <preface>
-            <title>Observation Platform to Illustrate Clinical Knowledge Services</title>
+            <title>ISAAC's Knowledge Managent Environment</title>
+            <para>KOMET can manage SOLOR and layered knowledge build upon SOLOR&mdash;and SOLOR
+                extensions&mdash;as defined by the ISAAC Architecture. </para>
+        </preface>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/komet.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+    <part>
+        <title>OPTICKS</title>
+        <preface>
+            <title>ISAAC's Open Platform to Illustrate Clinical Knowledge Services</title>
             <para>Newton’s Opticks</para>
-            <para>The publication of Opticks represented a major contribution to science, 
-                different from but in some ways rivalling the Principia. Opticks is largely 
-                a record of experiments and the deductions made from them, covering a wide 
-                range of topics in what was later to be known as physical optics.[1] </para>
-            <para>Unlike the Principia, Opticks is not developed using the geometric 
-                convention of propositions proved by deduction from either previous 
-                propositions, lemmas or first principles (or axioms). Instead, axioms 
-                define the meaning of technical terms or fundamental properties of 
-                matter and light, and the stated propositions are demonstrated by 
-                means of specific, carefully described experiments. The first sentence 
-                of the book declares My Design in this Book is not to explain the 
-                Properties of Light by Hypotheses, but to propose and prove them by 
-                Reason and Experiments. </para>
+            <para>The publication of Opticks represented a major contribution to science, different
+                from but in some ways rivalling the Principia. Opticks is largely a record of
+                experiments and the deductions made from them, covering a wide range of topics in
+                what was later to be known as physical optics.[1] </para>
+            <para>Unlike the Principia, Opticks is not developed using the geometric convention of
+                propositions proved by deduction from either previous propositions, lemmas or first
+                principles (or axioms). Instead, axioms define the meaning of technical terms or
+                fundamental properties of matter and light, and the stated propositions are
+                demonstrated by means of specific, carefully described experiments. The first
+                sentence of the book declares My Design in this Book is not to explain the
+                Properties of Light by Hypotheses, but to propose and prove them by Reason and
+                Experiments. </para>
             <para>Alternatives: </para>
             <itemizedlist>
                 <listitem>
@@ -168,8 +201,54 @@
                 </listitem>
             </itemizedlist>
         </preface>
+        <chapter>
+            <title>HL7 FHIR</title>
+            <para>Introduction to genreal notion of HL7 FHIR resources and profiles. Details of
+                specific resources and profiles</para>
+            <section>
+                <title>Observation</title>
+                <para>Define what it is. What the challenges are.</para>
+                <section>
+                    <title>FHIR Observation Resource</title>
+                    <para/>
+                </section>
+                <section>
+                    <title>ISAAC FHIR Observation Profile</title>
+                    <para/>
+                </section>
+            </section>
+            <section>
+                <title>Condition</title>
+                <para>Define what it is. What the challenges are.</para>
+                <section>
+                    <title>FHIR Condition Resource</title>
+                    <para/>
+                </section>
+                <section>
+                    <title>ISAAC FHIR Condition Profile</title>
+                    <para/>
+                </section>
+            </section>
+        </chapter>
+    </part>
+    <part>
+        <title>DevOps</title>
+        <preface>
+            <title>Development Operations</title>
+            <para>The practice that aims at unifying software development (executable and software
+                operation. </para>
+        </preface>
         <xi:include
-            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/devops.xml"
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/maven.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/git.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/docbook.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/transformation-language-article/transformation-language-article.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/specifications.xml"
@@ -183,8 +262,10 @@
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/content.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/implementation/collaborating-guideline.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
-
     <part>
         <title>Appendices</title>
         <xi:include
@@ -229,7 +310,8 @@
                     >AsciiDoc</link> as an alternate input method, as it supports docbook output. A
                     <link
                     xlink:href="https://github.com/asciidoctor/asciidoctor-maven-plugin#multiple-outputs-for-the-same-file"
-                    >Maven plugin</link> is available to convert AsciiDoc input to DocBook output. </para>
+                    >Maven plugin</link> is available to convert AsciiDoc input to DocBook output.
+            </para>
         </formalpara>
         <formalpara>
             <title>Content management</title>

@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<article version="5.1" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+    xmlns:ns3="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook">
+    <info>
+         <title>Implementing an Improved Architecture to Manage CDS Knowledge Artifacts
+        </title>
+        <subtitle>A Three-Year Roadmap</subtitle>
+        <author>
+            <personname>Walter Sujansky</personname>
+        </author>
+        <date>2017-09-30</date>
+    </info>
+    
+    <section>
+        <title>Introduction</title>
+        <para xml:id="_Toc486430913">A previous report<footnote xml:id="__EN1__">
+                <para>An Architecture for Managing Clinical Decision Support Knowledge Artifacts
+                    With Implications for Patient Safety: Principles, Tools and Processes. Veterans
+                    Health Administration, Office of Informatics &amp; Analytics and Health
+                    Informatics, Informatics Architecture Support Services. July 5, 2017.</para>
+            </footnote> specified a desired “future state” for the tools and processes used by the
+            Veterans Health Administration (VHA) to manage knowledge artifacts in its clinical
+            decision support (CDS) systems. The future state was based on an earlier
+                assessment<footnote xml:id="__EN2__">
+                <para>Processes for the Management of Clinical Decision Support Knowledge Artifacts
+                    With Implications for Patient Safety: Background, Best Practices, and Current
+                    State. Veterans Health Administration, Office of Informatics &amp; Analytics and
+                    Health Informatics, Informatics Architecture Support Services. March 31,
+                    2017.</para>
+            </footnote> of the gaps between VHA’s current processes and recognized best practices
+            for managing knowledge artifacts that have implications for patient safety. This report
+            lays out a three-year roadmap for actually implementing the prescribed future state. </para>
+        <para>The roadmap incorporates a number of judgements and assumptions about the environment
+            in which CDS knowledge artifacts will be managed, the logical sequence of implementing
+            the future-state tools and processes in that environment, and the approximate time frame
+            required to complete the implementation. Certain of these assumptions are subject to
+            change, so that the roadmap will likely need to be adjusted over time. Notably, as VHA
+            prepares to replace its bespoke EHR and CDS environments with COTS products from Cerner,
+            the features of those commercial products will influence the development pace and the
+            final state of the envisioned environment for managing CDS artifacts.</para>
+    </section>
+    <section>
+        <title>Overview of roadmap for the future-state architecture</title>
+        <para>The future state architecture described earlier<footnote xml:id="__EN3__">
+            <para>An Architecture for Managing Clinical Decision Support Knowledge Artifacts
+                With Implications for Patient Safety: Principles, Tools and Processes. Veterans
+                Health Administration, Office of Informatics &amp; Analytics and Health
+                Informatics, Informatics Architecture Support Services. July 5, 2017.</para>
+        </footnote> characterizes the <emphasis>types</emphasis>
+            <emphasis>of CDS knowledge artifacts</emphasis> that need to be carefully managed, the
+            appropriate <emphasis>life-cycle processes</emphasis> for managing those artifacts, and
+            the applicable <emphasis>software-development tools</emphasis> needed to operationalize
+            those life-cycle processes. The reader is strongly encouraged to review that report to
+            best understand the roadmap described here. Several key points, however, are summarized
+            below.</para>
+        <itemizedlist>
+            <listitem>
+                <para><emphasis role="bold">Types of CDS knowledge artifacts</emphasis>. Note the
+                    distinction between <emphasis>high-level artifacts</emphasis> (rules, order
+                    sets, documentation templates) and <emphasis>sub-artifacts </emphasis>(coded
+                    concepts, value sets, data-access functions, data-manipulation functions,
+                    orderable items, and external system interfaces). The roadmap sequences the
+                    handling of these types of artifacts differently.</para>
+            </listitem>
+            <listitem>
+                <para><emphasis role="bold">Life-cycle processes</emphasis>. The prescribed
+                    processes are based on the IEC 62304 standard for developing and maintaining
+                    software with implications for patient safety. Key emphases include risk
+                    management, quality assurance, configuration management, and rigorous
+                    documentation/validation of the life-cycle process steps.</para>
+            </listitem>
+            <listitem>
+                <para><emphasis role="bold">Software-development tools</emphasis>. Appropriate
+                    software tools are essential to operationalizing the life-cycle processes, and
+                    the roadmap interleaves the introduction of processes and tools accordingly.
+                    Many general-purpose tools already exist to manage issue tracking, version
+                    control, configuration management, automated testing, and software
+                    compile/validate/release steps. Integrated development environments (IDEs) also
+                    exist to combine these tools into convenient and powerful work benches for
+                    software developers, a model that can and should be extended to CDS knowledge
+                    management.</para>
+            </listitem>
+        </itemizedlist>
+        <para><xref linkend="_Ref493493823"/> summarizes the development roadmap for the future
+            state, based on these concepts and other materials in the prior report. Section <xref
+                linkend="_Ref493494001"/> expands on each of the steps in the roadmap, with
+            references to the corresponding sections of the future-state report (in square brackets
+            at the beginning of each sub-section, such as “[4.3.1]”).</para>
+        <figure xml:id="_Ref493493823">
+            <title>Overview of three-year roadmap.</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata align="center" fileref="images/image2.png"
+                        width="6.5in"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+    </section>
+    <section xml:id="_Ref493494001">
+        <title>Year-One Tasks</title>
+        <para>Year one will be devoted to overall planning and to implementing the highest-priority
+            processes and tools of the future-state architecture.</para>
+        <section xml:id="_Ref493510187">
+            <title>Define the envisioned knowledge artifact development/maintenance
+                processes</title>
+            <para>[4.2.1 and 4.3.1] The initial step is to define the specific processes that will
+                be in place for developing and maintaining knowledge artifacts at the conclusion of
+                the three-year implementation project. These processes will be based on the contents
+                of the IEC 62304 standard, and will include the sequence of applicable
+                analysis/design/implementation/testing/release steps, as well as the documentation
+                and validation tasks accompanying each step. Although the complete processes will be
+                implemented iteratively, to allow time for the necessary training, tooling, and
+                workflow adjustments, the <emphasis>a priori</emphasis> specification of the
+                processes will define the “end state” of the implementation. </para>
+        </section>
+        <section xml:id="_Ref493510198">
+            <title>Define in detail the required tools and envisioned tooling architecture</title>
+            <para>[3.1 – 3.8, high level] Based on the characterization of the required tools in the
+                “future state” report, research and plan the implementation of each type of tool and
+                the interfaces among the tools to ultimately produce an integrated development
+                environment for knowledge artifacts. Certain of the tools may exist already and
+                simply require configuration and integration to meet the requirements for
+                knowledge-artifact development. Other tools may require the significant
+                modification/customization of existing software (either via internal development
+                when open-source code is available or externally contracted modifications to
+                proprietary products). Entirely <emphasis>de novo </emphasis>development may even be
+                required in certain cases, but only as a last resort. </para>
+            <para>Again, the specified tools and integrated architecture will comprise an “end
+                state” of the planned tooling environment for CDS-artifact development, recognizing
+                that an iterative, three-year process will be required to achieve this state.</para>
+        </section>
+        <section>
+            <title>Perform gap analysis between existing environment and envisioned
+                processes/tools</title>
+            <para>Using the results of the Sections <xref linkend="_Ref493510187"/> and <xref
+                    linkend="_Ref493510198"/> as the planned end state, analyze the existing
+                processes and tools for managing CDS artifacts within the COTS products (Cerner and
+                otherwise) to be used for EHR and CDS functions in the future. The goal of this
+                analysis will be to understand and document the gap between the existing
+                capabilities of the COTS products and the desired future-state architecture for
+                knowledge-artifact management. The gap analysis will allow fine-tuning of the
+                prescribed development/maintenance processes and envisioned tooling to account for
+                already existing features or notable constraints of the COTS products. The results
+                of Sections <xref linkend="_Ref493510187"/> and <xref linkend="_Ref493510198"/>, and
+                perhaps other details of this roadmap, may need to be adjusted subsequent to this
+                gap analysis.</para>
+        </section>
+        <section>
+            <title>Define identification scheme for all configuration items</title>
+            <para>[3.2, 3.4.1, and 4.4.2] An important early step in the implementation of a
+                knowledge-artifact management system is to define a scheme for uniquely identifying
+                and versioning each artifact. The relevant artifacts include <emphasis>source
+                    objects</emphasis>, <emphasis>compiled artifacts</emphasis>, and
+                    <emphasis>knowledge modules</emphasis> (as defined in Section 2.2 of the “future
+                state” architecture document). </para>
+            <para>A rigorous, while practical, identification scheme is critical to supporting
+                version control and configuration management. The identification scheme should
+                guarantee global uniqueness across potentially multiple name spaces (for example,
+                each individual VHA facility, as well as the centralized national release center).
+                An appropriate representation system for identifiers (GUIDs, OIDs, URIs, etc.) must
+                be selected that is compatible with the envisioned version-control,
+                configuration-management, and other tooling.</para>
+        </section>
+        <section>
+            <title>Implement version control and configuration management system</title>
+            <para>[3.2, 3.4.1, and 4.4.2] Once an identification scheme is defined, the next step is
+                to implement a reliable version-control and configuration-management system to
+                manage actual knowledge artifacts as they are developed, packaged, and released.
+                Alternatives include separate version-control and configuration-management systems
+                that may be used in tandem (such as Git for version control and Maven for
+                configuration management), or a combined version-control/configuration-management
+                tool (such as ClearCase). In any case, the selected tool(s) should include a
+                programmatic API to enable later integration with an IDE for knowledge management.
+            </para>
+        </section>
+        <section>
+            <title>Implement Phase-1 IDE: Editing, version control, and configuration
+                management</title>
+            <para>[3.8] It will likely require several years to implement a comprehensive IDE for
+                knowledge management, given the need to integrate a number of tools and support a
+                variety of rigorous development and maintenance processes. In the meantime, certain
+                tools may not be available to knowledge developers, and other tools may be available
+                only in stand-alone versions that require separate access and use. </para>
+            <para>The initial version of the IDE should include those features deemed most important
+                to have integrated so as to prevent errors in the development and maintenance of
+                knowledge artifacts. Given the importance of editing the correct versions of
+                knowledge artifacts, maintaining awareness of the other software components on which
+                those artifacts depend, and catching syntactic and semantic errors in the
+                specifications of knowledge artifacts as early as possible, the IDE should first
+                include features for version control, configuration management, and smart editing.
+                The integration of these capabilities will be based on the technical architecture
+                for tooling that was defined in task <xref linkend="_Ref493510198"/> above.</para>
+        </section>
+        <section xml:id="_Ref493595674">
+            <title>Implement initial procedures and tools for knowledge-artifact “build”
+                process</title>
+            <para>[3.3, 4.2.4, 4.2.5] The complete build process for knowledge artifacts consists of
+                the following parts:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Validating the static correctness and consistency of the knowledge
+                        artifacts prior to compilation</para>
+                </listitem>
+                <listitem>
+                    <para>Compiling the artifacts into a form that can be executed directly by a
+                        decision-support engine</para>
+                </listitem>
+                <listitem>
+                    <para>Performing any automated unit tests on the compiled knowledge artifacts to
+                        detect logic and other runtime errors</para>
+                </listitem>
+                <listitem>
+                    <para>Packaging the knowledge artifacts into clearly identified and versioned
+                        release modules that can be distributed and deployed as internally
+                        consistent units</para>
+                </listitem>
+            </itemizedlist>
+            <para>Although implementing extensive automated validation and testing capabilities is
+                critical to producing safe knowledge artifacts, doing so will require considerable
+                effort and will have to be undertaken in phases.</para>
+            <para>During year one, the initial implementation of the build process should focus on
+                the compilation process (with basic validation checks, such as ensuring type
+                compatibility for calls to other knowledge artifacts or external APIs), as well as
+                the packaging process (to generate appropriately identified and versioned modules
+                that can be loaded as units into runtime CDS environments). Focusing on these
+                aspects will enable robust configuration management and release processes for
+                knowledge artifacts, and lay the groundwork for more advanced validation and
+                automated testing processes in later phases of the implementation roadmap.</para>
+        </section>
+        <section>
+            <title>Implement test environments that reliably simulate production environment</title>
+            <para>[4.2.5] To ensure valid testing, manual and automated testing processes must be
+                performed in an environment that faithfully represents the production environment
+                into which the tested software will ultimately be deployed. To this end, it must be
+                possible to build and deploy such test environments as the production environment
+                evolves over time. In the case of CDS knowledge artifacts, this means maintaining a
+                meticulous record of the configuration of the production environment at all times
+                (including the decision-support engine, other knowledge artifacts currently in
+                production, and external systems that knowledge artifacts may interface to, such as
+                the EHR, terminology server, or alert-notification mechanism). Based on this
+                recorded information, it must be possible to reliably and efficiently clone the
+                production configuration as faithfully as possible in the testing
+                environment.</para>
+            <para>By the end of the first year of the roadmap, processes should be in place to
+                maintain a record of the production configuration at all times and reproduce it in a
+                testing environment automatically. These processes will lay a critical foundation
+                for the rigorous testing needed to ensure patient safety in CDS systems.</para>
+        </section>
+        <section>
+            <title>Implement issue-tracking and workflow system</title>
+            <para>[3.6] As a final step in the first year of the roadmap, a robust issue tracking
+                system should be deployed and appropriately configured to support all aspects of the
+                knowledge-artifact development and maintenance processes. Numerous open-source and
+                commercial applications exist to support issue tracking and workflow for general
+                software development. Although the detailed development and maintenance processes
+                for knowledge artifacts differ somewhat from those for general software code, the
+                existing capabilities and configurability of existing issue-tracking applications
+                will likely meet the needs of knowledge engineers as well. Once such a tool is in
+                place, it will enable even large teams to measurably conform to best practices in
+                the development and maintenance of knowledge artifacts.</para>
+        </section>
+    </section>
+    <section>
+        <title>Year-Two Tasks</title>
+        <para>Year two will focus on implementing robust risk-management, validation, and
+            problem-resolution processes for the development and maintenance of CDS knowledge
+            artifacts.</para>
+        <section xml:id="_Ref493595657">
+            <title>Implement automated testing for high-level knowledge artifacts</title>
+            <para>[3.5] Automated testing is important to ensure adequate test coverage and
+                (especially) to enable thorough regression testing of knowledge artifacts when they
+                or their dependencies change. At the same time, the development and maintenance of
+                automated test suites is a laborious task, as it entails software engineering
+                itself. Therefore, it initially makes sense to only develop automated test suites
+                for the integration testing of <emphasis>high-level</emphasis> knowledge artifacts
+                (i.e., event-condition-action rules, order sets, and documentation templates). This
+                prioritization is appropriate because (a) the specification of high-level artifacts
+                most directly affects CDS behavior, and (b) there are fewer high-level artifacts
+                than sub-artifacts to develop test suites for. In later phases of the roadmap (see
+                Section <xref linkend="_Ref493531062"/>), automated test suites will also be
+                developed for sub-artifacts, such as data-access functions, value sets, and
+                data-entry controls.</para>
+        </section>
+        <section xml:id="_Ref493600958">
+            <title>Operationalize risk management applied to development of new knowledge
+                artifacts</title>
+            <para>[4.4.1] Once the tooling infrastructure is in place for rigorous configuration
+                management, software testing, issue-tracking, and workflow enforcement, it becomes
+                practical to operationalize a formal risk-management process for knowledge
+                artifacts. The key components of this process entail analyzing and identifying how
+                knowledge artifacts could fail, potentially leading to safety hazards and patient
+                harms. Issue tracking and workflow enforcement are important facets of systematizing
+                and documenting those aspects of risk management. Subsequent risk-management
+                processes entail controlling for the identified risks through careful artifact
+                design, rigorous configuration management and thorough testing, importantly
+                including regression testing.</para>
+            <para>To phase in the risk-management processes, they shall initially be applied only to
+                the development of new knowledge artifacts. Later, risk management processes will be
+                extended to the maintenance of existing knowledge artifacts, as the
+                knowledge-management team gains experience with the required workflows and
+                tools.</para>
+            <para>Additional components of the risk-management process will also be developed and
+                incorporated during later phases of the roadmap (such as the detailed logging of CDS
+                events and the automated surveillance of CDS performance – see Section <xref
+                    linkend="_Ref493532506"/>).</para>
+        </section>
+        <section>
+            <title>Operationalize architectural and design documents for high-level knowledge
+                artifacts</title>
+            <para>[4.2.3] During implementation of the risk-management processes, formal processes
+                for documenting the architecture and the detailed design of knowledge artifacts will
+                be introduced. These processes will both help to inform the risk-analysis process
+                (by communicating the intended functionality and constituent components of each
+                knowledge artifact) and to specify risk-mitigation steps in the implementation of
+                the artifacts (such as the specification of appropriate runtime exception handling).
+                The document-management capabilities of the issue-tracking system, or perhaps a
+                separate document-management system, will be used to store, track, and reference the
+                architectural and design documents.</para>
+        </section>
+        <section>
+            <title>Operationalize a formal problem-resolution process</title>
+            <para>[4.4.3] A systematic and reliable process to correct defects found in production
+                software is an important part of a safety-oriented software development life cycle
+                for knowledge artifacts. An appropriate process, based on the IEC 62304 process
+                standards and applicable issue-tracking tools, should be implemented by this point
+                of the roadmap. The key components of the process will include the formal reporting
+                of failures in knowledge artifacts, root-cause analyses of the reported failures,
+                communication of identified defects to affected parties, implementation and testing
+                of appropriate fixes, and tracking and verification of the problems’
+                resolution.</para>
+        </section>
+        <section>
+            <title>Implement advanced validation of knowledge artifacts during build process</title>
+            <para>[3.3.2] Building on the foundation implemented in phase <xref
+                    linkend="_Ref493595674"/> of the roadmap, additional automated validation steps
+                should be added to the build process for knowledge artifacts. At this point,
+                rigorous compile-time consistency checking with respect to sub-artifact dependencies
+                and external system APIs should be incorporated into the build process for
+                high-level artifacts, as well as the execution of automated test suites. The
+                consistency checks and automated tests will be specific to the types of high-level
+                artifacts being built (i.e., rules vs. order sets vs. documentation
+                templates).</para>
+        </section>
+        <section>
+            <title>Implement Phase-2 IDE: Integration with build, release, and issue-tracking
+                tools</title>
+            <para>[3.8] At this point, the IDE should be extended to enable seamless execution of
+                the build process and convenient review of build-time error reports. Integration of
+                these capabilities will make the knowledge-artifact development and maintenance
+                processes more efficient and more responsive to automatically detected errors. The
+                IDE should also directly enable the release of knowledge artifacts to the QA team or
+                to production, with automated recording of these transitions in the issue-tracking
+                and workflow tool.</para>
+        </section>
+    </section>
+    <section>
+        <title>Year-Three Tasks</title>
+        <para>In year three, the knowledge-management environment will be extended to include
+            greater automated testing, more advanced dependency management, and the automated
+            surveillance of knowledge artifacts that have been released to production.</para>
+        <section xml:id="_Ref493532506">
+            <title>Implement detailed logging and automated surveillance of CDS events</title>
+            <para>[3.7] The EHR and clinical decision support engine should be modified to
+                automatically log detailed information about the invocation and behavior of
+                knowledge artifacts in production. These data should be collected in a structured
+                format and at a granular level, perhaps in relational database tables, to enable
+                convenient tracking and analysis of CDS events. These logging functions should be
+                implemented after careful analysis of the required information and design of the
+                appropriate data structures. </para>
+            <para>The logged data should include instances in which clinical alert and reminder
+                rules fired, instances in which order sets were invoked, and instances in which
+                documentation templates were used. Sufficient data should be collected to enable
+                calculating the rates at which these various knowledge artifacts were applied, and
+                the rates at which decision-support recommendations were accepted versus overridden.
+                In addition, background processes should be implemented to automatically track these
+                rates over time, identify statistically significant variances, and notify knowledge
+                engineers of trends and outliers that may indicate knowledge artifacts are not
+                functioning as intended.</para>
+            <para>Lastly, a mechanism should be incorporated into the EHR and clinical decision
+                support user interface to enable end users to conveniently report perceived problems
+                in the functioning of the CDS system. The mechanism should ensure that submitted
+                reports are readily visible in the issue-tracking system, such that they can be
+                reliably investigated and addressed.</para>
+        </section>
+        <section xml:id="_Ref493531062">
+            <title>Implement automated testing for lower-level knowledge artifacts
+                (sub-artifacts)</title>
+            <para>[3.5] Building on the foundation implemented in phase <xref
+                    linkend="_Ref493595657"/> of the roadmap, test suites should be added to enable
+                automated unit testing of sub-artifacts, such as data-access functions, value sets,
+                and data-entry controls. These artifacts have dependencies on other artifacts, such
+                as terminology concepts and database structures, which are subject to change.
+                Automated test suites allow for regression testing of sub-artifacts as
+                terminologies, database structures, and other sub-components evolve over
+                time.</para>
+        </section>
+        <section>
+            <title>Implement detailed dependency management system for all knowledge
+                artifacts</title>
+            <para>[3.4.2] Configuration-management tools typically represent dependencies among
+                software libraries and other high-level aggregations of software components. Such
+                dependencies are valuable when determining which software assets are compatible with
+                each other, but do not represent the granularity of dependencies needed to determine
+                which specific knowledge artifacts are affected by detailed changes to other
+                knowledge artifacts and in which specific ways they are affected. Good
+                dependency-management systems identify and track all such dependencies by analyzing
+                the source code of knowledge artifacts and building dependency networks that can be
+                manually or automatically analyzed. These dependency networks, along with
+                appropriate visualization and querying tools, enable knowledge engineers to
+                anticipate the effects of changes to existing knowledge artifacts and to address
+                those changes without introducing regression errors.</para>
+            <para>The next phase in the roadmap is to develop or procure a dependency-management
+                system for high-level and low-level knowledge artifacts. Initially, existing
+                commercial systems specifically designed for knowledge artifacts should be assessed
+                (such as Semedy). If necessary, commercial or open-source tools that provide
+                dependency-management for general-purpose programming languages could be customized
+                to handle the programming languages and APIs used by knowledge artifacts. As a last
+                resort, an entirely new tool could be developed to provide bespoke
+                dependency-management services in the context of the COTS system that VHA will be
+                using.</para>
+        </section>
+        <section>
+            <title>Operationalize risk management applied to maintenance of knowledge
+                artifacts</title>
+            <para>[4.4.1] Building on the foundation implemented in phase <xref
+                    linkend="_Ref493600958"/> of the roadmap, the risk-management process should now
+                be extended to the maintenance of existing knowledge artifacts, not just the
+                development of new ones. The enhanced process will require analyzing the risks
+                inherent in making changes to existing knowledge artifacts, both high-level and
+                low-level. Dependency management will play a larger role in this risk analysis, and
+                configuration management and regression testing a greater role in controlling for
+                unintended consequences of updates to knowledge artifacts.</para>
+            <para>As with risk-management processes applied to the development of knowledge
+                artifacts, careful documentation of requirements, designs, and test plans will also
+                be required to manage risks during the maintenance of knowledge artifacts, and the
+                appropriate issue-tracking and workflow tools will be equally important. Finally,
+                the release of modified knowledge artifacts will have to be carefully coordinated,
+                to ensure that mutually dependent and collectively updated artifacts are correctly
+                released together. </para>
+        </section>
+        <section>
+            <title>Implement Phase-3 IDE: Integration with testing tools and dependency
+                management</title>
+            <para>[3.8] The final development phase for the IDE will entail its integration with
+                automated testing tools and the detailed dependency-management system. The resulting
+                development environment will comprise a comprehensive set of tools that knowledge
+                engineers can use to develop and maintain knowledge artifacts safely and
+                efficiently. The primary goal of the IDE is to make it as easy as possible for
+                knowledge engineers to adhere to the prescribed lifecycle processes, which provide
+                the rigorous framework to ensure high quality and reliability in clinical decision
+                support software.</para>
+        </section>
+    </section>
+    <section>
+        <title>Conclusion</title>
+        <para>This roadmap document, combined with the detailed components of the “future state”
+            architecture report delivered earlier, provide a clear initial plan for implementing the
+            envisioned architecture for managing knowledge artifacts. However, it’s not unlikely
+            that information will emerge in the course of implementing the processes and tools,
+            particularly in the context of pre-existing COTS software, that will necessitate
+            adjustments to both the roadmap and the ultimate future state. These adjustments, while
+            inevitable, should not be so great as to alter the overriding objective and approach of
+            this initiative, which are based on sound and proven principles of risk management in
+            the development of software that impacts patient safety.</para>
+    </section>
+ </article>

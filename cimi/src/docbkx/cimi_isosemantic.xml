@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+  <title>Iso-semantic Models</title>
+
+  <para>
+    The CIMI Working Group recognizes it is unlikely a one-size-fits-all approach will accommodate the wide variety of clinical and implementation use cases. As such, the CIMI architecture supports alternate representations of the same model to address the requirements of specific use cases. While, generally, such variations in expressivity are not recommended (CIMI defines a ‘preferred’ set of models), it is sometimes inevitable.  For instance, interface models may have different modeling requirements than persisted models or logical models. 
+  </para>
+
+  <para>
+    The CIMI architecture should thus support the definition of iso-semantic models, sets of semantically equivalent models differing primarily in their structure and terminology pre-coordination. 
+  </para>
+
+  <para>
+    CIMI also intends to support the ability to transform models into their iso-semantic counterparts. In particular, CIMI aims to support:
+  </para>
+
+
+           
+  <itemizedlist mark='bullet' spacing='compact'>
+    <listitem>
+      <para>
+        The ability to transform CIMI models to/from iso-semantic representations in other languages/standards (e.g. CDA, openEHR, ISO13606, DCM, CEM), through a common logical model intermediary.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        The ability to transform CIMI models between iso-semantic representations using a different split between terminology pre-coordination and structure.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        The ability to transform models into physical representations that can become the basis for system implementations that better support record exchange and computability.
+      </para>
+    </listitem>
+  </itemizedlist>
+
+  <para>
+    Once identified, iso-semantic model sets will be defined by the following:
+  </para>
+
+    <itemizedlist mark='bullet' spacing='compact'>
+    <listitem>
+      <para>
+        A “clinical input form” model providing the most fully articulated representation of the information.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Associated models with identical semantics but different structures, such as the VA's "analysis normal form".
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Formal rules for transforming the associated model features into the preferred model features; e.g.,
+        </para>
+        <itemizedlist spacing='compact' mark='circle'>
+            <listitem override='cirlce'>
+              <para>
+                Turning a pre-coordinated concept (e.g., suspected Lyme disease) into a set of explicitly bound attributes(Lyme disease + suspected).
+              </para>
+            </listitem>
+            <listitem override='cirlce'>
+              <para>
+                Turning a concept binding (sphygmomanometer) into an associated class characterized by that binding (device + type = sphygmomanometer).
+              </para>
+            </listitem>
+        </itemizedlist>
+      
+    </listitem>
+  </itemizedlist>
+
+
+  <para>
+    Iso-semantic models can be defined in the following:
+  </para>
+
+   <variablelist>
+            <varlistentry>
+                <term><emphasis role='bold'>Reference Model Layer</emphasis></term>
+                <listitem>
+                    <para>
+                         Such models typically differ in their core structure.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><emphasis role='bold'>Archetype Contraint Layer</emphasis></term>
+                <listitem>
+                    <para>
+                        Such models typically differ in the constraints they apply to an underlying structure that supports some variability (typically through a design by constraints modeling approach). 
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+
+   <para>
+    Iso-semantic models varying in their degree of pre-coordination can generally be addressed at the archetype layer through attribute occurrence constraints. For instance, the FindingSiteAssertion reference model pattern specifies two attributes: a bodyLocation and a bodyLocationPrecoord. Two iso-semantic models can be derived - one obtained by constraining out bodyLocation and using a pre-coordinated term for the body location. Another variant of the same model may constrain out bodyLocationPrecoord and post-coordinate the body location in the model.
+  </para>
+
+   
+    
+
+</section>

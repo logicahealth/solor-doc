@@ -20,6 +20,13 @@
    <dependencies>
       <dependency>
          <groupId>${project.groupId}</groupId>
+         <artifactId>actioms</artifactId>
+         <classifier>docbook</classifier>
+         <version>${project.version}</version>
+         <type>zip</type>
+      </dependency>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
          <artifactId>appendices</artifactId>
          <classifier>docbook</classifier>
          <version>${project.version}</version>
@@ -166,11 +173,15 @@
                   <directory>${project.build.directory}/extracted-dependencies/sh.isaac.komet.doc/cem-cimi/images</directory>
                   <filtering>false</filtering>
                 </resource>
-                <resource>
-                  <directory>${project.build.directory}/extracted-dependencies/sh.isaac.komet.doc/appendices/images</directory>
-                  <filtering>false</filtering>
-                </resource>
-                <resource>
+                 <resource>
+                    <directory>${project.build.directory}/extracted-dependencies/sh.isaac.komet.doc/appendices/images</directory>
+                    <filtering>false</filtering>
+                 </resource>
+                 <resource>
+                    <directory>${project.build.directory}/extracted-dependencies/sh.isaac.komet.doc/actioms/images</directory>
+                    <filtering>false</filtering>
+                 </resource>
+                 <resource>
                   <directory>${project.build.directory}/extracted-dependencies/sh.isaac.komet.doc/bibliography-db/images</directory>
                   <filtering>false</filtering>
                 </resource>

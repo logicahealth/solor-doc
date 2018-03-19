@@ -7,7 +7,7 @@
     </info>
     <para/>
     <section xml:id="section_5e12a93d-8be0-49fa-8d4e-da2039f01668">
-        <title>Streaming format</title>
+        <title>Knowledge Streaming Specification</title>
         <section xml:id="section_1df35eea-2792-4b07-ad74-ba347f70d7d7">
             <title>Data format</title>
          <para>ISAAC specifies a streaming data format. This streaming format is sutiable for durable
@@ -36,14 +36,14 @@
                 <programlisting xml:id="programlisting_76f3ac22-3053-4df2-904f-2577bb44e860">public enum IsaacExternalizableObjectType {
    /**
     * An external representation of a concept. An identifier with status. Descriptions and definitions of concepts
-    * are provided as SEMEMEs.
+    * are provided as SEMANTICs.
     */
    CONCEPT((byte) 1),
 
    /**
     * An external representation of a semantic unit of meaning, associated with a concept or another SEMEME.
     */
-   SEMEME((byte) 2),
+   SEMANTIC((byte) 2),
 
    /**
     * An external representation of a stamp comment.
@@ -87,29 +87,34 @@
                 </itemizedlist></para>
     </section>
         <section xml:id="section_e8f16ac5-b069-4138-9f67-a0ad109aa56c">
-            <title>Artifact format</title>
+            <title>Knowledge Archive Specification</title>
             <para>The artifact format combines one or more data files into a zip file with
                 appropriate metadata. Each artifact is uniquely identified by a <link
                     xlink:href="http://maven.apache.org/glossary.html#GroupId">group id</link> and
                 an artifact ID which is unique within a group, and may be stored on, and retrieved
                 from, a standard maven artifact repository. Metadata will include a manifest.mf
                 file, and a pom file that defines artifact licenses and dependencies. </para>
-            <para>Need to define artifact classifier, artifact layout, and additional metadata.
+            <para/>
+            <para>In general, the zip entries are intended for ease of import into relational
+                databases. The relational format utilizes UUIDs to identify all objects, and an
+                alternative identifier file is provided for working with other types of identifiers.
             </para>
+            <section>
+                <title>Graph representation</title>
+                <para>When a datafield represents an explicit graph, <link
+                    xlink:href="http://tinkerpop.apache.org/docs/3.3.1/dev/io/#graphson"
+                        >GraphSON</link> is used to represent the graph. GraphSON is a <link
+                        xlink:href="http://json.org/">JSON-based</link> format for individual graph
+                    elements (i.e. vertices and edges), and complete graphs. </para>
+            </section>
+            <section>
+                <title>Artifact Coordinate</title>
+                <para>We rely on <link
+                        xlink:href="https://maven.apache.org/pom.html#Maven_Coordinates">Maven
+                        coordinates</link> to define a set of identifiers which can be used to
+                    uniquely identify an artifact. </para>
+            </section>
         </section>
     </section>
-    <section xml:id="section_41644a2d-1861-47f5-9710-3c824d90049a">
-        <title>Relational format</title>
-        <section xml:id="section_44d95b97-0f85-4e2c-a110-dc9ceb180047">
-            <title>Data format</title>
-            <para>The ISAAC Relational File format is intended for ease of import into relational
-                databases. The relational format utilizes UUIDs to identify all objects, and an
-                alternative identifier file is provided for working with other types of identifiers. </para>
-        </section>
-        <section xml:id="section_c73990a3-abc0-4b9f-ba16-abcdf3da27b5">
-            <title>Artifact format</title>
-            <para>Need to define artifact classifier, artifact layout, and additional metadata. </para>
-        </section>
-     </section>
         
 </chapter>

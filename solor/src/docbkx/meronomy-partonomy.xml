@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Task 5.5.1 Meronomy / Partonomy Content Whitepaper</title>
+    <section>
+        <title>Introduction</title>
+        <para>Partonomy/Meronomy is a type of hierarchy that deals with part-whole relationships.
+                <emphasis role="italic">Part-of</emphasis> Relationships are:</para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Transitive – a part of a part is also a part of the whole, example
+                        below:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Atrioventricular junction: Part of = Entire Heart</para>
+                        </listitem>
+                        <listitem>
+                            <para>Entire Heart: Part of = Entire heart and pericardium</para>
+                        </listitem>
+                        <listitem>
+                            <para>Entire heart and pericardium: Part of = Entire middle mediastinum,
+                                Part of = Entire cardiovascular system </para>
+                            <para>Therefore, Atrioventricular junction is a part of the Entire heart
+                                and pericardium, Entire middle mediastinum, and the entire
+                                cardiovascular system.</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Reflexive – a part is a part of itself</para>
+                </listitem>
+                <listitem>
+                    <para>Antisymmetric – nothing is a part of its parts</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The Entire Heart is not a part of the Atrioventricular
+                                junction</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>For this task we will be evaluating the representation of <emphasis role="italic"
+                >Part-of</emphasis> relationships in the Body Structure, Pharmaceutical/Biologic
+            Product, and Laboratory Procedure (LOINC) hierarchies, and developing and testing a
+            proposed model where appropriate.</para>
+    </section>
+    <section>
+        <title>Tooling</title>
+        <para>To evaluate the proposed model for the three hierarchies, we will continue to use the
+            termMed’s termSpace authoring tool. termSpace currently supports Object Properties with
+            reflexive and transitive properties. For the Pharmaceutical/Biological Product
+            hierarchy, we will use Nested Expressions to represent the powders used for injection
+            solutions, as they do not currently exist as pre-coordinated concepts. termSpace can
+            represent LOINC concepts to support the partonomy modeling of laboratory concepts;
+            however, these concepts will need to be transformed into a SNOMED RF2 format in order to
+            load them into termSpace. Due to the complexities of adding LOINC to termSpace we were
+            not able to test the LOINC model at this time. We will continue to work with termMed to
+            represent LOINC in termSpace to potentially test the model in future iterations.</para>
+    </section>
+    <section>
+        <title>Body Structure Concepts</title>
+        <para>There are currently 42,596 <emphasis role="italic">Part-of</emphasis> Relationships
+            assigned to Body Structure concepts remaining from the 2003 decision to transform them
+            to non-defining. </para>
+        <para>SNOMED International is currently in discussions with Foundational Model of Anatomy
+            (FMA) to collaborate on an anatomy model in SNOMED CT. SNOMED International is currently
+            modeling <emphasis role="italic">Part-of</emphasis> relationships in a Protégé version
+            of the Body Structure hierarchy; however, they are only exporting the resulting
+                <emphasis role="italic">IS-A</emphasis> relationships. As a part of the <emphasis
+                role="italic">IS-A</emphasis> and <emphasis role="italic">Part-of</emphasis>
+            Modeling Subproject at SNOMED International, they plan to perform Quality Assurance (QA)
+            to the <emphasis role="italic">Part-of</emphasis> relationships and assign
+            sub-attributes of <emphasis role="italic">Part-of</emphasis>:<itemizedlist>
+                <listitem>
+                    <para>Regional part of</para>
+                </listitem>
+                <listitem>
+                    <para>Constitutional part of</para>
+                </listitem>
+                <listitem>
+                    <para>Systemic part of</para>
+                </listitem>
+            </itemizedlist></para>
+        <para>SNOMED International is currently in the process of documenting the updated Anatomy
+            Model at:
+            https://confluence.ihtsdotools.org/display/IAP/Revision+of+IS-A+relationships+for+anatomy </para>
+        <para>FMA also includes a role hierarchy for <emphasis role="italic">Part-of</emphasis>
+            relationships as seen below:</para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Meronomy-Partonomy_img1_sect1.3.jpg" format="jpg"/>
+            </imageobject>
+        </mediaobject>
+        <section>
+            <title>Proposed Body Structure Model</title>
+            <para>With the forthcoming update to the SNOMED CT Anatomy concept model, we do not
+                recommend exploring this area for concept model work, but instead focus on the
+                Pharmaceutical/Substance and Laboratory hierarchies, where no current implementation
+                of partonomy is planned.</para>
+        </section>
+    </section>
+    <section>
+        <title>Pharmaceutical / Substance Concepts</title>
+        <para>At this time, SNOMED project groups have not held a discussion around partonomy for
+            Pharmaceutical/Substances. The most promising area where partonomy would apply within
+            the Pharmaceutical Product hierarchy are products that are made up of two or more
+            products, for example a package that contains two separate tablets. For example,
+            Clarithromycin 500mg tablet and lansoprazole 30mg capsule would be considered parts of a
+            concept like 317329000 |Clarithromycin 500mg tablet and lansoprazole 30mg capsule and
+            amoxycillin 500mg capsule pack (product)|. Concepts like this are different from a
+            single product that contains two or more active ingredients. These packages can be made
+            of products that have different active ingredients or can be products that have the same
+            active ingredient, but different strengths for each product in the package.</para>
+        <section>
+            <title>Proposed Pharmaceutical / Substance Model</title>
+            <para>We propose to add a new attribute |Has packaging component (attribute)| that will
+                take as a value another concept from the product hierarchy. This will be a <emphasis
+                    role="italic">Part-of</emphasis> attribute and will need to be transitive and
+                reflexive. These concepts will need to have a new hierarchy to live under as they
+                are not really subtypes of the product that make up the packages but are packages
+                that contain them. We suggest creating a new hierarchy named “Package” containing
+                multiple products (product) and as needed create sub-hierarchies to ease
+                navigation.</para>
+            <para>Below are examples of the products that potentially require the addition of new
+                product concepts in order for the new attribute to be modeled or require the use of
+                nested expressions to represent the missing content. For our pilot work we
+                represented these concepts using nested expressions, however if the model were
+                implemented in the International Release of SNOMED CT it may require creating
+                pre-coordinated concepts.<itemizedlist>
+                    <listitem>
+                        <para>Disodium etidronate 400mg tablet and calcium carbonate 1.25g
+                            effervescent tablet pack (product) – Disodium etidronate 400mg tablet
+                            and calcium carbonate 1.25g effervescent tablet exist and will be used
+                            to fully define this concept. We need to determine the purpose of the
+                            parent concept, 346404007 |Disodium etidronate+calcium carbonate
+                            (product)|. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Lutropin alfa 75iu injection (pdr for recon)+solvent (product) –
+                            solvent is packaged separate from the powder. Being able to model the
+                            solvent part + the powder part will allow for a fully defined
+                            concept.</para>
+                    </listitem>
+                </itemizedlist></para>
+            <para>There are some drugs, mainly multi-tablet packages that do have the individual
+                clinical drugs represented as pre-coordinated concepts and will not require the use
+                of a nested expression.<itemizedlist>
+                    <listitem>
+                        <para>324934004 |Proguanil hydrochloride 100mg tablet and chloroquine
+                            phosphate 250mg tablet pack (product)| - Proguanil hydrochloride 100mg
+                            tablet and chloroquine phosphate 250mg tablet both exist as separate
+                            pre-coordinated concepts and could be used to fully define this
+                            concept.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Quetiapine 25mg+100mg+150mg tablet starter pack (product) – This
+                            concept is a representation of three separate tablets contained within a
+                            pack. All three tablets exist as separate pre-coordinated concepts and
+                            we could easily fully define this concepts with three separate “Has
+                            packaging” components. </para>
+                    </listitem>
+                </itemizedlist></para>
+        </section>
+    </section>
+    <section>
+        <title>Laboratory Concepts</title>
+        <para>Part-of Relationships will be useful in the definition of LOINC concepts that
+            represent Panels. These panel concepts contain both individual laboratory tests and
+            other panel concepts. Panels may also require multiple sufficient sets to represent
+            tests that are not always a part of the panel but optional. </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Meronomy-Partonomy_img2_sect1.5.jpg" format="jpg"/>
+            </imageobject>
+        </mediaobject>
+        <section>
+            <title>Proposed Laboratory Model</title>
+            <para>We propose to add a new attribute that applies to concepts in the Observable
+                Entity hierarchy named Contains lab test (attribute). This attribute will take other
+                Observable Entity concepts as values and will be transitive and reflexive.</para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/Meronomy-Partonomy_img3_sect1.5.jpg" format="jpg"/>
+                </imageobject>
+            </mediaobject>
+            <para>To fully represent the information contained within the LOINC Panel spreadsheet an
+                Ordered RefSet would have to be created because the tests contained in the panel are
+                ordered in the spreadsheet.</para>
+            <para>In order to represent the optional tests that are sometimes part of a Panel there
+                are several options. These optional tests and panels could be represented in an
+                Association Reference Set, but a better representation may be using multiple
+                sufficient sets.</para>
+        </section>
+    </section>
+</chapter>

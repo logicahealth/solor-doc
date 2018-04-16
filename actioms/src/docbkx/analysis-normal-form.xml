@@ -6,172 +6,9 @@
     xmlns:ns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
     xml:id="chapter_8f8ffa2e-9869-4efd-bd44-1338e8db87ef">
     <info>
-        <title>Analysis Normal Form</title>
+        <title>Analysis Normal Form Statements</title>
     </info>
-    <section xml:id="section_5942409c-a05e-49bf-ad20-055ac804fbb9">
-        <title>List of Tables</title>
-        <bridgehead renderas="sect1">Introduction</bridgehead>
-        <para>The purpose of this document is: </para>
-        <orderedlist>
-            <listitem>
-                <para>To define a clinical statement.</para>
-            </listitem>
-            <listitem>
-                <para>To define the types of clinical statements and their attributes.</para>
-            </listitem>
-            <listitem>
-                <para>To provide a set of guidelines to model clinical statements.</para>
-            </listitem>
-            <listitem>
-                <para>To provide a validation framework for inter-modeler reliability when applied
-                    in the field. </para>
-            </listitem>
-            <listitem>
-                <para>To provide information on how clinical statements will be modeled for the KBS
-                    Clinical Decision Support (CDS) Knowledge Artifact (KNART) project. Once the
-                    models are approved, model slots bound to terminologies will be identified for
-                    subsequent terminology binding definitions proposed by the VA Terminology Team.
-                    Modeling of clinical statements outside of the CDS KNART project is currently
-                    beyond the scope of this effort.</para>
-                <itemizedlist>
-                    <listitem>
-                        <para>KNART example: Consult request to Cardiology to evaluate chest pain.
-                            Certain information must be collected and stored as structured data,
-                            such as the reason for the consult.</para>
-                    </listitem>
-                </itemizedlist>
-            </listitem>
-        </orderedlist>
-        <para>These modeling guidelines were derived from several documented use cases. The main
-            goal of this effort is to provide a reproducible and a principled approach to the formal
-            capture of clinical knowledge within Information Models and their references to
-            underlying Terminology Models. Currently, the proposal and examples are independent of
-            any specific terminology.</para>
-        <para>These guidelines will be distributed to a variety of participants to contribute to a
-            modeling exercise. After having read the guidelines, participants will be asked to
-            access a survey where they will view a number of clinical statements and indicate how
-            they would model them. <emphasis role="bold"><emphasis>When attempting the modeling
-                    exercise, it will be important to model per the guidelines specified in this
-                    document regardless of how existing terminologies, such as SNOMED-CT, may model
-                    these concepts</emphasis></emphasis>. In the future, an exercise to reconcile
-            approaches may be conducted but is out-of-scope at this time.</para>
-    </section>
-    <section xml:id="section_5307a5f5-3008-4c0c-948b-f0a13c3e059c">
-        <title>Modeling Principles</title>
-        <para>The modeling guidelines were developed in accordance with the principles shown below.
-            These principles are defined in Appendix A.</para>
-        <itemizedlist>
-            <listitem>
-                <para>Separation of Concerns</para>
-            </listitem>
-            <listitem>
-                <para>Immutability</para>
-            </listitem>
-            <listitem>
-                <para>Composition Over Inheritance</para>
-            </listitem>
-            <listitem>
-                <para>ANF Clinical Statements Represent the Minimum Disjoint Set</para>
-            </listitem>
-            <listitem>
-                <para>ANF Classes Cleanly Separate Concerns</para>
-            </listitem>
-            <listitem>
-                <para>Clinical Statement Model Stability</para>
-            </listitem>
-            <listitem>
-                <para>Overall Model Simplicity</para>
-            </listitem>
-            <listitem>
-                <para>Cohesion</para>
-            </listitem>
-            <listitem>
-                <para>Reusability</para>
-            </listitem>
-            <listitem>
-                <para>Assumption-free</para>
-            </listitem>
-            <listitem>
-                <para>Design by Composition over class specialization.</para>
-            </listitem>
-            <listitem>
-                <para>No False Dichotomies</para>
-            </listitem>
-            <listitem>
-                <para>Model Should Avoid Semantic Overloading (semantic precision)</para>
-            </listitem>
-            <listitem>
-                <para>Convention Over Configuration</para>
-            </listitem>
-            <listitem>
-                <para>Model Consistency</para>
-            </listitem>
-            <listitem>
-                <para>Model Symmetry</para>
-            </listitem>
-            <listitem>
-                <para>Iterative development and validation using use cases</para>
-            </listitem>
-        </itemizedlist>
-    </section>
-    <section xml:id="section_c8b02d55-4907-4712-988f-3160f7a95587">
-        <title>Clinical Statements – What are they, and <emphasis>how are they
-            used</emphasis>?</title>
-        <para>A <emphasis>clinical statement</emphasis> represents an entry in the patient record
-            that documents in a structured/computable manner clinical information about a subject of
-            information, such as a patient or a relative of the patient, and that is asserted by a
-            particular source, recorded, and potentially verified.</para>
-        <para>Clinicians author clinical statements and enter them into their organization’s
-            electronic health record (EHR). Clinicians typically input the information via a manner
-            that we call here the <emphasis>clinical input form (CIF)</emphasis>. However, the CIF
-            is not a literal form that clinicians select and enter data in. Rather, it refers to the
-            manner in which information is presented to the clinicians and how they input the data,
-            such as by constraining the information to allow only certain values to be entered, such
-            as through a drop-down list or radio button, or breaking up large chunks of related
-            information into smaller parts. For example, when a clinician orders a medication,
-            rather than selecting this information all at once with a single item, they will choose
-            the various parts of the medication order, such as:</para>
-        <itemizedlist>
-            <listitem>
-                <para>Kind of drug and strength (e.g., Acetaminophen 150 mg)</para>
-            </listitem>
-            <listitem>
-                <para>Amount and how often the patient should take the medication (e.g., 1 tablet
-                    twice daily)</para>
-            </listitem>
-            <listitem>
-                <para>Duration (2 days)</para>
-            </listitem>
-            <listitem>
-                <para>Any constraints (e.g., do not exceed a total daily dosage of 600 mg)</para>
-            </listitem>
-        </itemizedlist>
-        <para>Ideally, the way the information is presented to clinicians is in a manner that is
-            most efficient for the clinicians to use. However, what is an efficient way for
-            clinicians to select and input data may not be the most efficient way for data analysts
-            to use when they are querying data once it has been normalized and stored in a database,
-            such as when creating a new CDS rule or compiling prevalence statistics. For this, the
-            data is normalized using the <emphasis>analysis normal form (ANF)</emphasis> and stored
-            in a database. Again, the ANF is not necessarily a physical structure, but is how a data
-            analyst might see the data when they are looking at it in a database, and not as
-            clinicians would see it in the user interface (i.e., CIF).</para>
-        <itemizedlist>
-            <listitem>
-                <para>Clinician collects data à Clinical Input Form</para>
-            </listitem>
-            <listitem>
-                <para>Data is normalized à Transformation process from CIF to ANF à
-                    Representable/storable in multiple types of databases, which <emphasis
-                        role="underline">could</emphasis> include VistA but a separate process would
-                    need to be performed to make that happen.</para>
-            </listitem>
-            <listitem>
-                <para>Data analyst who is using or querying the data (e.g., creating a CDS rule or
-                    working on prevalence statistics) à ANF (it is how the data is represented or
-                    stored in the database; must know enough about the data to know what is stored
-                    in the topic vs. what is stored as a result or detail)</para>
-            </listitem>
-        </itemizedlist>
+
         <para>The goal of ANF is to enable analysts to understand the data and how it is stored in
             lieu of having to teach them about the thousands of ways data can be entered (i.e., CIF)
             and ensure the data we need expressed can be expressed in an operable and scalable way.
@@ -234,236 +71,13 @@
                 </itemizedlist>
             </listitem>
         </itemizedlist>
-    </section>
-    <section xml:id="section_b139fa1d-0462-42f7-bc7a-182d28e32efd">
-        <title>Types of Clinical Statements </title>
-        <para>The types of clinical statements are listed and described below. The rationale for
-            selecting these types is: Clinicians basically do two categories of things with a
-            patient that need to be documented as clinical statements: </para>
-        <orderedlist>
-            <listitem>
-                <para><emphasis role="bold">Performance of action</emphasis>: Actions may include
-                    passive observation of a phenomenon related to patients and their health status
-                    or family history, and may also include active interventions, such as providing
-                    education or administering medications or documenting that a patient is
-                    participating in exercise to improve their overall health status.</para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">Request for action</emphasis>: Requests for future
-                    actions may include defining goals, consultation with other providers, or active
-                    interventions.</para>
-            </listitem>
-        </orderedlist>
-        <para><emphasis role="bold">NOTE: </emphasis>Given that this work is not finalized yet, it
-            is possible that additional clinical statement types may need to be added in the event
-            during creation of the KNARTs there are clinical terminology artifacts identified that
-            do not fit into any of the types listed above.</para>
-        <para>Any statement that states or implies an “if/then” clause should be expressed and
-            captured as an ECA rule</para>
-        <para>Example: </para>
-        <itemizedlist>
-            <listitem>
-                <para>“Free-text reminder: Consider [ordering X procedure] for patients with
-                    suspected pericarditis, myocarditis, hypertrophic cardiomyopathy, or pulmonary
-                    hypertension.”</para>
-            </listitem>
-            <listitem>
-                <para>Implied “if/then” clause: <emphasis role="bold">IF</emphasis> pericarditis,
-                    myocarditis, hypertrophic cardiomyopathy, or pulmonary hypertension is suspected
-                    – <emphasis role="bold">THEN</emphasis> consider ordering X procedure.</para>
-            </listitem>
-            <listitem>
-                <para>Rather than capturing the above statement as a free text reminder, building an
-                    appropriate ECA rule should be considered.</para>
-            </listitem>
-        </itemizedlist>
-        <section xml:id="section_e50dee69-daff-4b15-8e2b-a2eb6bc21b21">
-            <title>Performance Clinical Statements</title>
-            <para>An action statement describes an action that has previously been performed, and –
-                if applicable - the results of that action. As shown in the examples below, this can
-                range from documenting that a subject of record: </para>
-            <itemizedlist>
-                <listitem>
-                    <para>Was observed to have the presence or absence of a clinical
-                        phenomenon</para>
-                </listitem>
-                <listitem>
-                    <para>Underwent a specific test/screening or procedure, and its resultant value,
-                        if any</para>
-                </listitem>
-                <listitem>
-                    <para>Was administered a medication or other substance </para>
-                </listitem>
-                <listitem>
-                    <para>Was provided educational materials</para>
-                </listitem>
-                <listitem>
-                    <para>Has any other state or specific characteristic that is clinically
-                        relevant</para>
-                </listitem>
-            </itemizedlist>
-            <para>If the action statement:</para>
-            <itemizedlist>
-                <listitem>
-                    <para>Regards a measurement that was taken, all information about that
-                        measurement will be included as part of the clinical statement, such as its
-                        value and unit of measure and any details about how the measurement was
-                        taken. </para>
-                </listitem>
-                <listitem>
-                    <para>Results in an order(s) placed during the same encounter that was made to
-                        learn more about the phenomenon or to monitor it, then a link will be made
-                        to the order(s). </para>
-                </listitem>
-            </itemizedlist>
-            <para>Examples of Action clinical statements:</para>
-            <orderedlist>
-                <listitem>
-                    <para>Systolic blood pressure of 120 mmHg taken from right brachial artery while
-                        seated and no more than 30 minutes from when the patient last
-                        urinated</para>
-                </listitem>
-                <listitem>
-                    <para>Diabetes mellitus is present</para>
-                </listitem>
-                <listitem>
-                    <para>Diabetes mellitus is not present</para>
-                </listitem>
-                <listitem>
-                    <para>Three dot blot hemorrhages</para>
-                </listitem>
-                <listitem>
-                    <para>Dot blot hemorrhage is present</para>
-                </listitem>
-                <listitem>
-                    <para>Patient taking one Acetaminophen 100 mg tablet by mouth daily as needed
-                        for pain</para>
-                </listitem>
-                <listitem>
-                    <para>Positive screen for fall risk</para>
-                </listitem>
-                <listitem>
-                    <para>Negative screen for PTSD and depression</para>
-                </listitem>
-                <listitem>
-                    <para>Family history of colon cancer </para>
-                </listitem>
-                <listitem>
-                    <para>Patient provided educational materials on pre-diabetes diagnosis</para>
-                </listitem>
-                <listitem>
-                    <para>Patient counseled on the health risks of continuing smoking </para>
-                </listitem>
-            </orderedlist>
-        </section>
-        <section xml:id="section_3cd03dbb-48dd-4bdc-8f29-fa20bfd459c9">
-            <title>Request Clinical Statements</title>
-            <para>A Request clinical statement describes a request for an action made by a
-                clinician. Most of the times, but not always, the object of the request (e.g., lab
-                test, medication order) will be fulfilled by someone other than the clinician (e.g.,
-                lab technician, pharmacist) making the request. All information about the request
-                will be documented in this clinical statement, including information about details
-                relating to the request, such as patient must fast for 12 hours before having a
-                lipids blood test.</para>
-            <para>Examples of Request clinical statements:</para>
-            <orderedlist>
-                <listitem>
-                    <para>Lipids panel for patient Jane Doe. Patient must fast for 12 hours prior to
-                        the blood test.</para>
-                </listitem>
-                <listitem>
-                    <para>Head CT with contrast for patient John Doe. </para>
-                </listitem>
-                <listitem>
-                    <para>Cardiology referral for patient Mary Smith.</para>
-                </listitem>
-                <listitem>
-                    <para>Penicillin medication for patient Michael Smith to be taken twice a day by
-                        mouth with food for 10 days.</para>
-                </listitem>
-                <listitem>
-                    <para>Advised to participate in group tobacco cessation counseling once a
-                        week.</para>
-                </listitem>
-                <listitem>
-                    <para>Advised to lose 15 pounds within 3 months.</para>
-                </listitem>
-                <listitem>
-                    <para>Advised to exercise at least 3 times a week for 30 minutes per day for 3
-                        months. </para>
-                </listitem>
-                <listitem>
-                    <para>Advised to decrease the number of packs smoked per day from 3 to 2 within
-                        6 months by using a nicotine patch.</para>
-                </listitem>
-            </orderedlist>
-        </section>
-    </section>
-    <section xml:id="section_1b4e6bff-3a99-465f-95ae-89b8ac23bc6e">
-        <title>Clinical Statement Building Blocks</title>
-        <para>The following components are used in multiple places within clinical statements. </para>
-        <section xml:id="section_4ba31e20-94ae-4d32-86a6-0d16fe45b3a9">
-            <title>UUID</title>
-            <para>The UUID is the means by which all clinical statement items that require unique
-                identifiers are identified. </para>
-        </section>
-        <section xml:id="section_a90e0e13-e26f-4e0f-95a1-bd3d6884c6fa">
-            <title>Logical Expression</title>
-            <section xml:id="section_d77f3cb2-b433-4811-acee-39c70e475f67">
-                <title>Stamp Coordinate</title>
-            </section>
-            <section xml:id="section_f07f1c92-b9be-409d-aee3-ff24abb56420">
-                <title>Measure</title>
-                <figure>
-                    <title>Measure UML</title>
-                    <mediaobject>
-                        <ns:imageobjectco>
-                            <ns:areaspec units="calspair">
-                                <ns:area xml:id="asdg"
-                                    linkends="row_350fe522-a7d4-4128-b977-9bff2f4f847a"
-                                    coords="47,7719 2036,6154">
-                                    <ns:alt>test 1</ns:alt>
-                                </ns:area>
-                            </ns:areaspec>
-                            <ns:imageobject>
-                                <ns:imagedata fileref="images/image1.png" contentwidth="331"
-                                    contentdepth="116"/>
-                            </ns:imageobject>
-                        </ns:imageobjectco>
-                    </mediaobject>
-                </figure>
-                <section xml:id="section_ab378bfa-f296-43e5-a07a-7eb09c97b530">
-                    <title>Resolution</title>
-                </section>
-                <section xml:id="section_589179df-4a70-466c-9df3-5c187e3275d9">
-                    <title>Lower bound</title>
-                </section>
-                <section xml:id="section_38daa138-122f-41f6-97ee-6d59889730b0">
-                    <title>Upper bound</title>
-                </section>
-                <section xml:id="section_bb28d931-5fe6-4371-8678-a6786a61829f">
-                    <title>Include lower bound</title>
-                </section>
-                <section xml:id="section_d5f6fc0d-619f-4a9d-841a-67d435c4b833">
-                    <title>Include upper bound</title>
-                </section>
-                <section xml:id="section_9f1e18e3-164a-4462-af36-51e522237188">
-                    <title>Measure semantic</title>
-                </section>
-                <section xml:id="section_95be8194-d3fd-40ee-95fe-283bb108f779">
-                    <title>Table form</title>
-                    <para>[1,0]±1 mm/hg</para>
-                </section>
-            </section>
-        </section>
-    </section>
     <section xml:id="section_0c80a3a9-6e1a-46ac-9644-a752cdd1eaa7">
         <title>Clinical Statement Components</title>
         <figure>
             <title>Clinical Statement</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="images/image2.png" contentwidth="317" contentdepth="186"/>
+                    <imagedata fileref="images/clinical-statement-uml.png" contentwidth="317" contentdepth="186"/>
                 </imageobject>
             </mediaobject>
         </figure>
@@ -628,14 +242,6 @@
         <para/>
         <para/>
         <para/>
-        <svg xmlns="http://www.w3.org/2000/svg" width="12cm" height="12cm">
-            <g style="fill-opacity:0.7; stroke:black; stroke-width:0.1cm;">
-                <circle cx="6cm" cy="2cm" r="100" style="fill:red;" transform="translate(0,50)"/>
-                <circle cx="6cm" cy="2cm" r="100" style="fill:blue;" transform="translate(70,150)"/>
-                <circle cx="6cm" cy="2cm" r="100" style="fill:green;" transform="translate(-70,150)"
-                />
-            </g>
-        </svg>
         <section xml:id="section_c7028bf8-f4e6-4350-92ed-9183e746176e">
             <title>Statement Identifier</title>
             <bridgehead renderas="sect2">Mode</bridgehead>
@@ -727,6 +333,112 @@
                     <para/>
                 </section>
             </section>
+        </section>
+        <section xml:id="section_0bf3d60f-b9cd-4acb-bb59-3a794786a9e5">
+            <title>Topic </title>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Proposed Principle 1</emphasis>: The topic defines the
+                        action being represented or requested.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Proposed Principle 2:</emphasis> The topic has to be
+                        able to exist on its own and still retain clarity of meaning.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Proposed Principle 3:</emphasis> The topic includes what
+                        is being measured or observed.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Guidelines:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Each clinical statement may only have one topic.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Each topic contains:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>An action <emphasis>type</emphasis>, defined as the
+                                                kind of action that is to be or has been performed, such
+                                                as ‘observation-of’, ‘measurement-of’,
+                                                administration-of’, or ‘imaging-of’. </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>A <emphasis>domain,</emphasis> defined as the range of
+                                                allowed focus concepts, such as ‘medication’, imaging’
+                                                or ‘laboratory test’</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>A <emphasis>focus </emphasis>concept defined as the
+                                                actual procedure requested or performed, such as
+                                                ‘systolic blood pressure’ or ‘Aspirin’. </para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para>The action type in combination with the focus concept allows
+                                        the representation of topics such as “measurement-of systolic
+                                        blood pressure” or “administration-of Aspirin”. </para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+            <para>In summary, the Topic is comprised of the following:</para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Type: </emphasis>The type of action such as
+                        observation-of’, ‘measurement-of’, ‘administration-of’, or ‘imaging-of’. </para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Focus: </emphasis>A concept or expression representing
+                        the focus of the action such as ‘systolic blood pressure’, ‘nitroglycerin’, or
+                        “head’.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Domain: </emphasis>A domain that encompasses the range
+                        of possible focus concepts.</para>
+                </listitem>
+            </itemizedlist>
+            <para><emphasis role="bold">Result</emphasis></para>
+            <para>The result of an action. This applies to Action clinical statements and not Requests.
+                The result is comprised of the following:</para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Value: </emphasis>A numeric range with a lower and upper
+                        bound, such as 120 - 125. The range can also be used to represent presence and
+                        absence.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Unit: </emphasis>A coded field used to represent various
+                        units of measure, such as grams, mmHg, inches, and percentage. There is also a
+                        special type of unit called “count,” which is an integer count of what is
+                        specified in the topic. For example, if the topic is “Dot blot hemorrhage” and
+                        the result unit is set to “count,” then the result value can be used to specify
+                        the integer range of “dot blot hemorrhages” observed, such as 3 or 5. </para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Precision: </emphasis>The precision defines the
+                        precision of the result value, such as constraining the value to integer or
+                        decimal values.</para>
+                </listitem>
+            </itemizedlist>
+            <para>Each clinical statement will have: </para>
+            <orderedlist>
+                <listitem>
+                    <para>A topic, consisting of an action type, focus, and focus domain.</para>
+                </listitem>
+                <listitem>
+                    <para>For Action statements only, there is a result that contains the measurement
+                        according to the upper bound/lower bound, unit of measure, and precision.</para>
+                </listitem>
+                <listitem>
+                    <para>A set of details in the form of key/value pairs where the value can be a
+                        numeric range or coded expression. </para>
+                </listitem>
+            </orderedlist>
         </section>
         <section xml:id="section_014c067d-e2e9-42a6-8aae-1d9cc92d9723">
             <title>Statement Associations</title>
@@ -1961,115 +1673,8 @@
             </section>
         </section>
     </section>
-    <section xml:id="section_0bf3d60f-b9cd-4acb-bb59-3a794786a9e5">
-        <title>Topic </title>
-        <itemizedlist>
-            <listitem>
-                <para><emphasis role="bold">Proposed Principle 1</emphasis>: The topic defines the
-                    action being represented or requested.</para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">Proposed Principle 2:</emphasis> The topic has to be
-                    able to exist on its own and still retain clarity of meaning.</para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">Proposed Principle 3:</emphasis> The topic includes what
-                    is being measured or observed.</para>
-                <itemizedlist>
-                    <listitem>
-                        <para>Guidelines:</para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Each clinical statement may only have one topic.</para>
-                            </listitem>
-                            <listitem>
-                                <para>Each topic contains:</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>An action <emphasis>type</emphasis>, defined as the
-                                            kind of action that is to be or has been performed, such
-                                            as ‘observation-of’, ‘measurement-of’,
-                                            administration-of’, or ‘imaging-of’. </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>A <emphasis>domain,</emphasis> defined as the range of
-                                            allowed focus concepts, such as ‘medication’, imaging’
-                                            or ‘laboratory test’</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>A <emphasis>focus </emphasis>concept defined as the
-                                            actual procedure requested or performed, such as
-                                            ‘systolic blood pressure’ or ‘Aspirin’. </para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                            <listitem>
-                                <para>The action type in combination with the focus concept allows
-                                    the representation of topics such as “measurement-of systolic
-                                    blood pressure” or “administration-of Aspirin”. </para>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                </itemizedlist>
-            </listitem>
-        </itemizedlist>
-        <para>In summary, the Topic is comprised of the following:</para>
-        <itemizedlist>
-            <listitem>
-                <para><emphasis role="bold">Type: </emphasis>The type of action such as
-                    observation-of’, ‘measurement-of’, ‘administration-of’, or ‘imaging-of’. </para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">Focus: </emphasis>A concept or expression representing
-                    the focus of the action such as ‘systolic blood pressure’, ‘nitroglycerin’, or
-                    “head’.</para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">Domain: </emphasis>A domain that encompasses the range
-                    of possible focus concepts.</para>
-            </listitem>
-        </itemizedlist>
-        <para><emphasis role="bold">Result</emphasis></para>
-        <para>The result of an action. This applies to Action clinical statements and not Requests.
-            The result is comprised of the following:</para>
-        <itemizedlist>
-            <listitem>
-                <para><emphasis role="bold">Value: </emphasis>A numeric range with a lower and upper
-                    bound, such as 120 - 125. The range can also be used to represent presence and
-                    absence.</para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">Unit: </emphasis>A coded field used to represent various
-                    units of measure, such as grams, mmHg, inches, and percentage. There is also a
-                    special type of unit called “count,” which is an integer count of what is
-                    specified in the topic. For example, if the topic is “Dot blot hemorrhage” and
-                    the result unit is set to “count,” then the result value can be used to specify
-                    the integer range of “dot blot hemorrhages” observed, such as 3 or 5. </para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">Precision: </emphasis>The precision defines the
-                    precision of the result value, such as constraining the value to integer or
-                    decimal values.</para>
-            </listitem>
-        </itemizedlist>
-        <para>Each clinical statement will have: </para>
-        <orderedlist>
-            <listitem>
-                <para>A topic, consisting of an action type, focus, and focus domain.</para>
-            </listitem>
-            <listitem>
-                <para>For Action statements only, there is a result that contains the measurement
-                    according to the upper bound/lower bound, unit of measure, and precision.</para>
-            </listitem>
-            <listitem>
-                <para>A set of details in the form of key/value pairs where the value can be a
-                    numeric range or coded expression. </para>
-            </listitem>
-        </orderedlist>
-    </section>
     <section xml:id="section_2808a977-9ec5-4176-8139-44cac0a4e654">
-        <title>Examples of Modeling Action Clinical Statements <emphasis role="highlight">NEEDS
-                UPDATE WHEN WE KNOW MORE</emphasis></title>
+        <title>Action Statement Examples</title>
         <informaltable>
             <tgroup cols="4">
                 <colspec colname="c1" colwidth="22*"/>
@@ -2376,7 +1981,7 @@
         </informaltable>
     </section>
     <section xml:id="section_4c4349fb-530d-4d82-89df-2d9bde19bffa">
-        <title>Examples of Modeling Request Clinical Statements</title>
+        <title>Request Statement Examples</title>
         <informaltable>
             <tgroup cols="4">
                 <colspec colname="c1" colwidth="27*"/>
@@ -2474,6 +2079,154 @@
                 </tbody>
             </tgroup>
         </informaltable>
+    </section>
+    <section>
+        <title>Potential Problems and Issues</title>
+        <para>Although it helps to solve the problems described Section <xref
+            linkend="_Ref493868573"/>, the models presented in this paper for consolidating
+            “Findings” and “Observable Entities” into “Phenomena” and for normalizing the
+            representation and querying of negated phenomena also entail certain challenges and
+            limitations.</para>
+        <section>
+            <title>Negative Values for Phenomena</title>
+            <para>The model does not allow interval values that include negative real numbers. In
+                rare cases, clinical phenomena require such values, for example the phenomenon of
+                “Max ST deflection” in an EKG, which can be either positive or negative.</para>
+            <para>A potential solution in these cases is to change the modeling of certain phenomena
+                so that they only take on positive numeric values. In the example above, this
+                strategy would entail the specification of separate phenomena for “Max ST
+                depression” and “Max ST elevation”. Further work is required to determine how often
+                phenomena with negative values occur and whether the proposed strategy is effective
+                is all such cases. </para>
+        </section>
+        <section>
+            <title>Values from Enumerated Value Sets that are not Numeric or not Ordinal</title>
+            <para>Certain clinical phenomena have values that are simply not numeric, and to which
+                the model for representing and processing interval values does not cleanly apply.
+                The following phenomena and their corresponding enumerated value sets illustrate
+                this point.</para>
+            <para>Eye-Color: Values = (Blue, Green, Brown, Black, … )</para>
+            <para>Eye-Color : Values = (1=Blue, 2=Green, 3=Brown, 4=Black, … )</para>
+            <para>Dysphagia: Values = (never, rarely, sometimes, frequently, always)</para>
+            <para>Patellar tendon reflex: Values = (1+, 2+, 3+, 4+)</para>
+            <para>To address the reality of such observations in the medical record, the assignment
+                of interval values may need to be limited to only those phenomena whose values are
+                naturally numeric or can be characterized as present, absent, or indeterminate (for
+                which interval values are defined). An alternative would be to always assign such
+                phenomena the interval value “(0,∞]” (Present), and denote the property values using
+                a different attribute (such as “color”, “frequency”, of “intensity” in the cases
+                above).</para>
+        </section>
+        <section>
+            <title>Units of Measure for Non-Quantitative Values</title>
+            <para>Consolidating “Findings” and “Observable Entities” allows the use of a numeric
+                interval value to denote the presence or absence of clinical observations that
+                wouldn’t otherwise have numeric values, such as “nausea” or “dizziness.” Interval
+                values also allow one to denote the presence and the cardinality of certain clinical
+                phenomena using a single value, such as for “Daily cigarette use” or “Pressure
+                ulcers”.</para>
+            <para>In both situations however, there is no natural unit of measure to associate with
+                the interval values. To the degree that there’s benefit in consistently assigning a
+                unit of measure to all values, this void presents a problem.</para>
+            <para>A possible solution is to have a “null” unit of measure, indicating that the value
+                is not associated with any unit of measure. This strategy may not be unfamiliar to
+                data modelers and data analysts, in that certain LOINC lab codes already include
+                such a designation (such as for Urine Specific Gravity, a dimensionless
+                measurement). Alternatively, one could create special-purpose units of measure to
+                associate with dimensionless values. Again, this strategy has been adopted for
+                certain LOINC lab codes, such as pH (which includes a special “[pH]” unit of
+                measure) or manual cell count (which includes the special “per high powered field”
+                unit of measure).</para>
+        </section>
+        <section>
+            <title>Subsumption over all Refining Attributes of Phenomena</title>
+            <para>As described in Section <xref linkend="_Ref493858870"/>, correct application of
+                the tri-valued model for querying phenomena requires that interval values be
+                assigned to the entirety of each phenomenon (including all of its refining
+                attributes). Further, the correct applications of the axioms in Section <xref
+                    linkend="_Ref493866647"/> also require that subsumption testing between
+                phenomenon (i.e., application of the “Is-A()” predicate within these axioms) include
+                all of the refining attributes to which interval values have been assigned. If
+                subsumption testing is performed using only a subset of the attributes to which
+                interval values are assigned, the axioms will produce incorrect results.</para>
+            <para>The point is illustrated through several examples shown in <xref
+                linkend="_Ref493941874kec"/>. </para>
+            <para>Note, for example, that if subsumption testing between phenomenon 1 and phenomenon
+                3 excludes the “Observation-Date” value in phenomenon 3, and “Observation-Date” is
+                within the scope of the attributes to which the interval value “[2,2]” has been
+                assigned, then phenomenon 3 will be subsumed by phenomenon 1 and the axioms of
+                Section <xref linkend="_Ref493866647"/> will infer that phenomenon 1 is present.
+                However, upon inspection, it is clear that the presence of two pressure ulcers in
+                the right leg on Oct. 4, 2017 does not necessarily imply the presence of any
+                pressure ulcers on July 7, 2017. Subsumption testing that correctly included the
+                “Observation-Date” attribute would have prevented this incorrect inference and
+                concluded that the existence of pressure ulcers on July 7, 2017 was indeterminate
+                based on the available data.</para>
+            <para>Similarly, if subsumption testing between phenomenon 5 and phenomenon 2 excludes
+                the “Laterality” attribute of the anatomical location of phenomenon 5 (a nested
+                attribute), and “Laterality” is within the scope of the attributes to which the
+                interval value “[0,0]” has been assigned, then phenomenon 5 will be subsumed by
+                phenomenon 2 and the axioms of Section <xref linkend="_Ref493866647"/> will infer
+                that phenomenon 5 is absent. Again, however, intuition should make clear that the
+                absence of a pressure ulcer on left leg on July 18, 2017 does not necessarily imply
+                the absence of a pressure on the right leg on that same date. Inclusion of the
+                “Laterality” attribute in the subsumption test would have prevented this incorrect
+                inference, and caused the axioms of Section <xref linkend="_Ref493866647"/> to
+                conclude that the presence of a stage-2 pressure ulcer in the right leg on that date
+                was indeterminate based on the data.</para>
+            <figure xml:id="_Ref493941874kec">
+                <title>Examples of correct and incorrect application of subsumption testing
+                    involving post-coordinated phenomena.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/correct-and-incorrect-subsumption.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>The point of these examples is to underscore the importance of including all of
+                the refining attributes to which interval values are assigned in any subsumption
+                tests that are later performed. In practice, however, this may not be a trivial
+                undertaking. For example, subsumption testing between date values of different
+                granularities (year vs. month vs. day) is not supported by standard description
+                logic reasoners, so that a phenomenon observed in July 2017 may not correctly
+                subsume the same observation observed on July 12, 2017. Further, the correct
+                semantics of subsumption between date values when assigned to clinical observations
+                may not be straightforward. For example, assigning an Observation-Date value of
+                “July 2017” to a phenomenon could mean that the phenomenon was observed at
+                <emphasis>some point</emphasis> in July 2017, or it could mean that the
+                phenomenon was observed throughout the duration of July 2017. The intended meaning
+                has implications for whether a phenomenon with the Observation-Date value of “July
+                2017” should subsume a phenomenon with the Observation-Date value of “July 18, 2017”
+                with respect to the application of the axioms in Section <xref
+                    linkend="_Ref493866647"/>.</para>
+            <para>Similar questions arise regarding the scope of attributes to which interval values
+                should be assigned, and which ones comprise refining attributes of the phenomenon
+                itself (such as laterality, observation-date, severity, etc.), and which ones
+                comprise meta-attributes that do not refine the phenomenon (such as identity of the
+                observer, method of observation, purpose of the observation, etc.). Strictly
+                speaking, meta-attributes should be excluded from the scope of interval-value
+                assignments and (therefore) from subsumption testing, but in certain cases it may
+                not be clear which attributes are truly refining attributes and which are meta-data,
+                and that distinction may even be context specific. For example, method of
+                observation may be a significant attribute of the observed phenomenon in certain
+                cases, but not others. All of these issues remain to be examined and resolved before
+                one can correctly and reliably apply the models presented here.</para>
+        </section>
+        <section>
+            <title>“Cognitive Dissonance”</title>
+            <para>The final challenge in using the models described here is the unintuitive nature
+                of representing the values of all clinical observations using numeric intervals, as
+                formalized in Section <xref linkend="_Ref493843805"/>. The notion that entirely
+                qualitative clinical observations such as “nausea” and “dizziness” have quantitative
+                interval values may be difficult for those implementing and working with the
+                proposed model to grasp and accept. Similarly, the model produces certain
+                unintuitive characterizations of clinical observations that only have numeric
+                values, such as the conclusion that a “Serum Potassium” observation is “Present” if
+                it’s value is &gt; 0, and otherwise is “Absent”. It remains to be seen whether those
+                using the model can overcome potential “cognitive dissonance” in encountering such
+                implications.</para>
+        </section>
     </section>
     <section xml:id="section_eef37400-ffe6-4273-9602-63e9efe55872">
         <title>Appendix A: Modeling Principles Definitions</title>

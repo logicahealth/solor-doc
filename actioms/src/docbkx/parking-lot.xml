@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<appendix xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Parking lot/Ideas Discussed and Discarded</title>
+    <section xml:id="section_42c69960-bcd0-49a5-ad2b-3dbf1bfd68e9">
+        <title>Compound Clinical Statements: Separable vs. Inseparable Components</title>
+        <para><emphasis role="bold">Discussion:</emphasis></para>
+        <itemizedlist>
+            <listitem>
+                <para>Do we think of clinical statements with “values” only as numerical
+                    values? Or would other statements be considered having values,
+                    e.g.</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Patient position = sitting</para>
+                    </listitem>
+                    <listitem>
+                        <para>Priority = routine</para>
+                    </listitem>
+                    <listitem>
+                        <para>Route of Administration = sublingual</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+        <para>If statements can have values other than numerical values, the BP use case
+            could look like the example below:</para>
+        <informaltable>
+            <tgroup cols="3">
+                <colspec colname="c1" colwidth="43*"/>
+                <colspec colname="c2" colwidth="31*"/>
+                <colspec colname="c3" colwidth="26*"/>
+                <tbody valign="top">
+                    <row>
+                        <entry valign="bottom">
+                            <para><emphasis role="bold">USE CASE</emphasis></para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para><emphasis role="bold">SEPARABLE
+                                STATEMENTS</emphasis></para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para><emphasis role="bold">INSEPARABLE
+                                COMPONENTS</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="6" valign="middle">
+                            <para>BP of 120/80 mmHg on right brachial artery, patient in
+                                sitting position for at least 5 min., using adult BP cuff,
+                                urinary bladder voided within 30 min. before
+                                measurement</para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para>Systolic BP = 120 mmHg</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Diastolic BP = 80 mmHg</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Time since last urination = 30 min. or less</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Measurement body site = right brachial artery</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Device used = adult cuff</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Body position = sitting</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Sitting time before measurement = 5 min. or more</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+        <para>The “panel” above would consist of the following statements:</para>
+        <orderedlist>
+            <listitem>
+                <para>Systolic BP = 120 mmHg</para>
+            </listitem>
+            <listitem>
+                <para>Diastolic BP = 80 mmHg</para>
+            </listitem>
+            <listitem>
+                <para>Time since last urination = 30 min. or less</para>
+            </listitem>
+            <listitem>
+                <para>Measurement body site = right brachial artery</para>
+            </listitem>
+            <listitem>
+                <para>Device used = adult cuff</para>
+            </listitem>
+            <listitem>
+                <para>Body position = sitting</para>
+            </listitem>
+            <listitem>
+                <para>Time in sitting position = 5 min. or longer</para>
+            </listitem>
+        </orderedlist>
+        <para>If statements can have values other than numerical values, the Medication use
+            case could look like the example below:</para>
+        <informaltable>
+            <tgroup cols="3">
+                <colspec colname="c1" colwidth="43*"/>
+                <colspec colname="c2" colwidth="31*"/>
+                <colspec colname="c3" colwidth="26*"/>
+                <tbody valign="top">
+                    <row>
+                        <entry valign="bottom">
+                            <para><emphasis role="bold">USE CASE</emphasis></para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para><emphasis role="bold">SEPARABLE
+                                STATEMENTS</emphasis></para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para><emphasis role="bold">INSEPARABLE
+                                COMPONENTS</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="6" valign="middle">
+                            <para>Administration of nitroglycerin 0.4 mg tablet sub-lingual
+                                every 5 minutes as needed for chest pain; maximum 3 tablets
+                                (routine)</para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para>Strength = 0.4 mg</para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para>Administration</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Frequency = every 5 minutes </para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para>Nitroglycerin</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Maximum dosage = 3 tablets</para>
+                        </entry>
+                        <entry valign="bottom">
+                            <para>As needed</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Dose form = tablet</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Route of Administration = sublingual</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Indication = Chest pain</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                    <row>
+                        <entry valign="bottom">
+                            <para>Priority = Routine</para>
+                        </entry>
+                        <entry valign="bottom"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+        <para>The “panel” above would consist of the following statements:</para>
+        <orderedlist>
+            <listitem>
+                <para>Administration of nitroglycerin as needed</para>
+            </listitem>
+            <listitem>
+                <para>Medication strength = 0.4 mg</para>
+            </listitem>
+            <listitem>
+                <para>Frequency = every 5 minutes</para>
+            </listitem>
+            <listitem>
+                <para>Maximum dosage = 3 tablets</para>
+            </listitem>
+            <listitem>
+                <para>Dose form = tablet</para>
+            </listitem>
+            <listitem>
+                <para>Route of Administration = sublingual</para>
+            </listitem>
+            <listitem>
+                <para>Indication = chest pain</para>
+            </listitem>
+            <listitem>
+                <para>Priority = routine</para>
+            </listitem>
+        </orderedlist>
+        <para>After discussion, decision was made to only define separable components as
+            components with numerical or pseudo-numerical values and components, that can
+            have present/absent values, if these are directly related to the focus of the
+            statement. </para>
+    </section>
+</appendix>
+

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-     <title>Isosemantic Transformation</title>
-     <para/>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.1">
+    <title>Isosemantic Transformation</title>
+    <para>Isosemantic models refer to models that may share a different structure but which are
+        semantically equivalent. In order for two models to be isosemantic the models must support
+        bidirectional transformations without any information loss. Isosemantic models allow models
+        whose representations better address clinical requirements while retaining formal and
+        detailed semantics. For instance, while a more post-coordinated information model may
+        facilitate integration with existing systems, an interface model may favor greater
+        terminology pre-coordination and a simpler structure that aligns better with the needs of an
+        input form presented to a clinician. Typically, isosemantic models range between two poles -
+        a highly detailed information model that makes little use of terminology pre-coordination
+        and post-coordinated expressions and a highly simplified information model where most of the
+        model representation resides in a fully post-coordinated terminology expression based on an
+        underlying concept model. Many isosemantic models reside within this continuum.<footnote><para><link
+                    xlink:href="http://models.opencimi.org/cimi_doc/CIMIArchitectureGuide/CIMIArchitectureGuide.html"
+                    >http://models.opencimi.org/cimi_doc/CIMIArchitectureGuide/CIMIArchitectureGuide.html</link></para></footnote></para>
 </chapter>
-

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    
+    
+    <title>Model Transformations</title>
+
+    <para>
+        A key capability of CIMI will be to support the generation of implementable artifacts based on the clinical expertise captured in the ‘logical’ clinical models.The initial target artifacts are FHIR profiles but subsequent targets include CDA, openEHR, ISO 13606, DCM, and CEM through a common logical model intermediary. These targets are focused on interoperability but there is no reason not to support representations for persistence, user interfaces, decision support, or any other form that may be of use.
+    </para>
+
+    <para>
+        Tooling for these transformations is under development.
+    </para>    
+
+    <sect2>
+        <title>Iso-semantic Models</title>
+
+        <para>
+            The CIMI Working Group recognizes it is unlikely a one-size-fits-all approach will accommodate the wide variety of clinical and implementation use cases. As such, the CIMI architecture supports isosemantic models. Isosemantic models are models that while different in structure represent the same semantic content. Isosemantic models facilitate alternate representations of the same information to address the requirements of specific use cases. While generally such variations in expressivity are not recommended (CIMI defines a ‘preferred’ set of models), it is sometimes inevitable. For instance, interface models may have different modeling requirements than messaging models.
+        </para>
+
+        <para>
+            CIMI intends to support the ability to transform models into their isosemantic counterparts. This implies the ability to recognize identical information constructed using different patterns and assumptions regarding the boundaries between terminology pre-coordination and structure.
+        </para>
+
+        <para>
+            Once identified, isosemantic model sets will be defined by the following:
+        </para>
+
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                A ‘preferred’ model providing the most fully articulated representation of the information (note that model governance has not been defined; therefore, how ‘preferred’ is designated and governed is yet to be determined).
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Associated models with identical semantics but different structures.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Formal rules for transforming the associated model features into the preferred model features such as: .
+              </para>
+              <itemizedlist mark='circle' spacing='compact'>
+                <listitem>
+                  <para>
+                    Turning a pre-coordinated concept (e.g., suspected Lyme disease) into a set of explicitly bound attributes (Lyme disease + suspected).
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    Turning a concept binding (sphygmomanometer) into an associated class characterized by that binding (device + type = sphygmomanometer)
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+        </itemizedlist>
+
+        
+        <para>
+           Isosemantic models varying in their degree of pre-coordination can generally be addressed at the archetype layer through attribute occurrence constraints. For instance, the AnatomicalLocation reference model pattern has a 'code' attribute to represent the body location and another 'laterality' attribute to indicate right or left. Two isosemantic models can be derived - one obtained by constraining out the 'laterality' attribue and only using the 'code' attribue with a valueset of codes that have the laterality concept pre-coordinated with the body location. The other isosemantic variant may only allow location codes that do not have a pre-coordinated laterality thus requiring the use of the builtin 'laterality' attribute. 
+        </para>
+
+    </sect2>
+  
+
+</section>

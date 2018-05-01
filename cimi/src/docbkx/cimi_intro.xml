@@ -1,59 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
          xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    
     
     <title>Introduction</title>
 
-    <para>
-        The purpose of the CIMI Modeling and Quality Guide is to allow the reader to understand the big picture behind the CIMI Model.  Often, this type of document begins with explicit technical specifications and tedious syntax which obscures the intended meaning of the design. In this document, we will attempt to begin with broad brush strokes and only later introduce the more technical aspects as the reader’s understanding progresses. 
-    </para>
-
-    <para>
-        The intended audience for this document is anyone trying to understand the CIMI modeling style. This includes modelers creating new models and modelers who are transforming their existing models into CIMI.  
-    </para>
-
     <sect2>
-        <title>Basics of the CIMI Model</title>
+        <title>Background</title>
 
         <para>
-            The CIMI Model consists of two layers as shown in <xref linkend="cimi_msg_layers_0135"/>.  A reference model layer that defines the structural classes and named attributes, and a constraint layer which constrains these structural attributes by value, subtype, cardinality, and terminology.  The basic modeling rule that CIMI follows is that if new named attributes are required, they are added in the Reference Layer, and if existing attributes need to be constrained, that happens in the Constraint Layer.  
+            The Clinical Information Modeling Initiative (CIMI) is an HL7 group that is defining a library of detailed clinical information models using a common modeling formalism. CIMI was established to improve the interoperability of healthcare information systems through shared implementable clinical information models that can be used to generate platform-specific model specifications such as FHIR profiles or CDA templates. These models are grouped into semantically equivalent (or ‘isosemantic’) families of clinical models, which capture the same clinical meaning using different combinations of concept pre-coordination and corresponding information model structure.
         </para>
-
-        <para>
-            The CIMI Reference Model layer is authored using Unified Modeling Language (UML).  These class definitions may be viewed at <ulink url="http://models.opencimi.org/cimi_doc/"><citetitle>http://models.opencimi.org/cimi_doc/</citetitle></ulink>.  
-        </para>
-
-        <figure xml:id="cimi_msg_layers_0135">
-            <title>CIMI Model Layers</title>
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="images/uml_bmm.jpg" align="center" format="jpg" width="50%"/>
-                </imageobject>
-            </mediaobject>
-        </figure>
-
-        <para>
-            The constraint layer is described using Archetype Definition Language (ADL).  An individual constraint model defined in ADL is called an Archetype, and the full collection of CIMI Archetypes may be viewed at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink>.
-        </para>
-
-        <para>
-            One complexity that needs to be addressed here is that ADL can only be used to constrain reference classes defined in a lightweight proprietary UML like specification called Basic Meta-Model (BMM).  For this reason, CIMI has developed tooling which transforms the CIMI UML models into the BMM specification. Although this complexity does exist, to ease understanding, the reader can simply imagine that ADL is directly constraining the UML classes. 
-        </para>
-
-
     </sect2>
-
     <sect2>
-        <title>Iso-semantic Models</title>
+    
+        <title>Purpose</title>
 
         <para>
-            The CIMI Working Group recognizes it is unlikely a one-size-fits-all approach will accommodate the wide variety of clinical and implementation use cases. As such, the CIMI architecture supports alternate representations of the same model to address the requirements of specific use cases.    For instance, interface models may have different modeling requirements than persisted models or logical models.  The CIMI architecture should thus support the definition of iso-semantic models, which are sets of semantically equivalent models differing primarily in their structure and terminology pre-coordination. 
+            The purpose of the CIMI Modeling and Style Guide is to allow the reader to understand the big picture behind the CIMI Models and to enlighten interested CIMI stakeholders regarding CIMI model terms, models, representations, and approaches among CIMI participants.  In this document we begin with broad-brush stroke description of the basics of the CIMI models and follow with the more technical aspects of CIMI modeling including the modeling patterns. 
         </para>
+    </sect2>
+    <sect2>
+    
+        <title>Scope</title>
 
         <para>
-            CIMI currently defines one collection of models, called the ‘clinical input form’ models.  For the time being, this document will focus on the ‘clinical input form’ that CIMI is defining, but in the future, other iso-semantic variations will be discussed such as the ‘analysis normal form’ being developed by the Veterans Health Administration in conjunction with CIMI.
+            This document presents the specification of the Clinical Statement Pattern and the Topic/Context Pattern that are used to create detailed clinical models (DCMs). The CIMI models consist of computer processable language syntaxes structured as high level patterns that are either complete or under development and include:
+
+
+        </para>
+    
+
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                Structured Data (Clusters).
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                The Clinical Statement Pattern.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Topic Patterns.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Context Patterns.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Terminology Bindings.
+              </para>
+            </listitem>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+
+ 
+        <title>Audience</title>
+
+        <para>
+            The intended audience for this document is anyone trying to understand, develop, and/or use CIMI models. This includes:
+
+            
         </para>
 
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                Modelers creating new models.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Modelers who have developed models in a different format and are transforming their existing models into CIMI models.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                FHIR profile developers who are transforming CIMI models into FHIR profiles.
+              </para>
+            </listitem>
+        </itemizedlist>
     </sect2>
   
 

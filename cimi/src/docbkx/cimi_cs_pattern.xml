@@ -2,75 +2,69 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
          xmlns:xlink="http://www.w3.org/1999/xlink">
     
-    <title>Clinical Statement Pattern</title>
+          
 
-  <para>
-      The central focus of the CIMI Reference Model is the Clinical Statement which is used to represent the following kinds of statements which can be made about a patient.
-  </para>
+         <title>Clinical Statement Pattern</title>
 
-  <itemizedlist mark='bullet' spacing='compact'>
-    <listitem>
-      <para>
-        Patient has diagnosis of congestive heart failure.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Patient has a family history of breast cancer.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Patient has a goal of smoking cessation.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Patient has an order for Physical Therapy.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Patient has a lab result of Serum Sodium equals 130 mEq/L with delta flag.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Patient had an appendectomy.
-      </para>
-    </listitem>
-  </itemizedlist>
+          <para>
+              The central focus of the CIMI Reference Model is the Clinical Statement. A Clinical Statement represents structured electronic communication made about a patient typically documented as an 'entry' in the patient record. For example, Clinical Statement can be used to represent the following statements made about a patient.
+          </para>
 
-  <para>
-    Clinical Statement, shown in <xref linkend="cimi_msg_cstatement_0135"/>, has a ‘key’, ‘topic’, ‘context’, and ‘meta’. The ‘key’ is the terminology meaning binding for the entire Clinical Statement.  The ‘topic’ is the clinical entity being described.  The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated.  And finally, ‘meta’ is the collection of metadata that is associated with the clinical statement such as the who, where, why and when information.
-  </para>
+          <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                Patient has diagnosis of congestive heart failure.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient has a family history of breast cancer.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient has a goal of smoking cessation.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient has an order for Physical Therapy.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient has a lab result of Serum Sodium equals 130 mEq/L with delta flag.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient had an appendectomy.
+              </para>
+            </listitem>
+          </itemizedlist>
 
-  <figure xml:id="cimi_msg_cstatement_0135">
-      <title>Clinical Statement</title>
-      <mediaobject>
-          <imageobject>
-              <imagedata fileref="images/clinical_statement.jpg" align="center" format="jpg" width="50%"/>
-          </imageobject>
-      </mediaobject>
-  </figure>
+          <para>
+            Clinical Statement, shown in <xref linkend="cimi_msg_cstatement_0135"/>, has a ‘key’, ‘topic’, ‘context’, and ‘meta’. The ‘key’ is the terminology meaning binding for the entire Clinical Statement.  The ‘topic’ is the clinical entity being described.  The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated.  Finally, ‘meta’ is the collection of metadata that is associated with the clinical statement: the who, where, why and when information.
+          </para>
+
+          <figure xml:id="cimi_msg_cstatement_0135">
+              <title>Clinical Statement</title>
+              <mediaobject>
+                  <imageobject>
+                      <imagedata fileref="images/clinical_statement.jpg" align="center" format="jpg" width="50%"/>
+                  </imageobject>
+              </mediaobject>
+          </figure>
 
 
 
 
-  <variablelist>
-            <varlistentry>
-                <term><emphasis role='bold'>Key</emphasis></term>
-                <listitem>
-                    <para>
-                        The ‘key’ is a coded value that is the terminology meaning binding for the Clinical Statement as a whole.  It is the combined meaning of the ‘topic’ in the setting of the circumstances described in the ‘context’.
-                    </para>
-                </listitem>
-            </varlistentry>
+          <variablelist>
             <varlistentry>
                 <term><emphasis role='bold'>Topic</emphasis></term>
                 <listitem>
                     <para>
-                        The ‘topic’ is the clinical entity being described by the Clinical Statement.  A few examples of topic include clinical assertions, clinical evaluations, and procedures.  For each of these topics, the information that must be described is quite different, so CIMI describes topic types that contain the appropriate properties to describe the required information for the given topic. The number of topic types will change as CIMI progresses, but currently the allowable topic types are EvaluationResult, Assertion, and Procedure. 
+                        The ‘topic’ is the clinical entity described by the Clinical Statement. A few examples of topic include clinical assertions, evaluation results, and procedures. For each of these topics the information described is quite different. Therefore, CIMI describes topic types that contain the appropriate attributes to describe the required information for the given topic. The number of topic types will change as CIMI progresses. Currently the allowable topic types are EventTopic, ProcedureTopic and FindingTopic which has suptypes of EvaluationResultTopic and AssertionTopic. 
                     </para>
                 </listitem>
             </varlistentry>
@@ -78,37 +72,32 @@
                 <term><emphasis role='bold'>Context</emphasis></term>
                 <listitem>
                     <para>
-                        The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated.  A few examples of context are Order Context, Presence Absence Context, Goal Context.  For each of these contexts, the information that must be described is quite different, so CIMI describes context types that contain the appropriate properties to describe the required information for the given context.  The number of context types will change as CIMI progresses, but currently the allowable context types are OrderContext, PresenceAbsenceContext, and GoalContext. 
+                        The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated. CIMI describes context types that contain the appropriate attributes to describe the required information for the given context. The number of context types will change as CIMI progresses. Currently the allowable context types are EventContext, ActionContext, and FindingContext.  ActionContext has subtypes with examples including RequestContext, OrderContext and PerformanceContext. FindingContext has subtypes with examples such as PresenceContext, AbsenceContext, and GoalContext.
                     </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
-                <term><emphasis role='bold'>Meta</emphasis></term>
+                <term><emphasis role='bold'>Metadata</emphasis></term>
                 <listitem>
                     <para>
-                        The ‘key’ is a coded value that is the terminology meaning binding for the Clinical Statement as a whole.  It is the combined meaning of the ‘topic’ in the setting of the circumstances described in the ‘context’.  
+                        ‘metadata’ is not actually an attribute of ClinicalStatement, but is intended here to represent the various attributes in clinical statement that represent metadata about the clinical statement. This includes attribution information relating to the statement itself such as who authored, verified, recorded, or signed the statement or more informally, the who, where, why, and when information. Other attributes of this nature are recordStatus and encounter.
                     </para>
                 </listitem>
             </varlistentry>
         </variablelist>
 
 
-
-
-  
-
-
   <sect2>
     <title>Examples Using Topic and Context</title>
     <para>     
-      Earlier, descriptive examples of Clinical Statements were given.  Here we will represent a few of these examples using the Clinical Statement ‘topic - context’ paradigm.  In <xref linkend="cimi_msg_cstatement_chf_0135"/>, the example for “Patient has diagnosis of congestive heart failure” is shown.  The topic has been declared to be of type Assertion stating “assertion of congestive heart failure”, and the context has been declared to be of type PresenceAbsenceContext stating “Known Present”.  What may not be apparent in the figure is that when the topic is declared to be of type Assertion, then all the properties of Assertion are available for use, but in the figure, only the property named ‘code’ is shown for clarity.  The same applies for the type called PresenceAbsenceContext.  
+      Earlier, descriptive examples of Clinical Statements were given.  Here we will represent a few of these examples using the Clinical Statement ‘topic - context’ paradigm.  In <xref linkend="cimi_msg_cstatement_chf_0135"/>, the example for “Patient has diagnosis of congestive heart failure” is illustrated. The topic has been declared to be of type AssertionTopic stating “assertion of congestive heart failure”, and the context has been declared to be of type PresenceAbsenceContext stating “Known Present”. What may not be apparent in the figure is that when the topic is declared to be of type AssertionTopic then all the attributes of AssertionTopic are available for use. However, in the figure only the attribute named ‘result’ is shown for clarity.  
     </para>
 
     <para>
-      In <xref linkend="cimi_msg_cstatement_order_0135"/>, the example for “Patient has an order for Physical Therapy.” is shown.  The topic has been declared to be of type Procedure stating “procedure of type physical therapy”, and the context has been declared to be of type OrderContext.  Again, the majority of properties for Procedure and OrderContext are not shown for clarity.
+      In <xref linkend="cimi_msg_cstatement_order_0135"/>, the example for “Patient has an order for Physical Therapy.” is shown. The topic has been declared to be of type ProcedureTopic stating “procedure of type physical therapy”, and the context has been declared to be of type OrderContext. Again, the majority of attributes for ProcedureTopic and OrderContext are not shown for clarity.
     </para>
 
-
+    
 
     <figure xml:id="cimi_msg_cstatement_chf_0135">
         <title>Patient has diagnosis of congestive heart failure.</title>
@@ -134,13 +123,15 @@
 
     <orderedlist numeration="arabic">
       <listitem>
-        <para>They are reusable components that can be assembled to form clinical statements. For instance, one can coordinate the Procedure statement topic with the Proposal statement context to represent a ProcedureProposal. The Procedure statement topic may also be paired with the Order statement context to create a ProcedureOrder statement. </para>
+        <para>They are reusable components that can be assembled to form clinical statements. For instance, one can coordinate the ProcedureTopic with the ProposalContext to represent a ProcedureProposal statement. Alternatively, ProcedureTopic may be paired with OrderContext to create a ProcedureOrder statement.  </para>
       </listitem>
       <listitem>
-        <para>They represent groupings of attributes aligned with the SNOMED CT Concept Model. For instance, the Procedure statement topic is aligned with the SNOMED CT Procedure Concept Model. The Performance context aligns with the Situation with Explicit Context Concept (SWEC) Concept Model. </para>
+        <para>They represent groupings of attributes aligned with the SNOMED Clinical Terms (SNOMED CT) Concept Model. For instance, ProcedureTopic is aligned with the SNOMED CT Procedure Concept Model. PerformanceContext aligns with the Situation with Explicit Context Concept (SWEC) Concept Model.
+        </para>
       </listitem>
       <listitem>
-        <para>They provide for a mechanism to state presence or absence of a finding as well as performance or non-performance of an action. For instance, the pairing of the Procedure topic with the NonPerformance context allows for the expression of a procedure that was not performed.</para>
+        <para>They provide for a mechanism to state presence or absence of a finding as well as performance or non-performance of an action. For instance, the pairing of ProcedureTopic with NonPerformanceContext allows for the expression of a procedure that was not performed.
+        </para>
       </listitem>
     </orderedlist>
 

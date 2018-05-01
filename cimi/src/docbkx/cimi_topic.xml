@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
          xmlns:xlink="http://www.w3.org/1999/xlink">
+
+         <!-- Ask Claude about snomed part -->
     
     <title>Topic Patterns</title>
 
     <para>
-        The topic patterns CIMI has developed to date include Assertion, EvaluationResult, and Procedure. They are shown in <xref linkend="cimi_msg_topic_hierarchy_0135"/> and are described in the following sections. Each of these topic subtypes contains a collection of attributes that are appropriate to describe the given pattern.   These patterns provide the foundational structure for detailed clinical model archetype instances which can be visualized at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink> 
+        Topic Patterns include all the attributes required to fully describe a clinical entity. The topic patterns CIMI has developed to date include FindingTopic, ProcedureTopic, and EventTopic, wheith FindingTopic having children of AssertionTopic and EvaluationResultTopic. They are shown in <xref linkend="cimi_msg_topic_hierarchy_0135"/> and are described in the following sections. Each of these topic subtypes contain a collection of attributes that describe the given pattern.  These patterns provide the foundational structure for detailed clinical model (DCM) archetype instances that can be visualized at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink> 
     </para>
 
     <figure xml:id="cimi_msg_topic_hierarchy_0135">
@@ -18,10 +20,10 @@
     </figure>
 
     <sect2>
-        <title>Assertion</title>
+        <title>AssertionTopic</title>
 
         <para>
-            The first topic type described here is the Assertion Pattern and its included attributes, as shown in <xref linkend="cimi_msg_assertion_0135"/>, which is used to represent a clinical finding.  This pattern is used to assert the presence (or absence) of a condition in a patient, for example:
+            The first topic type described here is the AssertionTopic pattern with its included attributes, as shown in <xref linkend="cimi_msg_assertion_0135"/>. ConditionTopic, shown in <xref linkend="cimi_msg_condition_0135"/> is a child of AssertionTopic which is used to represent a clinical finding such as the presence (or absence) of a condition in a patient. For example:
         </para>
 
         <itemizedlist mark='bullet' spacing='compact'>
@@ -44,10 +46,19 @@
 
 
         <figure xml:id="cimi_msg_assertion_0135">
-            <title>Assertion Pattern</title>
+            <title>AssertionTopic</title>
             <mediaobject>
                 <imageobject>
                     <imagedata fileref="images/assertion.jpg" align="center" format="jpg" width="40%"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+
+        <figure xml:id="cimi_msg_condition_0135">
+            <title>ConditionTopic</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/condition.jpg" align="center" format="jpg" width="40%"/>
                 </imageobject>
             </mediaobject>
         </figure>
@@ -59,12 +70,12 @@
         <itemizedlist mark='bullet' spacing='compact'>
             <listitem>
               <para>
-                topic.key = a code meaning “assertion”.
+                topic.topicCode = a code meaning “assertion”.
               </para>
             </listitem>
             <listitem>
               <para>
-                topic.result = a code representing what’s being asserted (“rash”, “auto accident”, “hypertrophy”, etc.).
+                topic.result = a code representing what is being asserted (i.e., “rash”, “auto accident”, “hypertrophy”, etc.).
               </para>
             </listitem>
         </itemizedlist>
@@ -73,7 +84,11 @@
             <title>Assertion Hierarchy</title>
 
             <para>
-                The full hierarchy for Assertion is shown in <xref linkend="cimi_msg_assertion_hierarchy_0135"/>.  Assertion is actually the child of a parent type called BaseAssertion.  Note that the reference model introduces two additional subtypes of BaseAssertion: DeviceAssertion and Risk Assertion, but these models are not fully defined at this time.  And finally, FindingSiteAssertion is a subtype which adds extra attributes for body location to the Assertion class.  If additional attributes are identified which are needed to properly model assertions, they would be either added to one of the existing assertion types, or a new type could be created with these attributes.  This modeling decision would be based on whether these attributes make sense to existing assertions types, or whether they only make sense to a newly identified subset of assertions.
+                The full hierarchy for AssertionTopic is shown in <xref linkend="cimi_msg_assertion_hierarchy_0135"/>.  AssertionTopic serves two important purposes: (1) it provides the core set of assertion attributes that are relevant in assertion of presence and absence; and (2) it is the parent type for the more specific assertions such as ConditionTopic and FindingSiteAssertionTopic. If additional attributes are identified as needed to properly model assertions they would either be added to one of the existing assertion types or a new type could be created with these attributes. This modeling decision would be based on whether adding these attributes make sense for existing assertions types or whether they should be used to create a new subset of assertions. Typically an attribute is added to the parent class if that attribute is relevant in all the subclasses derived from the parent class. If an attribute is only relevant in some of the subclasses then the attribute is introduced in these subclasses. This ensures that a class does not have an attribute that is incongruent and thus requires that attribute to be occasionally constrained out. For instance, it is viewed as bad practice to create an Animal class that contains arms, legs, and wings and then create a subclass of dog that constrains out wings since dogs do not have wings.
+            </para>
+
+            <para>
+                Note there are two ways to introduce an attribute that is not always used. A UML class specialization specifies a new class that has all of the attributes of its parent and may then specify additional attributes. An archetype may choose to use whichever class, parent or child, is appropriate. Or, the additional attribute may be added to the original class and the archetype may then use the attribute or "constrain it out" by setting its cardinality to zero. As previously state, CIMI modelers prefer the first approach, extension through UML class specialization, that avoids the need to constrain elements out of archetypes.
             </para>
 
             <figure xml:id="cimi_msg_assertion_hierarchy_0135">
@@ -91,17 +106,17 @@
             <title>Assertions</title>
 
             <para>
-                Assertions affirm the existence of clinical conditions, diseases, symptoms, etc. in the patient.   As just described, different varieties of assertion may extend an existing Assertion class  with any additional attributes necessary to fully represent this new group of assertions.  Examples 1 and 2 show clinical statements using the Assertion class for the topic, and  Examples 3 and 4 show clinical statements using FindingSiteAssertion for the topic.   These examples show the ‘topic.key’, ‘topic.result’, and ‘context’ for each, with the addition of any extra attributes from the chosen topic needed to describe the clinical statement.   Context will be discussed in depth later in this document, but for now, be aware that the chosen context is actually a full class with many attributes, but here we are only showing the context.code attribute which is common to all context types.
+                Assertions affirm or deny the existence of clinical conditions, diseases, symptoms, etc., in the patient.  As just described, different varieties of assertion may extend an existing AssertionTopic class with any additional attributes necessary to fully represent this new group of assertions. Table 1 shows examples of clinical statements using the AssertionTopic class for the topic, and Table 2 shows examples of clinical statement using FindingSiteAssertionTopic for the topic.  These examples show the ‘topic.topicCode’, ‘topic.result’, and ‘context.contextCode’ for each, with the addition of any extra attributes from the chosen topic needed to describe the clinical statement.  Context will be discussed in depth later in this document. For now, be aware the chosen context is a full class with many attributes but here we are only showing the context code attribute that is common to all context types.
             </para>
 
             <example xml:id="cimi_example_1_0135">
                 <title>The patient has diabetes mellitus type 1 which was diagnosed at age 24</title>
                 <programlisting>
     DiabetesMellitusAssert
-        topic.key: Assertion
+        topic.topicCode: Assertion
         topic.result: Diabetes mellitus type 1 (disorder)
         topic.ageAtOnset: 24 years
-        context.key: Confirmed present (qualifier value)
+        context.contextCode: Confirmed present (qualifier value)
                 </programlisting>
             </example>
 
@@ -109,11 +124,25 @@
                 <title>The patient does not have diabetes mellitus type 1</title>
                 <programlisting>
     DiabetesMellitusAbsentAssert
-        topic.key: Assertion
+        topic.topicCode: Assertion
         topic.result: Diabetes mellitus type 1 (disorder)
-        context.key: Known absent (qualifier value)
+        context.contextCode: Known absent (qualifier value)
                 </programlisting>
             </example>
+
+
+            <para>
+                Note, in the CIMI alignment with the SNOMED CT concept model, the AssertionTopic pattern corresponds to the Finding hierarchy as inflected by the Situation hierarchy. 
+            </para>
+
+                
+            <para>
+                Note AssertionStatement.topic.topicCode is not part of this construction. It is modeled with the fixed term “assertion” and is as semantically inert as we can manage.
+            </para>
+
+            <para>
+                Other attributes may also inflect the semantics; e.g., an AssertionStatment.topic.findingMethod that would align with the concept model’s Finding.findingMethod.
+            </para>
 
         
         </sect3>
@@ -122,18 +151,18 @@
             <title>Finding Site Assertions</title>
 
             <para>
-                A FindingSiteAssertion is an assertion about a finding found on the body. This assertion is a “design by extension” assertion because it contains the additional properties of findingSite and findingSitePrecoordinated which are used to capture the body site affected by the condition. The FindingSiteAssertion encourages post-coordination as shown in examples 3 and 4, and intentionally aligns with the SNOMED CT Clinical Findings concept model.
+                A FindingSiteAssertionTopic is an assertion about a finding found on the body. This assertion is a “design by extension” assertion because it contains the additional attribute findingSite that is used to capture the body site affected by the condition. The FindingSiteAssertionTopic encourages post-coordination as shown in examples 3 and 4, and intentionally aligns with the SNOMED CT Clinical Findings concept model.
             </para>
 
             <example xml:id="cimi_example_3_0135">
                 <title>The patient has a femur fracture in the right leg</title>
                 <programlisting>
     FractureAssert
-        topic.key: Assertion
+        topic.topicCode: Assertion
         topic.result: Fracture of bone (disorder)
-        topic.bodyLocation: Bone structure of femur
-        topic.bodySide: Right (qualifier value)
-        context.key: Confirmed present (qualifier value)
+        topic.findingSite.code: Bone structure of femur
+        topic.findingSite.laterality: Right (qualifier value)
+        context.contextCode: Confirmed present (qualifier value)
                 </programlisting>
             </example>
 
@@ -141,11 +170,11 @@
                 <title>The patient has a stage two pressure injury on the right ischial tuberosity</title>
                 <programlisting>
     WoundAssert
-        topic.key: Assertion
+        topic.topicCode: Assertion
         topic.result: Pressure ulcer stage 2 (disorder)
-        topic.bodyLocation: Skin structure of ischial tuberosity
-        topic.bodySide: Right (qualifier value)
-        context.key: Confirmed present (qualifier value)
+        topic.findingSite.code: Skin structure of ischial tuberosity
+        topic.findingSite.laterality: Right (qualifier value)
+        context.contextCode: Confirmed present (qualifier value)
                 </programlisting>
             </example>
 
@@ -157,7 +186,7 @@
         <title>Evaluation Result</title>
 
         <para>
-            The second topic pattern we will discuss is EvaluationResult, which is used to document a characteristic of a patient or a clinical value being observed.  An EvaluationResult may hold the name of a test in the ’key’ attribute (e.g., “heart rate evaluation”, “serum glucose lab test”, etc.) and the resulting value of the test in the ‘result’ attribute.  Viewed another way, the EvaluationResult ‘key’ holds a question  (e.g., "what is the heart rate?", "what is the serum glucose?") and the ‘result’ holds the answer.  Any clinical statement such as a laboratory test, a vital sign, or a questionnaire question that fits this pattern of a question and a resulting value is modeled with the EvaluationResult pattern.
+            The second topic pattern we will discuss is EvaluationResultTopic which is used to document a characteristic of a patient or a clinical value being observed. An EvaluationResultTopic may hold the name of a test in the ‘topicCode’ attribute (e.g., “heart rate evaluation”, “serum glucose lab test”, etc.) and the resulting value of the test in the ‘result’ attribute. Viewed another way, the EvaluationResultTopic topicCode holds a question (e.g., "what is the heart rate?", "what is the serum glucose?") and the ‘result’ holds the answer. Any clinical statement such as a laboratory test, a vital sign, or a questionnaire question that fits this pattern of a question and a resulting value is modeled with the EvaluationResultTopic pattern.
         </para>
 
         <para>
@@ -167,7 +196,7 @@
         <itemizedlist mark='bullet' spacing='compact'>
             <listitem>
               <para>
-                topic.key = what’s being evaluated (“heart rate”, “serum glucose”, “breath sound”, etc.).
+                topic.topicCode = what’s being evaluated (“heart rate”, “serum glucose”, “breath sound”, etc.).
               </para>
             </listitem>
             <listitem>
@@ -179,7 +208,7 @@
 
 
         <para>
-            The following is an isosemantic comparison of the evaluation result pattern to the previously described assertion pattern:
+            The following is an isosemantic comparison of the evaluation result pattern to the previously described assertion pattern.  In the previous section, we illustrated assertion models using rash, auto accident, and hypertrophy.  Below we show what these assertion examples would look like if we hypothetically modeled them using the Evaluation Result pattern.  Note, CIMI avoids creating models where the ‘result’ specifies “presence/absence” or “yes/no”, so this is a clear indicator that the assertion pattern is preferred in these cases.
         </para>
 
         <variablelist mark='bullet' spacing='compact'>
@@ -189,7 +218,7 @@
                     <itemizedlist mark='bullet' spacing='compact'>
                         <listitem>
                             <para>
-                                topic.key = a code meaning “assertion”
+                                topic.topicCode = a code meaning “assertion”
                             </para>
                         </listitem>
                         <listitem>
@@ -201,12 +230,12 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
-                <term><emphasis role='bold'>EvaluationResult</emphasis></term>
+                <term><emphasis role='bold'>EvaluationResult ( This is hypothetical )</emphasis></term>
                 <listitem>
                     <itemizedlist mark='bullet' spacing='compact'>
                         <listitem>
                             <para>
-                                topic.key = what’s being evaluated (“rash”, “auto accident”, “hypertrophy”, etc.)
+                                topic.topicCode = what’s being evaluated (“rash”, “auto accident”, “hypertrophy”, etc.)
                             </para>
                         </listitem>
                         <listitem>
@@ -220,12 +249,18 @@
 
         </variablelist>
 
+        <para>
+            Like Assertion, Evaluation Result corresponds to the SNOMED CT concept model. The EvaluationResultStatement.topic.topicCode attribute corresponds to the observation being evaluated. 
+        </para>
+
+        
+
 
         <sect3>
             <title>Evaluation Result Hierarchy</title>
 
             <para>
-                EvaluationResult currently has two subtypes called LaboratoryTestResult and PhysicalEvaluationResult which add additional attributes necessary to describe laboratory tests and physical evaluations, respectively.
+                EvaluationResultTopic currently has two subtypes; LaboratoryTestResultTopic (that includes additional attributes necessary to describe laboratory tests) and PhysicalEvaluationResultTopic.
             </para>
 
             <figure xml:id="cimi_msg_evaluation_result_hierarchy_0135">
@@ -244,7 +279,7 @@
             <title>Modeling in the Constraint Layer</title>
 
             <para>
-                LaboratoryTestResult, which exists in the Reference Model Layer, is a good opportunity to further explain about modeling in the Constraint Layer.  There are families of laboratory tests, such as quantitative labs and nominal labs, which only differ in their resulting value where the former would have a QUANTITY result, and the latter would have a CODED_TEXT result.  For these two families of labs, there  is not a need for new named attributes, only a need to constrain the result to the appropriate datatype, which CIMI would then model in the Constraint Layer.  The modeler, actually has a choice to make in this situation as the datatype could be constrained in a new class subtype in the reference layer or as an archetype in the constraint layer.   The style CIMI has adopted is that since a new named attribute is not required, the constraint would occur in the constraint layer, and an ADL Archetype would be created for both QuantitativeLaboratoryTestResult and NominalLaboratoryTestResult. (Note that CIMI is currently modeling these Archetypes so they will not appear in the current repository).
+                This section will use LaboratoryTestResultTopic, which exists in the Reference Model Layer, to further describe modeling in the Constraint Layer. There are different categories of laboratory tests that differ in their resulting data type, such as quantitative labs and nominal labs, where the former would have a QUANTITY result and the latter would have a CODED_TEXT result. For the different lab categories there is not a need for new named attributes only a need to constrain the result to the appropriate datatype. The modeler has a choice to make in this situation as the datatype could be constrained in a new class subtype in the reference layer or as an archetype in the constraint layer.  Since a new named attribute is not required the style CIMI has adopted as the constraint would occur in the constraint layer and an ADL Archetype would be created for both QuantitativeLaboratoryTestResult and NominalLaboratoryTestResult.
             </para>
        
 
@@ -255,18 +290,18 @@
 
             <variablelist>
             <varlistentry>
-                <term><emphasis role='bold'>Laboratory Test Result</emphasis></term>
+                <term><emphasis role='bold'>LaboratoryTestResultTopic</emphasis></term>
                 <listitem>
                     <para>
-                        A LaboratoryTestResult archetype contains properties specific to the lab evaluation process. These may include information about the physical process (e.g., specimen) as well as process management information (e.g., status).
+                        LaboratoryTestResultTopic contains attributes specific to the lab evaluation process. These include information about the physical process (e.g., specimen) plus process management information (e.g., status).
                     </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
-                <term><emphasis role='bold'>Physical Evaluation Result</emphasis></term>
+                <term><emphasis role='bold'>PhysicalEvaluationResultTopic</emphasis></term>
                 <listitem>
                     <para>
-                        A PhysicalEvaluationResult archetype contains properties specific to the clinical evaluation process. These include information about the physical examination process (e.g., patient position, body site). 
+                        PhysicalEvaluationResultTopic contains attributes specific to the clinical evaluation process. These include information about the physical examination process (e.g., patient position, body site).  
                     </para>
                 </listitem>
             </varlistentry>
@@ -277,10 +312,10 @@
                 <title>The patient’s skin turgor is friable</title>
                 <programlisting>
     SkinTurgorEval
-        key: Skin turgor (observable entity)
-        result: Fragile skin (finding)
-        evaluationProcedure: Inspection (procedure)
-        context: Confirmed present (qualifier value)
+        topic.topicCode: Skin turgor (observable entity)
+        topic.result: Fragile skin (finding)
+        topic.evaluationProcedure: Inspection (procedure)
+        context.contextCode: Confirmed present (qualifier value)
                 </programlisting>
             </example>
 
@@ -288,11 +323,11 @@
                 <title>The patient's systolic blood pressure is 120 mmHg</title>
                 <programlisting>
     SystolicBloodPressureEval
-        key: Systolic arterial pressure (observable entity)
-        result: 120
-            unitsofMeasure: Millimeter of mercury (qualifier value)
-        evaluationProcedure: Auscultation (procedure)
-        context: Confirmed present (qualifier value)
+        topic.topicCode: Systolic arterial pressure (observable entity)
+        topic.result: 120
+            unitsOfMeasure: Millimeter of mercury (qualifier value)
+        topic.evaluationProcedure: Auscultation (procedure)
+        context.contextCode: Confirmed present (qualifier value)
                 </programlisting>
             </example>
 
@@ -305,11 +340,11 @@
             <title>Guideline: Assertion versus Evaluation</title>
 
             <para>
-                In most cases, the decision between using the evaluation result pattern and the assertion pattern is intuitive and straightforward.  “Urine color”, for example, is clearly best modeled as an evaluation result because the property being evaluated is the color of the patient’s urine and the result of the evaluation is the set of codes representing the colors that may be observed.   To model urine color as an assertion would require the creation of a large number of pre-coordinated concepts – the key would be “assertion” and result would be populated with a code from a set of codes such as “amber urine” (meaning “the patient has amber urine”), “clear urine”, etc.
+                In most cases the decision between using the evaluation result pattern and the assertion pattern is intuitive and straightforward. “Urine color”, for example, is clearly best modeled as an evaluation result because the attribute being evaluated is the color of the patient’s urine and the result of the evaluation is the set of codes representing the colors that may be observed.  To model urine color as an assertion would require the creation of a large number of pre-coordinated concepts. The key would be “assertion” and result would be populated with a code from a set of codes such as “amber urine” (meaning “the patient has amber urine”), “clear urine”, etc.
             </para>
 
             <para>
-                However, this highlights any evaluation model may be transformed into an assertion model.  (Conversely, any assertion model may be transformed into an evaluation model.)  In the case of urine color, the decision is intuitive.  But in other cases, the decision is less clear.
+                However, this highlights any evaluation model may be transformed into an assertion model. (Conversely, any assertion model may be transformed into an evaluation model.) In the case of urine color, the decision is intuitive. In other cases the decision is less clear.
             </para>
 
             <para>
@@ -317,15 +352,15 @@
             </para>
 
             <para>
-                The general guideline is if it is most natural to think of the data element as a noun – as a condition or state that exists in the patient – model as an assertion or set of assertions.  If the statement about the patient is most naturally thought of as a name/value pair (i.e., a noun representing the property and an adjective representing the value), such as “hair color” = (“black”, “brown”, “blonde”), then model it as an evaluation. However, it is important to note both styles are allowed and the true determinant of their use is whether a result for a given criteria other than true/false, present/absent is specified.
+                The general guideline is if it is natural to think of the concept as a noun, as a condition or state that exists in the patient, model as an assertion or set of assertions. If the statement about the patient is thought of as a name/value pair (i.e., a noun representing the attribute and an adjective representing the value), such as “hair color” = (“black”, “brown”, “blonde”), then model it as an evaluation. However, it is important to note both styles are allowed and the true determinant of their use is whether a result for a given criteria other than true/false or present/absent is specified.
             </para>
 
             <para>
-                This discussion highlights the importance of iso-semantic models. Even if one model or set of models can be agreed upon as the preferred storage model (e.g., assertion models for “bradycardia” and “tachycardia” instead of an evaluation model with “bradycardic” and “tachycardic” as values), inevitably there will be use cases (data entry, messaging, reporting, etc.) for the other model and a need to identify cases where different modeling patterns describe semantically identical phenomena: these patterns are iso-semantic.  An essential (as of now unfulfilled) requirement is for a mechanism of identifying iso-semantic models, managing iso-semantic groups, and transforming between them.
+                This discussion highlights the importance of isosemantic models. Even if one model or set of models can be agreed upon as the preferred storage model (e.g., assertion models for “bradycardia” and “tachycardia” instead of an evaluation model with “bradycardic” and “tachycardic” as values), inevitably there will be use cases (e.g., data entry, messaging, reporting, etc.) for the other model and a need to identify use cases where different modeling patterns describe semantically identical phenomena. These patterns are isosemantic. An essential (as of now unfulfilled) requirement is for a mechanism of identifying isosemantic models, managing isosemantic groups, and transforming between them. We expect a great deal of this work to be facilitated by the semantic underpinnings of the models supporting the ability to classify the content of two models and determine their logical relations (equivalent, subsumed, disjoint).
             </para>
 
             <para>
-                It should be noted, the Assertion vs. Evaluation topic is solely concerned with the structure and schema pattern used to capture clinical information.  Choosing Assertion vs. Evaluation patterns has nothing to do with whether the information being captured is subjective vs. objective.  
+                It should be noted the Assertion vs. Evaluation topic is solely concerned with the structure and schema pattern used to capture clinical information. Choosing Assertion vs. Evaluation patterns has nothing to do with whether the information being captured is subjective vs. objective. 
             </para>
 
         </sect3>
@@ -339,15 +374,13 @@
     </sect2>
 
     <sect2>
-        <title>Procedure</title>
+        <title>ProcedureTopic</title>
 
         <para>
-            The final topic pattern to be covered is the Procedure pattern.  Procedure models are used to represent actions taken related to the care of a patient such as a laboratory test, peripheral IV placement, delivery of a warm blanket, dressing change, ambulation, patient education, etc.  The CIMI BaseProcedure, as shown in <xref linkend="cimi_msg_procedure_hierarchy_0135"/>,  is a base class for a number of specializations such as surgical, imaging, and laboratory procedures.  The CIMI Procedure Model is aligned with the SNOMED CT Procedure Concept Model when such an alignment exists. 
+            Procedure models are used to represent actions taken related to the care of a patient such as a cholecystectomy, peripheral IV placement, delivery of a warm blanket, dressing change, ambulation, patient education, etc.  The CIMI ProcedureTopic, as shown in <xref linkend="cimi_msg_procedure_hierarchy_0135"/>,  is a base class for a number of specializations such as surgical, imaging, and laboratory procedures. The CIMI Procedure Model is aligned with the SNOMED CT Procedure Concept Model when such an alignment exists. 
+ 
         </para>
 
-        <para>
-            As the procedure reference models are still evolving, archetypes for procedures are yet to be modeled and will be described in the September 2017 ballot.
-        </para>
 
         <figure xml:id="cimi_msg_procedure_hierarchy_0135">
                 <title>Procedure Hierarchy</title>

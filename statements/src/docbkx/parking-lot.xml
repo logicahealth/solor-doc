@@ -4,6 +4,191 @@
 <appendix xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Parking lot/Ideas Discussed and Discarded</title>
+    <section xml:id="_Ref493848005">
+        <title>Confusion About Negation: “Absent” and “Not Present”</title>
+        <para>Negation as a logical concept is subject to many ambiguities and
+            inconsistencies, in healthcare applications and general usage<footnote
+                xml:id="__EN4__">
+                <para>Horn L. A Natural History of Negation. University of Chicago Press,
+                    1989.</para>
+            </footnote>. For example, the semantic distinctions between the statements “he
+            didn’t say she was ill” and “he said she was not ill” are subtle and open to
+            varying interpretations. When such distinctions appear in medical records and
+            are used as the basis for inference or data retrieval, it’s important that a
+            clear and formal semantic exists that is shared by those who record the
+            information, those who later review the information and use it in medical
+            decision making, and those who write software that aggregates, abstracts,
+            infers, or performs other logical computations on the information.</para>
+        <para>One important distinction in medical documentation is that of a clinical
+            phenomenon being documented as “absent” versus the phenomenon not being
+            documented as “present.” For example, does the explicit documentation of “No
+            abdominal tenderness” mean the same thing as no documentation of “abdominal
+            tenderness”? Would the interpretation be different if the phenomenon were
+            instead “jaundice” or “HIV”? Would it matter if the presenting complaint at the
+            time that observation were documented were “vomiting” versus “ankle sprain”?
+            Depending on the clinical context, the specific phenomenon in question, and the
+            assumptions of individuals using the medical record, the interpretation of
+            “absent” versus “not present” could be the same or quite different. Today’s
+            representation and inferencing models for electronic health records do not
+            provide enough clarity and control to safely interpret negation in these
+            situations.</para>
+        <para>Finally, current ontology-based models for representing clinical observations
+            sometimes result in gross errors when subsumption inferences are applied to
+            negated clinical concepts. For example, the SNOMED-CT model incorrectly infers
+            that the documentation of “No myocardial infarction” in a patient implies that
+            the patient has “No heart disease” whatsoever. A model that correctly handles
+            subsumption testing over negated clinical concepts is required to support
+            correct (and safe) inferencing in electronic health records.</para>
+        <para/>
+    </section>
+    <section>
+        <title>Potential Problems and Issues</title>
+        <para>Although it helps to solve the problems described Section <xref
+            linkend="_Ref493868573"/>, the models presented in this paper for consolidating
+            “Findings” and “Observable Entities” into “Phenomena” and for normalizing the
+            representation and querying of negated phenomena also entail certain challenges and
+            limitations.</para>
+        <section>
+            <title>Negative Values for Phenomena</title>
+            <para>The model does not allow interval values that include negative real numbers. In
+                rare cases, clinical phenomena require such values, for example the phenomenon of
+                “Max ST deflection” in an EKG, which can be either positive or negative.</para>
+            <para>A potential solution in these cases is to change the modeling of certain phenomena
+                so that they only take on positive numeric values. In the example above, this
+                strategy would entail the specification of separate phenomena for “Max ST
+                depression” and “Max ST elevation”. Further work is required to determine how often
+                phenomena with negative values occur and whether the proposed strategy is effective
+                is all such cases. </para>
+        </section>
+        <section>
+            <title>Values from Enumerated Value Sets that are not Numeric or not Ordinal</title>
+            <para>Certain clinical phenomena have values that are simply not numeric, and to which
+                the model for representing and processing interval values does not cleanly apply.
+                The following phenomena and their corresponding enumerated value sets illustrate
+                this point.</para>
+            <para>Eye-Color: Values = (Blue, Green, Brown, Black, … )</para>
+            <para>Eye-Color : Values = (1=Blue, 2=Green, 3=Brown, 4=Black, … )</para>
+            <para>Dysphagia: Values = (never, rarely, sometimes, frequently, always)</para>
+            <para>Patellar tendon reflex: Values = (1+, 2+, 3+, 4+)</para>
+            <para>To address the reality of such observations in the medical record, the assignment
+                of interval values may need to be limited to only those phenomena whose values are
+                naturally numeric or can be characterized as present, absent, or indeterminate (for
+                which interval values are defined). An alternative would be to always assign such
+                phenomena the interval value “(0,∞]” (Present), and denote the property values using
+                a different attribute (such as “color”, “frequency”, of “intensity” in the cases
+                above).</para>
+        </section>
+        <section>
+            <title>Units of Measure for Non-Quantitative Values</title>
+            <para>Consolidating “Findings” and “Observable Entities” allows the use of a numeric
+                interval value to denote the presence or absence of clinical observations that
+                wouldn’t otherwise have numeric values, such as “nausea” or “dizziness.” Interval
+                values also allow one to denote the presence and the cardinality of certain clinical
+                phenomena using a single value, such as for “Daily cigarette use” or “Pressure
+                ulcers”.</para>
+            <para>In both situations however, there is no natural unit of measure to associate with
+                the interval values. To the degree that there’s benefit in consistently assigning a
+                unit of measure to all values, this void presents a problem.</para>
+            <para>A possible solution is to have a “null” unit of measure, indicating that the value
+                is not associated with any unit of measure. This strategy may not be unfamiliar to
+                data modelers and data analysts, in that certain LOINC lab codes already include
+                such a designation (such as for Urine Specific Gravity, a dimensionless
+                measurement). Alternatively, one could create special-purpose units of measure to
+                associate with dimensionless values. Again, this strategy has been adopted for
+                certain LOINC lab codes, such as pH (which includes a special “[pH]” unit of
+                measure) or manual cell count (which includes the special “per high powered field”
+                unit of measure).</para>
+        </section>
+        <section>
+            <title>Subsumption over all Refining Attributes of Phenomena</title>
+            <para>As described in Section <xref linkend="_Ref493858870"/>, correct application of
+                the tri-valued model for querying phenomena requires that interval values be
+                assigned to the entirety of each phenomenon (including all of its refining
+                attributes). Further, the correct applications of the axioms in Section <xref
+                    linkend="_Ref493866647"/> also require that subsumption testing between
+                phenomenon (i.e., application of the “Is-A()” predicate within these axioms) include
+                all of the refining attributes to which interval values have been assigned. If
+                subsumption testing is performed using only a subset of the attributes to which
+                interval values are assigned, the axioms will produce incorrect results.</para>
+            <para>The point is illustrated through several examples shown in <xref
+                linkend="_Ref493941874kec"/>. </para>
+            <para>Note, for example, that if subsumption testing between phenomenon 1 and phenomenon
+                3 excludes the “Observation-Date” value in phenomenon 3, and “Observation-Date” is
+                within the scope of the attributes to which the interval value “[2,2]” has been
+                assigned, then phenomenon 3 will be subsumed by phenomenon 1 and the axioms of
+                Section <xref linkend="_Ref493866647"/> will infer that phenomenon 1 is present.
+                However, upon inspection, it is clear that the presence of two pressure ulcers in
+                the right leg on Oct. 4, 2017 does not necessarily imply the presence of any
+                pressure ulcers on July 7, 2017. Subsumption testing that correctly included the
+                “Observation-Date” attribute would have prevented this incorrect inference and
+                concluded that the existence of pressure ulcers on July 7, 2017 was indeterminate
+                based on the available data.</para>
+            <para>Similarly, if subsumption testing between phenomenon 5 and phenomenon 2 excludes
+                the “Laterality” attribute of the anatomical location of phenomenon 5 (a nested
+                attribute), and “Laterality” is within the scope of the attributes to which the
+                interval value “[0,0]” has been assigned, then phenomenon 5 will be subsumed by
+                phenomenon 2 and the axioms of Section <xref linkend="_Ref493866647"/> will infer
+                that phenomenon 5 is absent. Again, however, intuition should make clear that the
+                absence of a pressure ulcer on left leg on July 18, 2017 does not necessarily imply
+                the absence of a pressure on the right leg on that same date. Inclusion of the
+                “Laterality” attribute in the subsumption test would have prevented this incorrect
+                inference, and caused the axioms of Section <xref linkend="_Ref493866647"/> to
+                conclude that the presence of a stage-2 pressure ulcer in the right leg on that date
+                was indeterminate based on the data.</para>
+            <figure xml:id="_Ref493941874kec">
+                <title>Examples of correct and incorrect application of subsumption testing
+                    involving post-coordinated phenomena.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/correct-and-incorrect-subsumption.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>The point of these examples is to underscore the importance of including all of
+                the refining attributes to which interval values are assigned in any subsumption
+                tests that are later performed. In practice, however, this may not be a trivial
+                undertaking. For example, subsumption testing between date values of different
+                granularities (year vs. month vs. day) is not supported by standard description
+                logic reasoners, so that a phenomenon observed in July 2017 may not correctly
+                subsume the same observation observed on July 12, 2017. Further, the correct
+                semantics of subsumption between date values when assigned to clinical observations
+                may not be straightforward. For example, assigning an Observation-Date value of
+                “July 2017” to a phenomenon could mean that the phenomenon was observed at
+                <emphasis>some point</emphasis> in July 2017, or it could mean that the
+                phenomenon was observed throughout the duration of July 2017. The intended meaning
+                has implications for whether a phenomenon with the Observation-Date value of “July
+                2017” should subsume a phenomenon with the Observation-Date value of “July 18, 2017”
+                with respect to the application of the axioms in Section <xref
+                    linkend="_Ref493866647"/>.</para>
+            <para>Similar questions arise regarding the scope of attributes to which interval values
+                should be assigned, and which ones comprise refining attributes of the phenomenon
+                itself (such as laterality, observation-date, severity, etc.), and which ones
+                comprise meta-attributes that do not refine the phenomenon (such as identity of the
+                observer, method of observation, purpose of the observation, etc.). Strictly
+                speaking, meta-attributes should be excluded from the scope of interval-value
+                assignments and (therefore) from subsumption testing, but in certain cases it may
+                not be clear which attributes are truly refining attributes and which are meta-data,
+                and that distinction may even be context specific. For example, method of
+                observation may be a significant attribute of the observed phenomenon in certain
+                cases, but not others. All of these issues remain to be examined and resolved before
+                one can correctly and reliably apply the models presented here.</para>
+        </section>
+        <section>
+            <title>“Cognitive Dissonance”</title>
+            <para>The final challenge in using the models described here is the unintuitive nature
+                of representing the values of all clinical observations using numeric intervals, as
+                formalized in Section <xref linkend="_Ref493843805"/>. The notion that entirely
+                qualitative clinical observations such as “nausea” and “dizziness” have quantitative
+                interval values may be difficult for those implementing and working with the
+                proposed model to grasp and accept. Similarly, the model produces certain
+                unintuitive characterizations of clinical observations that only have numeric
+                values, such as the conclusion that a “Serum Potassium” observation is “Present” if
+                it’s value is &gt; 0, and otherwise is “Absent”. It remains to be seen whether those
+                using the model can overcome potential “cognitive dissonance” in encountering such
+                implications.</para>
+        </section>
+    </section>
     <section xml:id="section_42c69960-bcd0-49a5-ad2b-3dbf1bfd68e9">
         <title>Compound Clinical Statements: Separable vs. Inseparable Components</title>
         <para><emphasis role="bold">Discussion:</emphasis></para>
@@ -231,4 +416,3 @@
             statement. </para>
     </section>
 </appendix>
-

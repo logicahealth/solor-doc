@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<appendix xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en-US" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Statement Queries</title>
+    <section>
+        <title>Normalized Querying of Phenomena</title>
+        <para>This section introduces a model for normalizing the querying of clinical
+            observations represented as phenomena so that the semantics of various query
+            formulations are more explicit and intuitive, especially when queries include
+            explicit negation. </para>
+        <section xml:id="_Ref493847012">
+            <title>A Tri-Valued State of Knowledge: Present, Absent, and
+                Indeterminate</title>
+            <para>The initial step involves abstracting the possible states of a clinical
+                phenomenon as reflected in the medical record to three mutually exclusive
+                and exhaustive values: Present, Absent, and Indeterminate. The informal
+                definitions of these states are as follows:</para>
+            <para>Present”: The phenomenon is explicitly documented as present or can be
+                logically inferred to be present</para>
+            <para>“Absent”: The phenomenon is explicitly documented as absent or can be
+                logically inferred to be absent</para>
+            <para>“Indeterminate”: The phenomenon is neither “Present” nor “Absent”</para>
+            <para><xref linkend="_Ref493776756"/> illustrates this set of possible states
+                and their relationships to each other. </para>
+            <figure xml:id="_Ref493776756">
+                <title>The space of value assignments in a tri-valued approach to
+                    representing states of knowledge</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/tri-valued-approach.png" width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>The implications of this conceptualization include the following logical
+                statements, some of which may seem counter-intuitive (note that the symbol
+                “” connotes logical equivalence, i.e. “if and only if”):</para>
+            <para>Absent NOT Present AND NOT Indeterminate (Note: Absent implies NOT
+                Present)</para>
+            <para>NOT Present  Absent OR Indeterminate (Note: NOT Present does not
+                necessarily imply Absent)</para>
+            <para>Indeterminate  NOT Present AND NOT Absent (Note: It does not imply
+                “Present OR Absent”) </para>
+            <para>It’s important to note that, in this conceptualization, Present, Absent,
+                and Indeterminate reflect the possible states<emphasis
+                    > </emphasis>of<emphasis> knowledge </emphasis>about the clinical
+                phenomenon in a particular patient, not the states of the phenomenon itself.
+                For example, Absent does not indicate that the patient is necessarily free
+                of the phenomenon, but only that the medical record indicates that the
+                patient does not have it. Similarly, Indeterminate does not indicate that
+                the patient is in some intermediate state between having and not having the
+                phenomenon or that it is impossible to determine whether the patient has the
+                phenomenon, but rather that, based on the information in the medical record,
+                it cannot be known whether the patient does or does not have the
+                phenomenon.</para>
+            <para>AXIOMS:</para>
+            <para>Based on this conceptualization, the three states of knowledge with
+                respect to any phenomenon, ph, are formally defined via the following
+                axioms, which use the prior definitions of “interval value” and the
+                “IsWithin()” predicate:</para>
+            <para>Present(<emphasis>ph</emphasis>)  <emphasis>ph</emphasis> where
+                IsWithin( <emphasis>ph</emphasis>.value, (0,∞] ) = TRUE</para>
+            <para>Absent(<emphasis>ph</emphasis>)  <emphasis>ph</emphasis> where
+                IsWithin( <emphasis>ph</emphasis>.value, [0,0] ) = TRUE</para>
+            <para>Indeterminate(<emphasis>ph</emphasis>)  NOT
+                Present(<emphasis>ph</emphasis>) and NOT
+                Absent(<emphasis>ph</emphasis>)</para>
+            <para>Present(<emphasis>ph</emphasis>) OR Absent(<emphasis>ph</emphasis>) OR
+                Indeterminate(<emphasis>ph</emphasis>) </para>
+            <para>NOT ( Present(<emphasis>ph</emphasis>) AND Absent(<emphasis>ph</emphasis>)
+                )</para>
+            <para>NOT ( Present(<emphasis>ph</emphasis>) AND
+                Indeterminate(<emphasis>ph</emphasis>) )</para>
+            <para>NOT ( Absent(<emphasis>ph</emphasis>) AND
+                Indeterminate(<emphasis>ph</emphasis>) )</para>
+            <para><xref linkend="_Ref493768774"/> shows several examples of how these axioms
+                generate the appropriate value of Present, Absent, or Indeterminate for
+                certain phenomena based on how those phenomena are documented in the patient
+                record. Note that each row in the table represents a distinct state of the
+                patient’s medical record (i.e., they are not present in the record at the
+                same time). In fact, the presence of certain of the rows in the record at
+                the same time would be inconsistent with the logical model defined
+                above.</para>
+            <figure>
+                <title>Example assignments of present, absent, and indeterminate based on
+                    various interval values</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/assignment-of-tri-value.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+        <section xml:id="_Ref493858870">
+            <title>Assigning Values to Phenomena That Include Refining Attributes</title>
+            <para>In contemporary models for representing clinical observations, such as
+                SNOMED-CT, OpenEHR, and CIMI, observation instances can consist of
+                post-coordinated concept expressions, i.e., a general concept that is
+                further described and refined by a set of associated attribute/value pairs.
+                Collectively, the concept and its refining attribute/value pairs
+                characterize the distinct phenomenon that was observed. For example, <xref
+                    linkend="_Ref493843663"/> shows such a post-coordinated expression
+                comprising an observed phenomenon.</para>
+            <figure xml:id="_Ref493843663">
+                <title>A sample post-coordinated phenomenon. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/post-coordinated-phenomenon.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>When such a phenomenon is documented in the medical record and assigned an
+                interval value, per the model specified in Section <xref
+                    linkend="_Ref493843805"/>, it is essential that the interval value
+                corresponds to the conceptual entirety of the phenomenon. If interval values
+                are not clearly assigned to the entirety of documented phenomena at the time
+                the phenomena are captured and stored, then inconsistent and incorrect
+                interpretations of the data may result. </para>
+            <para><xref linkend="_Ref493845221"/> illustrates the correct assignment of
+                interval values to two phenomena, the first of which documents that two
+                pressure ulcers were present in the patient’s left leg on a specific date,
+                and the second of which documents that pressure ulcers were absent in the
+                patient’s right leg on the same date. The presence of both of these
+                phenomena in the patient record at the same time is intuitively possible,
+                and is consistent with the axioms of the model in Section <xref
+                    linkend="_Ref493847012"/>.</para>
+            <figure xml:id="_Ref493845221">
+                <title>The correct assignment of interval values to post-coordinated
+                    phenomena. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/assignment-of-interval-value.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para><xref linkend="_Ref493845589"/> illustrates the problems that may occur
+                when interval values are erroneously assigned to just a subset of the
+                post-coordinated expressions used to document phenomena. In this case, the
+                interval values are assigned just to the general concept of a pressure
+                ulcer, omitting the refining attributes from the scope of the assignment.
+                This results in the representation that the patient both had and did not
+                have pressure ulcers at the same time. Because the full set of refining
+                attributes were not included in the scope of the interval-value assignment,
+                an incorrect representation is created that is intuitively non-sensical and
+                violates the axioms of Section <xref linkend="_Ref493847012"/>. Such
+                representations can lead to incorrect data-retrieval, data-analysis, and
+                inferencing results if used by automated processes later. This is
+                underscored in the discussion of subsumption testing involving phenomena in
+                Section <xref linkend="_Ref493846313"/>.</para>
+            <figure xml:id="_Ref493845589">
+                <title>The incorrect assignment of interval values to post-coordinated
+                    phenomena. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="images/incorrect-assignment-of-interval-value.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+    </section>
+    <section xml:id="_Ref493846313">
+        <title>Normalized Querying using Subsumption Relationships Among Phenomena</title>
+        <para>As mentioned in Section <xref linkend="_Ref493848005"/>, ontology-based
+            representation models may produce incorrect results when performing subsumption
+            testing over negated concepts. The root cause of these errors is that negation
+            changes the basic rules of logical subsumption testing and must be explicitly
+            handled as a special case. This section presents a formal model for handling
+            subsumption over negated concepts when such concepts are represented as
+            phenomena with assigned interval values.</para>
+        <section>
+            <title>Theoretical Foundation</title>
+            <para>The semantics of logical subsumption are based on set membership. The
+                definitions of concepts (or phenomena) describe the characteristics of
+                certain sets or types of instances in the real world. We say that phenomenon
+                A <emphasis>subsumes</emphasis> phenomenon B if and only if any instance of
+                phenomenon B is <emphasis>necessarily</emphasis> an instance of phenomenon
+                A. In other words, if set A subsumes set B, the instances of set B are a
+                subset of the instances of set A. Equivalently, membership in set B
+                <emphasis>implies </emphasis>membership in set A for any instance,
+                <emphasis>I</emphasis>, which can be represented by the logical
+                statement</para>
+            <orderedlist>
+                <listitem>
+                    <para>IF Member-Set-B(<emphasis>i</emphasis>) THEN
+                        Member-Set-A(<emphasis>i</emphasis>)</para>
+                </listitem>
+            </orderedlist>
+            <para>These relationships can be seen graphically in <xref
+                linkend="_Ref493852417"/>. Note that subsumption does not necessarily
+                imply that Set B is a proper subset of Set A – Set A and Set B could be the
+                same.</para>
+            <figure xml:id="_Ref493852417">
+                <title>Set-theoretic view of the subsumption relationship. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/set-theoretic-view.png" width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para><xref linkend="_Ref493851545"/> shows how subsumption relationships can
+                apply to clinical observations. Specifically, the figure shows a subsumption
+                hierarchy involving various types of pressure ulcer phenomena in which each
+                parent phenomenon subsumes its child phenomena, given their respective
+                definitions. In set-theoretic terms, any clinical observation that is an
+                instance of (member-of) a child phenomenon is necessarily an instance of its
+                parent phenomenon (and, indeed, any ancestors of that parent). For example,
+                we would say that, if a patient has a stage-4 pressure ulcer in the left
+                leg, then it’s necessarily true that the patient has a pressure ulcer (of
+                some kind) in the left leg and also that the patient has a pressure ulcer
+                (somewhere on her body).</para>
+            <figure xml:id="_Ref493851545">
+                <title>An example subsumption hierarchy for post-coordinated phenomena in
+                    the clinical domain. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/subsumption-hierarchy.png" width="5.5in"
+                        />
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>Per classical logic, statement (1) also implies the
+                contra-positive:</para>
+            <orderedlist continuation="continues">
+                <listitem>
+                    <para>IF NOT Member-Set-A(<emphasis>i</emphasis>) THEN NOT
+                        Member-Set-B(<emphasis>i</emphasis>)</para>
+                </listitem>
+            </orderedlist>
+            <para>which makes intuitive sense if one considers that an instance cannot be a
+                member of any subset of set A if it is not a member of set A to begin with.
+                In the medical context, it’s clear that a patient who does not have a
+                pressure ulcer on the right leg cannot have a stage-2 pressure ulcer on the
+                right leg.</para>
+            <para>Lastly, one should note that statement (1) does <emphasis role="underline"
+                >NOT</emphasis> imply the following statements:</para>
+            <orderedlist continuation="continues">
+                <listitem>
+                    <para>IF Member-Set-A(i) THEN Member-Set-B(i)</para>
+                </listitem>
+                <listitem>
+                    <para>IF NOT Member-Set-B(i) THEN NOT Member-Set-A(i)</para>
+                </listitem>
+            </orderedlist>
+            <para>This can be seen clearly by inspection of <xref linkend="_Ref493852417"/>.
+                Note specifically that membership in Set A does not
+                <emphasis>preclude</emphasis> membership in Set B. It just does not
+                necessarily imply it, i.e., it simply provides no definitive information
+                either way. Similarly, lack of membership in Set B provides no definitive
+                information as to lack of membership in Set A.</para>
+            <para>Extending this reasoning to the clinical domain, one can stipulate the
+                inferences shown in <xref linkend="_Ref493853493"/> when interval values are
+                assigned to certain of the phenomena in the subsumption hierarchy.
+                Specifically, the documented presence of a pressure ulcer in the left leg
+                necessarily implies the presence of a pressure ulcer somewhere, but it does
+                not provide definitive information about the presence of a stage-4 pressure
+                ulcer in the left leg (e.g., it could be stage 3). Similarly, the absence of
+                a pressure ulcer in the right leg necessarily implies the absence of a
+                stage-2 pressure ulcer in the right leg, but it provides no definitive
+                information about the absence of a pressure ulcer in general (e.g., there
+                could be one in the left leg).</para>
+            <figure xml:id="_Ref493853493">
+                <title>Examples of correct subsumption inferences with respect to
+                    post-coordinated phenomena.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/correct-subsumption.png" width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+        <section xml:id="_Ref493866647">
+            <title>A Formal Model of Negation with Subsumption Relationships</title>
+            <para>Using these precepts of classical logic, one can generalize the set of
+                axioms introduced in <xref linkend="_Ref493847012"/> to incorporate
+                subsumption inference into the determination of whether a specified
+                phenomenon is Present, Absent, or Indeterminate, based on the state of a
+                patient’s medical record. The axioms below should replace those introduced
+                earlier.</para>
+            <para>Present(<emphasis>ph</emphasis>)  <emphasis>ph’</emphasis> where
+                Is-A(<emphasis>ph’</emphasis>, <emphasis>ph</emphasis>) AND
+                IsWithin(<emphasis>ph’</emphasis>.value, (0,∞] ) = TRUE</para>
+            <para>Absent(<emphasis>ph</emphasis>)  ph’ where
+                Is-A(<emphasis>ph’</emphasis>, ph’) AND
+                IsWithin(<emphasis>ph’</emphasis>.value, [0,0] ) = TRUE</para>
+            <para>Indeterminate(ph)  NOT Present(ph) AND NOT Absent(ph)</para>
+            <para>Is-A(<emphasis>ph</emphasis>, <emphasis>ph’</emphasis>)  IF an instance
+                satisfies all properties of <emphasis>ph</emphasis>, then it necessarily
+                satisfies all properties of <emphasis>ph’</emphasis>, i.e. <emphasis>ph’
+                </emphasis>subsumes <emphasis>ph</emphasis></para>
+            <para>Present(<emphasis>ph</emphasis>) OR Absent(<emphasis>ph</emphasis>) OR
+                Indeterminate(<emphasis>ph</emphasis>) </para>
+            <para>NOT ( Present(<emphasis>ph</emphasis>) AND Absent(<emphasis>ph</emphasis>)
+                )</para>
+            <para>NOT ( Present(<emphasis>ph</emphasis>) AND
+                Indeterminate(<emphasis>ph</emphasis>) </para>
+            <para>NOT ( Absent(<emphasis>ph</emphasis>) AND
+                Indeterminate(<emphasis>ph</emphasis>) )</para>
+            <para>Again, for these axioms to hold and be mutually consistent, the scope of
+                any interval value assigned to a phenomenon must include all of its refining
+                attributes, as described in Section <xref linkend="_Ref493858870"/>.</para>
+            <para>Applying standard logical operators, the axioms above also imply the
+                following logical statements:</para>
+            <para>NOT Present(<emphasis>ph</emphasis>) NOT (  ph’ where Is-A(ph’,
+                <emphasis>ph</emphasis>) AND IsWithin( ph’.value, (0,∞] ) = TRUE
+                )</para>
+            <para>NOT Absent(<emphasis>ph</emphasis>) NOT (  ph’ where
+                Is-A(<emphasis>ph</emphasis>, ph’) AND IsWithin( ph’.value, [0,0] ) =
+                TRUE )</para>
+            <para>Is-A(<emphasis>ph</emphasis>, <emphasis>ph</emphasis>) (allows degenerate
+                case when present/absent are explicitly documented for a phenomenon)</para>
+            <para>NOT Present(<emphasis>ph</emphasis>)  Absent(<emphasis>ph</emphasis>) OR
+                Indeterminate(<emphasis>ph</emphasis>) </para>
+            <para> (Note: NOT Present(<emphasis>ph</emphasis>) does not necessarily imply
+                Absent(<emphasis>ph</emphasis>) )</para>
+            <para>Absent(<emphasis>ph</emphasis>) NOT Present(<emphasis>ph</emphasis>) AND
+                NOT Indeterminate(<emphasis>ph</emphasis>)</para>
+            <para> (Note: Absent(<emphasis>ph</emphasis>) does imply NOT
+                Present(<emphasis>ph</emphasis>) )</para>
+            <para>Returning to the original example of negation given in Section <xref
+                linkend="_Ref493859801"/>, one can now explicitly specify the
+                closed-world assumption or the open-world assumption in the manner that the
+                query predicate is formulated based on the logical definitions of “Present”
+                and “Absent”. Specifically, the query may be formulated as</para>
+            <para>IF EXISTS Phenomenon ph WHERE ph.patient_Id = 9876 AND ph.conceptCode =
+                “3456_PressureUlcers” AND <emphasis> &lt;predicate&gt;</emphasis></para>
+            <para>where <emphasis>&lt;predicate&gt;</emphasis> is either “NOT Present(ph)”
+                (closed-world assumption) or “Absent(ph)” (open-world assumption). The
+                ability to formulate the predicate using the higher-level abstractions
+                “Present”, “NOT Present”, “Absent”, or “NOT Absent” allows data analysts to
+                abstract away from the detailed, technical use of the IsWithin() predicate
+                in the queries of Section <xref linkend="_Ref493859801"/>. It also obviates
+                data analysts from understanding and correctly applying the logic of
+                subsumption when negated phenomenon appear in the medical record. The
+                complete truth table for the query above based on a number of potential
+                values in the patient record are shown in <xref linkend="_Ref493946553"
+                />.</para>
+            <figure xml:id="_Ref493946553">
+                <title>Complete truth table for querying using interval values and the
+                    tri-valued model of knowledge</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/complete-truth-table.png" width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+        <section>
+            <title>Practical examples</title>
+            <para>Two practical examples help to illustrate the applicability and utility of
+                the models presented above. They represent differing clinical contexts in
+                which the closed-world assumption or the open-world assumption are
+                appropriate, and can be explicitly made in the formulation of data
+                queries.</para>
+            <para><emphasis role="bold">Example 1: Medication
+                prescription.</emphasis></para>
+            <para>A decision support rule concludes that a patient meets the clinical
+                criteria to be on an antihypertensive, but must determine whether the
+                patient is already taking such a medication before recommending its
+                prescription. The logic is best formulated as</para>
+            <para>IF NOT Present(prescription for antihypertensive) THEN recommend
+                prescribing an antihypertensive</para>
+            <para>In this case, the closed-world assumption is appropriate in formulating
+                the query because (a) medication prescriptions are likely to be documented
+                in the medical record and (b) the explicit absence of a medication
+                prescription is not likely to be explicitly document (otherwise, all of the
+                medications that a patient were not taking would need to be
+                documented).</para>
+            <para>Note also that, were a prescription for a specific antihypertensive agent,
+                such as “Captopril” explicitly documented in the patient record, the axioms
+                presented in Section <xref linkend="_Ref493866647"/> would correctly infer
+                that the predicate “NOT Present(prescription for antihypertensive)” was
+                false, because Is-A(prescription for Captopril, prescription for
+                antihypertensive).</para>
+            <para><emphasis role="bold">Example 2: Drug allergy.</emphasis></para>
+            <para>A different decision support rule concludes that a patient meets the
+                clinical criteria to be prescribed penicillin, but must determine whether
+                the patient is allergic to that drug before recommending such a
+                prescription. Here, the logic is best formulated as</para>
+            <para>IF Absent(allergy to penicillin) THEN recommend prescribing a
+                penicillin</para>
+            <para>In this case, the open-world assumption is more appropriate because (a)
+                it’s important to be certain that no allergy exists, and (b) the presence of
+                allergies is likely to be explicitly documented in the medical record. Note
+                also the following implications of formulating the query in this way:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>The explicit assignment of the interval value “[0,0]” to the
+                        phenomenon “Allergy to a drug” (i.e., the documentation of “NKDA”)
+                        in the medical record will result in the predicate “Absent(allergy
+                        to penicillin)” evaluating to true per the axioms presented in
+                        Section <xref linkend="_Ref493866647"/> (because
+                        Is-A(penicillin,drug) ). This is the desired behavior.</para>
+                </listitem>
+                <listitem>
+                    <para>The explicit assignment of the interval value “(0,∞]” to the
+                        phenomenon “Allergy to Amoxicillin” (i.e., the documentation of an
+                        allergy to Amoxicillin) in the medical record will result in the
+                        predicate “Absent(allergy to penicillin)” evaluating to false per
+                        the axioms presented in Section <xref linkend="_Ref493866647"/>
+                        (because Is-A(Amoxicillin, penicillin) ). Again, this is the desired
+                        behavior.</para>
+                </listitem>
+                <listitem>
+                    <para>If no phenomena related to drug allergies are documented in the
+                        medical record at all, the phenomenon “allergy to penicillin” will
+                        be indeterminate per the axioms presented in Section <xref
+                            linkend="_Ref493866647"/>, which will imply that the predicate
+                        “Absent(allergy to penicillin)” is false, again per the axioms. This
+                        is also the desired behavior.</para>
+                </listitem>
+            </itemizedlist>
+            <para>These examples show that the model specified in this paper for querying
+                with negation works in a manner that is clinically appropriate in at least
+                these two important cases.</para>
+        </section>
+        <section>
+            <title>Basic Querying</title>
+            <para>The example query in Section <xref linkend="_Ref493771252"/> seeking to
+                determine whether a patient has a pressure ulcer may now be formulated more
+                simply and consistently (using pseudo-SQL to represent the logic):</para>
+            <para>IF EXISTS Phenomenon ph WHERE ph.patient_Id = 9876 AND ph.conceptCode =
+                “3456_PressureUlcers” AND IsWithin(ph.value, (0,∞]) = TRUE</para>
+            <para>Note that, with pressure ulcers represented as Phenomena, the single
+                predicate “IsWithin(ph.value, (0,∞]) = TRUE” replaces the two expressions
+                previously required when pressure ulcers could be represented as either
+                Findings or Observable Entities (“object.value = “Present” OR object.value
+                &gt; 0”). The user formulating the query can reliably test for pressure
+                ulcers in the patient’s record without concern for how that clinical
+                observation is represented or what types of values it may have.</para>
+            <para>Similarly, to determine whether a patient has any test results within a
+                specific numeric range, a similar formulation may be used, simply
+                substituting the desired numeric reference interval in the IsWithin()
+                predicate:</para>
+            <para>IF EXISTS Phenomenon ph WHERE ph.patient_Id = 9876 AND ph.conceptCode =
+                “2468_SerumPotassium” AND IsWithin( ph.value, [0, 3.7) ) = TRUE</para>
+            <para>The query above will evaluate to true if the patient 9876 has any serum
+                potassium values &lt; 3.7.</para>
+        </section>
+        <section xml:id="_Ref493859801">
+            <title>Querying with Negation</title>
+            <para>Querying for the absence of a clinical phenomenon for a specific patient
+                introduces certain complications because of variations in the way that the
+                phenomenon may or may not be represented in the medical record. For example,
+                if a data-retrieval or data-analysis function needed to determine whether a
+                patient did NOT have any pressure ulcers, the query could be formulated in
+                at least two ways.</para>
+            <orderedlist>
+                <listitem>
+                    <para>Under the <emphasis>closed-world assumption
+                    </emphasis>(CWA)<emphasis>, </emphasis>which implies that all
+                        information about the state of the patient is included in the
+                        medical record. In this case, the absence of any information in the
+                        medical record supporting the presence of a pressure ulcer would be
+                        sufficient evidence that the patient had no pressure ulcers. The
+                        specific formulation of the query under this assumption would be: IF
+                        NOT (EXISTS Phenomenon ph WHERE ph.patient_Id = 9876 AND
+                        ph.conceptCode = “3456_PressureUlcers” AND IsWithin(ph.value, (0,∞])
+                        = TRUE) (Note that the reference value in the IsWithin() predicate
+                        is “(0,∞]” in this case.)</para>
+                </listitem>
+                <listitem>
+                    <para>Under the <emphasis>open-world assumption </emphasis>(OWA). This
+                        assumption implies that not all information about the patient’s
+                        state is included in the medical record, so that the non-existence
+                        of some patient state cannot be assumed based solely on a lack of
+                        data asserting the presence of that state. In this case, the absence
+                        of some phenomenon can only be inferred if the patient record
+                        explicitly asserts such absence, or at least uncertainty about its
+                        presence. A specific formulation of the query under this assumption
+                        would be: IF EXISTS Phenomenon ph WHERE ph.patient_Id = 9876 AND
+                        ph.conceptCode = “3456_PressureUlcers” AND IsWithin(ph.value, (0,∞])
+                        &lt; &gt; TRUE An alternative OWA formulation of the query with
+                        slightly different semantics would be: IF EXISTS Phenomenon ph WHERE
+                        ph.patient_Id = 9876 AND ph.conceptCode = “3456_PressureUlcers” AND
+                        IsWithin(ph.value, [0,0]) = TRUE (Note the different formulations of
+                        the IsWithin() predicates in these queries.)</para>
+                </listitem>
+            </orderedlist>
+            <para>The semantic distinctions among these query formulations are significant,
+                in that they will generate different query responses for the same patient
+                data in certain cases. <xref linkend="_Ref493768774"/> shows the Boolean
+                value for each query given different patient data instances in the medical
+                record. Notably, the query values are different in the last two cases. Note
+                that in <xref linkend="_Ref493768774"/>, a Boolean value of TRUE indicates
+                that the patient does NOT have pressure ulcers, whereas a Boolean value of
+                FALSE indicates that the patient DOES have pressure ulcers (since the
+                queries are testing for the absence of that phenomenon).</para>
+            <figure>
+                <title>Example truth table of negated querying under closed-world and
+                    open-world assumptions.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/truth-table-of-negated-query.png"
+                            width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>The potential variance in query responses depending on how a negation
+                query is formulated and how the absence of a phenomenon is represented in
+                the medical record is a problem for health-care applications that depend on
+                clear and consistent analysis of patient data. If data analysis of clinical
+                observations is subject to misinterpretation, then medical applications may
+                reach incorrect conclusions and/or provide incorrect advice, with adverse
+                patient-safety consequences.</para>
+            <para>To avoid ambiguity in the representation and analysis of clinical
+                observation data, a better formalized and more intuitive model for querying
+                is required.</para>
+        </section>
+    </section>
+    
+</appendix>
+

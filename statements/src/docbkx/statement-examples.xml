@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<appendix xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en-US" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Example Statements</title>
+    <section xml:id="section_2808a977-9ec5-4176-8139-44cac0a4e654">
+        <title>Action Statement Examples</title>
+        <para>
+            <table frame="topbot" rowsep="0" colsep="0"
+                xml:id="table_199874e0-c6cb-4096-8a90-5f27232c8288">
+                <title>Example</title>
+                <tgroup cols="2" align="left">
+                    <colspec colname="c1" colnum="1" colwidth="96.98pt"/>
+                    <colspec colname="c2" colnum="2" colwidth="298.78pt"/>
+                    <thead>
+                        <row rowsep="1">
+                            <entry namest="c1" nameend="c2">Performance Statement</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>Narrative:</entry>
+                            <entry>Systolic blood pressure of 120 mm Hg taken from right brachial
+                                artery while seated and no more than 30 minutes from when the
+                                patient last urinated</entry>
+                        </row>
+                        <row>
+                            <entry>Topic:</entry>
+                            <entry><para>Measurement-of Systolic blood pressure</para><para><emphasis role="bold"
+                                        >Approach/Access Route:</emphasis> Right brachial artery
+                                    (technique)</para><para><emphasis role="bold">Body
+                                        Position:</emphasis> Seated (technique)</para></entry>
+                        </row>
+                        <row>
+                            <entry>Subject of information:</entry>
+                            <entry>Subject of record</entry>
+                        </row>
+                        <row>
+                            <entry>Statement time:</entry>
+                            <entry/>
+                        </row>
+                        <row>
+                            <entry>Act:</entry>
+                            <entrytbl cols="3">
+                                <colspec colnum="1" colname="c1" colwidth="1.86*"/>
+                                <colspec colnum="2" colname="c2" colwidth="1*"/>
+                                <colspec colnum="3" colname="c3" colwidth="6.48*"/>
+                                <tbody>
+                                    <row rowsep="0">
+                                        <entry colsep="0" rowsep="0">Circumstance:</entry>
+                                        <entry colsep="0" rowsep="0">Timing:</entry>
+                                        <entry colsep="0" rowsep="0"/>
+                                    </row>
+                                    <row rowsep="0">
+                                        <entry colsep="0" rowsep="0">Result:</entry>
+                                        <entry colsep="0" rowsep="0" namest="c2" nameend="c3">120 mm
+                                            Hg</entry>
+                                    </row>
+                                </tbody>
+                            </entrytbl>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </para>
+        <simplesect>
+            <title></title>
+        <informaltable>
+            <tgroup cols="4">
+                <colspec colname="c1" colwidth="22*"/>
+                <colspec colname="c2" colwidth="20*"/>
+                <colspec colname="c3" colwidth="25*"/>
+                <colspec colname="c4" colwidth="33*"/>
+                <thead valign="top">
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">Action Clinical Statement
+                                    Examples</emphasis></para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Topic</emphasis></para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Result</emphasis></para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Details</emphasis></para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody valign="top">
+                    <row>
+                        <entry>
+                            <orderedlist>
+                                <listitem>
+                                    <para>Systolic blood pressure of 120 mmHg taken from right
+                                        brachial artery while seated and no more than 30 minutes
+                                        from when the patient last urinated</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>measurement-of Systolic blood pressure</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>120</para>
+                            <para><emphasis role="bold">Unit:</emphasis> mmHG</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Approach/Access Route:</emphasis> Right
+                                brachial artery (technique)</para>
+                            <para><emphasis role="bold">Body Position:</emphasis> Seated
+                                (technique)</para>
+                            <para><emphasis role="bold">Activity</emphasis>: Rested for at least 10
+                                minutes (technique)</para>
+                            <para><emphasis role="bold">Prerequisite</emphasis>: Urinated within 30
+                                minutes of BP being taken </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="2">
+                                <listitem>
+                                    <para>Patient has systolic blood pressure of 122 mmHg while
+                                        patient is seated, right brachial artery</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>measurement-of Systolic blood pressure</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>122</para>
+                            <para><emphasis role="bold">Unit:</emphasis> mmHG</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Approach/Access Route:</emphasis> Right
+                                brachial artery (technique)</para>
+                            <para><emphasis role="bold">Body Position:</emphasis> Seated
+                                (technique)</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="3">
+                                <listitem>
+                                    <para>Patient has systolic blood pressure of 130 mmHg, while
+                                        patient is seated, adult cuff, automated cuff, 30 minutes or
+                                        less after emptying bladder, at patient’s home, taken by
+                                        patient</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>measurement-of Systolic blood pressure</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>130</para>
+                            <para><emphasis role="bold">Unit:</emphasis> mmHG</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Device Used: </emphasis>Adult cuff
+                                (technique)</para>
+                            <para><emphasis role="bold">Device Used:</emphasis> Automated cuff
+                                (technique)</para>
+                            <para><emphasis role="bold">Body Position:</emphasis> Seated
+                                (technique)</para>
+                            <para><emphasis role="bold">Prerequisite: </emphasis>30 minutes or less
+                                after emptying bladder </para>
+                            <para>(Not a detail: At patient’s home</para>
+                            <para>Taken by patient – not a detail, but instead attribution
+                                information)</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="4">
+                                <listitem>
+                                    <para>Patient has systolic blood pressure of 125 mmHg, while
+                                        patient is seated, adult cuff, 30 minutes or less after
+                                        emptying bladder, at doctor’s office</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>measurement-of Systolic blood pressure</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>125</para>
+                            <para><emphasis role="bold">Unit:</emphasis> mmHG</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Device Used: </emphasis>Adult cuff
+                                (technique)</para>
+                            <para><emphasis role="bold">Body Position:</emphasis> Seated
+                                (technique)</para>
+                            <para><emphasis role="bold">Prerequisite: </emphasis>30 minutes or less
+                                after emptying bladder</para>
+                            <para>(Not a detail: At doctor’s office – not a detail, but instead
+                                attribution information)</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="5">
+                                <listitem>
+                                    <para>Patient has thromboembolism history</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>observation-of thromboembolism</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>[0, inf) </para>
+                            <para><emphasis role="bold">Unit:</emphasis> count</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="6">
+                                <listitem>
+                                    <para>Diabetes Mellitus present</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>diagnosis-of Diabetes Mellitus</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>[1, inf) </para>
+                            <para><emphasis role="bold">Unit:</emphasis> count</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="7">
+                                <listitem>
+                                    <para>Diabetes Mellitus not present</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>diagnosis-of Diabetes Mellitus</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>[0,0]</para>
+                            <para><emphasis role="bold">Unit:</emphasis> count</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="8">
+                                <listitem>
+                                    <para>Three dot blot hemorrhages</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>observation-of Dot blot hemorrhage</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: [</emphasis>3,3]</para>
+                            <para><emphasis role="bold">Unit:</emphasis> count</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="9">
+                                <listitem>
+                                    <para>Dot blot hemorrhage present</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>observation-of Dot blot hemorrhage</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>[1, inf) </para>
+                            <para><emphasis role="bold">Unit:</emphasis> count</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="10">
+                                <listitem>
+                                    <para>Patient taking one Acetaminophen 100 mg tablet by mouth
+                                        daily as needed for pain</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>administration-of Acetaminophen </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>[1, inf) </para>
+                            <para><emphasis role="bold">Unit:</emphasis> count</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="highlight"><emphasis role="bold">Strength:
+                                    </emphasis>100 mg </emphasis>(technique)</para>
+                            <para><emphasis role="highlight"><emphasis role="bold">Amount:
+                                    </emphasis>1 tablet</emphasis> (technique)</para>
+                            <para><emphasis role="bold">Route of Administration:</emphasis> Oral
+                                (technique)</para>
+                            <para><emphasis role="bold">Frequency:</emphasis> Daily </para>
+                            <para><emphasis role="bold">Indication:</emphasis> Pain </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="11">
+                                <listitem>
+                                    <para>Positive screen for fall risk</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>observation-of fall risk</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>[1,1] </para>
+                            <para><emphasis role="bold">Unit:</emphasis> count</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="12">
+                                <listitem>
+                                    <para>Family history (mother) of colon cancer</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>observation-of colon cancer</para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Value: </emphasis>[0, 1] </para>
+                            <para><emphasis role="bold">Unit:</emphasis> count</para>
+                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
+                        </entry>
+                        <entry>
+                            <para>(Not a detail: Subject of Information is Mother)</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry/>
+                        <entry/>
+                        <entry/>
+                        <entry/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+        </simplesect>
+    </section>
+    <section xml:id="section_4c4349fb-530d-4d82-89df-2d9bde19bffa">
+        <title>Request Statement Examples</title>
+        <informaltable>
+            <tgroup cols="4">
+                <colspec colname="c1" colwidth="27*"/>
+                <colspec colname="c2" colwidth="20*"/>
+                <colspec colname="c3" colwidth="29*"/>
+                <colspec colname="c4" colwidth="24*"/>
+                <thead valign="top">
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">Orders Clinical Statement
+                                    Examples</emphasis></para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Topic</emphasis></para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Result</emphasis></para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Details</emphasis></para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody valign="top">
+                    <row>
+                        <entry>
+                            <orderedlist>
+                                <listitem>
+                                    <para>Request for x-ray chest to evaluate chest pain
+                                        (routine)</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>performance-of Chest x-ray</para>
+                        </entry>
+                        <entry/>
+                        <entry>
+                            <para><emphasis role="bold">Indication</emphasis>: Evaluate chest
+                                pain</para>
+                            <para><emphasis role="bold">Priority</emphasis>: Routine</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="2">
+                                <listitem>
+                                    <para>Request for administration of nitroglycerin 0.4 mg tablet
+                                        sub-lingual every 5 minutes as needed for chest pain;
+                                        maximum 3 tablets (routine)</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>administration-of nitroglycerin</para>
+                        </entry>
+                        <entry/>
+                        <entry>
+                            <para><emphasis role="bold">Strength</emphasis>: 0.4 mg tablet
+                                (technique)</para>
+                            <para><emphasis role="bold">Dosage</emphasis>: 1 (technique)</para>
+                            <para><emphasis role="bold">Frequency</emphasis>: Every 5 minutes
+                                (technique)</para>
+                            <para><emphasis role="bold">Duration</emphasis>: As needed
+                                (technique)</para>
+                            <para><emphasis role="bold">Route</emphasis> of Administration:
+                                Sub-lingual (technique)</para>
+                            <para><emphasis role="bold">Indication</emphasis>: Chest pain</para>
+                            <para><emphasis role="bold">Priority</emphasis>: Routine</para>
+                            <para><emphasis role="bold">Constraint</emphasis>: Maximum 3
+                                tablets</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <orderedlist startingnumber="3">
+                                <listitem>
+                                    <para>Request for prescription of Synthroid 50mcg, QD, 1 hour
+                                        before meals</para>
+                                </listitem>
+                            </orderedlist>
+                        </entry>
+                        <entry>
+                            <para>prescribing-of Synthroid</para>
+                        </entry>
+                        <entry/>
+                        <entry>
+                            <para><emphasis role="bold">Strength</emphasis>: 50mcg
+                                (technique)</para>
+                            <para><emphasis role="bold">Frequency</emphasis>: QD (technique)</para>
+                            <para><emphasis role="bold">Instruction</emphasis>: 1 hour before
+                                meals</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </section>
+</appendix>

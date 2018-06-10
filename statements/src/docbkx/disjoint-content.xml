@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Disjoint Content</title>
+
+    <section>
+        <title>Introduction</title>
+        <para>Classes are disjoint if they cannot have common instances. In an ontology, all classes
+            are assumed to have potential overlapping instances unless they are explicitly stated to
+            not have them. The current modeling of SNOMED CT does not contain any such statements,
+            therefore all concepts are considered to have the potential to allow overlapping
+            concepts. For example, there is no formal statement that would prohibit the clinical
+            findings and body structure hierarchies from containing concepts that have parents from
+            both hierarchies even though this should never be the case. With the exception of the
+            physical object and products that currently overlap, the top level primitive hierarchies
+            like clinical findings and body structures should be disjoint.</para>
+    </section>
+    
+    <section>
+        <title>Problem</title>
+        <para>Explicitly stating disjoint content would assist not only in detecting potential
+            modeling errors, but also potentially aid in creating correct post-coordinated
+            expressions. With more extensions to SNOMED CT being created at the National Release
+            Center level and at the local implementations, more rich features are needed to ensure
+            the correct creation of local content. SNOMED CT contains many concepts with similar
+            Fully Specified Names across upper level primitive hierarches that can easily be
+            assigned as a parent to a concept in another upper level primitive hierarchy. For
+            example, “Hematoma” exists in both the disorder and morphologic abnormality hierarchies.
+            If you are modeling a subtype of hematoma in the disorder hierarchy the morphologic
+            abnormality could easily be chosen by a less experienced modeler if the tools used to
+            model do not appropriately specify the hierarchy the parent comes from. Without the
+            disjoint statements explicitly stated, the classifier would not be able to detect this
+            error and a separate Quality Assurance (QA) statement derived from documentation would
+            be needed to prevent this error. Likewise, having explicit disjoint statements can
+            assist in the creation of post-coordinated expressions as they can be queried and used
+            to restrict the allowable parents assigned when using multiple focus concepts.</para>
+    </section>
+    
+    <section>
+        <title>Solution</title>
+        <para>All top level primitive concepts should be stated as disjoint with the exception of 260787004 |Physical object (physical object)|and 373873005 |Pharmaceutical / biologic product (product)|.  A particular focus was placed on primitive hierarchies of substance and body Structure.  For each hierarchy, we focused on identifying all concepts that are currently disjoint from each other beginning at the top of the hierarchy and traversing downward.  This method will identify potential disjoint statements, which were reviewed by clinicians to confirm that they are correct.</para>
+        <para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/DisjointContent_img_sect1.3.jpg" format="jpg"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+        
+    </section>
+    
+    <section>
+        <title>Results</title>
+        <para>We utilized the US Extension to SNOMED CT to perform our initial assessment for
+            disjoint statements. While calculating the disjoint statements for the upper level
+            hierarchies we noticed that 243796009 |Situation with explicit context (situation)| and
+            123037004 |Body structure (body structure)| were not being calculated as potentially
+            disjoint. The single concept that was causing them not to be stated as disjoint was
+            119741000119108 |History of amputation of right lower limb (situation)| due to the fact
+            that it was modeled in the US Extension as having parents in both hierarchies. This
+            issue was reported to the National Library of Medicine and has been corrected in the
+            March 2017 US Extension.</para>
+        <para>We added 169 disjoint statements to the upper level primitive hierarchies to test the
+            feasibility of running a reasoner over them successfully and within a reasonable amount
+            of time using disjoint statements using the minimum number of statements needed. </para>
+        <para>We utilized the tls2_StatedRelationshipsToOwlKRSS_Script_INT.pl from the SNOMED
+            International GitHub registry to create an OWL file from the March 2017 US Edition
+            release. Utilizing this file within the Protégé 5.2.0 editor and the included HermiT
+            reasoner, we reasoned over the OWL file without disjoint statements in 3,015,366
+            milliseconds. We then added the 169 disjoint statements to the upper level primitive
+            concepts and were able to reason over this version in 2,494,176 milliseconds. </para>
+        <para>We then performed the same test using the Snorocket reasoner plugin and achieved the
+            results of 122,438 milliseconds and 54,498 milliseconds respectively. Therefore adding
+            disjoint statements does not increase the time to reason over the OWL version of SNOMED,
+            but actually significantly decreased the amount of time using both reasoners we
+            tested.</para>
+        <para>We tested an additional 133 concepts for potential disjointness within the substance,
+            body structure, and situation with explicit context hierarchies as these hierarchies are
+            most likely to benefit from the addition of disjoint statements. We were able to add 13
+            substance statements, 1193 body structure statements, and 12 situation with explicit
+            context statements. These disjoint statements only cover the immediate children for the
+            all the hierarchies listed above except for body structures, where we went down three
+            levels to identify potential disjoint content. </para>
+        <para>However, adding disjoint statements to these concepts will provide limited benefit for
+            error checking. The body structure and substance hierarchies will have limited use cases
+            for extension and post-coordination once the redesign is complete. The situation with
+            explicit context hierarchy is one where heavy post-coordination and/or extension will
+            take place, however most of this work will involve assigning a single parent that is a
+            direct subtype of the upper level primitive. A more productive use of resources would be
+            to focus on addressing any modeling issues in these hierarchies and introducing a
+            mechanism for blocking the editing of these concepts without editorial approval.
+            Focusing only on the first level below the upper level primitives in each of these
+            hierarchies would be the best use of resources in the short term until the redesign of
+            the concept model for body structure and substances is complete. </para>
+    </section>
+    
+    <section>
+        <title>Conclusion</title>
+        <para>Without statements to detect disjoint content, there is a potential for modeling
+            errors, such as modeling incorrect parents for SNOMED CT concepts. This will affects
+            both equivalence detection and content retrieval via the SNOMED CT hierarchies. Adding
+            disjoint content statements to the SNOMED CT definitions will assist both SNOMED CT
+            International and extension content creators by providing built in QA to prevent errors
+            in assigning parents. The creation of these statements should focus on the upper level
+            primitive hierarchies and their direct descendants. Assigning further statements may
+            become more useful once the redesign of the concept model for the various hierarchies is
+            complete.</para>
+    </section>
+    
+</section>

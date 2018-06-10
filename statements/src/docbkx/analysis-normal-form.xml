@@ -71,17 +71,45 @@
                 </itemizedlist>
             </listitem>
         </itemizedlist>
+    <orderedlist numeration="upperalpha">
+        <listitem>
+            <para><emphasis role="bold">ANF Clinical Statements Represent the Minimum Disjoint
+                Set: </emphasis>Analysis Normal Form (ANF) clinical statements represent the
+                minimum disjoint set of statement topic, result, and details and may not be
+                further specified.</para>
+        </listitem>
+        <listitem>
+            <para><emphasis role="bold">ANF Classes Cleanly Separate Concerns:
+            </emphasis>Analysis Normal Form (ANF) classes must cleanly separate the concerns
+                of concept definition and the concerns of domain models.</para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold"><emphasis>NOTE:
+                    </emphasis></emphasis><emphasis>Need to define the domain models
+                        thoroughly here.</emphasis> The strawman description is that domain
+                        models use concept definitions as a building block to define
+                        non-defining relationships or associations between concepts. The domain
+                        model represents cardinality, optionality, and other constraints.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><emphasis role="bold">Example:</emphasis> Laterality should be
+                                a concern of either the concept definition or the domain model,
+                                but not both. We can relax this principle for the Clinical Input
+                                Form (CIF) but for ANF we need a clean and invariant separation
+                                of concerns.</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">NOTE:</emphasis> Need to determine better names
+                        for “concept definition” and “domain models.”</para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </orderedlist>
     <section xml:id="section_0c80a3a9-6e1a-46ac-9644-a752cdd1eaa7">
         <title>Clinical Statement Components</title>
-        <figure>
-            <title>Clinical Statement</title>
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="images/clinical-statement-uml.png" contentwidth="317" contentdepth="186"/>
-                </imageobject>
-            </mediaobject>
-        </figure>
-        <para>seperation</para>
+        <para>separation</para>
         <para>
             <table frame="all" rowsep="0" colsep="0"
                 xml:id="table_6e66c516-542f-4971-b663-03b1ea202f8a">
@@ -464,10 +492,8 @@
             <bridgehead renderas="sect2">Circumstance type</bridgehead>
         </section>
     </section>
-    <section xml:id="section_2beebad7-bd18-4e6d-8228-f67220a7750a">
+    <section >
         <title>Use case: Systolic BP while seated with feet on the floor for 5 minutes</title>
-        <bridgehead renderas="sect1">Use case: Motrin 400 mg tablets, 1 PO q 4-6 hrs for 10
-            days</bridgehead>
         <bridgehead renderas="sect1">Principles</bridgehead>
         <itemizedlist>
             <listitem>
@@ -514,7 +540,7 @@
             “panels”, with each separable clinical statement as a “stand alone” statement, which can
             be referenced by multiple “panels”.</para>
         <para><emphasis role="bold">Examples:</emphasis></para>
-        <table xml:id="table_87bc807a-743b-4148-a89f-8daf97b8f242">
+        <table >
             <title>Separable/Inseparable Statements - Blood Pressure Measurement Use Case</title>
             <tgroup cols="3">
                 <colspec colname="c1" colwidth="42*"/>
@@ -589,7 +615,7 @@
                 <para>Time in sitting position = 5 min. or more</para>
             </listitem>
         </orderedlist>
-        <table xml:id="table_d2260126-0da5-439f-ba68-4e59a7d67b21">
+        <table>
             <title>Separable/Inseparable Statements - Administration of Nitroglycerin Use
                 Case</title>
             <tgroup cols="3">
@@ -775,7 +801,7 @@
                     informer</para>
             </listitem>
         </itemizedlist>
-        <section xml:id="section_1197e8bb-7ae1-480c-b421-f83af8b5c71a">
+        <section>
             <title>Details</title>
             <itemizedlist>
                 <listitem>
@@ -806,7 +832,7 @@
                         role="bold"> and are therefore separable
                 components.</emphasis></emphasis></para>
             <para><emphasis role="bold">Examples:</emphasis></para>
-            <table xml:id="table_3e60408b-f9f1-40c6-b9bd-444a00d75fe0">
+            <table>
                 <title>Separable/Inseparable Statements – Details</title>
                 <tgroup cols="7">
                     <colspec colname="c1" colwidth="13*"/>
@@ -1007,33 +1033,6 @@
                             </entry>
                             <entry align="center" valign="middle">
                                 <para>separable</para>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry valign="middle">
-                                <para><emphasis role="bold">Detail</emphasis></para>
-                            </entry>
-                            <entry valign="middle">
-                                <para><emphasis role="bold">Description</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Has (Pseudo-) Numeric
-                                    Value</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Has Present/Absent
-                                    Value</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Part of Focus of
-                                    Statement</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Plays Role</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Separable/</emphasis></para>
-                                <para><emphasis role="bold">Inseparable</emphasis></para>
                             </entry>
                         </row>
                         <row>
@@ -1254,33 +1253,6 @@
                         </row>
                         <row>
                             <entry valign="middle">
-                                <para><emphasis role="bold">Detail</emphasis></para>
-                            </entry>
-                            <entry valign="middle">
-                                <para><emphasis role="bold">Description</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Has (Pseudo-) Numeric
-                                    Value</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Has Present/Absent
-                                    Value</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Part of Focus of
-                                    Statement</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Plays Role</emphasis></para>
-                            </entry>
-                            <entry align="center" valign="middle">
-                                <para><emphasis role="bold">Separable/</emphasis></para>
-                                <para><emphasis role="bold">Inseparable</emphasis></para>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry valign="middle">
                                 <para>Performer</para>
                             </entry>
                             <entry valign="middle">
@@ -1328,1312 +1300,349 @@
                     </tbody>
                 </tgroup>
             </table>
-            <section xml:id="section_81cca6ed-501d-43d1-86d9-951b1955ab3b">
-                <title>Details/Roles in the Context of Use Cases</title>
-                <itemizedlist>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Approach/Access Route</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Passage used to reach the procedure site or take a
-                                        measurement.<emphasis role="bold"> </emphasis></para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Excision of rib by <emphasis>cervical
-                                                approach</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Administration of enema via <emphasis>rectal
-                                                route</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Body Position</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The position of the body during a procedure/test. </para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Colonoscopy in <emphasis>right lateral
-                                                position</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Blood pressure measurement in <emphasis>seated
-                                                position</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>ECG in <emphasis>lying position</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Body Site</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The body site of a finding or a procedure</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Blood pressure measurement on <emphasis>right brachial
-                                                artery</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Removal of tattoo from <emphasis>left upper
-                                                arm</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Priority</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The priority of the request, such as Stat or Routine. </para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Blood sugar measurement 3 times/day,
-                                                <emphasis>routine</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Indication</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The reason for a request made or an action taken.<emphasis
-                                        role="bold"> </emphasis></para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>ECG to evaluate <emphasis>chest pain</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>X-ray of hands to evaluate <emphasis>rheumatoid
-                                                arthritis</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Patient placed in observation status due to
-                                                <emphasis>suicidal thoughts</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Duration</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>A length of time, such as for 7 days, within 24 hours</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Physical therapy for <emphasis>3
-                                            weeks</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Administration of Aspirin 200mg oral tablets for pain
-                                            as needed for <emphasis>2 days</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Frequency</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>How often something must be done, such as daily, twice per day
-                                    or once in a 24-hour period.</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Chest x-ray <emphasis>once daily</emphasis> to
-                                            evaluate pneumonia</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Psychiatric evaluation <emphasis>bi-weekly</emphasis>
-                                            for PTSD</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Route of Administration</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The way in which something, such as a medication, is given to
-                                    a patient.</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Patient taking two Acetaminophen 100mg tablets
-                                                <emphasis>by mouth</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Strength</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The strength of the medication/drug</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Patient taking two Acetaminophen
-                                                <emphasis>100mg</emphasis> tablets by mouth</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Amount</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The amount of the medication/drug that is to be taken at a
-                                    given time, such as 2 tablets. </para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Patient taking <emphasis>two</emphasis> Acetaminophen
-                                            100mg tablets by mouth</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Dose Form</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The form of preparation of a medication</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Patient taking <emphasis>two</emphasis> Acetaminophen
-                                                <emphasis>100mg</emphasis>
-                                            <emphasis>tablets</emphasis>
+        </section>
+        <section>
+            <title>Details/Roles in the Context of Use Cases</title>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Role: Approach/Access Route</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Passage used to reach the procedure site or take a
+                                    measurement.<emphasis role="bold"> </emphasis></para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Excision of rib by <emphasis>cervical
+                                        approach</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Administration of enema via <emphasis>rectal
+                                            route</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Body Position</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The position of the body during a procedure/test. </para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Colonoscopy in <emphasis>right lateral
+                                        position</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Blood pressure measurement in <emphasis>seated
+                                            position</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>ECG in <emphasis>lying position</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Body Site</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The body site of a finding or a procedure</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Blood pressure measurement on <emphasis>right brachial
+                                            artery</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Removal of tattoo from <emphasis>left upper
+                                        arm</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Priority</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The priority of the request, such as Stat or Routine. </para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Blood sugar measurement 3 times/day,
+                                            <emphasis>routine</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Indication</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The reason for a request made or an action taken.<emphasis
+                                    role="bold"> </emphasis></para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>ECG to evaluate <emphasis>chest pain</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>X-ray of hands to evaluate <emphasis>rheumatoid
+                                            arthritis</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Patient placed in observation status due to
+                                            <emphasis>suicidal thoughts</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Duration</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>A length of time, such as for 7 days, within 24 hours</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Physical therapy for <emphasis>3 weeks</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Administration of Aspirin 200mg oral tablets for pain as
+                                        needed for <emphasis>2 days</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Frequency</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>How often something must be done, such as daily, twice per day or
+                                once in a 24-hour period.</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Chest x-ray <emphasis>once daily</emphasis> to evaluate
+                                        pneumonia</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Psychiatric evaluation <emphasis>bi-weekly</emphasis> for
+                                        PTSD</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Route of Administration</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The way in which something, such as a medication, is given to a
+                                patient.</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Patient taking two Acetaminophen 100mg tablets
                                             <emphasis>by mouth</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Dosage</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Equals strength multiplied by amount. </para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Patient taking two tablets of Acetaminophen 100mg each
-                                            = <emphasis>amount of 200mg</emphasis>. </para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Projection</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>The path taken by an x-ray beam or ultrasonographical wave as
-                                    it passes through the body </para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>MRI of brain <emphasis>sagittal and
-                                                transversal</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para><emphasis>Transthoracic</emphasis>
-                                            echocardiogram</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Substance Used</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Substance such as contrast media for imaging or catecholamine
-                                    for stress induction</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Head CT with <emphasis>contrast</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para><emphasis>Radioisotope</emphasis> study of
-                                            musculoskeletal system</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para><emphasis>Dye</emphasis> test of fallopian tube</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Device Used</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>A device used to perform an action, such as using a
-                                    sphygmomanometer to measure blood pressure or a ventilator to
-                                    help a patient breath.</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Lithotripsy using <emphasis>laser</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Biopsy using <emphasis>Watson
-                                            capsule</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Device Setting</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Specific settings for a device used to perform a procedure,
-                                    such as </para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Oxygen therapy, <emphasis>O2 Flow Rate 5 to 12
-                                                L/min.</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Electrode setting for electro-surgery <emphasis>12
-                                                watts</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Family Member</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Blood relative of the patient, such as mother, maternal
-                                    grandfather. This information is used to identify which family
-                                    member(s) have a history of certain phenomena.</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para><emphasis>Maternal</emphasis> pyrexia</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Drug misuse by <emphasis>father</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Informer</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Person reporting/documenting an action result or giving
-                                    information about the patient.</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Patient medical history reported by
-                                                <emphasis>spouse</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Bedside blood sugar measurement reported by
-                                            nurse</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Role: Performer</emphasis></para>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Person performing an action</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Blood pressure measurement taken by
-                                                <emphasis>physician</emphasis></para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Diabetes education given by<emphasis>
-                                                dietician</emphasis></para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                </itemizedlist>
-            </section>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Strength</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The strength of the medication/drug</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Patient taking two Acetaminophen
+                                            <emphasis>100mg</emphasis> tablets by mouth</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Amount</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The amount of the medication/drug that is to be taken at a given
+                                time, such as 2 tablets. </para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Patient taking <emphasis>two</emphasis> Acetaminophen
+                                        100mg tablets by mouth</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Dose Form</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The form of preparation of a medication</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Patient taking <emphasis>two</emphasis> Acetaminophen
+                                            <emphasis>100mg</emphasis>
+                                        <emphasis>tablets</emphasis>
+                                        <emphasis>by mouth</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Dosage</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Equals strength multiplied by amount. </para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Patient taking two tablets of Acetaminophen 100mg each =
+                                            <emphasis>amount of 200mg</emphasis>. </para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Projection</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The path taken by an x-ray beam or ultrasonographical wave as it
+                                passes through the body </para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>MRI of brain <emphasis>sagittal and
+                                        transversal</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis>Transthoracic</emphasis> echocardiogram</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Substance Used</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Substance such as contrast media for imaging or catecholamine for
+                                stress induction</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Head CT with <emphasis>contrast</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis>Radioisotope</emphasis> study of musculoskeletal
+                                        system</para>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis>Dye</emphasis> test of fallopian tube</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Device Used</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>A device used to perform an action, such as using a
+                                sphygmomanometer to measure blood pressure or a ventilator to help a
+                                patient breath.</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Lithotripsy using <emphasis>laser</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Biopsy using <emphasis>Watson capsule</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Device Setting</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Specific settings for a device used to perform a procedure, such
+                                as </para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Oxygen therapy, <emphasis>O2 Flow Rate 5 to 12
+                                            L/min.</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Electrode setting for electro-surgery <emphasis>12
+                                            watts</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Family Member</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Blood relative of the patient, such as mother, maternal
+                                grandfather. This information is used to identify which family
+                                member(s) have a history of certain phenomena.</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para><emphasis>Maternal</emphasis> pyrexia</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Drug misuse by <emphasis>father</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Informer</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Person reporting/documenting an action result or giving
+                                information about the patient.</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Patient medical history reported by
+                                            <emphasis>spouse</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Bedside blood sugar measurement reported by nurse</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Role: Performer</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Person performing an action</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Blood pressure measurement taken by
+                                            <emphasis>physician</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Diabetes education given by<emphasis>
+                                        dietician</emphasis></para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
         </section>
     </section>
-    <section xml:id="section_2808a977-9ec5-4176-8139-44cac0a4e654">
-        <title>Action Statement Examples</title>
-        <informaltable>
-            <tgroup cols="4">
-                <colspec colname="c1" colwidth="22*"/>
-                <colspec colname="c2" colwidth="20*"/>
-                <colspec colname="c3" colwidth="25*"/>
-                <colspec colname="c4" colwidth="33*"/>
-                <thead valign="top">
-                    <row>
-                        <entry>
-                            <para><emphasis role="bold">Action Clinical Statement
-                                    Examples</emphasis></para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Topic</emphasis></para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Result</emphasis></para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Details</emphasis></para>
-                        </entry>
-                    </row>
-                </thead>
-                <tbody valign="top">
-                    <row>
-                        <entry>
-                            <orderedlist>
-                                <listitem>
-                                    <para>Systolic blood pressure of 120 mmHg taken from right
-                                        brachial artery while seated and no more than 30 minutes
-                                        from when the patient last urinated</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>measurement-of Systolic blood pressure</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>120</para>
-                            <para><emphasis role="bold">Unit:</emphasis> mmHG</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Approach/Access Route:</emphasis> Right
-                                brachial artery (technique)</para>
-                            <para><emphasis role="bold">Body Position:</emphasis> Seated
-                                (technique)</para>
-                            <para><emphasis role="bold">Activity</emphasis>: Rested for at least 10
-                                minutes (technique)</para>
-                            <para><emphasis role="bold">Prerequisite</emphasis>: Urinated within 30
-                                minutes of BP being taken </para>
-                        </entry>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="2">
-                                <listitem>
-                                    <para>Patient has systolic blood pressure of 122 mmHg while
-                                        patient is seated, right brachial artery</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>measurement-of Systolic blood pressure</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>122</para>
-                            <para><emphasis role="bold">Unit:</emphasis> mmHG</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Approach/Access Route:</emphasis> Right
-                                brachial artery (technique)</para>
-                            <para><emphasis role="bold">Body Position:</emphasis> Seated
-                                (technique)</para>
-                        </entry>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="3">
-                                <listitem>
-                                    <para>Patient has systolic blood pressure of 130 mmHg, while
-                                        patient is seated, adult cuff, automated cuff, 30 minutes or
-                                        less after emptying bladder, at patient’s home, taken by
-                                        patient</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>measurement-of Systolic blood pressure</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>130</para>
-                            <para><emphasis role="bold">Unit:</emphasis> mmHG</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Device Used: </emphasis>Adult cuff
-                                (technique)</para>
-                            <para><emphasis role="bold">Device Used:</emphasis> Automated cuff
-                                (technique)</para>
-                            <para><emphasis role="bold">Body Position:</emphasis> Seated
-                                (technique)</para>
-                            <para><emphasis role="bold">Prerequisite: </emphasis>30 minutes or less
-                                after emptying bladder </para>
-                            <para>(Not a detail: At patient’s home</para>
-                            <para>Taken by patient – not a detail, but instead attribution
-                                information)</para>
-                        </entry>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="4">
-                                <listitem>
-                                    <para>Patient has systolic blood pressure of 125 mmHg, while
-                                        patient is seated, adult cuff, 30 minutes or less after
-                                        emptying bladder, at doctor’s office</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>measurement-of Systolic blood pressure</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>125</para>
-                            <para><emphasis role="bold">Unit:</emphasis> mmHG</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Device Used: </emphasis>Adult cuff
-                                (technique)</para>
-                            <para><emphasis role="bold">Body Position:</emphasis> Seated
-                                (technique)</para>
-                            <para><emphasis role="bold">Prerequisite: </emphasis>30 minutes or less
-                                after emptying bladder</para>
-                            <para>(Not a detail: At doctor’s office – not a detail, but instead
-                                attribution information)</para>
-                        </entry>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="5">
-                                <listitem>
-                                    <para>Patient has thromboembolism history</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>observation-of thromboembolism</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>[0, inf) </para>
-                            <para><emphasis role="bold">Unit:</emphasis> count</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry/>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="6">
-                                <listitem>
-                                    <para>Diabetes Mellitus present</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>diagnosis-of Diabetes Mellitus</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>[1, inf) </para>
-                            <para><emphasis role="bold">Unit:</emphasis> count</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry/>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="7">
-                                <listitem>
-                                    <para>Diabetes Mellitus not present</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>diagnosis-of Diabetes Mellitus</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>[0,0]</para>
-                            <para><emphasis role="bold">Unit:</emphasis> count</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry/>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="8">
-                                <listitem>
-                                    <para>Three dot blot hemorrhages</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>observation-of Dot blot hemorrhage</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: [</emphasis>3,3]</para>
-                            <para><emphasis role="bold">Unit:</emphasis> count</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry/>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="9">
-                                <listitem>
-                                    <para>Dot blot hemorrhage present</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>observation-of Dot blot hemorrhage</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>[1, inf) </para>
-                            <para><emphasis role="bold">Unit:</emphasis> count</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry/>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="10">
-                                <listitem>
-                                    <para>Patient taking one Acetaminophen 100 mg tablet by mouth
-                                        daily as needed for pain</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>administration-of Acetaminophen </para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>[1, inf) </para>
-                            <para><emphasis role="bold">Unit:</emphasis> count</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="highlight"><emphasis role="bold">Strength:
-                                    </emphasis>100 mg </emphasis>(technique)</para>
-                            <para><emphasis role="highlight"><emphasis role="bold">Amount:
-                                    </emphasis>1 tablet</emphasis> (technique)</para>
-                            <para><emphasis role="bold">Route of Administration:</emphasis> Oral
-                                (technique)</para>
-                            <para><emphasis role="bold">Frequency:</emphasis> Daily </para>
-                            <para><emphasis role="bold">Indication:</emphasis> Pain </para>
-                        </entry>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="11">
-                                <listitem>
-                                    <para>Positive screen for fall risk</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>observation-of fall risk</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>[1,1] </para>
-                            <para><emphasis role="bold">Unit:</emphasis> count</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry/>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="12">
-                                <listitem>
-                                    <para>Family history (mother) of colon cancer</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>observation-of colon cancer</para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Value: </emphasis>[0, 1] </para>
-                            <para><emphasis role="bold">Unit:</emphasis> count</para>
-                            <para><emphasis role="bold">Precision:</emphasis> (integer)</para>
-                        </entry>
-                        <entry>
-                            <para>(Not a detail: Subject of Information is Mother)</para>
-                        </entry>
-                    </row>
-                    <row>
-                        <entry/>
-                        <entry/>
-                        <entry/>
-                        <entry/>
-                    </row>
-                </tbody>
-            </tgroup>
-        </informaltable>
-    </section>
-    <section xml:id="section_4c4349fb-530d-4d82-89df-2d9bde19bffa">
-        <title>Request Statement Examples</title>
-        <informaltable>
-            <tgroup cols="4">
-                <colspec colname="c1" colwidth="27*"/>
-                <colspec colname="c2" colwidth="20*"/>
-                <colspec colname="c3" colwidth="29*"/>
-                <colspec colname="c4" colwidth="24*"/>
-                <thead valign="top">
-                    <row>
-                        <entry>
-                            <para><emphasis role="bold">Orders Clinical Statement
-                                    Examples</emphasis></para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Topic</emphasis></para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Result</emphasis></para>
-                        </entry>
-                        <entry>
-                            <para><emphasis role="bold">Details</emphasis></para>
-                        </entry>
-                    </row>
-                </thead>
-                <tbody valign="top">
-                    <row>
-                        <entry>
-                            <orderedlist>
-                                <listitem>
-                                    <para>Request for x-ray chest to evaluate chest pain
-                                        (routine)</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>performance-of Chest x-ray</para>
-                        </entry>
-                        <entry/>
-                        <entry>
-                            <para><emphasis role="bold">Indication</emphasis>: Evaluate chest
-                                pain</para>
-                            <para><emphasis role="bold">Priority</emphasis>: Routine</para>
-                        </entry>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="2">
-                                <listitem>
-                                    <para>Request for administration of nitroglycerin 0.4 mg tablet
-                                        sub-lingual every 5 minutes as needed for chest pain;
-                                        maximum 3 tablets (routine)</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>administration-of nitroglycerin</para>
-                        </entry>
-                        <entry/>
-                        <entry>
-                            <para><emphasis role="bold">Strength</emphasis>: 0.4 mg tablet
-                                (technique)</para>
-                            <para><emphasis role="bold">Dosage</emphasis>: 1 (technique)</para>
-                            <para><emphasis role="bold">Frequency</emphasis>: Every 5 minutes
-                                (technique)</para>
-                            <para><emphasis role="bold">Duration</emphasis>: As needed
-                                (technique)</para>
-                            <para><emphasis role="bold">Route</emphasis> of Administration:
-                                Sub-lingual (technique)</para>
-                            <para><emphasis role="bold">Indication</emphasis>: Chest pain</para>
-                            <para><emphasis role="bold">Priority</emphasis>: Routine</para>
-                            <para><emphasis role="bold">Constraint</emphasis>: Maximum 3
-                                tablets</para>
-                        </entry>
-                    </row>
-                    <row>
-                        <entry>
-                            <orderedlist startingnumber="3">
-                                <listitem>
-                                    <para>Request for prescription of Synthroid 50mcg, QD, 1 hour
-                                        before meals</para>
-                                </listitem>
-                            </orderedlist>
-                        </entry>
-                        <entry>
-                            <para>prescribing-of Synthroid</para>
-                        </entry>
-                        <entry/>
-                        <entry>
-                            <para><emphasis role="bold">Strength</emphasis>: 50mcg
-                                (technique)</para>
-                            <para><emphasis role="bold">Frequency</emphasis>: QD (technique)</para>
-                            <para><emphasis role="bold">Instruction</emphasis>: 1 hour before
-                                meals</para>
-                        </entry>
-                    </row>
-                </tbody>
-            </tgroup>
-        </informaltable>
-    </section>
-    <section>
-        <title>Potential Problems and Issues</title>
-        <para>Although it helps to solve the problems described Section <xref
-            linkend="_Ref493868573"/>, the models presented in this paper for consolidating
-            “Findings” and “Observable Entities” into “Phenomena” and for normalizing the
-            representation and querying of negated phenomena also entail certain challenges and
-            limitations.</para>
-        <section>
-            <title>Negative Values for Phenomena</title>
-            <para>The model does not allow interval values that include negative real numbers. In
-                rare cases, clinical phenomena require such values, for example the phenomenon of
-                “Max ST deflection” in an EKG, which can be either positive or negative.</para>
-            <para>A potential solution in these cases is to change the modeling of certain phenomena
-                so that they only take on positive numeric values. In the example above, this
-                strategy would entail the specification of separate phenomena for “Max ST
-                depression” and “Max ST elevation”. Further work is required to determine how often
-                phenomena with negative values occur and whether the proposed strategy is effective
-                is all such cases. </para>
-        </section>
-        <section>
-            <title>Values from Enumerated Value Sets that are not Numeric or not Ordinal</title>
-            <para>Certain clinical phenomena have values that are simply not numeric, and to which
-                the model for representing and processing interval values does not cleanly apply.
-                The following phenomena and their corresponding enumerated value sets illustrate
-                this point.</para>
-            <para>Eye-Color: Values = (Blue, Green, Brown, Black, … )</para>
-            <para>Eye-Color : Values = (1=Blue, 2=Green, 3=Brown, 4=Black, … )</para>
-            <para>Dysphagia: Values = (never, rarely, sometimes, frequently, always)</para>
-            <para>Patellar tendon reflex: Values = (1+, 2+, 3+, 4+)</para>
-            <para>To address the reality of such observations in the medical record, the assignment
-                of interval values may need to be limited to only those phenomena whose values are
-                naturally numeric or can be characterized as present, absent, or indeterminate (for
-                which interval values are defined). An alternative would be to always assign such
-                phenomena the interval value “(0,∞]” (Present), and denote the property values using
-                a different attribute (such as “color”, “frequency”, of “intensity” in the cases
-                above).</para>
-        </section>
-        <section>
-            <title>Units of Measure for Non-Quantitative Values</title>
-            <para>Consolidating “Findings” and “Observable Entities” allows the use of a numeric
-                interval value to denote the presence or absence of clinical observations that
-                wouldn’t otherwise have numeric values, such as “nausea” or “dizziness.” Interval
-                values also allow one to denote the presence and the cardinality of certain clinical
-                phenomena using a single value, such as for “Daily cigarette use” or “Pressure
-                ulcers”.</para>
-            <para>In both situations however, there is no natural unit of measure to associate with
-                the interval values. To the degree that there’s benefit in consistently assigning a
-                unit of measure to all values, this void presents a problem.</para>
-            <para>A possible solution is to have a “null” unit of measure, indicating that the value
-                is not associated with any unit of measure. This strategy may not be unfamiliar to
-                data modelers and data analysts, in that certain LOINC lab codes already include
-                such a designation (such as for Urine Specific Gravity, a dimensionless
-                measurement). Alternatively, one could create special-purpose units of measure to
-                associate with dimensionless values. Again, this strategy has been adopted for
-                certain LOINC lab codes, such as pH (which includes a special “[pH]” unit of
-                measure) or manual cell count (which includes the special “per high powered field”
-                unit of measure).</para>
-        </section>
-        <section>
-            <title>Subsumption over all Refining Attributes of Phenomena</title>
-            <para>As described in Section <xref linkend="_Ref493858870"/>, correct application of
-                the tri-valued model for querying phenomena requires that interval values be
-                assigned to the entirety of each phenomenon (including all of its refining
-                attributes). Further, the correct applications of the axioms in Section <xref
-                    linkend="_Ref493866647"/> also require that subsumption testing between
-                phenomenon (i.e., application of the “Is-A()” predicate within these axioms) include
-                all of the refining attributes to which interval values have been assigned. If
-                subsumption testing is performed using only a subset of the attributes to which
-                interval values are assigned, the axioms will produce incorrect results.</para>
-            <para>The point is illustrated through several examples shown in <xref
-                linkend="_Ref493941874kec"/>. </para>
-            <para>Note, for example, that if subsumption testing between phenomenon 1 and phenomenon
-                3 excludes the “Observation-Date” value in phenomenon 3, and “Observation-Date” is
-                within the scope of the attributes to which the interval value “[2,2]” has been
-                assigned, then phenomenon 3 will be subsumed by phenomenon 1 and the axioms of
-                Section <xref linkend="_Ref493866647"/> will infer that phenomenon 1 is present.
-                However, upon inspection, it is clear that the presence of two pressure ulcers in
-                the right leg on Oct. 4, 2017 does not necessarily imply the presence of any
-                pressure ulcers on July 7, 2017. Subsumption testing that correctly included the
-                “Observation-Date” attribute would have prevented this incorrect inference and
-                concluded that the existence of pressure ulcers on July 7, 2017 was indeterminate
-                based on the available data.</para>
-            <para>Similarly, if subsumption testing between phenomenon 5 and phenomenon 2 excludes
-                the “Laterality” attribute of the anatomical location of phenomenon 5 (a nested
-                attribute), and “Laterality” is within the scope of the attributes to which the
-                interval value “[0,0]” has been assigned, then phenomenon 5 will be subsumed by
-                phenomenon 2 and the axioms of Section <xref linkend="_Ref493866647"/> will infer
-                that phenomenon 5 is absent. Again, however, intuition should make clear that the
-                absence of a pressure ulcer on left leg on July 18, 2017 does not necessarily imply
-                the absence of a pressure on the right leg on that same date. Inclusion of the
-                “Laterality” attribute in the subsumption test would have prevented this incorrect
-                inference, and caused the axioms of Section <xref linkend="_Ref493866647"/> to
-                conclude that the presence of a stage-2 pressure ulcer in the right leg on that date
-                was indeterminate based on the data.</para>
-            <figure xml:id="_Ref493941874kec">
-                <title>Examples of correct and incorrect application of subsumption testing
-                    involving post-coordinated phenomena.</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/correct-and-incorrect-subsumption.png"
-                            width="5.5in"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            <para>The point of these examples is to underscore the importance of including all of
-                the refining attributes to which interval values are assigned in any subsumption
-                tests that are later performed. In practice, however, this may not be a trivial
-                undertaking. For example, subsumption testing between date values of different
-                granularities (year vs. month vs. day) is not supported by standard description
-                logic reasoners, so that a phenomenon observed in July 2017 may not correctly
-                subsume the same observation observed on July 12, 2017. Further, the correct
-                semantics of subsumption between date values when assigned to clinical observations
-                may not be straightforward. For example, assigning an Observation-Date value of
-                “July 2017” to a phenomenon could mean that the phenomenon was observed at
-                <emphasis>some point</emphasis> in July 2017, or it could mean that the
-                phenomenon was observed throughout the duration of July 2017. The intended meaning
-                has implications for whether a phenomenon with the Observation-Date value of “July
-                2017” should subsume a phenomenon with the Observation-Date value of “July 18, 2017”
-                with respect to the application of the axioms in Section <xref
-                    linkend="_Ref493866647"/>.</para>
-            <para>Similar questions arise regarding the scope of attributes to which interval values
-                should be assigned, and which ones comprise refining attributes of the phenomenon
-                itself (such as laterality, observation-date, severity, etc.), and which ones
-                comprise meta-attributes that do not refine the phenomenon (such as identity of the
-                observer, method of observation, purpose of the observation, etc.). Strictly
-                speaking, meta-attributes should be excluded from the scope of interval-value
-                assignments and (therefore) from subsumption testing, but in certain cases it may
-                not be clear which attributes are truly refining attributes and which are meta-data,
-                and that distinction may even be context specific. For example, method of
-                observation may be a significant attribute of the observed phenomenon in certain
-                cases, but not others. All of these issues remain to be examined and resolved before
-                one can correctly and reliably apply the models presented here.</para>
-        </section>
-        <section>
-            <title>“Cognitive Dissonance”</title>
-            <para>The final challenge in using the models described here is the unintuitive nature
-                of representing the values of all clinical observations using numeric intervals, as
-                formalized in Section <xref linkend="_Ref493843805"/>. The notion that entirely
-                qualitative clinical observations such as “nausea” and “dizziness” have quantitative
-                interval values may be difficult for those implementing and working with the
-                proposed model to grasp and accept. Similarly, the model produces certain
-                unintuitive characterizations of clinical observations that only have numeric
-                values, such as the conclusion that a “Serum Potassium” observation is “Present” if
-                it’s value is &gt; 0, and otherwise is “Absent”. It remains to be seen whether those
-                using the model can overcome potential “cognitive dissonance” in encountering such
-                implications.</para>
-        </section>
-    </section>
-    <section xml:id="section_eef37400-ffe6-4273-9602-63e9efe55872">
-        <title>Appendix A: Modeling Principles Definitions</title>
-        <orderedlist numeration="upperalpha">
-            <listitem>
-                <para><emphasis role="bold">ANF Clinical Statements Represent the Minimum Disjoint
-                        Set: </emphasis>Analysis Normal Form (ANF) clinical statements represent the
-                    minimum disjoint set of statement topic, result, and details and may not be
-                    further specified.</para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">ANF Classes Cleanly Separate Concerns:
-                    </emphasis>Analysis Normal Form (ANF) classes must cleanly separate the concerns
-                    of concept definition and the concerns of domain models.</para>
-                <itemizedlist>
-                    <listitem>
-                        <para><emphasis role="bold"><emphasis>NOTE:
-                                </emphasis></emphasis><emphasis>Need to define the domain models
-                                thoroughly here.</emphasis> The strawman description is that domain
-                            models use concept definitions as a building block to define
-                            non-defining relationships or associations between concepts. The domain
-                            model represents cardinality, optionality, and other constraints.</para>
-                        <itemizedlist>
-                            <listitem>
-                                <para><emphasis role="bold">Example:</emphasis> Laterality should be
-                                    a concern of either the concept definition or the domain model,
-                                    but not both. We can relax this principle for the Clinical Input
-                                    Form (CIF) but for ANF we need a clean and invariant separation
-                                    of concerns.</para>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">NOTE:</emphasis> Need to determine better names
-                            for “concept definition” and “domain models.”</para>
-                    </listitem>
-                </itemizedlist>
-            </listitem>
-        </orderedlist>
-    </section>
-    <section xml:id="section_e3997e1f-49cb-4bdf-9620-9861cb51cd78">
-        <title>Appendix B: Use Case for Modeling of Clinical Statements Using Analysis Normal
-            Form</title>
-        <para><emphasis role="bold">USE CASE 1: DEPRESSION: FOLLOW-UP OUTPATIENT VISIT (SLIGHTLY
-                ADAPTED FROM THE IA USE CASE)</emphasis></para>
-        <para><emphasis role="bold">ACTORS</emphasis></para>
-        <itemizedlist>
-            <listitem>
-                <para>Patient</para>
-            </listitem>
-            <listitem>
-                <para>Medical Office Assistant</para>
-            </listitem>
-            <listitem>
-                <para>Provider</para>
-            </listitem>
-        </itemizedlist>
-        <para><emphasis role="bold">PRECONDITIONS</emphasis></para>
-        <para>This is a 32-year old male with a 6-month history of major depression on Zoloft and
-            receiving group psychotherapy. Risk assessment scores from the last visit 1 month ago:
-            PHQ-9 (15), PCL (16), AUDIT-C (0), ASSIST (10) for tobacco only. No suicidal ideation or
-            risk of violence towards others. </para>
-        <itemizedlist>
-            <listitem>
-                <para><emphasis role="bold">PMH:</emphasis> Patient had right above the knee
-                    amputation (AKA) 6 months ago and has prosthesis. Denies substance use of
-                    medications. Smokes 2 ppd. Patient does not have a traumatic brain injury (TBI).
-                </para>
-            </listitem>
-            <listitem>
-                <para><emphasis role="bold">Psychosocial: </emphasis>Patient is S/P 2 deployments to
-                    Afghanistan, is estranged from family, has no close friends, lives alone, and is
-                    unemployed. His best friend died during their last deployment together, when the
-                    patient was injured. He attends AA meetings daily, is undergoing vocational
-                    rehabilitation and has been seen by a community social service agency.</para>
-            </listitem>
-        </itemizedlist>
-        <para><emphasis role="bold">WORKFLOW</emphasis></para>
-        <itemizedlist>
-            <listitem>
-                <para>After patient arrives to the clinic and is checked in, he uses a VA tablet to
-                    complete risk assessments and the tablet is synced to the EHR. Patient’s scores
-                    are:</para>
-                <itemizedlist>
-                    <listitem>
-                        <para>PHQ-9: 17</para>
-                    </listitem>
-                    <listitem>
-                        <para>PCL: 15</para>
-                    </listitem>
-                    <listitem>
-                        <para>AUDIT-C: 0</para>
-                    </listitem>
-                    <listitem>
-                        <para>ASSIST: 10 for tobacco only</para>
-                    </listitem>
-                </itemizedlist>
-            </listitem>
-            <listitem>
-                <para>Patient is taken to a room and the MOA asks patient for their chief complaint
-                    (CC) and any updates to their psychosocial and medical history. MOA reviews and
-                    validates the reason for visit is a routine outpatient visit for depression and
-                    PTSD management. Patient has no updates to psychosocial history.</para>
-            </listitem>
-            <listitem>
-                <para>MOA validates patient’s medication history has not changed. Patient is taking
-                    1 Zoloft 150 mg p.o. daily.</para>
-            </listitem>
-            <listitem>
-                <para>MOA takes patient’s vital signs:</para>
-                <itemizedlist>
-                    <listitem>
-                        <para>Height = 72”</para>
-                    </listitem>
-                    <listitem>
-                        <para>Weight = 176 lbs</para>
-                    </listitem>
-                    <listitem>
-                        <para>BMI = 23.9</para>
-                    </listitem>
-                    <listitem>
-                        <para>Heart rate = 80 bpm</para>
-                    </listitem>
-                    <listitem>
-                        <para>Respirations = 18 / min</para>
-                    </listitem>
-                    <listitem>
-                        <para>Blood Pressure = 124/74 mmHg</para>
-                    </listitem>
-                    <listitem>
-                        <para>Temperature = 98.2F</para>
-                    </listitem>
-                </itemizedlist>
-            </listitem>
-            <listitem>
-                <para>Provider reviews the patient record prior to entering the room, including
-                    seeing that the PHQ score has increased from 15 from a month ago, to 17
-                    today.</para>
-            </listitem>
-            <listitem>
-                <para>Provider asks the patient how he is feeling, along with his concerns. Patient:
-                    “I’m not very good. I’m so tired all the time. I’m not sleeping well and I have
-                    trouble concentrating. I go to my AA meetings, but that is about it.” After
-                    discussion with the patient, the provider also learns the patient is concerned
-                    about long term living accommodations and won’t be able to afford rent beyond
-                    the next 4 months.</para>
-            </listitem>
-            <listitem>
-                <para>Provider completes a psychiatric evaluation. Patient’s mental status is
-                    assessed as:</para>
-                <itemizedlist>
-                    <listitem>
-                        <para>Appearance: Poorly groomed, patient slouching</para>
-                    </listitem>
-                    <listitem>
-                        <para>Behavior: Subdued</para>
-                    </listitem>
-                    <listitem>
-                        <para>State of Consciousness: Alert and oriented x 3</para>
-                    </listitem>
-                    <listitem>
-                        <para>Attention: Slow to respond, shrugs shoulders in response to some
-                            questions</para>
-                    </listitem>
-                    <listitem>
-                        <para>Speech: Soft, coherent</para>
-                    </listitem>
-                </itemizedlist>
-            </listitem>
-            <listitem>
-                <para>Provider performs medication reconciliation and validates that patient is
-                    taking Zoloft 150 mg p.o. daily.</para>
-            </listitem>
-            <listitem>
-                <para>Provider completes a head to toe assessment:</para>
-                <itemizedlist>
-                    <listitem>
-                        <para>Head/Neuro: WNL</para>
-                    </listitem>
-                    <listitem>
-                        <para>Heart: S1S2, BP normal</para>
-                    </listitem>
-                    <listitem>
-                        <para>Lungs: Clear</para>
-                    </listitem>
-                    <listitem>
-                        <para>Abdomen: Soft, benign. No GI/GU issues.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Extremities: No swelling, pedal pulses strong.</para>
-                    </listitem>
-                </itemizedlist>
-            </listitem>
-            <listitem>
-                <para>After discussion about the patient’s worsening depression and the need to
-                    adjust treatment to better manage the patient’s condition, Provider and patient
-                    agree upon the following changes to the care regimen, which are documented in
-                    the Care Plan:</para>
-                <itemizedlist>
-                    <listitem>
-                        <para>Continue Zoloft 150 mg p.o. daily / Immediately</para>
-                    </listitem>
-                    <listitem>
-                        <para>Start Venlafaxine 37.5 mg daily x 4 days, then increase to 37.5 mg
-                            twice daily / Immediately</para>
-                    </listitem>
-                    <listitem>
-                        <para>Referral for weekly individual psychotherapy (provider responsibility;
-                            20 sessions; diagnosis=depression, PTSD; reason=worsening depression) /
-                            Now</para>
-                    </listitem>
-                    <listitem>
-                        <para>Make appointment for weekly individual psychotherapy (patient
-                            responsibility) / Immediately</para>
-                    </listitem>
-                    <listitem>
-                        <para>Continue weekly group psychotherapy / Ongoing</para>
-                    </listitem>
-                    <listitem>
-                        <para>Referral to Supported Housing Services provided. Patient to follow-up
-                            / Immediately</para>
-                    </listitem>
-                    <listitem>
-                        <para>Continue Vocational Rehabilitation Training / Ongoing</para>
-                    </listitem>
-                    <listitem>
-                        <para>Follow-up in 2 weeks to evaluate for medication side effects</para>
-                    </listitem>
-                </itemizedlist>
-            </listitem>
-            <listitem>
-                <para>Provider discusses with patient the patient’s goals to manage his health. The
-                    patient states he would like to complete the Vocational Rehabilitation Training.
-                    He feels that he can complete it within 6 months, if his housing situation is
-                    resolved and he won’t be homeless.</para>
-            </listitem>
-        </itemizedlist>
-        <para><emphasis role="bold">BREAKDOWN OF ENCOUNTER INTO CLINICAL
-            STATEMENTS</emphasis></para>
-        <itemizedlist>
-            <listitem>
-                <para>Requests </para>
-                <orderedlist>
-                    <listitem>
-                        <para><emphasis role="bold">Medication:</emphasis> 1 Venlafaxine 37.5 mg
-                            tablet daily x 4 days, then increase to 37.5 mg twice daily</para>
-                        <itemizedlist>
-                            <listitem>
-                                <para><emphasis role="bold">Topic:</emphasis> Venlafaxine</para>
-                            </listitem>
-                            <listitem>
-                                <para>Details:</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Category/Type: Medication</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Strength: 37.5 mg</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para><emphasis role="bold">Dosage:</emphasis> 1
-                                            tablet</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Frequency: Daily</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Duration: 4 days</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para><emphasis role="bold">Instructions: </emphasis>After 4
-                                            days, increase to 37.5 mg twice daily</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Referral:</emphasis> Weekly individual
-                            psychotherapy, 20 sessions, diagnosis = depression, PTSD,
-                            reason=worsening depression</para>
-                        <itemizedlist>
-                            <listitem>
-                                <para><emphasis role="bold">Topic: </emphasis>Individual
-                                    Psychotherapy</para>
-                            </listitem>
-                            <listitem>
-                                <para>Details:</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Category/Type: Referral</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Value: 20</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para><emphasis role="bold">UOM: </emphasis>Sessions</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para><emphasis role="bold">Indication: </emphasis>Worsening
-                                            depression, PTSD</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para><emphasis role="bold">Referral: </emphasis> Supported Housing
-                            Services</para>
-                        <itemizedlist>
-                            <listitem>
-                                <para><emphasis role="bold">Topic: </emphasis>Supported Housing
-                                    Services</para>
-                            </listitem>
-                            <listitem>
-                                <para>Detail:</para>
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>Category/Type: Referral</para>
-                                    </listitem>
-                                </itemizedlist>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                </orderedlist>
-            </listitem>
-            <listitem>
-                <para>Action <emphasis role="highlight">(These need to be split out by topic,
-                        result, and details)</emphasis></para>
-                <orderedlist>
-                    <listitem>
-                        <para>Height: value = 72; UOM = inches</para>
-                    </listitem>
-                    <listitem>
-                        <para>Weight: value = 176; UOM = pounds</para>
-                    </listitem>
-                    <listitem>
-                        <para>BMI: value = 23.9; UOM = ???</para>
-                    </listitem>
-                    <listitem>
-                        <para>Heart rate: value = 80; UOM = bpm</para>
-                    </listitem>
-                    <listitem>
-                        <para>Respirations = value = 18; UOM = minute (is this correct for
-                            representing it?)</para>
-                    </listitem>
-                    <listitem>
-                        <para>Systolic BP: value = 124; UOM = mmHg</para>
-                        <itemizedlist>
-                            <listitem>
-                                <para><emphasis role="highlight">Where to put details</emphasis>,
-                                    such as position (e.g., seated, lying down), laterality,
-                                    preconditions (e.g., patient urinated at least 30 minutes before
-                                    BP taken), etc.? </para>
-                            </listitem>
-                        </itemizedlist>
-                    </listitem>
-                    <listitem>
-                        <para>Diastolic BP: value = 74; UOM = mmHg</para>
-                    </listitem>
-                    <listitem>
-                        <para>Temperature: value = 98.2; UOM = F</para>
-                    </listitem>
-                    <listitem>
-                        <para>Appearance: result (coded) = poorly groomed, patient slouching</para>
-                    </listitem>
-                    <listitem>
-                        <para>Behavior: result (coded) = subdued</para>
-                    </listitem>
-                    <listitem>
-                        <para>State of consciousness: result (coded) = Alert and oriented x 3</para>
-                    </listitem>
-                    <listitem>
-                        <para>Attention: result (coded) = Slow to respond, shrugs shoulders in
-                            response to some questions</para>
-                    </listitem>
-                    <listitem>
-                        <para>Speech: result (coded) = Soft, coherent</para>
-                    </listitem>
-                    <listitem>
-                        <para>Head/Neuro exam: result (coded) = WNL</para>
-                    </listitem>
-                    <listitem>
-                        <para>Heart exam: values = S1S2, BP normal</para>
-                    </listitem>
-                    <listitem>
-                        <para>Lungs exam: value = Clear</para>
-                    </listitem>
-                    <listitem>
-                        <para>Abdomen exam: value = Soft, benign. No GI/GU issues.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Extremities exam: No swelling, pedal pulses strong.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Patient attending weekly group psychotherapy</para>
-                    </listitem>
-                    <listitem>
-                        <para>Patient enrolled in Vocational Rehabilitation Training</para>
-                    </listitem>
-                    <listitem>
-                        <para>Goal = Complete Vocational Rehabilitation Training within 6 months,
-                            provided his housing situation is resolved and he won’t be left
-                            homeless</para>
-                    </listitem>
-                </orderedlist>
-            </listitem>
-        </itemizedlist>
+    <section xml:id="section_d17d878e-7bbd-4042-8b4f-88fae659cfab">
+        <title>ANF Modeling Guidelines</title>
+        <para>Statement modeling guidelines</para>
     </section>
 </chapter>

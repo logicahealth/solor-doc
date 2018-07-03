@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<appendix xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en-US"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Statement Use Cases</title>
+    <section>
+        <title>USE CASE 1: DEPRESSION: FOLLOW-UP OUTPATIENT VISIT</title>
+        <para><emphasis role="bold">ACTORS</emphasis></para>
+        <itemizedlist>
+            <listitem>
+                <para>Patient</para>
+            </listitem>
+            <listitem>
+                <para>Medical Office Assistant</para>
+            </listitem>
+            <listitem>
+                <para>Provider</para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">PRECONDITIONS</emphasis></para>
+        <para>This is a 32-year old male with a 6-month history of major depression on Zoloft and
+            receiving group psychotherapy. Risk assessment scores from the last visit 1 month ago:
+            PHQ-9 (15), PCL (16), AUDIT-C (0), ASSIST (10) for tobacco only. No suicidal ideation or
+            risk of violence towards others. </para>
+        <itemizedlist>
+            <listitem>
+                <para><emphasis role="bold">PMH:</emphasis> Patient had right above the knee
+                    amputation (AKA) 6 months ago and has prosthesis. Denies substance use of
+                    medications. Smokes 2 ppd. Patient does not have a traumatic brain injury (TBI).
+                </para>
+            </listitem>
+            <listitem>
+                <para><emphasis role="bold">Psychosocial: </emphasis>Patient is S/P 2 deployments to
+                    Afghanistan, is estranged from family, has no close friends, lives alone, and is
+                    unemployed. His best friend died during their last deployment together, when the
+                    patient was injured. He attends AA meetings daily, is undergoing vocational
+                    rehabilitation and has been seen by a community social service agency.</para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">WORKFLOW</emphasis></para>
+        <itemizedlist>
+            <listitem>
+                <para>After patient arrives to the clinic and is checked in, he uses a VA tablet to
+                    complete risk assessments and the tablet is synced to the EHR. Patient’s scores
+                    are:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>PHQ-9: 17</para>
+                    </listitem>
+                    <listitem>
+                        <para>PCL: 15</para>
+                    </listitem>
+                    <listitem>
+                        <para>AUDIT-C: 0</para>
+                    </listitem>
+                    <listitem>
+                        <para>ASSIST: 10 for tobacco only</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Patient is taken to a room and the MOA asks patient for their chief complaint
+                    (CC) and any updates to their psychosocial and medical history. MOA reviews and
+                    validates the reason for visit is a routine outpatient visit for depression and
+                    PTSD management. Patient has no updates to psychosocial history.</para>
+            </listitem>
+            <listitem>
+                <para>MOA validates patient’s medication history has not changed. Patient is taking
+                    1 Zoloft 150 mg p.o. daily.</para>
+            </listitem>
+            <listitem>
+                <para>MOA takes patient’s vital signs:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Height = 72”</para>
+                    </listitem>
+                    <listitem>
+                        <para>Weight = 176 lbs</para>
+                    </listitem>
+                    <listitem>
+                        <para>BMI = 23.9</para>
+                    </listitem>
+                    <listitem>
+                        <para>Heart rate = 80 bpm</para>
+                    </listitem>
+                    <listitem>
+                        <para>Respirations = 18 / min</para>
+                    </listitem>
+                    <listitem>
+                        <para>Blood Pressure = 124/74 mmHg</para>
+                    </listitem>
+                    <listitem>
+                        <para>Temperature = 98.2F</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Provider reviews the patient record prior to entering the room, including
+                    seeing that the PHQ score has increased from 15 from a month ago, to 17
+                    today.</para>
+            </listitem>
+            <listitem>
+                <para>Provider asks the patient how he is feeling, along with his concerns. Patient:
+                    “I’m not very good. I’m so tired all the time. I’m not sleeping well and I have
+                    trouble concentrating. I go to my AA meetings, but that is about it.” After
+                    discussion with the patient, the provider also learns the patient is concerned
+                    about long term living accommodations and won’t be able to afford rent beyond
+                    the next 4 months.</para>
+            </listitem>
+            <listitem>
+                <para>Provider completes a psychiatric evaluation. Patient’s mental status is
+                    assessed as:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Appearance: Poorly groomed, patient slouching</para>
+                    </listitem>
+                    <listitem>
+                        <para>Behavior: Subdued</para>
+                    </listitem>
+                    <listitem>
+                        <para>State of Consciousness: Alert and oriented x 3</para>
+                    </listitem>
+                    <listitem>
+                        <para>Attention: Slow to respond, shrugs shoulders in response to some
+                            questions</para>
+                    </listitem>
+                    <listitem>
+                        <para>Speech: Soft, coherent</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Provider performs medication reconciliation and validates that patient is
+                    taking Zoloft 150 mg p.o. daily.</para>
+            </listitem>
+            <listitem>
+                <para>Provider completes a head to toe assessment:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Head/Neuro: WNL</para>
+                    </listitem>
+                    <listitem>
+                        <para>Heart: S1S2, BP normal</para>
+                    </listitem>
+                    <listitem>
+                        <para>Lungs: Clear</para>
+                    </listitem>
+                    <listitem>
+                        <para>Abdomen: Soft, benign. No GI/GU issues.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Extremities: No swelling, pedal pulses strong.</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>After discussion about the patient’s worsening depression and the need to
+                    adjust treatment to better manage the patient’s condition, Provider and patient
+                    agree upon the following changes to the care regimen, which are documented in
+                    the Care Plan:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Continue Zoloft 150 mg p.o. daily / Immediately</para>
+                    </listitem>
+                    <listitem>
+                        <para>Start Venlafaxine 37.5 mg daily x 4 days, then increase to 37.5 mg
+                            twice daily / Immediately</para>
+                    </listitem>
+                    <listitem>
+                        <para>Referral for weekly individual psychotherapy (provider responsibility;
+                            20 sessions; diagnosis=depression, PTSD; reason=worsening depression) /
+                            Now</para>
+                    </listitem>
+                    <listitem>
+                        <para>Make appointment for weekly individual psychotherapy (patient
+                            responsibility) / Immediately</para>
+                    </listitem>
+                    <listitem>
+                        <para>Continue weekly group psychotherapy / Ongoing</para>
+                    </listitem>
+                    <listitem>
+                        <para>Referral to Supported Housing Services provided. Patient to follow-up
+                            / Immediately</para>
+                    </listitem>
+                    <listitem>
+                        <para>Continue Vocational Rehabilitation Training / Ongoing</para>
+                    </listitem>
+                    <listitem>
+                        <para>Follow-up in 2 weeks to evaluate for medication side effects</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Provider discusses with patient the patient’s goals to manage his health. The
+                    patient states he would like to complete the Vocational Rehabilitation Training.
+                    He feels that he can complete it within 6 months, if his housing situation is
+                    resolved and he won’t be homeless.</para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">BREAKDOWN OF ENCOUNTER INTO CLINICAL
+            STATEMENTS</emphasis></para>
+        <itemizedlist>
+            <listitem>
+                <para>Requests </para>
+                <orderedlist>
+                    <listitem>
+                        <para><emphasis role="bold">Medication:</emphasis> 1 Venlafaxine 37.5 mg
+                            tablet daily x 4 days, then increase to 37.5 mg twice daily</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para><emphasis role="bold">Topic:</emphasis> Venlafaxine</para>
+                            </listitem>
+                            <listitem>
+                                <para>Details:</para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Category/Type: Medication</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Strength: 37.5 mg</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para><emphasis role="bold">Dosage:</emphasis> 1
+                                            tablet</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Frequency: Daily</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Duration: 4 days</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para><emphasis role="bold">Instructions: </emphasis>After 4
+                                            days, increase to 37.5 mg twice daily</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Referral:</emphasis> Weekly individual
+                            psychotherapy, 20 sessions, diagnosis = depression, PTSD,
+                            reason=worsening depression</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para><emphasis role="bold">Topic: </emphasis>Individual
+                                    Psychotherapy</para>
+                            </listitem>
+                            <listitem>
+                                <para>Details:</para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Category/Type: Referral</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Value: 20</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para><emphasis role="bold">UOM: </emphasis>Sessions</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para><emphasis role="bold">Indication: </emphasis>Worsening
+                                            depression, PTSD</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Referral: </emphasis> Supported Housing
+                            Services</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para><emphasis role="bold">Topic: </emphasis>Supported Housing
+                                    Services</para>
+                            </listitem>
+                            <listitem>
+                                <para>Detail:</para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Category/Type: Referral</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </orderedlist>
+            </listitem>
+            <listitem>
+                <para>Action <emphasis role="highlight">(These need to be split out by topic,
+                        result, and details)</emphasis></para>
+                <orderedlist>
+                    <listitem>
+                        <para>Height: value = 72; UOM = inches</para>
+                    </listitem>
+                    <listitem>
+                        <para>Weight: value = 176; UOM = pounds</para>
+                    </listitem>
+                    <listitem>
+                        <para>BMI: value = 23.9; UOM = ???</para>
+                    </listitem>
+                    <listitem>
+                        <para>Heart rate: value = 80; UOM = bpm</para>
+                    </listitem>
+                    <listitem>
+                        <para>Respirations = value = 18; UOM = minute (is this correct for
+                            representing it?)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Systolic BP: value = 124; UOM = mmHg</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para><emphasis role="highlight">Where to put details</emphasis>,
+                                    such as position (e.g., seated, lying down), laterality,
+                                    preconditions (e.g., patient urinated at least 30 minutes before
+                                    BP taken), etc.? </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Diastolic BP: value = 74; UOM = mmHg</para>
+                    </listitem>
+                    <listitem>
+                        <para>Temperature: value = 98.2; UOM = F</para>
+                    </listitem>
+                    <listitem>
+                        <para>Appearance: result (coded) = poorly groomed, patient slouching</para>
+                    </listitem>
+                    <listitem>
+                        <para>Behavior: result (coded) = subdued</para>
+                    </listitem>
+                    <listitem>
+                        <para>State of consciousness: result (coded) = Alert and oriented x 3</para>
+                    </listitem>
+                    <listitem>
+                        <para>Attention: result (coded) = Slow to respond, shrugs shoulders in
+                            response to some questions</para>
+                    </listitem>
+                    <listitem>
+                        <para>Speech: result (coded) = Soft, coherent</para>
+                    </listitem>
+                    <listitem>
+                        <para>Head/Neuro exam: result (coded) = WNL</para>
+                    </listitem>
+                    <listitem>
+                        <para>Heart exam: values = S1S2, BP normal</para>
+                    </listitem>
+                    <listitem>
+                        <para>Lungs exam: value = Clear</para>
+                    </listitem>
+                    <listitem>
+                        <para>Abdomen exam: value = Soft, benign. No GI/GU issues.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Extremities exam: No swelling, pedal pulses strong.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient attending weekly group psychotherapy</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient enrolled in Vocational Rehabilitation Training</para>
+                    </listitem>
+                    <listitem>
+                        <para>Goal = Complete Vocational Rehabilitation Training within 6 months,
+                            provided his housing situation is resolved and he won’t be left
+                            homeless</para>
+                    </listitem>
+                </orderedlist>
+            </listitem>
+        </itemizedlist>
+    </section>
+</appendix>

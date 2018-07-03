@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
          xmlns:xlink="http://www.w3.org/1999/xlink">
+
+         
     
   <title>Context Patterns</title>
 
   <para>
-    When a Clinical Statement is defined, it will be modeled as a combination of a topic and a context.  The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated.  Specializations within the context hierarchy, shown in <xref linkend="cimi_msg_context_hierarchy_0135"/>, add important attribution information for situation being described.
+    When a Clinical Statement is defined it will be modeled as a combination of a topic and a context. The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated. Specializations within the context hierarchy, shown in <xref linkend="cimi_msg_context_hierarchy_0135"/>, add important attribution information for the situation being described.
   </para>
 
             <figure xml:id="cimi_msg_context_hierarchy_0135">
@@ -26,7 +28,7 @@
                 <term><emphasis role='bold'>FindingContext</emphasis></term>
                 <listitem>
                     <para>
-                        The FindingContext class aligns with the SNOMED Situation with Explicit Context for findings and provides the context for the EvaluationResult and Assertion topics of a clinical statement. For instance, a statement about findings may state that the finding was present or absent.
+                        The FindingContext class aligns with the SNOMED Situation with Explicit Context for findings and provides the context for either the EvaluationResultTopic or AssertionTopic of a clinical statement. For instance, a context about a finding may state that the finding was present or absent.
                     </para>
                 </listitem>
             </varlistentry>
@@ -34,7 +36,8 @@
                 <term><emphasis role='bold'>ActionContext</emphasis></term>
                 <listitem>
                     <para>
-                        The ActionContext class aligns with the SNOMED Situation with Explicit Context for procedures and provides the context for the Act topic of a clinical statement. For instance, a statement about a procedure may specify the procedure has been proposed, ordered, planned, performed, or possibly not performed. Each action context, in turn, has its own lifecycle. 
+                        The ActionContext class aligns with the SNOMED Situation with Explicit Context for procedures and provides the context for the Act topic of a clinical statement. For instance, a statement about a procedure may specify the procedure has been proposed, ordered, planned, performed, or not performed. Each action context, in turn, has its own lifecycle. An example of the PerformanceContext class is shown in <xref linkend="cimi_msg_performance_0135"/>.
+ 
                     </para>
                 </listitem>
             </varlistentry>
@@ -42,11 +45,20 @@
                 <term><emphasis role='bold'>EventContext</emphasis></term>
                 <listitem>
                     <para>
-                        At this time, specializations of the EventContext have not been defined. It is anticipated that EventOccurrence and EventNonOccurrence specializations will be introduced. 
+                        Not shown in the above diagram, EventContext is a child of StatementContext. At this time specializations of EventContext have not been defined. It is anticipated that EventOccurrence and EventNonOccurrence specializations will be introduced. 
                     </para>
                 </listitem>
             </varlistentry>
         </variablelist>
+
+        <figure xml:id="cimi_msg_performance_0135">
+                <title>PerformanceContext</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/performance.jpg" align="center" format="jpg" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
 
     
 

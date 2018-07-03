@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.1">
+    <title>ISAAC</title>
+    <para>The ISAAC (InformaticS [Agile|Analytic] ArChitecture) effort seeks a holistic approach to
+        architecture that supports novelty within a rigorous—and vertically integrated—deployment
+        pipeline that enables knowledge engineers, developers, testers, build managers, and
+        operations personnel to work together effectively to deliver assets to the points of care
+        and analysis. This pipeline must support integrated delivery of iterative revisions of
+        specifications, services, and content which are today delivered by isolated silo
+        organizations who place the implementation burden upon their consumers. This pipeline will
+        be built from existing software-based best practices, and will embrace DevOps culture and
+        practice by emphasizing collaboration and communication while automating the process of
+        product delivery. ISAAC’s KOMET (KnOwledge Management EnvironmenT) realizes ISAAC’s
+        architecture within a DevOps environment that integrates development, testing, publication,
+        and delivery of specifications, content, and services into a vertically integrated
+        environment that supports continuous delivery.</para>
+    <para/>
+    <section>
+        <title>Informatics Self-describing Agile Architecture</title>
+        <para>An architecture is more than a thin veneer on top of a bunch of unstructured
+            database tables. </para>
+        <para>The architecture provides a foundation. We need a principled foundation so we stop
+            building the skyscraper from the third floor up. </para>
+        <para>ISAAC provides a robustly versioned and self-describing architecture for knowledge
+            representation and execution. </para>
+    </section>
+    <section>
+        <title>Architectural Aspects</title>
+        <para>Informatics Architecture is a clinical and technical discipline that is concerned with
+            the <emphasis>representation</emphasis> of clinical knowledge, organization-specific
+            clinical information, and patient-specific clinical data. Successful representation
+            concerns a) the foundation of the architecture, b) how the representation is presented
+            to&#8212;and manipulated by&#8212;the user, and c) how the representation is made
+            interoperable with other environments. To meets these needs, we describe three aspects
+            of informatics architecture: <emphasis>foundational architecture</emphasis>,
+                <emphasis>interaction architecture</emphasis> and <emphasis> semantic
+                interoperability architecture</emphasis>, respectively. </para>
+
+        <para>Note that the role of the Informatics Architect differs from the role of other types
+            of business and technical architects involved in the field of enterprise architecture
+            (e.g., data architect, solution architect, enterprise architect, etc). More details are
+            available here: <link
+                xlink:href="http://blog.prabasiva.com/2008/08/21/different-types-of-architects/"
+                >Different types of architects (available from:
+                https://blog.prabasiva.com/2008/08/21/different-types-of-architects/)</link></para>
+    </section>
+
+    <section>
+        <title>Foundational architecture</title>
+        <para><emphasis>The foundational informatics architecture is the primary focus of this
+                document</emphasis></para>
+        <para>The foundational architecture is concerned with the taxonomy, classification, and
+            declarative and procedural search of an information pool. This architecture lives within
+            the logical architecture of the enterprise, but does not try to define the overall
+            systems architecture, or the physical architecture that supports the foundational
+            architecture.</para>
+    </section>
+    <!-- ADDIN EN.CITE
+&lt;EndNote&gt;&lt;Cite&gt;&lt;Author&gt;Gent&lt;/Author&gt;&lt;Year&gt;2007&lt;/Year&gt;&lt;RecNum&gt;35&lt;/RecNum&gt;&lt;DisplayText&gt;&lt;style
+face=&quot;superscript&quot;
+size=&quot;10&quot;&gt;[4]&lt;/style&gt;&lt;/DisplayText&gt;&lt;record&gt;&lt;rec-number&gt;35&lt;/rec-number&gt;&lt;foreign-keys&gt;&lt;key
+app=&quot;EN&quot; db-id=&quot;fzfdxe9z3a0rd9ewv5cx5w5ivesaftr2dpz5&quot;
+timestamp=&quot;1378667225&quot;&gt;35&lt;/key&gt;&lt;/foreign-keys&gt;&lt;ref-type
+name=&quot;Blog&quot;&gt;56&lt;/ref-type&gt;&lt;contributors&gt;&lt;authors&gt;&lt;author&gt;Andrew
+Gent&lt;/author&gt;&lt;/authors&gt;&lt;/contributors&gt;&lt;titles&gt;&lt;title&gt;What
+is Information Architecture?&lt;/title&gt;&lt;secondary-title&gt;Incredibly
+Dull&lt;/secondary-title&gt;&lt;/titles&gt;&lt;volume&gt;2013&lt;/volume&gt;&lt;number&gt;6/27/2007&lt;/number&gt;&lt;dates&gt;&lt;year&gt;2007&lt;/year&gt;&lt;/dates&gt;&lt;urls&gt;&lt;related-urls&gt;&lt;url&gt;http://incrediblydull.blogspot.com/2007/06/what-is-information-architecture.html&lt;/url&gt;&lt;/related-urls&gt;&lt;/urls&gt;&lt;/record&gt;&lt;/Cite&gt;&lt;/EndNote&gt;<span
+style='mso-element:field-separator'></span>< [endif]-->
+    <!--[if supportFields]><span
+style='mso-element:field-end'></span>< [endif]-->
+
+    <section>
+        <title>Interaction architecture</title>
+        <para>The interaction architecture is concerned with navigation, interface layout and
+            functionality, and other aspects of the user’s information access experience. This
+            document will only address the interaction architecture aspects of the authoring
+            environment. The interaction architecture for end user applications, such as patient
+            record systems or other clinical applications, is beyond the scope of this document. </para>
+
+        <!-- NEED TO FIX THIS: ADDIN EN.CITE
+&lt;EndNote&gt;&lt;Cite&gt;&lt;Author&gt;Gent&lt;/Author&gt;&lt;Year&gt;2007&lt;/Year&gt;&lt;RecNum&gt;35&lt;/RecNum&gt;&lt;DisplayText&gt;&lt;style
+face=&quot;superscript&quot;
+size=&quot;10&quot;&gt;[4]&lt;/style&gt;&lt;/DisplayText&gt;&lt;record&gt;&lt;rec-number&gt;35&lt;/rec-number&gt;&lt;foreign-keys&gt;&lt;key
+app=&quot;EN&quot; db-id=&quot;fzfdxe9z3a0rd9ewv5cx5w5ivesaftr2dpz5&quot; timestamp=&quot;1378667225&quot;&gt;35&lt;/key&gt;&lt;/foreign-keys&gt;&lt;ref-type
+name=&quot;Blog&quot;&gt;56&lt;/ref-type&gt;&lt;contributors&gt;&lt;authors&gt;&lt;author&gt;Andrew
+Gent&lt;/author&gt;&lt;/authors&gt;&lt;/contributors&gt;&lt;titles&gt;&lt;title&gt;What
+is Information Architecture?&lt;/title&gt;&lt;secondary-title&gt;Incredibly
+Dull&lt;/secondary-title&gt;&lt;/titles&gt;&lt;volume&gt;2013&lt;/volume&gt;&lt;number&gt;6/27/2007&lt;/number&gt;&lt;dates&gt;&lt;year&gt;2007&lt;/year&gt;&lt;/dates&gt;&lt;urls&gt;&lt;related-urls&gt;&lt;url&gt;http://incrediblydull.blogspot.com/2007/06/what-is-information-architecture.html&lt;/url&gt;&lt;/related-urls&gt;&lt;/urls&gt;&lt;/record&gt;&lt;/Cite&gt;&lt;/EndNote&gt;<span
+style='mso-element:field-separator'></span>< [endif]-->
+        <!--[if supportFields]><span
+style='mso-element:field-end'></span>< [endif]-->
+    </section>
+
+
+    <section>
+        <title>Derivable logical layers</title>
+        <para>The foundational informatics architecture must be a layered logical architecture that
+            fits within the business logic layer (aka the domain logic layer) of the VA’s health
+            management platform. </para>
+        <para>Layering the architecture is important for keeping the architecture sufficiently
+            simple at each layer so that it remains comprehensible to a single mind. As layers are
+            ascended, whole systems at lower layers become simple components at the higher layers,
+            and may disappear altogether at the highest layers.</para>
+        <figure>
+            <title>Architectural layer overview</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                        fileref="images/overview0.svg"
+                        format="svg" width="80%"/>
+                </imageobject>
+                <textobject>
+                    <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+                    <phrase>Figure showing architectural layers</phrase>
+                    <?oxy_custom_end?>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <para> These architectural layers provide constraints on what type of components may be
+            created in each layer. The padstone[1] layer of the architecture is the identifiable
+            component layer. All higher layer components must be derived from (to come from a source
+            or origin; to originate from) the padstone’s identifiable component, thus providing a
+            uniform means of identifying all components of the architecture. </para>
+        <para>The lowest layers are the most critical, as changes to those layers have greater
+            impact, as the higher layers are dependent upon them. Also different candidate
+            architectures may share common lower layers, while differentiating themselves at the
+            higher layers (for example, one organization may require a different technology for it’s
+            clinical rules engine). </para>
+        <section>
+            <title>Benefits of derivable layers</title>
+            <para>The layers of the architecture must be derivable from the layers below. Derivable
+                in the sense that a component of one layer must only reference components of the
+                same layer, or components defined in layers below. </para>
+            <para>Derivable layers eliminate unreconciled overlap between layers, such as the
+                terminology model, the assertion &amp; request model, and the context model. This
+                resolves a historic informatics architectural problem: how to manage the overlap
+                between the terminology models and the information models. </para>
+            <para>In part, this historic problem is a side effect of a stovepipe design process,
+                where information models where developed independent of the terminology systems
+                meant to populate those models. Information model developers were frequently unaware
+                of the terminology systems semantics, and how those semantics may interfere with
+                those of the information model. A classic example would be to have a terminology
+                that may pre-coordinate severity information (mild asthma, moderate asthma, and
+                severe asthma), while the information model may provide a specific field for
+                severity information. The information model may even provide a required and
+                irreconcilable value sets for these overlapping fields (such as a 5 point severity
+                scale then the terminology system uses a 3 point severity scale internally).</para>
+            <para>In this architecture, the components traditionally know as terminology models and
+                information models are coherent parts of the same architecture. This integration
+                enables simplification of implementation, and also enables a level of validation and
+                testing that is not possible when information models are developed independent of
+                the other components of the overall architecture. </para>
+        </section>
+        <section>
+            <title>Binding between layers</title>
+            <para>This architecture does not specify the means of binding between layers. Binding
+                may potentially be implemented as native objects within a shared execution
+                environment by some layers, by static or dynamic XML objects between other layers,
+                or by URI specification between layers. </para>
+            <para>Although the means of the binding between layers is not specified, the means of
+                identifying the components being bound is mandatory. All components will be
+                identified by UUIDs assigned by the identifiable component layer. </para>
+        </section>
+        <section>
+            <title>Declarative knowledge layers</title>
+            <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+            <para>[insert figure here]<?oxy_custom_end?></para>
+            <para> Declarative knowledge is defined as the factual information stored in memory and
+                known to be static in nature. Other names, e.g. descriptive knowledge, propositional
+                knowledge, etc. are also given. It is the part of knowledge that describes how
+                things are. Things/events/processes, their attributes, and the relations between
+                these things/events/processes and their attributes define the domain of declarative
+                knowledge. [9]</para>
+        </section>
+        <section>
+            <title>Clinical data layers</title>
+            <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+            <para>[insert figure here]<?oxy_custom_end?></para>
+        </section>
+        <section>
+            <title>Procedural knowledge layers</title>
+            <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+            <para>[insert figure here]<?oxy_custom_end?></para>
+            <para> Procedural knowledge is the knowledge of how to perform, or how to operate. Names
+                such as know-how are also given. It is said that one becomes more skilled in problem
+                solving when he relies more on procedural knowledge than declarative knowledge. [9]
+            </para>
+        </section>
+        <section>
+            <title>Documentation</title>
+            <para>Documentation is a cross-cutting concern A well-documented system is inextricably
+                linked to our ability to understand, maintain, and assure the quality of that
+                system. Just as declarative knowledge layers derive from the ones below, the
+                documentation must have the ability to derive selected content from the systems they
+                document. For example, if a document references the definition of a particular
+                concept, or lists the children of that concept in a table or diagram, that table or
+                diagram should be derivable from the concept’s source as part of an automated build
+                process, assuring that the documentation remains up-to-date despite inevitable
+                change within the documented system. </para>
+        </section>
+        <section>
+            <title>Separation from implementation architecture</title>
+            <para>There is no specific requirement to use a terminology server. The implementation
+                architecture is free to layer the components differently as long as the
+                architectural requirements are met. </para>
+        </section>
+    </section>
+    <section>
+        <title>Object identity</title>
+        <figure>
+            <title>Identified Object</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/IdentifiedObject.svg" align="center" scale="75"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <para>The identifiable component layer manages the reproducible assignment of Universally
+            Unique Identifiers (UUIDs) to all imported components as well as the assignment of
+            primordial UUIDs to all internally generated components. If imported components already
+            provide UUIDs to identify components, those UUIDs will be used. </para>
+        <para>If the imported components do not have UUIDs, but have ISO Object Identifiers (OIDs)
+            assigned by HL7,[1] or the component’s provider, then the environment will generate
+            Version 5 UUIDs for those components using the ISO OID namespace UUID of
+            6ba7b812-9dad-11d1-80b4-00c04fd430c8 defined in the Internet Engineering Taskforce RFC
+            4122.[2] </para>
+        <para>If the imported components do not have UUIDs or OIDs—but have internally unique and
+            immutable identifiers—then a UUID namespace for that source will be assigned internally,
+            and Version 5 UUIDs will be generated for the source on that basis. </para>
+        <para>If the imported components do not have internally unique and immutable identifiers,
+            then a UUID namespace for that source will be assigned internally, and Version 5 UUIDs
+            will be generated off of a unique hash of the component’s data fields that are
+            sufficient to assure uniqueness and immutability of the generated identifier. </para>
+        <para>The original identifiers for the imported sources will be stored as reference
+            extensions to the component during the import process. The management and retrieval of
+            these externally generated identifiers is not the responsibility of the identifiable
+            component layer. </para>
+        <para>If imported components have both provided UUIDs as well as OIDs that would compute
+            different UUIDs, then both the provided and computed UUIDs must be associated with the
+            component, and any single UUID will be sufficient to uniquely identify and retrieve the
+            component. </para>
+        <section>
+            <title>Multiple identifiers and component merging</title>
+            <para>The identifiable component layer must allow components to have more than one UUID
+                identifier, and if previously independent components are given each other’s
+                identifiers as alternate identifiers, the identifiable component layer must
+                dynamically merge the parts of these previously distinct components into a single
+                integrated component. </para>
+            <para>This merging of components by merging identifiers is a simple means for managing
+                duplicated content as it is identified. This duplicate management process does not
+                require retirement of one component, with pointers to the other component, and the
+                additional overhead that such retirement would entail. </para>
+        </section>
+        <section>
+            <title>Uniform resource identifiers</title>
+            <para>The architecture will integrate components from many sources, including at least
+                SNOMED CT, RxNorm, and LOINC. Users of the architecture should not need to concern
+                themselves with the source of the content—as a foundational goal of the environment
+                is to provide integrated and coherent content that is a single seamless system to
+                the end user. All components will have original or assigned UUIDs, therefore, all
+                components will be identifiable by URIs of the form: </para>
+            <para>urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6</para>
+            <para>Since these URIs for SNOMED CT, RxNorm, and LOINC will be reproducibly assigned,
+                users of the same architecture can use these identifiers to encode and share
+                clinical knowledge. </para>
+            <para>In addition, if locally-developed content becomes incorporated into standards at
+                some point in the future, the ability to support multiple UUIDs ensures that the
+                encoded clinical knowledge based on those UUIDs can remain stable. Users and
+                implementers of the architecture may choose to share locally developed content
+                identified in this manner. The stable UUIDs provides a means of sharing before such
+                work is integrated into a standard, as well as a smooth transition when the work is
+                integrated into a standard. </para>
+        </section>
+        <section>
+            <title>Uniform resource identifier validation</title>
+            <para>Although the urn:uuid URI provides for unique identification, it is not safe in
+                the sense that a typographical error in the URI could yield an incorrect result with
+                little or no awareness on the part of the individual that constructed the URI. The
+                architecture must allow for dynamic validation of URIs by some means, in specific
+                contexts—such as when accepting generated input. </para>
+            <para>We are not recommending checksums, or other methods for ensuring the URI does not
+                get corrupted in transport—the ISO 7 layer model for error free transmission across
+                a network is robust. We are recommending that there be a method that URIs are
+                associated with human readable text from the component the URI represents, so that
+                the coupling between a meaningless identifier useful to the computer, and a text
+                representation comprehensible to a human is provided. </para>
+        </section>
+        <section>
+            <title>Component query</title>
+            <para>The architecture must support queries over collections of components. </para>
+        </section>
+        <section>
+            <title>Component result set</title>
+            <para>A result set is composed of a set of component identifiers that match a set of
+                criterion. </para>
+            <section>
+                <title>AND</title>
+                <para>Compute the intersection of the set results from given child clauses.</para>
+            </section>
+            <section>
+                <title>OR</title>
+                <para>Compute the union of the results of the child clauses.</para>
+            </section>
+            <section>
+                <title>NOT</title>
+                <para>Computes the relative complement of the result of the child clause with
+                    respect to the set of all components that are processed by the query.</para>
+            </section>
+            <section>
+                <title>XOR</title>
+                <para>Computes the exclusive disjunction between the result sets of each child
+                    clause. This operator enables the ability to determine differences between
+                    identical child clauses that have different view coordinates, to determine what
+                    changed between to versions of the system. </para>
+                
+            </section>
+        </section>
+
+    </section>
+    <section>
+        <title>Module &amp; chronicle</title>
+        <!-- NEED a preample to the figures and to reference the figures from the text-->
+        <subtitle>STAMP versioning</subtitle>
+        <figure>
+            <title>Stamped Version</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/StampedVersion.svg" align="center" scale="75"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+        
+        <figure>
+            <title>Latest Version</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/LatestVersion.svg" align="center" scale="75"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+        
+        <figure>
+            <title>Object Chronology</title>
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/ObjectChronology.svg" align="center" scale="75"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+
+        <para>The chronicle layer provides a means to generically represent the revisions to a
+            component over time, and to index those revisions by status (active, inactive),
+            effective time of change, author of change, module within which the change occurred
+            (international edition, US extension, etc.), and the development path of the change
+            (development, release candidate, etc.). Taken together, these fields can be referred to
+            as a versions STAMP (status, time, author, module, and path). </para>
+        <para>The version STAMPS provides a foundation for version control and configuration
+            management of all the components of the information architecture. </para>
+        <para>The STAMP will provide a means to modularize content so that modules can be turned on
+            and off depending on specific use cases, and that modular content can be developed
+            independently from unrelated modules. This modularity will enable simplified development
+            and quality assurance processes for each module. </para>
+
+        <section>
+            <title>Distributed version control</title>
+            <para>Version control provides an audit trail for any changes to components of the
+                informatics architecture, and the ability to roll back or forward to any version of
+                any component as needed. The architecture must provide for standard distributed
+                version control concepts of push, pull, paths, tags, commits, revisions, changesets,
+                contradictions, branching, and merging for these components in the authoring
+                environment. </para>
+            <para>The underlying data representation of the architectural components must be
+                append-only so that a complete audit trail of all changes to all components is
+                assured. </para>
+            <section>
+                <title>Path origins</title>
+                <para>Each path may have zero or more origins. An origin is a position (a point in
+                    time) on another path, and the downstream path will inherit all the changes that
+                    occurred on the upstream path prior to the origin position. Multiple origins
+                    enable a working path to be created from two or more systems that may have
+                    independent paths. For example, a path for development of a mapping between
+                    SNOMED CT and ICD-10 may have one origin on the SNOMED CT release path and
+                    another origin on the ICD-10 release path. </para>
+            </section>
+            <section>
+                <title>Commit record</title>
+                <para>Each commit to a chronicle must be accompanied by a commit record, which
+                    records what other STAMPS of that chronicle where visible to the author when the
+                    commit was made. This commit record will be used to determine if unsynchronized
+                    commits (commits that occurred before the author’s commit, but that have not
+                    propagated through the distributed version control system) have been
+                    subsequently synchronized, generating an ERR event. </para>
+            </section>
+            <section>
+                <title>Version equality</title>
+                <para>Each version within the chronicle must have a standard means to test for
+                    content equality (versions with equivalent content, but whose author, commit
+                    time, or commit path may differ), and to test for absolute equality (versions
+                    with equivalent content and identical author, commit time and path). These
+                    different methods of equality will be used when managing ERRs, and when merging
+                    paths, and promoting content. </para>
+            </section>
+            <section>
+                <title>Path precedence ordering</title>
+                <para>Each version within the chronicle must be ordered first by the path upon which
+                    a commit is made, and secondarily must be ordered within the path by the time of
+                    commit. </para>
+            </section>
+            <section>
+                <title>Path promotion</title>
+                <para>The environment must provide the ability to promote selected content from one
+                    path to another as part of a controlled release process. This promotion process
+                    must be automatable, and repeatable. When path promotion occurs in the
+                    generation of release candidates, the process may be repeated many times, and
+                    therefore the process needs to be reproducible. </para>
+            </section>
+            <section>
+                <title>Event requiring review</title>
+                <para>During distributed development multiple authors may commit changes to the same
+                    components without being aware of concurrent changes made by other authors.
+                    These concurrent commits may be deliberate, for example in the case of duplicate
+                    editing for quality assurance or training, or may be inadvertent. The system
+                    must specify rules for determining if an Events Requiring Review (an ERR) is
+                    generated, and when concurrent commits may be managed in an automated way.
+                </para>
+            </section>
+        </section>
+        <section>
+            <title>Concurrent coordinated development</title>
+            <para>Concurrent development is necessary to support coordinated content. </para>
+            <para>For example, if a pharmacy knowledge base is not current with the latest version
+                of SNOMED, then drug-disease interactions may be missed. If a system is not using
+                the latest version of SNOMED with the latest diagnoses, an enterprise may have to
+                either fail to properly record a patient’s diagnoses, or may have to create
+                unnecessary local enhancements that will have to be later reconciled with the
+                already released content in SNOMED. </para>
+            <para>The authoring environment for the architecture must support concurrent distributed
+                development using a store and forward approach so that isolated development
+                activities can be integrated despite lack or real-time network connectivity. </para>
+            <section>
+                <title>Change sets</title>
+                <para>Changes made by authors must be represented as changesets, and these
+                    changesets must be independent entities that can be applied to—or removed
+                    from—other configurations of the authoring environment. </para>
+            </section>
+            <section>
+                <title>Branching</title>
+                <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+                <para>&lt;this section needs significant revision&gt;<?oxy_custom_end?></para>
+                <para>Branching, in revision control and software configuration management, is the
+                    duplication of an object under revision control (such as a source code file, or
+                    a directory tree) so that modifications can happen in parallel along both
+                    branches.</para>
+                <para>Branches are also known as trees, streams or codelines. The originating branch
+                    is sometimes called the parent branch, the upstream branch (or simply upstream,
+                    especially if the branches are maintained by different organizations or
+                    individuals), or the backing stream. Child branches are branches that have a
+                    parent; a branch without a parent is referred to as the trunk or the
+                    mainline.[1]</para>
+                <para>In some distributed revision control systems, such as Darcs, there is no
+                    distinction made between repositories and branches; in these systems, fetching a
+                    copy of a repository is equivalent to branching.</para>
+                <para>Branching also generally implies the ability to later merge or integrate
+                    changes back onto the parent branch. Often the changes are merged back to the
+                    trunk, even if this is not the parent branch. A branch not intended to be merged
+                    (e.g. because it has been relicensed under an incompatible license by a third
+                    party, or it attempts to serve a different purpose) is usually called a
+                    fork.</para>
+                <para>Branches allow for parts of software to be developed in parallel.[2] Large
+                    projects require many roles to be filled, including developers, build managers,
+                    and <link xlink:href="http://en.wikipedia.org/wiki/Software_quality_assurance"
+                        >quality assurance</link> personnel. Further, multiple releases on different
+                    operating system platforms may have to be maintained. Branches allow
+                    contributors to isolate changes without destabilizing the codebase, for example,
+                        <link xlink:href="http://en.wikipedia.org/wiki/Patch_(computing)"
+                        >fixes</link> for bugs, new <link
+                        xlink:href="http://en.wikipedia.org/wiki/Feature_(software_design)"
+                        >features</link>,[3] and <link
+                        xlink:href="http://en.wikipedia.org/wiki/Software_versioning"
+                        >versions</link>
+                    <link xlink:href="http://en.wikipedia.org/wiki/System_integration"
+                        >integration</link>. These changes may be later <link
+                        xlink:href="http://en.wikipedia.org/wiki/Merge_(revision_control)"
+                        >merged</link> (resynchronized) after testing.</para>
+                <para>A development branch or development tree of a piece of software is a version
+                    that is under <link
+                        xlink:href="http://en.wikipedia.org/wiki/Software_development"
+                        >development</link>, and has not yet been officially <link
+                        xlink:href="http://en.wikipedia.org/wiki/Software_release">released</link>.
+                    In the <link xlink:href="http://en.wikipedia.org/wiki/Open_source">open
+                        source</link> community, the notion of release is typically metaphorical,
+                    since anyone can usually check out any desired version, whether it be in the
+                    development branch or not. Often, the version that will eventually become the
+                    next major version is called the development branch. However, there is often
+                    more than one subsequent version of the software under development at a given
+                    time. </para>
+            </section>
+            <section>
+                <title>Merging</title>
+                <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+                <para>&lt;this section needs significant revision, and an updated
+                    graphic&gt;<?oxy_custom_end?></para>
+                <para>Merging (also called integration) in revision control, is a fundamental
+                    operation that reconciles multiple changes made to a revision-controlled
+                    collection of files. Most often, it is necessary when a file is modified by two
+                    people on two different computers at the same time. When two branches are
+                    merged, the result is a single collection of files that contains both sets of
+                    changes.</para>
+                <para><link xlink:href="http://www.explain.com.au/oss/docbook/">adts</link></para>
+                <para> [1] http://www.hl7.org/oid/index.cfm</para>
+                <para> [2] http://tools.ietf.org/html/rfc4122#appendix-C</para>
+                <para> </para>
+                <para> In some cases, the merge can be performed automatically, because there is
+                    sufficient history information to reconstruct the changes, and the changes do
+                    not conflict. In other cases, a person must decide exactly what the resulting
+                    files should contain. Many revision control software tools include merge
+                    capabilities.</para>
+                <para>There are two types of merges: automatic and manual.</para>
+                <para>Automatic merging is what <link
+                        xlink:href="http://en.wikipedia.org/wiki/Revision_control">revision
+                        control</link> software does when it reconciles changes that have happened
+                    simultaneously (in a logical sense). Also, other pieces of software deploy
+                    automatic merging if they allow for editing the same content simultaneously. For
+                    instance, Wikipedia allows two people to edit the same article at the same time;
+                    when the latter contributor saves, their changes are merged into the article
+                    instead of overwriting the previous set of changes.</para>
+                <para>Manual merging is what people have to resort to (possibly assisted by merging
+                    tools) when they have to reconcile files that differ. For instance, if two
+                    systems have slightly differing versions of a configuration file and a user
+                    wants to have the good stuff in both, this can usually be achieved by merging
+                    the configuration files by hand, picking the wanted changes from both sources
+                    (this is also called two-way merging). Manual merging is also required when
+                    automatic merging runs into a change conflict; for instance, very few automatic
+                    merge tools can merge two changes to the same line of code (say, one that
+                    changes a function name, and another that adds a comment). In these cases,
+                    revision control systems resort to the user to specify the intended merge
+                    result.</para>
+                <para>Merge algorithms are an area of active research, and consequently there are
+                    many different approaches to automatic merging, with subtle differences. The
+                    more notable merge algorithms include three-way merge, recursive three-way
+                    merge, fuzzy patch application, weave merge, and patch commutation.</para>
+            </section>
+        </section>
+        <section>
+            <title>Standardized release process</title>
+            <para>The architecture will provide a standard mechanism to release artifacts outside
+                the immediate development team.</para>
+        </section>
+        <section>
+            <title>Configuration management</title>
+            <para>The architecture must allow organization of components into modules,
+                identification of dependencies between modules, and specification of compatible
+                versions of dependent modules. </para>
+            <para>Assembly of compatible components for testing and runtime. </para>
+        </section>
+        <section>
+            <title>Runtime time travel</title>
+            <para>The architecture must be able to cope simultaneously with historic data that was
+                encoded using previous versions of the system, with current data that was encoded
+                using current versions of the system. This historic and current data must in turn be
+                processable by decision-support components of the system, in a manner appropriate
+                for a life-critical system. Encoded knowledge must have STAMPs for all versions of
+                its content. The overall system must be under configuration control such that all
+                the valid STAMPs for any version of the system is retrievable for processing
+                historic data, and encoded patient data must record the version of the system that
+                it was encoded with. </para>
+            <para>Unlike other types of software which utilize a single version , all version of the
+                encoded knowledge that has</para>
+        </section>
+        <section>
+            <title>Chronicle query</title>
+            <para>The architecture must provide for querying component chronicles. </para>
+            <section>
+                <title>View coordinate</title>
+                <para>The architecture must provide for a limited set of temporal query capabilities
+                    appropriate for identifying and managing change to encoded knowledge over time.
+                    These temporal queries must allow for temporal queries at current time, time
+                    points in the past or future, or over durations. </para>
+                <para>Each query must be given a view coordinate that specifies if the default
+                    temporal constraints for the query are at the current time, or a time point in
+                    the past of future. Individual clauses in the query may introduce additional
+                    view coordinates to enable durations </para>
+            </section>
+            <section>
+                <title>Status</title>
+                <para>Queries must allow the components status (active or inactive) to be part of
+                    the query criterion. For example, include only active components within the
+                    query criterion. </para>
+            </section>
+            <section>
+                <title>Author</title>
+                <para>Queries must allow the author of a change to be part of the query criterion.
+                    For example, only include changes that where not made by Chief Terminologist in
+                    the results of a query. </para>
+            </section>
+            <section>
+                <title>Changed from previous version</title>
+                <para>Computes the components that have been modified since during the time period
+                    specified by starting and ending view coordinates. </para>
+            </section>
+            <section>
+                <title>Module and/or path</title>
+                <para>Queries must allow the module within which—and the path upon which—a change is
+                    made to be part of the query criterion. For example, only consider changes that
+                    occurred in a language module on the release candidate path as part of a query.
+                </para>
+            </section>
+        </section>
+
+    </section>
+    <section>
+        <title>Graph</title>
+        <para>Graph is a foundational structure.</para>
+        <figure>
+            <title>Graph and Node</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/GraphAndNode.svg" align="center" scale="75"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+
+        <section>
+            <title>Logical Expression</title>
+            <figure>
+                <title>Logical Expression</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/LogicalExpression.svg" align="center" scale="75"
+                        />
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure>
+                <title>Logical Node</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/LogicNode.svg" align="center" scale="75"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure>
+                <title>Node Semantic</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/NodeSemantic.svg" align="center" scale="75"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+        </section>
+    </section>
+    <section>
+        <title>Semantic</title>
+        <para>Text</para>
+        <figure>
+            <title>Semantic object</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/SememeObject.svg" align="center" scale="75"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <figure>
+            <title>Semantic Chronology &amp; Versions</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/Sememes.svg" align="center" width="6in" scalefit="1"
+                    />
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <para>Semantic<footnote>
+            <para>A Semantic (from Greek σημαίνω (sēmaínō), meaning "mean, signify") is a semantic unit of meaning. 
+                A Semantic is a proposed unit of transmitted or intended meaning; it is atomic or indivisible.
+                It can be thought of as the semantic counterpart to any of the following: a meme in a culture, 
+                a gene in a genetic make-up, or an atom (or, more specifically, an elementary particle) 
+                in a substance.--Wikipedia</para>
+        </footnote> enables addition of semantic data (semantic meme == Semantic to the underlying
+            concepts content, in a standardized way that provides for the same means of
+            identifying, modularizing, and versioning content. </para>
+        <para>Clinical facts such as side effects or treatment effects of medications are just
+            one of many examples of reference extensions. Laboratory reference ranges that
+            represent standard normal, higher, and lower bounds of laboratory test values by age
+            and ethnic group are another example. </para>
+        <section>
+            <title>Assemblage</title>
+            <para>An Assemblage is a collection of Semantic for a particular purpose. </para>
+            <para>The Assemblage consists of Semantic that reference an  component, and provide
+                additional data to that member for some purpose. </para>
+            <para>Or development experience has shown that the language surrounding naming of
+                concepts related to Refexes has been challenging, with many similar sounding
+                entities (Refex, Refset, Refex Collection, Refex ID, Refex Member ID, Referenced
+                Component, Extended Component, Reference Extension, Component Reference, and
+                more). In the requirements here, we hope to provide a more systematic and less
+                confusing naming standard for Semantic concepts. Part of the reason for the choice
+                of Assemblage as opposed to use of Refset Concept, is to provide more clarity,
+                and to use terms that do not have baggage that prevents unambiguous
+                interpretation of what is meant by the term. </para>
+            <section>
+                <title>Assemblage identity</title>
+                <para>Every reference extension Assemblage is identified by a concept created
+                    specifically for this purpose. The identifier of this concept is the
+                    identifier of the Assemblage. The Assemblage concept is annotated with
+                    metadata to enable proper display and processing of the members of the
+                    Assemblage. </para>
+            </section>
+            <section>
+                <title>Assemblage metadata</title>
+                <para>Every Assemblage will have metadata associated with it that indicates the
+                    purpose of the Refex in general terms (navigation, mapping, navigation,
+                    reference ranges, etc.). In addition, the metadata will define the semantics
+                    of each extension field, and will provide standard ordering for presentation
+                    of those fields, and standard naming information for those fields, so that
+                    Refex data can be presented to consumers in a sensible manner. </para>
+            </section>
+        </section>
+        <section>
+            <title>Description Semantic</title>
+            
+            <section>
+                <title>Language</title>
+                <para>The language requirements enable direct support for user interface
+                    customization for different user groups. In the past, interface terminologies
+                    have been proposes as an alternative to supporting the language requirements
+                    within a single integrated system. Use of independent terminologies creates a
+                    mapping and maintenance burden that is unnecessary. </para>
+                <section>
+                    <title>Typed descriptions</title>
+                    <para>The architecture must allow all descriptions to be given a metadata type
+                        that indicates the way the typed description describes the concept of which
+                        it is a part. For example, description types may include:
+                        fully-specified-name, synonym, and definition. </para>
+                </section>
+                <section>
+                    <title>Multilingual support</title>
+                    <para>Each description specifies the language that it is from. Identical
+                        spelling may not have the same meaning in different languages, for example:
+                        pie in Spanish refers to foot‑the lower extremity of the leg below the
+                        ankle, on which a person stands or walks. In English pie means a baked dish
+                        of fruit, or meat and vegetables, typically with a top and base of pastry. </para>
+                    <para>Since concepts are organized by meaning, and since descriptions are
+                        associated with only one concept, having a particular description stand for
+                        two different concepts is not allowed. To prevent problems caused by false
+                        cognate and false friends between languages, all descriptions are assigned
+                        to a single language, within a concept that represents the meaning of that
+                        description within that language. </para>
+                    <para>Descriptions are not required to be unique, and therefore a Spanish
+                        description of pie can be within the concept for the lower extremity of the
+                        leg below the ankle, on which a person stands or walks, and the English
+                        description of pie can be within the concept for a baked dish of fruit, or
+                        meat and vegetables, typically with a top and base of pastry.</para>
+                </section>
+                <section>
+                    <title>Dialect support</title>
+                    <para>The architecture must provide a standard means of identifying if a
+                        particular description is preferred or acceptable in a particular dialect.
+                        Dialect is to be interpreted broadly, not just to represent geographical
+                        variation in language, but it is also to represent variation in language
+                        caused by role or profession. For example, one dialect may support use of
+                        words or phrases that patients can readily understand (e.g. before bedtime)
+                        and another dialect may support words or phrases specific for caregivers
+                        (e.g. qhs).</para>
+                </section>
+                <section>
+                    <title>Terminology query </title>
+                    <para>The IA must provide flexible (able to support current use cases and adapt to
+                        new use cases), effective (high quality results), and efficient (fast response
+                        time and high throughput) search over textual components of the IA. </para>
+                    <section>
+                        <title>Language coordinate</title>
+                        <para>Defines version, language, dialect, module, path, and version for
+                            retrieval. </para>
+                    </section>
+                    <section>
+                        <title>Concept specification</title>
+                        <para>Consists of a concept identifier as well as a current textual description
+                            of that concept. The use of Concept Specifications ensures validation of a
+                            computable key (the concept identifier) with human interpretable text. If
+                            the concept retrieved from the identifier does not contain the textual
+                            description, a validation error will be throws. </para>
+                        <para>End users must not constrict by entering or copying and pasting concept
+                            identifiers. They must be provided a drag-and-drop interface uses concept
+                            specs so that the identifiers may be validated against the users
+                            understanding of the description of those components as part of the query
+                            process. </para>
+                    </section>
+                    <section>
+                        <title>Regular expressions</title>
+                        <para>Queries must support regular expression clauses over descriptions.</para>
+                    </section>
+                    <section>
+                        <title>Indexed full-text search</title>
+                        <para>Queries must support full-featured text search clauses over descriptions. </para>
+                        <para>Text search features must include: </para>
+                        <para>· Ranked searching -- best results returned first</para>
+                        <para>· Phrase queries</para>
+                        <para>· Wildcard queries</para>
+                        <para>· Proximity queries</para>
+                        <para>· Range queries</para>
+                        <para>· Fielded searching (e.g. title, author, contents)</para>
+                        <para>· Simultaneous update and searching</para>
+                        <para>· Flexible faceting, highlighting, joins and result grouping</para>
+                        <para>· Fast, memory-efficient and typo-tolerant suggestions</para>
+                    </section>
+                    <section>
+                        <title>Concept for component substitution</title>
+                        <para>Substitute the concept that encloses a component in the result set of the
+                            child clause. For example, return the concept for all members of a comment
+                            Refex that have an active status. </para>
+                    </section>
+                    <section>
+                        <title>Fully specified description substitution</title>
+                        <para>Substitute the fully specified description—in the specified preferred
+                            language and dialect—for all active concept members of the veterinary Refex.
+                        </para>
+                    </section>
+                    <section>
+                        <title>Preferred description substitution</title>
+                        <para>Substitute the preferred description —in the specified preferred language
+                            and dialect—for all active concept members of the veterinary Refex. </para>
+                    </section>
+                </section>
+                
+            </section>
+        </section>
+    </section>
+    <section>
+        <title>Concept</title>
+        <para>ConceptChronology extends ObjectChronology with specific methods to identify and
+            describe concepts. All identifiable concepts used in higher layers must be present in
+            this layer.</para>
+        <para>The architecture is concept oriented. Its entries are organized conceptually, rather
+            than by term. Whereas a dictionary starts with the term in a given language and captures
+            all its possible meanings, the terminology layer is based on the concept, that is, the
+            conceptual content, to which the terms in various languages correspond. [10] </para>
+        <section>
+            <title>Homogenous semantics units</title>
+            <para>The concept-orientation principle will extend to all declarative semantics within
+                the architecture. For example, units of measure will be represented as concepts (as
+                SNOMED CT already provides), rather than as text fields (as UCUM would provide).
+                Although the internal representation of the architecture will be concept-oriented,
+                the ability to interoperate with text-based semantics may be provided through
+                reference extensions (as described in Section 3.8 Reference extension layer ) to the
+                appropriate concept. </para>
+            <para>As with units of measures, language information will be encoded as concepts,
+                rather than text fields. Text fields will not be used for machine processable
+                semantics. Text fields will only be used for presenting language to the user for
+                comprehension of the underlying concepts. </para>
+
+            <figure>
+                <title>Concept chronology</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/ConceptChronology.svg" align="center" scale="75"
+                        />
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>This constraint ensures that the traditional “information models” that are
+                representable and can have well defined and consistent relationship with the
+                concepts layer, and that those models can be specifically designed to work
+                coherently with the underlying concepts. </para>
+            <section>
+                <title>Concept service</title>
+                <para>Text</para>
+                <figure>
+                    <title>Concept service</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/ConceptService.svg" align="center" scale="75"
+                            />
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+            <section>
+                <title>Concept snapshot service</title>
+                <para>Text</para>
+                <figure>
+                    <title>Concept service</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/ConceptSnapshotService.svg" align="center"
+                                scale="75"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+        </section>
+        <section>
+            <title>Language &amp; dialect</title>
+            <para>Text</para>
+        </section>
+        <section>
+            <title>Versioned Graph</title>
+            <para>Text</para>
+        </section>
+        <section>
+            <title>Description logic</title>
+            <para>Text</para>
+        </section>
+        <section>
+            <title>Taxonomy</title>
+            <para>Text</para>
+        </section>
+        <section>
+            <title>Query</title>
+            <para>Text</para>
+        </section>
+        <section>
+            <title>Transformation</title>
+            <para>Text</para>
+            <section>
+                <title>Nesting transformation</title>
+                <para>Text</para>
+            </section>
+            <section>
+                <title>Flattening transformation</title>
+                <para>Text</para>
+            </section>
+            <section>
+                <title>Isosemantic transformation</title>
+                <para>Text</para>
+            </section>
+            <section>
+                <title>XSLT extensions</title>
+                <para>XSLT extensions provide for accessing computed values, values that can not be
+                    obtained simply from the structure of underling objects </para>
+                <section>
+                    <title>kind-of</title>
+                    <para>From the computed taxonomy relationships, based on the DL</para>
+                </section>
+                <section>
+                    <title>member-of</title>
+                    <para>Member of a assemblage based on query and STAMP version</para>
+                </section>
+                <section>
+                    <title>description-of</title>
+                    <para>Using language, dialect, and STAMP version.</para>
+                </section>
+            </section>
+        </section>
+        <section>
+            <title>Rule</title>
+            <para>Text</para>
+        </section>
+        <section>
+            <title>Domain</title>
+            <para>The domain layer hosts abstractions built from the underlying layers that
+                describes selected aspects of a sphere of knowledge, influence, or activity. The
+                domain model is a representation of meaningful real-world concepts pertinent to the
+                domain that need to be modeled in software. The concepts include the data involved
+                in the business and rules the business uses in relation to that data. </para>
+            <section>
+                <title>Semantic document markup</title>
+                <para>Specifically choosing names to avoid confusion between HL7 structured
+                    documentation such as clinical document architecture. </para>
+            </section>
+            <section>
+                <title>Terminology model</title>
+                <para>Defines a general-purpose representation of terminology systems able to
+                    represent SNOMED CT, LOINC, and RxNorm using description logics, languages, and
+                    dialects. </para>
+            </section>
+            <section>
+                <title>Semantic extension model</title>
+                <para>Defines a general-purpose representation of terminology systems able to
+                    represent SNOMED CT, LOINC, and RxNorm using description logics, languages, and
+                    dialects. </para>
+            </section>
+            <section>
+                <title>Observable model</title>
+                <para>SNOMED/LOINC observable model.</para>
+            </section>
+            <section>
+                <title>Observation result model</title>
+                <para>CIMI observation result model.</para>
+                <section>
+                    <title>Presence, absence, and unknown</title>
+                    <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>
+                    <para>Dot blot hemorrhage absent vs zero Dot blot hemorrhages vs it is not known
+                        if the patient has dot blot hemorrhages. [0,0]; (0,∞); [0,∞).
+                        <?oxy_custom_end?></para>
+                </section>
+                <section>
+                    <title>Proximal provenance</title>
+                    <para>The proximal provenance represents the last step in determining how the
+                        value of the observation result was obtained. For a blood pressure
+                        measurement, examples may be concepts such as "by provider measurement," "by
+                        patient report," or "from prior encounter document." In the case of a null
+                        value for an observation result, examples may be concepts such as "not
+                        asked", "not asked because question is not applicable", "not asked because
+                        patient is unconscious." The proximal provenance supports a superset of the
+                        semantics of the HL7 null flavors for null values, in addition to supporting
+                        provenance information regarding bona fide values. </para>
+                </section>
+                <section>
+                    <title>Subject of information</title>
+                    <para>This value is associated with the patients, partner, relative, etc. Needs
+                        to have the ability to represent the precision necessary for a genetic
+                        history. </para>
+                </section>
+            </section>
+            <section>
+                <title>Request model</title>
+                <para>abc</para>
+            </section>
+            <section>
+                <title>Encounter document model</title>
+                <para>Represents the assertions and requests that are associated with an encounter
+                    with either the patient, a specimen related to the patient, or data pertaining
+                    to the patient </para>
+            </section>
+            <section>
+                <title>Questionnaire model</title>
+                <para>A static representation of questions in machinable form, that when presented
+                    to—and completed by—a user from within a compliant application, results in a
+                    well-formed encounter document. </para>
+            </section>
+
+        </section>
+        <section>
+            <title>Script</title>
+            <para>Text</para>
+        </section>
+        <section>
+            <title>Workflow</title>
+            <para>Text</para>
+        </section>
+    </section>
+
+    <section>
+        <title>ISAAC layer concerns</title>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Start at the bottom layer</para>
+                </listitem>
+                <listitem>
+                    <para>Can the layer represent the necessary information?</para>
+                </listitem>
+                <listitem>
+                    <para>Will addressing the concern at this layer result in undesirable
+                        combinations/complications? (maybe each layer defines it's own
+                        rules?)</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <section xml:id="section_b8be94c7-7fd1-415c-9176-a2ffe00d2867">
+            <title>Identity</title>
+            <para>Every identified object is given a UUID. </para>
+        </section>
+        <section xml:id="section_ca3e060e-bc8e-40ff-8fc3-45b6ed1f0998">
+            <title>Chronology</title>
+            <para>An identified object may participate in one or more modules over time, and that
+                participation may be with a status of active or inactive within that module, may be
+                on a development branch, or master branch of that module, and the participation
+                within that branch is authored by an identified entity at a point in time. </para>
+        </section>
+        <section>
+            <title>Semantic extensibility</title>
+            <para>An identified chronology may extended another identified chronology by specifying
+                the identifier of the object it is extending, and a second identifier for another
+                identified chronology that defines the semantics of the relationship. The identifier
+                of the extension chronology is the origin identifier, and the identifier of the
+                extended chronology is the destination identifier. The identifier of the identified
+                chronology that defines the semantics of the relationship provides a type identifier
+                for the relationship, and the set of all extensions of a particular type are
+                referred to as an assemblage<footnote>
+                    <para>A collection of things.</para>
+                </footnote>, to easily differentiate this type of set from other types of sets via a
+                naming convention. </para>
+        </section>
+        <section>
+            <title>Representational generality</title>
+            <para>The ability for chronologies to semantically extend (add meaning to) other
+                chronologies results in an property-graph data structure, where the properties of a
+                node are represented by the identifiers of it's semantic extensions. A bonus of the
+                underlying chronology associated with each identified chronology is that the
+                resulting property graph is versioned and modular, and thus can represent
+                relationships between objects that may change over time. </para>
+            <para>The property graph is a generic mathematically-oriented graph that supports both
+                labels and key/value properties. More formally, it is a directed, binary, attributed
+                multi-graph.</para>
+            <para>The property-graph data structure can represent any parsable computing language,
+                such as OWL EL, Java, Drools, and so forth. As such, it is a general representation
+                that can confidently serve as a general foundation for symbolic data.</para>
+            <para>Interesting article on relating property graphs to RDF. <footnote>
+                    <para>https://neo4j.com/blog/rdf-triple-store-vs-labeled-property-graph-difference/</para>
+                </footnote></para>
+        </section>
+        <section xml:id="section_0ea89001-740f-4b08-9e0f-70f7e98e30ab">
+            <title>Modularity</title>
+            <para>Modules have identity, branches, snapshot versions, and released versions. </para>
+            <para>ISAAC defines a modular system and a service platform for clinical knowledge
+                management that implements a complete and dynamic component model. ISAAC provides an
+                environment for the modularization of knowledge resources into artifacts. Artifacts
+                are uniquely identified by a group id and an artifact ID which is unique within a
+                group. Each artifact is a tightly coupled, dynamically loadable collection of
+                language, definitional, assertional, statement, and procedural resources that
+                explicitly declare their external dependencies (if any). <link
+                    xlink:href="http://www.mkbergman.com/489/ontology-best-practices-for-data-driven-applications-part-2"
+                /></para>
+        </section>
+        <section xml:id="section_656a3575-0781-4571-ba07-731ab6f32f94">
+            <title>Configuration</title>
+            <para>Versioned dependencies between modules represent configurations of a system.
+            </para>
+        </section>
+    </section>
+    <section xml:id="section_bedba2de-e148-4296-8af0-c0d49ef82603">
+        <title>Crosscutting concerns</title>
+        <section xml:id="section_2af6bf78-c47f-4093-a669-d2f040bb2e0a">
+            <title>Understandability, reproducibility, and utility</title>
+            <para/>
+        </section>
+        <section xml:id="section_13e2a1a1-1952-43ab-acfa-762612da9d0f">
+            <title>Query</title>
+            <para/>
+        </section>
+    </section>
+    <section xml:id="section_289dc56c-c497-4d1e-b7f0-d3a2324d8fec">
+        <title>Coordinate-based separation of concerns</title>
+        <para/>
+        <section xml:id="section_8d56b9c6-c675-4059-9291-355ba15535fa">
+            <title>STAMP coordinate</title>
+        </section>
+        <section xml:id="section_87991199-1b84-4601-b9ec-ed468e13cd19">
+            <title>Language coordinate</title>
+        </section>
+        <section xml:id="section_0352c861-d604-4ded-8fc1-f03681c4b52c">
+            <title>Logic coordinate</title>
+        </section>
+        <section xml:id="section_7772db5e-1e83-42f7-b656-093ba93738df">
+            <title>Manifold coordinate</title>
+            <para>Frequently, one coordinate in isolation is not sufficient. The manifold<footnote>
+                    <para>A whole composed of diverse elements.</para>
+                </footnote> coordinate provides a single coordinate that integrates the other three
+                for </para>
+        </section>
+        <section xml:id="section_ca8fbb1d-5c3a-46bd-882e-36c544f2d3ce">
+            <title>Snapshot services</title>
+            <para/>
+        </section>
+    </section>    
+</chapter>

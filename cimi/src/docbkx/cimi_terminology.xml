@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
          xmlns:xlink="http://www.w3.org/1999/xlink">
+
+         
     
-  <title>Terminology Binding</title>
+  <title>Semantic Model Terminology Binding</title>
 
   <para>
-    Terminology binding refers to “the assertion of a relationship between the information model and the terminology” [CIMI Glossary]. This binding involves attaching terminology concepts, reference sets or expressions to a node or link in an information model. 
+    Information models are often developed independently of clinical ontologies. As a result, many information models align poorly with the terminologies or ontologies upon which they ultimately depend for their formal semantics. Moreover, by not explicitly specifying the model’s semantics the meaning of the model is left open for interpretation during implementation further hindering interoperability. CIMI’s goal is to have formal terminology bindings to standard terminologies. 
+  </para>
+
+  <para>
+    Terminology binding refers to “the assertion of a relationship between the information model and the terminology”. This binding involves attaching terminology concepts, reference sets, or expressions to an attribute in an information model. 
   </para>
 
   <para>
@@ -13,6 +19,21 @@
   </para>
 
       <orderedlist numeration="arabic">
+      <listitem>
+        <para>To support data validation and semantic interoperability (e.g., exchanging data between systems that use different native information structures)</para>
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+                <para>
+                    By confirming instance data conforms to the semantic specification.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    By supporting the construction of valid description logics for instance classification and application of decision support and other analytic tools.
+                </para>
+            </listitem>
+        </itemizedlist>
+      </listitem>
       <listitem>
         <para>To support the management and quality control of clinical model libraries, including: </para>
         <itemizedlist mark='bullet' spacing='compact'>
@@ -34,7 +55,7 @@
         </itemizedlist>
       </listitem>
       <listitem>
-        <para>To determine the iso-semanticity of two or more instances of models that are semantically equivalent, but structurally different; and to be able to transform between these iso-semantic representations, including:</para>
+        <para>To determine the isosemanticity of two or more instances of models that are semantically equivalent, but structurally different; and to be able to transform between these isosemantic representations, including:</para>
         <itemizedlist mark='bullet' spacing='compact'>
             <listitem>
                 <para>
@@ -43,7 +64,7 @@
             </listitem>
             <listitem>
                 <para>
-                    Models making different modelling design choices (e.g. Representing a laboratory test method as a data element, versus a CLUSTER containing data elements).
+                    Models making different modeling design choices (e.g., representing a laboratory test method as a single attribute, versus a CLUSTER containing many attributes).
                 </para>
             </listitem>
         </itemizedlist>
@@ -52,20 +73,10 @@
         <para>To enable querying over data instances of iso-semantic model representations (as described above)</para>
       </listitem>
       <listitem>
-        <para>To support data validation and semantic interoperability (e.g. exchanging data between systems that use different native information structures):</para>
-        <itemizedlist mark='bullet' spacing='compact'>
-            <listitem>
-                <para>
-                    By confirming instance data conforms to the semantic specification.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    By supporting the construction of valid description logics for instance classification and application of decision support and other analytic tools.
-                </para>
-            </listitem>
-        </itemizedlist>
-      </listitem>
+        <para>
+          To enable querying over data instances of isosemantic model representations (as described above)
+        </para>
+      </listitem>      
     </orderedlist>
 
 
@@ -73,7 +84,7 @@
       It is proposed these use cases be met by the fulfilment of the following requirements:
     </para>
 
-    <orderedlist numeration="arabic">
+    <itemizedlist mark="bullet" spacing='compact'>
       <listitem>
         <para>A standard, reproducible methodology for defining the meaning of each node in the model using an association with a terminology.</para>
       </listitem>
@@ -92,7 +103,131 @@
       <listitem>
         <para>Terminology bindings allowing consistency to be checked within models and between models related by specialisation or slot filling.</para>
       </listitem>
-    </orderedlist>
+    </itemizedlist>
+
+    <para>
+      CIMI aligns closely with the SNOMED CT Concept Model with particular emphasis on the Situation with Explicit Context expression semantics. If the CIMI attribute aligns with the SNOMED CT concept model, attributes are bound to descendants of Concept model attribute ID 410662002 | Concept model attribute (note, children of Unapproved attribute (attribute) ID 408739003 should not be used). If there is no attribute binding (e.g. temporal attributes such as “start time”) then CIMI may:
+    </para>
+
+    <itemizedlist mark="bullet" spacing='compact'>
+      <listitem>
+        <para>Use a name/value pattern (e.g., evaluation result) to capture element data.</para>
+      </listitem>
+      <listitem>
+        <para>A standard, reproducible methodology for defining the valid set of values of each coded data element in the model (either explicitly or as a constraint expression).</para>
+      </listitem>
+      <listitem>
+        <para>Proceed without semantic bindings in the short term.</para>
+      </listitem>
+      <listitem>
+        <para>Create new attributes in an extended concept model to support these elements.</para>
+      </listitem>
+      <listitem>
+        <para>Investigate patterns for associating name/value patterns generically in the concept model (i.e., supporting LOINC or Observable Entity values as attribute bindings under defined circumstances).</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>
+      To support terminology bindings to SNOMED CT components not available in the international release CIMI will develop SNOMED CT content. Currently, plans are to develop this content in the HSPC extension of SNOMED CT in the SOLOR namespace. SOLOR is designed to coordinate SNOMED CT, LOINC, and RxNorm (and, in future, international drug terminologies) in order to support description logic classification of information spanning those systems and potentially others as well.
+    </para>
+
+    <para>
+      Attribute bindings will use SNOMED CT wherever possible except for laboratory, vital signs, and anthropomorphic measurements that will be bound to LOINC terms. When the values are outside the scope of SNOMED CT or LOINC other terminologies (e.g. LOINC answers) may be selected (on a case-by-case basis). <xref linkend="cimi_attribution_table_0135"/> illustrates the terminology bindings for Assertion.
+    </para>
+
+    <table frame='all' xml:id="cimi_attribution_table_0135"><title>Terminology bindings for Assertion</title>
+    <tgroup cols='5' align='left' colsep='1' rowsep='1'>
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3' />
+      <colspec colname='c4' colwidth="1.1*"/>
+      <colspec colname='c5' colwidth="3*" colnum='5' />
+      <thead>
+        <row>
+          <!-- <entry namest="c1" nameend="c2" align="center">Horizontal Span</entry> -->
+
+          <entry align="center">Attribute</entry>
+          <entry align="center">Code</entry>
+          <entry align="center">Display</entry>
+          <entry align="center">Term</entry>
+          <entry align="center">Range</entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>Assertion</entry>
+          <entry>246090004</entry>
+          <entry>Associated Finding</entry>
+          <entry>SNOMED CT</entry>
+          <entry>&lt;&lt; 404684003 |Clinical finding (finding)| OR &lt;&lt; 272379006 |Event (event)|</entry>
+        </row>
+        <row>
+          <entry>Due to</entry>
+          <entry>42752001</entry>
+          <entry>Due to</entry>
+          <entry>SNOMED CT</entry>
+          <entry>&lt;&lt; 404684003 |Clinical finding (finding)| OR &lt;&lt; 272379006 |Event (event)| OR &lt;&lt; 71388002 |Procedure (procedure)|</entry>
+        </row>
+        <row>
+          <entry>Severity</entry>
+          <entry>246112005</entry>
+          <entry>Severity</entry>
+          <entry>SNOMED CT</entry>
+          <entry>&lt;&lt; 272141005 |Severities (qualifier value)|</entry>
+        </row>
+        <row>
+          <entry>Clinical Course</entry>
+          <entry>263502005</entry>
+          <entry>Clinical Course</entry>
+          <entry>SNOMED CT</entry>
+          <entry>&lt;&lt; 288524001 |Courses (qualifier value)|</entry>
+        </row>
+        <row>
+          <entry>Associated Precondition</entry>
+          <entry>47429007</entry>
+          <entry>Associated with</entry>
+          <entry>SNOMED CT</entry>
+          <entry>&lt;&lt; 410607006 |Organism (organism)| OR &lt;&lt; 105590001 |Substance (substance)| OR &lt;&lt; 260787004 |Physical object (physical object)| OR &lt;&lt; 78621006 |Physical force (physical force)| OR &lt;&lt; 373873005 |Pharmaceutical / biologic product (product)| OR 138875005 |SNOMED CT Concept (SNOMED RT+CTV3)|</entry>
+        </row>
+        <row>
+          <entry>Periodicity</entry>
+          <entry>new</entry>
+          <entry></entry>
+          <entry>SNOMED CT</entry>
+          <entry>&lt;&lt; 442083009 |Anatomical or acquired body structure (body structure)|</entry>
+        </row>
+        <row>
+          <entry>Alleviating factor</entry>
+          <entry>new</entry>
+          <entry></entry>
+          <entry>SNOMED CT</entry>
+          <entry>|Device|  49062001 (&lt;=) |Pharmaceutical / biologic product| 373873005 (&lt;&lt; Q only) |Procedure (procedure)|71388002 (&lt;=)</entry>
+        </row>
+        <row>
+          <entry>Exacerbating factor</entry>
+          <entry>new</entry>
+          <entry></entry>
+          <entry>SNOMED CT</entry>
+          <entry>|Device|  49062001 (&lt;=) |Pharmaceutical / biologic product| 373873005 (&lt;&lt; Q only) |Procedure (procedure)|71388002 (&lt;=)</entry>
+        </row>
+        <row>
+          <entry>Causative agent</entry>
+          <entry>246075003</entry>
+          <entry>Causative agent</entry>
+          <entry>SNOMED CT</entry>
+          <entry>|Organism| 410607006 (&lt;&lt;) |Substance| 105590001 (&lt;&lt;) |Physical object| 260787004 (&lt;&lt;) |Physical force| 78621006 (&lt;&lt;) |Pharmaceutical / biologic product| 373873005 (&lt;&lt; Q only) |SNOMED CT Concept| 138875005 (==)</entry>
+        </row>
+        <row>
+          <entry>Finding site</entry>
+          <entry>363698007</entry>
+          <entry>Finding Site</entry>
+          <entry>SNOMED CT</entry>
+          <entry>|Anatomical or acquired body structure| 442083009 (&lt;&lt;)</entry>
+        </row>
+        
+      </tbody>
+    </tgroup>
+  </table>
 
 
     <sect2>
@@ -105,65 +240,31 @@
       <itemizedlist mark='bullet' spacing='compact'>
             <listitem>
                 <para>
-                    Include a semantic “concept binding” for each data element in the model to a terminology concept (expression or pattern) which represents the meaning of the data element.
+                    Include a semantic “concept binding” for each attribute in the model to a terminology concept (expression or pattern) that represents the meaning of the attribute. (Note the development of the concepts in the terminology will take time: whether models may be finalized prior to this has yet to be determined.)
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    Include a “value binding” from each node of type CODED_TEXT to a terminology reference set indicating the valid values for the node – either defined intentionally using a constraint expression, or extensionally as a list of terminology components.
+                    Include a “value binding” from each attribute of type Concept to a terminology reference set indicating the valid values for the attribute – either defined intentionally using a constraint expression, or extensionally as a list of terminology components
                 </para>
             </listitem>
         </itemizedlist>
 
         <para>
-          All finalised CIMI Clinical Models may (where appropriate):
-        </para>
-
-        <itemizedlist mark='bullet' spacing='compact'>
-            <listitem>
-                <para>
-                    Include a constructor binding on appropriate container-type nodes (e.g. ENTRY, CLUSTER) in the form of a terminology expression to help determine its iso-semanticity with other model representations.
-                </para>
-            </listitem>
-            
-        </itemizedlist>
+          All finalized CIMI Clinical Models should be suitable for the generation of equivalent SNOMED CT logical expressions based on their key and attribute concept bindings and the relationships defined in the SNOMED CT concept model -- possibly via the Machine Readable Concept Model (MRCM). It may be necessary or appropriate, in addition to this “self-generated expression” capability, to include “constructor binding” on appropriate container-type attributes in the form of terminology expressions to help determine its isosemanticity with other model representations. Where such bindings might conflict with the generated expressions these artifacts may be either redundant and inadvisable or a valid and useful check on construction.
+        </para>       
 
         <sect3>
-          <title>Semantic Model Binding</title>
+          <title>Semantic Model Value Set Binding</title>
           <para>
-            Information models are often developed independently of clinical ontologies. As a result, many information models align poorly with the terminologies or ontologies upon which they ultimately depend for their formal semantics. Moreover, by not explicitly specifying the model’s semantics, the meaning of the model is left open for interpretation during implementation further hindering interoperability. CIMI is designed to align closely with the SNOMED CT Concept Model with particular influence from the Situation with Explicit Context expression semantics. If the CIMI attribute aligns with the SNOMED CT concept model, attributes will be bound to descendants of Concept model  attribute ID 410662002 | Concept model attribute (note, children of Unapproved attribute (attribute) ID 408739003 should not be used). If there is no attribute binding (e.g. temporal attributes such as “start time”) then CIMI will use descendents from the “observable entity” domain if an equivalence exists.
+            Work is currently being done within the HL7 Vocabulary work-group to define terminology binding semantics that remain valid across multiple implementation domains (V2, V3, C-CDA, FHIR and CIMI). CIMI is an active participant in these efforts and it is our intent to align CIMI Value Set bindings as closely as possible to this effort. 
           </para>
 
-          <para>
-            To support terminology bindings to SNOMED CT components not available in the international release, CIMI will develop a SNOMED CT extension in the CIMI Namespace (namespace id: 1000160). This namespace has been allocated and registered by the SNOMED International.
-          </para>
+          
 
         </sect3>
 
-        <sect3>
-          <title>Semantic Model Range Binding</title>
-
-          <para>
-            Value bindings will use SNOMED CT wherever possible – however, where the values are outside the scope of SNOMED CT, other terminologies (e.g. LOINC answers) may be selected (on a case-by-case basis).
-          </para>
-
-          <para>
-            When a data element is further refined as a specialization (e.g. skin assessment site is a body location), the value set range must come from the range of the parent data element (e.g. skin assessment site is a subtype of body location).
-          </para>
-
-        </sect3>
-
-
-        <sect3>
-          <title>Value Set Binding</title>
-
-          <para>
-            Work is currently being done within the HL7 Vocabulary work-group to define terminology binding semantics that remain valid across multiple implementation domains (V2, V3, C-CDA, FHIR and CIMI).  CIMI is an active participant in these efforts and it is our intent to align CIMI Value Set bindings as closely as possible to this effort. 
-          </para>
-
-
-        </sect3>
-
+        
       </sect2>
    
     

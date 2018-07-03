@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    
+    
+    <title>Basics of the CIMI Model</title>
+
+    <para>
+        The CIMI Model consists of two layers as shown in <xref linkend="cimi_msg_layers_0135"/>.  A reference model layer that defines the structural classes and named attributes, and a constraint layer which constrains these structural attributes by value, subtype, cardinality, and terminology.  The basic modeling rule that CIMI follows is: new named attributes are added in the Reference Layer and the constraining of existing attributes occurs in the Constraint Layer.  
+    </para>
+
+    <para>
+        The CIMI Reference Model layer is authored using Unified Modeling Language (UML).  These class definitions may be viewed at <ulink url="http://models.opencimi.org/cimi_doc/"><citetitle>http://models.opencimi.org/cimi_doc/</citetitle></ulink>.  
+    </para>
+
+    <figure xml:id="cimi_msg_layers_0135">
+        <title>CIMI Model Layers</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/uml_bmm.jpg" align="center" format="jpg" width="50%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <para>
+        The constraint layer is described using Archetype Definition Language (ADL). ADL is a formal language with a textual syntax for describing constraints on the classes described in the reference layer. A re-usable formal constraint model defined in ADL is called an Archetype. The full collection of CIMI Archetypes may be viewed at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink>.
+    </para>
+
+    <para>
+        One complexity that needs to be addressed here is that ADL can only be used to constrain reference classes defined in a lightweight proprietary UML like specification called Basic Meta-Model (BMM). For this reason, CIMI has developed tooling that transforms the CIMI UML models into the BMM specification. Although this complexity does exist, to ease understanding, the reader can simply imagine that ADL is directly constraining the UML classes. 
+    </para>
+
+    <para>
+        The UML/BMM classes are more abstract and the archetypes are where specific semantics such as 'blood glucose' or 'diabetes present; are asserted.
+    </para>
+
+
+    
+
+    <sect2>
+        <title>Structures</title>
+
+        <para>
+            The CIMI UML/BMM model has three concentric layers: a Core that defines datatypes and a root class, a Foundation that describes compositional patterns similar to ISO 13606, and a Clinical model layer constructed on top of the Foundation.
+        </para>
+
+        <para>
+            Most clinical specifications will be based on the Clinical Statement pattern defined in the Clinical model layer. But this pattern does employ structures built out of Foundation and Core classes, so familiarity with these layers will be helpful. For more information consult the CIMI Architecture Guide.
+        </para>
+
+    </sect2>
+
+   
+  
+
+</section>

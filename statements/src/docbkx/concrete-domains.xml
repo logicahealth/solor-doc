@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Concrete Domains</title>
+
+    <section>
+        <title>Introduction</title>
+        <para>Concrete domains can be used in SNOMED CT to represent and reason over values like
+            integers in Description Logic. Our initial work focused on medications and evaluating
+            the use of concrete domains to represent not only the product strength, but also the
+            unit of use size. To fully test the feasibility of concrete domains, additional
+            attributes were also added, in order to fully represent all information regarding
+            medications, which will then allow concepts to be fully defined. Thus, this will enable
+            testing the equivalence and subsumption of concepts by the Description Logic classifiers
+            within the tooling.</para>
+        <para>At the beginning of the project there was no ability to represent numeric attributes
+            of concepts in SNOMED CT, which made machine readability of numeric attributes
+            difficult, prone to error, and left a large portion of Products as primitive concepts.
+            Without the ability to fully represent the numeric properties, equivalence checking and
+            subsumption using the Description Logic classifier is not possible. With the
+            introduction of the new Drug Concept Model in the July 2017 International Release the
+            representation of product strength and units will begin to be modelled over the next few
+            releases. However, this new Drug Concept Model does not utilize concrete domains but
+            instead creates the strength numbers as concepts themselves to be used as values for the
+            product strength attributes. </para>
+    </section>
+    
+    <section>
+        <title>Approach</title>
+        <para>By using a lexical search for string containing integers and textual representation of
+            integers, 10,114 potential Pharmaceutical / Biologic Product concepts were identified,
+            which were modeled with the proposed attributes including one attribute to represent
+            product strength. To properly represent the numeric information contained in these
+            products, the Australian Medicines Terminology Approach that applied to its Australian
+            extension content and not to the International SNOMED CT content was utilized.</para>
+        <para>To speed up the modeling process, already available data around strength and units
+            from NDF-RT through RxNorm RXNSAT relationships that was linked to the SNOMED CT
+            concepts through the RXCUI was used. Technical validation was performed on these values
+            and any incorrect strength or units we identified were corrected before using these
+            values to populate the relationships. After loading the new relationships into the
+            terminology editor, further manual review was conducted to verify the relationships and
+            add any missing information.</para>
+        <para>Using the findings from the drug modeling, the team evaluated other hierarchies that
+            were identified as having potential for modeling concrete domains.</para>
+    </section>
+    
+    <section>
+        <title>Attributes for Representing Medications</title>
+        <para>Below are attributes that have been added to the medications model to represent
+            concrete domains: <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Has Basis of Strength Substance (BoSS)</emphasis> –
+                        The substance(s) that correspond to the strength. If strength is not stated
+                        then this attribute is not used. The Has Active Ingredient attribute is
+                        still used and grouped together with this attribute</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Range: &lt;&lt; Substance (substance)</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Has Product Strength</emphasis> – The strength of
+                        the Has Basis of Strength Substance and is always grouped together</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Range: Float 0 to 1000000000</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Units</emphasis> – Unit of Measure is always
+                        associated with the Strength</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Range: &lt;&lt;Unit (qualifier value)</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Has Unit of Use </emphasis>– Describes a discrete
+                        unit that a product presents in, for example a vial, bag, etc.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Range: (&lt;&lt;)Type of drug preparation (qualifier value) and
+                                (&lt;&lt;) Unit of drug administration (qualifier value)</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Unit of Use Size</emphasis> – Represents the size of
+                        the unit of use</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Range: Float 0 to 1000000000</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Unit of Use Quantity</emphasis> – Represents the
+                        pack quantity</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Range: Float 0 to 1000000000</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist></para>
+        
+        
+    </section>
+    
+    <section>
+        <title>Findings</title>
+        <para>Under the new SNOMED CT International Drug Concept Model, existing concepts will be
+            updated to meet the new modelling guidelines and terming updated to conform to the
+            terming guidelines in the editorial guide. One of the most frequent issues we found
+            while modelling the medication attributes was that the Fully Specified Names (FSN) were
+            not completely fully specified or that the values needed to fully define a concept were
+            not available. For example, the common issues we saw around FSN’s were due to the salt
+            or dose form not present or not fully defined in the FSN, but modelled with the more
+            specific value in the current Has active ingredient and Has dose form attributes. With
+            the SNOMED CT International review and application of the new modelling guidelines these
+            FSN’s should be corrected and fix the issues we found with FSN’s.</para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis>Example:</emphasis></para>
+                    <para>(FSN does not explicitly state that it is an Oral suspension):</para>
+                    <para>370762006 |Azithromycin 1g/packet oral (product)| </para>
+                    <para>&lt;&lt;&lt; 392327001 |Oral form azithromycin (product)| :</para>
+                    <para>127489000 |Has active ingredient (attribute)| = 391805000 |Azithromycin
+                        dihydrate (substance)|, 411116001 |Has dose form (attribute)| = 385024007
+                        |Oral suspension (qualifier value)|</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>Another common issue with fully defining concepts using our proposed model was
+            associated with sugar free, gluten free, preservative free, etc. dose forms. This issue
+            is currently out of scope for the new SNOMED CT International Drug Concept Model and
+            will prevent the concepts that currently exist in SNOMED CT from being fully defined. A
+            potential solution for representing these dose forms and fully defining the drug
+            concepts would be to create concepts in the qualifier value hierarchy for sugar free
+            dose form, gluten free dose form, etc and use a nested relationship to combine it with
+            the other appropriate dose form. This would eliminate the need to create all the
+            possible combinations of dose forms required to support the Drug Concept Model.</para>
+        <itemizedlist>
+            <listitem>
+                <para><emphasis>Example:</emphasis></para>
+                <para>320108004 |Salbutamol 2mg/5mL sugar free syrup (product)| </para>
+                <para>&lt;&lt;&lt; 135639005 |Oral form albuterol (product)| :</para>
+                <para> 127489000 |Has active ingredient (attribute)| = 48474002 |Albuterol sulfate
+                    (substance)|, 411116001 |Has dose form (attribute)| = (385032004 |Syrup
+                    (qualifier value)| + XXXXXX|Sugar free dose form(qualifier value)|)</para>
+            </listitem>
+        </itemizedlist>
+        <para>The sections of the SNOMED CT International Drug Concept Model dealing with Grouper,
+            Virtual Medicinal Product (VMP), and Virtual Medicinal Product Form (VMPF) concepts in
+            the Pharmaceutical / biological product hierarchy did not affect our concrete domain
+            work as these concepts do not include product strength as a part of their FSN. However,
+            correcting issues with these concepts will have downstream effects on the modelling of
+            the concepts we made modified. </para>
+        <para>The section that was most relevant to the concrete domain work was the Virtual
+            Clinical Drug model. The main differences between our approaches are:</para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Strength is not represented as a number in the SNOMED CT International
+                        model, but as a conceptid that is a representation of that number.</para>
+                </listitem>
+                <listitem>
+                    <para>The SNOMED CT International model currently has no way to represent ranges
+                        of strength (for example radiopharmaceuticals).</para>
+                </listitem>
+                <listitem>
+                    <para>The SNOMED CT International model separates out numerator and denominator
+                        for both strength and units whereas we chose to normalize the
+                        strength.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>After the testing of concrete domains using the pharmacy model we reviewed concepts in
+            findings, procedures and observables to determine the feasibility of applying concrete
+            domains to concepts in those hierarchies as well. We identified 3668 concepts that may
+            potentially benefit from the use of concrete domains in these hierarchies. </para>
+        <para>These concepts mainly fall into 4 categories:</para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Grades/Stages/Scales</emphasis></para>
+                    <para>This category of concepts is least likely to benefit from concrete domains
+                        as some grades/stages/scales are alpha-numeric and would more likely fall
+                        into a similar model as the SNOMED International Drug Concept Model.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><emphasis>Examples:</emphasis></para>
+                            <para>109970006 |Follicular lymphoma, grade 1|</para>
+                            <para>112110007 |Glasgow coma scale, 4|</para>
+                            <para>112241002 |Lymphoma stage III 1|</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Measurements/Percentiles</emphasis></para>
+                    <para>This category of concepts mirrors the requirements of the Drug Concept
+                        Model most closely and would be very similar in that it would require both
+                        an attribute for recording the numeric value and another attribute to record
+                        the unit. This would also require the ability to capture less than, greater
+                        than and equal to which is not currently something supported in the SNOMED
+                        CT International Drug Concept Model. Therefore using concrete domains would
+                        be a much more suitable solution as it allows for that capture of that
+                        information but would require a change to the SNOMED CT Release Format to
+                        accommodate these relationships.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><emphasis>Examples:</emphasis></para>
+                            <para>314643009 |Child head circumference &lt; 0.4th centile|</para>
+                            <para>385303005 |pT3: Tumor more than 5 cm in greatest dimension (anal
+                                canal)|</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Timing/Frequency</emphasis></para>
+                    <para>While these concepts contain numeric values, they may not lend themselves
+                        to being captured by concrete domains due to the fact that there are some
+                        expressions like “every 12 months”, “once a week”, “five times a week”,
+                        etc.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><emphasis>Examples:</emphasis></para>
+                            <para>34259007 |Measurement of glucose 5 hours after glucose challenge
+                                for glucose tolerance test|</para>
+                            <para>416755008 |Cervical smear every 12 months for life|</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Dosing Number/Episode</emphasis></para>
+                    <para>This would be a small subset of concepts that would be affected but would
+                        be a good target for a set of relationships to use for post-coordination
+                        instead of adding pre-coordinated concepts to the standard. Making these
+                        relationships strictly available through post-coordination and using
+                        concrete domains would not require a change to the release format. It would
+                        however require existing concepts (less than 100) to be retired in order for
+                        all concepts to be aggregated appropriately.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><emphasis>Examples:</emphasis></para>
+                            <para>170425007 |Typhoid and Paratyphoid first dose|</para>
+                            <para>231499006 |Endogenous depression first episode|</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+    
+    
+</section>

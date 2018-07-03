@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<glossary xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Terms Glossary</title>
+    
+    <glossentry xml:id="concept">
+        <glossterm>concept</glossterm>
+        <glossdef><para>A clinical idea</para><para>The concept of a broken femur bone</para></glossdef>
+    </glossentry>
+    <glossentry xml:id="CONCEPT">
+        <glossterm>Concept</glossterm>
+        <glossdef><para>A clinical idea to which a unique SNOMED ConceptId has been
+            assigned</para><para>Fracture of Femur (SNOMED ConceptID = 71620000)</para></glossdef>
+    </glossentry>
+    
+    <glossentry xml:id="RELATIONSHIP">
+        <glossterm>Relationship</glossterm>
+        <glossdef><para>An association between two Concepts </para><para>Fracture of Femur : Finding Site = Bone Structure of Femur
+        </para></glossdef>
+    </glossentry>
+    
+    <glossentry xml:id="CONCEPT_DEFINITION">
+        <glossterm>Concept Definition</glossterm>
+        <glossdef><para>A collection of Relationships that logically defines the
+            meaning of a Concept in SNOMED</para><para>Fracture of Femur : IS-A = Injury of Thigh, Finding Site = Bone
+                Structure of Femur, Morphology = Fracture</para></glossdef>
+    </glossentry>
+    
+    <glossentry xml:id="PRE_COORDINATED_CONCEPT">
+        <glossterm>Pre-coordinated concept</glossterm>
+        <glossdef><para>A concept that is pre-defined as a Concept in
+            SNOMED</para><para>Fracture of Femur (SNOMED ConceptID = 71620000) : IS-A = Injury
+                of Thigh, Finding Site = Bone Structure of Femur, Morphology =
+                Fracture</para></glossdef>
+    </glossentry>
+    
+    <glossentry xml:id="EXPRESSION">
+        <glossterm>Expression</glossterm>
+        <glossdef><para>A collection of references to one or more Concepts used to
+            express an instance of a clinical idea (i.e., in a particular
+            patient)</para><para>An expression may consist of a single ConceptID
+                or a large collection of related Concepts</para><para>Fracture of Femur </para><para> OR</para><para>Fracture of
+                    Femur : Finding Site = Structure of Head of Femur : Laterality =
+                    Left, Morphology = Spiral Fracture</para></glossdef>
+    </glossentry>
+    
+    <glossentry xml:id="POST_COORDINATED_EXPRESSION">
+        <glossterm>Post-coordinated Expression</glossterm>
+        <glossdef><para>An expression created to represent an instance of a clinical
+            idea that does not exist as a pre-defined Concept in
+            SNOMED</para><para>Fracture of Femur : Finding Site = Structure of Head of Femur :
+                Laterality = Left, Morphology = Spiral
+                Fracture</para></glossdef>
+    </glossentry>
+    
+    <glossentry xml:id="REFINEMENT">
+        <glossterm>Refinement</glossterm>
+        <glossdef><para>The further specification or addition of Relationships to a
+            predefined Concept to express a more specific concept</para><para><emphasis role="underline">Pre-defined Concept</emphasis>
+                Fracture of Femur : IS-A = Injury of Thigh, Finding Site = Bone
+                Structure of Femur, Morphology = Fracture</para><para><emphasis
+                    role="underline">Refinement</emphasis> Fracture of Femur :
+                    Finding Site = Structure of Head of Femur : Laterality = Left,
+                    Morphology = Spiral Fracture, Severity = Severe</para></glossdef>
+    </glossentry>
+    
+    
+    <glossentry xml:id="FOCUS_CONCEPT">
+        <glossterm>Focus Concept</glossterm>
+        <glossdef><para>The core concept that is refined in a post-coordinated
+            expression</para><para>Fracture of Femur (SNOMED ConceptID = 71620000) </para><para>
+                IN</para><para>Fracture of Femur : Finding Site = Structure of Head
+                    of Femur : Laterality = Left, Morphology = Spiral Fracture, Severity
+                    = Severe</para></glossdef>
+    </glossentry>
+    
+    
+    <glossentry xml:id="SUBSUMPTION_TESTING">
+        <glossterm>Subsumption Testing</glossterm>
+        <glossdef><para>The logical determination of whether a concept (as represented
+            by an Expression) is more specific than another concept (also
+            represented by an Expression). If so, the more specific concept
+            <emphasis>is subsumed by</emphasis> the more general concept,
+            and the more general concept <emphasis>subsumes</emphasis> the more
+            specific concept.</para><para>Fracture of Femur (see Concept Definition above)</para><para>
+                SUBSUMES</para><para>Fracture : Finding Site = Structure of Head of
+                    Femur : Laterality = Left, Morphology = Spiral
+                    Fracture</para><para>(the head of the femur is a part of the femur,
+                        and a spiral fracture is a kind of fracture)</para><para>Fracture of
+                            Femur (see Concept Definition above)</para><para> DOES NOT
+                                SUBSUME</para><para>Fracture : Finding Site = Bone Structure of
+                                    Shaft of Fibula Morphology = Transverse Fracture</para><para>(the
+                                        shaft of the fibula is not a part of the femur)</para></glossdef>
+    </glossentry>
+    
+    
+
+    <glossentry  xml:id="EQUIVALENCE_TESTING">
+        <glossterm>Equivalence Testing</glossterm>
+        <glossdef><para>
+            The logical determination of whether a concept (as represented
+            by an Expression) is exactly the same as another concept (also
+            represented by an Expression). If so, the two concepts are
+            <emphasis>equivalent.</emphasis>            
+        </para>
+            <para>Fracture of Femur (see Concept Definition above)</para><para>
+                IS EQUIVALENT TO</para><para>Traumatic Injury : Finding Site = Bone
+                    Structure of Femur Morphology = Fracture</para><para>Fracture of
+                        Femur (see Concept Definition above)</para><para> IS NOT EQUIVALENT
+                            TO</para><para>Traumatic Injury : Finding Site = Structure of Head
+                                of Femur : Laterality = Left, Morphology = Spiral
+                                Fracture</para><para>(the second concept is more specific than
+                                    “Fracture of Femur”; although it is subsumed by it, it is not
+                                    equivalent to it)</para>        </glossdef>
+    </glossentry>
+    <glossentry xml:id="PREDICATE_EXPRESSION">
+        <glossterm>Predicate Expression</glossterm>
+        <glossdef><para>
+            The Expression that is being tested as the <emphasis>more
+                general </emphasis>concept in a subsumption test. This is
+            typically the expression that appears in a query. <emphasis role="underline">Fracture of Femur</emphasis> in the
+            subsumption tests above.
+        </para></glossdef>
+    </glossentry>
+    
+    <glossentry xml:id="CANDIDATE_EXPRESSION">
+        <glossterm>Candidate Expression</glossterm>
+        <glossdef><para>
+            The Expression that is being tested as the <emphasis>more
+                specific </emphasis>concept in a subsumption test. This is
+            typically the expression that appears in the patient
+            record. The Post-coordinated Expressions in the subsumption tests
+            above             
+        </para></glossdef>
+    </glossentry>
+    <glossentry xml:id="ISAAC">
+        <glossterm>Informatics [Agile|Analytic] Architecture</glossterm>
+        <acronym>ISAAC</acronym>
+        <glossdef>
+            <para>The underlying architecture - which we call ISAAC - is a logical
+                architecture, not an implementation. It describes the logical informatics
+                architecture that will be reflected in the systems architecture of VHA clinical
+                systems. In addition, it is an integrative architecture, which deliberately builds
+                upon selected, compatible elements of its underlying components to build a coherent
+                system. It builds primarily upon SNOMED CT, RxNORM, and LOINC by integrating their
+                content and semantics, and normalizing the means to identify and version components,
+                lexically search, logically define, semantically retrieve, and collaboratively
+                extend.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="snomedctus">
+        <glossterm>SNOMED CT-US extension</glossterm>
+        <acronym>SNOMED CT-US</acronym>
+        <glossdef>
+            <para>Integrated SNOMED CT product, containing the US extension of terminology.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="snomedctusva">
+        <glossterm>SNOMED CT-US-VA extension</glossterm>
+        <acronym>SNOMED CT-US-VA</acronym>
+        <glossdef>
+            <para>Integrated SNOMED CT product, containing the US extension as well as the
+                terminology from the VA extension.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="lsb">
+        <glossterm>SNOMED CT-US-VA extension</glossterm>
+        <acronym>LSB</acronym>
+        <glossdef>
+            <para>The <link xlink:href="https://en.wikipedia.org/wiki/Linux_Standard_Base">Linux
+                    Standard Base</link> (LSB) is a joint project by several Linux distributions
+                under the organizational structure of the Linux Foundation to standardize the
+                software system structure, including the filesystem hierarchy used in the Linux
+                operating system. The LSB is based on the POSIX specification, the Single UNIX
+                Specification (SUS), and several other open standards, but extends them in certain
+                areas.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="npm">
+        <glossterm>Node package manager</glossterm>
+        <acronym>npm</acronym>
+        <glossdef>
+            <para><link xlink:href="https://en.wikipedia.org/wiki/Npm_(software)">npm </link>is the
+                default package manager for the JavaScript runtime environment Node.js.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="msa">
+        <glossterm>MSA</glossterm>
+        <glossdef>
+            <para><link xlink:href="https://smartbear.com/learn/api-design/what-are-microservices/"
+                    >Microservice architecture</link> is a method of developing software
+                applications as a suite of independently deployable, small, modular services in
+                which each service runs a unique process and communicates through a well-defined,
+                lightweight mechanism to serve a business goal.</para>
+        </glossdef>
+    </glossentry>
+    <glossentry xml:id="soa">
+        <glossterm>SOA</glossterm>
+        <glossdef>
+            <para>A <link xlink:href="https://en.wikipedia.org/wiki/Service-oriented_architecture"
+                    >service-oriented architecture</link> (SOA) is a style of software design where
+                services are provided to the other components by application components, through a
+                communication protocol over a network. The basic principles of service oriented
+                architecture are independent of vendors, products and technologies.[1] A service is
+                a discrete unit of functionality that can be accessed remotely and acted upon and
+                updated independently, such as retrieving a credit card statement online.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="isaac">
+        <glossterm>Informatics Standards Architecture ACceleration</glossterm>
+        <acronym>ISAAC</acronym>
+        <glossdef>
+            <para> The VA ISAAC (InformaticS Architecture ACceleration) effort seeks a holistic
+                approach to architecture that supports novelty within a rigorous—and vertically
+                integrated—deployment pipeline that enables knowledge engineers, developers,
+                testers, build managers, and operations personnel to work together effectively to
+                deliver assets to the points of care and analysis. This technology stack must
+                support integrated delivery of iterative revisions of specifications, services, and
+                content which are today delivered by isolated silo organizations who place the
+                implementation burden upon their consumers. This pipeline will be built from
+                existing software-based best practices, and will embrace DevOps culture and practice
+                by emphasizing collaboration and communication while automating the process of
+                product delivery. ISAAC will promote standards and clarify the interoperability of
+                terminologies for the workbench and Opentooling framework.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="komet">
+        <glossterm>KnOwledge Management EnvironmenT</glossterm>
+        <acronym>KOMET</acronym>
+        <glossdef>
+            <para> The VA ISAAC’s KnOwledge Management EnvironmenT (KOMET) realizes the informatics
+                architecture within a DevOps environment that integrates development, testing,
+                publication, and delivery of specifications, content, and services into a vertically
+                integrated environment that supports continuous delivery. </para>
+            <glossseealso otherterm="isaac">ISAAC</glossseealso>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="solor">
+        <glossterm>Semantic Operability using SNOMED CT, LOINC, and RxNorm </glossterm>
+        <acronym>SOLOR</acronym>
+        <glossdef>
+            <para>A single comprehensive terminology structure, populated with normalized content
+                from SNOMED CT, LOINC and RxNORM terminologies. A single, integrated terminology
+                will simplify the development and implementation of higher order models. The single
+                terminology model is based on the data structures of the SNOMED RF2 model, which
+                features comprehensive and consistent version representation, modularity of content
+                with defined dependencies between modules, standardized processes for promoting
+                content from one module to another, and standardized processes and structures for
+                extending the provided content to meet system requirements.</para>
+            <glossseealso otherterm="snomedct">SNOMED CT</glossseealso>
+            <glossseealso otherterm="loinc">LOINC</glossseealso>
+            <glossseealso otherterm="rxnorm">RxNorm</glossseealso>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="prisme">
+        <glossterm>Project Information System and Management Environment </glossterm>
+        <acronym>PRISME</acronym>
+        <glossdef>
+            <para> Environment to support common functionality required for project management,
+                workflow, and system integration. For example, issue tracking, artifact versioning,
+                and so forth. </para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="lego">
+        <glossterm>Lightweight Expression of Granular Objects</glossterm>
+        <acronym>LEGO</acronym>
+        <glossdef>
+            <para>Lightweight Expression of Granular Objects are reusable standards-based clinical
+                data objects designed to protect clinicians from complex codes. LEGOs accurately
+                capture clinical meaning and preserve clinical meaning between systems. </para>
+            <para> They are looseley based on the IHTSDO Observables Model concept and comprised of
+                self-contained units of knowledge, LEGOs transform patient data into a normalized
+                consumable form. Ultimately, LEGO models can provide a foundation for the
+                large-scale exchange of computer-processible medical information </para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="vha">
+        <glossterm>Veterans Health Administration</glossterm>
+        <acronym>VHA</acronym>
+        <glossdef>
+            <para>The Veterans Health Administration is America’s largest integrated health care
+                system with over 1,700 sites of care, serving 8.76 million Veterans each
+                year.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="va">
+        <glossterm>U.S. Department of Veterans Affairs</glossterm>
+        <acronym>VA</acronym>
+        <glossdef>
+            <para>The US Department of Veterans Affairs provides patient care and federal benefits
+                (financial, education, and so forth) to veterans and their dependents.
+                (http://www.va.gov/) . There are three major administrative areas: Veterans Benefits
+                Administration (VBA), Veterans Health Administration (VHA), and National Cemetery
+                Administration (NCA). </para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ahrq">
+        <glossterm>Agency for Healthcare Research and Quality</glossterm>
+        <acronym>AHRQ</acronym>
+        <glossdef>
+            <para>The Agency for Healthcare Research and Quality (AHRQ) (formerly known as the
+                Agency for Health Care Policy and Research) is an agency of the Department of Health
+                and Human Services (HHS) whose mission is to produce evidence to make health care
+                safer, higher quality, more accessible, equitable, and affordable, and to work to
+                make sure that the evidence is understood and used. AHRQ's priority areas of focus
+                are to: * Improve health care quality by accelerating implementation of
+                patient-centered outcomes research (PCOR). * Make health care safer. * Increase
+                accessibility by evaluating Affordable Care Act (ACA) coverage expansions. * Improve
+                health care affordability, efficiency, and cost transparency.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="arra">
+        <glossterm>American Recovery and Reinvestment Act</glossterm>
+        <acronym>ARRA</acronym>
+        <glossdef>
+            <para>The American Recovery and Reinvestment Act of 2009 (ARRA) (Public Law 111–5),
+                commonly referred to as the Stimulus or The Recovery Act, was an economic stimulus
+                package acted in the spring of 2009. While the primary purpose of ARRA was to
+                stimulate the economy, it included the enactment of the Health Information
+                Technology for Economic and Clinical Health Act, also known as the HITECH Act, which
+                among other things codified the Office of the National Coordinator for Health
+                Information Technology (ONC), and provided for health information technology
+                investments and incentive payments meant to encourage the Meaningful Use of EHRs.
+                This is important to VA as ONC has sponsored the development of standards which are
+                then named in regulation as being necessary for Meaningful Use certification.</para>
+            <glossseealso otherterm="hitech">HITECH Act</glossseealso>
+            <glossseealso otherterm="mu">Meaningful Use</glossseealso>
+            <glossseealso otherterm="onc">ONC</glossseealso>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ascx12">
+        <glossterm>Accredited Standards Committee X12</glossterm>
+        <acronym>ASC X12</acronym>
+        <glossdef>
+            <para>The Accredited Standards Committee X12 (ASC X12), is a Standards Development
+                Organization (SDO) chartered by the American National Standards Institute (ANSI) in
+                1979. [The name "X12" is a sequential designator assigned by ANSI at the time of
+                accreditation]. ASC X12 develops Electronic Data Interchange (EDI) standards for
+                multiple industries. Of interest to the VA is the Insurance industry standards which
+                includes healthcare eligibility and billing standards. These healthcare eligibility
+                and billing standards are widely used, and their use is mandated by the Health
+                Insurance Portability and Accountability Act of 1996 (HIPAA).</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="astm">
+        <glossterm>American Society for Testing and Materials</glossterm>
+        <acronym>ASTM International</acronym>
+        <glossdef>
+            <para>ASTM International, known until 2001 as the American Society for Testing and
+                Materials (ASTM), is an international standards organization that develops and
+                publishes voluntary consensus technical standards for a wide range of materials,
+                products, systems, and services. While ASTM is generally not involved in Healthcare
+                IT standards, they developed a Continuity of Care Record (CCR) standard, which was
+                included in Stage 1 of Meaningful Use.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="hipaa">
+        <glossterm>Health Insurance Portability and Accountability Act</glossterm>
+        <acronym>HIPAA</acronym>
+        <glossdef>
+            <para>The Health Insurance Portability and Accountability Act of 1996 (HIPAA) (Public
+                Law 104–191) contains two sections, the second of which directly affects the VA.
+                Title I protects health insurance coverage for workers and their families when they
+                change or lose their jobs. Title II, known as the Administrative Simplification (AS)
+                provisions, requires the establishment of national standards for electronic health
+                care transactions and national identifiers for providers, health insurance plans,
+                and employers. The AS provisions also address the security and privacy of health
+                data. The standards are meant to improve the efficiency and effectiveness of the
+                nation's health care system by encouraging the widespread use of electronic data
+                interchange in the U.S. health care system. The HIPAA AS provisions mandate, among
+                other things, the use of ASC X12, HL7, and NCPDP messaging standards. Note that the
+                HIPAA privacy provisions were strengthened in the ARRA legislation.</para>
+            <glossseealso otherterm="arra">ARRA</glossseealso>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="hitech">
+        <glossterm>Health Information Technology for Economic and Clinical Health Act</glossterm>
+        <acronym>HITECH Act</acronym>
+        <glossdef>
+            <para>The Health Information Technology for Economic and Clinical Health Act,
+                abbreviated HITECH Act, was enacted under Title XIII of the American Recovery and
+                Reinvestment Act of 2009. The HITECH Act provides funding to promote and expand the
+                adoption of health information technology, including the creation of a nationwide
+                network of electronic health records. The HITECH Act set meaningful use of
+                interoperable EHR adoption in the health care system as a critical national goal and
+                incentivized EHR adoption, and provides incentives for adoption of MU-certified EHR
+                systems, which later become penalties for non-use of such systems. The Act
+                officially established the Office of the National Coordinator for Health Information
+                Technology (ONC), (which already existed under Executive Order 13335); as well as
+                the The HIT Policy Committee which recommends a policy framework for the development
+                and adoption of a nationwide health information technology infrastructure that
+                permits the electronic exchange and use of health information; and the HIT Standards
+                Committee which recommends to the National Coordinator standards, implementation
+                specifications, and certification criteria. The activities of these organizations
+                are important to VA as they deal with the development of standards which are then
+                named in regulation as being necessary for Meaningful Use certification and
+                implemented in the Nationwide Health Information Network.</para>
+            <glossseealso otherterm="arra">ARRA</glossseealso>
+            <glossseealso otherterm="hitpc">HITPC</glossseealso>
+            <glossseealso otherterm="hitsc">HITSC</glossseealso>
+            <glossseealso otherterm="mu">Meaningful Use</glossseealso>
+            <glossseealso otherterm="onc">ONC</glossseealso>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="hitpc">
+        <glossterm>Health Information Technology Policy Committee</glossterm>
+        <acronym>HITPC</acronym>
+        <glossdef>
+            <para>A committee which will make recommendations to the National Coordinator for Health
+                IT on a policy framework for the development and adoption of a nationwide health
+                information infrastructure, including standards for the exchange of patient medical
+                information. </para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="hitsc">
+        <glossterm>Health Information Technology Standards Committee</glossterm>
+        <acronym>HITSC</acronym>
+        <glossdef>
+            <para>A committee which is charged with making recommendations to the National
+                Coordinator for Health IT on standards, implementation specifications, and
+                certification criteria for the electronic exchange and use of health
+                information.</para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.healthit.gov/policy-researchers-implementers/health-it-standards-committee</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="hitsp">
+        <glossterm>Health Information Technology Standards Panel</glossterm>
+        <acronym>HITSP</acronym>
+        <glossdef>
+            <para>A cooperative partnership between the public and private sectors for the purpose
+                of harmonizing and integrating standards that will meet clinical and business needs
+                for sharing information among organizations and systems.</para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.hitsp.org/</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ihtsdo">
+        <glossterm>International Health Terminology Standards Development Organisation</glossterm>
+        <acronym>IHTSDO</acronym>
+        <glossdef>
+            <para>The International Health Terminology Standards Development Organisation (IHTSDO)
+                is an international non-profit standards development organization. Its mission is to
+                develop, maintain, promote and deliver medical terminology products in order to
+                improve the health in a global scale through the development and application of
+                appropriately standardized clinical terminologies in general. In particular, the
+                IHTSDO maintains and promotes SNOMED CT to ensure safe, precise and effective
+                exchange of clinical and health related information.</para>
+            <glossseealso otherterm="snomedct">SNOMED CT</glossseealso>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="loinc">
+        <glossterm>Logical Observation Identifiers Names and Codes</glossterm>
+        <acronym>LOINC</acronym>
+        <glossdef>
+            <para>Logical Observation Identifiers Names and Codes (LOINC) is a standard for
+                identifying medical laboratory observations. It was developed and is maintained by
+                the Regenstrief Institute. LOINC was created in response to the demand for an
+                electronic database for clinical care and management and is publicly available at no
+                cost. LOINC applies universal code names and identifiers to medical terminology
+                related to electronic health records. The purpose is to assist in the electronic
+                exchange and gathering of clinical results (such as laboratory tests, clinical
+                observations, outcomes management and research). LOINC has two main parts:
+                laboratory LOINC and clinical LOINC. Clinical LOINC contains a subdomain of Document
+                Ontology which captures types of clinical reports and documents. It is noted that
+                there is some overlap between LOINC and SNOMED-CT. Recently LOINC and IHTSDO agreed
+                to harmonize the two standards.</para>
+            <glossseealso otherterm="ihtsdo">IHTSDO</glossseealso>
+            <glossseealso otherterm="snomedct">SNOMED CT</glossseealso>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="onc">
+        <glossterm>Office of the National Coordinator For Health Information Technology</glossterm>
+        <acronym>ONC</acronym>
+        <glossdef>
+            <para> A resource to the entire health system to support the adoption of health
+                information technology and the promotion of a nationwide health information exchange
+                to improve health care.</para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.healthit.gov/newsroom/about-onc</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="rxnorm">
+        <glossterm>RxNorm</glossterm>
+        <glossdef>
+            <para>RxNorm, produced by the National Library of Medicine, provides normalized names
+                for clinical drugs and links its names to many of the drug vocabularies commonly
+                used in pharmacy management and drug interaction software, including those of First
+                Databank, Micromedex, MediSpan, Gold Standard, and Multum. By providing links
+                between these vocabularies, RxNorm can mediate messages between systems not using
+                the same software and vocabulary.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="snomedct">
+        <glossterm>Systematized Nomenclature of Medicine: Clinical Terms</glossterm>
+        <acronym>SNOMED CT</acronym>
+        <glossdef>
+            <para>The Systematized Nomenclature of Medicine: Clinical Terms (SNOMED CT) is the most
+                comprehensive, multilingual clinical terminology in the world. It is a vital
+                component for safe and effective communication and reuse of meaningful health
+                information.</para>
+            <glossseealso otherterm="ihtsdo">IHTSDO</glossseealso>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ahima">
+        <glossterm>American Health Information Management Association</glossterm>
+        <acronym>AHIMA</acronym>
+        <glossdef>
+            <para>A professional organization for the field of medical record management.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ahlta">
+        <glossterm>Armed Forces Health Longitudinal Technology Application</glossterm>
+        <acronym>AHLTA</acronym>
+        <glossdef>
+            <para>The clinical documentation engine used by DoD Physicians to write their notes,
+                input orders, document procedures performed and provide the basis of medical coding
+                information.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="arb">
+        <glossterm>Architecture Review Board (HL7)</glossterm>
+        <acronym>ARB</acronym>
+        <glossdef>
+            <para>The HL7 Architecture Review Board seeks to define a coherent architecture for HL7
+                work that defines the relationships among the HL7 work products and how they relate
+                to other standards and components of local implementations. This architecture
+                includes the Business Architecture by which these work products are produced and
+                managed through their life cycle, the governance that will be enacted on these work
+                products, and the scope of the standardization effort itself.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="bhie">
+        <glossterm>Bi-directional Health Information Exchange</glossterm>
+        <acronym>BHIE</acronym>
+        <glossdef>
+            <para>A series of communications protocols developed by the VA used to exchange
+                healthcare information between VA healthcare facilities nationwide and between VA
+                healthcare facilities and DoD healthcare facilities.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="cac">
+        <glossterm>Clinical Application Coordinator</glossterm>
+        <acronym>CAC</acronym>
+        <glossdef>
+            <para>The Clinical Application Coordinator (CAC) as a part of the Resource and Patient
+                Management System (RPMS)-EHR implementation team provides ongoing operational
+                support for certain RPMS packages that comprise and/or interface with the Electronic
+                Health Record.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="capri">
+        <glossterm>Compensation and Pension Record Interchange</glossterm>
+        <acronym>CAPRI</acronym>
+        <glossdef>
+            <para>CAPRI software was designed to promote efficient communications between VHA and
+                VBA. It offers VBA Rating Veteran Service Representatives and Decision Review
+                Officers help in building the rating decision documentation through on-line access
+                to medical data.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ccd">
+        <glossterm>Continuity of Care Document</glossterm>
+        <acronym>CCD</acronym>
+        <glossdef>
+            <para>An XML-based markup standard/specification intended to specify the encoding,
+                structure, and semantics of a patient summary clinical document for exchange. The
+                CCD is a constraint on the HL7 Clinical Document Architecture (CDA) standard
+                specifying that the content of documents consist of a mandatory textual part for
+                human interpretation and optional structured parts for software processing.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ccda">
+        <glossterm>Consolidated Clinical Document Architecture</glossterm>
+        <acronym>C-CDA</acronym>
+        <glossdef>
+            <para>An ANSI-certified standard from Health Level Seven (HL7), which specifies the
+                syntax and supplies a framework for specifying the full semantics of a clinical
+                document. C-CDA defines a clinical document as having six characteristics;
+                Persistence, Stewardship, Potential for Authentication, Context, Wholeness, and
+                Human Readability.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ccdi">
+        <glossterm>Critical Care Data Interface</glossterm>
+        <acronym>CCDI</acronym>
+        <glossdef>
+            <para>Interfaces which exchange information between VistA, the VA's computerized patient
+                record and information system, and GE's QS(R) Critical Care Clinical Information
+                System. These interfaces will enable VA Medical Centers nationwide to improve
+                efficiency and accuracy by reducing duplicate data entry. In addition, they will
+                support a national research data repository for patients treated in critical care
+                and operating room environments.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ccdss">
+        <glossterm>Clinical Care Delivery Support System</glossterm>
+        <acronym>CCDSS</acronym>
+        <glossdef>
+            <para>A system that provides clinicians, staff, patients or other individuals with
+                knowledge and person-specific information, intelligently filtered or presented at
+                appropriate times, to enhance health and health care. </para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.healthit.gov/policy-researchers-implementers/clinical-decision-support-cds</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ccow">
+        <glossterm>Clinical Context Object Workgroup</glossterm>
+        <acronym>CCOW</acronym>
+        <glossdef>
+            <para>A vendor independent HL7 standard protocol designed to enable disparate
+                applications to synchronize in real time at the user-interface level, which allows
+                applications to present information at the desktop and/or portal level in a unified
+                way.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="cds">
+        <glossterm>Clinical Decision Support</glossterm>
+        <acronym>CDS</acronym>
+        <glossdef>
+            <para>Provision of pertinent knowledge and person-specific information to clinical
+                decision makers to enhance health and health care.1 A required component of
+                Meaningful Use. For further detail, review the CDS Content Delivery Roadmap.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="cem">
+        <glossterm>Clinical Element Model</glossterm>
+        <acronym>CEM</acronym>
+        <glossdef>
+            <para>A small reusable representation of clinical information that is bound to a
+                terminology system for its meaning. The CEM approach and repository of models was
+                developed by Intermountain Healthcare and is used within their clinical
+                systems.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="chcs">
+        <glossterm>Composite Health Care System</glossterm>
+        <acronym>CHCS</acronym>
+        <glossdef>
+            <para>A module-based medical informatics system designed by Science Applications
+                International Corporation (SAIC) and used by all DoD health care centers. Modules
+                include RAD (radiology), LAB (Laboratory), PHR (Pharmacy), PAS (Patient Appointing
+                and Scheduling), MCP (Managed Care Program; used to support TRICARE enrollees by
+                enrolling them to Primary Care Managers), PAD (Patient Administration): MRT (Medical
+                Records Tracking), MSA (Medical Service Accounting) medical billing, WAM (Workload
+                Assignment Module), DTS (Dietetics), CLN (CLinical: Nursing, Physician, and Allied
+                Health), DAA (Database Administration), ADM (Ambulatory Data Module) Medical Coding
+                of outpatient visits, and TOOLS (FileMan).</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="chdr">
+        <glossterm>Clinical/Health Data Repository</glossterm>
+        <acronym>CHDR</acronym>
+        <glossdef>
+            <para>The Department of Defense (DoD) and the Department of Veterans Affairs (VA) in
+                partnership, designed and implemented a Clinical Data Repository/Health Data
+                Repository (CHDR) system that generates standards-based, computable electronic
+                health records that can be exchanged and shared between the two agencies healthcare
+                systems.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="cimi">
+        <glossterm>Clinical Information Modeling Initiative</glossterm>
+        <acronym>CIMI</acronym>
+        <glossdef>
+            <para>An initiative established to improve the interoperability of healthcare
+                information systems through shared implementable clinical information models</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="cprs">
+        <glossterm>Computerized Patient Record System</glossterm>
+        <acronym>CPRS</acronym>
+        <glossdef>
+            <para>A graphical user interface (GUI) for VistA.
+                http://www.ehealth.va.gov/EHEALTH/CPRS_Demo.asp</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="cqm">
+        <glossterm>Clinical Quality Measure</glossterm>
+        <acronym>CQM</acronym>
+        <glossdef>
+            <para>CQMs are tools that help many stakeholders, including CMS and health care
+                providers themselves, measure and track the quality of health care services provided
+                by eligible professionals, eligible hospitals, and CAHs within our health care
+                system. They measure many aspects of patient care including health outcomes,
+                clinical processes, patient safety, efficient use of healthcare resources, care
+                coordination, patient engagement, and population and public health.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="dbq">
+        <glossterm>Disability Benefits Questionnaire</glossterm>
+        <acronym>DBQ</acronym>
+        <glossdef>
+            <para>DBQs are downloadable forms created for Veterans' use in the evaluation process
+                for disability benefits. DBQs will help speed the processing of Veterans' disability
+                compensation and pension claims. DBQs allow Veterans and Service members to have
+                more control over the disability claims process by giving them the option of
+                visiting a primary care provider in their community, at their expense, instead of
+                completing an evaluation at a Department of Veterans Affairs (VA) facility. The
+                streamlined forms use check boxes and standardized language so that the disability
+                rating can be made accurately and quickly.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="edi">
+        <glossterm>Electronic Data Interchange</glossterm>
+        <acronym>EDI</acronym>
+        <glossdef>
+            <para>The transfer of structured data, by agreed message standards, from one computer
+                system to another without human intervention. EDI relies on primarily older
+                technologies and point-to-point messaging.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ehr">
+        <glossterm>Electronic Health Record</glossterm>
+        <acronym>EHR</acronym>
+        <glossdef>
+            <para>A systematic collection of electronic health information about individual patients
+                or populations. See also Interagency EHR (iEHR)</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="fhim">
+        <glossterm>Federal Health Information Model</glossterm>
+        <acronym>FHIM</acronym>
+        <glossdef>
+            <para>A coordination of several partner agencies with the development of electronic
+                medical records, information and terminology standards, including the coordination
+                of agency efforts at relevant Standards Development Organizations (SDOs).</para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.fhims.org/</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="fhir">
+        <glossterm>Fast Health Information Resources</glossterm>
+        <acronym>FHIR</acronym>
+        <glossdef>
+            <para>Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set
+                of "Resources" that represent granular clinical concepts. The resources can be
+                managed in isolation, or aggregated into complex documents. Technically, FHIR is
+                designed for the web; the resources are based on simple XML or JSON structures, with
+                an http-based RESTful protocol where each resource has predictable URL. Where
+                possible, open internet standards are used for data representation. </para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://wiki.hl7.org/index.php?title=FHIR</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="haig">
+        <glossterm>Health Architecture Interagency Group</glossterm>
+        <acronym>HAIG</acronym>
+        <glossdef>
+            <para>A component of the VA/DoD IPO structure.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="harb">
+        <glossterm>Health Architecture Review Board</glossterm>
+        <acronym>HARB</acronym>
+        <glossdef>
+            <para>Serves as an advisory working sub-group to the VA/DoD Health Executive Council
+                (HEC) that provides architecture oversight and approval due diligence for joint
+                DoD/VA health programs to facilitate interagency cooperation and foster
+                collaboration on enterprise architecture for interagency Health Information
+                Technology (HIT) initiatives; activities that were previously the responsibility of
+                the HEC IM/IT WG.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="hl7">
+        <glossterm>Health Level 7</glossterm>
+        <acronym>HL7</acronym>
+        <glossdef>
+            <para>A non-profit organization involved in the development of international healthcare
+                informatics interoperability standards. The name "Health Level-7" is a reference to
+                the seventh layer of the ISO OSI Reference model also known as the application
+                layer, indicating that HL7 focuses on application layer protocols for the health
+                care domain, independent of lower layers.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="hmp">
+        <glossterm>Health Management Platform</glossterm>
+        <acronym>HMP</acronym>
+        <glossdef>
+            <para>An IT platform for browser-based, clinical (nurse and physician) user-interface
+                modules that are healthcare team-driven and enable functionality which decrease
+                cognitive load, managing relationships between conditions, interventions and
+                observations, acquire data (including documentation) as a by-product of workflow and
+                support higher quality, safe patient care and clinician satisfaction.</para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.osehra.org/document/va-health-informatics-initiative-health-management-platform-virtual-patient-record</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="icd">
+        <glossterm>International Classification of Diseases</glossterm>
+        <acronym>ICD</acronym>
+        <glossdef>
+            <para>UN-sponsored WHO standard diagnostic tool for epidemiology, health management and
+                clinical purposes.2 The ICD is revised periodically and is currently in its tenth
+                revision. (ICD-10)</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="iehr">
+        <glossterm>Interagency Electronic Health Record</glossterm>
+        <acronym>iEHR</acronym>
+        <glossdef>
+            <para>A healthcare IT system currently under development which will integrate the Health
+                IT resources of both the VA and the DoD to acquire next generation EHR capabilities
+                for both departments.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ihc">
+        <glossterm>Intermountain Healthcare</glossterm>
+        <acronym>IHC</acronym>
+        <glossdef>
+            <para>A non-profit healthcare system based in Salt Lake City, UT., which is the largest
+                healthcare provider in the Intermountain West.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ihe">
+        <glossterm>Integrating the Healthcare Enterprise</glossterm>
+        <acronym>IHE</acronym>
+        <glossdef>
+            <para>Associated with Patient Care Devices (PCD) and Pulse Oximetry (POI)</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ipo">
+        <glossterm>Interagency Program Office</glossterm>
+        <acronym>IPO</acronym>
+        <glossdef>
+            <para>IPO will act as a single point of accountability in the development and
+                implementation of electronic health records systems or capabilities as well as
+                accelerating the exchange of health care information to support the delivery of
+                health care by both Departments. The IPO will also have responsibility for oversight
+                and management of personnel and benefits electronic data sharing between the
+                Departments.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="irdc">
+        <glossterm>Informatics Research and Design Center</glossterm>
+        <acronym>IRDC</acronym>
+        <glossdef>
+            <para>A VA facility and operations base for the Knowledge Based Systems group, located
+                in Nashville, TN</para>
+        </glossdef>
+    </glossentry>
+
+
+
+    <glossentry xml:id="jic">
+        <glossterm>Joint Initiative Council</glossterm>
+        <acronym>JIC</acronym>
+        <glossdef>
+            <para>Formed to enable common, timely health informatics standards by addressing and
+                resolving issues of gaps, overlaps, and counterproductive standardization efforts
+                for international standardization needs.</para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.jointinitiativecouncil.org/</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="json">
+        <glossterm>Javascript Object Notation</glossterm>
+        <acronym>JSON</acronym>
+        <glossdef>
+            <para>A text-based open standard designed for human-readable data interchange, used
+                primarily to transmit data between a server and web application, serving as an
+                alternative to XML.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="kbs">
+        <glossterm>Knowledge Based Systems</glossterm>
+        <acronym>KBS</acronym>
+        <glossdef>
+            <para>Office that extends past VA informatics by infusing clinical informatics expertise
+                into VHA healthcare decision making, strategic planning, and delivery.</para>
+        </glossdef>
+    </glossentry>
+
+
+    <glossentry xml:id="mdht">
+        <glossterm>Model Driven Health Tools</glossterm>
+        <acronym>MDHT</acronym>
+        <glossdef>
+            <para>An open source tooling project initiated and lead by VHA within the Open Health
+                Tools (OHT) organization. VA is also one of the founding members of OHT.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="mdws">
+        <glossterm>Medical Domain Web Services</glossterm>
+        <acronym>MDWS</acronym>
+        <glossdef>
+            <para>A suite of Service Oriented Architecture (SOA) middle-tier web services that
+                exposes medical domain functionality, Medical Domain Objects (MDO). MDWS is equipped
+                with the capacity to virtualize any legacy Veterans Health Information Systems and
+                Technology Architecture (VistA) Remote Procedure Call (RPC) as a web service. A web
+                service is an Application Programming Interface (API), which uses Simple Object
+                Access Protocol (SOAP), the standardized protocol to communicate with subscribed
+                client applications. http://osehra.org/group/mdws The MDWS Group at OSEHRA is
+                intended to coordinate the further development and maintenance of MDWS as an Open
+                Source project.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="mu">
+        <glossterm>Meaningful Use</glossterm>
+        <acronym>MU</acronym>
+        <glossdef>
+            <para>An incentive-based program to be rolled out in 3 planned stages over the period of
+                approximately 2010 through 2016, which is designed to insure that providers show the
+                use of certified EHR technology in ways that can be measured significantly in
+                quality and quantity. The three core MU requirements for a certified EHR are: use in
+                a meaningful manner, such as e-prescribing; the electronic exchange of health
+                information to improve quality of health care; and utilization in submitting
+                clinical quality and other measures.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ncpdp">
+        <glossterm>National Council for Prescription Drug Programs</glossterm>
+        <acronym>NCPDP</acronym>
+        <glossdef>
+            <para>A not-for-profit, ANSI-accredited, standards development organization representing
+                most sectors of the pharmacy services industry. The membership provides healthcare
+                business solutions through education and standards focused on improving
+                communication within the pharmacy industry.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ndfrt">
+        <glossterm>National Drug File - Reference Terminology</glossterm>
+        <acronym>NDF-RT</acronym>
+        <glossdef>
+            <para>The National Drug File - Reference Terminology (NDF-RT) is produced by the U.S.
+                Department of Veterans Affairs, Veterans Health Administration (VHA). NDF-RT is an
+                extension of the VHA National Drug File (NDF). It organizes the drug list into a
+                formal representation. NDF-RT is used for modeling drug characteristics including
+                ingredients, chemical structure, dose form, physiologic effect, mechanism of action,
+                pharmacokinetics, and related diseases. </para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="niem">
+        <glossterm>National Information Exchange Model</glossterm>
+        <acronym>NIEM</acronym>
+        <glossdef>
+            <para>An XML-based information exchange framework representing a collaborative
+                partnership of agencies and organizations across all levels of the U.S. government
+                (federal, state, tribal, and local), as well as private industry. NIEM is designed
+                to develop, disseminate, and support enterprise-wide information exchange standards
+                and processes to enable automated information sharing.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="nlm">
+        <glossterm>National Library of Medicine</glossterm>
+        <acronym>NLM</acronym>
+        <glossdef>
+            <para>A division of the National Institutes of Health (NIH), representing the world's
+                largest medical library. The NLM includes more than seven million books, journals,
+                technical reports, manuscripts, microfilms, photographs and images on medicine and
+                related sciences including some of the world's oldest and rarest works.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="nprm">
+        <glossterm>Notices of Proposed Rule Making</glossterm>
+        <acronym>NPRM</acronym>
+        <glossdef>
+            <para>A notice of proposed rule making (NPRM) is a public notice issued by law when one
+                of the independent agencies of the United States government wishes to add, remove,
+                or change a rule or regulation as part of the rulemaking process. It is an important
+                part of United States administrative law which facilitates government by typically
+                creating a process of taking of public comment.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="oia">
+        <glossterm>Office of Information and Analytics</glossterm>
+        <acronym>OIA</acronym>
+        <glossdef>
+            <para>An office that provides strategy and technical direction, guidance, and policy to
+                ensure that IT resources are acquired and managed for the VA in a manner that
+                implements various Federal laws and regulations.</para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.oit.va.gov/About_the_Office_of_OI_T.asp</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="oit">
+        <glossterm>Office of Information and Technology</glossterm>
+        <acronym>OIT</acronym>
+        <glossdef>
+            <para>OIT delivers available adaptable, secure and cost effective technology services to
+                the Department of Veterans Affairs (VA) and acts as a steward for all VA's IT assets
+                and resources.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="omg">
+        <glossterm>Object Management Group</glossterm>
+        <acronym>OMG</acronym>
+        <glossdef>
+            <para>An international, open membership, non-profit computer industry standards
+                consortium focused on modeling (programs, systems and business processes) and
+                model-based standards. http://www.omg.org/</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="pcast">
+        <glossterm>President's Council of Advisors on Science and Technology.</glossterm>
+        <acronym>PCAST</acronym>
+        <glossdef>
+            <para>An advisory group of the nation's leading scientists and engineers who directly
+                advise the President and the Executive Office of the President. PCAST makes policy
+                recommendations in the many areas where understanding of science, technology, and
+                innovation is key to strengthening our economy and forming policy that works for the
+                American people. PCAST periodically produces reports on a number of technology
+                subject areas, one of which is Networking and Information Technology Research and
+                Development. Under this category, on December 8, 20, a "PCAST report was published
+                titled "Realizing the Full Potential of Health Information Technology to Improve
+                Healthcare for Americans: The Path Forward."
+                http://www.whitehouse.gov/sites/default/files/microsites/ostp/pcast-health-it-report.pdf</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="pcd">
+        <glossterm>Patient Care Devices</glossterm>
+        <acronym>PCD</acronym>
+        <glossdef>
+            <para>A medical device used in the process of diagnosing, monitoring, treating, or
+                preventing disease. </para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://www.ihe.net/resources/upload/ihe_pcd_user_handbook_2011_edition.pdf</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="po">
+        <glossterm>Pulse Oximetry</glossterm>
+        <acronym>PO</acronym>
+        <glossdef>
+            <para>Pulse Oximetry is a non-invasive method for monitoring a patient's O2 saturation
+                using a pulse oximeter device.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="poi">
+        <glossterm>IHE Patient Care Device Technical Framework Supplement - Pulse Oximetry
+            Integration.</glossterm>
+        <acronym>POI</acronym>
+        <glossdef>
+            <para>This supplement builds on existing integration profiles (i.e., PCD, DEC) and
+                transactions (i.e., PCD-01) and specifies content constrained for exchanging pulse
+                oximetry data</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="raem">
+        <glossterm>Requirements Analysis and Engineering Management</glossterm>
+        <acronym>RAEM</acronym>
+        <glossdef>
+            <para>Management of those tasks that encompass determining the needs or conditions to be
+                met for a new or altered product, including conflicting requirements of various
+                stakeholders, analyzing, documenting, validating and managing software or system
+                requirements.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="rest">
+        <glossterm>Representational State Transfer</glossterm>
+        <acronym>REST</acronym>
+        <glossdef>
+            <para>An architectural style that abstracts the architectural elements within a
+                distributed hypermedia system. REST ignores the details of component implementation
+                and protocol syntax in order to focus on the roles of components, the constraints
+                upon their interaction with other components, and their interpretation of
+                significant data elements.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ri">
+        <glossterm>Regenstreif Institute</glossterm>
+        <acronym>RI</acronym>
+        <glossdef>
+            <para>A private, non-profit research organization founded in 1969, heavily involved in
+                the field of medical informatics and health services research, which is affiliated
+                with the Indiana University School of Medicine and based in Indianapolis.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="samhsa">
+        <glossterm>Substance Abuse and Mental Health Services Administration</glossterm>
+        <acronym>SAMHSA</acronym>
+        <glossdef>
+            <para>A branch of the U.S. Department of Health and Human Services, headquartered in
+                Rockville, MD., charged with improving the quality and availability of prevention,
+                treatment, and rehabilitative services in order to reduce illness, death,
+                disability, and cost to society resulting from substance abuse and mental
+                illnesses.3 www.samhsa.gov</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="scr">
+        <glossterm>Standards Collaboration Roadmap</glossterm>
+        <acronym>SCR</acronym>
+        <glossdef>
+            <para>A guide identifying the strategic partners, priorities, established objectives and
+                evaluation criteria for interagency collaboration and joint standards architecture
+                engagement. The roadmap will include both internal VA programs and external agency
+                partner collaboration activities. The SCR is a revision-controlled document, updated
+                as needed to reflect the dynamic nature of the healthcare IT environment.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="sdl">
+        <glossterm>Standards Development Lifecycle</glossterm>
+        <acronym>SDL</acronym>
+        <glossdef>
+            <para>A 6-step cycle used to define the process steps and stakeholders involved within
+                the development and adoption of standards.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="sdo">
+        <glossterm>Standards Development Organization</glossterm>
+        <acronym>SDO</acronym>
+        <glossdef>
+            <para>An organization whose primary activities are developing, coordinating,
+                promulgating, revising, amending, reissuing, interpreting, or otherwise producing
+                technical standards that are intended to address the needs of a relatively wide base
+                of affected adopters (e.g. Health IT). SDOs may be governmental, quasi-governmental
+                or non-governmental entities. Quasi- and non-governmental standards organizations
+                are often non-profit organizations.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="smart">
+        <glossterm>System for the Mechanical Analysis and Retrieval of Text</glossterm>
+        <acronym>SMART</acronym>
+        <glossdef>
+            <para>An information retrieval system used within documentation and forms. The SMART
+                (System for the Mechanical Analysis and Retrieval of Text) Information Retrieval
+                System is an information retrieval system developed at Cornell University in the
+                1960s. Many important concepts in information retrieval were developed as part of
+                research on the SMART system, including the vector space model, relevance feedback,
+                and Rocchio classification. </para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>https://en.wikipedia.org/wiki/SMART_Information_Retrieval_System</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="smarthealthit">
+        <glossterm>Substitutable Medical Applications, Reusable Technologies (SMART)
+            Platforms</glossterm>
+        <acronym>SMART on FHIR</acronym>
+        <glossdef>
+            <para>SMART Health IT is an open, standards based technology platform that enables
+                innovators to create apps that seamlessly and securely run across the healthcare
+                system. Using an electronic health record (EHR) system or data warehouse that
+                supports the SMART standard, patients, doctors, and healthcare practitioners can
+                draw on this library of apps to improve clinical care, research, and public health.
+                The SMART platform is composed of open standards, open source tools for developers
+                building apps and a publicly accessible app gallery. To date, dozens of clinical
+                applications have been built on this platform, and SMART applications are being used
+                to provide clinical care at healthcare institutions, including Boston Children’s
+                Hospital and Duke Medicine. The project is run out of the not-for-profit
+                institutions, Boston Children’s Hospital Computational Health Informatics Program
+                and the Harvard Medical School Department for Biomedical Informatics.</para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc>http://smarthealthit.org/smart-on-fhir/</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+    <glossentry xml:id="sme">
+        <glossterm>Subject Matter Expert</glossterm>
+        <acronym>SME</acronym>
+        <glossdef>
+            <para>An individual who is broadly accepted as an expert in a particular area or
+                topic.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="sparql">
+        <glossterm>A recursive acronym for SPARQL Protocol and RDF Query Language</glossterm>
+        <acronym>SPARQL</acronym>
+        <glossdef>
+            <para>A query language for databases, able to retrieve and manipulate data stored in
+                Resource Description Framework format, which was made a standard by the RDF Data
+                Access Working Group (DAWG) of the World Wide Web Consortium, and is recognized as
+                one of the key technologies of the semantic web. SPARQL v1.1 was released in March,
+                2013.4 </para>
+            <bibliography>
+                <title>Source</title>
+                <bibliomisc> http://www.w3.org/TR/sparql11-overview/</bibliomisc>
+            </bibliography>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="sro">
+        <glossterm>Standards Related Organization</glossterm>
+        <acronym>SRO</acronym>
+        <glossdef>
+            <para>An organization whose primary activities are directly inter-related or critically
+                affected by the development, coordination, promulgation, revision, amendment,
+                reissuance, interpretation, or production of technical standards.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="ssc">
+        <glossterm>Standards Steering Committee</glossterm>
+        <acronym>SSC</acronym>
+        <glossdef>
+            <para>A committee representing multiple organizations within VHA, chartered to refine
+                and vet the Standards Life Cycle Process document and establish/maintain a
+                governance process for prioritization and validation of standards and
+                standards-related activities.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="sts">
+        <glossterm>Standards and Terminology Service</glossterm>
+        <acronym>STS</acronym>
+        <glossdef>
+            <para>To prepare standards specifying principles and methods for the preparation and
+                management of language resources within the framework of standardization and related
+                activities.5 (See also ISO/TC 37)</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="uml">
+        <glossterm>Unified Modeling Language</glossterm>
+        <acronym>UML</acronym>
+        <glossdef>
+            <para>A standardized general-purpose modeling language in the field of object-oriented
+                software engineering. UML was added to the list of OMG adopted technologies in
+                1997.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="vbms">
+        <glossterm>Veterans Benefit Management System</glossterm>
+        <acronym>VBMS</acronym>
+        <glossdef>
+            <para>The VA's web-based, electronic claims processing solution. The first Generation of
+                VBMS was deployed in January 2013. The integration of VBMS with the online portal
+                eBenefits, provides an end-to-end digital filing capability.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="vehu">
+        <glossterm>VHA eHealth University</glossterm>
+        <acronym>VEHU</acronym>
+        <glossdef>
+            <para>The online presence and training platform for the Office of Training Strategy.
+                VeHU is used to promote collaboration of clinical staff, developers, and informatics
+                staff to ensure VA resources are utilized in every possible capacity.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="visn">
+        <glossterm>Veterans Integrated Service Networks</glossterm>
+        <acronym>VISN</acronym>
+        <glossdef>
+            <para>22 geographic based VA operating units or networks, allowing networks to manage
+                themselves and adapt to the specific demographics of their location.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="vista">
+        <glossterm>Veterans Information Systems and Technology Architecture</glossterm>
+        <acronym>VistA</acronym>
+        <glossdef>
+            <para>An enterprise-wide information system consisting of a range of over 150 integrated
+                software modules designed for the support of clinical care, financial functions, and
+                infrastructure management. A GUI developed for clinician use, Computerized Patient
+                Record System (CPRS), provides a client-server interface that allows health care
+                providers to review and update a patient's electronic medical record.</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="who">
+        <glossterm>World Health Organization</glossterm>
+        <acronym>WHO</acronym>
+        <glossdef>
+            <para>A specialized agency of the United Nations (UN) that is concerned with
+                international public health, established on 7 April 1948, and headquartered in
+                Geneva, Switzerland.8</para>
+        </glossdef>
+    </glossentry>
+
+    <glossentry xml:id="xml">
+        <glossterm>eXtensible Markup Language</glossterm>
+        <acronym>XML</acronym>
+        <glossdef>
+            <para>A markup language that defines a set of rules for encoding documents in a format
+                that is both human-readable and machine-readable. The design goals of XML emphasize
+                simplicity, generality, and usability over the Internet.9</para>
+        </glossdef>
+    </glossentry>
+
+
+    <glossentry xml:id="means">
+        <glossterm>Multi-Enterprise Architecture of Networked Services</glossterm>
+        <acronym>MEANS</acronym>
+        <glossdef>
+            <para>See HITSP 08 N 345 MEANS - A Multi-Enterprise Architecture of Networked Services
+                standard. Note that this standard may be obsolete.</para>
+        </glossdef>
+    </glossentry>
+</glossary>

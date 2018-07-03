@@ -75,22 +75,22 @@
     </pluginRepository>
   </pluginRepositories>
   <build>
-    <sourceDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\src\main\java</sourceDirectory>
-    <scriptSourceDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\src\main\scripts</scriptSourceDirectory>
-    <testSourceDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\src\test\java</testSourceDirectory>
-    <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target\classes</outputDirectory>
-    <testOutputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target\test-classes</testOutputDirectory>
+    <sourceDirectory>${project.basedir}\src\main\java</sourceDirectory>
+    <scriptSourceDirectory>${project.basedir}\src\main\scripts</scriptSourceDirectory>
+    <testSourceDirectory>${project.basedir}\src\test\java</testSourceDirectory>
+    <outputDirectory>${project.basedir}\target\classes</outputDirectory>
+    <testOutputDirectory>${project.basedir}\target\test-classes</testOutputDirectory>
     <resources>
       <resource>
-        <directory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\src\main\resources</directory>
+        <directory>${project.basedir}\src\main\resources</directory>
       </resource>
     </resources>
     <testResources>
       <testResource>
-        <directory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\src\test\resources</directory>
+        <directory>${project.basedir}\src\test\resources</directory>
       </testResource>
     </testResources>
-    <directory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target</directory>
+    <directory>${project.basedir}\target</directory>
     <finalName>kbs-future-architecture-chapter-0.13-SNAPSHOT</finalName>
     <pluginManagement>
       <plugins>
@@ -154,10 +154,10 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/site/docbook/images</outputDirectory>
+              <outputDirectory>${project.basedir}\target/site/docbook/images</outputDirectory>
               <resources>
                 <resource>
-                  <directory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture/src/docbkx/images</directory>
+                  <directory>${project.basedir}/src/docbkx/images</directory>
                   <filtering>false</filtering>
                 </resource>
               </resources>
@@ -178,7 +178,7 @@
               <properties>
                 <property>
                   <name>project.build.directory</name>
-                  <value>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target</value>
+                  <value>${project.basedir}\target</value>
                 </property>
               </properties>
             </configuration>
@@ -211,7 +211,7 @@
             <configuration>
               <type>zip</type>
               <classifier>docbook-customization</classifier>
-              <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/extracted-dependencies</outputDirectory>
+              <outputDirectory>${project.basedir}\target/extracted-dependencies</outputDirectory>
               <silent>true</silent>
             </configuration>
           </execution>
@@ -224,7 +224,7 @@
             <configuration>
               <type>zip</type>
               <classifier>docbook</classifier>
-              <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/extracted-dependencies</outputDirectory>
+              <outputDirectory>${project.basedir}\target/extracted-dependencies</outputDirectory>
               <silent>true</silent>
             </configuration>
           </execution>
@@ -263,7 +263,7 @@
             </goals>
             <configuration>
               <locales>en</locales>
-              <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target\site</outputDirectory>
+              <outputDirectory>${project.basedir}\target\site</outputDirectory>
               <reportPlugins>
                 <reportPlugin>
                   <groupId>org.apache.maven.plugins</groupId>
@@ -302,7 +302,7 @@
             </goals>
             <configuration>
               <locales>en</locales>
-              <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target\site</outputDirectory>
+              <outputDirectory>${project.basedir}\target\site</outputDirectory>
               <reportPlugins>
                 <reportPlugin>
                   <groupId>org.apache.maven.plugins</groupId>
@@ -340,7 +340,7 @@
             </goals>
             <configuration>
               <locales>en</locales>
-              <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target\site</outputDirectory>
+              <outputDirectory>${project.basedir}\target\site</outputDirectory>
               <reportPlugins>
                 <reportPlugin>
                   <groupId>org.apache.maven.plugins</groupId>
@@ -374,7 +374,7 @@
         </executions>
         <configuration>
           <locales>en</locales>
-          <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target\site</outputDirectory>
+          <outputDirectory>${project.basedir}\target\site</outputDirectory>
           <reportPlugins>
             <reportPlugin>
               <groupId>org.apache.maven.plugins</groupId>
@@ -440,14 +440,14 @@
             <configuration>
               <includes>kbs-future-architecture-chapter.xml</includes>
               <draftMode>yes</draftMode>
-              <externalFOPConfiguration>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/extracted-dependencies/sh.isaac.komet.doc/docbook-customization/fo/fop.xconf</externalFOPConfiguration>
-              <draftWatermarkImage>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/extracted-dependencies/sh.isaac.komet.doc/docbook-customization/images/draft.svg</draftWatermarkImage>
-              <targetDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/site/docbook</targetDirectory>
-              <generatedSourceDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/docbkx/generated</generatedSourceDirectory>
+              <externalFOPConfiguration>${project.basedir}\target/extracted-dependencies/sh.isaac.komet.doc/docbook-customization/fo/fop.xconf</externalFOPConfiguration>
+              <draftWatermarkImage>${project.basedir}\target/extracted-dependencies/sh.isaac.komet.doc/docbook-customization/images/draft.svg</draftWatermarkImage>
+              <targetDirectory>${project.basedir}\target/site/docbook</targetDirectory>
+              <generatedSourceDirectory>${project.basedir}\target/docbkx/generated</generatedSourceDirectory>
               <xincludeSupported>true</xincludeSupported>
               <paperType>USletter</paperType>
               <fop1Extensions>1</fop1Extensions>
-              <foCustomization>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/extracted-dependencies/sh.isaac.komet.doc/docbook-customization/fo/docbook.xsl</foCustomization>
+              <foCustomization>${project.basedir}\target/extracted-dependencies/sh.isaac.komet.doc/docbook-customization/fo/docbook.xsl</foCustomization>
               <customizationParameters></customizationParameters>
             </configuration>
           </execution>
@@ -473,11 +473,11 @@
           </dependency>
         </dependencies>
         <configuration>
-          <generatedSourceDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/docbkx/generated</generatedSourceDirectory>
+          <generatedSourceDirectory>${project.basedir}\target/docbkx/generated</generatedSourceDirectory>
           <xincludeSupported>true</xincludeSupported>
           <paperType>USletter</paperType>
           <fop1Extensions>1</fop1Extensions>
-          <foCustomization>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target/extracted-dependencies/sh.isaac.komet.doc/docbook-customization/fo/docbook.xsl</foCustomization>
+          <foCustomization>${project.basedir}\target/extracted-dependencies/sh.isaac.komet.doc/docbook-customization/fo/docbook.xsl</foCustomization>
           <customizationParameters></customizationParameters>
         </configuration>
       </plugin>
@@ -530,7 +530,7 @@
     </plugins>
   </build>
   <reporting>
-    <outputDirectory>C:\Users\WSujanskyDesktop\git\komet\kbs-future-architecture\target\site</outputDirectory>
+    <outputDirectory>${project.basedir}\target\site</outputDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>

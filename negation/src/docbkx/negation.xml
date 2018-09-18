@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <title>HL7 Negation Requirements Project</title>
+
+    <section>
+        <title>Project Drivers</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>
+                Ability to transform across paradigms (C-CDA and FHIR).
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Ability to transform within paradigms (FHIR Condition and Observation).
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Ability to detect and handle negation when using rules.
+              </para>
+            </listitem>
+        </itemizedlist>
+    </section>
+
+    <section>
+        <title>Ability to Transform across Paradigms</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>C-CDA based on HL7 RIM.</para>
+
+              <itemizedlist mark='bullet' spacing='compact'>
+                <listitem>
+                  <para>Uses negation indicator.</para>
+                </listitem>
+                <listitem>
+                    <para>Incorrectly applied in CDA R2.</para>
+
+                   <itemizedlist mark='bullet' spacing='compact'>
+                    <listitem>
+                      <para>Addressed in RIM, in scope for CDA R2.1 (RIM 2.35).</para>
+                    </listitem>
+                    <listitem>
+                        <para>But convention now applies in R2.</para>
+                    </listitem>
+                  </itemizedlist>
+                </listitem>
+              </itemizedlist>
+
+            </listitem>
+            <listitem>
+              <para>
+                FHIR uses semantically more specific elements, mostly.
+              </para>
+              <itemizedlist mark='bullet' spacing='compact'>
+                    <listitem>
+                      <para>E.g., Condition clinicalStatus = refuted.</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+
+
+    </section>
+
+
+    <section>
+        <title>Ability to Transform within Paradigms</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>FHIR uses a variety of more specific elements.</para>
+
+              <itemizedlist mark='bullet' spacing='compact'>
+                <listitem>
+                  <para>Allergy code includes both substances and situations.</para>
+                </listitem>
+                <listitem>
+                    <para>Condition verificationStatus = refuted.</para>
+                </listitem>
+                <listitem>
+                    <para>Observation value Boolean.</para>
+                </listitem>
+                <listitem>
+                    <para>Procedure notDone Boolean.</para>
+                </listitem>
+              </itemizedlist>
+
+            </listitem>
+            <listitem>
+              <para>
+                When consistently disjunct, this is ok.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                When transformation is needed, it’s not.
+              </para>
+              <itemizedlist mark='bullet' spacing='compact'>
+                    <listitem>
+                      <para>Is an coded exam finding a condition or an observation?</para>
+                    </listitem>
+                    <listitem>
+                      <para>Is an allergy a Condition (for treatment) or an Allergy (for safety)?</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+
+
+    </section>
+
+    <section>
+        <title>Ability to Handle Negation when Using Rules</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>CDS: If chest pain and no bleeding disorder, recommend aspirin.</para>
+
+              <itemizedlist mark='bullet' spacing='compact'>
+                <listitem>
+                  <para>"No bleeding disorder" might be captured explicitly in a safety protocol.</para>
+                </listitem>
+                <listitem>
+                    <para>If it hasn’t, the rule can still recommend aspirin, with the disclaimer "bleeding disorder indeterminate."  Or recommend asking.</para>
+                </listitem>
+                
+              </itemizedlist>
+
+            </listitem>
+            <listitem>
+              <para>
+                Quality measures: If chest pain and no aspirin, count in denominator but not numerator
+              </para>
+              <itemizedlist mark='bullet' spacing='compact'>
+                    <listitem>
+                      <para>Unless reason stated (e.g., bleeding disorder, already taken, etc.)
+Not a patient safety problem.</para>
+                    </listitem>
+                    <listitem>
+                      <para>Not a patient safety problem.</para>
+                    </listitem>
+                    <listitem>
+                      <para>Possibly a workflow encumbrance, but the solution is not ambiguous.</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+
+
+    </section>
+
+
+    <section>
+        <title>Project Options</title>
+
+        <orderedlist numeration="upperalpha">
+            <listitem>
+              <para>
+                Specify the one true model and require specifications to use it.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Require specifications to explain all transforms.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Articulate requirements so that specifiers can make informed decisions.
+              </para>
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Approach</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>Collect use cases.</para>
+            </listitem>
+            <listitem>
+              <para>Clarify scope.</para>
+            </listitem>
+            <listitem>
+              <para>Classify cases.</para>
+            </listitem>
+            <listitem>
+              <para>Cross-reference capture cases and consumption cases.</para>
+            </listitem>
+            <listitem>
+              <para>Identify problems.</para>
+            </listitem>
+            <listitem>
+              <para>Write guidelines.</para>
+            </listitem>
+            <listitem>
+              <para>Suggest policy.</para>
+            </listitem>
+
+        </itemizedlist>
+    </section>
+
+
+    <section>
+        <title>Use Case Sources</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>VA clinical cases.</para>
+            </listitem>
+            <listitem>
+              <para>C-CDA examples.</para>
+            </listitem>
+            <listitem>
+              <para>FHIR examples.</para>
+            </listitem>
+            <listitem>
+              <para>NegEx lexicon.</para>
+            </listitem>
+            <listitem>
+              <para>Quality measures (Joint Commission, PQRS).</para>
+            </listitem>
+            <listitem>
+              <para>Workgroup channels (meetings, threads, chats).</para>
+            </listitem>
+            
+
+        </itemizedlist>
+    </section>
+
+    <section>
+        <title>Out of Scope</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>Null values.</para>
+            </listitem>
+            <listitem>
+              <para>Confidence.</para>
+            </listitem>
+            <listitem>
+              <para>Data quality.</para>
+            </listitem>
+            <listitem>
+              <para>Other modifiers.</para>
+            </listitem>
+            
+            
+
+        </itemizedlist>
+    </section>
+
+   
+
+    <section>
+        <title>Classification 1</title>
+
+        <figure xml:id="negation_cl1_0135">
+                <title>Class Level One</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/classification.png" align="center" format="png" width="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+        
+    </section>
+
+
+    <section>
+        <title>Classification 2</title>
+
+        <figure xml:id="negation_cl2_0135">
+                <title>Class Level Two</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/classification2.png" align="center" format="png" width="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+        
+    </section>
+
+    <section>
+        <title>Classification 3</title>
+
+        <figure xml:id="negation_cl3_0135">
+                <title>Class Level Three</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/classification3.png" align="center" format="png" width="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+        
+    </section>
+
+
+    <section>
+        <title>Guidelines (Draft as of 10/17)</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>Model information specific to the domain; avoid excessive abstraction.</para>
+
+              <itemizedlist mark='bullet' spacing='compact'>
+                <listitem>
+                  <para>E.g., use "absent" or "not done" rather than "False".</para>
+                </listitem>
+                
+              </itemizedlist>
+
+            </listitem>
+            <listitem>
+              <para>
+                Support consistency within models. Avoid supporting two ways to say the same thing.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Support consistency across models; provide guidance for recognized cases of synonymy.
+              </para>
+              <itemizedlist mark='bullet' spacing='compact'>
+                    <listitem>
+                      <para>Pattern alignment.</para>
+                    </listitem>
+                    <listitem>
+                      <para>Explicit guidance.</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+              <para>
+                Support partitioning of negative semantics when using description logics: logical problem is intractable.
+              </para>
+            </listitem>
+        </itemizedlist>
+
+
+    </section>
+
+    <section>
+        <title>Guidance</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>Specific translations.</para>
+            </listitem>
+            <listitem>
+              <para>Patterns to support translation.</para>
+            </listitem>
+        </itemizedlist>
+   
+
+
+        <figure xml:id="negation_examples_0135">
+                <title>Guidance Example Cases</title>
+
+        <informaltable frame='bottom'>
+            <tgroup cols='2'>
+                <colspec colwidth='1*'/>
+                <colspec colwidth='1*'/>
+                <tbody>
+                    <row>
+                        <entry rowsep="1" colsep="0">
+                            <itemizedlist mark='none' spacing='compact'>
+                                <listitem>
+                                    <para>Observation</para>
+                                </listitem>
+                                <listitem>
+                                    <itemizedlist mark='bullet' spacing='compact'>
+                                        <listitem>
+                                            <para>Code: 82810-3 Pregnancy status</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Value: not pregnant</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+
+                        </entry>
+                        <entry rowsep="1" colsep="0">
+                            <itemizedlist mark='none' spacing='compact'>
+                                <listitem>
+                                    <para>Condition</para>
+                                </listitem>
+                                <listitem>
+                                    <itemizedlist mark='bullet' spacing='compact'>
+                                        <listitem>
+                                            <para>Code: 77386006 Pregnant (finding)</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>verificationStatus: refuted</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+
+                        </entry>
+                    </row>
+                    <row>
+                        <entry rowsep="1" colsep="0">
+                            <itemizedlist mark='none' spacing='compact'>
+                                <listitem>
+                                    <para>Observation</para>
+                                </listitem>
+                                <listitem>
+                                    <itemizedlist mark='bullet' spacing='compact'>
+                                        <listitem>
+                                            <para>Code: 8480-6 Systolic Blood Pressure</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Value: 120 mmHg</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+
+                        </entry>
+                        <entry rowsep="1" colsep="0">
+                            <itemizedlist mark='none' spacing='compact'>
+                                <listitem>
+                                    <para>Condition</para>
+                                </listitem>
+                                <listitem>
+                                    <itemizedlist mark='bullet' spacing='compact'>
+                                        <listitem>
+                                            <para>Avoid</para>
+                                        </listitem>
+                                        
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+
+                        </entry>
+                    </row>
+
+                </tbody>
+            </tgroup>
+        </informaltable>
+
+    </figure>
+
+    </section>
+
+
+    <section>
+        <title>Adaptation to System Use Cases</title>
+
+        <itemizedlist mark='bullet'>
+            <listitem>
+              <para>System scope vs standards scope.</para>
+            </listitem>
+            <listitem>
+              <para>Functionality vs static structure.</para>
+            </listitem>
+            <listitem>
+              <para>Requirements xml schema.</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+
+
+
+    
+</article>

@@ -1,0 +1,131 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <parent>
+      <groupId>sh.isaac.komet.doc</groupId>
+      <artifactId>isaacs-komet-doc</artifactId>
+      <version>0.13-SNAPSHOT</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+
+   <artifactId>fhir-profiles-cimi-solor-article</artifactId>
+   <name>ISAAC's KOMET: FHIR and CCDA: Data Modeling for Patient Safety</name>
+   <description>ISAAC's KOMET: FHIR and CCDA: Data Modeling for Patient Safety</description>
+   <packaging>pom</packaging>
+
+   <properties>
+      <docbook.root>${project.artifactId}.xml</docbook.root>
+   </properties>
+   <dependencies>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>docbook-customization</artifactId>
+         <classifier>docbook-customization</classifier>
+         <version>${project.version}</version>
+         <type>zip</type>
+      </dependency>
+   </dependencies>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>extract-docbook-customization</id>
+                  <phase>generate-sources</phase>
+                  <goals>
+                     <goal>unpack-dependencies</goal>
+                  </goals>
+                  <configuration>
+                     <type>zip</type>
+                     <classifier>docbook-customization</classifier>
+                     <outputDirectory>${project.build.directory}/extracted-dependencies</outputDirectory>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>extract-docbook-sources</id>
+                  <phase>generate-sources</phase>
+                  <goals>
+                     <goal>unpack-dependencies</goal>
+                  </goals>
+                  <configuration>
+                     <type>zip</type>
+                     <classifier>docbook</classifier>
+                     <outputDirectory>${project.build.directory}/extracted-dependencies</outputDirectory>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>com.agilejava.docbkx</groupId>
+            <artifactId>docbkx-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>generate-docbook</id>
+                  <phase>compile</phase>
+                  <goals>
+                     <goal>generate-pdf</goal>
+                     <goal>generate-html</goal>
+                  </goals>
+                  <configuration>
+                     <!-- per execution configuration -->
+                     <includes>${docbook.root}</includes>
+                     <draftMode>yes</draftMode>
+                     <externalFOPConfiguration>
+                        ${project.build.directory}/extracted-dependencies/${project.groupId}/docbook-customization/fo/fop.xconf
+                     </externalFOPConfiguration>
+                     <draftWatermarkImage>
+                        ${project.build.directory}/extracted-dependencies/${project.groupId}/docbook-customization/images/draft.svg
+                     </draftWatermarkImage>
+                     <targetDirectory>${project.build.directory}/site/docbook</targetDirectory>
+                  </configuration>
+               </execution>
+            </executions>
+            <configuration>
+               <!-- shared configuration -->
+               <generatedSourceDirectory>${project.build.directory}/docbkx/generated</generatedSourceDirectory>
+               <xincludeSupported>true</xincludeSupported>
+               <paperType>USletter</paperType>
+               <fop1Extensions>1</fop1Extensions>
+
+               <foCustomization>
+                  ${project.build.directory}/extracted-dependencies/${project.groupId}/docbook-customization/fo/docbook.xsl
+               </foCustomization>
+
+               <customizationParameters>
+                  <!-- additional XSLT parameters 
+                  <parameter>
+                          <name>key</name>
+                          <value>value</value>
+                  </parameter>
+                  <parameter>
+                          <name>header.rule</name>
+                          <value>0</value>
+                  </parameter>
+                  -->
+               </customizationParameters>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>attach-docbook</id>
+                  <configuration>
+                     <descriptors>
+                        <descriptor>src/main/assembly/docbook.xml</descriptor>
+                        <descriptor>src/main/assembly/html.xml</descriptor>
+                        <descriptor>src/main/assembly/pdf.xml</descriptor>
+                     </descriptors>
+                  </configuration>
+                  <goals>
+                     <goal>single</goal>
+                  </goals>
+                  <phase>package</phase>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+   </build>
+</project>

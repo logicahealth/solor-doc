@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+    <article version="5.0" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:ns5="http://www.w3.org/1999/xhtml"
+        xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+        xmlns:ns3="http://www.w3.org/2000/svg"
+        xmlns:ns="http://docbook.org/ns/docbook">
+        <info>
+            <title>FHIR Resources and Profiles in Relation to CIMI and SOLOR</title>
+            <author>
+                <personname>Walter Sujansky</personname>
+            </author>
+            <date>2018-09-28</date>
+        </info>
+        
+    <section>
+        <title>Introduction</title>
+        <para>The HL7 FHIR standard<footnote xml:id="__EN1__">
+                <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="http://hl7.org/implement/standards/fhir/"
+                        >http://hl7.org/implement/standards/fhir/</link> (Accessed 9/28/2018)</para>
+            </footnote> is a web-services API specification for accessing clinical data via RESTful
+            calls and data structures. Although FHIR can provide substantial utility for the
+            exchange of patient data across healthcare applications, its current form also entails
+            certain limitations that compromise interoperability. A couple of independent
+            data-modeling initiatives in health care (CIMI and SOLOR), however, could be leveraged
+            to address certain of the existing limitations in the FHIR standard. This paper reviews
+            the essential elements of FHIR, describes certain of FHIR’s limitations that may
+            compromise interoperability, and proposes how the work underway in the CIMI and SOLOR
+            projects could address these limitations.</para>
+    </section>
+    <section>
+        <title>Advancing the Interoperability Potential of FHIR</title>
+        <para>FHIR has gained substantial attention in recent years as a modern technology to
+            support interoperability, with good reason. The sound technical foundation and avid
+            uptake of FHIR have made it the premier mechanism for exchanging patient data between
+            applications and independent, remotely hosted data stores. However, the current FHIR
+            data model and mechanisms to customize and extend it have limitations that may benefit
+            from work in parallel, related data-modeling initiatives currently underway. </para>
+        <section>
+            <title>Review of FHIR</title>
+            <para>FHIR is a RESTful<footnote xml:id="__EN2__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://en.wikipedia.org/wiki/Representational_state_transfer"
+                            >https://en.wikipedia.org/wiki/Representational_state_transfer</link>
+                        (Accessed 9/28/2018)</para>
+                </footnote> standard for requesting and retrieving clinical data via HTTP
+                web-services calls. <xref linkend="_Ref510779798"/> shows how FHIR data requests are
+                made by sending HTTP “GET” commands over the internet, with each command encoded as
+                a URL that specifies a particular kind of data resource and a set of filtering
+                criteria. Responses to such queries consist of structured data objects encoded in
+                standardized formalisms, usually XML or JSON. For example, <xref
+                    linkend="_Ref510798078"/> shows a response to the second of the shown data
+                requests in Figure, which returns the resolved conditions for a specific patient (in
+                this case, a malignancy of the head and neck).</para>
+            <figure xml:id="_Ref510779798">
+                <title>The basic FHIR model for requesting and retrieving patient data.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image1.png"
+                            contentwidth="662" contentdepth="385"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure xml:id="_Ref510798078">
+                <title>An example of a JSON-encoded data instance retrieved via a FHIR
+                    query.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image2.png"
+                            contentwidth="652" contentdepth="515"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>The FHIR standard specifies the structure, contents, and coding for over 90 types
+                of data resources relevant to clinical medicine. <xref linkend="_Ref510799056"/>
+                lists some of the most commonly used of these resource types.</para>
+            <para>For each resource type defined by FHIR, there exists a detailed specification of
+                the resource’s data elements, which of the elements are required vs. optional and
+                single-valued vs. multi-valued, the data type(s) that the value(s) of the elements
+                must conform to, and any coding systems or value sets that code-able data values
+                must be drawn from. <xref linkend="_Ref510798360"/> shows part of the specification
+                for the <emphasis>Condition</emphasis> resource specified in FHIR. The inset in
+                    <xref linkend="_Ref510798360"/> shows the structure for one of the complex data
+                types (<emphasis>Identifier</emphasis>) that corresponds to one of the data
+                elements. Note that complex data structures have their own constraints on the set of
+                data elements, cardinality constraints, data types, and coding restrictions for
+                related to their structures. As shown, the “type” of the Identifier must, itself, be
+                structured using the <emphasis>Codeable Concept</emphasis> data type, and values for
+                the type must be drawn from a specified value set (“Identifier Type Codes”).</para>
+            <figure xml:id="_Ref510799056">
+                <title>Certain of the most commonly used of the ~90 FHIR resources.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image3.png"
+                            contentwidth="480" contentdepth="251"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure xml:id="_Ref510798360">
+                <title>An example of a FHIR resource specification, including a complex data
+                    type.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image4.png"
+                            contentwidth="666" contentdepth="376"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+        <section>
+            <title>FHIR Profiling</title>
+            <para>As evident from a close inspection of the specification for the
+                    <emphasis>Conditions</emphasis> resource, the resource definitions in FHIR
+                provide relatively few constraints on the structure and coding of the clinical data
+                represented using those resources. For example, the specification of the “code” data
+                element does not specify any required coding system for representing patient
+                conditions (it only provides one such coding system as an “example”). This
+                underspecification means that different implementations of the FHIR standard (such
+                as the requester and respondent for a FHIR resource query) may use entirely
+                different codes to represent patient conditions, while both being fully compliant
+                with the FHIR standard.</para>
+            <para>The design of the FHIR standard anticipated this problem and, to address it,
+                included explicit and formal mechanisms to create more constrained versions of FHIR
+                resources for use by data-trading partners who want to or need to achieve a greater
+                degree of standardization and plug-and-play interoperability<footnote
+                    xml:id="__EN3__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://www.hl7.org/fhir/profiling.html"
+                            >https://www.hl7.org/fhir/profiling.html</link> (Accessed
+                        9/28/2018)</para>
+                </footnote>. These mechanisms enable the definition of “profiles” with respect to
+                FHIR resources, which add constraints to the resources while maintaining backward
+                compatibility with them (i.e., so that any valid instance of a profile is also
+                necessarily a valid instance of the resource on which the profile is based).</para>
+            <para><xref linkend="_Ref525899874"/> shows an example of such a profile for the
+                    <emphasis>Observation</emphasis> resource, which was designed to specifically
+                represent observations that are laboratory test results. The upper portion of <xref
+                    linkend="_Ref525899874"/> shows the contents of the profile, and the lower
+                portion shows the content of the underlying FHIR <emphasis>Observation
+                </emphasis>resource on which the profile is based. The boxed areas highlight
+                specific additional constraints that have been added to certain data elements. For
+                example, the <emphasis>category</emphasis> data element in the profile specifies
+                that the category must be “laboratory,” the <emphasis>code</emphasis> data element
+                specifies that LOINC codes must be used to encode the identity of the test that was
+                performed, the <emphasis>value</emphasis> data element specifies that only the UCUM
+                coding system may be used to encode units of measure (the base FHIR
+                    <emphasis>Observation</emphasis> resource includes none of these
+                constraints).</para>
+            <figure xml:id="_Ref525899874">
+                <title>The <emphasis>Result Observation </emphasis>profile (top) defined against the
+                    core <emphasis>Observation </emphasis>resource.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image5.png"
+                            contentwidth="654" contentdepth="459"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>The FHIR profiling mechanism includes four increasingly constrained designations
+                for the use of coding systems and value sets, as shown in <xref
+                    linkend="_Ref525900590"/> in decreasing order of constraint. Many of the coding
+                systems and value sets specified in the base FHIR profiles include the “example”
+                designation only, which indicates that implementers are not required to use values
+                from those coding systems or value sets. In FHIR profiles, however, the designations
+                of “required” or “extensible” are used, which indicate that the coding system or
+                value set must be used, at least if they contain an appropriate code for the
+                intended concept.</para>
+            <figure xml:id="_Ref525900590">
+                <title>FHIR constraints on the use of designated coding systems and value
+                    sets.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image6.png"
+                            contentwidth="643" contentdepth="127"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>Lastly, but importantly, the FHIR profiling mechanism includes a construct to add
+                entirely new data elements to FHIR resources – the “extension”<footnote
+                    xml:id="__EN4__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://www.hl7.org/fhir/profiling.html#extensions"
+                            >https://www.hl7.org/fhir/profiling.html#extensions</link> (Accessed
+                        9/28/2018)</para>
+                </footnote>. FHIR resources are quite general and intended to express roughly 80% of
+                the necessary content across relevant instances of clinical data. However,
+                expressing the complete content of certain patient data requires additional data
+                elements that were not defined in FHIR. Profiles can add data elements to represent
+                such content through the definition of extension elements. </para>
+            <para>For example, <xref linkend="_Ref525901255"/> shows the addition of three extension
+                elements to the <emphasis>Patient</emphasis> resource for representing race,
+                ethnicity, and birth sex (data elements required to be captured by the U.S. EHR
+                meaningful use program). Note that each extension element is uniquely identified via
+                a URL value, which references the definition and required structured/content of all
+                data represented using the extension. </para>
+            <figure xml:id="_Ref525901255">
+                <title>Examples of extension data elements in the FHIR <emphasis>Patient</emphasis>
+                    profile.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image7.png"
+                            contentwidth="650" contentdepth="257"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>The definition of the extension element in the boxed area of <xref
+                    linkend="_Ref525901255"/> (“us-core-ethnicity”)<footnote xml:id="__EN5__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html"
+                            >http://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html</link>
+                        (Accessed 9/28/2018)</para>
+                </footnote> is shown in <xref linkend="_Ref525901484"/>. Note that the extension,
+                itself, consists of three components (nested extensions) that are used to express
+                the race category, the race code, and the text description of the race code. </para>
+            <figure xml:id="_Ref525901484">
+                <title>Definition of the “us-core-race” data extension used in the
+                        <emphasis>Patient</emphasis> profile.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image8.png"
+                            contentwidth="641" contentdepth="174"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>Finally, <xref linkend="_Ref525901668"/> shows how a specific instance of the
+                    <emphasis>Patient</emphasis> profile, as defined in <xref
+                    linkend="_Ref525901255"/> and <xref linkend="_Ref525901484"/>, would use the
+                extension data element to represent that a patient was of the race
+                “Filipino.”</para>
+            <figure xml:id="_Ref525901668">
+                <title>An example instance patient demographic data that contains a race designation
+                    encoded per the defined “us-core-race” extension. </title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image9.png"
+                            contentwidth="595" contentdepth="532"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>Note also in <xref linkend="_Ref525901668"/> that the “meta” data element near the
+                top of the <emphasis>Patient</emphasis> instance specifies the profile to which the
+                instance is declared to conform. This explicit denotation enables both sending and
+                receiving systems to automatically validate that the data instance conforms to all
+                of the constraints of the indicated profile. For example, in the case of the
+                extension element “us-core-race,” one could validate that the value includes at
+                least the text representation of the race, and may optionally include a race
+                category and race code, both drawn from respectively specified value sets (per the
+                extension definition in <xref linkend="_Ref525901484"/>).</para>
+            <para>When patient data are requested, a profile may also be specified as an additional
+                filter within the request URL, as shown in <xref linkend="_Ref525902358"/>. This
+                capability allows data requestor to receive only those instances of data that are
+                encoded per the profile(s) that they require, which ensures that required data will
+                be present and appropriately structured/coded. </para>
+            <figure xml:id="_Ref525902358">
+                <title>A FHIR query requesting only those <emphasis>Observation</emphasis> instances
+                    encoded using a specific profile.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image10.png"
+                            contentwidth="644" contentdepth="65"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+        <section>
+            <title>Limitations of FHIR Profiling</title>
+            <para>Despite the powerful and useful features of profiling that are provided by the
+                FHIR standard, there remain certain limitations in existing profiles and in the
+                profiling mechanism that continue to frustrate efforts to effectively standardize
+                patient data when it is exchanged between healthcare applications. These limitations
+                include a lack of granularity in existing profiles and a profusion of profiles that
+                sometimes overlap and are rarely mandated for use </para>
+            <section>
+                <title>Lack of Granularity</title>
+                <para>A set of “U.S. Core” FHIR profiles have been created and assembled into an
+                    “implementation guide” intended to support the specific requirements of the U.S.
+                    meaningful use (M.U.) program. Although conformance to these profiles is not yet
+                    a requirement of EHR certification under the M.U. program, many EHR vendors and
+                    other system developers are implementing versions of these profiles in their
+                    production software. However, the U.S. Core profiles still lack the degree of
+                    specificity and granularity needed to represent common clinical data in a
+                    standardized and near-plug-and-play manner. Such continued underspecification
+                    leaves latitude for different system developers to represent the same clinical
+                    data in different ways, while all being fully conformant to the U.S. Core
+                    profiles.</para>
+                <para>For example, the U.S. Core <emphasis>Observation</emphasis> and
+                        <emphasis>Diagnostic Report</emphasis> profiles allow several different ways
+                    for a multi-part clinical observation (such as a blood pressure consisting of a
+                    systolic and diastolic measurement) to be represented. For example, as shown in
+                        <xref linkend="_Ref525904021"/>, the available data elements within these
+                    two profiles allow a blood pressure reading to be represented as (A) an
+                        <emphasis>Observation </emphasis>instance that references two other
+                    “related” <emphasis>Observation </emphasis>instances, each containing the
+                    systolic and diastolic values, (B) a <emphasis>Diagnostic Report
+                    </emphasis>instance that references two other “result” <emphasis>Observation
+                    </emphasis>instances, each containing the systolic and diastolic values, or (C)
+                    a single <emphasis>Observation</emphasis> instance that include two nested
+                    ”component” elements, each containing the systolic and diastolic values. <xref
+                        linkend="_Ref525904586"/> shows graphically how each of these alternative
+                    representation decisions would result in different data structures for the same
+                    blood-pressure data.</para>
+                <figure xml:id="_Ref525904021">
+                    <title>Data elements within the FHIR <emphasis>Observation</emphasis> and
+                            <emphasis>DiagnosticReport</emphasis> profiles that may be used to
+                        represent blood-pressure measurements in different ways.</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image11.png"
+                                contentwidth="631" contentdepth="204"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <figure xml:id="_Ref525904586">
+                    <title>Graphical representations of alternative modeling of blood pressure using
+                        existing FHIR profiles (graphic courtesy of courtesy of Claude Nanjo,
+                        Cognitive Medicine, AMIA 2017).</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image12.png"
+                                contentwidth="663" contentdepth="405"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+            <section>
+                <title>“Extension Salad”</title>
+                <para>The other limitation of the current approach to FHIR profiling is that a great
+                    many extensions have been created to supplement the built-in data elements in
+                    FHIR profiles, so as to fully represent necessary clinical data, but these
+                    extensions have been developed in an <emphasis>ad hoc </emphasis>manner by
+                    various organizations for various purposes without regard for duplication of
+                    content or consistency with any common data model (the exception to this
+                    observation is the U.S. Core profile, which developed extensions in a more
+                    coordinated fashion). The result is a large set of published extensions, with no
+                    requirement for any system developers to use any one or any combination of them
+                    in the profiles they have created or chosen. <xref linkend="_Ref525905355"/>,
+                    for example, shows a subset of the extensions that have been published just by
+                        HL7<footnote xml:id="__EN6__">
+                        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="https://www.hl7.org/fhir/profilelist.html"
+                                >https://www.hl7.org/fhir/profilelist.html</link> (Accessed
+                            9/28/2018)</para>
+                    </footnote>. </para>
+                <para>This approach of uncoordinated extension creation provides freedom for
+                    everyone, with guaranteed interoperability for no one. In particular, no
+                    assurance exists that any subset of the extensions that a system developer may
+                    choose to implement will be consistent with each other, or that the extensions
+                    used by one clinical information system will be consistent and interoperable
+                    with the extensions used by another system.</para>
+                <figure xml:id="_Ref525905355">
+                    <title>Examples of extension data elements published on the HL7 web
+                        site.</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image13.png"
+                                contentwidth="668" contentdepth="427"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+        </section>
+        <section>
+            <title>Role of CIMI in Addressing FHIR Profile Limitations</title>
+            <para>The CIMI data-modeling initiative within HL7<footnote xml:id="__EN7__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://www.hl7.org/Special/Committees/cimi/index.cfm"
+                            >http://www.hl7.org/Special/Committees/cimi/index.cfm</link> (Accessed
+                        9/28/2018)</para>
+                </footnote> offers a potential solution to both the issue of insufficient
+                granularity and profusion of incompatible extensions. CIMI is in the process of
+                creating detailed clinical data models (“DCMs”) for specific types of observations,
+                which will include all of the data elements needed to represent the relevant aspects
+                of the observations, as well as define the appropriate coding systems and value sets
+                for these data elements. For example, as shown in <xref linkend="_Ref525905817"/>, a
+                CIMI DCM will be defined for blood-pressure observations, to include the components
+                for systolic and diastolic measurements, as well as additional aspects of that
+                particular observation type, such as body position and BP cuff size.</para>
+            <para>Based on the content of CIMI DCMs, specific FHIR profiles may be created that both
+                (1) specifically indicate how the abstract data models defined in DCMs should be
+                represented using the built-in data elements of FHIR resources, and (2) what
+                extension data elements should be added specifically for those profiles to capture
+                the full extent of relevant data for each particular type of observation. The
+                right-hand side of <xref linkend="_Ref525905817"/> shows the conversion of a CIMI
+                DCM for blood-pressure measurements to a corresponding FHIR profile that is also
+                specific to that type of observation. By developing and adopting a large set of
+                specific FHIR profiles that correspond closely to the DCMs defined by CIMI, the
+                Industry will achieve highly granular data structures that are more standardized
+                across implementers and that include extension elements created in a coordinated,
+                model-based, and mutually consistent fashion. </para>
+            <para><xref linkend="_Ref525906692"/> shows the formal specification<footnote
+                    xml:id="__EN8__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://simplifier.net/fhirworkshop2/vitalsignsprofile"
+                            >https://simplifier.net/fhirworkshop2/vitalsignsprofile</link> (Accessed
+                        9/28/2018)</para>
+                </footnote> of the FHIR profile on the right-hand side of <xref
+                    linkend="_Ref525905817"/>, which can be used as the basis for constructing and
+                validating conformant instances of blood-pressure observations.</para>
+            <figure xml:id="_Ref525906692">
+                <title>Formal definition of a FHIR profile for blood pressure, based on a CIMI
+                    DCM.</title>
+                <para xml:id="_Ref525905817">A CIMI detailed clinical model and corresponding FHIR profile<inlinemediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image14.png"
+                                contentwidth="639" contentdepth="302"/>
+                        </imageobject>
+                    </inlinemediaobject></para>
+            </figure>
+            <para><inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image15.png"
+                            contentwidth="506" contentdepth="659"/>
+                    </imageobject>
+                </inlinemediaobject></para>
+        </section>
+        <section>
+            <title>Role of SOLOR in Addressing FHIR Profile Limitations</title>
+            <para>The SOLOR project is an initiative to integrate coded concepts from distinct
+                terminologies so as to formally reconcile semantic equivalences and other logical
+                relationships across the terminologies’ content<footnote xml:id="__EN9__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://solor.io">http://solor.io</link> (Accessed
+                        9/26/2018)</para>
+                </footnote>. Such reconciliation enables patient data that have been encoded using
+                different terminologies to be more accurately transferred between clinical
+                information systems and more effectively analyzed when integrated within
+                population-health data repositories. </para>
+            <para>The integration of terminology resources within SOLOR can also facilitate the
+                creation of value sets for CIMI DCMs and/or FHIR profiles when the contents of such
+                value sets must be drawn from multiple terminologies. A notable example of this
+                requirement is in the value set for encoding allergenic substances. This value set
+                needs to include overlapping content from SNOMED-CT, RxNorm, and NDF-RT to fully
+                capture all of the drug classes, named drugs, and drug ingredients that may be
+                allergenic substances. To correctly analyze allergen codes drawn from this expansive
+                value set (for example, in decision-support rules or quality measures), the
+                recipients of data must have access to a resource that represents and manages the
+                semantic relationships across the contents of all of these terminologies. </para>
+            <para>SOLOR has the opportunity to be this resource by integrating the contents of
+                SNOMED-CT, RxNorm, and NDF-RT in a semantically sound way and making the integrated
+                content available as a value set that can be referenced by CIMI DCMs, FHIR profiles,
+                or other clinical data models. The creation of such a SOLOR resource would,
+                therefore, be an apt demonstration of SOLOR’s power and utility.</para>
+            <para>Given the formal foundation of SOLOR in description logic (DL), elements of the
+                SOLOR resource could also be used to help define CIMI DCMs and ensure that these
+                models (or appropriate subsets of them) are mappable to equivalent DL
+                representations. This feature of DCMs will enable clinical statements represented in
+                FHIR or other instantiations of DCMs to be compared to each other or to reference
+                concepts using DL classifiers. Such a logic based approach analyzing concepts will
+                add power to queries used in decision support applications or data-analytic
+                applications.</para>
+            <para><xref linkend="_Ref510792220"/> illustrates these varied uses of SOLOR content in
+                the development of CIMI DCMs and corresponding FHIR profiles. <xref
+                    linkend="_Ref510792401"/> shows an example of the data elements within the FHIR
+                    <emphasis>Observation</emphasis> resource that have no mandated value sets and
+                could benefit from the consolidated terminology content of SOLOR in defining their
+                coding constraints.</para>
+            <figure xml:id="_Ref510792220">
+                <title>Graphical depition of the potential uses of SOLOR content in modeling CIMI
+                    DCMs and FHIR profiles.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image16.png"
+                            contentwidth="665" contentdepth="342"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure xml:id="_Ref510792401">
+                <title>Examples of data elements in FHIR resources that may benefit from value sets
+                    developed using SOLOR.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image17.png"
+                            contentwidth="678" contentdepth="466"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+    </section>
+    <section>
+        <title>Conclusion</title>
+        <para>FHIR is a valuable resource for modeling clinical data that are exchanged between
+            applications via web-services calls. However, the existing mechanisms for defining
+            highly constrained plug-and-playable data structures within FHIR have been limited to
+            date by an insufficient granularity in modeling clinical observations, by a profusion of
+            uncoordinated and incompatible extension data elements, and by (in certain cases) an
+            unprincipled aggregation of disparate terminologies into the same value sets. The work
+            currently underway in the CIMI and SOLOR projects could be brought to bear on these
+            challenges within a collaborative approach that brings the healthcare industry closer to
+            truly interoperable data structures and coding systems.</para>
+    </section>
+    <section>
+        <title>References</title>
+        <para/>
+    </section>
+</article>

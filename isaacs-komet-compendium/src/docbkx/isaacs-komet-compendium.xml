@@ -5,6 +5,7 @@
 <!ENTITY % oasispub SYSTEM "http://www.oasis-open.org/docbook/xmlcharent/0.3/iso-lat2.ent">
 %oasispub;
 ]>
+<?xml-stylesheet type="text/css" href="CSS/SOLOR-css.css"?>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
@@ -300,6 +301,9 @@
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include
             href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/logical-nesting.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include
+            href="../../target/extracted-dependencies/sh.isaac.komet.doc/solor/identifying-solor-content-that-requires-special-handling.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>

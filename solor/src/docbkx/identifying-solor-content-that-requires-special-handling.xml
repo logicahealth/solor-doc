@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-stylesheet type="text/css" href="../CSS/SOLOR-css.css"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Task 5.10 Identify SOLOR Content that Requires Special Handling White Paper</title>
+    <section>
+        <title>Purpose</title>
+        <para>The original Reference Set of 50,000 SNOMED concepts completed in the first iteration,
+            and described in Section 2 below, was evaluated to determine if they meet the following
+            criteria:</para>
+        <orderedlist>
+            <listitem>
+                <para>Concept includes laterality</para>
+            </listitem>
+            <listitem>
+                <para>Concept is an inverse of a concept</para>
+            </listitem>
+            <listitem>
+                <para>Concept is a primitive concept versus those that should be fully
+                    defined</para>
+            </listitem>
+        </orderedlist>
+        <para>This review resulted in eight additional RefSets that identify the concepts that meet
+            and those that do not meet the criteria above.</para>
+        <itemizedlist>
+            <listitem>
+                <para>Laterality Correct: Clinical Findings, Observable Entities, Specimens and
+                    Procedures where the Finding and Procedure Site attributes use the correct body
+                    structure concept that involves laterality.</para>
+            </listitem>
+            <listitem>
+                <para>Laterality Incorrect: Clinical Findings, Observable Entities, Specimens and
+                    Procedures where the Finding and Procedure Site attributes do not use the
+                    correct body structure concept that involves laterality.</para>
+            </listitem>
+            <listitem>
+                <para>Doesn’t Include Laterality: Clinical Findings, Observable Entities, Specimens
+                    and Procedures where the Fully Specified Name (FSN) doesn’t involve
+                    laterality.</para>
+            </listitem>
+            <listitem>
+                <para>Ambiguous: Any of the 50,000 concepts where the FSN was ambiguous as to
+                    whether it contained laterality.</para>
+            </listitem>
+            <listitem>
+                <para>Is Inverse: Concepts that currently have or could have an inverse or opposite
+                    concept in SNOMED CT. </para>
+            </listitem>
+            <listitem>
+                <para>Is Not Inverse: Concepts that were not considered as inverse or opposite
+                    concepts.</para>
+            </listitem>
+            <listitem>
+                <para>Can Be Fully Defined: Concepts that can be fully defined now but are not being
+                    fully modeled and/or specified as fully defined.</para>
+            </listitem>
+            <listitem>
+                <para>Cannot Be Fully Defined: Concepts that will always remain primitive or would
+                    require major changes to the concept model to be fully defined.</para>
+            </listitem>
+        </itemizedlist>
+        <para> </para>
+    </section>
+    <section>
+        <title>Approach to Identify Content for 50,000 SNOMED Concepts RefSet</title>
+        <para>The below approach was used to identify the first RefSet, which included 50,000 SNOMED
+            concepts:</para>
+        <para> </para>
+        <orderedlist>
+            <listitem>
+                <para>To identify content that would need to be evaluated for laterality
+                    concepts:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Set 1: Find all concepts with “right”, “left”, or “bilateral” in an
+                            active term. This identifies all concepts that could potentially
+                            represent a lateralized concept based on a term.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Find all concepts where Set 1 is used as a destinationId for a
+                            defining relationship in the Relationship table. This identifies
+                            concepts that use the concepts from Set 1 as a value for a defining
+                            relationship, which would include both children of concepts in Set 1 and
+                            those that use them for other defining relationships.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Set 2: Find all concepts with a laterality defining attribute. This
+                            would identify all Body Structures that use a Laterality
+                            Attribute.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Find all concepts where Set 2 is used as a destinationId for a
+                            defining relationship in the Relationship table. This query would
+                            identify those concepts that do not have a term with “right”, “left”, or
+                            “bilateral” but do use a Body Structure as a value for a defining
+                            relationship.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Remove from all sets any concepts from the Body Structure
+                            hierarchy.</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>To identify content where there is an inverse concept:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Any concept with strings matching a set of keywords that would
+                            indicate the inverse of another concept</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Able to vs Unable to</para>
+                            </listitem>
+                            <listitem>
+                                <para>Normal vs Abnormal</para>
+                            </listitem>
+                            <listitem>
+                                <para>Present vs Absent</para>
+                            </listitem>
+                            <listitem>
+                                <para>Decrease vs Increase</para>
+                            </listitem>
+                            <listitem>
+                                <para>Acquired vs Congenital</para>
+                            </listitem>
+                            <listitem>
+                                <para>Localized vs Generalized</para>
+                            </listitem>
+                            <listitem>
+                                <para>Does vs Does not</para>
+                            </listitem>
+                            <listitem>
+                                <para>Benign vs Malignant</para>
+                            </listitem>
+                            <listitem>
+                                <para>Complete vs Incomplete</para>
+                            </listitem>
+                            <listitem>
+                                <para>Accidental vs Intentional</para>
+                            </listitem>
+                            <listitem>
+                                <para>Active vs Inactive</para>
+                            </listitem>
+                            <listitem>
+                                <para>Acute vs Chronic</para>
+                            </listitem>
+                            <listitem>
+                                <para>Adequate vs Inadequate</para>
+                            </listitem>
+                            <listitem>
+                                <para>Open vs Closed</para>
+                            </listitem>
+                            <listitem>
+                                <para>Attends vs Does not attend</para>
+                            </listitem>
+                            <listitem>
+                                <para>Can vs Cannot</para>
+                            </listitem>
+                            <listitem>
+                                <para>(Stable or Stability) vs (Unstable or Instability)</para>
+                            </listitem>
+                            <listitem>
+                                <para>Primary vs Secondary</para>
+                            </listitem>
+                            <listitem>
+                                <para>Positive vs Negative</para>
+                            </listitem>
+                            <listitem>
+                                <para>Major vs Minor</para>
+                            </listitem>
+                            <listitem>
+                                <para>Increased vs Decreased</para>
+                            </listitem>
+                            <listitem>
+                                <para>Direct vs Indirect</para>
+                            </listitem>
+                            <listitem>
+                                <para>Early vs Late</para>
+                            </listitem>
+                            <listitem>
+                                <para>Internal vs External</para>
+                            </listitem>
+                            <listitem>
+                                <para>Extrinsic vs Intrinsic</para>
+                            </listitem>
+                            <listitem>
+                                <para>High vs Low</para>
+                            </listitem>
+                            <listitem>
+                                <para>Legal vs Illegal</para>
+                            </listitem>
+                            <listitem>
+                                <para>Appropriate vs Inappropriate</para>
+                            </listitem>
+                            <listitem>
+                                <para>Increasing vs Decreasing</para>
+                            </listitem>
+                            <listitem>
+                                <para>Effective vs Ineffective</para>
+                            </listitem>
+                            <listitem>
+                                <para>Insufficient vs Sufficient</para>
+                            </listitem>
+                            <listitem>
+                                <para>Irregular vs Regular</para>
+                            </listitem>
+                            <listitem>
+                                <para>Loosening vs Tightening</para>
+                            </listitem>
+                            <listitem>
+                                <para>Success vs (Unsuccess or not success)</para>
+                            </listitem>
+                            <listitem>
+                                <para>Known vs unknown</para>
+                            </listitem>
+                            <listitem>
+                                <para>Narrow vs Wide</para>
+                            </listitem>
+                            <listitem>
+                                <para>Always vs Never</para>
+                            </listitem>
+                            <listitem>
+                                <para>Dependent vs Nondependent</para>
+                            </listitem>
+                            <listitem>
+                                <para>Hodgkin vs nonhodgkin</para>
+                            </listitem>
+                            <listitem>
+                                <para>Smoker vs nonsmoker</para>
+                            </listitem>
+                            <listitem>
+                                <para>Traum vs nontraum</para>
+                            </listitem>
+                            <listitem>
+                                <para>Urgent vs nonurgent</para>
+                            </listitem>
+                            <listitem>
+                                <para>Venomous vs nonvenomous</para>
+                            </listitem>
+                            <listitem>
+                                <para>Old vs new</para>
+                            </listitem>
+                            <listitem>
+                                <para>Satisfact vs (unsatisfactory or not satisfac)</para>
+                            </listitem>
+                            <listitem>
+                                <para>Use vs does not use</para>
+                            </listitem>
+                            <listitem>
+                                <para>Lengthening vs Shortening</para>
+                            </listitem>
+                            <listitem>
+                                <para>Near vs Far</para>
+                            </listitem>
+                            <listitem>
+                                <para>Infect vs noninfect</para>
+                            </listitem>
+                            <listitem>
+                                <para>Inflammatory vs noninflammatory</para>
+                            </listitem>
+                            <listitem>
+                                <para>Obstruct vs unobstruct</para>
+                            </listitem>
+                            <listitem>
+                                <para>(Loss or Lost) vs Gain</para>
+                            </listitem>
+                            <listitem>
+                                <para>Fit vs (unfit or not fit)</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Additional keywords were identified during our review process that
+                            should be added to future review efforts:</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Anteversion vs Retroversion</para>
+                            </listitem>
+                            <listitem>
+                                <para>Soft vs Firm</para>
+                            </listitem>
+                            <listitem>
+                                <para>Recessive vs Dominant</para>
+                            </listitem>
+                            <listitem>
+                                <para>Mature vs Immature</para>
+                            </listitem>
+                            <listitem>
+                                <para>Functional vs Non-functional</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>To identify content that are currently primitive concepts, but may be able to
+                    be fully defined:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Select all concepts that are intermediate primitives, meaning they
+                            have both ancestors and descendants that are fully defined but they are
+                            primitive</para>
+                    </listitem>
+                    <listitem>
+                        <para>Select all concepts that are primitive leaf nodes but they have fully
+                            defined ancestors</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Rules for Evaluating Membership in RefSets</title>
+        <para> The following rules were used to evaluate membership in one or more of the eight
+            RefSets:</para>
+        <itemizedlist>
+            <listitem>
+                <para>Inverse vs Not Inverse</para>
+            </listitem>
+            <listitem>
+                <para>Laterality Correct vs Laterality Incorrect vs Doesn’t Include Laterality
+                    vs Ambiguous</para>
+            </listitem>
+            <listitem>
+                <para>Primitive but should be fully defined vs. Always Primitive</para>
+            </listitem>
+        </itemizedlist>
+        <para> </para>
+        <para>Scope and boundaries for RefSet membership have to be defined as clearly as
+            possible to support reproducibility of concept inclusion. </para>
+        <section>
+            <title>Inverse</title>
+            <para>The purpose of the Inverse RefSets is to identify concepts that <emphasis
+                role="underline">should</emphasis> have an opposing concept due to a description
+                indicating an opposite or inverse concept, regardless of whether that opposing
+                concept currently exists in SNOMED CT. It is <emphasis role="underline"
+                    >not</emphasis> the purpose to identify and pair opposing concepts. In many
+                cases, the opposing concept does not exist in SNOMED CT and the next iteration (not
+                a part of this PWS) of this RefSet should be to link the two inverse concepts
+                together to identify missing content.</para>
+            <para/>
+            <para><emphasis role="bold"><emphasis role="italic">Rules for Inclusion in “Inverse”
+                RefSet:</emphasis></emphasis></para>
+            <orderedlist>
+                <listitem>
+                    <para>Concepts were only considered inverse if a valid opposing concept should
+                        exist in SNOMED CT. For example, 56313000|Abnormal placenta affecting
+                        management of mother (disorder)| was not considered to be inverse since the
+                        opposing concept would be “Normal placenta affecting management of mother”
+                        which would not be a valid concept.</para>
+                </listitem>
+                <listitem>
+                    <para>Anatomical positions and relative locations such as lateral, medial,
+                        distal, proximal, etc., were not considered to be inverse.</para>
+                </listitem>
+                <listitem>
+                    <para>If there is an Open procedure and the only “closed” concept that would
+                        ever need to be created would be one that uses only one specific device, we
+                        would consider these two concepts as inverse. For example, 179820004 |Open
+                        excision of implanted ligament (procedure)| is inverse of 179891009
+                        |Arthroscopic excision of implanted ligament (procedure)| and 265071006
+                        |Open bilateral clipping of fallopian tubes (procedure)| is inverse of
+                        176979002 |Endoscopic bilateral clipping of fallopian tubes
+                        (procedure)|.</para>
+                </listitem>
+                <listitem>
+                    <para>Male and Female were not considered to be inverse.</para>
+                </listitem>
+            </orderedlist>
+        </section>
+        <section>
+            <title>Laterality</title>
+            <para>The purpose of the Laterality RefSets is to identify concepts that are not
+                currently modelled with the correct body structure that utilizes laterality. This
+                only pertains to laterality as currently represented in SNOMED CT, which is used to
+                designate one or both of paired bilaterally symmetrical (or near symmetrical) body
+                structures. It therefore does not apply to sidedness of specific body structures.
+                For example 364006 |Acute left-sided heart failure (disorder)| is not a lateralized
+                disorder since the heart is not a bilaterally symmetrical body structure. For more
+                information on laterality vs sidedness, please see <link
+                    xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2244155/?page=1"
+                    ><emphasis role="italic">Choosing Sides. Assigning Laterality as an
+                        Attribute in SNOMED® CT</emphasis></link><emphasis role="italic"
+                            >.</emphasis></para>
+            <para> </para>
+            <para><emphasis role="bold"><emphasis role="italic">Rules for Inclusion in “Laterality”
+                RefSet:</emphasis></emphasis></para>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para>If the concept being evaluated includes laterality in its FSN and it
+                            is not modelled using a Finding Site or Procedure Site, even in cases
+                            where there is no current SCT body structure concept with the correct
+                            laterality, it will be marked as incorrect. For example,
+                            16730001000004104 |Thrombosis of left peroneal vein (disorder)| should
+                            be defined with Structure of left peroneal vein, which does not
+                            currently exist in SNOMED CT.</para>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/Task5_10_FIG1.png"/>
+                            </imageobject>
+                        </inlinemediaobject></para>
+                    </listitem>
+                    <listitem>
+                        <para>All bilateral concepts were evaluated against the current SNOMED CT
+                            modelling guidance, which requires the use of two separate role groups
+                            with one representing the right body structure and one representing the
+                            left body structure. If the concept is modelled using the bilateral body
+                            structure (e.g. 40638003 |Structure of both eyes (body structure)|), it
+                            was added to the Laterality Incorrectly Modeled RefSet. For example,
+                            12239101000119100 |Bilateral degeneration of macula (disorder)| should
+                            have two different role groups, one with 721947001 |Structure of macula
+                            lutea of left eye (body structure)| and the other with 721945009
+                            |Structure of macula lutea of right eye (body structure)|.</para>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/Task5_10_FIG2.png"/>
+                            </imageobject>
+                        </inlinemediaobject></para>
+                    </listitem>
+                    <listitem>
+                        <para>If the concept being evaluated included a plural form of a potentially
+                            lateralizable body structure in the FSN, we considered this concept to
+                            represent bilaterality and evaluated it as such. For example, 248422003
+                            |Warm hands (finding)| does not specify right, left, or bilateral in the
+                            FSN but since it uses the term “hands,” we considered it to be bilateral
+                            and evaluated against the current SNOMED CT modelling guidance as stated
+                            above.</para>
+                    </listitem>
+                    <listitem>
+                        <para>If the concept being evaluated represented sidedness of a
+                            non-bilaterally symmetrical body structure, it was added to the Does Not
+                            Include Laterality RefSet. For example, 111283005 |Chronic left-sided
+                            heart failure (disorder)| represents heart failure on the left side of
+                            the heart. </para>
+                    </listitem>
+                    <listitem>
+                        <para>If the concept being evaluated was ambiguous as to whether it
+                            represented one side vs both sides, it was placed in the Ambiguous
+                            Laterality RefSet. For example, “lacrimal canaliculi” concepts were
+                            considered to be ambiguous since their FSNs did not specify if it was
+                            the lacrimal canaliculi of both eyes or the right or left eye.</para>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </section>
+        <section>
+            <title>Primitive</title>
+            <para>The purpose of the Primitive RefSets is to identify concepts that could be easily
+                fully defined under the current concept model of SNOMED CT. From the SNOMED CT
+                Technical Implementation Guide, a fully defined concept is defined as:</para>
+            <para> “A <link xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                >Concept</link> is considered to be <link
+                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined"
+                    >fully defined</link> if its <link
+                        xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/defining+characteristic"
+                        >defining characteristics</link> are sufficient to define it relative to its
+                immediate supertype(s). A <link
+                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                    >Concept</link> which is not <link
+                        xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined"
+                        >fully defined</link> is <link
+                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Primitive"
+                            >Primitive</link> and this is indicated by the value of the <link
+                                xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/definitionStatusId"
+                                >definitionStatusId</link> field. </para>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para><link
+                            xlink:href="http://snomed.info/id/233604007"> 233604007 |Pneumonia|</link> is a lung
+                            disease but unless <link
+                                xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/defining+characteristic"
+                                >defining characteristics</link> are specified that effectively distinguish <link
+                                    xlink:href="http://snomed.info/id/233604007">233604007 |pneumonia|</link> from other
+                            lung diseases then it is regarded as a <link
+                                xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/primitive"
+                                >primitive</link><link
+                                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                                    >Concept</link>. </para>
+                        <para>If a <link xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                            >Concept</link> is <link
+                                xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/primitive"
+                                >primitive</link> then the <link
+                                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/defining+characteristic"
+                                    >defining characteristics</link> for that <link
+                                        xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                                        >Concept</link> are incomplete. It is not possible to automatically compute that a
+                            <link xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                                >Concept</link> represented as a <link
+                                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/postcoordinated"
+                                    >postcoordinated</link> combination of several <link
+                                        xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                                        >Concepts</link> is or is not a <link
+                                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/subtype"
+                                            >subtype</link> of a particular <link
+                                                xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/primitive"
+                                                >primitive</link><link
+                                                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                                                    >Concept</link>. </para>
+                    </listitem>
+                    <listitem>
+                        <para> The <link
+                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                            >Concept</link> "lung disease" qualified by <link
+                                xlink:href="http://snomed.info/id/246075003">246075003 |causative agent|</link> =
+                            <link xlink:href="http://snomed.info/id/41146007">41146007 |bacteria|</link> may be
+                            <link xlink:href="http://snomed.info/id/233604007">233604007 |pneumonia|</link> but
+                            could also be "bronchitis." </para>
+                        <para>In contrast if a <link
+                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                            >Concept</link> is <link
+                                xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined">fully
+                                defined</link> it is possible to state that any <link
+                                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                                    >Concept</link> represented as a combination of the same <link
+                                        xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/defining+characteristic"
+                                        >defining characteristics</link> is equivalent to or a <link
+                                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/subtype"
+                                            >subtype</link> of that <link
+                                                xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                                                >Concept</link>. </para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Example:</emphasis> Assume that the <link
+                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
+                            >Concept</link><link xlink:href="http://snomed.info/id/53084003">53084003 |bacterial
+                                pneumonia|</link> is <link
+                                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined">fully
+                                    defined</link> as <link xlink:href="http://snomed.info/id/312342009">312342009
+                                        |infective pneumonia|</link> with <link xlink:href="http://snomed.info/id/246075003"
+                                            >246075003 |causative agent|</link> = <link
+                                                xlink:href="http://snomed.info/id/41146007">41146007 |bacteria|</link> and that
+                            <link xlink:href="http://snomed.info/id/9861002">9861002 |pneumococcus|</link> is a
+                            <link xlink:href="http://snomed.info/id/41146007">41146007 |bacteria|</link>. It
+                            then follows that the post coordinated representation of <link
+                                xlink:href="http://snomed.info/id/233607000">233607000 |pneumococcal
+                                pneumonia|</link> as <link xlink:href="http://snomed.info/id/312342009">312342009
+                                    |infective pneumonia|</link> with <link xlink:href="http://snomed.info/id/246075003"
+                                        >246075003 |causative agent|</link> = <link
+                                            xlink:href="http://snomed.info/id/9861002">9861002 |pneumococcus|</link> is
+                            computably a <link
+                                xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/subtype"
+                                >subtype</link> of <link xlink:href="http://snomed.org/fictid">|bacterial
+                                    pneumonia.|</link>”</para>
+                    </listitem>
+                </orderedlist>
+            </para>
+            <para><emphasis role="bold">Rules for Inclusion in “Primitive” RefSet</emphasis>
+                <orderedlist>
+                    <listitem>
+                        <para>If the evaluated concept can be fully defined within the current SNOMED CT
+                            concept model and no changes are required, then it will be placed in the Can Be
+                            Fully Defined RefSet. For example, 201558003 |Reactive arthropathy of shoulder
+                            (disorder)| can be changed to fully defined today as there is nothing missing
+                            from its definition.</para>
+                    </listitem>
+                    <listitem>
+                        <para>If a concept could be fully defined by the addition of a new concept to
+                            represent a single parent or by adding a single concept that could be used as a
+                            value for a current concept model attribute, the concept will be placed in the
+                            Can Be Fully Defined RefSet. For example, 207959006 |Closed fracture lumbar
+                            vertebra, wedge (disorder)| currently cannot be considered as fully defined
+                            because an Associated Morphology concept doesn’t currently exist to represent a
+                            Wedge Fracture. By adding that single concept, the concept will then be able to
+                            be fully defined.</para>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/Task5_10_FIG3.png"/>
+                            </imageobject>
+                        </inlinemediaobject></para>
+                    </listitem>
+                    <listitem>
+                        <para>If the evaluated concept requires a change to the Concept Model, for example,
+                            adding a new attribute or changing the range of values an existing Concept Model
+                            attribute takes, then it will be placed in the Can Not Be Fully Defined RefSet.
+                            For example, 427252003 |Pain radiating to right side of chest (finding)| cannot
+                            be fully defined because there is no concept model attribute to represent that
+                            the pain radiated to the right side of the chest. Currently, it only indicates
+                            radiating pain and doesn’t specify the body structure of chest or that it is on
+                            the right side.</para>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </section>
+    </section>
+    
+    <section>
+        <title>Reliability of Rule Sets</title>
+        <para>In order to determine reliability of the identified keywords and rule sets for each
+            RefSet, metrics of agreement/disagreement for the initial review were used. </para>
+        <para>Two Terminologists reviewed the SNOMED CT concepts individually, applying the initial
+            set of rules for each RefSet. After this first review, disagreements between the two
+            Terminologists were extracted from the concept files and re-assigned for discussion and
+            reconciliation. </para>
+        <para>
+            <emphasis role="bold">Metrics for Inter-Rater Reliability</emphasis></para>
+            <para>In the course of the reconciliation discussion, the initial rules were
+            re-evaluated and either confirmed, adjusted, clarified or eliminated to achieve a set of
+            rules that is sufficiently expressive and reproducible. </para>
+            <para>The RefSet membership status of all reconciled concepts was updated in the
+                RefSets.</para>
+            <para>The following metrics for agreement/disagreement percentages between the first two
+                reviewers were calculated:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Laterality RefSets Agreement = 84.12%</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <itemizedlist>
+                <listitem>
+                    <para>Inverse RefSets Agreement = 98.81%</para>
+                </listitem>
+                <listitem>
+                    <para>Fully Defined RefSets Agreement = 82.84%</para>
+                </listitem>
+            </itemizedlist>
+    </section>
+    <section>
+        <title><anchor xml:id="_Toc491441227"/>Sensitivity and Specificity</title>
+        <para>Using the defined set of keywords, the sensitivity and specificity of the initial
+            automated queries was tested against the final RefSets. After running the queries and
+            evaluating the concepts for inclusion in their appropriate RefSet, we further
+            categorized the results as either a True Positive, True Negative, False Positive, or
+            False Negative. Running the queries against the original 50,000 concepts the following
+            metrics were applied to the results:  </para>
+        <itemizedlist>
+            <listitem>
+                <para>Sensitivity = number of True Positives/number of True Positives + number of
+                    False Negatives</para>
+            </listitem>
+            <listitem>
+                <para>Specificity = number of True Negatives/ number of True Negatives + number of
+                    False Positives</para>
+            </listitem>
+        </itemizedlist>
+        <para> </para>
+        <section>
+            <title><anchor xml:id="_Toc491441228"/>Sensitivity and Specificity of Search Criteria
+                for “Laterality”</title>
+            <para>
+                <table frame="void">
+                    <caption>Table 1. Sensitivity and Specificity of Laterality Search
+                        Criteria.</caption>
+                    <col width="22%"/>
+                    <col width="11%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <thead>
+                        <tr>
+                            <th>Laterality Results</th>
+                            <th>Query Total</th>
+                            <th>Doesn't Include Laterality</th>
+                            <th>Incorrect Laterality</th>
+                            <th>Correct Laterality</th>
+                            <th>Ambiguous</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No Term, Attribute =side</td>
+                            <td align="center">9317</td>
+                            <td align="center" class="cell_red_white">9225</td>
+                            <td align="center" class="cell_yellow_black">81</td>
+                            <td align="center" class="cell_yellow_black">0</td>
+                            <td align="center">11</td>
+                        </tr>
+                        <tr>
+                            <td>No Term, Attribute = RLB</td>
+                            <td align="center">94</td>
+                            <td align="center" class="cell_orange_black">9</td>
+                            <td align="center" class="cell_green_white">11</td>
+                            <td align="center" class="cell_green_white">74</td>
+                            <td align="center">0</td>
+                        </tr>
+                        <tr>
+                            <td>Term, Attribute = RLB</td>
+                            <td align="center">3899</td>
+                            <td align="center" class="cell_orange_black">11</td>
+                            <td align="center" class="cell_green_white">661</td>
+                            <td align="center" class="cell_green_white">3227</td>
+                            <td align="center">0</td>
+                        </tr>
+                        <tr>
+                            <td>Term, No Attribute</td>
+                            <td align="center">2545</td>
+                            <td align="center" class="cell_red_white">1530</td>
+                            <td align="center" class="cell_yellow_black">960</td>
+                            <td align="center" class="cell_yellow_black">55</td>
+                            <td align="center">0</td>
+                        </tr>
+                        <tr>
+                            <td>Totals</td>
+                            <td align="center">15855</td>
+                            <td align="center">10775</td>
+                            <td align="center">1713</td>
+                            <td align="center">3356</td>
+                            <td align="center">11</td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </para>
+                     
+            <para>
+                <table frame="void">
+                    <caption></caption>
+                    <col width="125"/>
+                    <tbody>
+                        <tr>
+                            <td class="cell_green_white">True Positive</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_red_white">True Negative</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_orange_black">False Positive</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_yellow_black">False Negative</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>Before creating assignments we categorized the concepts as either those that have
+                a term that included right, left, or bilateral and those that have an attribute that
+                uses a concept with a laterality of right, left or bilateral. If the concept had a
+                term with right, left or bilateral and no attribute or if the attribute had a
+                laterality where the value was the parent (side) of right and left we considered
+                those concepts to be within the set that probably did not include laterality. If the
+                concept was associated with a laterality attribute that was either right or left we
+                considered it to probably include laterality whether it was correctly modelled or
+                not.</para>
+            <para>Sensitivity of 78.38% and Specificity of 99.81% </para>
+        </section>
+        <section>
+            <title><anchor xml:id="_Toc491441229"/>Sensitivity and Specificity of Keywords for
+                “Inverse”</title>
+            <table frame="void">
+                <caption>Table 2. Sensitivity and Specificity of keywords for
+                    &quot;Inverse&quot;.</caption>
+                <col width="25%"/>
+                <col width="25%"/>
+                <col width="25%"/>
+                <col width="25%"/>
+                <thead>
+                    <tr>
+                        <th>Inverse Results</th>
+                        <th>Query Total</th>
+                        <th>Is Inverse</th>
+                        <th>Is Not Inverse</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Removed Keywords </td>
+                        <td align="center">5875</td>
+                        <td align="center" class="cell_yellow_black">1773</td>
+                        <td align="center" class="cell_red_white">4102</td>
+                    </tr>
+                    <tr>
+                        <td>Original Keywords</td>
+                        <td align="center">18416</td>
+                        <td align="center" class="cell_green_white">12155</td>
+                        <td align="center" class="cell_orange_black">6261</td>
+                    </tr>
+                    <tr>
+                        <td>Totals</td>
+                        <td align="center">24291</td>
+                        <td align="center">13928</td>
+                        <td align="center">10363</td>
+                    </tr>
+                </tbody>
+            </table>
+            <para> 
+                <table frame="void">
+                    <caption></caption>
+                    <col width="125"/>
+                    <tbody>
+                        <tr>
+                            <td class="cell_green_white">True Positive</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_red_white">True Negative</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_orange_black">False Positive</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_yellow_black">False Negative</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>After conducting a pilot certain keywords were identified a less likely to be
+                inverse. We separated these concepts into separate assignments. After further
+                review, 30% of these concepts contained other keywords that made them inverse. </para>
+            <para>Sensitivity of 82.27% and Specificity of 39.58%</para>
+            <para> </para>
+        </section>
+        <section>
+            <title><anchor xml:id="_Toc491441230"/>Sensitivity and Specificity of Search Criteria
+                for “Can Be Fully Defined”</title>
+            <informaltable>
+                <tgroup cols="4">
+                    <colspec colnum="1" colname="col1"/>
+                    <colspec colnum="2" colname="col2"/>
+                    <colspec colnum="3" colname="col3"/>
+                    <colspec colnum="4" colname="col4"/>
+                    <tbody>
+                        <row>
+                            <entry><emphasis role="bold">Primitive Results</emphasis></entry>
+                            <entry><emphasis role="bold">Query Total</emphasis></entry>
+                            <entry><emphasis role="bold">Can Be Fully Defined</emphasis></entry>
+                            <entry><emphasis role="bold">Cannot Be Fully Defined</emphasis></entry>
+                        </row>
+                        <row>
+                            <entry>Leaf Nodes</entry>
+                            <entry>28394</entry>
+                            <entry>7458</entry>
+                            <entry>20936</entry>
+                        </row>
+                        <row>
+                            <entry>Intermediate Primitives</entry>
+                            <entry>2133</entry>
+                            <entry>677</entry>
+                            <entry>1456</entry>
+                        </row>
+                        <row>
+                            <entry>Other</entry>
+                            <entry>2154</entry>
+                            <entry>573</entry>
+                            <entry>1581</entry>
+                        </row>
+                        <row>
+                            <entry>Totals</entry>
+                            <entry>32681</entry>
+                            <entry>8708</entry>
+                            <entry>23973</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </informaltable>
+            <table frame="void">
+                <caption>Table 3. Sensitivity and Specificity of Search Criteria for &quot;Can Be
+                    Fully Defined&quot;.</caption>
+                <col width="25%"/>
+                <col width="25%"/>
+                <col width="25%"/>
+                <col width="25%"/>
+                <thead>
+                    <tr>
+                        <th>Primitive Results</th>
+                        <th>Query Total</th>
+                        <th>Can Be Fully Defined</th>
+                        <th>Cannot Be Fully Defined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Leaf Nodes</td>
+                        <td align="center">28394</td>
+                        <td align="center" class="cell_green_white">7458</td>
+                        <td align="center" class="cell_yellow_black">20936</td>
+                    </tr>
+                    <tr>
+                        <td>Intermediate Primitives</td>
+                        <td align="center">2133</td>
+                        <td align="center" class="cell_green_white">677</td>
+                        <td align="center" class="cell_yellow_black">1456</td>
+                    </tr>
+                    <tr>
+                        <td>Other</td>
+                        <td align="center">2154</td>
+                        <td align="center" class="cell_orange_black">573</td>
+                        <td align="center" class="cell_red_white">1581</td>
+                    </tr>
+                    <tr>
+                        <td>Totals</td>
+                        <td align="center">32681</td>
+                        <td align="center">8708</td>
+                        <td align="center">23973</td>
+                    </tr>
+                </tbody>
+            </table>
+            <para>
+                <table frame="void">
+                    <caption/>
+                    <col width="125"/>
+                    <tbody>
+                        <tr>
+                            <td class="cell_green_white">True Positive</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_red_white">True Negative</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_orange_black">False Positive</td>
+                        </tr>
+                        <tr>
+                            <td class="cell_yellow_black">False Negative</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>Leaf Nodes and Intermediate Primitives were concepts that we would more likely see
+                as concepts that should be Fully Defined. However, in many cases that really
+                depended upon whether new Concept Model attributes could be added to SNOMED CT. The
+                other Primitive concepts we reviewed were concepts that were not Leaf Nodes and
+                Intermediate Primitive concepts that we reviewed and we did not expect to find many
+                of them that could be fully defined.</para>
+            <para>Sensitivity of 26.65% and Specificity of 73.40%</para>
+        </section>
+    </section>
+    <section>
+        <title xml:id="title_lll_dq2_4fb">Conclusion</title>
+        <para>The Inverse RefSets had good inter-rater agreement but the Fully Defined and
+            Laterality RefSets had lower inter-rater agreement rates. The Fully Defined and
+            Laterality RefSets both required the evaluation of the modeling of the defining
+            relationships and judging their correctness. The experience of the clinical reviewing
+            team with the SNOMED CT Concept Model is critical to getting a high inter-rater
+            agreement rate when creating RefSets that depend on reviewing modelling. As the SNOMED
+            CT Concept Model increases in complexity, the education and experience with modelling of
+            SNOMED CT concepts will become even more critical in reviewing and maintaining these
+            RefSets. </para>
+        <para>For the 5,069 concepts that were identified as having laterality, 33.79% were deemed
+            to be incorrectly modeled. While this is a rather large number, SNOMED International is
+            currently modeling a large number of laterality concepts and this number should be
+            decreasing with each release. </para>
+        <para>The sensitivity for the Primitive RefSets is relatively low because reviewers needed
+            to decide if the addition of some qualifier value or a new parent concept would make
+            these concepts definable. In many cases there needed to be the addition of new concept
+            model attribute to fully define concepts. The queries used to identify these concepts
+            for review were not able to tell which primitive concepts could be fully defined with
+            and without Concept Model changes. Overall, the exercise of reviewing primitives is very
+            useful to identify more concepts that could be fully defined. </para>
+        <para>Overall, this approach to identify SNOMED CT concepts that require special handling
+            shows that automated queries can be very useful as a first “screening” step, but manual
+            review and reconciliation still has to be performed to arrive at evaluated RefSets that
+            adhere to reliable inclusion/exclusion criteria. Creating RefSets that identify modeling
+            issues can present problems when the review of concepts spans multiple release dates and
+            the tooling used to do the review is updated while the review is still taking place.
+            This requires additional work at the end of the project to ensure that the review of the
+            concepts for errors does not identify concepts that were correctly placed when they were
+            initially reviewed, but are now incorrectly placed due to corrections or changes made to
+            the latest release.</para>
+    </section>
+    
+</chapter>

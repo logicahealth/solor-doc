@@ -478,7 +478,7 @@
                 <title>Circumstance, including request, performance, and unstructured subtypes</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/image4.png" contentwidth="624" contentdepth="162"
+                        <imagedata fileref="images/image4.png" scalefit="1" width="100%" contentdepth="100%"
                         />
                     </imageobject>
                 </mediaobject>
@@ -818,7 +818,7 @@
             <title>Order Example (Cardiology Order Set)</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="images/ANF_TSR_OS.png"/>
+                    <imagedata fileref="images/ANF_TSR_OS.png" scalefit="1" width="100%" contentdepth="100%"/>
                 </imageobject>
             </mediaobject>
         </figure>
@@ -827,7 +827,7 @@
             <title>Order Set Instance Request in TSR Template</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="images/ANF_TSR_template.png"/>
+                    <imagedata fileref="images/ANF_TSR_template.png" scalefit="1" width="100%" contentdepth="100%"/>
                 </imageobject>
             </mediaobject>
         </figure>
@@ -924,12 +924,19 @@
             </para>
             <para> Naproxen sodium 550 mg tablet oral every 12 hours as needed for back pain 100
                 tablets 2 refills </para>
-            <para> Post-coordinated expression with conceptual graph syntax: </para>
-            <para> [416118004 |Administration (procedure)] ->(260686004 |Method
-                (attribute))->[129445006 |Administration - action (qualifier value)] ->(363701004
-                |Direct substance (attribute))->[Rx;849431 Naproxen sodium 550 MG Oral Tablet]
-                ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier
-                value)] </para>
+            <para> Post-coordinated expression with <emphasis>conceptual graph
+                    <footnote>
+                        <para>
+                            <link
+                                xmlns:xlink="https://en.wikipedia.org/wiki/Conceptual_graph#Graph-based_knowledge_representation_and_reasoning_model"
+                                >https://en.wikipedia.org/wiki/Conceptual_graph#Graph-based_knowledge_representation_and_reasoning_model</link>
+                        </para>
+                    </footnote></emphasis> syntax: </para>
+            <para><mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/ANF_topic_medication_naproxen.png" scalefit="1" width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject></para>
             <para> Notes: <orderedlist>
                     <listitem>
                         <para> The IR is specific enough regarding strength and dose form.
@@ -937,7 +944,7 @@
                                 <title>RxNorm SCD Code</title>
                                 <mediaobject>
                                     <imageobject>
-                                        <imagedata fileref="images/ANF_topic_SCD.png"/>
+                                        <imagedata fileref="images/ANF_topic_SCD.png" scalefit="1" width="100%" contentdepth="100%"/>
                                     </imageobject>
                                 </mediaobject>
                             </figure>
@@ -950,7 +957,7 @@
                                 <title>RxNorm SCDG Code</title>
                                 <mediaobject>
                                     <imageobject>
-                                        <imagedata fileref="images/ANF_topic_SCDG.png"/>
+                                        <imagedata fileref="images/ANF_topic_SCDG.png" scalefit="1" width="100%" contentdepth="100%"/>
                                     </imageobject>
                                 </mediaobject>
                             </figure>
@@ -959,8 +966,8 @@
                     <listitem>
                         <para>If the IR states a class of drugs, e.g. “Glucocorticoids”, the coding
                             approach is cascaded: </para>
-                        <para> First choice: SNOMED CT concept from the “product” hierarchy </para>
-                        <para> Second choice: NDF-RT code</para>
+                        <para> → First choice: SNOMED CT concept from the “product” hierarchy </para>
+                        <para> → Second choice: NDF-RT code</para>
                     </listitem>
                     <listitem>
                         <para>“Route of administration - oral” is included in the post-coordinated
@@ -1052,21 +1059,24 @@
             <title>Observational Procedures (Performance)</title>
             <para> In the “performance” tab of TSRs, many of the IRs pertain to the documentation of
                 findings or disorders. These are “observational” procedures, often documented within
-                “history and physical” sections of documentation templates, which describe the
+                “history and physical” sections of documentation templaWeaktes, which describe the
                 presence or absence of a finding or disorder. </para>
             <para> This category of IRs is always captured as a post-coordinated expression in the
                 topic field. </para>
             <para> Example IR: Weakness of neck </para>
             <para> Post-coordination:</para>
-            <para> [a997cc03-3e99-40eb-833a-6374c7750a3a |Observation procedure (procedure)] </para>
-            <para> ->(363702006 |Has focus (attribute))->[249931001 |Weakness of neck (finding)] </para>
+            <para><mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/ANF_topic_observationalProcedure_weaknessOfNeck.png" scalefit="1" width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject></para>
             <para> Example IR: Right arm pain </para>
             <para> Post-coordination:</para>
-            <para> [a997cc03-3e99-40eb-833a-6374c7750a3a |Observation procedure (procedure)]- </para>
-            <para> ->(363702006 |Has focus (attribute))->[22253000 |Pain (finding)]- </para>
-            <para> ->(363698007 |Finding site (attribute))->[53120007 |Upper limb structure (body
-                structure)]- </para>
-            <para> ->(272741003 |Laterality (attribute))->[24028007 |Right (qualifier value)];
+            <para> <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/ANF_topic_observationalProcedure_rightArmPain.png" scalefit="1" width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject>
             </para>
         </section>
         <section>
@@ -1126,7 +1136,12 @@
                 </itemizedlist>
             </para>
             <para> The timing is always expressed as a time or time range relative to the statement
-                time, using the ISO 8601 Date/Time Standard format . </para>
+                time, using the ISO 8601 Date/Time Standard format<footnote>
+                    <para>
+                        <link xmlns:xlink="https://en.wikipedia.org/wiki/ISO_8601"
+                            >https://en.wikipedia.org/wiki/ISO_8601</link>
+                    </para>
+                </footnote>. </para>
             <para> If the actual time or time range is not specified in the IR, the following
                 expressions are used: <itemizedlist>
                     <listitem>
@@ -1157,8 +1172,8 @@
                 specificity within the IR. </para>
             <para> Example (unspecific): History of breast cancer </para>
             <para>
-                <table frame="border">
-                    <caption>Timnig - unspecific</caption>
+                <table frame="border" border="1">
+                    <caption>Timing - unspecific</caption>
                     <col width="50%"/>
                     <col width="50%"/>
                     <tbody align="left">
@@ -1213,13 +1228,13 @@
                 </itemizedlist>
             </para>
             <para>Note: The expression of “present” could also be correctly indicated using </para>
-            <para>timing.lowerBound = 0 </para>
-            <para>timing.includeLowerBound = FALSE </para>
+            <para> timing.lowerBound = 0 </para>
+            <para> timing.includeLowerBound = FALSE </para>
             <para>Not including “0” also expresses that there has to be at least “1”. However, it is
                 the current agreed policy to use the “1/TRUE” option. </para>
             <para>Example (specific range): Anticonvulsant therapy greater than 2 years </para>
             <para>
-                <table frame="border">
+                <table frame="border" border="1">
                     <caption>Timing - specific range</caption>
                     <col width="50%"/>
                     <col width="50%"/>
@@ -1290,7 +1305,7 @@
             </para>
             <para> Example (specific date): Completed Appointed on March 12 2018 with Cardiology </para>
             <para>
-                <table frame="border">
+                <table frame="border" border="1">
                     <caption>Timing - specific date</caption>
                     <col width="50%"/>
                     <col width="50%"/>
@@ -1337,12 +1352,18 @@
                 (attribute) |” attribute and identifying a finding/disorder or procedure concept as
                 the value for the attribute. </para>
             <para> Example IR: Resting 12-lead electrocardiogram to evaluate for arrhythmia </para>
-            <para> [386053000 |Evaluation procedure (procedure)] </para>
-            <para> ->(363702006 |Has focus (attribute))->[ 698247007 |Cardiac arrhythmia (disorder)] </para>
+            <para><mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/ANF_purpose_resting.PNG" scalefit="1" width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject></para>
             <para> Example IR: Naproxen sodium 550 mg tablet oral every 12 hours as needed for back
                 pain 100 tablets 2 refills </para>
-            <para> [277132007 |Therapeutic procedure (procedure)] </para>
-            <para> ->(363702006 |Has focus (attribute))->[161891005 |Backache (finding)] </para>
+            <para> <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/ANF_purpose_naproxen.PNG" scalefit="1" width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject></para>
             <para> IRs can have more than one purpose. </para>
         </section>
         <section>
@@ -1400,7 +1421,7 @@
             <para><emphasis role="bold">Example IR:</emphasis> Metoprolol tartrate 50 mg tablet oral
                 daily 2 times </para>
             <para>
-                <table frame="border">
+                <table frame="border" border="1">
                     <caption>requestedResult -Example 1</caption>
                     <col width="50%"/>
                     <col width="50%"/>
@@ -1438,7 +1459,7 @@
             <para><emphasis role="bold">Example IR: </emphasis>Acetaminophen 325 mg tablet oral two
                 tablets every 6 hours </para>
             <para>
-                <table frame="border">
+                <table frame="border" border="1">
                     <caption>requestedResult -Example 2</caption>
                     <col width="50%"/>
                     <col width="50%"/>
@@ -1529,7 +1550,7 @@
                 <emphasis role="bold">Example IR:</emphasis> Naproxen sodium 550 mg tablet oral
                 every 12 hours as needed for back pain </para>
             <para>
-                <table frame="border">
+                <table frame="border" border="1">
                     <caption>repetition.period Example</caption>
                     <col width="50%"/>
                     <col width="50%"/>
@@ -1607,12 +1628,12 @@
                 currently also used to capture numbers of tablets (or other units) and number of
                 refills, if these are stated in the IR. The tablets/refills are used to calculate
                 how long the administration period can be. </para>
-            <para><emphasis role="bold">Example IR:</emphasis> Aspirin 81 mg oral tablet daily as
-                needed, 30 tablets, 3 refills </para>
-            <para>30 tablets + 3 refills = 120 tablets </para>
-            <para>1 tablet/day = 120 days</para>
+            <para><emphasis role="bold">    Example IR:</emphasis> Aspirin 81 mg oral tablet daily
+                as needed, 30 tablets, 3 refills </para>
+            <para>      30 tablets + 3 refills = 120 tablets </para>
+            <para>      1 tablet/day = 120 days</para>
             <para>
-                <table frame="border">
+                <table frame="border" border="1">
                     <caption/>
                     <col width="50%"/>
                     <col width="50%"/>
@@ -1678,7 +1699,7 @@
                 </orderedlist><emphasis role="bold">Example IR:</emphasis> Naproxen 550mg tablet
                 oral every 12 hours </para>
             <para>
-                <table frame="border">
+                <table frame="border" border="1">
                     <caption>repetition.eventFrequency - Example 1</caption>
                     <col width="50%"/>
                     <col width="50%"/>
@@ -1713,7 +1734,7 @@
             <para><emphasis role="bold">Example IR: </emphasis>Ibuprofen 400 mg tablet oral every 6
                 hours; may increase dose frequency to one tablet every 4 hours </para>
             <para>
-                <table frame="border">
+                <table frame="border" border="1">
                     <caption>repetition.eventFrequency - Example 2</caption>
                     <col width="50%"/>
                     <col width="50%"/>

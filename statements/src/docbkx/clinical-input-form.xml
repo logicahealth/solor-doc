@@ -8,6 +8,1000 @@
     xmlns:ns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude">
      <title>Clinical Input Form Statements</title>
-     <para/>
+     
+     <section>
+     	
+     	<para>
+     		A clinical statement represents an entry in the patient record that documents in a structured/computable manner clinical information about a subject of information, such as a patient or a relative of the patient, and that is asserted by a particular source, recorded, and potentially verified.
+     	</para>
+
+         <para>
+         	Clinicians author clinical statements and enter them into their organization’s electronic health record (EHR).  Clinicians typically enter the information via a manner that we call here the clinical input form (CIF).  However, the CIF is not a literal form that clinicians select and enter data in. Rather, it refers to the manner in which information is presented to the clinicians and how they enter the data, such as by constraining the information to allow only certain values to be entered, such as through a drop-down list or radio button, or breaking up large chunks of related information into smaller parts.  For example, when a clinician orders a medication, rather than selecting this information all at once with a single item, they will choose the various parts of the medication order, such as:
+        </para>
+
+        <itemizedlist spacing='compact'>
+            <listitem>
+                <para>
+                	Kind of drug and strength (e.g., Acetaminophen 150 mg)
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                	Amount and how often the patient should take the medication (e.g., 1 tablet twice daily)
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                	Duration (2 days)
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                	Any constraints (e.g., do not exceed a total daily dosage of 600 mg)
+                </para>
+            </listitem>
+        </itemizedlist>
+
+        <para>
+        	Ideally, the way the information is presented to clinicians is in a manner that is most efficient for the clinicians to use.  However, what is an efficient way for clinicians to select and enter data may not be the most efficient way for data analysts to use when they are querying data once it has been normalized and stored in a database, such as when creating a new CDS rule or compiling prevalence statistics.  For this, the data is normalized using the analysis normal form (ANF) and stored in a database.  Again, the ANF is not necessarily a physical structure, but is how a data analyst might see the data when they are looking at it in a database, and not as clinicians would see it in the user interface (i.e., CIF).
+        </para>
+
+        <para>
+     		As a forward to this discussion it is necessary to provide some historical background about the Clinical Information Modeling Initiative(CIMI) model. The CIMI working group created a reference model with no working knowledge of a division between analysis normal form and clinical input form. The model they created was developed along standard lines of informatics thinking and thus ended up being a CIF model because CIF models are the norm in informatics.  Thus, CIMI simply called this model the CIMI model.  But now to distinquish it from the ANF model being proposed to CIMI, we will call the current CIMI model, the CIMI CIF model.
+     	</para>
+
+
+ 	</section>
+
+     <section>
+
+     	<title>Basics of the CIMI Clinical Input Form</title>
+
+	    <para>
+	        The CIMI CIF Model consists of two layers as shown in <xref linkend="cif_msg_layers_0135"/>.  A reference model layer that defines the structural classes and named attributes, and a constraint layer which constrains these structural attributes by value, subtype, cardinality, and terminology.  The basic modeling rule that CIMI CIF follows is: new named attributes are added in the Reference Layer and the constraining of existing attributes occurs in the Constraint Layer.  
+	    </para>
+
+	    <para>
+	        The CIMI CIF Reference Model layer is authored using Unified Modeling Language (UML).  These class definitions may be viewed at <ulink url="http://models.opencimi.org/cimi_doc/"><citetitle>http://models.opencimi.org/cimi_doc/</citetitle></ulink>.  
+	    </para>
+
+	    <figure xml:id="cif_msg_layers_0135">
+	        <title>CIMI CIF Model Layers</title>
+	        <mediaobject>
+	            <imageobject>
+	                <imagedata fileref="images/cif_uml_bmm.jpg" align="center" format="jpg" width="50%"/>
+	            </imageobject>
+	        </mediaobject>
+	    </figure>
+
+	    <para>
+	        The constraint layer is described using Archetype Definition Language (ADL). ADL is a formal language with a textual syntax for describing constraints on the classes described in the reference layer. A re-usable formal constraint model defined in ADL is called an Archetype. The full collection of CIMI CIF Archetypes may be viewed at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink>.
+	    </para>
+
+	    <para>
+	        One complexity that needs to be addressed here is that ADL can only be used to constrain reference classes defined in a lightweight proprietary UML like specification called Basic Meta-Model (BMM). For this reason, CIMI has developed tooling that transforms the CIMI UML models into the BMM specification. Although this complexity does exist, to ease understanding, the reader can simply imagine that ADL is directly constraining the UML classes. 
+	    </para>
+
+	    <para>
+	        The UML/BMM classes are more abstract and the archetypes are where specific semantics such as 'blood glucose' or 'diabetes present; are asserted.
+	    </para>
+
+	    <sect2>
+	        <title>Structures</title>
+
+	        <para>
+	            The CIMI UML/BMM model has three concentric layers: a Core that defines datatypes and a root class, a Foundation that describes compositional patterns similar to ISO 13606, and a Clinical model layer constructed on top of the Foundation.
+	        </para>
+
+	        <para>
+	            Most clinical specifications will be based on the Clinical Statement pattern defined in the Clinical model layer. But this pattern does employ structures built out of Foundation and Core classes, so familiarity with these layers will be helpful. For more information consult the CIMI Architecture Guide.
+	        </para>
+
+	    </sect2>
+	</section>
+
+	<section>
+		<title>Clinical Statement Pattern</title>
+
+          <para>
+              The central focus of the CIMI Reference Model is the Clinical Statement. A Clinical Statement represents structured electronic communication made about a patient typically documented as an 'entry' in the patient record. For example, Clinical Statement can be used to represent the following statements made about a patient.
+          </para>
+
+          <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                Patient has diagnosis of congestive heart failure.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient has a family history of breast cancer.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient has a goal of smoking cessation.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient has an order for Physical Therapy.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient has a lab result of Serum Sodium equals 130 mEq/L with delta flag.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Patient had an appendectomy.
+              </para>
+            </listitem>
+          </itemizedlist>
+
+          <para>
+            Clinical Statement, shown in <xref linkend="cif_msg_cstatement_0135"/>, has a ‘key’, ‘topic’, ‘context’, and ‘meta’. The ‘key’ is the terminology meaning binding for the entire Clinical Statement.  The ‘topic’ is the clinical entity being described.  The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated.  Finally, ‘meta’ is the collection of metadata that is associated with the clinical statement: the who, where, why and when information.
+          </para>
+
+          <figure xml:id="cif_msg_cstatement_0135">
+              <title>Clinical Statement</title>
+              <mediaobject>
+                  <imageobject>
+                      <imagedata fileref="images/cif_clinical_statement.jpg" align="center" format="jpg" width="50%"/>
+                  </imageobject>
+              </mediaobject>
+          </figure>
+
+
+
+
+          <variablelist>
+            <varlistentry>
+                <term><emphasis role='bold'>Topic</emphasis></term>
+                <listitem>
+                    <para>
+                        The ‘topic’ is the clinical entity described by the Clinical Statement. A few examples of topic include clinical assertions, evaluation results, and procedures. For each of these topics the information described is quite different. Therefore, CIMI describes topic types that contain the appropriate attributes to describe the required information for the given topic. The number of topic types will change as CIMI progresses. Currently the allowable topic types are EventTopic, ProcedureTopic and FindingTopic which has suptypes of EvaluationResultTopic and AssertionTopic. 
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><emphasis role='bold'>Context</emphasis></term>
+                <listitem>
+                    <para>
+                        The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated. CIMI describes context types that contain the appropriate attributes to describe the required information for the given context. The number of context types will change as CIMI progresses. Currently the allowable context types are EventContext, ActionContext, and FindingContext.  ActionContext has subtypes with examples including RequestContext, OrderContext and PerformanceContext. FindingContext has subtypes with examples such as PresenceContext, AbsenceContext, and GoalContext.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><emphasis role='bold'>Metadata</emphasis></term>
+                <listitem>
+                    <para>
+                        ‘metadata’ is not actually an attribute of ClinicalStatement, but is intended here to represent the various attributes in clinical statement that represent metadata about the clinical statement. This includes attribution information relating to the statement itself such as who authored, verified, recorded, or signed the statement or more informally, the who, where, why, and when information. Other attributes of this nature are recordStatus and encounter.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+
+  <sect2>
+    <title>Examples Using Topic and Context</title>
+    <para>     
+      Earlier, descriptive examples of Clinical Statements were given.  Here we will represent a few of these examples using the Clinical Statement ‘topic - context’ paradigm.  In <xref linkend="cif_msg_cstatement_chf_0135"/>, the example for “Patient has diagnosis of congestive heart failure” is illustrated. The topic has been declared to be of type AssertionTopic stating “assertion of congestive heart failure”, and the context has been declared to be of type PresenceAbsenceContext stating “Known Present”. What may not be apparent in the figure is that when the topic is declared to be of type AssertionTopic then all the attributes of AssertionTopic are available for use. However, in the figure only the attribute named ‘result’ is shown for clarity.  
+    </para>
+
+    <para>
+      In <xref linkend="cif_msg_cstatement_order_0135"/>, the example for “Patient has an order for Physical Therapy.” is shown. The topic has been declared to be of type ProcedureTopic stating “procedure of type physical therapy”, and the context has been declared to be of type OrderContext. Again, the majority of attributes for ProcedureTopic and OrderContext are not shown for clarity.
+    </para>
+
+    
+
+    <figure xml:id="cif_msg_cstatement_chf_0135">
+        <title>Patient has diagnosis of congestive heart failure.</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/cif_clinical_statement_chf.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <figure xml:id="cif_msg_cstatement_order_0135">
+        <title>Patient has an order for Physical Therapy.</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/cif_clinical_statement_order.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <para>
+      StatementTopic and StatementContext are both collections of attributes and have the following characteristics:
+    </para>
+
+    <orderedlist numeration="arabic">
+      <listitem>
+        <para>They are reusable components that can be assembled to form clinical statements. For instance, one can coordinate the ProcedureTopic with the ProposalContext to represent a ProcedureProposal statement. Alternatively, ProcedureTopic may be paired with OrderContext to create a ProcedureOrder statement.  </para>
+      </listitem>
+      <listitem>
+        <para>They represent groupings of attributes aligned with the SNOMED Clinical Terms (SNOMED CT) Concept Model. For instance, ProcedureTopic is aligned with the SNOMED CT Procedure Concept Model. PerformanceContext aligns with the Situation with Explicit Context Concept (SWEC) Concept Model.
+        </para>
+      </listitem>
+      <listitem>
+        <para>They provide for a mechanism to state presence or absence of a finding as well as performance or non-performance of an action. For instance, the pairing of ProcedureTopic with NonPerformanceContext allows for the expression of a procedure that was not performed.
+        </para>
+      </listitem>
+    </orderedlist>
+
+  </sect2>
+  
+
+</section>
+
+
+<section>
+	<title>Topic Patterns</title>
+
+    <para>
+        Topic Patterns include all the attributes required to fully describe a clinical entity. The topic patterns CIMI has developed to date include FindingTopic, ProcedureTopic, and EventTopic, wheith FindingTopic having children of AssertionTopic and EvaluationResultTopic. They are shown in <xref linkend="cif_msg_topic_hierarchy_0135"/> and are described in the following sections. Each of these topic subtypes contain a collection of attributes that describe the given pattern.  These patterns provide the foundational structure for detailed clinical model (DCM) archetype instances that can be visualized at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink> 
+    </para>
+
+    <figure xml:id="cif_msg_topic_hierarchy_0135">
+        <title>Topic Hierarchy</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/cif_topic_hierarchy.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <sect2>
+        <title>AssertionTopic</title>
+
+        <para>
+            The first topic type described here is the AssertionTopic pattern with its included attributes, as shown in <xref linkend="cif_msg_assertion_0135"/>. ConditionTopic, shown in <xref linkend="cif_msg_condition_0135"/> is a child of AssertionTopic which is used to represent a clinical finding such as the presence (or absence) of a condition in a patient. For example:
+        </para>
+
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                ChestPainAssertion asserts the presence of chest pain.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                ChestPainAbsenceAssertion asserts the absence of chest pain.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                EdemaAssertion asserts the presence of edema.
+              </para>
+            </listitem>
+        </itemizedlist>
+
+
+        <figure xml:id="cif_msg_assertion_0135">
+            <title>AssertionTopic</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/cif_assertion.jpg" align="center" format="jpg" width="40%"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+
+        <figure xml:id="cif_msg_condition_0135">
+            <title>ConditionTopic</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/cif_condition.jpg" align="center" format="jpg" width="40%"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+
+        <para>
+            The assertion pattern for a clinical statement is as follows:
+        </para>
+
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                topic.topicCode = a code meaning “assertion”.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                topic.result = a code representing what is being asserted (i.e., “rash”, “auto accident”, “hypertrophy”, etc.).
+              </para>
+            </listitem>
+        </itemizedlist>
+
+        <sect3>
+            <title>Assertion Hierarchy</title>
+
+            <para>
+                The full hierarchy for AssertionTopic is shown in <xref linkend="cif_msg_assertion_hierarchy_0135"/>.  AssertionTopic serves two important purposes: (1) it provides the core set of assertion attributes that are relevant in assertion of presence and absence; and (2) it is the parent type for the more specific assertions such as ConditionTopic and FindingSiteAssertionTopic. If additional attributes are identified as needed to properly model assertions they would either be added to one of the existing assertion types or a new type could be created with these attributes. This modeling decision would be based on whether adding these attributes make sense for existing assertions types or whether they should be used to create a new subset of assertions. Typically an attribute is added to the parent class if that attribute is relevant in all the subclasses derived from the parent class. If an attribute is only relevant in some of the subclasses then the attribute is introduced in these subclasses. This ensures that a class does not have an attribute that is incongruent and thus requires that attribute to be occasionally constrained out. For instance, it is viewed as bad practice to create an Animal class that contains arms, legs, and wings and then create a subclass of dog that constrains out wings since dogs do not have wings.
+            </para>
+
+            <para>
+                Note there are two ways to introduce an attribute that is not always used. A UML class specialization specifies a new class that has all of the attributes of its parent and may then specify additional attributes. An archetype may choose to use whichever class, parent or child, is appropriate. Or, the additional attribute may be added to the original class and the archetype may then use the attribute or "constrain it out" by setting its cardinality to zero. As previously state, CIMI modelers prefer the first approach, extension through UML class specialization, that avoids the need to constrain elements out of archetypes.
+            </para>
+
+            <figure xml:id="cif_msg_assertion_hierarchy_0135">
+                <title>Assertion Hierarchy</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cif_assertion_hierarchy.jpg" align="center" format="jpg" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+        </sect3>
+
+        <sect3>
+            <title>Assertions</title>
+
+            <para>
+                Assertions affirm or deny the existence of clinical conditions, diseases, symptoms, etc., in the patient.  As just described, different varieties of assertion may extend an existing AssertionTopic class with any additional attributes necessary to fully represent this new group of assertions. Table 1 shows examples of clinical statements using the AssertionTopic class for the topic, and Table 2 shows examples of clinical statement using FindingSiteAssertionTopic for the topic.  These examples show the ‘topic.topicCode’, ‘topic.result’, and ‘context.contextCode’ for each, with the addition of any extra attributes from the chosen topic needed to describe the clinical statement.  Context will be discussed in depth later in this document. For now, be aware the chosen context is a full class with many attributes but here we are only showing the context code attribute that is common to all context types.
+            </para>
+
+            <example xml:id="cif_example_1_0135">
+                <title>The patient has diabetes mellitus type 1 which was diagnosed at age 24</title>
+                <programlisting>
+    DiabetesMellitusAssert
+        topic.topicCode: Assertion
+        topic.result: Diabetes mellitus type 1 (disorder)
+        topic.ageAtOnset: 24 years
+        context.contextCode: Confirmed present (qualifier value)
+                </programlisting>
+            </example>
+
+            <example xml:id="cif_example_2_0135">
+                <title>The patient does not have diabetes mellitus type 1</title>
+                <programlisting>
+    DiabetesMellitusAbsentAssert
+        topic.topicCode: Assertion
+        topic.result: Diabetes mellitus type 1 (disorder)
+        context.contextCode: Known absent (qualifier value)
+                </programlisting>
+            </example>
+
+
+            <para>
+                Note, in the CIMI alignment with the SNOMED CT concept model, the AssertionTopic pattern corresponds to the Finding hierarchy as inflected by the Situation hierarchy. 
+            </para>
+
+                
+            <para>
+                Note AssertionStatement.topic.topicCode is not part of this construction. It is modeled with the fixed term “assertion” and is as semantically inert as we can manage.
+            </para>
+
+            <para>
+                Other attributes may also inflect the semantics; e.g., an AssertionStatment.topic.findingMethod that would align with the concept model’s Finding.findingMethod.
+            </para>
+
+        
+        </sect3>
+
+        <sect3>
+            <title>Finding Site Assertions</title>
+
+            <para>
+                A FindingSiteAssertionTopic is an assertion about a finding found on the body. This assertion is a “design by extension” assertion because it contains the additional attribute findingSite that is used to capture the body site affected by the condition. The FindingSiteAssertionTopic encourages post-coordination as shown in examples 3 and 4, and intentionally aligns with the SNOMED CT Clinical Findings concept model.
+            </para>
+
+            <example xml:id="cif_example_3_0135">
+                <title>The patient has a femur fracture in the right leg</title>
+                <programlisting>
+    FractureAssert
+        topic.topicCode: Assertion
+        topic.result: Fracture of bone (disorder)
+        topic.findingSite.code: Bone structure of femur
+        topic.findingSite.laterality: Right (qualifier value)
+        context.contextCode: Confirmed present (qualifier value)
+                </programlisting>
+            </example>
+
+            <example xml:id="cif_example_4_0135">
+                <title>The patient has a stage two pressure injury on the right ischial tuberosity</title>
+                <programlisting>
+    WoundAssert
+        topic.topicCode: Assertion
+        topic.result: Pressure ulcer stage 2 (disorder)
+        topic.findingSite.code: Skin structure of ischial tuberosity
+        topic.findingSite.laterality: Right (qualifier value)
+        context.contextCode: Confirmed present (qualifier value)
+                </programlisting>
+            </example>
+
+        </sect3>
+
+    </sect2>
+
+    <sect2>
+        <title>Evaluation Result</title>
+
+        <para>
+            The second topic pattern we will discuss is EvaluationResultTopic which is used to document a characteristic of a patient or a clinical value being observed. An EvaluationResultTopic may hold the name of a test in the ‘topicCode’ attribute (e.g., “heart rate evaluation”, “serum glucose lab test”, etc.) and the resulting value of the test in the ‘result’ attribute. Viewed another way, the EvaluationResultTopic topicCode holds a question (e.g., "what is the heart rate?", "what is the serum glucose?") and the ‘result’ holds the answer. Any clinical statement such as a laboratory test, a vital sign, or a questionnaire question that fits this pattern of a question and a resulting value is modeled with the EvaluationResultTopic pattern.
+        </para>
+
+        <para>
+           The evaluation result pattern for a clinical statement is as follows:
+        </para> 
+
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                topic.topicCode = what’s being evaluated (“heart rate”, “serum glucose”, “breath sound”, etc.).
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                topic.result  = the result of the evaluation  (“72 bpm”, “100 mg/dL”,  “rales”)
+              </para>
+            </listitem>
+        </itemizedlist>
+
+
+        <para>
+            The following is an isosemantic comparison of the evaluation result pattern to the previously described assertion pattern.  In the previous section, we illustrated assertion models using rash, auto accident, and hypertrophy.  Below we show what these assertion examples would look like if we hypothetically modeled them using the Evaluation Result pattern.  Note, CIMI avoids creating models where the ‘result’ specifies “presence/absence” or “yes/no”, so this is a clear indicator that the assertion pattern is preferred in these cases.
+        </para>
+
+        <variablelist mark='bullet' spacing='compact'>
+            <varlistentry>
+                <term><emphasis role='bold'>Assertion</emphasis></term>
+                <listitem>
+                    <itemizedlist mark='bullet' spacing='compact'>
+                        <listitem>
+                            <para>
+                                topic.topicCode = a code meaning “assertion”
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                topic.result = a code representing what’s being asserted (“rash”, “auto accident”, “hypertrophy”, etc.)
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><emphasis role='bold'>EvaluationResult ( This is hypothetical )</emphasis></term>
+                <listitem>
+                    <itemizedlist mark='bullet' spacing='compact'>
+                        <listitem>
+                            <para>
+                                topic.topicCode = what’s being evaluated (“rash”, “auto accident”, “hypertrophy”, etc.)
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                topic.result  = “present” or “yes”
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </varlistentry>
+
+        </variablelist>
+
+        <para>
+            Like Assertion, Evaluation Result corresponds to the SNOMED CT concept model. The EvaluationResultStatement.topic.topicCode attribute corresponds to the observation being evaluated. 
+        </para>
+
+        
+
+
+        <sect3>
+            <title>Evaluation Result Hierarchy</title>
+
+            <para>
+                EvaluationResultTopic currently has two subtypes; LaboratoryTestResultTopic (that includes additional attributes necessary to describe laboratory tests) and PhysicalEvaluationResultTopic.
+            </para>
+
+            <figure xml:id="cif_msg_evaluation_result_hierarchy_0135">
+                <title>Evaluation Result Hierarchy</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cif_evaluation_result_hierarchy.jpg" align="center" format="jpg" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+
+        </sect3>
+
+         <sect3>
+            <title>Modeling in the Constraint Layer</title>
+
+            <para>
+                This section will use LaboratoryTestResultTopic, which exists in the Reference Model Layer, to further describe modeling in the Constraint Layer. There are different categories of laboratory tests that differ in their resulting data type, such as quantitative labs and nominal labs, where the former would have a QUANTITY result and the latter would have a CODED_TEXT result. For the different lab categories there is not a need for new named attributes only a need to constrain the result to the appropriate datatype. The modeler has a choice to make in this situation as the datatype could be constrained in a new class subtype in the reference layer or as an archetype in the constraint layer.  Since a new named attribute is not required the style CIMI has adopted as the constraint would occur in the constraint layer and an ADL Archetype would be created for both QuantitativeLaboratoryTestResult and NominalLaboratoryTestResult.
+            </para>
+       
+
+        </sect3>
+
+        <sect3>
+            <title>Evaluation Result Subtypes</title>
+
+            <variablelist>
+            <varlistentry>
+                <term><emphasis role='bold'>LaboratoryTestResultTopic</emphasis></term>
+                <listitem>
+                    <para>
+                        LaboratoryTestResultTopic contains attributes specific to the lab evaluation process. These include information about the physical process (e.g., specimen) plus process management information (e.g., status).
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><emphasis role='bold'>PhysicalEvaluationResultTopic</emphasis></term>
+                <listitem>
+                    <para>
+                        PhysicalEvaluationResultTopic contains attributes specific to the clinical evaluation process. These include information about the physical examination process (e.g., patient position, body site).  
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+
+        <example xml:id="cif_example_5_0135">
+                <title>The patient’s skin turgor is friable</title>
+                <programlisting>
+    SkinTurgorEval
+        topic.topicCode: Skin turgor (observable entity)
+        topic.result: Fragile skin (finding)
+        topic.evaluationProcedure: Inspection (procedure)
+        context.contextCode: Confirmed present (qualifier value)
+                </programlisting>
+            </example>
+
+            <example xml:id="cif_example_6_0135">
+                <title>The patient's systolic blood pressure is 120 mmHg</title>
+                <programlisting>
+    SystolicBloodPressureEval
+        topic.topicCode: Systolic arterial pressure (observable entity)
+        topic.result: 120
+            unitsOfMeasure: Millimeter of mercury (qualifier value)
+        topic.evaluationProcedure: Auscultation (procedure)
+        context.contextCode: Confirmed present (qualifier value)
+                </programlisting>
+            </example>
+
+            
+        </sect3>
+            
+
+
+        <sect3>
+            <title>Guideline: Assertion versus Evaluation</title>
+
+            <para>
+                In most cases the decision between using the evaluation result pattern and the assertion pattern is intuitive and straightforward. “Urine color”, for example, is clearly best modeled as an evaluation result because the attribute being evaluated is the color of the patient’s urine and the result of the evaluation is the set of codes representing the colors that may be observed.  To model urine color as an assertion would require the creation of a large number of pre-coordinated concepts. The key would be “assertion” and result would be populated with a code from a set of codes such as “amber urine” (meaning “the patient has amber urine”), “clear urine”, etc.
+            </para>
+
+            <para>
+                However, this highlights any evaluation model may be transformed into an assertion model. (Conversely, any assertion model may be transformed into an evaluation model.) In the case of urine color, the decision is intuitive. In other cases the decision is less clear.
+            </para>
+
+            <para>
+                For example, “heart rhythms” (bradycardic, tachycardic, etc.) may be modeled as multiple assertion models (bradycardia, tachycardia, etc.) or as a “heart rhythms” evaluation model whose data is constrained to a value set (containing “bradycardic”, “tachycardic”, etc.).
+            </para>
+
+            <para>
+                The general guideline is if it is natural to think of the concept as a noun, as a condition or state that exists in the patient, model as an assertion or set of assertions. If the statement about the patient is thought of as a name/value pair (i.e., a noun representing the attribute and an adjective representing the value), such as “hair color” = (“black”, “brown”, “blonde”), then model it as an evaluation. However, it is important to note both styles are allowed and the true determinant of their use is whether a result for a given criteria other than true/false or present/absent is specified.
+            </para>
+
+            <para>
+                This discussion highlights the importance of isosemantic models. Even if one model or set of models can be agreed upon as the preferred storage model (e.g., assertion models for “bradycardia” and “tachycardia” instead of an evaluation model with “bradycardic” and “tachycardic” as values), inevitably there will be use cases (e.g., data entry, messaging, reporting, etc.) for the other model and a need to identify use cases where different modeling patterns describe semantically identical phenomena. These patterns are isosemantic. An essential (as of now unfulfilled) requirement is for a mechanism of identifying isosemantic models, managing isosemantic groups, and transforming between them. We expect a great deal of this work to be facilitated by the semantic underpinnings of the models supporting the ability to classify the content of two models and determine their logical relations (equivalent, subsumed, disjoint).
+            </para>
+
+            <para>
+                It should be noted the Assertion vs. Evaluation topic is solely concerned with the structure and schema pattern used to capture clinical information. Choosing Assertion vs. Evaluation patterns has nothing to do with whether the information being captured is subjective vs. objective. 
+            </para>
+
+        </sect3>
+
+
+    </sect2>
+
+    <sect2>
+        <title>ProcedureTopic</title>
+
+        <para>
+            Procedure models are used to represent actions taken related to the care of a patient such as a cholecystectomy, peripheral IV placement, delivery of a warm blanket, dressing change, ambulation, patient education, etc.  The CIMI ProcedureTopic, as shown in <xref linkend="cif_msg_procedure_hierarchy_0135"/>,  is a base class for a number of specializations such as surgical, imaging, and laboratory procedures. The CIMI Procedure Model is aligned with the SNOMED CT Procedure Concept Model when such an alignment exists. 
+ 
+        </para>
+
+        <figure xml:id="cif_msg_procedure_hierarchy_0135">
+                <title>Procedure Hierarchy</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cif_procedure_hierarchy.jpg" align="center" format="jpg" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+    </sect2>
+
+</section>
+
+<section>
+
+	<title>Context Patterns</title>
+
+  <para>
+    When a Clinical Statement is defined it will be modeled as a combination of a topic and a context. The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated. Specializations within the context hierarchy, shown in <xref linkend="cif_msg_context_hierarchy_0135"/>, add important attribution information for the situation being described.
+  </para>
+
+            <figure xml:id="cif_msg_context_hierarchy_0135">
+                <title>Procedure Hierarchy</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cif_context_hierarchy.jpg" align="center" format="jpg" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+    <para>
+        The StatementContext abstract class has the following three specializations:
+    </para>
+
+    <variablelist>
+            <varlistentry>
+                <term><emphasis role='bold'>FindingContext</emphasis></term>
+                <listitem>
+                    <para>
+                        The FindingContext class aligns with the SNOMED Situation with Explicit Context for findings and provides the context for either the EvaluationResultTopic or AssertionTopic of a clinical statement. For instance, a context about a finding may state that the finding was present or absent.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><emphasis role='bold'>ActionContext</emphasis></term>
+                <listitem>
+                    <para>
+                        The ActionContext class aligns with the SNOMED Situation with Explicit Context for procedures and provides the context for the Act topic of a clinical statement. For instance, a statement about a procedure may specify the procedure has been proposed, ordered, planned, performed, or not performed. Each action context, in turn, has its own lifecycle. An example of the PerformanceContext class is shown in <xref linkend="cif_msg_performance_0135"/>.
+ 
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><emphasis role='bold'>EventContext</emphasis></term>
+                <listitem>
+                    <para>
+                        Not shown in the above diagram, EventContext is a child of StatementContext. At this time specializations of EventContext have not been defined. It is anticipated that EventOccurrence and EventNonOccurrence specializations will be introduced. 
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+        <figure xml:id="cif_msg_performance_0135">
+                <title>PerformanceContext</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cif_performance.jpg" align="center" format="jpg" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+
+</section>
+
+<!-- topanchor -->
+
+<section>
+	<title>Metadata</title>
+
+  <para>
+    The final division of the Clinical Statement pattern is the metadata which is a collection of attribution/provenance information regarding the topic/context being described by the clinical statement.
+  </para>
+
+           
+  <sect2>
+    <title>The CIMI Attribution/Provenance patterns</title>
+
+    <para>
+        In the CIMI model, provenance information is represented by the Attribution class shown in <xref linkend="cif_msg_attibution_0135"/>. The Attribution class provides a pattern for the capture of provenance information such as the what, who, when, where, why, and how associated with a particular activity – e.g., provenance attributes about the verification of a clinical statement (e.g. the provider performing the surgery in O.R. suite 6).
+    </para>
+
+        <figure xml:id="cif_msg_attibution_0135">
+                <title>Attribution Class</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cif_attribution.jpg" align="center" format="jpg" width="40%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+    <para> 
+        CIMI currently includes two attribution patterns:
+    </para>
+
+    <orderedlist numeration="arabic">
+      <listitem>
+        <para>Attribution information as a part of the clinical statement – In this pattern, the ClinicalStatement pattern contains a number of attributes of type Attribution (e.g., ClinicalStatement.authored and ClinicalStatement.verified). This pattern provides a consistent way to capture attribution information that extends beyond simply the agent of an activity (e.g., the author). When attribution is part of the ClinicalStatement model, any change to the attribution for an activity will result in a version change.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Attribution information external to the clinical statement - CIMI allows the capture of provenance information external to the clinical statement through the Provenance class. The provenance class contains the Attribution class and provides pointers to one or more clinical statements (e.g., the Provenance.target attribute). This pattern allows the addition and modification of provenance information associated with a clinical statement without impacting its version.
+        </para>
+      </listitem>
+    </orderedlist>
+
+
+ </sect2>
+
+</section>
+
+<section>
+
+	<!--  This should probably be a new chapter -->
+
+	<title>Differences between ANF and CIF</title>
+
+	<para>
+		There are two fundamental differences between ANF and CIF.  The first is the representation of topic, and the second is the representation of results.  
+	</para>
+
+	<orderedlist numeration="arabic" spacing='compact'>
+      	<listitem>
+        	<para>The representation of topic.</para>
+    	</listitem>
+    	<listitem>
+    		<para>The represenation of results.</para>
+    	</listitem>
+    </orderedlist>
+
+    <section>
+    	<title>The Representation of Topic</title>
+
+    	<para>
+    		In the ANF model, the topic is represented by a single field containing a simple to complex snomed expression whereas in the CIF model, all the pieces of information that make up the topic are broken out and structured as needed into multiple properties with propery names and appropriate datatypes.  
+    	</para>
+
+    	<figure xml:id="cif_msg_topic_comparison_0135">
+                <title>Topic Comparison</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cif_anf_topic.png" align="center" format="png" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+        </figure>
+
+        <para>
+        	One implication of this is that the ANF is using two formalisms to represent the detailed clinical model.  First it uses the formalism that represents the ANF reference model and constraints such as HL7's StructureDefinition syntax or OpenEHR's BMM/ADL syntax.  Second, it uses Snomed's syntax for post-coordinated Snomed expressions.  Tools for authoring and analysis would be required to parse and process both syntaxes.
+        </para>
+
+        <para>
+        	The CIF model, on the otherhand, would be fully represented using the formalism that represents the CIF reference model and contraints such as HL7's StructureDefinition syntax or OpenEHR's BMM/ADL syntax.
+        </para>
+
+    </section>
+
+
+    <section>
+    	<title>The Representation of Results</title>
+
+    	<para>
+    	 	In the CIMI CIF model, EvaluationResult and Assertion models are used to represent results.  EvalurationResult has a topic representing what is being observed, and a result represented by a choice of datatypes. An Assertion on the otherhand, has simply a topic with a value of 'assertion', and a result stated what is being asserted.
+		</para>
+
+		<para>
+			In the ANF moded, the topic represents what is being observed and the result may only be a range of either a count or quantity. No coded results are allowed.
+		</para>
+
+		<para>
+    	 	 In the CIF model, when creating a model with a numeric result, the choice is quite clear and the choice will be an EvaluationResult, such as a topic of 'SerumSodium' and result with a numeric quantity.  In this case, the CIF and ANF model or very aligned, except for the fact that the ANF model will use a range of that quantity.
+
+
+    	  </para>
+    	 	 <para>
+    	 	   But when a CIF model has a potential coded result, the choice between EvaluationResult and Assertion becomes muddied. For example, a model for Breath Sound could be an EvaluationResult with a topic of 'breath sound' and a coded rusult with the following valueset.  Thus any of the breath sounds within the valueset can act as a result for this model.  The other option, is that each of the breath sounds in the valueset is modeled as an Assertion with a topic of 'assertion', and a result of each particular code.  To decided which model is better, usually we ponder how the clinician thinks about the data, or how it will be collected, or how it will be queried. 
+    	</para>
+
+    	<para>
+    		The ANF model can not do an EvaluationResult style model as it doesn't allow code results.  Thus ANF is forced to make one and only choice, which is an assertion style where the particular breath sound is the topic, and the result will be numeric count indicating presence or absence.
+    	</para>
+
+
+
+    	<itemizedlist spacing='compact'>
+            <listitem>
+                <para>Absent</para>
+            </listitem>
+            <listitem>
+                <para>Audible</para>
+            </listitem>
+            <listitem>
+                <para>Clear</para>
+            </listitem>
+            <listitem>
+                <para>Coarse Breath Sounds</para>
+            </listitem>
+            <listitem>
+                <para>Coarse Crackles</para>
+            </listitem>
+            <listitem>
+                <para>Crackles</para>
+            </listitem>
+            <listitem>
+                <para>Diminished</para>
+            </listitem>
+            <listitem>
+                <para>Expiratory wheezing</para>
+            </listitem>
+            <listitem>
+                <para>Faint</para>
+            </listitem>
+            <listitem>
+                <para>Fine Crackles</para>
+            </listitem>
+            <listitem>
+                <para>Forced</para>
+            </listitem>
+            <listitem>
+                <para>Inspiratory wheezing</para>
+            </listitem>
+            <listitem>
+                <para>Left Ventricular Assist Device Noise</para>
+            </listitem>
+            <listitem>
+                <para>Markedly Decreased</para>
+            </listitem>
+            <listitem>
+                <para>Moderately Decreased</para>
+            </listitem>
+            <listitem>
+                <para>Pleural Rub</para>
+            </listitem>
+            <listitem>
+                <para>Pleural Rub</para>
+            </listitem>
+            <listitem>
+                <para>Prolonged Expiration</para>
+            </listitem>
+            <listitem>
+                <para>Rhonchi</para>
+            </listitem>
+            <listitem>
+                <para>Slightly Decreased</para>
+            </listitem>
+            <listitem>
+                <para>Stridor</para>
+            </listitem>
+            <listitem>
+                <para>Tubular Breath Sounds</para>
+            </listitem>
+            <listitem>
+                <para>Upper Airway Congestion</para>
+            </listitem>
+            <listitem>
+                <para>Wheeze</para>
+            </listitem>
+        </itemizedlist>
+
+
+    	<para>
+    		When querying instance data, the Assertion or ANF style is much more difficult for things like breath sounds.  To query any breath sound instances, you have knowledge of all possible breath sound topics and query for each.  With the EvaluationResult style, querying is simpler as you simply query for a topic of 'breath sound', and the code result tells you what type of breath sound it is.  Thus you do not have to know all the members of the valueset apriori to form the query.
+    	</para>
+
+
+    </section>
+
+
+</section>
+
+<section>
+	<title>Appendix A - Glossary</title>
+
+  <table frame='all' xml:id="cif_glossary_0135">
+    <title>Glossary</title>
+    <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+      <colspec colname='c1' colwidth="2*"/>
+      <colspec colname='c2' />
+      <colspec colname='c3' colwidth="5*" />
+      <thead>
+        <row>
+          <!-- <entry namest="c1" nameend="c2" align="center">Horizontal Span</entry> -->
+
+          <entry align="center">Term</entry>
+          <entry align="center">Acronym</entry>
+          <entry align="center">Definition</entry>
+
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>Archetype</entry>
+          <entry></entry>
+          <entry>A re-usable, formal model of a concept expressed as a computable constraint model defined in ADL</entry>
+        </row>
+        <row>
+          <entry>Archetype Definition Language</entry>
+          <entry>ADL</entry>
+          <entry>ADL is a formal language for expressing archetypes. It provides a formal, textual syntax for describing constraints on any domain entity whose data is described by an information model</entry>
+        </row>
+        <row>
+          <entry>Attribute</entry>
+          <entry></entry>
+          <entry>A field in any class</entry>
+        </row>
+        <row>
+          <entry>Clinical Information Modelling Initiative</entry>
+          <entry>CIMI</entry>
+          <entry>An initiative established to improve the interoperability of healthcare information systems through shared implementable clinical information models</entry>
+        </row>
+        <row>
+          <entry>Clinical Statement</entry>
+          <entry></entry>
+          <entry>Structured electronic communication made about a patient typically documented as an 'entry' in the patient record</entry>
+        </row>
+        <row>
+          <entry>Complex Clinical Statement</entry>
+          <entry></entry>
+          <entry>A statement that is composed of parts where each part can only be fully understood in the context of its parent</entry>
+        </row>
+        <row>
+          <entry>Compound Clinical Statement</entry>
+          <entry></entry>
+          <entry>A clinical statement composed of one or more clinical statements that may exist outside of the containing parent statement</entry>
+        </row>
+        <row>
+          <entry>Constraint Model</entry>
+          <entry></entry>
+          <entry>A formal specification used for describing constraints on an Underlying Reference Model. The Constraint Model is used to express clinical information models (i.e. archetypes)</entry>
+        </row>
+        <row>
+          <entry>Context</entry>
+          <entry></entry>
+          <entry>The circumstances that form the setting in which the ‘topic’ should be evaluated</entry>
+        </row>
+        <row>
+          <entry>Detailed Clinical Model</entry>
+          <entry>DCM</entry>
+          <entry>A relatively small, standalone information model designed to express a precise clinical concept in a standardized and reusable manner</entry>
+        </row>
+        <row>
+          <entry>Governance</entry>
+          <entry></entry>
+          <entry>The use of a set of processes, customs, policies, laws and institutions to direct the way people administer </entry>
+        </row>
+        <row>
+          <entry>Isosemantic Models</entry>
+          <entry></entry>
+          <entry>A model that, while different in structure, represents the same semantic content as a second model</entry>
+        </row>
+        <row>
+          <entry>Key</entry>
+          <entry></entry>
+          <entry>The main concept of interest in a clinical statement, about which the other attributes and relationships provide additional information </entry>
+        </row>
+        <row>
+          <entry>Meta</entry>
+          <entry></entry>
+          <entry>Attribution information relating to the statement itself such as who authored, verified, recorded, or signed the statement. Meta includes the who, where, why and when information</entry>
+        </row>
+        <row>
+          <entry>Terminology Binding</entry>
+          <entry></entry>
+          <entry>The assertion of a relationship between the information model and the terminology</entry>
+        </row>
+        <row>
+          <entry>Topic</entry>
+          <entry></entry>
+          <entry>The clinical entity described by the Clinical Statement e.g. clinical assertions, evaluations results, and procedures</entry>
+        </row>
+        <row>
+          <entry>Topic Pattern</entry>
+          <entry></entry>
+          <entry>Attributes required to fully describe a clinical entity</entry>
+        </row>
+
+      </tbody>
+    </tgroup>
+  </table>
+
+</section>
+
+
 </chapter>
 

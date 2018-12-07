@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="CSS/test.css"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.1">
 
-    <title>Negation Requirements for Interoperability Standards</title>
+    <title>Requirements to Represent Absence in Interoperability Standards</title>
     <blockquote>
         <para>Note to readers: This document is not intended to constrain or complicate efforts to
             design useful specifications, but rather to provide a forum for consensus about what
             works, and, ideally, reduce the need to recapitulate the problem in future discussions.
             If there are important facets missing, we would like to include them. We call special
-            attention to the maps in appendix D.</para>
+            attention to the maps in <link linkend="appendices_maps">"Appendices,
+            Maps"</link>.</para>
     </blockquote>
 
     <section>
-        <title>Introduction to negation</title>
+        <title>Introduction to "Representation of Absence"</title>
         <para> Standards provide value by establishing consistent conventions for communication.
             When different communities of stakeholders establish these conventions for the same or
             for overlapping domains, the divergence in standards compromises their value. This
@@ -24,9 +26,9 @@
         <para> Different elements may differ in how deeply they suffer from this issue. Allergy
             criticality specifications differ, but their structural similarity suggests a simple
             path for harmonization, so simple that ad hoc operational transformation may seem like
-            an easier way to handle the difference than trying to coordinate consensus around
+            an easier way to handle the difference rather than trying to coordinate consensus around
             harmonizing the standards themselves. </para>
-        <para> Negation is different: it has been represented is forms so diverse that it is not
+        <para> Negation is different: it has been represented in forms so diverse that it is not
             always obvious how to transform or harmonize them, or even when such transformation
             might be necessary. Negation is often modeled as a property of a business class, but
             logically and semantically, it’s not really a predicate so much as a quantification: it
@@ -63,15 +65,16 @@
 
     <section>
         <title>Objective</title>
-        <para>In order to properly represent negation consitently in standards specification and provide guidance on dealing with the
-            variety of specifications that already exist. We attempt to address both of these, this document will:<orderedlist>
+        <para>In order to properly represent absence consistently in standards specification and
+            provide guidance on dealing with the variety of specifications that already exist, this
+            document will:<orderedlist>
                 <listitem>
                     <para>Identify best practices for incorporating negative semantics into
                         standards design, and</para>
                 </listitem>
                 <listitem>
-                    <para>Specify explicit transformations between the most prevalent
-                        standards(CDA and FHIR).</para>
+                    <para>Specify explicit transformations between the most prevalent standards (CDA
+                        and FHIR).</para>
                 </listitem>
             </orderedlist>
         </para>
@@ -82,28 +85,24 @@
         <section>
             <title>Scope</title>
             <para>The problem is abstract, and it requires some care to define. </para>
-                    <para> First, “negation” as a term of logic has a long history of difficult
-                            implications<footnote>
-                            <para>A full bibliography would be a project in itself, but for a
-                                survey, see Laurence Horn, A Natural History of Negation (Chicago:
-                                University of Chicago Press, 1989); for a cogent summary for
-                                informatics, see Alan Rector, “What’s in a code?” Kuhn KA, Warren
-                                JR, Leong T-Y, (eds) Medinfo 2007. IOS Press; 2007. pp 730-734.
-                            </para>
-                        </footnote>. It is defined as the logical operation of asserting the
-                        falsehood of a proposition, or as a proposition that is the negative of some
-                        other proposition. Efforts to apply description logics (DL) to clinical
-                        decision support have successfully demonstrated the ability to infer general
-                        facts from specific ones, e.g., a cerebral hemorrhage from a subdural
-                        hemorrhage: positive statements can be “classified”’ with DL, making the
-                        application of rules that apply to large numbers of concepts simpler. But
-                        introducing negation causes logical propositions to become computably
-                        intractable. In addition, identifying where negation occurs is not always
-                        simple, because a one positive assertion may entail another negative one;
-                        e.g., asserting that a patient has a blood type of A implies that the
-                        patient does not have a blood type of B. For these reasons, most efforts to
-                        implement description logics begin by excluding negative semantics from
-                        scope. </para>
+                    <para> First, “negation” as a term of logic has a long history of difficult implications<footnote>
+                    <para>A full bibliography would be a project in itself, but for a survey, see
+                        Laurence Horn, A Natural History of Negation (Chicago: University of Chicago
+                        Press, 1989); for a cogent summary for informatics, see Alan Rector, “What’s
+                        in a code?” Kuhn KA, Warren JR, Leong T-Y, (eds) Medinfo 2007. IOS Press;
+                        2007. pp 730-734. </para>
+                </footnote>. It is defined as the logical operation of asserting the falsehood of a
+                proposition, or as a proposition that is the negative of some other proposition.
+                Efforts to apply description logics (DL) to clinical decision support have
+                successfully demonstrated the ability to infer general facts from specific ones,
+                e.g., a cerebral hemorrhage from a subdural hemorrhage: positive statements can be
+                “classified”’ with DL, making the application of rules that apply to large numbers
+                of concepts simpler. But introducing negation causes logical propositions to become
+                computably intractable. In addition, identifying where negation occurs is not always
+                simple, because one positive assertion may entail another negative one; e.g.,
+                asserting that a patient has a blood type of A implies that the patient does not
+                have a blood type of B. For these reasons, most efforts to implement description
+                logics begin by excluding negative semantics from scope. </para>
                     <para> Efforts to use logically negative semantics in information modeling, too,
                         have encountered difficulties of unanticipated depth. A prominent example is
                         the HL7 Version 3 Reference Information Model (RIM). The RIM goes to some
@@ -146,17 +145,17 @@
                         always defeasible – always subject to revision in the light of new evidence
                         – and this state means that automated decision support can never control
                         care decisions, but only inform decision makers. </para>
-                <para> Similarly, the question of <emphasis role="bold">certainty</emphasis>
-                overlaps explicitly with assertions of absence. It seems, in a logical framework,
-                that a 90% level of confidence in an assertion is equivalent with a 10% level of
-                confidence in the assertion’s negation, and that any level under 100% would
-                therefore imply a simultaneous negative assertion. But this is not the case. The
-                assertions in question are not value-neutral; they are records of clinical concern.
-                A 10% likelihood of cancer is an indubitable concern, and any negative semantics
-                that might be implied may affect the urgency, but not the tenor, of the concern. </para>
-            <para> Data <emphasis role="bold">quality</emphasis> is closely related to certainty,
-                and it follows the same pattern. Irrespective of the confidence we place in the
-                source, if a concern is asserted, concern is present. </para>
+                <para> Similarly, the question of <emphasis>certainty</emphasis> overlaps explicitly
+                with assertions of absence. It seems, in a logical framework, that a 90% level of
+                confidence in an assertion is equivalent with a 10% level of confidence in the
+                assertion’s negation, and that any level under 100% would therefore imply a
+                simultaneous negative assertion. But this is not the case. The assertions in
+                question are not value-neutral; they are records of clinical concern. A 10%
+                likelihood of cancer is an indubitable concern, and any negative semantics that
+                might be implied may affect the urgency, but not the tenor, of the concern. </para>
+            <para> Data <emphasis>quality</emphasis> is closely related to certainty, and it follows
+                the same pattern. Irrespective of the confidence we place in the source, if a
+                concern is asserted, concern is present. </para>
         </section>
         <section>
             <title>Approach</title>
@@ -182,7 +181,7 @@
                             conference calls</para>
                     </listitem>
                     <listitem>
-                        <para>NegEx Lexicion</para>
+                        <para>NegEx Lexicon</para>
                     </listitem>
                     <listitem>
                         <para>Individual participant contributions </para>
@@ -211,7 +210,7 @@
         <para>Relevant information came in many forms. In the examples, we identify kinds of content
             (prohibitions, absent pathologies, etc.) and kinds of use (orders, decision support,
             condition life cycle, etc.). We also identify different information structures.</para>
-        <para>The full list of examples is in appendix A.</para>
+        <para>The full list of examples is in <link linkend="appendices_useCases">"Appendices, Use Cases"</link>.</para>
         <section>
             <title>Content cases</title>
             <para>We found six general classes of content.</para>
@@ -472,6 +471,10 @@
                 </listitem>
                 <listitem>
                     <para>Quality target. A measure identifies procedures not done.</para>
+                    <annotation><para><emphasis>Stephanie Klepacki: To me, the name of this doesn't synchronize
+                                with what it actually represents. A target would be something you'd
+                                aim for but in reality, it's something that was missed, such as not
+                                doing a procedure. Recommend renaming.</emphasis></para></annotation>
                     <orderedlist numeration="loweralpha">
                         <listitem>
                             <para>Content cases: D (Procedure not done)</para>
@@ -578,19 +581,20 @@
                 qualifies the class includes a value that modifies it. The Condition resource has a
                 status property that includes “resolved” and “refuted” values, each of which denotes
                 the absence of the subject condition.</para>
-            <para>The <emphasis role="bold">Boolean presence indicator pattern</emphasis> hews closest to the logical semantics of negation, and it
-                brings most the resulting issues into the information modeling world. The range of a
-                Boolean property is “true” and “false.” These values presume the existence of a
-                proposition with a truth value. Software classes don’t typically meet this
-                requirement: even when they are presumed to be assertions of the existence of the
-                business objects they represent, the properties of the class are properties of the
-                represented object, not of the assertion. The HL7 RIM addresses this difficulty by
-                distinguishing between properties that represent the clinical phenomenon and those
-                that annotate the representation: “descriptive” properties, which describe the
-                referent phenomenon (and whose semantics may change according to negation and mood),
-                and “inert” properties, which describe the assertion itself (and whose semantics
-                don’t change with mood and negation). This distinction is, as we have observed,
-                subtle enough to confuse the very experienced.</para>
+            <para>The <emphasis role="bold">Boolean presence indicator pattern</emphasis> hews
+                closest to the logical semantics of negation, and it brings most of the resulting
+                issues into the information modeling world. The range of a Boolean property is
+                “true” and “false.” These values presume the existence of a proposition with a truth
+                value. Software classes don’t typically meet this requirement: even when they are
+                presumed to be assertions of the existence of the business objects they represent,
+                the properties of the class are properties of the represented object, not of the
+                assertion. The HL7 RIM addresses this difficulty by distinguishing between
+                properties that represent the clinical phenomenon and those that annotate the
+                representation: “descriptive” properties, which describe the referent phenomenon
+                (and whose semantics may change according to negation and mood), and “inert”
+                properties, which describe the assertion itself (and whose semantics don’t change
+                with mood and negation). This distinction is, as we have observed, subtle enough to
+                confuse the very experienced.</para>
             <para>An additional wrinkle for these properties is that they tend to be envisioned as
                 special cases, so they are named for the edge cases they support. As a result, the
                 semantics of the value is inversely related to the semantics of the modified class.
@@ -620,8 +624,8 @@
         <section>
             <title>Content</title>
             <para>Most cases fit in well-defined categories. Category boundaries depend on judgment,
-                and it’s possible to defined categories at higher or lower levels of granularity.
-                Our goal is to differentiate categories only when they require different processing
+                and it’s possible to define categories at higher or lower levels of granularity. Our
+                goal is to differentiate categories only when they require different processing
                 logic. Absence of sight and amenorrhea are both typically represented as positive
                 assertions of concerns, so we classify them together and expect both to surface in
                 clinical records as concerns; absence of a bleeding disorder is a record of a safety
@@ -656,10 +660,10 @@
         <section>
             <title>Uses</title>
             <para>The ten categories of use align broadly as N: updates to durable condition
-                records, negative answers to protocol questions, use of these facts as criteria, and
+                records<annotation><para>durable condition used here</para></annotation>, negative answers to protocol questions, use of these facts as criteria, and
                 prohibitions.</para>
             <para>When providers record changes in circumstances or knowledge (a resolved or refuted
-                condition), the knowledge typically involves a durable concern. These phenomena may
+                condition), the knowledge typically involves a durable concern. <annotation><para>SK: The sentence above stated "durable condition" vs. "durable concern."  Does it matter or is this correct?</para></annotation>These phenomena may
                 be recorded as problems, and they may have a significant body of supporting
                 evidence, goals, related procedures, and other information associated with
                 them.</para>
@@ -718,7 +722,7 @@
                 may not be the case with ProcedureRequest.doNotPerform, but a coded property would
                 still provide flexibility for use cases not yet recognized.</para>
             <para>The <emphasis role="bold">quantified presence</emphasis> pattern may be a workable
-                the answer for secondary uses. It seems too far from an intuitive representation of
+                answer for secondary uses. It seems too far from an intuitive representation of
                 clinical processes to be generally useful for close-to-user forms. But, unlike the
                 Boolean pattern, it does provide a consistent, unambiguous, and logically tractable
                 way to represent the presence of concerns consistently, whether captured as unary
@@ -739,8 +743,8 @@
             but the negative flavors are often inferred from empty queries, so it’s not clear that a
             corresponding structure on the clinical capture side make sense.</para>
         <para> The <emphasis role="bold">negation indicator</emphasis> pattern offers the promise of
-            logical inference, but the promise is false. Negation is logically is intractable, and
-            the abstraction of the Boolean structure obfuscates the actual domain information of
+            logical inference, but the promise is false. Negation is logically intractable, and the
+            abstraction of the Boolean structure obfuscates the actual domain information of
             interest. At least one case was identified where a concrete question seems defensibly
             supported by a Boolean value, but it could be equally well supported by terminology
             without preventing support of unforeseen use cases.</para>
@@ -776,7 +780,7 @@
             </orderedlist>
         </para>
         <para>With respect to the tactical issue of transformation, we provide transformations from
-            C-CDA to FHIR in appendix C. Note that the alignment issues here are global: the CDA
+            C-CDA to FHIR in <link linkend="appendices_maps">"Appendices, Maps"</link>. Note that the alignment issues here are global: the CDA
             allergy, for instance, is explicitly represented within a concern act, which is not
             present in FHIR. This context issue means that the mappings provided will either be
             asserted to be incorrect or they will document agreed but implicit semantics in one or
@@ -801,7 +805,7 @@
                     <tbody>
                         <tr>
                             <td align="left">Defeasible</td>
-                            <td>capable of being annulled or made void (Webster)</td>
+                            <td>Capable of being annulled or made void (Webster)</td>
                         </tr>
                         <tr>
                             <td>Finding</td>
@@ -828,8 +832,8 @@
                                 <para>the logical operation of asserting the falsehood of a
                                     proposition, or a proposition that is the negative of some other
                                     proposition.</para>
-                                <para>SKMT: indicator specifying tha tthe Act statement is a
-                                    negatoin of the Act as described by the descriptive (HL7)</para>
+                                <para>SKMT: indicator specifying that the Act statement is a
+                                    negation of the Act as described by the descriptive (HL7)</para>
                             </td>
                         </tr>
                         <tr>
@@ -989,7 +993,7 @@
                 </itemizedlist>
             </para>
         </section>
-        <section>
+        <section xml:id="appendices_useCases">
             <title>Use Cases</title>
             <para>
                 <table frame="border" border="1">
@@ -2383,7 +2387,7 @@
                 </table>
             </para>
         </section>
-        <section>
+        <section xml:id="appendices_maps">
             <title>Maps</title>
             <para>
                 <table frame="border" border="1">

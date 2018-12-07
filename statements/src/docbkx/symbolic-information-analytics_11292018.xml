@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="CSS/docbook.xml.css"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -119,21 +120,74 @@
                 be able to consistently represent and encode clinical data and observations. This is
                 the next great challenge to conquer for health data interoperability to positively
                 influence patient outcomes nationwide through clinical decision support. </para>
+            <para>–––––––––––––––––––––––––––––––––</para>
+            <annotation>
+                    <para>12/3/2018 IA call: switch Statement / Assertional</para>
+                    <para>Actions Taken:
+                        <orderedlist>
+                            <listitem>
+                                <para>created new graphics</para>
+                            </listitem>
+                            <listitem>
+                                <para>Attempted to change the sections as represented in graphics: Procedural -> Definitional [UNSUCCESSFUL!]</para>
+                                <para>Current: Language -> Definitional -> Statement -> Assertional -> Procedural</para>
+                                <para>Using arrow direction depicted in picture with "swap": Procedural -> Statement -> Assertional -> Language -> Definitional</para>
+                                <para>Just swapping Statement/Assertional: Language -> Definitional -> Assertional -> Statement -> Procedural</para>
+                            </listitem>
+                        </orderedlist>
+                    </para>
+            </annotation>
             <para> SOLOR (System of Logical Representation) is an effort that is directly tackling
                 these issues of representation. SOLOR is an integrated medical terminology system,
                 based on the overlapping but distinct terminology systems of SNOMED, LOINC and
                 RxNorm. SOLOR was designed to unambiguously define what can be measured (concepts).
                 Working hand in hand with SOLOR there needs to be a clinical statement model, of
                 which there are quite a few (HL7 FHIR, CIMI, ANF) which defines how to record a
-                measurement. Measurements may quantitative or existential. </para>
+                measurement. Measurements may be quantitative or existential. </para>
             <para>The following diagram shows how SOLOR and clinical statement models are
-                interrelated in the architectural stack: <mediaobject>
+                interrelated in the architectural stack: <figure>
+                    <title>Architectural Stack - revised with statement/assertional swap</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/Architectural_layers.png" align="center"
+                                scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+            <para>–––––––––––––––––––––––––––––––––</para>
+            <annotation>
+                <para>See: <link xmlns:xlink="https://zoom.us/recording/play/8mHfLU9a8TvJn_RIIPqX_gtaEZ2bprjocFlvNDNmNCpSa9dMc6rWeK7CcQMn_7oR">FHA Learning Series</link>, ~11:40</para>
+                <para>Proposal:
+                <orderedlist>
+                    <listitem>
+                        <para>Reverse the order of the blocks as we are reading top to bottom.</para>
+                        <para>Definitional -> ... -> Procedural</para>
+                    </listitem>
+                    <listitem>
+                        <para>Keep Statement before Assertional. Justification - Keith's presentation describes it really well - Talk about the what and the how to build on larger/complex blocks (Assertional and Procedural)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Remove all the 'curved arrows' to reduce complexity</para>
+                        <para>Perhaps when we reach Procedural section, we can introduce the top-down view and reintroduce the graphics with curved arrow</para>
+                    </listitem>
+                    <listitem>
+                        <para>For this Motivation and Foundation section, write to what Keith presented - describe each layer at a high level, and get into more granular layer in each subsequent section</para>
+                    </listitem>
+                </orderedlist>
+                </para>
+            </annotation>
+            <figure>
+                <title>Architectural Stack - proposed new graphics</title>
+                <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/architectural_stack.png" align="center"
+                        <imagedata fileref="images/Architectural_layers_2.png" align="center"
                             scalefit="1" width="100%" contentdepth="100%" />
                     </imageobject>
                 </mediaobject>
-            </para>
+            </figure>
+            <para>––––––––––––––––––––––––––––––––––</para>
+            <annotation><para>Recommend taking this para out</para></annotation>
             <para> Current challenges include the following: <orderedlist>
                     <listitem>
                         <para>Further tooling and guidance needs to be developed to be able to show
@@ -144,6 +198,7 @@
                         <para>Gaps need to be addressed in the various statement models in terms of
                             representing measurements consistently, especially with existential
                             (non-quantitative) measurements</para>
+                        <para>ab</para>
                     </listitem>
                 </orderedlist>
             </para>
@@ -162,7 +217,19 @@
         <title>Definitional representation</title>
         <xi:include href="definitional.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="SOLOR-definitional.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../../negation/src/docbkx/absence_representation_requirement_12062018.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="komet-description-logic.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+    
+    <part>
+        <title>Statement representation</title>
+        <xi:include href="statements-intro.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="analysis-normal-form_11292018.xml"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="clinical-input-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="isosemantic.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="knart-statement.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="komet-statements.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>
         <title>Assertional representation</title>
@@ -171,20 +238,12 @@
         <xi:include href="komet-assertions.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     <part>
-        <title>Statement representation</title>
-        <xi:include href="statements-intro.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="analysis-normal-form_11292018.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="clinical-input-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="isosemantic.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="knart-statement.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="komet-statements.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    </part>
-    <part>
         <title>Procedural representation</title>
         <xi:include href="procedural.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="knart-procedural.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="komet-procedural.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
+    
     <part>
         <title>Instance representation</title>
         <xi:include href="registries.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

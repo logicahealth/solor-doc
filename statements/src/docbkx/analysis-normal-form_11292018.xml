@@ -118,7 +118,7 @@
     <section>
         <title>Clinical Statements</title>
         <para> A clinical statement represents an entry in the patient record that documents
-            clinical information <itemizedlist>
+            clinical information: <itemizedlist>
                 <listitem>
                     <para>about a subject of information, such as a patient or a relative of the
                         patient</para>
@@ -187,7 +187,6 @@
 
     <section xml:id="section_0c80a3a9-6e1a-46ac-9644-a752cdd1eaa7">
         <title>Clinical Statement Components</title>
-        <para>separation</para>
         <para>
             <table frame="all" rowsep="0" colsep="0"
                 xml:id="table_6e66c516-542f-4971-b663-03b1ea202f8a">
@@ -657,10 +656,10 @@
                 </mediaobject>
             </figure>
             <section xml:id="section_027f47d9-4116-41ba-927e-14de6b97b5ba">
-                <title>Association Semantic</title>
-                <section>
-                    <title>Associated Statement ID</title>
-                </section>
+                <title>Association Semantic</title>                
+            </section>
+            <section>
+                <title>Associated Statement ID</title>
             </section>
         </section>
     </section>
@@ -683,18 +682,17 @@
                 of structured clinical documentation. Terminology artifacts in this context are
                 developed to represent the clinical assertions and their values and are composed of
                 standard clinical terminologies. The prioritized terminologies for the
-                representation are SOLOR terminologies (SNOMED CT, RxNorm and LOINC) in alignment
+                representation are SOLOR terminologies (SNOMED CT, LOINC and RxNorm) in alignment
                 with the recommendations and requirements by the Office of the National Coordinator
                 for Health Information Technology (ONC) and the VA – Department of Defense (DoD)
                 Interagency Program Office (IPO). This section will describe each of the terminology
                 artifact components and provide guidelines for modeling the values of these
                 components. These guidelines are under development and remain subject to change as a
-                result of the need to develop a consistent terminology model and coding strategy.
-            </para>
+                result of the need to develop a consistent terminology model and coding strategy. </para>
         </section>
         <section>
             <title>KNART Types and Structure</title>
-            <para>Four types of KNARTs are described in the HL7 KNART Specification3): <itemizedlist>
+            <para>Four types of KNARTs have been developed for the VA KNART Project: <itemizedlist>
                     <listitem>
                         <para>Documentation Template</para>
                     </listitem>
@@ -838,21 +836,6 @@
         </para>
     </section>
     <section>
-        <title>KNART Information Modeling Overview</title>
-        <para> The Analysis Normal Form (ANF) provides a set of guidelines to model clinical
-            statements. A clinical statement represents an entry in the patient record that
-            documents in a structured/computable manner clinical information about a subject of
-            information, such as a patient or a relative of the patient, and asserted by a
-            particular source, recorded, and potentially verified. </para>
-        <para> The Analysis Normal Form (ANF) constitutes a model for defining the components of
-            data elements from KNARTs on a general level, independent of any specific
-            terminology. The ANF defines the principles, which distinguish the “topic” of
-            clinical statements from the “circumstances” of e.g., an action request. The topic
-            describes the “what” whereas the circumstances describe the “how”. </para>
-        <para> Details of the ANF model for clinical statements and their components have been
-            discussed in previous sections of this document. </para>
-    </section>
-    <section>
         <title>Terminology Modeling Guidelines</title>
         <para> The request and performance clinical statement types as described in the ANF Model
             and Guidelines section of this document have a number of shared components. Other
@@ -860,10 +843,10 @@
             terminology modeling principles for each component in detail. The choice of logical
             expressions to use for each component is not always straightforward, and the terms in
             the SOLOR terminologies are not always unambiguous in their semantic meaning. In
-            situations, where there may be more than one choice or more than one way to code a
+            situations where there may be more than one choice or more than one way to code a
             clinical statement or one of its components, it is important to ensure consistency of
             modeling approaches across clinical domains and clinical statements. </para>
-        <para> The following chapters will describe the terminology modeling guidelines based on the
+        <para> The following chapters describe the terminology modeling guidelines based on the
             current ANF model and the current TSR template fields. The TSR template has two tabs for
             Instance Requests (IRs). One tab “request” contains IRs for requested actions, one tab
             “performance” contains IRs for performed actions. Both tabs have a number of fields in
@@ -903,9 +886,9 @@
         </section>
         <section>
             <title>topic (Request and Performance)</title>
-            <para>The topic field represents, what is being requested or has been performed.
-                Although both request and performance IRs share this field, the handling is
-                different to a certain extent. </para>
+            <para>The topic field represents what is being requested or has been performed. Although
+                both request and performance IRs share this field, the handling is different to a
+                certain extent. </para>
             <para> Format: Logical Expression</para>
             <para> Terminology: SOLOR</para>
             <para> The actual coding of the topic depends on the procedure requested or performed.
@@ -917,7 +900,7 @@
         </section>
         <section>
             <title>Medication (Request and Performance)</title>
-            <para> Currently, medications are interpreted as the administration of a medication, not
+            <para>Currently, medications are interpreted as the administration of a medication, not
                 the prescription. The administration can be either requested or documented as being
                 done. Therefore, all medications are post-coordinated based on the SCT “416118004
                 |Administration (procedure)” concept. To capture the drug itself, RxNorm codes are
@@ -941,6 +924,7 @@
                     <imagedata fileref="images/ANF_topic_medication_naproxen.png" scalefit="1" width="100%" contentdepth="100%"/>
                 </imageobject>
             </mediaobject></para>
+            <para>Coding guidelines for dosage, frequency, total number of tablets and refills etc. will be discussed in later sections. This detailed information is typically only included in medication requests, while performances typically only document that the medication has been taken as a “History of….” Statement.</para>
             <para> Notes: <orderedlist>
                     <listitem>
                         <para> The IR is specific enough regarding strength and dose form.
@@ -976,7 +960,7 @@
                     <listitem>
                         <para>“Route of administration - oral” is included in the post-coordinated
                             expression. Although the RxNorm code includes “oral tablet” it does not
-                            sufficiently capture, that this tablet is administered orally.</para>
+                            sufficiently capture that this tablet is administered orally.</para>
                     </listitem>
                     <listitem>
                         <para>The “Rx;” prefix for the RxNorm code in the post-coordinated
@@ -992,23 +976,19 @@
                     </listitem>
                 </orderedlist>
             </para>
-            <para> Coding guidelines for dosage, frequency, total number of tablets and refills etc.
-                will be discussed in later sections. This detailed information is typically only
-                included in medication requests, while performances typically only document that the
-                medication has been taken as a “History of….” Statement. </para>
         </section>
         <section>
             <title>Non-Medication Procedures (Request and Performance)</title>
-            <para> Other procedures in the “topic” field, e.g. diagnostic procedures, therapeutic
+            <para>Other procedures in the “topic” field, e.g. diagnostic procedures, therapeutic
                 procedures, consults or observational procedures are coded as pre-coordinated or
                 post-coordinated expressions using SNOMED CT concepts. </para>
-            <para> For IRs (either request or performance) a “simple” procedure, e.g.
+            <para>For IRs (either request or performance) a “simple” procedure, e.g.
                 “Echocardiogram”, entering the procedure code “40701008 |Echocardiography
                 (procedure)|” in the topic field sufficiently captures the IR. </para>
-            <para> For more complex IRs, particularly where body sites or lateralities are included,
+            <para>For more complex IRs, particularly where body sites or lateralities are included,
                 some principles to ensure consistency in the modeling must be applied. <orderedlist>
                     <listitem>
-                        <para>Always post-coordinate, when “laterality” is involved <itemizedlist>
+                        <para>Always post-coordinate when “laterality” is involved <itemizedlist>
                                 <listitem>
                                     <para>There are many pre-coordinated SCT concepts, which include
                                         body site and laterality, e.g. “1451000087102 |Computed
@@ -1017,8 +997,8 @@
                                             <listitem>
                                                 <para>To achieve consistency in the modeling
                                                   approach, instead of using the pre-coordinated
-                                                  concept above post-coordinate the body structure
-                                                  and the laterality: </para>
+                                                  concept above, post-coordinate the body structure
+                                                  and the laterality as shown below:</para>
                                                 <para>[241570001 |Computed tomography of lower limb
                                                   (procedure)]- </para>
                                                 <para> ->(363704007 |Procedure site
@@ -1614,7 +1594,7 @@
             <para>If the IR does not explicitly state a period start time, the default entry in this
                 field is “[NOW,NOW] relative to statement time”. </para>
             <para><emphasis role="bold">Note:</emphasis> “[NOW,NOW]” is not to be confused with
-                priority “stat”. The “NOW” is simply used, where there is not a specified time, e.g.
+                priority “stat”. The “NOW” is simply used where there is not a specified time, e.g.
                 1 week from now. </para>
             <para>If a repetition period start/stop time is specified, the “upper/lower bound”
                 components and the measureSemantic are used as in all other timing related

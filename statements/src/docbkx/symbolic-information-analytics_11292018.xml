@@ -120,23 +120,6 @@
                 be able to consistently represent and encode clinical data and observations. This is
                 the next great challenge to conquer for health data interoperability to positively
                 influence patient outcomes nationwide through clinical decision support. </para>
-            <para>–––––––––––––––––––––––––––––––––</para>
-            <annotation>
-                    <para>12/3/2018 IA call: switch Statement / Assertional</para>
-                    <para>Actions Taken:
-                        <orderedlist>
-                            <listitem>
-                                <para>created new graphics</para>
-                            </listitem>
-                            <listitem>
-                                <para>Attempted to change the sections as represented in graphics: Procedural -> Definitional [UNSUCCESSFUL!]</para>
-                                <para>Current: Language -> Definitional -> Statement -> Assertional -> Procedural</para>
-                                <para>Using arrow direction depicted in picture with "swap": Procedural -> Statement -> Assertional -> Language -> Definitional</para>
-                                <para>Just swapping Statement/Assertional: Language -> Definitional -> Assertional -> Statement -> Procedural</para>
-                            </listitem>
-                        </orderedlist>
-                    </para>
-            </annotation>
             <para> SOLOR (System of Logical Representation) is an effort that is directly tackling
                 these issues of representation. SOLOR is an integrated medical terminology system,
                 based on the overlapping but distinct terminology systems of SNOMED, LOINC and
@@ -146,27 +129,24 @@
                 measurement. Measurements may be quantitative or existential. </para>
             <para>The following diagram shows how SOLOR and clinical statement models are
                 interrelated in the architectural stack: <figure>
-                    <title>Architectural Stack - revised with statement/assertional swap</title>
+                    <title>Architectural Stack - proposed new graphics</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/Architectural_layers.png" align="center"
-                                scalefit="1" width="100%" contentdepth="100%"/>
+                            <imagedata fileref="images/Architectural_layers_2.png" align="center"
+                                scalefit="1" width="100%" contentdepth="100%" />
                         </imageobject>
                     </mediaobject>
                 </figure>
             </para>
             <para>–––––––––––––––––––––––––––––––––</para>
             <annotation>
-                <para>See: <link xmlns:xlink="https://zoom.us/recording/play/8mHfLU9a8TvJn_RIIPqX_gtaEZ2bprjocFlvNDNmNCpSa9dMc6rWeK7CcQMn_7oR">FHA Learning Series</link>, ~11:40</para>
                 <para>Proposal:
                 <orderedlist>
                     <listitem>
                         <para>Reverse the order of the blocks as we are reading top to bottom.</para>
-                        <para>Definitional -> ... -> Procedural</para>
+                        <para>Language -> ... -> Procedural</para>
                     </listitem>
-                    <listitem>
-                        <para>Keep Statement before Assertional. Justification - Keith's presentation describes it really well - Talk about the what and the how to build on larger/complex blocks (Assertional and Procedural)</para>
-                    </listitem>
+                    
                     <listitem>
                         <para>Remove all the 'curved arrows' to reduce complexity</para>
                         <para>Perhaps when we reach Procedural section, we can introduce the top-down view and reintroduce the graphics with curved arrow</para>
@@ -177,15 +157,7 @@
                 </orderedlist>
                 </para>
             </annotation>
-            <figure>
-                <title>Architectural Stack - proposed new graphics</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/Architectural_layers_2.png" align="center"
-                            scalefit="1" width="100%" contentdepth="100%" />
-                    </imageobject>
-                </mediaobject>
-            </figure>
+
             <para>––––––––––––––––––––––––––––––––––</para>
             <annotation><para>Recommend taking this para out</para></annotation>
             <para> Current challenges include the following: <orderedlist>
@@ -203,7 +175,7 @@
                 </orderedlist>
             </para>
         </partintro>
-        <xi:include href="SOLOR-blocks_11292018.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="SOLOR-blocks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="isaac.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="komet-building-blocks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>

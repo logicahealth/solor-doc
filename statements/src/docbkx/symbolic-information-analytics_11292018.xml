@@ -109,11 +109,11 @@
                 encoding of the data contained in those C-CDA documents – in an analysis conducted
                 of C-CDA documents produced by various EHR vendors and clinical organizations, the
                 four most frequent problems identified as part of this analysis were that
-                medications should be encoded in RxNorm (13.7% of all documents), vital signs and
-                results should use LOINC (9.2% of all documents), vital signs, and results should
-                use unified code of units of measure (UCUM) for physical values (8.7% of all
-                documents) and the inclusion of conflicting status information for medications (6.7%
-                of all documents)<footnote>
+                medications should be encoded in RxNorm (frequency of medication appearing in 13.7%
+                of sampled test case documents), vital signs and results should use LOINC (9.2% of
+                sampled documents), vital signs, and results should use unified code of units of
+                measure (UCUM) for physical values (8.7% of sampled documents) and the inclusion of
+                conflicting status information for medications (6.7% of sampled documents)<footnote>
                     <para>Ibid, Page 6</para>
                 </footnote>.</para>
             <para> These issues can have a direct impact on patient safety and point to the need to
@@ -124,7 +124,7 @@
                 these issues of representation. SOLOR is an integrated medical terminology system,
                 based on the overlapping but distinct terminology systems of SNOMED, LOINC and
                 RxNorm. SOLOR was designed to unambiguously define what can be measured (concepts).
-                Working hand in hand with SOLOR there needs to be a clinical statement model, of
+                Working hand in hand with SOLOR, there needs to be a clinical statement model, of
                 which there are quite a few (HL7 FHIR, CIMI, ANF) which defines how to record a
                 measurement. Measurements may be quantitative or existential. </para>
             <para>The following diagram shows how SOLOR and clinical statement models are
@@ -162,7 +162,7 @@
             <annotation><para>Recommend taking this para out</para></annotation>
             <para> Current challenges include the following: <orderedlist>
                     <listitem>
-                        <para>Further tooling and guidance needs to be developed to be able to show
+                        <para>Further tooling and guidance need to be developed to be able to show
                             how concepts can be modeled in SOLOR and particular statement models
                             applied</para>
                     </listitem>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Introduction</title>
+
+    <para>
+        This paper will describe an approach to the transformation of detailed clinical models from the Clinical Element Model (CEM) standard to the Clinical Information Modeling Initiative (CIMI) version 2 standard.  CIMI is currently a working group within Health Level Seven (HL7).  The CEM models used as the source for the translation will be provided by Intermountain Healthcare.
+    </para>
+    
+    <para>
+    	In detailed clinical modeling there is a general approach shown in <xref linkend="reference_constraint_0135"/>, that most standards have taken where there is a reference model which is then constrained with constraint models.  In <xref linkend="dcm_standards_0135"/>, the reference model and constraint model of various standards are shown.  Additional information shown is the syntax used to describe the reference or constraint model, and if the standard is shaded grey, this symbolizes that clinical content is modeled in this part of the standard.
+    </para>
+
+     <figure xml:id="reference_constraint_0135">
+        <title>Reference Model Constraint Paradigm</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/refmodel_constraints.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <para>
+        The reference model for the CEM standard is called the Abstract Instance Model.  It is not formally defined with a syntax, but instead is defined in a specification which can then be implemented in various implementations such as java or xml. This reference model is very small and has no defined clinical content.  Instead, clinical content is defined only in the constraint models of the CEM standard which are written in Clinical Element Modeling Language (CEML).  
+    </para>
+
+    <para>
+        The reference model for the CIMI v2 standard describes clinical content in both the reference and constraint models using the Archetype formalism developed by OpenEHR. The reference model is described in the Basic Meta-Model (BMM) using Object Data Instance Notation (ODIN) and the constraint models are described as Archetypes with Archetype Definition Language (ADL).
+    </para>
+
+   
+
+
+    <figure xml:id="dcm_standards_0135">
+        <title>Detailed Clinical Modeling Standards</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/refcon_comparison.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+
+
+    
+
+</section>

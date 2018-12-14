@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Clinical Element Model</title>
+
+    <para>
+        The Clinical Element reference model, as seen in <xref linkend="ce_ref_model_long_0135"/>, is a recursive model. In the figure, the stacks of grey disks within 'items', 'mods', and 'quals' are meant to represent a collection of referenced Clinical Elements.  These Clinical Elements could then reference other Clinical Elements, and so on, leading to a recursive tree with infinite variety. 
+    </para>
+
+    <para>
+        An instance of a Clinical Element could look like <xref linkend="cem_instance_qualifier_0135"/>.  In reality, one could put any data into these slots in the reference model, and the reference model has no inherent mechanism to validate whether this is good data or nonsense.  This is where the Clinical Element Constraint Model comes into play.  These constraint models are called CEMs and are written in CEML.  A possible CEML example for the previous instance is shown in <xref linkend="ceml_example_0135"/>.  If we compare the instance to the CEML, we can see the instance contains a field called type with a value of 'SystolicBloodPressure'.  This value is the name of the CEM that will be used to validate the instance, which is the CEML example given.  The CEML then states the instances must contain a key with a code of 'SystolicBloodPressure_CODE', must have a datatype of type 'Quantity', and has a constraint that states the Quantity must have a unit of 'MillimetersOfMercury_CODE'. Also stated in the CEML is that an allowable qualifier can reference the 'BodyPosition' CEM, but that the valueset within 'BodyPosition' has been constrained to 'SBP_BodyPosition_VALUESET_CODE'.
+    </para>
+
+    <figure xml:id="ce_ref_model_long_0135">
+        <title>Clinical Element Abstract Instance Model</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/ce_ref_model_long.jpg" align="center" format="jpg" width="40%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+
+
+    <figure xml:id="cem_instance_qualifier_0135">
+        <title>Clinical Element Instance</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/cem_instance_exp_qualifier.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <example xml:id="ceml_example_0135">
+        <title>CEML for Systolic Blood Pressure</title>
+        <programlisting>
+        cem SystolicBloodPressure
+            key     SystolicBloodPressure_CODE
+            data    Quantity
+            qual    BodyPosition
+               id   bodyPosition
+               card 0-1
+            constraint data.quantity.unit_code
+               value   MillimetersOfMercury_CODE
+            constraint bodyPosition.data.codeableConcept.valueset
+               value   SBP_BodyPosition_VALUESET_CODE
+        </programlisting>
+    </example>
+
+<!--
+    <figure xml:id="cem_constraint_paths_0135">
+        <title>CEML Constraint Paths</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/constraint_paths.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+-->
+   
+
+</section>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    <info>
+        <title>Content</title>
+    </info>
+    <para>The ISAAC infrastructure expects resources—such as terminology sources—to be avaible from
+        a Maven-compliant artifact repository. </para>
+    <para>A repository manager is a dedicated server application designed to manage repositories of
+        binary components. The usage of a repository manager is considered an essential best
+        practice for any significant usage of Maven.</para>
+    <section xml:id="section_6b81d168-3737-4876-8333-c7b1df7a2731">
+        <title>Purpose</title>
+        <para>A repository manager serves these essential purposes:</para>
+        <itemizedlist xml:id="itemizedlist_497c272b-0065-412a-b3d8-bc830f40d18d">
+            <listitem>
+                <para>act as dedicated proxy server for public Maven repositories</para>
+            </listitem>
+            <listitem>
+                <para>provide repositories as a deployment destination for your Maven project
+                    outputs</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+    <section xml:id="section_2a2be55f-6f3d-4220-b18a-e5beb35da480">
+        <title>Benefits and Features</title>
+        <para>Using a repository manager provides the following benefits and features:</para>
+        <itemizedlist xml:id="itemizedlist_da55f46a-1b54-499f-af88-3ca52c0d827c">
+            <listitem>
+                <para>significantly reduced number of downloads off remote repositories, saving time
+                    and bandwidth resulting in increased build performance</para>
+            </listitem>
+            <listitem>
+                <para>improved build stability due to reduced reliance on external
+                    repositories</para>
+            </listitem>
+            <listitem>
+                <para>increased performance for interaction with remote SNAPSHOT repositories</para>
+            </listitem>
+            <listitem>
+                <para>potential for control of consumed and provided artifacts</para>
+            </listitem>
+            <listitem>
+                <para>creates a central storage and access to artifacts and meta data about them
+                    exposing build outputs to consumer such as other projects and developers, but
+                    also QA or operations teams or even customers</para>
+            </listitem>
+            <listitem>
+                <para>provides an effective platform for exchanging binary artifacts within your
+                    organization and beyond without the need for building artifact from
+                    source</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+    <section>
+        <title>Publishing RF2 sources as Maven Artifacts</title>
+        <para>An example project that converts SNOMED RF2 zip distribution files into maven
+            artifacts, and can publish those artifacts in a users local repository, or on an
+            artifact repository is available on git hub. The project is named the SOLOR source
+            artifact transformer, and is available at the following URL: </para>
+        <para><link
+                xlink:href="https://github.com/informatics-architecture/solor-source-artifact-transformer"
+            /></para>
+        <para>This project contains example conversions for: </para>
+        <para>
+            <itemizedlist xml:id="itemizedlist_6510a31c-60e3-4c99-bf31-61448f59ea36">
+                <listitem>
+                    <para>The International Edition of SNOMED Clinical Terms</para>
+                </listitem>
+                <listitem>
+                    <para>The Australian Extension to SNOMED Clinical Terms</para>
+                </listitem>
+                <listitem>
+                    <para>The Spanish Extension to SNOMED Clinical Terms</para>
+                </listitem>
+                <listitem>
+                    <para>The LOINC Extension to SNOMED Clinical Terms</para>
+                </listitem>
+                <listitem>
+                    <para>The United Kingdom Clinical Extension to SNOMED Clinical Terms</para>
+                </listitem>
+                <listitem>
+                    <para>The United Kingdom Drug Extension to SNOMED Clinical Terms</para>
+                </listitem>
+                <listitem>
+                    <para>The United States Extension to SNOMED Clinical Terms</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+</chapter>

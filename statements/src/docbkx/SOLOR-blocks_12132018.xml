@@ -1,0 +1,1191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.1">
+    <title>SOLOR</title>
+    <blockquote>
+        <attribution>Edsger W. Dijkstra</attribution>
+        <para>Let me try to explain to you, what to my taste is characteristic for all intelligent
+            thinking. It is, that one is willing to study in depth an aspect of one's subject matter
+            in isolation for the sake of its own consistency... ...It is what I sometimes have
+            called "the separation of concerns", which, even if not perfectly possible, is yet the
+            only available technique for effective ordering of one's thoughts, that I know
+            of.</para>
+        <para>A scientific discipline emerges with the&#x2014;usually rather slow!&#x2014;discovery
+            of which aspects can be meaningfully "studied in isolation for the sake of their own
+            consistency", in other words: with the discovery of useful and helpful concepts.
+            Scientific thought comprises in addition the conscious search for the useful and helpful
+            concepts.</para>
+    </blockquote>
+    <para>The essential challenge of informatics practice within the healthcare enterprise, is to
+        quickly deliver a high-fidelity reasoned interpretation of principles and facts to the point
+        of care—and then to quickly aggregate these point of care experiences for analytic analysis
+        so that new principles and facts can be formulated and validated as part of a continuous
+        optimization of healthcare knowledge and delivery. To effectively answer this challenge, we
+        must focus on simplification and integration of knowledge assets, and on build, test,
+        deploy, and release processes for delivering these assets to the points of care and
+        analysis. This focus on perhaps mundane topics is not because we think that novelty has no
+        place in our work; rather, that without a focus on aspects of our delivery challenge that
+        are often treated as peripheral to the overall problem, we cannot achieve reliable, rapid,
+        low-risk knowledge-asset development and delivery in an efficient manner. </para>
+    <section>
+        <title>The Menagerie</title>
+        <epigraph>
+            <attribution>Grady Booch</attribution>
+            <para>All architecture is design but not all design is architecture. Architecture
+                represents the significant design decisions that shape a system, where significant
+                is measured by cost of change.</para>
+        </epigraph>
+        <para>Health Informatics Architecture is a clinical and technical discipline that is
+            concerned with the representation of clinical knowledge, clinical organizational
+            information and patient-specific clinical data within health information systems and
+            with the technical methodologies used to process that data for patient care, quality
+            assurance, and other secondary uses. </para>
+        <para>The importance of defining informatics architecture is in part illustrated by the
+            current state of affairs surrounding informatics architecture. Today, a menagerie of
+            inconsistent and overlapping terminology, information, and messaging models hinders
+            Clinical Decision Support efforts that try to store and analyze encoded clinical data.
+            The current complexity encountered when trying to integrate these models—and the lack of
+            coherence between (and sometimes within) the models themselves—must be overcome to build
+            a foundation for scalable and extensible clinical decision-support architecture. </para>
+        <para> We believe that defining—and validating—a coherent informatics architecture is a
+            first step to enable implementation of meaningful clinical decision support that can be
+            shared between organizations. </para>
+    </section>
+    <section>
+        <title>Semantic interoperability architecture</title>
+        <para>The semantic interoperability architecture is concerned with the export and import of
+            knowledge and data from this architecture to another that does not share the same
+            semantic foundation. This <emphasis>semantic interoperability architecture</emphasis>
+            would not be necessary if all systems shared the same foundational architecture, but
+            such homogeneity is unrealistic at this time. Defining the semantic interoperability
+            architecture will be a follow-on activity after the basics of the foundational
+            architecture are defined and validated. As such, the semantic interoperability
+            architecture is not a focus of this document at this time. </para>
+        <para>While defining the particulars of the semantic interoperability architecture is not
+            the current focus, we are concerned with builidng a foundation that will support
+            semantic interoperability. We achieve this foundation in two ways: <orderedlist>
+                <listitem>
+                    <para>Use of SNOMED&#160;CT, RxNorm, and LOINC as the primary building blocks
+                        for the foundational architecture.</para>
+                </listitem>
+                <listitem>
+                    <para>Enablement of <emphasis>semantic operability</emphasis> within the
+                        foundational architecture through normalization of representation and
+                        achieving coherence within and among the primary building blocks of the
+                        architecture.</para>
+                </listitem>
+            </orderedlist> Semantic interoperability of systems that do not share a common
+            foundation may be challenging or unattainable. Although we may seek interoperability, it
+            may be far easier to obtain <emphasis>semantic operability</emphasis> through shared
+            coherent architecture. The more common the foundations of systems that attempt to
+            interoperate, the more likely successful interoperability may be achieved. </para>
+    </section>
+    
+    <section>
+        <title>Life-critical systems</title>
+        <para>SOLOR must support many use cases, some of which are life-critical. The architecture
+            must do its part to ensure timely and correct diagnosis, prevention, and/or treatment
+            with correct dose to the correct patient. If the system supporting these use cases fails
+            or malfunctions, death, serious injury, failure of timely diagnosis, or failure of
+            disease prevention may result. </para>
+        <para>We must be equally concerned with circumstances where systems give incorrect
+            information (such as advising a particular medication to treat a condition when the
+            patient is known to be allergic to that medication), as well as circumstances where
+            systems fail to give potentially life saving information (such as failing to identify
+            potential fatal interactions between patient’s known medical conditions and a proposed
+            treatment plan). </para>
+        <para>The architecture must provide a framework within which life-critical systems support
+            can be developed, but the responsibility of properly utilizing that framework lies with
+            the implementation of the architectural components. </para>
+        <para>If the architecture provides for safety, then all systems that build upon that
+            architecture can realize the safety benefits inherent in the architecture’s design. </para>
+        <section>
+            <title>Provenance</title>
+            <para>Evidence-based medicine requires that all evidence represented in the environment
+                have a known provenance—an accounting of the original source of the information, and
+                any subsequent processing that information has gone through. This provenance is
+                essential to provide justification of recommendations to the end user, and to
+                properly curate the evidence used by the system to make recommendations. </para>
+            <para/>
+        </section>
+        <section>
+            <title>Audit trail</title>
+            <para>The architecture must provide for an audit trail of documentary evidence of the
+                sequence of activities that result in any changes to the declarative or procedural
+                knowledge provided within the architecture.</para>
+        </section>
+        <section>
+            <title>Medical device suitability</title>
+            <para>A medical device is any item that treats, diagnoses, or monitors patients. Medical
+                devices have come to increasingly rely on complex embedded software. This software
+                needs to ensure patient safety and meet regulations set by agencies like the Food
+                and Drug Administration (FDA). Coherent informatics architecture is a foundation
+                that medical devices should be able to depend upon. As such, the architecture must
+                enable an application to meet requirements for embedded medical device software.
+            </para>
+        </section>
+        <section>
+            <title>Quality assurance</title>
+            <para>Part of the quality assurance process for life-critical systems must include a
+                hazard analysis, where the types of mistakes that could be present in a system are
+                categorized by potential severity of an event caused by a defect and likelihood of
+                encountering such a defect. </para>
+            <para>The severity levels are typically: </para>
+            <para>·      Catastrophic: defect results in multiple fatalities</para>
+            <para>·      Hazardous: defect results in serious or fatal injury</para>
+            <para>·      Major: defect results in major injury or illness</para>
+            <para>·      Minor: defect results in discomfort or minor illness </para>
+            <para>·      No safety effect: defect results in no consequences</para>
+            <para>The likelihood of encountering a defect are typically represented as: </para>
+            <para>·      Probable: Probability of occurrence per operational hour &gt; 1 x
+                10-5</para>
+            <para>·      Remote: Probability of occurrence per operational hour &gt; 1 x 10-7</para>
+            <para>·      Extremely remote: Probability of occurrence per operational hour &gt; 1 x
+                10-9</para>
+            <para>·      Extremely Improbable: Probability of occurrence per operational hour &lt; 1
+                x 10-9</para>
+            <para>The quality assurance process must be able to ensure that the level of quality
+                assurance applied to a component of the system must be proportional to its severity
+                and likelihood, and should result in quantitative assessments of the risk of
+                encountering defects of different types. </para>
+            <para>The quality assurance must also consider the probably of defects from interacting
+                with data encoded with previous versions of the system. Ensuring the quality of
+                operations over historical data is a relatively unique concern for a health-focused
+                informatics architecture. </para>
+        </section>
+        <section>
+            <title>Encoded knowledge is software</title>
+            <para>Encoded knowledge elements—concepts, descriptions, logical definitions, clinical
+                facts, and clinical rules—are software instructions executed by a computer. Just as
+                java bytecodes are the form of instructions the Java virtual machine executes,
+                encoded knowledge elements are the form of instructions executed by terminology
+                servers, semantic query engines, and various forms of expert systems (rule based, or
+                otherwise).</para>
+            <para>As encoded knowledge is software, we must provide for the same tight controls for
+                encoded knowledge development as we would for any other software that was a
+                component of a life-critical system. </para>
+            <para>Encoded knowledge cannot be an afterthought or a design element that is not
+                architecturally significant. Applying encoded knowledge to clinical data is a
+                fundamental purpose of clinical information systems.</para>
+            <para>As knowledge is software, we must recognize that:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>The vast majority of knowledge encoding problems is traceable to errors
+                        made during the design and development process.</para>
+                </listitem>
+                <listitem>
+                    <para>Typically, testing alone cannot fully verify that encoded knowledge is
+                        complete and correct. In addition to testing, other verification techniques
+                        and a structured and documented development process should be combined to
+                        ensure a comprehensive validation approach.</para>
+                </listitem>
+                <listitem>
+                    <para>Encoded knowledge may improve with age, as latent defects are discovered
+                        and removed. However, as knowledge is constantly updated and changed, such
+                        improvements are sometimes countered by new defects introduced during the
+                        change.</para>
+                </listitem>
+                <listitem>
+                    <para>Seemingly insignificant changes in encoded knowledge can create unexpected
+                        and very significant problems elsewhere. The development process should be
+                        sufficiently well planned, controlled, and documented to detect and correct
+                        unexpected results from encoded knowledge changes.</para>
+                </listitem>
+            </itemizedlist>
+            <para>(Adapted from General Principles for Software Validation</para>
+            <para>The architecture must play its role in ensuring the quality of encoded knowledge.
+                Principles of modularization, standardization, quality measurement, configuration
+                management, and management of changing knowledge over time must be part of the
+                architectural design. </para>
+        </section>
+        <section>
+            <info>
+                <title>FDA Principles of Software Validation</title>
+                <authorgroup>
+                    <author>
+                        <orgname>PARASOFT</orgname>
+                    </author>
+                </authorgroup>
+            </info>
+            <section>
+                <title>Requirements</title>
+                <para>A documented software requirements specification provides a baseline for both
+                    validation and verification.</para>
+            </section>
+            <section>
+                <title>Defect Prevention</title>
+                <para>Software quality assurance needs to focus on preventing the introduction of
+                    defects into the software development process rather than trying to "test
+                    quality into" the software code after it is written.</para>
+            </section>
+            <section>
+                <title>Time and Effort</title>
+                <para>Preparation of software validation should begin early; i.e., during design and
+                    development planning and design input.</para>
+            </section>
+            <section>
+                <title>Software Life Cycle</title>
+                <para>Software validation takes place within the environment of an established
+                    software life cycle.</para>
+            </section>
+            <section>
+                <title>Plans</title>
+                <para>The software validation process is defined and controlled through the use of a
+                    plan. The software validation plan defines "what" is to be accomplished through
+                    the software validation effort.</para>
+            </section>
+            <section>
+                <title>Procedures</title>
+                <para>The software validation process is executed through the use of procedures.
+                    These procedures establish "how" to conduct the software validation
+                    effort.</para>
+            </section>
+            <section>
+                <title>Software Validation after a Change</title>
+                <para>Due to the complexity of software, a seemingly small local change may have a
+                    significant global system impact.</para>
+                <para> Whenever software is changed, a validation analysis should be conducted not
+                    just for validation of the individual change, but also to determine the extent
+                    and impact of that change on the entire software system.</para>
+            </section>
+            <section>
+                <title>Validation Coverage</title>
+                <para>Validation coverage should be based on the software's complexity and safety
+                    risk - not on firm size or resource constraints. The selection of validation
+                    activities, tasks, and work items should be commensurate with the complexity of
+                    the software design and the risk associated with the use of the software for the
+                    specified intended use.</para>
+            </section>
+            <section>
+                <title>Independence of Review</title>
+                <para>Self-validation is extremely difficult. When possible, an independent
+                    evaluation is always better, especially for higher risk applications.</para>
+            </section>
+            <section>
+                <title>Independence of Review</title>
+                <para>Self-validation is extremely difficult. When possible, an independent
+                    evaluation is always better, especially for higher risk applications.</para>
+            </section>
+            <section>
+                <title>Flexibility and Responsibility</title>
+                <para>Software is designed, developed, validated, and regulated in a wide spectrum
+                    of environments, and for a wide variety of devices with varying levels of
+                    risk.</para>
+            </section>
+            <section>
+                <title>Software Life Cycle Activities</title>
+                <para>Software is designed, developed, validated, and regulated in a wide spectrum
+                    of environments, and for a wide variety of devices with varying levels of
+                    risk.</para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Quality Planning</para>
+                        </listitem>
+                        <listitem>
+                            <para>System Requirements Definition</para>
+                        </listitem>
+                        <listitem>
+                            <para>Detailed Software Requirements Specification</para>
+                        </listitem>
+                        <listitem>
+                            <para>Software Design Specification</para>
+                        </listitem>
+                        <listitem>
+                            <para>Construction or Coding</para>
+                        </listitem>
+                        <listitem>
+                            <para>Testing</para>
+                        </listitem>
+                        <listitem>
+                            <para>Installation</para>
+                        </listitem>
+                        <listitem>
+                            <para>Operation and Support</para>
+                        </listitem>
+                        <listitem>
+                            <para>Maintenance</para>
+                        </listitem>
+                        <listitem>
+                            <para>Retirement</para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </section>
+            <section>
+                <title>Quality Planning</title>
+                <para>Design and development planning should culminate in a plan that identifies
+                    necessary tasks, procedures for anomaly reporting and resolution, necessary
+                    resources, and management review requirements, including formal design
+                    reviews.</para>
+            </section>
+            <section>
+                <title>Requirements</title>
+                <para>The software requirements specification document should contain a written
+                    definition of the software functions.</para>
+                <para> A software requirements traceability analysis should be conducted to trace
+                    software requirements to (and from) system requirements and to risk analysis
+                    results.</para>
+            </section>
+            <section>
+                <title>Design</title>
+                <para>In the design process, the software requirements specification is translated
+                    into a logical and physical representation of the software to be implemented.
+                    The software design specification is a description of what the software should
+                    do and how it should do it.</para>
+                <para> At the end of the software design activity, a Formal Design Review should be
+                    conducted to verify that the design is correct, consistent, complete, accurate,
+                    and testable, before moving to implement the design.</para>
+            </section>
+            <section>
+                <title>Construction or Coding</title>
+                <para>Source code should be evaluated to verify its compliance with specified coding
+                    guidelines. Such guidelines should include coding conventions regarding clarity,
+                    style, complexity management, and commenting.</para>
+            </section>
+            <section>
+                <title>Testing by the Software Developer</title>
+                <para>Test plans and test cases should be created as early in the software
+                    development process as feasible.</para>
+                <para> Once the prerequisite tasks (e.g., code inspection) have been successfully
+                    completed, software testing begins. It starts with unit level testing and
+                    concludes with system level testing.</para>
+                <para> Code-based testing is also known as structural testing or "white-box"
+                    testing. It identifies test cases based on knowledge obtained from the source
+                    code, detailed design specification, and other development documents. Structural
+                    testing can identify “dead” code that is never executed when the program is
+                    run.</para>
+                <para> The level of structural testing can be evaluated using metrics that are
+                    designed to show what percentage of the software structure has been evaluated
+                    during structural testing. These metrics are typically referred to as "coverage"
+                    and are a measure of completeness with respect to test selection
+                    criteria.</para>
+            </section>
+            <section>
+                <title>User Site Testing</title>
+                <para>User site testing should follow a pre-defined written plan with a formal
+                    summary of testing and a record of formal acceptance. Documented evidence of all
+                    testing procedures, test input data, and test results should be retained.</para>
+            </section>
+            <section>
+                <title>Maintenance and Software Changes</title>
+                <para>When changes are made to a software system, either during initial development
+                    or during post release maintenance, sufficient regression analysis and testing
+                    should be conducted to demonstrate that portions of the software not involved in
+                    the change were not adversely impacted. This is in addition to testing that
+                    evaluates the correctness of the implemented change(s).</para>
+            </section>
+        </section>
+    </section>
+    <section>
+        <title>Architectural Challenges</title>
+        <epigraph>
+            <para>Defining guidelines for an evolutionary architecture for the next decade is not an
+                easy task.<citation>30</citation></para>
+        </epigraph>
+
+        <para>How did we end up with a menagerie instead of a productive ecosystem? Before we embark
+            on our next adventure, we should spend time to understand how we got where we are, and
+            how we may avoid making the same mistakes. There are several antipatterns that are
+            pervasive in health IT systems. These antipatterns include <emphasis role="italic"
+                >accidental complexity</emphasis>, <emphasis role="italic">design by
+                committee</emphasis>, and <emphasis role="italic">stovepipe</emphasis>. These
+            antipatterns are discussed in the following sections. </para>
+        <para/>
+        <section>
+            <title>Accidental complexity</title>
+            <para>Accidental (or incidental) complexity is complexity that arises in computer
+                programs or their development process that is non-essential to the problem to be
+                solved. While essential complexity is inherent and unavoidable, accidental
+                complexity is caused by the approach chosen to solve the
+                    problem.<citation>49</citation></para>
+            <para>Some examples of accidental complexity as they relate to informatics are described
+                in the following sections. </para>
+            <section>
+                <title>Semantic-laden identifiers</title>
+                <para>Solving a distributed identifier allocation problem by using namespaces that
+                    are assigned to organizations (or committees in the case of HL7), semantics are
+                    often introduced into the identifier, which some developers used to identify
+                    what organization created the components that where associated with those
+                    identifiers. </para>
+                <para> Exposing derivable semantics in the identifier can lead to complexity when
+                    users/developers demand that the semantics be maintained, which may result in
+                    unnecessary retirement as described in the next section. </para>
+                <para> Reliance on UUIDs rather than on identifiers with derivable semantics would
+                    eliminate this complexity. </para>
+            </section>
+            <section>
+                <title>Unnecessary retirement</title>
+                <para>An unintended side effect of using identified namespaces as part of
+                    distributed identifier assignment, is an increase in the complexity of
+                    transferring responsibility for a component from one organization to another.
+                    This complexity includes an elaborate sequence of marking a component for
+                    retirement in one release, actually retiring it in a subsequent release, and
+                    creating an essentially identical component with an identifier derived from the
+                    new organizations namespace, and the need for creation of mapping solutions to
+                    keep historical relationships between components retired for these reasons to
+                    the current concepts that replace them.</para>
+                <para> Again, reliance on UUIDs rather than on identifiers with derivable semantics
+                    would eliminate this complexity. </para>
+            </section>
+           
+            <section>
+                <title>Post-coordination</title>
+                <para>Terminology models sometimes make it necessary to require post-coordination to
+                    provide domain coverage at the point of care, however, the information models we
+                    use in healthcare typically can’t handle post-coordination well. Reliance on the
+                    information model to represent post-coordination has introduced complexity that
+                    might be avoided if we used a dynamic means to assign unique identifiers to
+                    post-coordinated expressions. </para>
+            </section>
+            <section>
+                <title>Accidental complexity solutions</title>
+                <para>Accidental complexity must be minimized in any good architecture, design, and
+                    implementation. Working in short iterations with ongoing design reviews may help
+                    reduce accidental complexity.</para>
+                <para>We must also develop an example implementation in parallel with the
+                    architecture, so that complexity can be identified early, and evaluated
+                    critically with respect to the essential or accidental nature of that
+                    complexity. </para>
+            </section>
+        </section>
+        <section>
+            <title>Design by committee</title>
+            <section>
+                <title>No unifying vision</title>
+                <para>Design by committee is the result of having many contributors to a project,
+                    but no unifying vision.</para>
+                <para>A complex software design is the product of a committee process. The design
+                    has so many features and variations that it is infeasible for any group of
+                    developers to realize the specifications in a reasonable time frame.</para>
+            </section>
+            <section>
+                <title>Interoperability at the expense of operability</title>
+                <para>Interoperability provides an illusion of operability between disparate
+                    systems, and therefore there is no need to standardize. </para>
+            </section>
+            <section>
+                <title>Design by committee solutions</title>
+                <para>A solution to design by committee is to articulate a set of architectural
+                    principles to which architectural components will be evaluated against, and to
+                    have the committee be advisory to an architect that provides the unifying
+                    vision.</para>
+            </section>
+        </section>
+        <section>
+            <title>Stovepipe</title>
+            <para>The Stovepipe Enterprise antipattern is characterized by a lack of coordination
+                and planning across a set of systems.<citation>36</citation></para>
+            <para>If every subsystem has a unique interface, then the system is overly complex.
+                Absence of common multisystem conventions is a key problem for systems. For example,
+                currently, essentially no terminology systems are the same with regard to their
+                representation and semantics, despite the requirement that they must work
+                together.</para>
+            <section>
+                <title>Overlapping and unreconciled models</title>
+                <para>SNOMED CT and LOINC are classic examples of two terminologies that are
+                    proposed for common use in health IT, but that are not well coordinated, and
+                    have unreconciled content (content that is not made consistent or
+                    compatible).</para>
+                <para>As an example of unreconciled content, SNOMED CT and LOINC all have
+                    representations for Amoxicillin. In LOINC, Amoxicillin is a textual value in the
+                    has-component field of the concept:</para>
+                <informalexample>
+                    <programlisting>
+AMOXICILLIN [MASS/VOLUME] IN SERUM OR PLASMA
+		HAS-COMPONENT: AMOXICILLIN
+                </programlisting>
+                </informalexample>
+                <para>While SNOMED CT has the concept: </para>
+                <informalexample>
+                    <programlisting>
+AMOXICILLIN MEASUREMENT (PROCEDURE)
+	COMPONENT: AMOXICILLIN (SUBSTANCE)
+                </programlisting>
+                </informalexample>
+                <para>In SNOMED CT, Amoxicillin is also a concept, rather than just a text value. </para>
+                <para> From an end-users perspective, the artificial separation and uncoordinated
+                    development of these important systems has been a burden. RxNorm may help bridge
+                    the medication components of the overlap, but there are other overlapping
+                    domains (method, type of scale, system, time aspect, and non-pharmaceutical
+                    components) that RxNorm does not cover. The UMLS may help us formally reconcile
+                    some of these other domains, but if coordination and reconciliation can be part
+                    of the development processes for these sources, rather than a cleanup exercise
+                    for implementers, we can allocate resources to solving more compelling problems. </para>
+                <para> We hope that the newly announced cooperative agreement between IHTSDO (owners
+                    of SNOMED CT) and the Regenstrief Institute (owners of LOINC) will change the
+                    coordination of these two systems in a significantly helpful way. </para>
+                <para> Although SNOMED CT and LOINC are classic examples of overlapping and
+                    unreconciled models, there are many other examples. The UMLS Source Release
+                    Documentation identifies 169 sources, most of which are uncoordinated, and have
+                    independent models. These overlapping and unreconciled models create an
+                    unnecessary burden for the implementer. </para>
+            </section>
+            <section>
+                <title>Uncoordinated development</title>
+                <para> Today, related components from different organizations do not share their
+                    work prior to a release. The result of this lack of sharing is that dependent
+                    components are always out of date with the latest release of the underlying
+                    standard. For example, how can you keep a mapping of SNOMED CT to ICD-9-CM
+                    components up to date, when it takes 6 months after the release of SNOMED CT to
+                    update and quality assure the map? As an implementer, does that mean you should
+                    wait 6 months for the map to be updated before deploying the latest SNOMED CT
+                    release? What if the new SNOMED CT release contains new content that may improve
+                    the diagnosis, treatment, or prevention of disease? Is it really acceptable to
+                    delay implementation of the latest SNOMED CT release by 6 months while waiting
+                    for dependent system components to be updated after the fact? </para>
+                <para/>
+            </section>
+            <section>
+                <title>Stovepipe solutions</title>
+                <para> The primary solution for the stovepipe systems we are working with is to
+                    break down the barriers that prevent collaborative development of content,
+                    tools, processes, and ultimately architecture. </para>
+                <para> Today, deployment delay is not a significant issue because clinical decision
+                    support is nascent, and pharmacy, laboratory, and clinical systems are poorly
+                    integrated. However, if we successfully create compelling decision support on an
+                    integrated platform, coordination of development and release cycles among
+                    clinical terminologies, logical representation, clinical facts, and clinical
+                    knowledge bases will become increasingly important. We must prepare for success
+                    and work to better coordinate development among dependent components. </para>
+                <para> In<?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?> [new
+                    reference]<?oxy_custom_end?> Architectural opportunities we outlined many
+                    opportunities that are helping to break down those barriers. Here we propose
+                    leveraging those opportunities. Those opportunities include acquisition and
+                    development of open-source tooling. Improvements in open-source tooling will
+                    help break down collaborative barriers significantly. Such improvement is a
+                    fundamental focus of our architecture effort. </para>
+                <para> The solution to the stovepipe antipattern is effective collaboration without
+                    barriers of proprietary concern. </para>
+            </section>
+        </section>
+        <section>
+            <title>A collaborative path forward</title>
+            <para> The Health Information Technology Standards Committee (HITSC) is a federal
+                advisory committee which provides recommendations on health IT standards. They have
+                identified SNOMED CT, RxNorm, and LOINC as key clinical vocabularies for Meaningful
+                Use and for HIPAA transactions. </para>
+            <para> We plan to collaborate closely with these systems—indeed we plan to found the
+                entire architecture on top of them—rather than treat them as an architectural
+                afterthought. As these systems are foundational, we plan to collaborate closely and
+                directly contributie to SNOMED CT, RxNorm, and LOINC when possible. </para>
+        </section>
+    </section>
+    <section>
+        <title>SOLOR enabling milestones</title>
+
+        <para>While our current state of affairs is less than desired, there has been tremendous
+            work and good progress over the last 25 years. Our challenge today is to leverage these
+            works to form the coherent architecture we seek. In the following subsections, we
+            describe the an incomplete inventory of systems that provide architectural opportunities
+            we hope to leverage. </para>
+        <section>
+            <title>Unified Medical Language System</title>
+            <para>In 1986, the National Library of Medicine (NLM) began a long-term research and
+                development project to build the Unified Medical Language System (UMLS®). The
+                purpose of the UMLS is to aid the development of systems that help health
+                professionals and researchers retrieve and integrate electronic biomedical
+                information from a variety of sources.
+                <?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?>REF-UMLS
+                FIX<?oxy_custom_end?>.</para>
+            <para>The UMLS efforts have been instrumental in focusing attention on issues
+                surrounding clinical terminology, as well as providing means of interoperation
+                between different terminology systems. We hope to leverage knowledge gained via the
+                UMLS experience&#8212;as well as content developed and curated as part of UMLS
+                efforts&#8212;to bootstrap our efforts. </para>
+        </section>
+        <section>
+            <title>SNOMED&#160;RT support for description logic</title>
+
+            <para>Kaiser Permanente developed SNOMED RT (Reference Terminology) and donated its work
+                to the College of American Pathologists in the hope that a robust standard for
+                encoding clinical data would evolve. SNOMED RT was first released in 2000.</para>
+
+            <para>&#160;SNOMED&#160;RT was the first clinical terminology outside of a research
+                environment to use description-logic as its knowledge representation foundation.
+                This effort made a distinction between reference uses of terminology (uses related
+                to knowledge representation and retrieval) and interface uses of terminology (uses
+                related to correctness and efficiency of user data input). </para>
+
+            <para>SNOMED RT was designed to complement the broad coverage of medical concepts in
+                SNOMED RT with a set of enhanced features that significantly increases its value as
+                a reference terminology for representing clinical data. SNOMED RT represented
+                multiple hierarchies and incorporates description logic.</para>
+        </section>
+        <section>
+            <title>SNOMED&#160;CT support for user interface customization</title>
+
+            <para>SNOMED&#160;CT (Clinical Terms) was first released in 2002. A distributed team
+                within the US and the United Kingdom integrated SNOMED RT and the UK's Clinical
+                Terms Version 3 (formerly known as the Read Codes) into a single terminology.
+                SNOMED&#160;CT has become the most comprehensive, multilingual clinical healthcare
+                terminology in the world. </para>
+
+            <para>SNOMED&#160;CT introduced expanded dialect support that allows language
+                customization to be represented as a core component of SNOMED&#160;CT. This
+                integrated approach eliminates the expensive and error-prone approach of mapping
+                interface terminologies to reference terminologies. </para>
+
+            <para>In addition to the expanded dialect support, SNOMED&#160;CT introduced reference
+                extensions&#8212;a standard means to extend terminology content by referencing
+                component identifiers. These reference extensions provide means to specify
+                alternative taxonomy navigation, ordering of items in taxonomy lists, and other
+                essential features of interface terminology. </para>
+
+            <para>This new SNOMED&#160;CT framework created a means by which an integrated
+                terminology system could provide for interface and reference needs of clinical
+                systems. </para>
+        </section>
+        <section>
+            <title>Standard extension model</title>
+            <para>SNOMED&#160;CT does not cover all the concepts required for representation of
+                clinical concepts in the informatics architecture. Therefore, we must have a
+                standard model to extend resources, and to contribute the extensions to responsible
+                organizations when appropriate. </para>
+            <para>The SNOMED&#160;CT extension model provides such a standard model for extension
+                that we can build upon. Organizations are currently using this standard extension
+                model with success.</para>
+            <section>
+                <title>Spanish extension</title>
+                <para>The Spanish extension of the International Release is updated each year in
+                    April and October. Although Spanish is the first language extension to
+                    SNOMED&#160;CT, it is not the only language extension. SNOMED&#160;CT is
+                    currently available in American English, British English, Spanish, Danish and
+                    Swedish, with other translations under way or nearly completed in French and
+                    Dutch.</para>
+            </section>
+            <section>
+                <title>United Kingdom SNOMED CT extension</title>
+                <para>The British National Health Service produces 2 extensions to SNOMED&#160;CT.
+                    The UK Clinical Extension, and the UK Drug Extension. </para>
+            </section>
+            <section>
+                <title>United States SNOMED CT extension</title>
+                <para>The US Extension to SNOMED&#160;CT® is a listing of the concepts,
+                    descriptions, relationships and their history for terminology content accepted
+                    by the NLM as a formal extension to the SNOMED&#160;CT International
+                    Release.</para>
+                <para>The main purposes of the US Extension to SNOMED&#160;CT are to:</para>
+                <orderedlist>
+                    <listitem>
+                        <para>Provide “rapid” access to concept IDs for use by implementers, pending
+                            action by IHTSDO on content submissions likely to be added to the
+                            SNOMED&#160;CT International Release.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Provide standard terminology needed for US clinical use cases, but not
+                            generally useful in other countries, e.g., regulatory or legislatively
+                            mandated terms specific to the US.</para>
+                    </listitem>
+                </orderedlist>
+                <para>The US Extension includes both active and inactive content that is harmonized
+                    with the most recently published version of the SNOMED&#160;CT International
+                    Release. As the content of the extension grows and undergoes consistent review,
+                    realignment and harmonization with the International Release, users should
+                    expect changes to the US Extension related to all future releases of
+                    SNOMED&#160;CT.</para>
+                <para>The US Extension is being developed to facilitate the use of SNOMED&#160;CT as
+                    the primary coding terminology for clinical information in electronic health
+                    records, research data bases and clinical trials databases, except in the
+                    domains of medications and laboratory tests, which are covered by RxNorm and
+                    LOINC respectively. As local vocabularies often provide variable ways of
+                    representing commonly used concepts, the use of a common set of SNOMED&#160;CT
+                    concepts will maximize data interoperability among institutions. Users unable to
+                    find terms they think are appropriate should contact the NLM to request
+                    additional content to the US Extension. Content suitable for inclusion in the
+                    International Release may be submitted by NLM to the IHTSDO contemporaneously
+                    with its evaluation, modeling and ID assignment in the US Extension. If accepted
+                    into the International Release, the corresponding US Extension entries will be
+                    linked to the International Release content and labeled as “retired” in the US
+                    Extension.</para>
+            </section>
+            <section>
+                <title>Australian SNOMED CT extension</title>
+                <para>SNOMED CT Australian Release (SNOMED CT-AU) is the Australian extension to
+                    SNOMED CT, providing local variations and customizations of terms relevant to
+                    the Australian healthcare community. It includes the international resources
+                    along with all Australian developed terminology and documentation for
+                    implementation in Australian clinical IT systems.</para>
+            </section>
+        </section>
+        <section>
+            <title>RxNorm</title>
+
+            <para>Pharmacy related matters are of massive importance in our health care system. For
+                example, adverse drug events (ADEs) comprise the largest single category of adverse
+                events experienced by hospitalized patients, accounting for about 19 percent of all
+                injuries. Clinical information systems can play a critical role in preventing such
+                injuries, and in ensuring proper prescribing practices. </para>
+
+            <para>RxNorm was created to provide a means of interoperability between one pharmacy
+                information system and another. First released in 2005, RxNorm includes the VA’s
+                NDF-RT, which codes clinical drug properties, including mechanism of action,
+                physiologic effect, and therapeutic category.</para>
+
+            <para>RxNorm is the official HITSP standard for exchanging information on clinical
+                drugs, using the combination ingredient + strength + dose form. RxNorm is freely
+                available, and part of the UMLS, and can form a foundational component of an
+                informatics architecture. </para>
+        </section>
+        <section>
+            <title>SNOMED&#160;CT transition to the IHTSDO</title>
+
+            <para>In 2007,&#160;the SNOMED&#160;CT intellectual property
+                rights&#160;were&#160;transferred from the College of American Pathologists to the
+                SNOMED SDO® in the&#160;formal creation of the International Health Terminology
+                Standards Development Organization (IHTSDO). The IHTSDO is a not-for-profit
+                association that is owned and governed by its national Members. In January 2012
+                eighteen countries were Members of IHTSDO, more countries are joining every
+                year.</para>
+
+            <para>SNOMED&#160;CT is now owned, maintained and distributed by the IHTSDO. Historic
+                commercial proprietary concerns surrounding SNOMED&#160;CT licensing have been
+                eliminated, enabling SNOMED&#160;CT to serve as a foundation for open informatics
+                architecture. </para>
+        </section>
+
+        <section>
+            <title>IHTSDO open-source tooling</title>
+
+            <para>In 2009, the IHTSDO made a software workbench open source. This open-source
+                framework validated many architectural ideas, including change-set configuration
+                management to support distributed development. </para>
+
+            <para>The IHTSDO workbench validated a temporal model of </para>
+
+            <itemizedlist>
+                <listitem>
+                    <para>A time period datatype, including the ability to represent time periods
+                        with no end (infinity or forever)</para>
+                </listitem>
+                <listitem>
+                    <para>System-maintained transaction time</para>
+                </listitem>
+                <listitem>
+                    <para>Temporal queries at current time, time points in the past or future, or
+                        over durations</para>
+                </listitem>
+                <listitem>
+                    <para>Predicates for querying time periods</para>
+                </listitem>
+            </itemizedlist>
+
+
+            <para>This open source environment includes a description-logic classifier, and
+                distributed editing capabilities that can be leveraged in a architectural
+                implementation that can be used to validate the architecture. </para>
+        </section>
+        <section>
+            <title>SNOMED CT Release Format 2</title>
+
+            <para>In January 2012, SNOMED CT's RF2 format officially replaced the RF1 format. The
+                new format has better features for configuration management of and reference
+                extensions to SNOMED CT’s contents. This new format will accommodate evolving
+                requirements without the need for further fundamental change in the foreseeable
+                future.</para>
+        </section>
+        <section>
+            <title>IHTSDO and GMDNA</title>
+
+            <para>In 2012, the IHTSDO and the Global Medical Device Nomenclature Agency (GMDNA)
+                responsible for the international naming system for medical devices (GMDN) signed a
+                Cooperation Agreement with the IHTSDO, resulting in the use of GMDN as the medical
+                device component in SNOMED&#160;CT.</para>
+        </section>
+        <section>
+            <title>SNOMED&#160;CT and LOINC agreement</title>
+
+            <para>In 2013, the IHTSDO and the Regenstrief Institute agreed that they would work
+                together to link SNOMED&#160;CT and LOINC. This agreement means that LOINC can be
+                integrated into SNOMED&#160;CT by means of SNOMED description logic statements that
+                define LOINC codes, and that these description logic statements will be a part of
+                future SNOMED&#160;CT releases. </para>
+        </section>
+        <section>
+            <title>VA interagency agreement with NLM</title>
+
+            <para>In September of 2013, the VA and the National Library of Medicine (NLM) entered
+                into an interagency agreement (IAA) to accelerate the pace of clinical terminology
+                standards development and integration in areas that support Veterans health care and
+                benefits determination. The VA has a long history of successful use of health
+                information technology to support its mission and of effective collaboration with
+                other federal agencies to promote the development and use of health data standards.
+                VA seeks to accelerate the enhancement of clinical terminology standards and related
+                infrastructure for internal uses such as clinical decision support, quality
+                improvement, research and business processes and for external data sharing with key
+                partners including the Department of Defense and VA academic affiliates across the
+                country.</para>
+
+            <para>Under the IAA, NLM will work with the VA to make specific enhancements to SNOMED
+                CT, LOINC, and RxNorm in order to: <itemizedlist>
+                    <listitem>
+                        <para>Modify and add to SNOMED CT and/or the US Extension to SNOMED CT, to
+                            LOINC, and to RxNorm so they evolve more rapidly and effectively to
+                            support current and emerging priority use cases for the VA and its
+                            federal and private sector partners.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Coordinate enhancements to the IHTSDO Workbench/Open Tooling Framework
+                            so that NLM and VA development efforts are mutually beneficial and
+                            support more rapid improvements to SNOMED CT and more effective
+                            integration of SNOMED CT with other relevant health IT standards.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Expand the content and capabilities of the NLM Value Set Authority
+                            Center as needed to support more effective authoring, validation,
+                            maintenance, and use of vocabulary value sets for clinical decision
+                            support and other high priority VA use cases, as well as for clinical
+                            quality measures.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Allow predicates for querying time periods</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+
+
+            <para>The initial set of high priority tasks to be addressed by the VA and NLM under the
+                IAA include: <itemizedlist>
+                    <listitem>
+                        <para>Establish principled relationships between LOINC and SNOMED CT so that
+                            they form an interlocking set to support effective integrated use by the
+                            VA and other US health care providers.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Finalize specific rules and parameters for relating and connecting
+                            LOINC and SNOMED CT content in the laboratory test domain.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Initiate analysis for other domains of interest to the VA.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Determine the magnitude and prioritize the changes that must be made
+                            to LOINC and SNOMED CT to instantiate these relationships and
+                            connections in light of the VHA’s priority use cases.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>SNOMED CT, RxNorm, and LOINC</title>
+
+            <para>Today, thanks to all the prior efforts of many individuals and organizations, we
+                have an opportunity to leverage the combination of SNOMED&#160;CT, RxNorm, and LOINC
+                as a coherent foundation for informatics architecture. There is still work to be
+                done, as the integration of LOINC and SNOMED CT is only beginning, and how best to
+                utilize RxNORM will require careful consideration. But the opportunity is
+                compelling; we must take advantage of it. </para>
+        </section>
+    </section>
+    <section>
+        <info>
+            <title>“Data Element” Modeling and Its Relationship to Clinical Domain Models and
+                SOLOR</title>
+            <author>
+                <personname>Walter Sujansky</personname>
+            </author>
+            <date>2017-10-23</date>
+        </info>
+
+        <section>
+            <title>Introduction</title>
+            <para>Recently, there has been lively discussion regarding the appropriate role of
+                “clinical data elements” and forms-based data collection as a data-representation
+                system for EHRs. This section attempts to char- acterize the “data-element” model
+                for representing clinical data, and assess its strengths and weaknesses relative to
+                alternative models, particularly with regards to supporting data retrieval and
+                analysis. This section also provides general recommendations for retaining the
+                advantages of data elements for data collection, while mitigating their limitations
+                for data analysis.</para>
+        </section>
+        <section>
+            <title>Data Elements</title>
+            <para>“Data element” is a longstanding concept used in information technology and data
+                    modeling<footnote xml:id="__EN1__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://en.wikipedia.org/wiki/Data_element"
+                            >https://en.wikipedia.org/wiki/Data_element</link>. </para>
+                </footnote>. Recently, the definition and use of data elements has been proposed as
+                the basis for structured data capture within EHRs and other clinical
+                applications.</para>
+            <section>
+                <title>Context for Recent Consideration of Data Elements: Structured Data
+                    Capture</title>
+                <para>In 2013, the Office of the National Coordinator (ONC) Standards &amp;
+                    Interoperability (S&amp;I) Framework launched an initiative to develop
+                    “Structured Data Capture” standards for EHRs<footnote xml:id="__EN2__">
+                        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/SDC+Home"
+                                >https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/SDC+Home</link>.
+                        </para>
+                    </footnote>. The purpose of structured data capture (SDC) in the context of this
+                    initiative was to enable the collection of structured data within EHRs
+                        <emphasis>to supplement data collected for other purposes, including
+                        clinical research, adverse event reporting, and public health
+                        reporting</emphasis>. In other words, SDC was not intended as a model for
+                    primary data entry into EHRs, but rather as a mechanism to collect data from
+                    EHRs and/or from the users of EHRs for secondary purposes, such as research and
+                    specific reporting needs. </para>
+                <para><xref linkend="_Ref493845583"/> illustrates the envisioned model for such data
+                    collection. The model entails an EHR user selecting a “form” or “template” from
+                    a forms repository that is external to the EHR (steps 1 and 2). This form, which
+                    specifies the exact data elements needed for the intended research or reporting
+                    purpose, becomes the artifact used to collect the requisite structured data. The
+                    EHR “auto-populates” whichever of the form’s data elements it can from the EHR’s
+                    own database - via mappings specified within the form – (step 3), and then
+                    prompts the user to enter manually values for the remaining data elements (step
+                    4). The completed form is then locally saved (step 5), as well as transmitted to
+                    an external data repository (step 6), from which it can be accessed for its
+                    intended research, reporting, and analytical purposes (step 7).</para>
+                <figure xml:id="_Ref493845583">
+                    <title>Envisioned model for structured data capture (SDC) using data
+                        elements.</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image2cde.png" width="5.5in"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <para>Within this model, “data elements” comprise the individual units of
+                    information that are collected when each “question/answer” pair in a form is
+                    populated. Examples range from simple concepts, such as a patient’s height, to
+                    complex concepts, such as the severity of a medication adverse event. In all
+                    cases, the precise meaning, allowable values, and other attributes of the data
+                    elements are carefully defined.</para>
+                <para>“Common data elements” (CDEs) are data elements that are shared across a
+                    community of interest. The standardized and mutually agreed-upon definitions of
+                    CDEs enable their re-use in different contexts and aide in the exchange and
+                    repurposing of clinical data. The SDC model envisions the definition of many
+                    CDEs for use in various data-collection use cases.</para>
+            </section>
+            <section>
+                <title>The Attributes of Data Elements</title>
+                <para>The ONC S&amp;I SDC initiative did not actually define common data elements
+                    that may be used in forms, but only standardize the set of
+                        <emphasis>defining</emphasis>
+                    <emphasis>attributes</emphasis> that may be used to specify such data elements
+                    (leaving it to others to actually define the elements). The standardized
+                    attributes defined by S&amp;I number approximately 75, and the full set is
+                    available in a document from the ONC S&amp;I web site<footnote xml:id="__EN3__">
+                        <para>See (“SDC Data Element Attributes” tab in <link
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="https://oncprojectracking.healthit.gov/wiki/download/attachments/16123327/SDC%20SWG%20Data%20Element%20Mapping%20Templatev4%20%282%29.xlsx?version=1&amp;modificationDate=1489605858000&amp;api=v2"
+                                >https://oncprojectracking.healthit.gov/wiki/download/attachments/16123327/SDC%20SWG%20Data%20Element%20Mapping%20Templatev4%20%282%29.xlsx?version=1&amp;modificationDate=1489605858000&amp;api=v2</link>
+                        </para>
+                    </footnote>.</para>
+                <para>The most important required attributes for each data element include:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Data Element Unique Identifier</para>
+                    </listitem>
+                    <listitem>
+                        <para>Data Element Name</para>
+                    </listitem>
+                    <listitem>
+                        <para>Text definition</para>
+                    </listitem>
+                    <listitem>
+                        <para>Datatype of permitted values</para>
+                    </listitem>
+                    <listitem>
+                        <para>Set of permitted values when enumerated (including display text and
+                            code, if coded)</para>
+                    </listitem>
+                </itemizedlist>
+                <para>Notably, coded values from standard terminologies must be
+                        <emphasis>pre-coordinated</emphasis> (i.e., the SDC standard does not allow
+                    post-coordinated expressions as the values of data elements). </para>
+                <para>Other relevant attributes include the units of measure and high/low ranges for
+                    numerically-valued data elements, as well as mappings to corresponding data
+                    elements in standardized clinical data representations, such as C/CDA (to
+                    facilitate the automated population of data elements from EHR contents). </para>
+            </section>
+            <section>
+                <title>Data Element Examples</title>
+                <para>Although the ONC S&amp;I SDC initiative did not define any specific data
+                    elements, other similar initiatives have produced libraries of defined data
+                    elements that serve as good examples of the concept. Notable among these
+                    libraries is the NIH Common Data Element (CDE) repository<footnote
+                        xml:id="__EN4__">
+                        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="https://cde.nlm.nih.gov/form/search"
+                                >https://cde.nlm.nih.gov/form/search</link>.</para>
+                    </footnote>. The repository contains data elements that have been recommended or
+                    required by NIH Institutes and Centers and other organizations, including the
+                    NCI, NLM, and AHRQ.</para>
+                <para>The repository also contains libraries of structured data collection forms in
+                    which the specified data elements appear. Together, the forms and the CDEs
+                    exemplify the envisioned role of data elements in capturing and representing
+                    clinical information. Among examples of defined data elements in the repository
+                    are the following (with their definitions and allowable values):</para>
+                <para><inlinemediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image3-1cde.jpg" width="5.5in"/>
+                        </imageobject>
+                    </inlinemediaobject></para>
+                <para>As evident from these examples, CDEs may represent simple, familiar clinical
+                    concepts, or complex esoteric concepts. Complexity can arise from either the
+                    definition of a CDE (as with the “Tissue Donor Sex Behavior” example), and/or
+                    from the definitions of its allowable values (as with the “Adverse Event
+                    Severity Grade” example). In either case, complex CDEs can pack a lot of
+                    clinical semantics into concise, atomic representations.</para>
+            </section>
+        </section>
+        <section>
+            <title>The Limitations of Data Elements</title>
+            <para>The model of forms and data elements prescribed by the S&amp;I SDC initiative has
+                certain advantages with respect to standardizing data collection for secondary
+                purposes. If different parties within a community do, indeed, use the same forms
+                containing the same common data elements when collecting data, those data will be
+                more uniform and amenable to aggregation, exchange, and pooled analysis. </para>
+            <para>However, if a community creates and uses forms and data elements in a
+                less-than-disciplined fashion, the resulting data sets will lack uniform semantics,
+                preventing pooled analysis or (worse) generating incorrect analytical results. Given
+                the inherent limitations of common data elements as a paradigm for modeling clinical
+                semantics, there is a real danger of this occurring.</para>
+            <para>The primary limitation of common data elements is that they are defined and used
+                independently of any information model representing the context in which they are
+                populated or the relationship among their populated values. The context of and
+                relationships among populated data elements are represented only by the structure of
+                the forms in which they are populated. These forms, however, lack any formal model
+                to, for example, denote the relationships among their constituent data elements.
+                Further, the same data elements can appear in different forms, such that the context
+                in which the data elements are populated (and, hence, the complete semantics of the
+                collected data) can vary depending on the form in which they appear. </para>
+            <para>For example, a form may include the data element “Adverse event name,” followed by
+                the data element “Adverse event severity”. The value of the latter is meaningless
+                for purposes of data analysis unless associated with the value of the former (in
+                particular, if multiple adverse events were present, with differing severities).
+                Other than the sequence of the two data elements, however, forms have no way to
+                formally represent this association. Also, “Adverse event severity” could appear in
+                a different form, following the data element “Past adverse event name”. In this
+                case, the semantics and implications of the value of “Adverse event severity” would
+                be different than if it were associated with a currently experienced adverse event
+                (for example, if it were “life threatening”). None of these contexts of and
+                associations between data elements are formally represented, however. The result is
+                that the values of data elements cannot be reliably aggregated or analyzed without
+                access to the form(s) in which each the values was collected and a manual assessment
+                of the semantics of the values when collected via each such form. Lastly, in the
+                absence of a uniform information model, data analysts would have trouble determining
+                the set of attributes that could have been populated to describe a particular
+                clinical event, such as an adverse event, diagnosis, or treatment. </para>
+            <para>The independent creation of common data elements in the absence of an information
+                model also increases the chances that duplicative or overlapping data elements may
+                be created by a community if great care and coordination are not exercised, with no
+                guaranteed means of subsequent reconciliation or mapping. For example, the following
+                two data elements could be defined and used by different parties within the same
+                community:</para>
+            <para><inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image4-1cde.jpg" width="5.5in"/>
+                    </imageobject>
+                </inlinemediaobject></para>
+            <para>In this case, a data analyst searching a pooled data set for all instances of
+                life-threatening adverse events would have to know that both of these data elements
+                existed, and would have to query for instances of the first data element with a
+                value of “Life-threatening” or “Death”, and instances of the second data element
+                with a value of “Present”. Many other such situations could arise, because of the
+                variable ways that the same or similar clinical concepts can be modeled as data
+                elements.</para>
+        </section>
+        <section>
+            <title>Recommendations and Relationship to SOLOR</title>
+            <para>To enable the consistent analysis of populated data elements without requiring
+                detailed knowledge of the myriad forms used to collect those values, it is important
+                to specify a clinical data model that exists independently of the forms. This data
+                model should consist of (1) an <emphasis>information model</emphasis> (a.k.a.,
+                “clinical domain model”) to represent the context of and relationships among
+                individual data elements, akin to a relational or object-oriented schema, and (2) a
+                    <emphasis>terminology model</emphasis> to represent the discrete clinical
+                concepts represented by individual data elements and their allowed values. </para>
+            <para>For example, the information model would specify <emphasis>Adverse
+                    Event</emphasis> as a clinical object type, which could be instantiated and
+                further described by a set of explicitly related attributes, such as “AE Name”, “AE
+                Code”, “AE Manifestation”, “AE Severity”, and “AE Start Date”. Any enumerated value
+                sets for these attributes would be specified by reference to the terminology model
+                or to other objects of the information model. For example, the values of the “AE
+                Manifestation” attribute could be constrained to any concept in the terminology that
+                was an Observation or a Disease. Together, the information model and terminology
+                model would specify a clinical data model that represented the scope, structure, and
+                semantics of any collected data and that supported data aggregation and analysis
+                regardless of the specific data-entry instruments (including forms) that were used
+                for data collection. </para>
+            <para>Examples of information models consistent with this approach include
+                    OpenEHR<footnote xml:id="__EN5__">
+                    <para>Demski H, Garde S, Hildebrand C. Open data models for smart health
+                        interconnected applications: the example of openEHR. BMC Med Inform Decis
+                        Mak. 2016 Oct 22;16(1):137. (available at <link
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/27770769"
+                            >https://www.ncbi.nlm.nih.gov/pubmed/27770769</link>).</para>
+                </footnote><superscript>,</superscript><footnote xml:id="__EN6__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://www.openehr.org/what_is_openehr"
+                            >http://www.openehr.org/what_is_openehr</link>. </para>
+                </footnote> and CIMI<footnote xml:id="__EN7__">
+                    <para>Goossen, W. Detailed Clinical Models: Representing Knowledge, Data and
+                        Semantics in Healthcare Information Technology. Healthc Inform Res. 2014
+                        Jul; 20(3): 163–172.</para>
+                </footnote><superscript>,</superscript><footnote xml:id="__EN8__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://wiki.hl7.org/index.php?title=Detailed_Clinical_Models"
+                            >http://wiki.hl7.org/index.php?title=Detailed_Clinical_Models</link>.
+                    </para>
+                </footnote>. Examples of applicable terminology models include SNOMED-CT<footnote
+                    xml:id="__EN9__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://www.snomed.org/snomed-ct"
+                            >http://www.snomed.org/snomed-ct</link>. </para>
+                </footnote> and SOLOR<footnote xml:id="__EN10__">
+                    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xlink:href="http://www.solor.io/">http://www.solor.io/</link>. </para>
+                </footnote>. </para>
+            <para>The specification of a clinical data model, as described above, still allows for
+                the use of common data elements and standardized forms for data collection, as
+                defined by the S&amp;I SDC model. However, achieving the benefits of both
+                forms-based data entry and model-based data analysis requires the <emphasis>mapping
+                </emphasis> of data elements that appear in forms to semantically equivalent
+                representations that are consist with the clinical data model. These mappings allow
+                data collected via forms to be transformed to equivalent data that conform to the
+                clinical data model, which can then serve as a single, uniform point of reference
+                for querying and analyzing the data. In this manner, clinicians can use familiar
+                forms and data elements to enter data (without requiring any knowledge of the more
+                complex underlying data model), and analysts can use the clinical data model to
+                query and analyze the collected data (without requiring any knowledge of the
+                data-collection forms that were used to enter them). <xref linkend="_Ref493941874"/>
+                illustrates this approach to collecting and analyzing clinical data.</para>
+            <figure xml:id="_Ref493941874">
+                <title>Proposed model for the collection and analysis of structured data.</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image5cde.png" width="5.5in"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>Importantly, the forms and data elements that will be used by clinicians must be
+                created and maintained in coordination with the clinical data model that will be
+                used by analysts. Such coordination is required to ensure that the former remains
+                consistent with and can be reliably mapped to the latter as both evolve over
+                time.</para>
+            <para>Also, transformation between the forms-based view of collected data and the
+                clinical-model-based view can occur in real time, as the forms are completed and
+                their data stored. Alternatively, the transformation could occur later, when data
+                are moved from an initial (forms-based) data store to a secondary (model-based) data
+                store. The appropriate strategy will depend on the intended uses of the collected
+                data and how promptly data analysis will follow data collection. </para>
+            <para>Lastly, the SOLOR terminology plays an important role in both the forms-based
+                model and the clinical data model. As mentioned, a terminology model, such as SOLOR,
+                is needed as part of the clinical data model to rigorously represent the individual
+                clinical concepts within the model. However, the definition of common data elements
+                and data-collection forms in the forms-based model must also take into account the
+                content of SOLOR, because the common data elements and their values will need to map
+                to SOLOR concepts (to support the transformations described above). In practice, it
+                is much better to consider such mappings at the time that the common data elements
+                and forms are defined, rather than define them independently and hope that a mapping
+                to SOLOR is possible at a later time.</para>
+        </section>
+
+    </section>
+</chapter>

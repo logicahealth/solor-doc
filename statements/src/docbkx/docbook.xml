@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.1" xml:lang="en-US">
+        <title>DocBook</title>
+        <section xml:id="section_a6f845ea-1cbc-4550-88da-f6ba2916176b">
+            <info>
+                <title>Steps to Convert Word Document to DocBook</title>
+                <author>
+                    <personname>Patrick O'Connor</personname>
+                </author>
+                <date remap="dcterms.created">2017-08-14T19:11:00Z</date>
+                <date remap="dcterms.modified">2017-08-14T19:11:00Z</date>
+            </info>
+            <para><emphasis role="underline"><emphasis role="bold">Steps to convert a word document
+                        into a DocBook</emphasis></emphasis>
+            </para>
+            <para>General DocBook information can be found here: <link
+                    xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docbook.org/"
+                    >http://docbook.org/</link></para>
+            <para>After you have created a word document using a “stylized’ MS Word Template, use
+                these simple steps to convert that DOCX file into an XML file:</para>
+            <para><emphasis role="underline"><emphasis role="bold">Step
+                1:</emphasis></emphasis></para>
+            <para>Use an XML conversion tool, such as the free one located at URL: <link
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="http://www.xmlmind.com/w2x/docx_to_docbook.html"
+                    >www.xmlmind.com/w2x/docx_to_docbook.html</link></para>
+            <para><emphasis role="bold">NOTE:</emphasis> This will allow you to convert up to 3
+                times in any 24-hour period</para>
+            <para><emphasis role="underline"><emphasis role="bold">Step
+                2:</emphasis></emphasis></para>
+            <para>Click Browse and navigate to your desired DOCX file that you wish to
+                convert</para>
+            <para><emphasis role="underline"><emphasis role="bold">Step
+                3</emphasis></emphasis></para>
+            <para>Choose the selected output format (such as DocBook v5.0 Article), and click
+                convert</para>
+            <para>NOTE: If you want to integrate with ISAACS KOMET DocBook project later, you MUST
+                convert it to a DocBook v5.0 format.</para>
+            <para><inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image1.png" contentwidth="541" contentdepth="320"
+                        />
+                    </imageobject>
+                </inlinemediaobject></para>
+            <para>This will download a zip file:</para>
+            <para><emphasis role="underline"><emphasis role="bold">Step
+                4</emphasis></emphasis></para>
+            <para>Unzip the file; inside the newly unzipped file will be a directory. You will see
+                an XML format version of your document inside. This will allow you to edit the XML
+                file, and convert it to PDF, HTML, etc. for use in other documents.</para>
+            <para><emphasis role="bold">NOTES:></emphasis><orderedlist>
+                    <listitem>
+                        <para>When you select the Text mode to view the actual XML, if all of the
+                            XML appears on one line OR if you receive a message stating, "this
+                            document contains long lines which may affect performance when opened in
+                            the text editor", then click the Format and Indent button. Then, it
+                            should display the formatted XML.</para>
+                    </listitem>
+                    <listitem>
+                        <para>If there were any pictures in your document, they will be in another
+                            directory, inside the first.</para>
+                    </listitem>
+                </orderedlist></para>
+            <para/>
+            <para><emphasis role="underline"><emphasis role="bold">Working inside an IDE, within the
+                        context of the larger document:</emphasis></emphasis></para>
+            <para><emphasis role="underline"><emphasis role="bold">Things needed
+                    first:</emphasis></emphasis></para>
+            <itemizedlist>
+                <listitem>
+                    <para>You need an integrated development environment installed, such as
+                        Eclipse.</para>
+                </listitem>
+                <listitem>
+                    <para>Install plugin from OxygenXML (provides tools to directly edit these types
+                        of documents)</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xlink:href="https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html?os=Eclipse"
+                                    >https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html?os=Eclipse</link>
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Install plugin from GitHub (source code control repository, which is
+                        needed to view all current KOMET book materials)</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xlink:href="https://eclipse.github.io/"
+                                    >https://eclipse.github.io/</link>
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Check for or Install plugin for Maven (configuration management and build
+                        environment; generates PDFs, HTMLs, and archived versions from XML
+                        files)</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xlink:href="http://www.eclipse.org/m2e/"
+                                    >http://www.eclipse.org/m2e/</link>
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </section>
+</chapter>

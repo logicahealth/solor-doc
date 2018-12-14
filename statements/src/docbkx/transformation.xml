@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+  <title>Transformation</title>
+
+  <para>
+    The transformation from CEMs to CIMI models with respect to inheritance hierarchy could take one of two approaches.  The first approach, as seen in <xref linkend="asym_trans_0135"/>, would be to compile and collapse the inheritance hierarchy of the CEMs and then transform the resulting collapsed model.  In this approach, the original inheritance hierarchy is lost in the resulting target CIMI models.
+  </para>
+
+    <figure xml:id="asym_trans_0135">
+        <title>Asymmetric Hierarchy Transformation</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/asymmetric_transformation.jpg" align="center" format="jpg" width="50%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+  <para>
+    In the second approach, as seen in <xref linkend="sym_trans_0135"/>, each model in the hierarchy is transformed to a parallel model in the target hierarchy, which results in a preservation of the original inheritance hierarchy. This second approach is the approach we are taking in the transformation of CEMs to CIMI models for two reasons.  First, it allows us the possibility to reverse the transformation process for parts of the transformation where needed.  Second, it will allow the generated CIMI models to fit within the hierarchy as if CIMI had modeled them rather than simply creating large CIMI compliant models that stand alone.     
+  </para>
+
+   <figure xml:id="sym_trans_0135">
+        <title>Symmetric Hierarchy Transformation</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/symmetric_transformation.jpg" align="center" format="jpg" width="50%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <sect2>
+        <title>Transformation Strategy</title>
+
+  <para>
+      The overall strategy for transformation of Intermountain CEMs to CIMI models is shown in  <xref linkend="transformation_strategy_0135"/>. The first step starts in the upper right hand corner of the diagram with the existing official CIMI models.  These models will be back transformed with a generic transformation engine to CIMI Model CEMs so that we will have a collection of the CIMI base models in a CEM form.  We call this step a generic transformation because it is simply a syntactic transformation of BMM/ADL to the identical semantic representation but in CEML. No modeler knowledge is required as input to this process, and any CIMI model can act as input and the resulting CEM will be generated.
+  </para>
+
+   <figure xml:id="transformation_strategy_0135">
+        <title>Transformation Strategy</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/cem_cimi_transformation_full_all.jpg" align="center" format="jpg" width="80%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+   <para>
+      The next step in the transformation starts on the left hand side of the diagram, where Intermountain Healthcare style CEMs are transformed to CIMI style CEMs.  This part of the transformation is modeler dependent, as a modeler will be required to write the individual transform rules.  These rules are transforming differences in legitimate styles of modeling between Intermountain and CIMI. For example, a modeler at Intermountain may have chosen to use a pre-coordinated coded field for body location, but CIMI may prefer this field to be post-coordinated.  For this style transformation, the modeler would write the rule that splits the single field into two named fields and the appropriate valuesets are assigned.
+  </para>
+  <para>
+         At this point, the stack of transformed CIMI CEMs can be compiled and validated. If the transformed CEMs are all valid, the transformation can continue with a generic syntax transformation to CIMI BMM and Archetypes.  With the final target completed, the entire stack of CIMI models can be compiled and validated.
+  </para>
+
+  
+
+
+
+    <para>
+        Despite the different paradigm between CIMI and CEM, where CIMI describes clinical content in both the reference and constraint model, and CEM uses only the constraint model, there is actually a close parallel between the two.  <xref linkend="cem_cimi_bmm_adl_0135"/>, shows that the identifier declarations within CEML map closely to the CIMI BMM reference model.  And the constraints within CEML map closely to the CIMI Archetype ADL constraints.  This parallelism will allow us to build the generic transformation between these two formalisms.  
+    </para>
+
+    <figure xml:id="cem_cimi_bmm_adl_0135">
+        <title>CEML to BMM/ADL Transformation</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/cem_cimi_transformation.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+   </sect2>
+
+    <sect2>
+        <title>Datatype Issues</title>
+
+    <para>
+        Even with the similarities, there still remains a few problems for the generic transformation engine. First, CIMI and CEM use a different set of datatypes.  Some of these align quite nicely, such as CIMI's CODED_TEXT and CEM's CodeableConcept which are both used to represent coded fields. Others such as CIMI's YESNO and Boolean datatypes have only a partial alignment to CEM's Boolean datatype.  A second problem is that the CIMI BMM allows properties to be named datatypes. In other words, the property specimenType could be a coded field in the BMM.  This is not allowed in a CEM, where the property specimenType must point to another CEM model and NOT directly to a datatype.
+    </para>
+
+    <para>
+        A simple solution that solves both of these problems is to create CEMs for every CIMI datatype. In this way, when CEM's are being generated from CIMI models as the source, these constructed datatype CEMs are used in place of the original CIMI datatypes.  When going the other direction, these constructed datatype CEMs will be replaced with actual CIMI datatypes. Two examples of these constructed datatypes can be seen in <xref linkend="datatype_example_0135"/>
+    </para>
+
+    <example xml:id="datatype_example_0135">
+        <title>Datatype Wrapping</title>
+        <programlisting>
+        cem YESNO_DT
+            key     YesNoDatatype_KEY_CODE
+            data    Boolean
+
+        cem Boolean_DT
+            key     BooleanDatatype_KEY_CODE
+            data    Boolean         
+        </programlisting>
+    </example>
+    </sect2>
+
+    <sect2>
+    <title>BMM Packaging</title>
+
+    <para>
+        Another issue regarding the generic transformation involves the packaging of CIMI models within a BMM.  CIMI currently has three BMM files called 'Core', 'Foundation', and 'Clinical' and within each of these, there are multiple packages, and then a random order to the models within these packages.  CEM models, on the other hand, each exist in their own file.  Thus, in the generic transformation, going from CIMI to CEM and back to CIMI and retaining the original packaging would be impossible without externally recording the packaging location in some way. 
+    </para>
+    </sect2>
+
+    <sect2>
+        <title>Recursion Issues</title>
+        <para>
+        Another problem with the generic transformation is that CIMI models within the BMM allow recursion.  For example, a Substance model could reference an Ingredient model which could then reference the original Substance model creating an infinite recursive tree from Substance on down.  Although the CEM Abstract Instance Model is recursive with respect to the generic Clinical Element, CEML currently does not allow recursive constraint models. The simplest solution here is to modify the CEM compiler to allow recursion. It should be noted that the CEM compiler did allow recursion in the past, but the decision was made to disallow it at some point along the evolution of CEML.
+        </para>
+    </sect2>
+
+
+    <sect2>
+        <title>ADL and CEML Constraint Consistencies</title>
+
+      <para>
+        ADL and CEML Constraints used to bind terminology to the model, such as simple binding of about codes and valuesets have high consistency and should pose no problems in the transformation.  Also, cardinality constraints within the two should pose no problems.
+      </para>
+
+    </sect2>
+
+    <sect2>
+        <title>ADL and CEML Constraint Inconsistencies</title>
+
+        <para>
+            One major difference that exists between CEML and ADL is the ability of one constraint model to peek into another constraint model and further constrain that model.  This is called an 'inner constraint', as the outer model is constraining the inner model. This can be seen in <xref linkend="ceml_example_0135"/>, where the SystolicBloodPressure model constrains the valueset of the inner BodyPosition model.  ADL does not have a mechanism to step into another ADL model and further constrain that inner model.  But ADL does have the ability to walk a deep path in the BMM to apply a constraint, so in many cases it won't be a problem.  In the CEML example above, this problem could be solved by creating a SystolicBloodPressureBodyPosition model thus constraining with a new model rather than an inner constraint.
+        </para>
+
+        <para>
+            Another problem is the random assignment of id's in ADL such as 'id2', 'id5', and 'id34'. A round trip of the generic transformation engine could possible end up with different id's and still be consistent and valid.  In this case, storing id information to an external file could be used to keep id's consistent.
+        </para>
+
+    </sect2>
+
+
+
+
+    <sect2>
+        <title>Style Transformation</title>
+
+        <para>
+        The Style Transformation, as seen in <xref linkend="style_transformation_0135"/>, will use existing Intermountain Healthcare CEMs as the source of the transformation.  These CEMs currently exist both in CEML and in XCEML with the latter being an XML representation of the CEML syntax.  It is the XCEML form that will be used as input to the style transformation engine which will use XSLT for the transformation, and generate CIMI style CEMs in XCEML syntax.  The XSLT engine will provide XSLT functions to simplify writing transformation rules for the modeler.  Functions will also be provided to call external java functions for terminology lookups or complexities that arise such as CEML path parsing.
+        </para>
+
+        <para>
+        It should be noted that although Intermountain Healthcare has finished most of the models we require, they have not finished the terminology mapping of these models.  Coordination with Intermountain will be required to finish this work.
+        </para>
+
+   <figure xml:id="style_transformation_0135">
+        <title>Style Transformation</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/style_transformation.jpg" align="center" format="jpg" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+ 
+
+
+    </sect2>
+
+ 
+
+
+
+  
+
+
+    
+
+</section>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>CIMI Model</title>
+
+  <para>
+      The CIMI Reference Model, as seen in <xref linkend="cimi_tree_0135"/>, contains clinical content and is very similar to a UML model, but is declared in a BMM.  In fact, CIMI modelers are currently modeling in UML and then generating the BMM from the UML model. On the left hand side of the figure, is an example of a possible standard lab observation model described with the BMM.  In the BMM, models are declared along with their named properties.  The properties can either reference other models or some declared datatype, and a cardinality can be assigned.
+  </para>
+
+   <figure xml:id="cimi_tree_0135">
+        <title>CIMI model with Archetype Constraint</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/cimiv2_tree_adl_id_exp.jpg" align="center" format="jpg" width="80%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+  <para>
+    The CIMI BMM is then constrained using Archetypes defined in ADL to bind standard terminology such as 'about' codes and allowable valuesets for coded fields. Also bound can be descriptive text in various languages.  And finally, the cardinality can be further specified.  In the figure, an example of an Archetype is given on the right which constrains the example BMM model on the left. The 'specType' node from the reference model is bound to an id of 'id4' and then various constraints are bound to 'id4'.
+  </para>
+
+   
+
+   
+
+</section>

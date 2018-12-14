@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <info>
+        <title>Tools</title>
+    </info>
+    <para/>
+    <section xml:id="section_b3992036-024e-4640-80dd-82c6adc86d66">
+        <title>We work with these tools for the following reasons</title>
+        <para>To be completed. </para>
+        <para/>
+    </section>
+    <section xml:id="section_3b9b02b8-ef55-48ff-a364-7a9d5ec432fa">
+        <title>KOMET</title>
+        <para/>
+        <section xml:id="section_6c390945-aec0-4b59-8d26-a27836792a68">
+            <title>CSS Styling</title>
+            <para>Note, for a TreeTableCell, the Style is null by default, but the StyleClass list
+                is: "cell", "indexed-cell", "tree-table-cell", and "table-column".</para>
+            <glosslist>
+                <glossentry>
+                    <glossterm>Descendant combinator</glossterm>
+                    <glossdef>
+                        <para>A descendant combinator is <link
+                                xlink:href="https://www.w3.org/TR/selectors/#whitespace"
+                                >whitespace</link> that separates two sequences of simple selectors.
+                            A selector of the form "<code>A B</code>" represents an element
+                                <code>B</code> that is an arbitrary descendant of some ancestor
+                            element <code>A</code></para>
+                    </glossdef>
+                </glossentry>
+                <glossentry>
+                    <glossterm>Style Class</glossterm>
+                    <glossdef>
+                        <para> Each node in the scene graph has a <emphasis role="bold"
+                                >styleClass</emphasis> variable, a List&lt;String>. Styles for style
+                            classes can be specified using the <emphasis role="bold"
+                                >.styleclass</emphasis> selector syntax in a style sheet. Note that
+                            a node may have more than one style class.</para>
+                    </glossdef>
+                </glossentry>
+                <glossentry>
+                    <glossterm>Style</glossterm>
+                    <glossdef>
+                        <para>An inline style for the node. </para>
+                    </glossdef>
+                </glossentry>
+                <glossentry>
+                    <glossterm>Child combinator</glossterm>
+                    <glossdef>
+                        <para> A child combinator, <emphasis role="bold">></emphasis>, describes a
+                            childhood relationship between two elements. For example, <emphasis
+                                role="bold">.titled-pane > .title</emphasis> refers to a node with a
+                            style class of <emphasis role="bold">title</emphasis> that is a child of
+                            a node with a style class of <emphasis role="bold"
+                                >titled-pane</emphasis>.</para>
+                        <programlisting language="css" xml:id="programlisting_7a5edc54-ab41-45cc-8074-676e8fff56d9"><![CDATA[
+.titled-pane > .title {
+    -fx-background-color: -fx-box-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5 5 0 0, 4 4 0 0, 3 3 0 0;
+    -fx-padding: 0.166667em 0.833333em 0.25em 0.833333em; /* 2 10 3 10 */
+}]]></programlisting>
+                    </glossdef>
+                </glossentry>
+                <glossentry>
+                    <glossterm>pseudo-class</glossterm>
+                    <glossdef>
+                        <para>a pseudo class can qualify a class. For example, the pseudo class
+                                <emphasis role="bold">odd</emphasis> can qualify <emphasis
+                                role="bold">indexed-cell</emphasis>, so that special formatting can
+                            be applied to odd rows in a table. </para>
+                        <programlisting language="css"><![CDATA[
+.indexed-cell:odd  {
+   -fx-background-color: orange;
+}
+]]></programlisting>
+                        <para>Need a pseudoclass for inactive state... <link
+                                xlink:href="http://www.guigarage.com/2016/02/javafx-and-css-pseudo-classes/"
+                            /></para>
+                    </glossdef>
+                </glossentry>
+            </glosslist>
+            <para>
+                <table frame="all" xml:id="table_8ebb8913-d1f7-4392-8558-010d93d2ea12">
+                    <title>KOMET Pseudo classes</title>
+                    <tgroup cols="4">
+                        <colspec colname="c1" colnum="1" colwidth="3.22*"/>
+                        <colspec colname="c2" colnum="2" colwidth="2.61*"/>
+                        <colspec colname="c3" colnum="3" colwidth="1*"/>
+                        <colspec colname="c4" colnum="4" colwidth="9.77*"/>
+                        <thead>
+                            <row xml:id="row_f98ca982-5315-4e9b-b015-37fa3e94c30e">
+                                <entry xml:id="entry_24820e3a-0fde-4e91-b163-1d27355f926c"
+                                    >pseudo-class</entry>
+                                <entry xml:id="entry_f3d6e2d3-f5ae-422e-b504-9461e3d7be37"
+                                    >implementing classes</entry>
+                                <entry xml:id="entry_bd4514ee-ef07-4f0a-9e7e-254492a559d1"/>
+                                <entry xml:id="entry_8a87e681-3cf9-4939-9c0d-30165f946dab"
+                                    >description</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row xml:id="row_a197bb6a-701f-4f63-bad7-007e5a7d7a73">
+                                <entry xml:id="entry_533a432f-55d9-43d3-bc7a-18a461993d81"
+                                    >inactive</entry>
+                                <entry xml:id="entry_4229adbb-95e4-434f-a33d-c85a30404c31"
+                                    >KometTreeTableCell</entry>
+                                <entry xml:id="entry_408f1958-4140-4645-a119-5f1022ba249a"/>
+                                <entry xml:id="entry_502f1c60-5123-4db4-9a61-4f0aba4c9c24">set if a
+                                    version is inactive, so that appropriate consistent coloring can
+                                    be used</entry>
+                            </row>
+                            <row xml:id="row_26dc882d-7a37-49c7-a9cb-7d83bea6b73a">
+                                <entry xml:id="entry_03af3483-8512-4c84-8884-dff3adbf9177"
+                                    >uncommitted</entry>
+                                <entry xml:id="entry_4ba714a5-d92b-4254-ada9-d9eff584b880"
+                                    >KometTreeTableCell</entry>
+                                <entry xml:id="entry_5af7a0cf-3f5d-4e81-907f-d9e10c3dbc74"/>
+                                <entry xml:id="entry_16a706fb-ec96-4e86-9c3f-d3ee67bd5565">set if a
+                                    version is uncommitted, so that an appropriate consistent
+                                    coloring can be used</entry>
+                            </row>
+                            <row xml:id="row_a1d83242-b18f-4243-bfaa-a17579c0017e">
+                                <entry xml:id="entry_228fc7ca-f698-49e8-b800-2833c57faeec"
+                                    >uncommitted-with-error</entry>
+                                <entry xml:id="entry_39c42b48-2588-4369-ac25-bfb004d55adc"
+                                    >KometTreeTableCell</entry>
+                                <entry xml:id="entry_ab2be844-27e8-47fa-9b45-ef2d000f2e4d"/>
+                                <entry xml:id="entry_e2a4834a-e051-42af-91df-67adbc3aa59e">set if an
+                                    uncommitted version has an error that must be fixed prior to
+                                    commit</entry>
+                            </row>
+                            <row xml:id="row_8655e5ff-4891-4b51-b89d-8a5af8bc3db9">
+                                <entry xml:id="entry_4b1a430c-b029-4383-b2d5-f1a7fc391432"
+                                    >superceded</entry>
+                                <entry xml:id="entry_97d95306-3704-4704-b1b2-4e96a4ac9288"
+                                    >KometTreeTableCell</entry>
+                                <entry xml:id="entry_7b5b2ade-6ba4-4320-80bd-d9961ffff5f0"/>
+                                <entry xml:id="entry_713e4f91-d839-4050-9e78-0395247afec9">a version
+                                    may be active, but superceded by a different component, so not
+                                    current in the display</entry>
+                            </row>
+                            <row xml:id="row_421349fc-74b5-420d-8fc9-a55b590eb10e">
+                                <entry xml:id="entry_39cbfb9d-760e-4a64-9af5-8719ab0735e7"
+                                    >description-version</entry>
+                                <entry xml:id="entry_7a92ff86-e3eb-4a36-86ab-9e22462a6902"/>
+                                <entry xml:id="entry_879f78f7-f009-456d-b402-3c6a2de65a48"/>
+                                <entry xml:id="entry_3917d21c-c852-4c44-9607-e2d0e7b9ea06"/>
+                            </row>
+                            <row xml:id="row_68c3916f-422a-4b72-aa21-381e020fb06c">
+                                <entry xml:id="entry_60299b76-5677-40f5-b3de-f7c198e93da4"
+                                    >logical-definition-version</entry>
+                                <entry xml:id="entry_7c3fa51f-6bb2-42d2-971f-6b24daaf8522"/>
+                                <entry xml:id="entry_63a76043-9529-4f98-b767-adcb6978d97d"/>
+                                <entry xml:id="entry_ae0aa77d-c7f9-4cbf-bc29-c15452f57665"/>
+                            </row>
+                            <row xml:id="row_8eb9a0d3-8622-4904-a9cf-808f29211555">
+                                <entry xml:id="entry_98edbe3e-8d35-4347-8fbb-c8a795f7fcf6"
+                                    >concept-version</entry>
+                                <entry xml:id="entry_6bc46055-f84f-404c-b9c1-c0e3539945d4"/>
+                                <entry xml:id="entry_a140bfd3-10e8-4519-9487-f42c7e62d4b2"/>
+                                <entry xml:id="entry_e1bb565b-6552-44e5-9189-cf7a8e9327f1"/>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <table frame="all" xml:id="table_1075e35f-36fa-43f4-ad7c-1ea5620935ab">
+                    <title>KOMET CSS Properties</title>
+                    <tgroup cols="4">
+                        <colspec colname="c1" colnum="1" colwidth="1.2*"/>
+                        <colspec colname="c2" colnum="2" colwidth="1*"/>
+                        <colspec colname="c3" colnum="3" colwidth="1.71*"/>
+                        <colspec colname="c4" colnum="4" colwidth="2.71*"/>
+                        <thead>
+                            <row xml:id="row_9223ef86-666b-478a-a71a-5555ea77cbab">
+                                <entry xml:id="entry_6914ad43-c598-46c9-ac8a-1bdd20863079">CSS
+                                    Property</entry>
+                                <entry xml:id="entry_90dfdf2a-90ab-41a0-95e1-e0e0d21bb7e8"
+                                    >Class</entry>
+                                <entry xml:id="entry_044ce985-1d23-42fe-8e4d-c816fb616587"
+                                    >Default</entry>
+                                <entry xml:id="entry_83f91bb0-ab83-44a8-929b-52bf63f27d04"
+                                    >Description</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row xml:id="row_e516c8d3-daf5-4f38-81c9-cfa880ea5ebf">
+                                <entry xml:id="entry_c3585992-f0de-4bc1-8c5d-322e9d1655a1"
+                                    >-fx-cursor</entry>
+                                <entry xml:id="entry_e56ba65f-a95f-4daa-94ca-1e8d22c876b9"
+                                    >javafx.scene.Node</entry>
+                                <entry xml:id="entry_7f74b634-2e7a-4fa4-b1cd-df3fca0e8fd6"
+                                    >javafx.scene.Cursor.DEFAULT</entry>
+                                <entry xml:id="entry_ac29e243-3c47-4b0e-af8c-6e8366cc555a">Used to
+                                    set the cursor when over a node. </entry>
+                            </row>
+                            <row xml:id="row_73f2bac4-ffb0-40dd-881a-0cb53e162e21">
+                                <entry xml:id="entry_41a57187-809e-4064-8c34-3463d806e50e"
+                                    >-fx-background-color</entry>
+                                <entry xml:id="entry_9adac30b-e478-40f0-8fa4-409c09cf4164"
+                                    >javafx.scene.Node</entry>
+                                <entry xml:id="entry_be9b8674-f6a9-4b99-8738-7f7e8ac4c810"/>
+                                <entry xml:id="entry_f3192756-9446-4a6e-9d8b-32ffabe673c4">Sets the
+                                    background color of a node.</entry>
+                            </row>
+                            <row xml:id="row_9fca030d-5598-49fe-b888-b41b1cde9c17">
+                                <entry xml:id="entry_4030d69e-c201-4a9d-b8cf-666da94c0811"
+                                    >-fx-font</entry>
+                                <entry xml:id="entry_4ecfeaf9-9474-4f22-bf17-94eee2d26117"
+                                    >javafx.scene.text.Font</entry>
+                                <entry xml:id="entry_be1a0d22-8a5c-42d9-baab-376c7970db32"
+                                    >Font.DEFAULT (12px system)</entry>
+                                <entry xml:id="entry_59e4cea7-d6fd-441e-a70e-b658354365a2">Sets the
+                                    font to use by the style class</entry>
+                            </row>
+                            <row xml:id="row_a6278fd8-3b7a-4275-b6e2-6deb99b6b9b4">
+                                <entry xml:id="entry_86b07811-28b9-4aef-a7ba-7fc953d2f7c6"/>
+                                <entry xml:id="entry_1f2b94e8-b67d-4107-b276-5d847f41a3a4"/>
+                                <entry xml:id="entry_8d83012f-40d0-4e59-9df3-f8752912bde2"/>
+                                <entry xml:id="entry_29d89086-0059-492b-a977-24696872ef6a"/>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
+            <para>
+                <table frame="all" xml:id="table_4d5a642b-8cc2-419a-a3a4-66965fe5b767">
+                    <title>KOMET CSS Classes</title>
+                    <tgroup cols="3">
+                        <colspec colname="c1" colnum="1" colwidth="4*"/>
+                        <colspec colname="c2" colnum="2" colwidth="1.37*"/>
+                        <colspec colname="c4" colnum="3" colwidth="9.7*"/>
+                        <thead>
+                            <row xml:id="row_da9c300a-66ff-44da-ac4b-1c868533700b">
+                                <entry xml:id="entry_e52661f1-680a-42db-9ed1-14fec833d5ba">CSS
+                                    Class</entry>
+                                <entry xml:id="entry_c538e42a-bf0c-47fe-a8a1-99a85a99c69f"/>
+                                <entry xml:id="entry_a5a6026e-00c3-4518-b957-25be70c12740"
+                                    >Description</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row xml:id="row_a7520a34-8fbc-4dea-999c-2d12d808f5b0">
+                                <entry xml:id="entry_ee23aa4d-f74b-441f-8280-548ba78c4f5b"
+                                    >komet-version-general-cell</entry>
+                                <entry xml:id="entry_cfb1af5c-2e6d-4987-8084-fc0c7a42a16f"/>
+                                <entry xml:id="entry_d804d065-34d9-4e7a-99ff-87878ae47f0b"/>
+                            </row>
+                            <row xml:id="row_d74fc6a4-4e2f-4aed-a987-4e5cf78e491a">
+                                <entry xml:id="entry_199e6621-72b7-43ed-91a9-8023952f717a"
+                                    >komet-version-status-cell</entry>
+                                <entry xml:id="entry_9b028044-03d0-4337-9212-851d9aed7a07"/>
+                                <entry xml:id="entry_c78b94e7-bf5a-429e-ad13-5ee988abcec0">this cell
+                                    contains the status for an ObservableCategorizedVersion</entry>
+                            </row>
+                            <row xml:id="row_dc2a0cd3-b2eb-4045-86f4-83168d2d0409">
+                                <entry xml:id="entry_c47ebe5f-db4b-4c1a-961f-09e8b1e0a931"
+                                    >komet-version-author-time-cell</entry>
+                                <entry xml:id="entry_75925378-3b64-431e-be66-c40a5a6a3c37"/>
+                                <entry xml:id="entry_3e4a798e-3201-401b-a1fc-4fd62aaab9c6">this cell
+                                    contains the author and time for an
+                                    ObservableCategorizedVersion</entry>
+                            </row>
+                            <row xml:id="row_ee580d83-e531-4d5b-abfd-752eb26edc61">
+                                <entry xml:id="entry_13449955-a5d6-4da8-871a-31b63e3418a1"
+                                    >komet-version-module-path-cell</entry>
+                                <entry xml:id="entry_4aa5b932-e04f-4476-b3dc-5bb9ec580476"/>
+                                <entry xml:id="entry_ac66722a-22cc-4313-9c78-bae203e53db8">this cell
+                                    contains the module and path for an
+                                    ObservableCategorizedVersion</entry>
+                            </row>
+                            <row xml:id="row_d15db6a4-f6c6-4ee9-a7c5-a29856c00de7">
+                                <entry xml:id="entry_c582e297-c054-4b86-ab0c-14f781466734"
+                                    >komet-version-what-cell</entry>
+                                <entry xml:id="entry_217adc7a-8b44-4220-a7cc-a2fe0a56d454"/>
+                                <entry xml:id="entry_4d18b1f4-c20f-4054-a34b-bcd8d46bb4b0">this cell
+                                    indicates the type of the ObservableCategorizedVersion</entry>
+                            </row>
+                            <row xml:id="row_4ef47ae9-6225-4e29-a9f3-d2fa0d60f5a8">
+                                <entry xml:id="entry_e3ab67a6-8967-40d5-a14e-c2a45090adf9"
+                                    >komet-version-description-text-cell</entry>
+                                <entry xml:id="entry_050a30f3-313f-4ac6-993f-ea72eec84300"/>
+                                <entry xml:id="entry_4ea41d7e-9ff5-406b-8bce-2416918032d2">this cell
+                                    contains the description text for  ObservableCategorizedVersion
+                                    who are types of DescriptionVersions</entry>
+                            </row>
+                            <row xml:id="row_d1472424-85e8-48dd-b1c0-9407afda5df8">
+                                <entry xml:id="entry_ab38a266-afb1-4a56-90ef-0801d3e6082d"
+                                    >komet-version-logic-graph-cell</entry>
+                                <entry xml:id="entry_4c5b4381-10c5-4bb1-890f-fd8b04de1489"/>
+                                <entry xml:id="entry_d7d5e9f3-58ef-4939-864c-44b4b3cbfbdd">this cell
+                                    contains a text representation of a logic definition for
+                                    ObservableCategorizedVersion who are types of
+                                    LogicGraphVersion</entry>
+                            </row>
+                            <row xml:id="row_dea4b4cc-731a-42fc-ab83-031dea5066d9">
+                                <entry xml:id="entry_a29c131d-93a4-4c6b-b8e7-e4d83621e153"
+                                    >komet-version-identifier-cell</entry>
+                                <entry xml:id="entry_6f5c9d88-7889-46ea-a6ba-5dd8bd4a36cc"/>
+                                <entry xml:id="entry_00f1b1de-2f32-4896-b943-580d7799b091">this cell
+                                    contains a text representation of an identifier for
+                                    ObservableCategorizedVersion who are members of an identifier
+                                    Assemblage. </entry>
+                            </row>
+                            <row xml:id="row_9901dc4e-d9b5-4816-b397-7db1d8192014">
+                                <entry xml:id="entry_38899530-1e23-408e-8f6b-59fdc10b0506"
+                                    >isaac-version</entry>
+                                <entry xml:id="entry_723ffa39-b178-4386-8ed3-d796beb4507a"/>
+                                <entry xml:id="entry_a1e64612-764a-4e8b-8154-b4bdfd2288ea">the row
+                                    for this cell contains an isaac
+                                    ObservableCategorizedVersion</entry>
+                            </row>
+                            <row xml:id="row_42c3ec9a-9570-4547-a586-e663a6afc5ae">
+                                <entry xml:id="entry_6fe7f090-2658-4ade-8bf7-b6486fda25db"
+                                    >versioned-tree-table-view</entry>
+                                <entry xml:id="entry_9dca4ead-3210-48e2-88eb-8cfd2cd838bc"/>
+                                <entry xml:id="entry_bb156499-7b59-458a-be66-485ababf5327">TreeTable
+                                    that displays versioned components pointing to a parent
+                                    versioned component</entry>
+                            </row>
+                            <row xml:id="row_4b3e60c5-a786-4da6-b021-007c9d958271">
+                                <entry xml:id="entry_84c6c24f-6b91-4dd2-ab14-08b909cd5d7b"
+                                    >concept-detail-pane</entry>
+                                <entry xml:id="entry_b8962347-539b-43e5-821b-af862f6a7d8b"/>
+                                <entry xml:id="entry_e6662683-7f37-47f8-a758-8cd217ac12ac"/>
+                            </row>
+                            <row xml:id="row_7ae1d9c3-9f0e-4829-97b3-e746aa27479b">
+                                <entry xml:id="entry_dca29499-00d8-4f7d-9107-e4f9b2ef6a63"
+                                    >concept-label-toolbar</entry>
+                                <entry xml:id="entry_1289a1cf-3fff-4272-af46-fe84e67fda62"/>
+                                <entry xml:id="entry_eff16321-4107-4cfc-af17-7aa397d40b70"/>
+                            </row>
+                            <row xml:id="row_411d0dc4-b024-4a8e-8622-f5244400e524">
+                                <entry xml:id="entry_61aa7cc3-d391-4ae9-8cae-8e4266bdb408"
+                                    >komet-version-concept-cell</entry>
+                                <entry xml:id="entry_5833d06a-4310-4f8b-b49b-a3c06dcf2e0f"/>
+                                <entry xml:id="entry_85529e6e-d77d-4171-a0c7-86b1c75532b1"/>
+                            </row>
+                            <row xml:id="row_bb532e7f-ffa4-4ebe-b039-abdf72127921">
+                                <entry xml:id="entry_1e46227c-2b32-4b5b-952e-b2d9f8336c88"
+                                    >component-panel</entry>
+                                <entry xml:id="entry_5ee9900a-0ec7-42e7-aa86-4005806e9d60"/>
+                                <entry xml:id="entry_5105fbf0-130a-4424-99ab-5a37832a20b8"
+                                    >ComponentPanel</entry>
+                            </row>
+                            <row xml:id="row_1340da0a-d339-4886-92cd-aa917dbf0093">
+                                <entry xml:id="entry_7e7b9dd7-1aa1-4b70-9e17-3665c73d4bb6"
+                                    >component-detail-background</entry>
+                                <entry xml:id="entry_2aea8283-3e33-4628-b718-e5b0afc71c36"/>
+                                <entry xml:id="entry_16a3a644-2896-44e9-9fb7-255a208ac96d"
+                                    >VBox</entry>
+                            </row>
+                            <row xml:id="row_c64ab190-6745-41ce-9282-95db332b9672">
+                                <entry xml:id="entry_fef9832c-72bf-48bc-a389-642913c327da"
+                                    >component-badge</entry>
+                                <entry xml:id="entry_eef2e1c3-e5bf-40d6-aca6-fe0572c9b14d"/>
+                                <entry xml:id="entry_e0c30509-e285-4e3b-a90f-13830fce42f4"
+                                    >Node</entry>
+                            </row>
+                            <row xml:id="row_fd979713-c6b0-43bd-8ed8-f8750134a4b7">
+                                <entry xml:id="entry_dbf525cb-c3f3-4a9d-b4d1-1fd75fb7d5f1"
+                                    >component-version-what-cell</entry>
+                                <entry xml:id="entry_ffdca255-9e14-4fcb-8ea2-155798f5c368"/>
+                                <entry xml:id="entry_83526aa5-aa15-4867-b7ff-11f805ff8872">TextNode
+                                    describing what type this component version is</entry>
+                            </row>
+                            <row xml:id="row_b04afc17-f631-4133-91a5-916309d80949">
+                                <entry xml:id="entry_32a3ef16-62e3-4451-98ad-b223d5cf619d"
+                                    >component-text</entry>
+                                <entry xml:id="entry_29069db2-ac38-4d1a-923f-bd8a7118a120"/>
+                                <entry xml:id="entry_b42f5ee9-8258-483d-8c34-18b3999712ab"/>
+                            </row>
+                            <row xml:id="row_4cf2fbd2-4c37-424c-bcbb-f4f7df4978c6">
+                                <entry xml:id="entry_60bd1ae6-303b-4cef-bfb2-771d8b452089"
+                                    >expand-control</entry>
+                                <entry xml:id="entry_18fae939-3cb1-4682-9ca5-3e384baf7f6c"/>
+                                <entry xml:id="entry_14ca3384-dfd4-4818-ba99-593425a14145"/>
+                            </row>
+                            <row xml:id="row_933b612b-fc5d-4a2e-a6bd-5be0d5eb8d2b">
+                                <entry xml:id="entry_700152b7-6b2e-41e0-8339-4ba2710fdd26"
+                                    >version-panel</entry>
+                                <entry xml:id="entry_0beafb47-42b3-40d7-aa95-2811be4917b2"/>
+                                <entry xml:id="entry_e2744f7e-8503-4333-9794-aff6c912068f"/>
+                            </row>
+                            <row xml:id="row_294a849d-666e-48b8-b73b-892a8dc6de42">
+                                <entry xml:id="entry_f9f1488f-d327-4a1d-881f-58031b3902c0"
+                                    >header-panel</entry>
+                                <entry xml:id="entry_56a92fa5-a790-4f47-a9e0-119f069db3b1"/>
+                                <entry xml:id="entry_4e4823a2-5895-407a-bd5e-76c8f7bcd9e8"/>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
+
+        </section>
+    </section>
+</chapter>

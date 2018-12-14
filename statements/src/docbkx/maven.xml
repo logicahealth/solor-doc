@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Maven</title>
+    <para xml:id="para_4049761b-1f5b-4fe1-b1f1-0ff1087a640a"/>
+    <section xml:id="section_18d72816-1a1c-4778-9603-f331f4cf545c">
+        <title>Debugging maven mojo execution</title>
+        <para xml:id="para_c0602c29-9b0b-4919-9201-272571d7a7e8">Set the following properties in
+            Netbeans: </para>
+        <programlisting xml:id="programlisting_b7420eba-cb24-4e3d-ab0f-a534711eee2c">jpda.listen=maven
+Env.MAVEN_OPTS=-ea -Xmx12g -Xms12g</programlisting>
+        <para xml:id="para_54048b68-eb68-4dfc-ad3b-4921432f0056">Then set your breakpoints
+            within the maven mojo or a dependent library, and then execute a normal clean
+            install.</para>
+    </section>
+    <section>
+        <title>Debugging Maven builds</title>
+        <para>You can attach a debugger to a maven execution so that breakpoints on sections of code
+            can be set, and varibles evaluated. Execute the following from the command line: </para>
+        <programlisting>$ mvndebug clean install
+Preparing to Execute Maven in Debug Mode
+Listening for transport dt_socket at address: 8000</programlisting>
+        <para>The console indicates that it is listening or transport dt_socket at address: 8000,
+            attach your  debugging session to this port from your favorite environment, and follow
+            the methods applicable for that environment. </para>
+        <para xml:id="para_799f2a95-18dd-4d52-8296-b2b2eacbfd1b"/>
+    </section>
+    <section xml:id="section_78677b26-88cd-4166-85a3-886d761ea3a7">
+        <title>Docker</title>
+        <para xml:id="para_9a703400-68ff-4407-85fa-88e926cadc65"/>
+        <programlisting xml:id="programlisting_f01e2e3a-7554-4618-8b1e-d73ebf2407b0">$<link xlink:href="https://whyistheinternetbroken.wordpress.com/2016/03/25/docker-mac-install-fails/"/> sudo chown $(whoami):admin /usr/local &amp;&amp; sudo chown -R $(whoami):admin /usr/local</programlisting>
+        <para xml:id="para_dbbc9d49-dedf-4ce1-817c-19d10e8b1fa6"/>
+    </section>
+</chapter>
+

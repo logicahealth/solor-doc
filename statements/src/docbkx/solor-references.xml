@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+
+<appendix xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en-US" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>SOLOR References</title>
+<glossary>
+    <title></title>
+    <glossdiv>
+        <title>Observations</title>
+
+        <glossentry xml:id="f251d463-f346-340a-b17c-d4a4622c7a91">
+            <glossterm>¦Systolic blood pressure¦</glossterm>
+            <acronym>SAP - Systolic arterial pressure</acronym>
+            <abbrev>Systolic blood pressure</abbrev>
+            <glossdef>
+                <para>Systolic blood pressure is a primitive child of Blood Pressure.</para>
+                <glossseealso/>
+            </glossdef>
+        </glossentry>
+        <glossentry xml:id="8176ed59-8151-37de-a28a-0e1cbbec39a7">
+            <glossterm>¦Diastolic blood pressure¦</glossterm>
+            <acronym>DAP - Diastolic arterial pressure</acronym>
+            <acronym>DBP - Diastolic blood pressure</acronym>
+            <glossdef>
+                <para>Diastolic blood pressure is a primitive child of Blood Pressure</para>
+                <glossseealso otherterm="f251d463-f346-340a-b17c-d4a4622c7a91"/>
+            </glossdef>
+        </glossentry>
+
+    </glossdiv>
+    <glossdiv>
+        <title>Procedures</title>
+
+        <glossentry xml:id="proc1">
+            <glossterm>Procedure 1</glossterm>
+            <acronym>XML</acronym>
+            <glossdef>
+                <para>Some reasonable definition here. Include human readable description logic
+                    definition.
+                </para>
+                <glossseealso otherterm="proc2"/>
+            </glossdef>
+        </glossentry>
+        <glossentry xml:id="proc2">
+            <glossterm>Procedure 2</glossterm>
+            <acronym>XML</acronym>
+            <glossdef>
+                <para>Some reasonable definition here. Include human readable description logic
+                    definition.
+                </para>
+                <glossseealso otherterm="proc2"/>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+</glossary>
+</appendix>

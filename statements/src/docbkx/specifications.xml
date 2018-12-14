@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+    <info>
+        <title>Specifications</title>
+    </info>
+    <para/>
+    <section xml:id="section_5e12a93d-8be0-49fa-8d4e-da2039f01668">
+        <title>Knowledge Streaming Specification</title>
+        <section xml:id="section_1df35eea-2792-4b07-ad74-ba347f70d7d7">
+            <title>Data format</title>
+         <para>ISAAC specifies a streaming data format. This streaming format is sutiable for durable
+            storage on disk, for store-and-forward synchronization (as typically seen in
+            distributed-version control systems that utilize change-sets such as Git), and for
+            point-to-point streaming of changes in real-time.  Version-control change sets are
+            represented using this streaming data format. </para>
+        <para>The streaming data format consists of a repitition of 3 data elements:</para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>A token indicating the object type next to be read from the stream</para>
+                </listitem>
+                <listitem>
+                    <para>A numeric representation of the version of the object data written to the
+                        stream</para>
+                </listitem>
+                <listitem>
+                    <para>The actual data of the object written to the stream. </para>
+                    <para/>
+                </listitem>
+            </orderedlist>
+        </para>
+            <example>
+                <title>Streaming format element types</title>
+                <programlisting xml:id="programlisting_76f3ac22-3053-4df2-904f-2577bb44e860">public enum IsaacExternalizableObjectType {
+   /**
+    * An external representation of a concept. An identifier with status. Descriptions and definitions of concepts
+    * are provided as SEMANTICs.
+    */
+   CONCEPT((byte) 1),
+
+   /**
+    * An external representation of a semantic unit of meaning, associated with a concept or another SEMEME.
+    */
+   SEMANTIC((byte) 2),
+
+   /**
+    * An external representation of a stamp comment.
+    */
+   STAMP_COMMENT((byte) 4),
+
+   /**
+    * An external representation of a stamp alias.
+    */
+   STAMP_ALIAS((byte) 5),
+
+   /**
+    * An external representation of a stamp.
+    */
+   STAMP((byte) 6);
+}</programlisting>
+            </example>
+            <para>See the following classes for entry points to learn more: <itemizedlist
+                    xml:id="itemizedlist_0107f7a7-50c6-4921-93e6-9319861f1511">
+                    <listitem>
+                        <para>BinaryDataServiceFactory</para>
+                    </listitem>
+                    <listitem>
+                        <para>BinaryDataProviderFactory</para>
+                    </listitem>
+                    <listitem>
+                        <para>DataWriterService</para>
+                    </listitem>
+                    <listitem>
+                        <para>BinaryDataReaderService</para>
+                    </listitem>
+                    <listitem>
+                        <para>ConceptChronologyImpl</para>
+                    </listitem>
+                    <listitem>
+                        <para>IsaacExternalizable</para>
+                    </listitem>
+                    <listitem>
+                        <para>ConceptChronologyJsonWriter</para>
+                    </listitem>
+                </itemizedlist></para>
+    </section>
+        <section xml:id="section_e8f16ac5-b069-4138-9f67-a0ad109aa56c">
+            <title>Knowledge Archive Specification</title>
+            <para>The artifact format combines one or more data files into a zip file with
+                appropriate metadata. Each artifact is uniquely identified by a <link
+                    xlink:href="http://maven.apache.org/glossary.html#GroupId">group id</link> and
+                an artifact ID which is unique within a group, and may be stored on, and retrieved
+                from, a standard maven artifact repository. Metadata will include a manifest.mf
+                file, and a pom file that defines artifact licenses and dependencies. </para>
+            <para/>
+            <para>In general, the zip entries are intended for ease of import into relational
+                databases. The relational format utilizes UUIDs to identify all objects, and an
+                alternative identifier file is provided for working with other types of identifiers.
+            </para>
+            <section>
+                <title>Graph representation</title>
+                <para>When a datafield represents an explicit graph, <link
+                    xlink:href="http://tinkerpop.apache.org/docs/3.3.1/dev/io/#graphson"
+                        >GraphSON</link> is used to represent the graph. GraphSON is a <link
+                        xlink:href="http://json.org/">JSON-based</link> format for individual graph
+                    elements (i.e. vertices and edges), and complete graphs. </para>
+            </section>
+            <section>
+                <title>Artifact Coordinate</title>
+                <para>We rely on <link
+                        xlink:href="https://maven.apache.org/pom.html#Maven_Coordinates">Maven
+                        coordinates</link> to define a set of identifiers which can be used to
+                    uniquely identify an artifact. </para>
+            </section>
+        </section>
+    </section>
+        
+</chapter>

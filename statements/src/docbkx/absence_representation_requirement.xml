@@ -1,0 +1,2525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="CSS/test.css"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.1">
+
+    <title>Requirements to Represent Absence in Interoperability Standards</title>
+    <blockquote>
+        <para>Note to readers: This document is not intended to constrain or complicate efforts to
+            design useful specifications, but rather to provide a forum for consensus about what
+            works, and, ideally, reduce the need to recapitulate the problem in future discussions.
+            If there are important facets missing, we would like to include them. We call special
+            attention to the maps in <link linkend="appendices_maps">"Appendices,
+            Maps"</link>.</para>
+    </blockquote>
+
+    <section>
+        <title>Introduction to "Representation of Absence"</title>
+        <para> Standards provide value by establishing consistent conventions for communication.
+            When different communities of stakeholders establish these conventions for the same or
+            for overlapping domains, the divergence in standards compromises their value. This
+            divergence presents a fundamental challenge to any effort to broaden interoperability
+            standards beyond the communities that define them. The problem affects even the most
+            easily harmonized elements: two standards families may define specifications that are
+            both structurally and semantically identical for, e.g., allergy criticality, but use
+            different data types, names, and terminology systems to express these specifications. </para>
+        <para> Different elements may differ in how deeply they suffer from this issue. Allergy
+            criticality specifications differ, but their structural similarity suggests a simple
+            path for harmonization, so simple that ad hoc operational transformation may seem like
+            an easier way to handle the difference rather than trying to coordinate consensus around
+            harmonizing the standards themselves. </para>
+        <para> Negation is different: it has been represented in forms so diverse that it is not
+            always obvious how to transform or harmonize them, or even when such transformation
+            might be necessary. Negation is often modeled as a property of a business class, but
+            logically and semantically, it’s not really a predicate so much as a quantification: it
+            doesn’t refine our understanding of a concept; rather, it tells us how many of them
+            there are. As a result, its presentation as a property causes a variety of problems: <orderedlist>
+                <listitem>
+                    <para>Negative answers to questions can be modeled as binary forms; records of
+                        absence of notionally present business objects require different forms, and
+                        these forms tend to be inconsistent.</para>
+                </listitem>
+                <listitem>
+                    <para>The scope of what parts of the model are negated must be carefully
+                        specified; e.g., to assert that a rash was absent at a point in time does
+                        not negate other properties of the record, e.g., the identity of the person
+                        making the assertion.</para>
+                </listitem>
+                <listitem>
+                    <para>Negation can be implied by positive assertions, and the scope of what
+                        parts of reality are negated can depend on fluid colloquial assumptions of
+                        open and closed world boundaries. E.g., “left hemiplegia” seems to imply an
+                        absence of “right hemiplegia” but not of “headache.”</para>
+                </listitem>
+                <listitem>
+                    <para>The indeterminacy of the boundaries of implication mean that negation is
+                        logically intractable. Attempts to use computable logical tools such as
+                        description logic fail when faced with content that contains logical
+                        negation.</para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para> This document was conceived of to encourage consensus on how to support common
+            understanding of this peculiarly difficult data element. </para>
+    </section>
+
+    <section>
+        <title>Objective</title>
+        <para>In order to properly represent absence consistently in standards specification and
+            provide guidance on dealing with the variety of specifications that already exist, this
+            document will:<orderedlist>
+                <listitem>
+                    <para>Identify best practices for incorporating negative semantics into
+                        standards design, and</para>
+                </listitem>
+                <listitem>
+                    <para>Specify explicit transformations between the most prevalent standards (CDA
+                        and FHIR).</para>
+                </listitem>
+            </orderedlist>
+        </para>
+    </section>
+
+    <section>
+        <title>Methods</title>
+        <section>
+            <title>Scope</title>
+            <para>The problem is abstract, and it requires some care to define. </para>
+                    <para> First, “negation” as a term of logic has a long history of difficult implications<footnote>
+                    <para>A full bibliography would be a project in itself, but for a survey, see
+                        Laurence Horn, A Natural History of Negation (Chicago: University of Chicago
+                        Press, 1989); for a cogent summary for informatics, see Alan Rector, “What’s
+                        in a code?” Kuhn KA, Warren JR, Leong T-Y, (eds) Medinfo 2007. IOS Press;
+                        2007. pp 730-734. </para>
+                </footnote>. It is defined as the logical operation of asserting the falsehood of a
+                proposition, or as a proposition that is the negative of some other proposition.
+                Efforts to apply description logics (DL) to clinical decision support have
+                successfully demonstrated the ability to infer general facts from specific ones,
+                e.g., a cerebral hemorrhage from a subdural hemorrhage: positive statements can be
+                “classified”’ with DL, making the application of rules that apply to large numbers
+                of concepts simpler. But introducing negation causes logical propositions to become
+                computably intractable. In addition, identifying where negation occurs is not always
+                simple, because one positive assertion may entail another negative one; e.g.,
+                asserting that a patient has a blood type of A implies that the patient does not
+                have a blood type of B. For these reasons, most efforts to implement description
+                logics begin by excluding negative semantics from scope. </para>
+                    <para> Efforts to use logically negative semantics in information modeling, too,
+                        have encountered difficulties of unanticipated depth. A prominent example is
+                        the HL7 Version 3 Reference Information Model (RIM). The RIM goes to some
+                        length to define precise semantics for a negation indicator and its effect
+                        on each attribute of the classes in which it is used, but when it was
+                        implemented in CDA by knowledgeable architects, it was found that the
+                        intuitively obvious meaning assigned in CDA was contrary to its definition
+                        in the RIM. </para>
+                    <para> We avoid the issues caused by the abstractness of the concept of
+                        negation, and of its implications for computability, by focusing instead on
+                        more concrete requirements. In none of the cases we examine do patients or
+                        providers use the terms “negation,” “true,” or “false.” We use the term
+                        “negation” only as a convenient label for the problems we discuss in this
+                        document. No actual information artifact or specification should use the
+                        term, for to do so is to introduce an intractable problem into the design.
+                        Where the concept seems applicable, it can always be specified more
+                        concretely and in better alignment with domain business practices: e.g., as
+                        a status of “refuted” or “resolved” for a condition, as a status of “not
+                        done” for a procedure,” or as a clearly defined test result value. </para>
+                    <para> Second, the boundary between negation and ignorance is complex and murky.
+                        Where possible, we differentiate the two. An assertion that no information
+                        is available is simply an assertion of ignorance; it does not tell us
+                        anything about the presence or absence of a phenomenon. We do not find many
+                        cases where the issues overlap: a value of “not applicable” for “last
+                        menstrual cycle” or of “no information” for “family history” complicates the
+                        data type for the response, but it does not mix the semantics of the answer
+                        and the metadata. </para>
+                    <para> The case of “no known allergies” does complicate things. Logically, the
+                        semantics of this phrase are complex, describing a clinical history in which
+                        no allergies have been detected, but with respect to the actual presence of
+                        allergies it can be considered to be null. However, we may observe that this
+                        is true for any negative assessment. A statement that the patient has “no
+                        bleeding disorders,” recorded before administration of a blood thinner, in
+                        practice means “no known bleeding disorders.” Functionally, the bleeding
+                        disorder statement and the allergy statement are equivalent: both intend a
+                        prima facie assertion of absence, and both are subject to uncertainty.
+                        Clinicians may want to know whether such a denial has been recorded, but
+                        they will also always ask again before undertaking a procedure. The
+                        epistemological uncertainty of the record means that logical inference is
+                        always defeasible – always subject to revision in the light of new evidence
+                        – and this state means that automated decision support can never control
+                        care decisions, but only inform decision makers. </para>
+                <para> Similarly, the question of <emphasis>certainty</emphasis> overlaps explicitly
+                with assertions of absence. It seems, in a logical framework, that a 90% level of
+                confidence in an assertion is equivalent with a 10% level of confidence in the
+                assertion’s negation, and that any level under 100% would therefore imply a
+                simultaneous negative assertion. But this is not the case. The assertions in
+                question are not value-neutral; they are records of clinical concern. A 10%
+                likelihood of cancer is an indubitable concern, and any negative semantics that
+                might be implied may affect the urgency, but not the tenor, of the concern. </para>
+            <para> Data <emphasis>quality</emphasis> is closely related to certainty, and it follows
+                the same pattern. Irrespective of the confidence we place in the source, if a
+                concern is asserted, concern is present. </para>
+        </section>
+        <section>
+            <title>Approach</title>
+            <para>Our approach is twofold.</para>
+            <para>For the objective of identifying best practices for standards specifications, we
+                collect and catalog cases where negative semantics are used in health records. We
+                consider three facets for these cases: the content (what cases are recorded for
+                something being absent, not done, or otherwise “negated”), the use (when and how are
+                these cases employed), and the form (the patterns that specifications have adopted
+                for representing this information). For these cases, we identify characteristic
+                problems and attempt to articulate best practices for designing standards that avoid
+                the problems.</para>
+            <para>We collected examples from the following sources: <itemizedlist>
+                    <listitem>
+                        <para>Veterans Administration use cases</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient Care workgroup meetings, listserv threads, and project
+                            conference calls</para>
+                    </listitem>
+                    <listitem>
+                        <para>Clinical Quality workgroup meetings, listserv threads, and project
+                            conference calls</para>
+                    </listitem>
+                    <listitem>
+                        <para>NegEx Lexicon</para>
+                    </listitem>
+                    <listitem>
+                        <para>Individual participant contributions </para>
+                    </listitem>
+                    <listitem>
+                        <para>Physician Quality Reporting System (PQRS) measures</para>
+                    </listitem>
+                    <listitem>
+                        <para>Veterans Administration Informatics Architecture project team</para>
+                    </listitem>
+                    <listitem>
+                        <para>HL7 CDA Example task force examples</para>
+                    </listitem>
+                    <listitem>
+                        <para>FHIR examples</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>For the objective of providing guidance to implementers of existing standards, we
+                collect the currently published examples of negation and propose transformation
+                mappings.</para>
+        </section>
+    </section>
+    <section>
+        <title>Results</title>
+        <para>Relevant information came in many forms. In the examples, we identify kinds of content
+            (prohibitions, absent pathologies, etc.) and kinds of use (orders, decision support,
+            condition life cycle, etc.). We also identify different information structures.</para>
+        <para>The full list of examples is in <link linkend="appendices_useCases">"Appendices, Use Cases"</link>.</para>
+        <section>
+            <title>Content cases</title>
+            <para>We found six general classes of content.</para>
+            <para>
+                <orderedlist numeration="upperalpha">
+                    <listitem>
+                        <para>Normal phenomenon absent</para>
+                        <orderedlist numeration="loweralpha">
+                            <listitem>
+                                <para>Blindness, amenorrhea, asplenia</para>
+                            </listitem>
+                            <listitem>
+                                <para>No next of kin</para>
+                            </listitem>
+                        </orderedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Pathological phenomenon absent</para>
+                        <orderedlist numeration="loweralpha">
+                            <listitem>
+                                <para>Patient has not had chicken pox</para>
+                            </listitem>
+                            <listitem>
+                                <para>No evidence of cancer</para>
+                            </listitem>
+                            <listitem>
+                                <para>Resolved problems; e.g., Healed fracture</para>
+                            </listitem>
+                        </orderedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Risk factor absent</para>
+                        <orderedlist numeration="loweralpha">
+                            <listitem>
+                                <para>My uncle does not have hemophilia</para>
+                            </listitem>
+                            <listitem>
+                                <para>No allergy to latex</para>
+                            </listitem>
+                        </orderedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Procedure not done</para>
+                        <orderedlist numeration="loweralpha">
+                            <listitem>
+                                <para>Test not performed because patient in incubator</para>
+                            </listitem>
+                            <listitem>
+                                <para>Patient did not keep appointment</para>
+                            </listitem>
+                        </orderedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Procedure contraindicated</para>
+                        <orderedlist numeration="loweralpha">
+                            <listitem>
+                                <para>Do not turn patient</para>
+                            </listitem>
+                            <listitem>
+                                <para>Consent not given</para>
+                            </listitem>
+                        </orderedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Patient engagement</para>
+                        <orderedlist numeration="loweralpha">
+                            <listitem>
+                                <para>Patient does not have goal</para>
+                            </listitem>
+                        </orderedlist>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </section>
+        <section>
+            <title>Use cases</title>
+            <para>We find ten general cases of use, with associated content patterns.</para>
+            
+            <para>Note that content pattern A, normal phenomenon absent, does not appear in the list
+                of usage cases. We find these cases consistently identified as positive assertions
+                of concern rather than as absent phenomena; e.g., “blind,” not “vision
+                absent.”</para>
+            <para>It’s not clear whether patient disengagement (content case F) should be considered
+                a contraindication.</para>
+            <orderedlist>
+                <listitem>
+                    <para>Change in circumstances. A phenomenon is asserted to have some probability
+                        of presence which is later retracted because a condition was
+                        resolved.</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: B (Pathological phenomenon absent)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>The patient had [communicable disease] but it has been
+                                        cured.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>No evidence of cancer</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+                <listitem>
+                    <para>Change in knowledge. A phenomenon is asserted to have some probability of
+                        presence which is later retracted because a condition was misdiagnosed and
+                        later refuted, entered in error, or because it was a possible or
+                        differential diagnosis that was later refuted.</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: B (Pathological phenomenon absent)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>The patient was suspected of having Lyme disease but it
+                                        has been refuted.</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+                
+                <listitem>
+                    <para>Diagnostic protocol. A clinician asks about phenomena associated with a
+                        suspected condition in order to refine clinical understanding.</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: B (Pathological phenomenon absent), C (Risk factor
+                                absent)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>A clinician asks a patient with scleritis whether the
+                                        patient has any autoimmune diseases.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>A test for presence of streptococcus is returned
+                                        negative.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>PTSD screening negative.</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+
+                <listitem>
+                    <para>Order criterion. Direction is given while or until a phenomenon is
+                        absent.</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: B (Pathological phenomenon absent)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>Nothing to eat or drink until respiratory distress
+                                        dissipates.</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+
+                <listitem>
+                    <para>Quality criterion. A measure defines a population in whom a phenomenon is
+                        absent</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: B (Pathological phenomenon absent)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>“Percentage of patients . . . who do not experience a
+                                        major complication . . .”</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+                
+                <listitem>
+                    <para>Clinical Decision criterion. A rule makes operation dependent on the
+                        absence of a phenomenon.</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: B (Pathological phenomenon absent)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>Recommend aspirin to ED patients presenting with chest
+                                        pain with no bleeding disorders.</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+                
+                <listitem>
+                    <para>Specific safety protocol. A clinician asks about contraindications before
+                        conducting a procedure.</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: C (Risk factor absent)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>The clinician asks about allergies before administering an
+                                        antibiotic.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>The clinician asks about adverse effects of a
+                                        medication.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Patient is not NPO.</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+                
+                <listitem>
+                    <para>General safety protocol. A clinician asks about general risk
+                        factors.</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: C (Risk factor absent)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>A patient reports no tobacco use.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Not pregnant.</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+                <listitem>
+                    <para>Quality criterion. A measure identifies procedures not done.</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: D (Procedure not done)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>“Percentage of children . . . not dispensed an antibiotic
+                                        prescription”</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+                
+                <listitem>
+                    <para>Prohibition</para>
+                    <orderedlist numeration="loweralpha">
+                        <listitem>
+                            <para>Content cases: E (Procedure contraindicated)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Examples</para>
+                            <orderedlist numeration="lowerroman">
+                                <listitem>
+                                    <para>“do not flush central line”</para>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                    </orderedlist>
+                </listitem>
+            </orderedlist>
+
+        </section>
+        <section>
+            <title>Specification Patterns</title>
+            <para>We find 4 modeling patterns, with examples spanning specification families.</para>
+            <para>
+                <table frame="border" border="1">
+                    <caption>Modeling Pattern</caption>
+                    <col width="33%" align="left" valign="top"/>
+                    <col width="33%" align="left" valign="top"/>
+                    <col width="33%" align="left" valign="top"/>
+                    <thead>
+                        <tr align="left" valign="top">
+                            <th align="left" valign="top" colspan="2">Category</th>
+                            <th align="left" valign="top">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">Absent Class</td>
+                            <td>CIMI Clinical Statement with Absence Context</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Coded property</td>
+                            <td>focal</td>
+                            <td>FHIR Allergy code, including "no known allergies"</td>
+                        </tr>
+                        <tr>
+                            <td>modifier</td>
+                            <td>FHIR Condition status, including "refuted"</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Boolean presence indicator</td>
+                            <td><para>RIM Observation value negation indicator</para>
+                                <para>FHIR Procedure not done indicator</para></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Quantification</td>
+                            <td><para>Observation result value of 0</para><para>ANF value of 0..0</para></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>The broadest pattern is the use of distinct classes for distinct
+                kinds of assertion. CIMI provides a “present assertion” class for identifying
+                problems and other instances and an “absence assertion” for communicating the
+                absence of such problems. This seems appealing in that the details of a problem’s
+                attributes are specific to the presence assertions, and these details may be
+                irrelevant to an assertion of absence. One issue with this assumption is that a
+                negation may be intended to apply to a more specific case; e.g., it may be necessary
+                to assert that a patient has no stage 4 pressure ulcers, though lower-stage ulcers
+                may be present. Other properties generally considered proper to presence assertions
+                may, in some cases, be needed for absence assertions. Actual cases have not been
+                identified for this requirement, so it may not be needed.</para>
+            <para>A more common pattern is the use of coded properties to assert <emphasis role="bold">absence</emphasis>. Allergy
+                records may be the most common domain where the documentation of absence is
+                necessary, and the FHIR AllergyIntolerance resource uses this pattern. The “code”
+                property (formerly “substance”) supports values identifying a variety of substances,
+                but it also supports “no known allergies,” as well as a small set of more specific
+                absences. Once concern with this approach is that the meanings of the values imply
+                different semantics for their association with the model: “latex” is the subject of
+                “what substance causes the problem”; “no allergy to latex” re-wires the predicate to
+                “full statement of presence or absence of sensitivity to substance.” For
+                close-to-user forms, this divergence does not present problems. For secondary uses,
+                it may be acceptable: if the use is to check a proposed substance administration
+                against allergies, and the routine finds no match between the proposed dose of
+                penicillin and the record object “no known allergies,” the semantic mismatch doesn’t
+                cause a problem. But there is a mismatch, and it could cause unanticipated
+                problems.</para>
+            <para>A special case of the <emphasis role="bold">coded property</emphasis> pattern is where a property that usually only
+                qualifies the class includes a value that modifies it. The Condition resource has a
+                status property that includes “resolved” and “refuted” values, each of which denotes
+                the absence of the subject condition.</para>
+            <para>The <emphasis role="bold">Boolean presence indicator pattern</emphasis> hews
+                closest to the logical semantics of negation, and it brings most of the resulting
+                issues into the information modeling world. The range of a Boolean property is
+                “true” and “false.” These values presume the existence of a proposition with a truth
+                value. Software classes don’t typically meet this requirement: even when they are
+                presumed to be assertions of the existence of the business objects they represent,
+                the properties of the class are properties of the represented object, not of the
+                assertion. The HL7 RIM addresses this difficulty by distinguishing between
+                properties that represent the clinical phenomenon and those that annotate the
+                representation: “descriptive” properties, which describe the referent phenomenon
+                (and whose semantics may change according to negation and mood), and “inert”
+                properties, which describe the assertion itself (and whose semantics don’t change
+                with mood and negation). This distinction is, as we have observed, subtle enough to
+                confuse the very experienced.</para>
+            <para>An additional wrinkle for these properties is that they tend to be envisioned as
+                special cases, so they are named for the edge cases they support. As a result, the
+                semantics of the value is inversely related to the semantics of the modified class.
+                A negation indicator of “true” means that the notional observation is not present;
+                “false” means that it is present.</para>
+            <para>A final pattern leverages the fact that negation is a quantification by recording
+                presence and absence as <emphasis role="bold">quantities</emphasis>. The Analysis Normal Form assertion contains a
+                quantity property that can be used both for quantitative measurements and for
+                quantities of presence. In order to do so, it defines an interval data type that
+                supports open and closed boundaries. A value of absent has closed upper and lower
+                bounds of zero (i.e., “[0..0]”); a value of present has an open lower bound of zero
+                (i.e., “(0..&#8734;)”). An allergy specification would record not only a substance
+                (or class of substances) but its presence or absence as an interval quantity.
+                Negative semantics don’t complicate the computation, and the meaning of the
+                substance code field remains stable. (A minor semantic wrinkle is that &#8734; isn’t
+                a number, so that value will have to be handled prior to calculation.)</para>
+            <para>The goal of this design is to represent clinical facts as consistently as possible
+                to support automated inference. The ability to use such a record as a reliable
+                indicator of absence still relies on the effective application of quantification to
+                open-world semantics: the assertion that an allergy assertion has a count of zero
+                does not necessarily rule out the possibility that some other allergy assertion
+                might not. And any assertion of absence is, as noted above, defeasible.</para>
+        </section>
+    </section>
+    <section>
+        <title>Discussion</title>
+        <section>
+            <title>Content</title>
+            <para>Most cases fit in well-defined categories. Category boundaries depend on judgment,
+                and it’s possible to define categories at higher or lower levels of granularity. Our
+                goal is to differentiate categories only when they require different processing
+                logic. Absence of sight and amenorrhea are both typically represented as positive
+                assertions of concerns, so we classify them together and expect both to surface in
+                clinical records as concerns; absence of a bleeding disorder is a record of a safety
+                check, and we do not expect to see it as a concern.</para>
+            <para>Most cases were classified as absences of pathologies. This may be partly an
+                artifact of the data collection process, but it is true that absence is typically
+                relevant to care provision as the result of checking for some kind of notional
+                concern, whether actually suspected or as a safety protocol.</para>
+            <para>A significant number of items might be expected to be inferred from broad normal
+                findings, using the “chart by exception” pattern. A radiology image, for instance,
+                may be annotated by the radiologist as showing “no mediastinal widening,” but for a
+                given modality and angle, absence of certain pathologies may be inferred. A normal
+                chest x-ray implies “no mediastinal widening” whether it is annotated or not. The
+                confidence with which such conclusions may be asserted may vary with the uniformity
+                of the protocol, but whether the absence is stated or inferred, its representation
+                is that of absent pathology.</para>
+            <para>Assertions that procedures were not done were exclusively the province of quality
+                measures. There were also cases of patients not showing up for appointments—the
+                procedure did not occur, and the reason is provided, just as for a quality measure.
+                Clinical uses for procedure all involve prohibition and contraindication.</para>
+            <para> The most difficult cases were those that most closely aligned with actual
+                negation semantics, being where a patient denies holding a goal or denies consent
+                for a treatment. The latter case is a contraindication; the former context to help
+                providers understand compliance issues.</para>
+            <para>We did not find cases that exercise the limits of negative semantics, such as
+                double negatives or inference of negation given some logically contradictory
+                situation. The few line items in the sample that venture near this territory were
+                judged “not relevant” due to being contrived, not based on actual
+                requirements.</para>
+        </section>
+
+        <section>
+            <title>Uses</title>
+            <para>The ten categories of use align broadly as: updates to durable concern records, negative answers to protocol questions, use of these facts as
+                criteria, and prohibitions.</para>
+            <para>When providers record changes in circumstances or knowledge (a resolved or refuted
+                condition), the knowledge typically involves a durable concern. These phenomena may
+                be recorded as problems, and they may have a significant body of supporting
+                evidence, goals, related procedures, and other information associated with
+                them.</para>
+            <para>Negative answers to protocol questions, on the other hand, are typically transient
+                forms of little utility beyond the immediate clinical context. Safety protocol
+                negatives (“not pregnant”) demonstrate this most clearly. Whether it holds for
+                “chart by exception” inferences on diagnostic procedures, such as “no mediastinal
+                widening” based on a normal chest x-ray, may depend on the degree of interest on
+                concern regarding the phenomenon.</para>
+            <para>Facts that serve as criteria may fall into either category. Criteria for future
+                acts tend to be recorded as needed; e.g., direction to take a medication until a
+                symptom abates can be supported by periodic assessment of the symptom. Criteria for
+                measures tend to be existing records, and absence is usually inferred from a lack of
+                documentation. As we observed earlier, criteria for clinical use, including decision
+                support, are confirmed at the point of care, and prior records cannot be relied
+                on.</para>
+            <para>A more critical category of negation is prohibition. Assertions that procedures
+                are not to be done must be persisted for human review and for order checks, so a key
+                dimension is the timeframe over which the prohibition is in effect. Whether
+                classification is necessary may depend on the complexity of the prohibition. An
+                order to avoid turning a patient is unlikely to cause logical confusion; an order to
+                avoid specific classes of medication is a bit more complex but can be supported with
+                affirmative classification logic.</para>
+        </section>
+
+        <section>
+            <title>Patterns</title>
+            <para>It’s critical to be able to distinguish records of presence from records of
+                absence in a predictable way. It is less clear what design patterns are best suited
+                to this need. The pattern of using <emphasis role="bold">distinct classes</emphasis>
+                for present and absent phenomena makes the distinction clear. It also makes it
+                difficult to aggregate statements about presence, absence, and degrees of
+                uncertainty or state change. The convention doesn’t provide obvious direction on how
+                to handle phenomena that were present at one time and have ceased to be present.
+                There may be uses for which this pattern is well suited, but we haven’t identified
+                them.</para>
+            <para>The <emphasis role="bold">coded element</emphasis> pattern is more common, partly
+                because it is a convenient extension of the presence pattern. The primary difficulty
+                is that there are two distinct patterns of extension—by status and by protocol: both
+                patterns are common. Extension by status includes state changes that denote absence,
+                whether clinical progression (i.e., resolution) or epistemological progression
+                (i.e., refutation or “entered-in-error”). Extension by protocol encompasses cases
+                where a question is asked by protocol and refuted, and the refutation is captured in
+                the same property as the classification of the affirmation—viz., “no known
+                allergies” in the allergy field.</para>
+
+            <para>The <emphasis role="bold">negation indicator</emphasis> seems to be an
+                inappropriately aggressive abstraction of domain information. Boolean properties in
+                general are more abstract than the concrete requirements of the domain; this might
+                be acceptable where such generalization provides a way to aggregate diverse
+                colloquialisms, but where no such value is identified, it only obfuscates the
+                clinical semantics. The result is an inaccurate promise of logical tractability at
+                the cost of human comprehensibility. The problem can be ameliorated by giving a
+                Boolean property a more specific name, e.g., “not done indicator,” but such a
+                property usually overlaps semantically with status values (refuted, cancelled). This
+                may not be the case with ProcedureRequest.doNotPerform, but a coded property would
+                still provide flexibility for use cases not yet recognized.</para>
+            <para>The <emphasis role="bold">quantified presence</emphasis> pattern may be a workable
+                answer for secondary uses. It seems too far from an intuitive representation of
+                clinical processes to be generally useful for close-to-user forms. But, unlike the
+                Boolean pattern, it does provide a consistent, unambiguous, and logically tractable
+                way to represent the presence of concerns consistently, whether captured as unary
+                “symptoms” or “concerns” or as binary questions with answers.</para>
+        </section>
+    </section>
+    <section>
+        <title>Conclusions</title>
+        <para>Recorded assertions of absence are defeasible; they can never be used for clinical
+            decisions. They might be used to support decision-support recommendations, subject to
+            effective and safe usability engineering. It may not be advisable to spend much effort
+            trying to make such computations accurate, as no matter how sophisticated the analysis
+            of prior assertions, the underlying data will always be stale.</para>
+        <para>Patterns for capture of such statements may use any of the identified modeling
+            patterns, with some caveats.</para>
+        <para> The <emphasis role="bold">distinct class</emphasis> pattern offers limited benefits
+            for significant overhead. In quality measure systems, distinct classes may be useful,
+            but the negative flavors are often inferred from empty queries, so it’s not clear that a
+            corresponding structure on the clinical capture side make sense.</para>
+        <para> The <emphasis role="bold">negation indicator</emphasis> pattern offers the promise of
+            logical inference, but the promise is false. Negation is logically intractable, and the
+            abstraction of the Boolean structure obfuscates the actual domain information of
+            interest. At least one case was identified where a concrete question seems defensibly
+            supported by a Boolean value, but it could be equally well supported by terminology
+            without preventing support of unforeseen use cases.</para>
+        <para> The <emphasis role="bold">coded element</emphasis> solution works, though it also
+            presents challenges, including model impedance. As long as the challenges are recognized
+            and handled appropriately, they may be the least problematic cost of the domain.
+            Specifications need to address absence and other negative semantics and provide explicit
+            and concrete guidance to implementers on how to manage impedance and other sources of
+            model ambiguity.</para>
+        <para> The <emphasis role="bold">quantified presence</emphasis> solution offers unparalleled
+            consistency in recording facts. Its counter-intuitive representation makes it difficult
+            to promote in domain information models, but it may provide an excellent pattern for
+            analytical transformations.</para>
+        <para> For standards design, we propose four best practices: <orderedlist>
+                <listitem>
+                    <para>Model negative semantics concretely, in ways that are fit for purpose
+                        (e.g., “refuted,” “contraindicated”). Avoid generalizing to more abstract
+                        forms without specific near-term use cases for doing so.</para>
+                </listitem>
+                <listitem>
+                    <para>Support consistency within models by providing implementers with one way
+                        to say things.</para>
+                </listitem>
+                <listitem>
+                    <para>Support consistency across clinical models by using similar patterns and
+                        providing concret guidance on managing impedance issues.</para>
+                </listitem>
+                <listitem>
+                    <para>Provide explicit instructions for how negated statements in your
+                        specification should be transformed from and to other widely adopted
+                        specifications.</para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para>With respect to the tactical issue of transformation, we provide transformations from
+            C-CDA to FHIR in <link linkend="appendices_maps">"Appendices, Maps"</link>. Note that the alignment issues here are global: the CDA
+            allergy, for instance, is explicitly represented within a concern act, which is not
+            present in FHIR. This context issue means that the mappings provided will either be
+            asserted to be incorrect or they will document agreed but implicit semantics in one or
+            both formalisms.</para>
+    </section>
+
+    <section>
+        <title>Appendices</title>
+        <section>
+            <title>Glossary</title>
+            <para>
+                <table frame="border" border="1">
+                    <caption>Glossary</caption>
+                    <col width="50%" align="left" valign="top"/>
+                    <col width="50%" align="left" valign="top"/>
+                    <thead>
+                        <tr align="left" valign="top">
+                            <th align="left" valign="top">Term</th>
+                            <th align="left" valign="top">Definition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="left">Defeasible</td>
+                            <td>Capable of being annulled or made void (Webster)</td>
+                        </tr>
+                        <tr>
+                            <td>Finding</td>
+                            <td>
+                                <para>A fact asserted about a patient</para>
+                                <para>Stedman's: "A clinically significant observation, usually used
+                                    in relation to one found on physical examination or laboratory
+                                    test."</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Modifier</td>
+                            <td>
+                                <para>A concept that changes the meaning of another concept. E.g, to
+                                    say that a patient has a "family history of" diabetes does not
+                                    state that the patient has diabetes. Compare Qualifier.</para>
+                                <para>SKMT: string which, when added to a term, changes the meaning
+                                    of the term in the clinical sense (ISO)</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Negation</td>
+                            <td>
+                                <para>the logical operation of asserting the falsehood of a
+                                    proposition, or a proposition that is the negative of some other
+                                    proposition.</para>
+                                <para>SKMT: indicator specifying that the Act statement is a
+                                    negation of the Act as described by the descriptive (HL7)</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Observable</td>
+                            <td>
+                                <para>A property that may be assessed and characterized in terms of
+                                    a result value; a question.</para>
+                                <para>SKMT: Hierarchy in SNOMED CT which represents a question about
+                                    something which may be observed or measured. (SCT)</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Post-coordinated</td>
+                            <td>
+                                <para>The quality of being composed of separate concept identifiers.
+                                    Post-coordination can be achieved either in expression syntaxes
+                                    defined by code systems for the creation of valid
+                                    post-coordinated concepts or in model elements with model
+                                    bindings that articulate how the respective element values are
+                                    related.</para>
+                                <para>SKMT: Representation of a clinical meaning using a combination
+                                    of two or more concept identifiers (SCT; Candidate)</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pre-coordinated</td>
+                            <td>
+                                <para>The quality of being composed of a single concept identifier,
+                                    as defined in a code system.</para>
+                                <para>SKMT: compositional concept representation (2.4.1) within a
+                                    formal system (2.5.1), with an equivalent single unique
+                                    identifier (ISO)</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Qualifier</td>
+                            <td>
+                                <para>A concept that refines another concept within its semantic
+                                    scope. E.g, a "left" arm is still an arm. Compare
+                                    Modifier.</para>
+                                <para>SKMT: string which, when added to a term, changes the meaning
+                                    of the term in a temporal or administrative sense (ISO)</para>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+        </section>
+        <section>
+            <title>Sources</title>
+            <para>Cheatham, Edward. SNOMED CT Post-Coordination rules, Draft guidance document. NHS
+                NPFIT, document NPFIT-FNT-TO-DPM-0311.01 <itemizedlist>
+                    <listitem>
+                        <para>Guidance suggests storing "close-to-user" forms is a more conservative
+                            approach, and that canonical forms can be derived for data
+                            operations.</para>
+                    </listitem>
+                </itemizedlist></para>
+            <para> Ceusters, Werner, Peter Elkin and Barry Smith. “Negative Findings in Electronic
+                Health Records and Biomedical Ontologies: A Realist Approach”, International Journal
+                of Medical Informatics 2007; 76: 326-333. PMC2211452. <itemizedlist>
+                    <listitem>
+                        <para>"We introduced a new family of ‘lacks’ relations into the OBO Relation
+                            Ontology. . . . By expanding the OBO Relation Ontology, we were able to
+                            accommodate nearly all occurrences of negative findings in the sample
+                            studied."</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>Ceusters, Werner, Peter Elkin and Barry Smith. “Referent Tracking: The Problem of
+                Negative Findings” (MIE 2006), Studies in Health Technology and Informatics, vol.
+                124, 741–6. (This issue also published as Ubiquity: Technologies for Better Health
+                in Aging Societies. Proceedings of MIE2006, edited by Arie Hasman, Reinhold Haux,
+                Johan van der Lei, Etienne De Clercq, Francis Roger-France, Amsterdam: IOS Press,
+                2006.) <itemizedlist>
+                    <listitem>
+                        <para>"Referent tracking" assigns IDs to things to avoid confusion, e.g.,
+                            when two people assert that a patient has a fracture and it cannot be
+                            determied whether they are the same fracture. To the extent that
+                            particulars have identifiers, this is in line with Restful (or OWLish)
+                            URIs. But they are also required to be unique. Another constraint is the
+                            identifiers are only given "real world phenomena," so the question is
+                            how to handle something negated. The authors propose a new "lacks"
+                            relationship for describing particulars that don't exhibit identified
+                            universals.</para>
+                    </listitem>
+                </itemizedlist></para>
+            <para>HL7. HL7 Version 3 Reference Information Model <itemizedlist>
+                    <listitem>
+                        <para>Observation.valueNegationInd 6.36.2 "This attribute should only be
+                            used when the terminology used for Observation.value is not itself
+                            capable of expressing negated findings. (E.g. ICD9)."</para>
+                    </listitem>
+                    <listitem>
+                        <para>Act.actionNegationInd 6.5.5 "The actionNegationInd works as a negative
+                            existence quantifier on the actual, intended or described Act event. In
+                            Event mood, it indicates the defined act did not occur. In Intent mood,
+                            it indicates the defined act is not intended/desired to occur. In
+                            Criterion mood, it indicates that the condition is based on the
+                            non-occurrence of the event. It is nonsensical to have a negationInd of
+                            true for acts with a mood of definition. The actionNegationInd negates
+                            the Act as described by the descriptive properties (including Act.code,
+                            Act.effectiveTime, Observation.value, Act.doseQty, etc.) and any of its
+                            components."</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>Horn, Laurence. A Natural History of Negation (Chicago: University of Chicago
+                Press, 1989). <itemizedlist>
+                    <listitem>
+                        <para>Thorough.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para> Rector, Alan. What's in a Code? <itemizedlist>
+                    <listitem>
+                        <para>On separation of ontology from terminology &amp; use of "situation"
+                            construct to harmonize positive &amp; negative assertions</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para> Rector, Alan. Negation &amp; Null Values (rough notes) <itemizedlist>
+                    <listitem>
+                        <para>On preference for "absent" to "negation," at least at first</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para> Rhodes, Bryn. Negation in QDM.
+                https://github.com/esacinc/cql-formatting-and-usage-wiki/wiki/negation-in-qdm <itemizedlist>
+                    <listitem>
+                        <para>Analysis of decisions for quality language expressions.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para> SNOMED International. SNOMED CT Technical Implementation Guide: 7.8.2.4.7
+                Retrieving absent findings <itemizedlist>
+                    <listitem>
+                        <para>This section discusses how negation changes the rules for subsumption
+                            testing. The solution is to reverse the candidate/predicate relation for
+                            Situation with Explicit Context findings using "known absent" or a
+                            descendant. Note that this approach assumes a pattern of Procedure with
+                            explicit context. The pattern of an Observable with value "absent" is
+                            not addressed. This approach can probably be generalized. Note: TiG in
+                            revision. This information can be reviewed in a prior version, but it is
+                            subject to change and is not a current SI publication.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>Wagner, Gerd. Web Rules Need Two Kinds of Negation.
+                http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.331.2050 <itemizedlist>
+                    <listitem>
+                        <para>Seems to address case of inferred vs explcit negation, but examples
+                            cloud the issue. Suggests that because the richness of domain
+                            information does not fit neatly into Boolean categories, Boole needs
+                            more values (as opposed to not using a Boolean operator).</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section xml:id="appendices_useCases">
+            <title>Use Cases</title>
+            <para>
+                <table frame="border" border="1">
+                    <caption>Use Cases</caption>
+                    <col width="20%" align="left" valign="top"/>
+                    <col width="20%" align="left" valign="top"/>
+                    <col width="20%" align="left" valign="top"/>
+                    <col width="20%" align="left" valign="top"/>
+                    <col width="20%" align="left" valign="top"/>
+                    <thead>
+                        <tr align="left" valign="top">
+                            <th align="left" valign="top">ID</th>
+                            <th align="left" valign="top">Item</th>
+                            <th align="left" valign="top">Content category</th>
+                            <th align="left" valign="top">Use category</th>
+                            <th align="left" valign="top">Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">1</td>
+                            <td align="left" valign="top">m.   CXR: Normal. No mediastinal widening,
+                                valve disease, or CHF i.e., no CHF</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 1 - EDCare 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">2</td>
+                            <td align="left" valign="top">b.    Confirms allergies: No known drug
+                                allergy</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 1 - EDCare 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">3</td>
+                            <td align="left" valign="top">d.    Smoking history: No tobacco use</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 1 - EDCare 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">4</td>
+                            <td align="left" valign="top">b.    CV: Chest pressure 5 out of 10 after
+                                3 SL-NTG tablets, S1S2, No murmurs or gallop Exam: No
+                                murmur</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 1 - EDCare 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">5</td>
+                            <td align="left" valign="top">e.     GU: Verbalizes no problems with
+                                voiding</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 1 - EDCare 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">6</td>
+                            <td align="left" valign="top">b.    Since chest pain started 45 minutes
+                                ago, it is too early to see any elevation in cardiac enzymes
+                                (Troponin, CK-MB)</td>
+                            <td align="left" valign="top">Not relevant: Null</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">VA Use Case Angina 1 - EDCare 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">7</td>
+                            <td align="left" valign="top">a.     History of Tobacco use: No</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 2 TelemetryCare
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">8</td>
+                            <td align="left" valign="top">a.     Notes cardiac rhythm: Sinus rhythm
+                                without ectopy, HR 84 i.e., No ectopy</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 2 TelemetryCare
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">9</td>
+                            <td align="left" valign="top">Cardiologist evaluates the reading and
+                                enters the interpreted result in the EHR. Result: Normal
+                                echocardiogram. No cardiomegaly or effusion. Good valve function.
+                                Ejection Fraction: 58% i.e., No cardiomegaly </td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 2 TelemetryCare
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">10</td>
+                            <td align="left" valign="top">Reviews ECG reading and enters the
+                                interpreted result in the EHR. Result: SR 76. No ectopy. No
+                                hypertrophy. i.e., No hypertrophy</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Angina 2 TelemetryCare
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">11</td>
+                            <td align="left" valign="top">a.     Begin light exercise (walking on a
+                                level surface for 5 minutes, 3 times a day). Add 1 minute to each
+                                session, each day until able to complete 10-15 minutes in each
+                                session without cardiac symptoms. cardiac symptoms absent</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Clinical decision criterion</td>
+                            <td align="left" valign="top">VA Use Case Angina 2 TelemetryCare
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">12</td>
+                            <td align="left" valign="top">Allergies: No known drug allergy</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">13</td>
+                            <td align="left" valign="top">o    Cardiac rhythm (ECG): Sinus
+                                tachycardia (ST) without ectopy i.e., No ectopy</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">14</td>
+                            <td align="left" valign="top">1.     Sinus tachycardia (ST) Q waves in
+                                the inferior leads, inferolateral ST- and T-wave changes (This is
+                                unchanged from the previous admission-3 months ago). </td>
+                            <td align="left" valign="top">not relevant: Comparison</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">15</td>
+                            <td align="left" valign="top">i.    If the patient does not produce
+                                250ml urine in first 30 minutes, furosemide 40mg IV x1 should be
+                                administered</td>
+                            <td align="left" valign="top">not relevant: Threshold</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">16</td>
+                            <td align="left" valign="top">a.     Confirms allergies: No known drug
+                                allergy</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">17</td>
+                            <td align="left" valign="top">a.     Smoking history: No tobacco
+                                use</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">18</td>
+                            <td align="left" valign="top">1.     Nothing to eat or drink until
+                                respiratory distress dissipates </td>
+                            <td align="left" valign="top">Contraindication</td>
+                            <td align="left" valign="top">Clinical decision criterion</td>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">19</td>
+                            <td align="left" valign="top">1.     History of Tobacco use: No</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case CHF - IMC 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">20</td>
+                            <td align="left" valign="top">a.     AUDIT-C - Score: 0 (No symptoms of
+                                abuse)</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Specific safety protocol</td>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">21</td>
+                            <td align="left" valign="top">Head/Neuro: WNL Heart: S1S2, BP
+                                normal</td>
+                            <td align="left" valign="top">not relevant: Normal</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">22</td>
+                            <td align="left" valign="top">Abdomen: Soft, benign. No GI/GU issues.
+                                i.e., No GI/GU issues</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">23</td>
+                            <td align="left" valign="top">Extremities: No swelling, pedal pulses
+                                strong. i.e., No swelling</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">24</td>
+                            <td align="left" valign="top">b. Adverse effects from the medication
+                                 a. None noted</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">25</td>
+                            <td align="left" valign="top">i.    Provider notices that the patient
+                                did not tolerate Prazosin in the past (which was started to address
+                                difficulty sleeping)</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top">Specific safety protocol</td>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">26</td>
+                        <td align="left" valign="top"><emphasis>[Wellbutrin] . . .</emphasis>
+                                was discontinued due to irregular heartbeats and
+                                hyperventilation</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Procedure assessment</td>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">27</td>
+                            <td align="left" valign="top"
+                                ><emphasis>[Prozac]</emphasis> discontinued
+                                due to irregular heartbeats and restlessness</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Procedure assessment</td>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">28</td>
+                            <td align="left" valign="top">Patient still refuses cessation treatment
+                                despite motivational interventions</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Procedure assessment</td>
+                            <td align="left" valign="top">VA Use Case Depression - Outpatient
+                                Follow-up 2.26.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">29</td>
+                            <td align="left" valign="top">a.     Smoker: No</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 1 Diagnosis of Diabetes
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">30</td>
+                            <td align="left" valign="top">a.     Substance Use: No</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 1 Diagnosis of Diabetes
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">31</td>
+                            <td align="left" valign="top">Patient completes PTSD screening k.
+                                Results: Negative</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Specific safety protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 1 Diagnosis of Diabetes
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">32</td>
+                            <td align="left" valign="top">Patient completes alcohol use screening
+                                 l. Result: 2 (Negative)</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 1 Diagnosis of Diabetes
+                                2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">33</td>
+                            <td align="left" valign="top">Extremities: No swelling, bilateral pedal
+                                pulses +2, i.e., No swelling</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 2 Follow Up Outpatient
+                                Visit 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">34</td>
+                            <td align="left" valign="top">Head/Neuro: WNL</td>
+                            <td align="left" valign="top">not relevant: Normal</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">VA Use Case DM 2 Follow Up Outpatient
+                                Visit 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">35</td>
+                            <td align="left" valign="top">a.     Smoker: No</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 3 - Referral for Annual
+                                Podiatry Screening 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">36</td>
+                            <td align="left" valign="top">b.     Alcohol Use: No </td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">General safety protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 3 - Referral for Annual
+                                Podiatry Screening 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">37</td>
+                            <td align="left" valign="top">5. Wound assessment: Medial portion of
+                                right big toe (approx. 5 mm x 5mm) at top of toenail is slightly
+                                red. No breakdown. No sign of infection. i.e., No breakdown</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 3 - Referral for Annual
+                                Podiatry Screening 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">38</td>
+                            <td align="left" valign="top">Provider removes ingrown toenail without
+                                complications. No infection noted. Skin intact, with slight
+                                inflammation. i.e., No infection noted</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">VA Use Case DM 3 - Referral for Annual
+                                Podiatry Screening 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">39</td>
+                            <td align="left" valign="top">a.     Patient notes that work has been
+                                busy, and that no time has been available to make the
+                                appointment</td>
+                            <td align="left" valign="top">Patient alignment</td>
+                            <td align="left" valign="top">Procedure assessment</td>
+                            <td align="left" valign="top">VA Use Case DM 4 Care Coordinator
+                                Telephone Follow Up 2.20.15</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">40</td>
+                            <td align="left" valign="top">do not know whether uncle has/had colon
+                                cancer</td>
+                            <td align="left" valign="top">not relevant: Null</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">HL7 PC Orlando 1/12/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">41</td>
+                            <td align="left" valign="top">my uncle does not have hemophilia</td>
+                            <td align="left" valign="top">Risk factor absent</td>
+                            <td align="left" valign="top">Specific safety protocol</td>
+                            <td align="left" valign="top">HL7 PC Orlando 1/12/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">42</td>
+                            <td align="left" valign="top">Congenital absence of coronary artery</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">HL7 PC Orlando 1/12/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">43</td>
+                            <td align="left" valign="top">Left kidney resected (absent)</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">HL7 PC Orlando 1/12/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">44</td>
+                            <td align="left" valign="top">Left leg amputated (not present)</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">HL7 PC Orlando 1/12/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">45</td>
+                            <td align="left" valign="top">No vision in right eye</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">HL7 PC Orlando 1/12/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">46</td>
+                            <td align="left" valign="top">no menses</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">HL7 PC Orlando 1/12/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">47</td>
+                            <td align="left" valign="top">no spleen</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">HL7 PC Orlando 1/12/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">48</td>
+                            <td align="left" valign="top">definiteExistence e.g., obvious</td>
+                            <td align="left" valign="top">not relevant: Certainty</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">49</td>
+                            <td align="left" valign="top">definiteNegated-Existence e.g., patient was
+                                not</td>
+                            <td align="left" valign="top">not relevant: Certainty</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">50</td>
+                            <td align="left" valign="top">experiencer e.g., sister's</td>
+                            <td align="left" valign="top">not relevant: Other subject</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">51</td>
+                            <td align="left" valign="top">future e.g., at risk for, concern for</td>
+                            <td align="left" valign="top">not relevant: Risk</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">52</td>
+                            <td align="left" valign="top">historical e.g., changing, previous</td>
+                            <td align="left" valign="top">not relevant: Past</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">53</td>
+                            <td align="left" valign="top">indication e.g., rule out</td>
+                            <td align="left" valign="top">not relevant: Rule out</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">54</td>
+                            <td align="left" valign="top">probableExistence e.g., evidence for,
+                                appears</td>
+                            <td align="left" valign="top">not relevant: Certainty</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">55</td>
+                            <td align="left" valign="top">probableNegated-Existence e.g., fails to
+                                reveal</td>
+                            <td align="left" valign="top">not relevant: Null</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">56</td>
+                            <td align="left" valign="top">pseudoExperiencer e.g., by her
+                                husband</td>
+                            <td align="left" valign="top">not relevant: Other subject</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">57</td>
+                            <td align="left" valign="top">pseudoHistorical e.g., history and
+                                examination</td>
+                            <td align="left" valign="top">not relevant: Past</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">58</td>
+                            <td align="left" valign="top">pseudoNegation e.g., no change</td>
+                            <td align="left" valign="top">not relevant: Comparison</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">59</td>
+                            <td align="left" valign="top">uncertain e.g., either</td>
+                            <td align="left" valign="top">not relevant: Certainty</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NegEx Lexicon</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">60</td>
+                            <td align="left" valign="top">Radiology negative findings - get example
+                                list for chart by exception</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Diagnostic protocol</td>
+                            <td align="left" valign="top">RadLex (Richard Esmond)</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">61</td>
+                            <td align="left" valign="top">Assertion of intention not to breast
+                                feed</td>
+                            <td align="left" valign="top">Patient alignment</td>
+                            <td align="left" valign="top">Procedure assessment</td>
+                            <td align="left" valign="top">CIMI CQI project</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">62</td>
+                            <td align="left" valign="top">Absence of assertion of intent to breast
+                                feed</td>
+                            <td align="left" valign="top">not relevant: Null</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">CIMI CQI project</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">63</td>
+                            <td align="left" valign="top">1.       It is the case (that I do know)
+                                that the Patient has problem X,</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top">affirmative, not negation</td>
+                            <td align="left" valign="top">PC thread 2/25</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">64</td>
+                            <td align="left" valign="top">2.       It is not the case (that I do
+                                know) that the Patient has problem X,</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top">null value</td>
+                            <td align="left" valign="top">PC thread 2/25/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">65</td>
+                            <td align="left" valign="top">3.       It is the case that I don’t know
+                                if the Patient has problem X,</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top">null value</td>
+                            <td align="left" valign="top">PC thread 2/25</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">66</td>
+                            <td align="left" valign="top">4.       It is the case that I don’t know
+                                if the Patient has any problems (ie any).</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top">null value</td>
+                            <td align="left" valign="top">PC thread 2/25</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">67</td>
+                            <td align="left" valign="top">5.       It is the case (that I do know)
+                                that the Patient has no problems (ie none).</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">PC thread 2/25/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">68</td>
+                            <td align="left" valign="top">patientAssertedStatus -
+                                unconfirmed/excluded - scope of "I'm allergic to penicillin"</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top">How to interpret the focal concept (drug,
+                                product, class) is orthogonal to negation</td>
+                            <td align="left" valign="top">PC thread 2/29/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">69</td>
+                            <td align="left" valign="top">clinicianAssertedStatus -
+                                confirmed/refuted - "Patient is/isn't allergic to penicillin"</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">PC thread 2/29/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">70</td>
+                            <td align="left" valign="top">no allergy to latex</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Specific safety protocol</td>
+                            <td align="left" valign="top">PC thread 3/1/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">71</td>
+                            <td align="left" valign="top">closed head injury without loss of
+                                consciousness i.e., no loss of consciousness</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Two observations. Conjunction introduces
+                                de Morgan's law if negated.</td>
+                            <td align="left" valign="top">Kcampbelll</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">72</td>
+                            <td align="left" valign="top">mother not present</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Unknown</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">73</td>
+                            <td align="left" valign="top">not allergic to clindamycin (from MU test
+                                data - allergy list) - provenance is important to consider</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Specific safety protocol</td>
+                            <td align="left" valign="top">20160323 call</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">74</td>
+                            <td align="left" valign="top">does not have diabetes (from MU test data
+                                - problem list) - provenance is important to consider i.e., no
+                                diabetes</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">20160323 call</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">75</td>
+                            <td align="left" valign="top">Preference that an action not be done:
+                                [Margaret]</td>
+                            <td align="left" valign="top">Patient alignment</td>
+                            <td align="left" valign="top">Preference</td>
+                            <td align="left" valign="top">Negation call 3/23</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">76</td>
+                            <td align="left" valign="top">Goal was not met</td>
+                            <td align="left" valign="top">not relevant: Status</td>
+                            <td align="left" valign="top">status of tracked goal</td>
+                            <td align="left" valign="top">Negation call 3/23</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">77</td>
+                            <td align="left" valign="top">won't admin flu vaccine due to egg
+                                allergy</td>
+                            <td align="left" valign="top">Contraindication</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">78</td>
+                            <td align="left" valign="top">reason for discontinuing medication</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">79</td>
+                            <td align="left" valign="top">Quitting smoking is not my goal</td>
+                            <td align="left" valign="top">Patient alignment</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">80</td>
+                            <td align="left" valign="top">5-year survival is not my goal</td>
+                            <td align="left" valign="top">Patient alignment</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">81</td>
+                            <td align="left" valign="top">follow up not needed</td>
+                            <td align="left" valign="top">Contraindication</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">82</td>
+                            <td align="left" valign="top">patient did not show up</td>
+                            <td align="left" valign="top">Patient alignment</td>
+                            <td align="left" valign="top">May record as appointment status </td>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">83</td>
+                            <td align="left" valign="top">procedure not done because patient
+                                ate</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">84</td>
+                            <td align="left" valign="top">did not use antithrombotic device on legs
+                                (supply)</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Measure or protocol exception</td>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">85</td>
+                            <td align="left" valign="top">did not supply electric wheelchair</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">86</td>
+                            <td align="left" valign="top">did not provide vaccine because out of
+                                stock</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 3/30/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">87</td>
+                            <td align="left" valign="top">did not do a variety of things for reason
+                                X</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">FHIM call 4/1/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">89</td>
+                            <td align="left" valign="top">No bleeding disorders</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Safety process; not on problem list</td>
+                            <td align="left" valign="top">NEMSIS</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">90</td>
+                            <td align="left" valign="top">Not on anticoagulants or thinners</td>
+                            <td align="left" valign="top">Risk factor absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">NEMSIS</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">91</td>
+                            <td align="left" valign="top">Refute the absence of a condition</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top">No concrete example found</td>
+                            <td align="left" valign="top"/>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">92</td>
+                            <td align="left" valign="top">patient not pregnant</td>
+                            <td align="left" valign="top">Risk factor absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 4/13</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">93</td>
+                            <td align="left" valign="top">“No Known Medicine Allergies, mom sts food
+                                Allergies”</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">MM mail 4/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">94</td>
+                            <td align="left" valign="top">“no known med allergies but has food other
+                                allergies”</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">MM mail 4/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">95</td>
+                            <td align="left" valign="top">“Father states pt has no known allergies,
+                                but states close family members have had severe reactions to:  PCN,
+                                succinylcholine chloride, anectine, and quelizine”</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">MM mail 4/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">96</td>
+                            <td align="left" valign="top">“no known allergies but has problems with
+                                ingesting some meds”</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">MM mail 4/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">97</td>
+                            <td align="left" valign="top">“NO KNOWN. CODEINE CAUSES NAUSEA”</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Question of whether codeine should be
+                                recorded with low criticality</td>
+                            <td align="left" valign="top">MM mail 4/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">98</td>
+                            <td align="left" valign="top">“Allergic to antibiotics but no known
+                                which class”</td>
+                            <td align="left" valign="top">not relevant: Null</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">MM mail 4/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">99</td>
+                            <td align="left" valign="top">hearing screening not done - needed for
+                                quality measure</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">Negation call 4/20</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">100</td>
+                            <td align="left" valign="top">Hand lost in accident</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">invented 5/5/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">101</td>
+                            <td align="left" valign="top">[condition in remission]</td>
+                            <td align="left" valign="top">not relevant: Status</td>
+                            <td align="left" valign="top">This is a problem clinical status</td>
+                            <td align="left" valign="top">WGM 5/10/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">102</td>
+                            <td align="left" valign="top">[condition refuted]</td>
+                            <td align="left" valign="top">not relevant: Status</td>
+                            <td align="left" valign="top">This is a problem verification status</td>
+                            <td align="left" valign="top">WGM 5/10/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">103</td>
+                            <td align="left" valign="top">Ted: nested negation See fhir dstu
+                                questionnaire</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top">no concrete example found</td>
+                            <td align="left" valign="top">WGM 5/10/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">104</td>
+                            <td align="left" valign="top">[assert that a batch of stuff is
+                                absent]</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">WGM 5/10/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">105</td>
+                            <td align="left" valign="top">[handle context conduction]</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top">no concrete example found</td>
+                            <td align="left" valign="top">WGM 5/10/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">106</td>
+                            <td align="left" valign="top">no family; no home; transportation; POA
+                                i.e., no family</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top">These are concerns</td>
+                            <td align="left" valign="top">WGM 5/10/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">107</td>
+                            <td align="left" valign="top">No next of kin</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top">These are concerns</td>
+                            <td align="left" valign="top">decomposition of other requirements
+                                6/21</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">108</td>
+                            <td align="left" valign="top">no evidence of cancer (path)</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Note that this assertion is qualified</td>
+                            <td align="left" valign="top">decomposition of other requirements
+                                6/21</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">155</td>
+                            <td align="left" valign="top">no MRSA found (lab)</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">decomposition of other requirements
+                                6/21</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">109</td>
+                            <td align="left" valign="top">no family; no home; transportation;
+                                POA i.e., no home</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top">These are concerns</td>
+                            <td align="left" valign="top">decomposition of other requirements
+                                6/21</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">110</td>
+                            <td align="left" valign="top">no family; no home; transportation;
+                                POA i.e., no transportation</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top">These are concerns</td>
+                            <td align="left" valign="top">decomposition of other requirements
+                                6/21</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">111</td>
+                            <td align="left" valign="top">no family; no home; transportation;
+                                POA i.e., no POA</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">decomposition of other requirements
+                                6/21</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">112</td>
+                            <td align="left" valign="top">No abnormality detected (BL)
+                                [openEHR-EHR-CLUSTER.exam-.v0]</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">Measure or protcol exception</td>
+                            <td align="left" valign="top">openEHR exam pattern</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">113</td>
+                            <td align="left" valign="top">Represent inference of "absence" from
+                                empty query - specific use not yet determined, but, e.g., CDS
+                                logging</td>
+                            <td align="left" valign="top">not relevant: Abstract</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">CQI call 8/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">114</td>
+                            <td align="left" valign="top">Reason for [absence or] delay in
+                                fibrinolytic therapy</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Measure of protocol exception</td>
+                            <td align="left" valign="top">CQI - The Joint Commission Measure
+                                AMI-7a</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">115</td>
+                            <td align="left" valign="top">Reason for discontinuation of parenteral
+                                anticoagulation therapy</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">CQI - The Joint Commission Measure
+                                VTE-3</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">116</td>
+                            <td align="left" valign="top">Reason for delay in initiation of IV
+                                thrombolytic</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">CQI - The Joint Commission Measure
+                                STK-4</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">117</td>
+                            <td align="left" valign="top">Reason for not providing overlap
+                                medication (IV or subcutaneous anticoagulation therapy and warfarin
+                                on the same day)</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Measure or protocol exception</td>
+                            <td align="left" valign="top">CQI - The Joint Commission Measure
+                                VTE-3</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">118</td>
+                            <td align="left" valign="top">Reason for not providing tobacco cessation
+                                medication at discharege</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">CQI - The Joint Commission Measure TOB-2,
+                                TOB-3</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">119</td>
+                            <td align="left" valign="top">Reason for not providing Venous
+                                thromboembolism therapy or prophylaxis (medication or antithrombotic
+                                device use</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Measure or protocol exception</td>
+                            <td align="left" valign="top">CQI - The Joint Commission Measures STK-1,
+                                VTE-1, VTE-6</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">120</td>
+                            <td align="left" valign="top">Reason for not providing statin medication
+                                at discharge</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">CQI - The Joint Commission Measure
+                                STK-6</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">121</td>
+                            <td align="left" valign="top">Reason for not initiating antenatal
+                                steroids</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">CQI - The Joint Commission Measure
+                                PC-03</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">122</td>
+                            <td align="left" valign="top">rule out</td>
+                            <td align="left" valign="top">not relevant: Status</td>
+                            <td align="left" valign="top">ambiguous: use "provisional,"
+                                "differential" or "refuted"</td>
+                            <td align="left" valign="top">Negation call 8/10</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">123</td>
+                            <td align="left" valign="top">to exclude a search result for specific
+                                code system</td>
+                            <td align="left" valign="top">not relevant: query</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">FHIR list, 8/23</td>
+                        </tr>
+                        <tr align="left" valign="top">
+                            <td align="left" valign="top">124</td>
+                            <td align="left" valign="top">
+                                <link xmlns:xlink="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=9335">do not turn patient</link></td>
+                            <td align="left" valign="top">Contraindication</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">FHIR Gforge comment</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">125</td>
+                            <td align="left" valign="top">do not give blood or blood products</td>
+                            <td align="left" valign="top">Contraindication</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">FHIR Gforge comment</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">126</td>
+                            <td align="left" valign="top">do not flush central line</td>
+                            <td align="left" valign="top">Contraindication</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">FHIR Gforge comment</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">127</td>
+                            <td align="left" valign="top">do not take blood pressure on left
+                                arm</td>
+                            <td align="left" valign="top">Contraindication</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">FHIR Gforge comment</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">128</td>
+                            <td align="left" valign="top">"patient says that they have never had
+                                chicken pox"</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">FHIR Zulip 9/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">129</td>
+                            <td align="left" valign="top">not currently taking</td>
+                            <td align="left" valign="top">Risk factor absent</td>
+                            <td align="left" valign="top">Typically not represented as a provider
+                                intervention but as a fact about the patient.</td>
+                            <td align="left" valign="top">FHIR Zulip 9/5</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">130</td>
+                            <td align="left" valign="top">Patient does not consent to surgery</td>
+                            <td align="left" valign="top">Patient alignment</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">PC 9/20/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">131</td>
+                            <td align="left" valign="top">healed fracture (no fracture)</td>
+                            <td align="left" valign="top">not relevant: Status</td>
+                            <td align="left" valign="top">This is a concern status</td>
+                            <td align="left" valign="top">PC 9/20/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">132</td>
+                            <td align="left" valign="top">Patient is not NPO</td>
+                            <td align="left" valign="top">Doesn’t fit</td>
+                            <td align="left" valign="top">Specific safety protocol</td>
+                            <td align="left" valign="top">PC 9/20/16</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">133</td>
+                            <td align="left" valign="top">1.     Nothing to eat or drink until
+                                respiratory distress dissipates  [respiratory distress
+                                absent]</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">156</td>
+                            <td align="left" valign="top">1.     Nothing to eat or drink until
+                                respiratory distress dissipates  [NPO]</td>
+                            <td align="left" valign="top">Contraindication</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">VA Use Case CHF - ED 20150305</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">134</td>
+                            <td align="left" valign="top">Percentage of patients aged 65 years and
+                                older who have an advance care plan or surrogate decision maker
+                                documented in the medical record or documentation in the medical
+                                record that an advance care plan was discussed but the patient did
+                                not wish or was not able to name a surrogate decision maker or
+                                provide an advance care plan.</td>
+                            <td align="left" valign="top">Patient alignment</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 47</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">135</td>
+                            <td align="left" valign="top">Percentage of children 3 months through 18
+                                years of age who were diagnosed with upper respiratory infection
+                                (URI) and were not dispensed an antibiotic prescription on or three
+                                days after the episode</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 65</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">136</td>
+                            <td align="left" valign="top">Percentage of patients aged 18 years and
+                                older with a diagnosis of multiple myeloma, not in remission, who
+                                were prescribed or received intravenous bisphosphonate therapy
+                                within the 12-month reporting period [condition not in
+                                remission]</td>
+                            <td align="left" valign="top">not relevant: Status</td>
+                            <td align="left" valign="top">this is a problem status</td>
+                            <td align="left" valign="top">PQRS 69</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">137</td>
+                            <td align="left" valign="top">Percentage of patients aged 2 years and
+                                older with a diagnosis of AOE who were not prescribed systemic
+                                antimicrobial therapy</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 93</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">138</td>
+                            <td align="left" valign="top">Percentage of patients, regardless of age,
+                                with a diagnosis of prostate cancer at low risk of recurrence
+                                receiving interstitial prostate brachytherapy, OR external beam
+                                radiotherapy to the prostate, OR radical prostatectomy, OR
+                                cryotherapy who did not have a bone scan performed at any time since
+                                diagnosis of prostate cancer</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 102</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">139</td>
+                            <td align="left" valign="top">Percentage of adults 18 through 64 years
+                                of age with a diagnosis of acute bronchitis who were not prescribed
+                                or dispensed an antibiotic prescription on or 3 days after the
+                                episode</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 116</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">140</td>
+                            <td align="left" valign="top">Percentage of patients aged 18 years and
+                                older with a diagnosis of chronic kidney disease (CKD) (stage 3, 4,
+                                or 5, not receiving Renal Replacement Therapy [RRT]) who had a
+                                fasting lipid profile performed at least once within a 12-month
+                                period</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 121</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">141</td>
+                            <td align="left" valign="top">Percentage of patient visits for those
+                                patients aged 18 years and older with a diagnosis of chronic kidney
+                                disease (CKD) (stage 3, 4, or 5, not receiving Renal Replacement
+                                Therapy [RRT]) with a blood pressure &lt; 140/90 mmHg OR ≥ 140/90
+                                mmHg with a documented plan of care</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 122</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">142</td>
+                            <td align="left" valign="top"><para>Percentage of patients, regardless of age,
+                                with a current diagnosis of melanoma or a history of melanoma whose
+                                information was entered, at least once within a 12 month period,
+                                into a recall system that includes:
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>A target date for the
+                                            next complete physical skin exam, AND</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>A process to follow up
+                                            with patients who either did not make an appointment within the
+                                            specified timeframe or who missed a scheduled appointment</para>
+                                    </listitem>
+                                </itemizedlist></para></td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 137</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">143</td>
+                            <td align="left" valign="top">Percentage of patients aged 18 years and
+                                older with a diagnosis of primary open-angle glaucoma (POAG) whose
+                                glaucoma treatment has not failed (the most recent IOP was reduced
+                                by at least 15% from the pre- intervention level) OR if the most
+                                recent IOP was not reduced by at least 15% from the pre-
+                                intervention level, a plan of care was documented within 12
+                                months</td>
+                            <td align="left" valign="top">not relevant: Threshold</td>
+                            <td align="left" valign="top">threshold, not negation</td>
+                            <td align="left" valign="top">PQRS 141</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">144</td>
+                            <td align="left" valign="top">Final reports for procedures using
+                                fluoroscopy that document radiation exposure indices, or exposure
+                                time and number of fluorographic images (if radiation exposure
+                                indices are not available)</td>
+                            <td align="left" valign="top">not relevant: Comparison</td>
+                            <td align="left" valign="top">2 conditional queries</td>
+                            <td align="left" valign="top">PQRS 145</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">145</td>
+                            <td align="left" valign="top">Percentage of patients aged 18 years and
+                                older undergoing isolated CABG surgery who have a postoperative
+                                stroke (i.e., any confirmed neurological deficit of abrupt onset
+                                caused by a disturbance in blood supply to the brain) that did not
+                                resolve within 24 hours</td>
+                            <td align="left" valign="top">not relevant: Status</td>
+                            <td align="left" valign="top">Clinical status of disorder</td>
+                            <td align="left" valign="top">PQRS 166</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">146</td>
+                            <td align="left" valign="top">Percentage of patients evaluated in an
+                                outpatient setting who within the previous 12 months have
+                                experienced an acute myocardial infarction (MI), coronary artery
+                                bypass graft (CABG) surgery, a percutaneous coronary intervention
+                                (PCI), cardiac valve surgery, or cardiac transplantation, or who
+                                have chronic stable angina (CSA) and have not already participated
+                                in an early outpatient cardiac rehabilitation/secondary prevention
+                                (CR) program for the qualifying event/diagnosis who were referred to
+                                a CR program</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 243</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">147</td>
+                            <td align="left" valign="top">Percent of patients undergoing open repair
+                                of small or moderate sized non-ruptured abdominal aortic aneurysms
+                                who do not experience a major complication (discharge to home no
+                                later than post-operative day #7) i.e., who do not experience a
+                                major complication</td>
+                            <td align="left" valign="top">not relevant: Threshold</td>
+                            <td align="left" valign="top">Discharge threshold</td>
+                            <td align="left" valign="top">PQRS 258</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">148</td>
+                            <td align="left" valign="top">Percent of patients undergoing
+                                endovascular repair of small or moderate non-ruptured abdominal
+                                aortic aneurysms (AAA) that do not experience a major complication
+                                (discharged to home no later than post-operative day #2)</td>
+                            <td align="left" valign="top">not relevant: Threshold</td>
+                            <td align="left" valign="top">Discharge threshold</td>
+                            <td align="left" valign="top">PQRS 259</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">149</td>
+                            <td align="left" valign="top">Percentage of patients 18-50 years of age
+                                with a diagnosis of low back pain who did not have an imaging study
+                                (plain X-ray, MRI, CT scan) within 28 days of the diagnosis.</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 312</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">150</td>
+                            <td align="left" valign="top">Patients aged 18 years and older who had
+                                surgery for primary rhegmatogenous retinal detachment who did not
+                                require a return to the operating room within 90 days of
+                                surgery.</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 384</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">151</td>
+                            <td align="left" valign="top">Percentage of patients with a diagnosis of
+                                primary headache disorder for whom advanced brain imaging was not
+                                ordered.</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Closed world</td>
+                            <td align="left" valign="top">PQRS 419</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">152</td>
+                            <td align="left" valign="top">Left hemiplegia</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top">implies right hemiplegia absent</td>
+                            <td align="left" valign="top">team call 3/8/17</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">153</td>
+                            <td align="left" valign="top">Closed head injury</td>
+                            <td align="left" valign="top"> </td>
+                            <td align="left" valign="top">implies no open head wound</td>
+                            <td align="left" valign="top">team call 3/8/17</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">154</td>
+                            <td align="left" valign="top">Do you have a spleen? Order check question
+                                for live vaccine</td>
+                            <td align="left" valign="top">Normal phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">team call 3/8/17</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">157</td>
+                            <td align="left" valign="top">Patient has zero pressure ulcers</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top">count question synonymous with
+                                "absent"</td>
+                            <td align="left" valign="top">VA IA project</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">158</td>
+                            <td align="left" valign="top">Head CT without Contrast</td>
+                            <td align="left" valign="top">Procedure not done</td>
+                            <td align="left" valign="top">Modality kind</td>
+                            <td align="left" valign="top">IA group call 17/10/20</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">159</td>
+                            <td align="left" valign="top">Are you experiencing chest pain now?</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">IA group</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">160</td>
+                            <td align="left" valign="top">Have you experienced chest pain in the
+                                past?</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">IA group</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">161</td>
+                            <td align="left" valign="top">When you experience chest pain does it
+                                radiate?</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">IA group</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">162</td>
+                            <td align="left" valign="top">wound has no odor</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">IA group</td>
+                        </tr>
+                    <tr align="left" valign="top">
+                            <td align="left" valign="top">163</td>
+                            <td align="left" valign="top">What concerns are active?</td>
+                            <td align="left" valign="top">Pathological phenomenon absent</td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+        </section>
+        <section xml:id="appendices_maps">
+            <title>Maps</title>
+            <para>
+                <table frame="border" border="1">
+                    <caption/>
+                    <col width="33%" align="left" valign="top"/>
+                    <col width="33%" align="left" valign="top"/>
+                    <col width="33%" align="left" valign="top"/>
+                    <thead align="left">
+                        <tr align="left" valign="top">
+                            <th align="left" valign="top">C-CDA key elements</th>
+                            <th align="left" valign="top">FHIR key elements</th>
+                            <th align="left" valign="top">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody align="left">
+                        <tr align="left" valign="top">
+                            <td align="left" valign="top">
+                                <para> &lt;act classCode="ACT" moodCode="EVN"></para>
+                                <para> &lt;code code="CONC"
+                                    codeSystem="2.16.840.1.113883.5.6"/></para>
+                                <para> &lt;statusCode code="active"/></para>
+                                <para> &lt;entryRelationship typeCode="SUBJ"></para>
+                            </td>
+                            <td align="left" valign="top">Concern not covered in FHIR example</td>
+                            <td align="left" valign="top">This could be membership in a FHIR concern
+                                list; no examples exist</td>
+                        </tr>
+                        <tr align="left" valign="top">
+                            <td align="left" valign="top">
+                                <para>&lt;observation classCode="OBS" </para>
+                                <para> moodCode="EVN" </para>
+                                <para> negationInd="true"></para>
+                            </td>
+                            <td align="left" valign="top">"resourceType": "AllergyIntolerance"</td>
+                            <td align="left" valign="top">CDA observation is generic; FHIR implies
+                                allergy object</td>
+                        </tr>
+                        <tr align="left" valign="top">
+                            <td align="left" valign="top">&lt;code code="ASSERTION"
+                                codeSystem="2.16.840.1.113883.5.4"/></td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">C-CDA pattern follows TermInfo</td>
+                        </tr>
+                        <tr align="left" valign="top">
+                            <td align="left" valign="top">
+                                <para>Not covered in example</para>
+                                <para> subentry for problem status?</para>
+                            </td>
+                            <td align="left" valign="top">"clinicalStatus": "active",
+                                "verificationStatus": "confirmed",</td>
+                            <td align="left" valign="top">
+                                <para>FHIR statuses might be seen to narrow the scope of the
+                                    negation; they are also optional. Would recommend
+                                    removal.</para>
+                                <para> CDA status describes the record object; also supports a
+                                    problem status (deprecated) but it's not specified in Allergy or
+                                    used in example</para>
+                            </td>
+                        </tr>
+                        <tr align="left" valign="top">
+                            <td align="left" valign="top">
+                                <para>&lt;effectiveTime></para>
+                                <para> &lt;low nullFlavor="NA"/></para>
+                                <para> &lt;/effectiveTime></para>
+                            </td>
+                            <td align="left" valign="top"/>
+                            <td align="left" valign="top">time required by C-CDA template</td>
+                        </tr>
+                        <tr align="left" valign="top">
+                            <td align="left" valign="top">
+                                <para>&lt;value xsi:type="CD" code="419199007"</para>
+                                <para> displayName="Allergy to substance (disorder)"</para>
+                                <para> codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED
+                                    CT"/></para>
+                            </td>
+                            <td align="left" valign="top">
+                                <para>"coding": </para>
+                                <para> "system": "http://snomed.info/sct",</para>
+                                <para> "code": "716186003",</para>
+                                <para> "display": "No Known Allergy (situation)"</para>
+                            </td>
+                            <td align="left" valign="top">
+                                <para>Semantic mapping engages here</para>
+                                <para> 716186003 has 'allergic disposition' as its associated
+                                    finding, the parent of 'allergy to substance'</para>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>
+                <table frame="box" border="1">
+                    <caption/>
+                    <col width="50%"/>
+                    <col width="50%"/>
+                    <thead align="left">
+                        <tr>
+                            <th>CCDA to FHIR</th>
+                            <th>FHIR to CCDA</th>
+                        </tr>
+                    </thead>
+                    <tbody align="left">
+                        <tr>
+                            <td>When observation.code is Assertion &amp; observation.value is a
+                                descendant of [allergic condition?], create a FHIR
+                                AllergyIntolerance resource</td>
+                            <td>When valueCode is a descendant of [allergic condition?], create an
+                                observation with code of Assertion and value of the condition</td>
+                        </tr>
+                        <tr>
+                            <td>If negationInd is null or false, use the allergic condition
+                                value</td>
+                            <td>When valueCode is a Situation, with a findingContext of "known
+                                absent," put the associatedFinding value into the observation.value,
+                                and set the negationInd to True</td>
+                        </tr>
+                        <tr>
+                            <td>If negationInd is True, use the situation with explicit context that
+                                asserts the the condition identified is known absent</td>
+                            <td>Set required fields: statusCode to "completed" and effectiveTime to
+                                NA</td>
+                        </tr>
+                        <tr>
+                            <td>If no such situation code exists, provide an expression</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>clinicalStatus and verificationStatus are optional: do not populate
+                                unless the CDA instance includes a status</td>
+                            <td/>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>C-CDA example:</para>
+            <para>http://hl7-c-cda-examples.herokuapp.com/examples/view/0ff4ddb1f9ccae6fd6aa9b5db98ae4d9f22290af</para>
+            <para>FHIR example:
+                http://build.fhir.org/allergyintolerance-nka.json.html</para>
+        </section>
+    </section>
+</chapter>
+
+  
+          

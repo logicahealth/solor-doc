@@ -58,17 +58,68 @@
     
     <section>
         <title>Concepts Including Negation</title>
-        <para>“Negation” vs. “Affirmation” are two polar opposite paradigms within the SNOMED CT Concept Model. Where “Affirmation” represents a statement that e.g. a finding or a disorder is present, negation states their absence.</para>
+        <para>--------------------</para>
+        <para>Negation, where in the strictest sense within the description logic realm, is "NOT"
+            and it means "everything but". If one were to express "not diabetes", it equates to
+            "everything but diabetes".</para>
+        <para>This is further complicated within SNOMED by the parent-child relationship "isA". Take
+            the following figure as an example:</para>
+        <para>
+            <figure>
+                <title>Effect of isA on Negation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/negation.png" scalefit="1" width="100%"
+                            contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+        <para>In a hierarchical structure, isA is a one-way pointer. If B is achild, and A is a
+            parent, that means B isA A. However, one cannot flip that relationship. For example, one
+            can express that one is "having an apple", and by the definition of isA, one can assume
+            that one is "having a fruit" (apple is a fuit). However, this directionality cannot be
+            flipped because "having a fruit" does not necessarily mean that one is "having an
+            apple".</para>
+        <para>In a separate example, what if "No apple" is a child of "No fruit"? If one were having
+            "no apple", it doesn't necessarily mean that one is having "no fruit" (one could very
+            well have other fruits). However, in this scenario, if one were to express having "no
+            fruit", one could deduce that one is also having "no apple". Note the directionality of
+            the isA in this scenario, which is opposite of the previous example.</para>
+        <para>Not shown in the figure, but what if "No apple" is a child of "Fruit"?</para>
+        <para>Although simplistic, this example shows how negated concept in a hierarchical
+            structure significantly complicates any calculations. Without a way to properly identify
+            if a concept is a 'negated' concept, computational methods could not be applied because
+            the directionality as shown with the apple/fruit example would complicate any
+            calculations.Therefore, it was deemed necessary that such "negated" concepts within
+            SNOMED required identification such that they can be segragated for further special
+            handling.</para>
+        <para>--------------------</para>
+        <para>“Negation” vs. “Affirmation” are two polar opposite paradigms within the SNOMED CT
+            Concept Model. Where “Affirmation” represents a statement that e.g. a finding or a
+            disorder is present, negation states their absence.</para>
+        <para>However, in SNOMED, the expression of "no diabetes" is a positive assertion that
+            something is not present. This is different than "everything but diabetes". <annotation>
+                <para>reference separation of concern when it is available</para>
+            </annotation> As a result, these two potentially different semantics could lead to
+            confusion and delay if one were to apply computational methods - does "No diabetes" mean
+            "everything but diabetes" or "diabetes is not present"?</para>
         <para><emphasis role="bold"><emphasis role="underline">Example:</emphasis></emphasis></para>
         <para>65124004 |Swelling (finding)| vs. 300890009 |Swelling absent (situation)|</para>
-        <para>“Negation” concepts are generally located in the “situation with explicit context” hierarchy, where the Context terminological model is consistently applied. Concepts including or implying negation, which are located outside this hierarchy pose challenges for the logical semantic hierarchies they reside in.  For the purpose of this project we focused only on identifying concepts that are currently not located within the “situation with explicit context” hierarchy.  Some of these identified concepts may need to be relocated to the situation hierarchy as a result of this project.</para>
+        <para>“Negation” concepts are generally located in the “situation with explicit context”
+            hierarchy, where the Context terminological model is consistently applied. Concepts
+            including or implying negation, which are located outside this hierarchy pose challenges
+            for the logical semantic hierarchies they reside in. For the purpose of this project we
+            focused only on identifying concepts that are currently not located within the
+            “situation with explicit context” hierarchy. Some of these identified concepts may need
+            to be relocated to the situation hierarchy as a result of this project.</para>
         <para>Currently the logical hierarchy for negation concepts remains “upside-down”.</para>
         <para><emphasis role="bold"><emphasis role="underline">Example:</emphasis></emphasis></para>
         <para>162298006 |No headache (situation)| is a subtype of 81765008 |No pain (situation)|,
             but “no headache” does not mean, the patient has no pain.</para>
-        
+
         <section>
-            
+
             <title>Rule Set Considerations</title>
             <para> Besides clearly <emphasis>stated</emphasis> negation in the SNOMED CT (SCT) Fully
                 Specified Names (FSN), implied negation had to be considered in a number of
@@ -76,35 +127,38 @@
             <para><emphasis role="bold"><emphasis role="underline">Example:</emphasis></emphasis>
                 Symptom not changed (finding) vs. Late syphilis with clinical manifestations other
                 than neurosyphilis (disorder) </para>
-            <para>The first concept clearly states the negation (“NOT changed”), the words “other than” in the second concept implies it.
-            </para>
+            <para>The first concept clearly states the negation (“NOT changed”), the words “other
+                than” in the second concept implies it. </para>
         </section>
-        
+
         <section>
             <title>Rules Defined For Inclusion in “Negation” RefSet</title>
             <itemizedlist>
-                    <listitem>
-                        <para> FSN states that something about the <emphasis role="underline">Subject of Record</emphasis> is “absent”. </para>
-                        <para><emphasis role="bold">Example</emphasis>: Ankle movement <emphasis role="bold">absent</emphasis> in<emphasis> “No ankle movement (finding)”
+                <listitem>
+                    <para> FSN states that something about the <emphasis role="underline">Subject of
+                            Record</emphasis> is “absent”. </para>
+                    <para><emphasis role="bold">Example</emphasis>: Ankle movement <emphasis
+                            role="bold">absent</emphasis> in<emphasis> “No ankle movement (finding)”
                         </emphasis></para>
-                    </listitem>
-                    <listitem>
-                        <para> FSN states that something about a <emphasis role="underline">procedure</emphasis> is “absent” (Assumption: Procedures are
+                </listitem>
+                <listitem>
+                    <para> FSN states that something about a <emphasis role="underline"
+                            >procedure</emphasis> is “absent” (Assumption: Procedures are
                         documented, when they are carried out on a Subject of Record). </para>
-                        <para><emphasis role="bold">Example</emphasis>: Use of contrast media
-                            <emphasis role="bold">absent</emphasis> in <emphasis>“Magnetic resonance
-                            imaging without contrast (procedure)” </emphasis></para>
-                    </listitem>
-                    <listitem>
-                        <para> FSN negates everything “<emphasis role="bold">other</emphasis>” than
-                        what it describes. </para>
-                        <para><emphasis role="bold">Example</emphasis>: Perception of anything
-                            <emphasis role="bold">other</emphasis> than light in<emphasis>
-                            “Perceives light only (finding)” </emphasis></para>
-                    </listitem>
+                    <para><emphasis role="bold">Example</emphasis>: Use of contrast media <emphasis
+                            role="bold">absent</emphasis> in <emphasis>“Magnetic resonance imaging
+                            without contrast (procedure)” </emphasis></para>
+                </listitem>
+                <listitem>
+                    <para> FSN negates everything “<emphasis role="bold">other</emphasis>” than what
+                        it describes. </para>
+                    <para><emphasis role="bold">Example</emphasis>: Perception of anything <emphasis
+                            role="bold">other</emphasis> than light in<emphasis> “Perceives light
+                            only (finding)” </emphasis></para>
+                </listitem>
             </itemizedlist>
         </section>
-        
+
         <section>
             <title>Queries to Identify Candidate Concepts for Negation RefSet</title>
             <para>Identify content that would need to be evaluated for negated concepts: <itemizedlist>
@@ -151,21 +205,20 @@
                         </itemizedlist>
                     </listitem>
                 </itemizedlist></para>
-            <para>The query results were reviewed and either accepted or denied
-                based on the development of a set of rules as described above.
-            </para>
+            <para>The query results were reviewed and either accepted or denied based on the
+                development of a set of rules as described above. </para>
         </section>
-        
+
         <section>
             <title>Examples for Inclusion/Exclusion in Negation RefSet</title>
             <para><emphasis role="bold">Keyword: “NO”</emphasis>
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="images/ConceptAnalysis_img_sect3.4.jpg" format="jpg"/>
-                </imageobject>
-            </mediaobject>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/ConceptAnalysis_img_sect3.4.jpg" format="jpg"/>
+                    </imageobject>
+                </mediaobject>
             </para>
-            
+
             <para><emphasis role="bold">Keyword: “NOT”</emphasis>
                 <mediaobject>
                     <imageobject>
@@ -173,7 +226,7 @@
                     </imageobject>
                 </mediaobject>
             </para>
-            
+
             <para><emphasis role="bold">Keyword: “WITHOUT”</emphasis>
                 <mediaobject>
                     <imageobject>
@@ -181,7 +234,7 @@
                     </imageobject>
                 </mediaobject>
             </para>
-            
+
             <para><emphasis role="bold">Keyword: “NONT” or "NON-X"</emphasis>
                 <mediaobject>
                     <imageobject>
@@ -189,7 +242,7 @@
                     </imageobject>
                 </mediaobject>
             </para>
-            
+
             <para><emphasis role="bold">Keyword: “ONLY”</emphasis>
                 <mediaobject>
                     <imageobject>
@@ -197,7 +250,7 @@
                     </imageobject>
                 </mediaobject>
             </para>
-            
+
             <para><emphasis role="bold">Keyword: “UNABLE”</emphasis>
                 <mediaobject>
                     <imageobject>
@@ -205,7 +258,7 @@
                     </imageobject>
                 </mediaobject>
             </para>
-            
+
             <para><emphasis role="bold">Keyword: “INABILITY”</emphasis>
                 <mediaobject>
                     <imageobject>
@@ -213,7 +266,7 @@
                     </imageobject>
                 </mediaobject>
             </para>
-            
+
             <para><emphasis role="bold">Keyword: “REJECTED”</emphasis>
                 <mediaobject>
                     <imageobject>
@@ -222,7 +275,7 @@
                 </mediaobject>
             </para>
         </section>
-        
+
     </section>
     
     
@@ -460,7 +513,8 @@
         </section>
         
     </section>
-   
+
+    <xi:include href="identifying-solor-content-that-requires-special-handling.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <section>
         <title>Reliability of Rule Sets</title>
         <para>In order to determine reliability of the identified keywords and rule sets for each RefSet, metrics of agreement/disagreement for the initial review were used.</para>

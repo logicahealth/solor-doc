@@ -200,6 +200,184 @@
                 management, and management of changing knowledge over time must be part of the
                 architectural design. </para>
         </section>
+        <section>
+            <info>
+                <title>FDA Principles of Software Validation</title>
+                <authorgroup>
+                    <author>
+                        <orgname>PARASOFT</orgname>
+                    </author>
+                </authorgroup>
+            </info>
+            <section>
+                <title>Requirements</title>
+                <para>A documented software requirements specification provides a baseline for both
+                    validation and verification.</para>
+            </section>
+            <section>
+                <title>Defect Prevention</title>
+                <para>Software quality assurance needs to focus on preventing the introduction of
+                    defects into the software development process rather than trying to "test
+                    quality into" the software code after it is written.</para>
+            </section>
+            <section>
+                <title>Time and Effort</title>
+                <para>Preparation of software validation should begin early; i.e., during design and
+                    development planning and design input.</para>
+            </section>
+            <section>
+                <title>Software Life Cycle</title>
+                <para>Software validation takes place within the environment of an established
+                    software life cycle.</para>
+            </section>
+            <section>
+                <title>Plans</title>
+                <para>The software validation process is defined and controlled through the use of a
+                    plan. The software validation plan defines "what" is to be accomplished through
+                    the software validation effort.</para>
+            </section>
+            <section>
+                <title>Procedures</title>
+                <para>The software validation process is executed through the use of procedures.
+                    These procedures establish "how" to conduct the software validation
+                    effort.</para>
+            </section>
+            <section>
+                <title>Software Validation after a Change</title>
+                <para>Due to the complexity of software, a seemingly small local change may have a
+                    significant global system impact.</para>
+                <para> Whenever software is changed, a validation analysis should be conducted not
+                    just for validation of the individual change, but also to determine the extent
+                    and impact of that change on the entire software system.</para>
+            </section>
+            <section>
+                <title>Validation Coverage</title>
+                <para>Validation coverage should be based on the software's complexity and safety
+                    risk - not on firm size or resource constraints. The selection of validation
+                    activities, tasks, and work items should be commensurate with the complexity of
+                    the software design and the risk associated with the use of the software for the
+                    specified intended use.</para>
+            </section>
+            <section>
+                <title>Independence of Review</title>
+                <para>Self-validation is extremely difficult. When possible, an independent
+                    evaluation is always better, especially for higher risk applications.</para>
+            </section>
+            <section>
+                <title>Independence of Review</title>
+                <para>Self-validation is extremely difficult. When possible, an independent
+                    evaluation is always better, especially for higher risk applications.</para>
+            </section>
+            <section>
+                <title>Flexibility and Responsibility</title>
+                <para>Software is designed, developed, validated, and regulated in a wide spectrum
+                    of environments, and for a wide variety of devices with varying levels of
+                    risk.</para>
+            </section>
+            <section>
+                <title>Software Life Cycle Activities</title>
+                <para>Software is designed, developed, validated, and regulated in a wide spectrum
+                    of environments, and for a wide variety of devices with varying levels of
+                    risk.</para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Quality Planning</para>
+                        </listitem>
+                        <listitem>
+                            <para>System Requirements Definition</para>
+                        </listitem>
+                        <listitem>
+                            <para>Detailed Software Requirements Specification</para>
+                        </listitem>
+                        <listitem>
+                            <para>Software Design Specification</para>
+                        </listitem>
+                        <listitem>
+                            <para>Construction or Coding</para>
+                        </listitem>
+                        <listitem>
+                            <para>Testing</para>
+                        </listitem>
+                        <listitem>
+                            <para>Installation</para>
+                        </listitem>
+                        <listitem>
+                            <para>Operation and Support</para>
+                        </listitem>
+                        <listitem>
+                            <para>Maintenance</para>
+                        </listitem>
+                        <listitem>
+                            <para>Retirement</para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </section>
+            <section>
+                <title>Quality Planning</title>
+                <para>Design and development planning should culminate in a plan that identifies
+                    necessary tasks, procedures for anomaly reporting and resolution, necessary
+                    resources, and management review requirements, including formal design
+                    reviews.</para>
+            </section>
+            <section>
+                <title>Requirements</title>
+                <para>The software requirements specification document should contain a written
+                    definition of the software functions.</para>
+                <para> A software requirements traceability analysis should be conducted to trace
+                    software requirements to (and from) system requirements and to risk analysis
+                    results.</para>
+            </section>
+            <section>
+                <title>Design</title>
+                <para>In the design process, the software requirements specification is translated
+                    into a logical and physical representation of the software to be implemented.
+                    The software design specification is a description of what the software should
+                    do and how it should do it.</para>
+                <para> At the end of the software design activity, a Formal Design Review should be
+                    conducted to verify that the design is correct, consistent, complete, accurate,
+                    and testable, before moving to implement the design.</para>
+            </section>
+            <section>
+                <title>Construction or Coding</title>
+                <para>Source code should be evaluated to verify its compliance with specified coding
+                    guidelines. Such guidelines should include coding conventions regarding clarity,
+                    style, complexity management, and commenting.</para>
+            </section>
+            <section>
+                <title>Testing by the Software Developer</title>
+                <para>Test plans and test cases should be created as early in the software
+                    development process as feasible.</para>
+                <para> Once the prerequisite tasks (e.g., code inspection) have been successfully
+                    completed, software testing begins. It starts with unit level testing and
+                    concludes with system level testing.</para>
+                <para> Code-based testing is also known as structural testing or "white-box"
+                    testing. It identifies test cases based on knowledge obtained from the source
+                    code, detailed design specification, and other development documents. Structural
+                    testing can identify “dead” code that is never executed when the program is
+                    run.</para>
+                <para> The level of structural testing can be evaluated using metrics that are
+                    designed to show what percentage of the software structure has been evaluated
+                    during structural testing. These metrics are typically referred to as "coverage"
+                    and are a measure of completeness with respect to test selection
+                    criteria.</para>
+            </section>
+            <section>
+                <title>User Site Testing</title>
+                <para>User site testing should follow a pre-defined written plan with a formal
+                    summary of testing and a record of formal acceptance. Documented evidence of all
+                    testing procedures, test input data, and test results should be retained.</para>
+            </section>
+            <section>
+                <title>Maintenance and Software Changes</title>
+                <para>When changes are made to a software system, either during initial development
+                    or during post release maintenance, sufficient regression analysis and testing
+                    should be conducted to demonstrate that portions of the software not involved in
+                    the change were not adversely impacted. This is in addition to testing that
+                    evaluates the correctness of the implemented change(s).</para>
+            </section>
+        </section>
     </section>
     <section>
         <title>Architectural Challenges</title>

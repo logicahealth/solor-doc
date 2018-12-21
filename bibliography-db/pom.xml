@@ -121,6 +121,47 @@
                </execution>
             </executions>
          </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>properties-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <executions>
+               <execution>
+                  <phase>validate</phase>
+                  <goals>
+                     <goal>read-project-properties</goal>
+                  </goals>
+                  <configuration>
+                     <files>
+                        <file>C:\Users\kmaulden\Documents\code\mendeleyclient.properties</file>
+                     </files>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <!--<plugin>-->
+            <!--<groupId>sh.isaac.komet.doc.isaacs-komet-doc</groupId>-->
+            <!--<artifactId>citation-editor-plugin</artifactId>-->
+            <!--<executions>-->
+               <!--<execution>-->
+                  <!--<id>GenerateBibliography</id>-->
+                  <!--<phase>validate</phase>-->
+                  <!--<configuration>-->
+                     <!--<directoryPath>src/docbkx/bibliography.xml</directoryPath>-->
+                     <!--<groupId>6a7d8e08-17f7-3886-a641-e1d56243e28f</groupId>-->
+                     <!--<tagName>solor.abbrev</tagName>-->
+                     <!--<username>${username}</username>-->
+                     <!--<password>${password}</password>-->
+                     <!--<redirect_uri>${redirect_uri}</redirect_uri>-->
+                     <!--<secret>${secret}</secret>-->
+                     <!--<client_id>${client_id}</client_id>-->
+                  <!--</configuration>-->
+                  <!--<goals>-->
+                     <!--<goal>generatebibliography</goal>-->
+                  <!--</goals>-->
+               <!--</execution>-->
+            <!--</executions>-->
+         <!--</plugin>-->
       </plugins>
    </build>
 </project>

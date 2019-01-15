@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Solor Intro</title>
+<para>
+                <table frame="border" border="1">
+                    <caption>Current Motivation and Foundation Review</caption>
+                    <col width="12%"/>
+                    <col width="12%"/>
+                    <col width="12%"/>
+                    <col width="12%"/>
+                    <col width="12%"/>
+                    <col width="12%"/>
+                    <col width="12%"/>
+                    <col width="12%"/>
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Section Name</th>
+                            <th>Description, Topics</th>
+                            <th>Comments</th>
+                            <th>Perspective</th>
+                            <th>Readability</th>
+                            <th>Intent/usefulness</th>
+                            <th>Suggestion</th>
+                        </tr>
+                    </thead>
+                    <tbody align="left">
+                        <tr>
+                            <td>0.0</td>
+                            <td>Preface</td>
+                            <td>Definition of symbolic information, interpretational infrastructure. </td>
+                            <td>At a very high-level this is what SOLOR is</td>
+                            <td>High-level</td>
+                            <td>Good, not too technical</td>
+                            <td>Useful for orienting people to one of the goals of SOLOR which is to
+                                provide a user-friendly way to navigate disparate content</td>
+                            <td/>
+
+                        </tr>
+                        <tr>
+                            <td>0.1</td>
+                            <td>Motivation and foundation</td>
+                            <td>Gaps in C-CDA citing whitepaper to call out gaps in adherence to
+                                standard terminologies. The architectural stack is introduced. </td>
+                            <td>Percent breakdown of gaps in C-CDA by source terminology. I think a
+                                lot could be added to this section. </td>
+                            <td>In the weeds, introduce SOLOR, define architectural stack</td>
+                            <td>Okay, but if this is the first part people read we should set the
+                                stage and introduce basic concepts</td>
+                            <td>Why should people care about the remaining 400 pages?</td>
+                            <td>Each of the layers in the architetural stack should be defined at a
+                                high level. In defining SOLOR, we say it should be working hand in
+                                hand with the clinical statement model, but the clinical statement
+                                model is not yet defined. The current challenges that close the
+                                section are broad and not well defined</td>
+
+                        </tr>
+                        <tr>
+                            <td>1.0</td>
+                            <td>SOLOR</td>
+                            <td>Essential challenge of informatics and why we should care about
+                                knowledge assets</td>
+                            <td/>
+                            <td>Technical, very high level about health informatics</td>
+                            <td>Jargon heavy</td>
+                            <td>Explain why we should care about foundational pro blems with
+                                application of codes and terms .</td>
+                            <td>Not clear what knowledge assets are. This section could be
+                                simplfied. </td>
+
+                        </tr>
+                        <tr>
+                            <td>1.1</td>
+                            <td>The Menagerie</td>
+                            <td>Defines health informatics architecture and says that there are many
+                                disparate terminologies that are neither coordinated in their
+                                authoring nor in their update process. </td>
+                            <td/>
+                            <td>Technical, very high level about health informatics</td>
+                            <td/>
+                            <td/>
+                            <td>This section, as it is, should be named "Health Informatics
+                                Architecture". If we want it to be about the menagerie then we
+                                should define examples of disparate clinical terminologies in this
+                                section. </td>
+
+                        </tr>
+                        <tr>
+                            <td>1.2</td>
+                            <td>Semantic Interoperability Architecture</td>
+                            <td>Defines semantic interoperability architecture, but then goes on to
+                                say that the purpose of this document is NOT to define semantic
+                                interoperability but to define foundational interoperability. </td>
+                            <td>Explains how SOLOR uses SNOMED CT, LOINC, RxNORM to build coherent
+                                architecture</td>
+                            <td>Technical</td>
+                            <td>Convoluted</td>
+                            <td>The numbered bullet points highlight how SOLOR aims to build its
+                                architecture at a high level</td>
+                            <td/>
+
+                        </tr>
+                        <tr>
+                            <td>1.3</td>
+                            <td>Life Critical Systems (All)</td>
+                            <td>SOLOR should support life-critical systems. This section goes on to
+                                define many facets of life-critical systems. This is at a higher
+                                level than the previous sections about health IT systems overall and
+                                not specifically about architecture. </td>
+                            <td/>
+                            <td>Very high-level about life-critical systems and software</td>
+                            <td>Flow could be better</td>
+                            <td>Explain how SOLOR is useful in the grander scheme of things. </td>
+                            <td>Give examples of how exactly SOLOR supports each of the sub-headers
+                                in this section. </td>
+
+                        </tr>
+                        <tr>
+                            <td>1.4</td>
+                            <td>Architectural Challenges (All)</td>
+                            <td>Challenges related to building architecture that supports
+                                terminology models. Again, these are back in the weeds related to
+                                architecture.</td>
+                            <td>I like this section, but it should be later in Part 1</td>
+                            <td>In the weeds about integrated terminology systems</td>
+                            <td/>
+                            <td>This is useful in highlighting that there there are challenges to
+                                consider. </td>
+                            <td>Move towards end of the section</td>
+
+                        </tr>
+                        <tr>
+                            <td>1.5</td>
+                            <td>SOLOR enabling milestones (All)</td>
+                            <td>List of other efforts like UMLS, SNOMED CT etc. This is broader
+                                again describing various terminologies and coordination efforts. </td>
+                            <td>These should be defined earlier in the Menagerie in my opinion</td>
+                            <td>In the weeds about terminology</td>
+                            <td/>
+                            <td/>
+                            <td>Move into Menagerie section and abbreviate it?</td>
+
+                        </tr>
+                        <tr>
+                            <td>1.6</td>
+                            <td>Data Elements Modeling</td>
+                            <td>Clinical data elements, how these relate to statements and how SOLOR
+                                may help. This section on its own is a self-contained white paper.
+                                This should be a separate section, out of place. </td>
+                            <td>Defines data elements and their common attributes, goes on to
+                                explain how SOLOR would assist. </td>
+                            <td>Informatics-specific perspective </td>
+                            <td>The section reads well but doesn’t fit in with the other topics</td>
+                            <td/>
+                            <td>This entire section seems out of place here</td>
+
+                        </tr>
+                        <tr>
+                            <td>2.0</td>
+                            <td>ISAAC</td>
+                            <td>Architecture: definitions of foundational, interaction architecture.
+                                The benefits of having layers in the architectural stack. </td>
+                            <td>Good definitions, but should be grouped together with section 1.2
+                                above. </td>
+                            <td>Technical, in the weeds about SOLOR architecture</td>
+                            <td>Jargon heavy but it's decent</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>2.5.1, 2.5.2</td>
+                            <td>Benefits of derivable layers, Binding between layers</td>
+                            <td>Benefits of derivable layers should probably go with the
+                                introduction of the architectural diagram at the start of the
+                                section.</td>
+                            <td>Architecture</td>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td/>
+
+                        </tr>
+                        <tr>
+                            <td>3.0</td>
+                            <td>KOMET</td>
+                            <td>This section is empty</td>
+                            <td>Look at Frozen Compendium: 21, 9, Appendix A</td>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td/>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para><emphasis role="bold">Overview of current SIA part 1 structure</emphasis></para>
+            <para> "The Preface is about symbolic info and interpretational infrastructure. The
+                motivation section sets the stage by describing CCDA's and lack of mapping to
+                terminologies. Integrated terminology model is needed. The motivation section then
+                mentions the architectural stack and 2 broad challenges related to the architecural
+                stack. </para>
+            <para> The book starts with Chapter 1 called SOLOR with a description of the overall
+                challenge of informatics and why we need improved systems for CDS, patient safety
+                etc. Then the paper defines health informatics architecture, and points out the
+                menagerie of various terminologies that are not coordinated in their processes.
+                Next, the semantic interoperability architecture is introduced; however the scope of
+                this document is to describe the foundational architecture NOT the semantic
+                interoperability architecture. </para>
+            <para> The following section introduces life-critical systems and how a foundational
+                architecture is needed to save lives. </para>
+            <para> Next, the text goes back into the details of architectural challenges related to
+                terminology models. After this we get a description of various terminologies and
+                coordination efforts that have enabled SOLOR. </para>
+            <para> Chapter 2 brings us back to informatics architecture again, providing definitions
+                of foundational and interaction architecture and the needs for the architectural
+                layers. Then we dive into the benefits of the layers. </para>
+            <para> Chapter 3 is reserved for KOMET which is blank. " </para>
+
+            <para><emphasis role="bold">Recommended SIA part 1 structure</emphasis></para>
+            <para>
+                <table frame="border" border="1">
+                    <caption>Recommended Part 1 Structure</caption>
+                    <col/>
+                    <col width="50%"/>
+                    <col width="50%"/>
+                    <thead>
+                        <tr>
+                            <th>Part</th>
+                            <th>Section</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody align="left">
+                        <tr>
+                            <td>Preface</td>
+                            <td/>
+                            <td>The goal of this book to describe informatics architecture. Define
+                                this at a high-level somehow. </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="5">0</td>
+                            <td rowspan="5">
+                                <para>Motivation and the Architectural Stack</para>
+                            </td>
+                            <td>Setting the stage, starting first with why informatics is of urgent
+                                importantance for CDS and patient safety. Then, define the essential
+                                challenges of informatics. Perhaps here mention that the scope of
+                                this book is to define and explore informatics architecture.</td>
+                        </tr>
+                        <tr>
+                            <td>Informatics Architecture: definitions of foundational, interaction
+                                architecture etc. The benefits of having layers in the architectural
+                                stack. </td>
+                        </tr>
+                        <tr>
+                            <td>Broadly introduce the architetectural stack and a overall defintion
+                                of each. </td>
+                        </tr>
+                        <tr>
+                            <td>Life-critical systems need this sort of architectural stack upon
+                                which they can save lives. </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <para>Design principle</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="7">1</td>
+                            <td rowspan="4">Foundation Intro</td>
+                            <td>Definitions for building blocks : concepts, semantics etc </td>
+                        </tr>
+                        <tr>
+                            <td>Introducing health informatics arch. and disparate terminologies.
+                                Deep dive into SNOMED CT, LOINC, RxNorm, UMLS etc. and how these
+                                efforts are siloed. </td>
+                        </tr>
+                        <tr>
+                            <td>Introduce the notion of informatics architecture. Re-iterate the
+                                fact that this chapter focuses on the foundational level of the
+                                stack. </td>
+                        </tr>
+                        <tr>
+                            <td>Description of Foundational Layer: [this is a bit of a black box to
+                                me]</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">SOLOR back-end</td>
+                            <td>SOLOR' Architecture will help provide an integrated model. Describe
+                                the transformation process, chornology process. </td>
+                        </tr>
+                        <tr>
+                            <td>Architectural Challenges we must address</td>
+                        </tr>
+                        <tr>
+                            <td>SOLOR front-end</td>
+                            <td>KOMET: Knowledge management enviornment is the user-interface to the
+                                front-end. Define user-interface principles, DevOps processes. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para><emphasis role="bold">Recommended Part 1 (Opening) structure</emphasis></para>
+            <para>PREFACE</para>
+            <para>States the goals to explore informatics architecture. </para>
+            <para>MOTIVATION </para>
+            <para>Begin by highlighting medical errors and how health IT can assist and save lives.
+                Then, the essential challenge of informatics is defined and discussed which has
+                limited our ability to truly be effective. In this book we will define and explore
+                informatics architecture. </para>
+            <para>Definitions for informatics architecture: what is foundational architecture and
+                interaction architecure. Introduce the architectural stack and overall defintiion of
+                each layer. Discuss the benefits of a architectural stack composed of layers. </para>
+            <para> FOUNDATION </para>
+            <para>Define building blocks of foundational/semantic informatics: concepts, semantics,
+                etc. Then introduce and describe health informatics architecture, including the
+                landscape of disparate terminologies. Describe SNOMED CT, LOINC, RxNorm, and efforts
+                like UMLS are siloed. </para>
+            <para> RE-introduce the notion of informatics architecture. Re-iterate that this chapter
+                is about the foundational level of the stack. The description of the foundational
+                layer will follow [this is a black box to me]. </para>
+            <para> The section that follows will include SOLOR and how it helps the foundational
+                layer. SOLOR's architecure and architectural challenges that remain to be solved
+                will be dicussed. Finally, SOLOR's front-end knowledge management enivornment will
+                be described, including important design elements that were incorporated. " </para>
+            <para>–––––––––––––––––––––––––––</para>
+            <para>A recent whitepaper<footnote>
+                    <para>John D. Amore, et. al; “Interoperability Progress and Remaining Data
+                        Quality Barriers of Certified Health Information Technologies”, July 6,
+                        2018</para>
+                </footnote> cited that great strides have been made in healthcare data
+                interoperability in the past decade…the vast majority of clinicians and patients
+                have access to some portion of their health data in electronic format, thanks to the
+                proliferation of electronic health record (EHR) systems installed in clinical care
+                environments. The data in these EHRs usually follow HL7’s Consolidated Clinical
+                Document Architecture (C-CDA) as it has become the generally accepted primary data
+                standard for structured clinical data exchange.</para>
+
+            <para>However, the whitepaper also found that significant gaps exist in the accurate
+                encoding of the data contained in those C-CDA documents – in an analysis conducted
+                of C-CDA documents produced by various EHR vendors and clinical organizations, the
+                four most frequent problems identified as part of this analysis were that
+                medications should be encoded in RxNorm (frequency of medication appearing in 13.7%
+                of sampled test case documents), vital signs and results should use LOINC (9.2% of
+                sampled documents), vital signs, and results should use unified code of units of
+                measure (UCUM) for physical values (8.7% of sampled documents) and the inclusion of
+                conflicting status information for medications (6.7% of sampled documents)<footnote>
+                    <para>Ibid, Page 6</para>
+                </footnote>.</para>
+            <para> These issues can have a direct impact on patient safety and point to the need to
+                be able to consistently represent and encode clinical data and observations. This is
+                the next great challenge to conquer for health data interoperability to positively
+                influence patient outcomes nationwide through clinical decision support. </para>
+            <para> SOLOR (System of Logical Representation) is an effort that is directly tackling
+                these issues of representation. SOLOR is an integrated medical terminology system,
+                based on the overlapping but distinct terminology systems of SNOMED, LOINC and
+                RxNorm. SOLOR was designed to unambiguously define what can be measured (concepts).
+                Working hand in hand with SOLOR, there needs to be a clinical statement model, of
+                which there are quite a few (HL7 FHIR, CIMI, ANF) which defines how to record a
+                measurement. Measurements may be quantitative or existential. </para>
+            <para>The following diagram shows how SOLOR and clinical statement models are
+                interrelated in the architectural stack: <figure>
+                    <title>Architectural Stack - proposed new graphics</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/Architectural_layers_2.png" align="center"
+                                scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+            <para>–––––––––––––––––––––––––––––––––</para>
+            <annotation>
+                <para>Proposal: <orderedlist>
+                        <listitem>
+                            <para>Reverse the order of the blocks as we are reading top to
+                                bottom.</para>
+                            <para>Language -> ... -> Procedural</para>
+                        </listitem>
+
+                        <listitem>
+                            <para>Remove all the 'curved arrows' to reduce complexity</para>
+                            <para>Perhaps when we reach Procedural section, we can introduce the
+                                top-down view and reintroduce the graphics with curved arrow</para>
+                        </listitem>
+                        <listitem>
+                            <para>For this Motivation and Foundation section, write to what Keith
+                                presented - describe each layer at a high level, and get into more
+                                granular layer in each subsequent section</para>
+                        </listitem>
+                    </orderedlist>
+                </para>
+            </annotation>
+
+            <para>––––––––––––––––––––––––––––––––––</para>
+            <annotation>
+                <para>Recommend taking this para out</para>
+            </annotation>
+            <para> Current challenges include the following: <orderedlist>
+                    <listitem>
+                        <para>Further tooling and guidance need to be developed to be able to show
+                            how concepts can be modeled in SOLOR and particular statement models
+                            applied</para>
+                    </listitem>
+                    <listitem>
+                        <para>Gaps need to be addressed in the various statement models in terms of
+                            representing measurements consistently, especially with existential
+                            (non-quantitative) measurements</para>
+                        <para>ab</para>
+                    </listitem>
+                </orderedlist>
+            </para>
+
+</chapter>

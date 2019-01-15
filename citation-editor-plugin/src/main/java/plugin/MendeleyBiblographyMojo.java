@@ -1,6 +1,6 @@
-package com.github.aks8m.plugin;
+package plugin;
 
-import com.github.aks8m.plugin.client.BibliographyUtility;
+import plugin.client.BibliographyUtility;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -9,6 +9,9 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 @Mojo( name = "generatebibliography")
 public class MendeleyBiblographyMojo extends AbstractMojo {
+
+    @Parameter(property = "generatebibliography.enabled")
+    private String enabled;
 
     @Parameter(property = "generatebibliography.directoryPath")
     private String directoryPath;
@@ -36,7 +39,12 @@ public class MendeleyBiblographyMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        BibliographyUtility bibliographyUtility = new BibliographyUtility(this.directoryPath, this.groupId, this.tagName, this.secret, this.client_id, this.username, this.password, this.redirect_uri);
-        bibliographyUtility.writeBibliography();
+        if (this.enabled.equals("true")) {
+            BibliographyUtility bibliographyUtility = new BibliographyUtility(this.directoryPath, this.groupId, this.tagName, this.secret, this.client_id, this.username, this.password, this.redirect_uri);
+            bibliographyUtility.writeBibliography();
+        } else {
+            BibliographyUtility bibliographyUtility = new BibliographyUtility(this.directoryPath);
+            bibliographyUtility.writeEmptyBibliography();
+        }
     }
 }

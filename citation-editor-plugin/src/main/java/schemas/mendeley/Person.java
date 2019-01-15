@@ -1,5 +1,5 @@
 
-package com.github.aks8m.schemas.mendeley;
+package schemas.mendeley;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,8 +1,8 @@
-package com.github.aks8m.plugin.client;
+package plugin.client;
 
-import com.github.aks8m.schemas.docbook.*;
-import com.github.aks8m.schemas.mendeley.Person;
-import com.github.aks8m.schemas.mendeley.UserDocument;
+import schemas.docbook.*;
+import schemas.mendeley.Person;
+import schemas.mendeley.UserDocument;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -25,9 +25,19 @@ public class BibliographyUtility {
         this.tagName = tagName;
     }
 
-    public void writeBibliography(){
+    public BibliographyUtility(String bibliographyFilePath) {
+        this.bibliographyFilePath = bibliographyFilePath;
+        this.mendeleyClient = null;
+        this.tagName = null;
+    }
 
+    public void writeBibliography(){
         Bibliography bibliography = createBibliography(mendeleyClient.generateDocbookBibliography());
+        marshallBibliography(bibliography, bibliographyFilePath);
+    }
+
+    public void writeEmptyBibliography() {
+        Bibliography bibliography = createBibliography(new ArrayList<>());
         marshallBibliography(bibliography, bibliographyFilePath);
     }
 
@@ -36,7 +46,7 @@ public class BibliographyUtility {
         try{
 
             File file = new File(bibliographyFilePath);
-            JAXBContext jaxbContext = JAXBContext.newInstance(Bibliography.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(schemas.docbook.Bibliography.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);

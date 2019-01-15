@@ -1,4 +1,4 @@
-package com.github.aks8m.plugin.client;
+package plugin.client;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

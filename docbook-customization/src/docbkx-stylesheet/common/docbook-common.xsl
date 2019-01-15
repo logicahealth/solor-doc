@@ -29,6 +29,8 @@ table before
 procedure before
 task before
 </xsl:param>
+  
+<xsl:param name="bibliography.collection" select="concat('file:\\\',system-property('user.dir'),'\bibliography-db\src\docbkx\bibliography.xml')"/>
 
 <!-- Add new lists to book TOC -->
 <xsl:param name="generate.toc">

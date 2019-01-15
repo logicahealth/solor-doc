@@ -1,6 +1,6 @@
-package com.github.aks8m.plugin.client;
+package plugin.client;
 
-import com.github.aks8m.schemas.mendeley.UserDocument;
+import schemas.mendeley.UserDocument;
 import com.google.gson.Gson;
 import org.apache.http.auth.AuthenticationException;
 import org.apache.http.client.methods.CloseableHttpResponse;

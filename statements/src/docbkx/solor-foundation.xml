@@ -3,6 +3,30 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-    <title>Solor Foundational</title>
+    <title>SOLOR Foundations</title>
     <para/>
+    <para>When dealing with the complexities of the various architectural layers, one of the most
+        important things to note is that any one of SOLOR's architectural layers will be undergoing
+        modifications at any given point in time, as various Standards Development Organizations go
+        through each of their various drafting, balloting, and approval lifecycles. Therefore it is
+        important to establish as a foundation for SOLOR a versioning and modularity architecture
+        that allows changes and subchanges to be referenced uniquely so that all parties can be on
+        the same page as to a particular version.</para>
+    <para/>
+    <para>For example, the following diagram shows how each module could be given a unique version
+        number and contain all layers of the architectural stack. In the instance that a particular
+        versioned module needs to be extended, an extension module could be added to that main
+        versioned module without the need to go to a completely new full module version. This
+        arrangement accounts for the constant change in the healthcare interoperability space while
+        still allowing two organizations to baseline on the same version for testing or exchange
+        purposes (i.e. Module M13, Extension E25)</para>
+    <para/>
+    <figure>
+        <title>Versioning; Modules and Extensions</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/modules_and_extensions.jpg"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
 </chapter>

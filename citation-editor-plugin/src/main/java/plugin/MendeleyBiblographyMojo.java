@@ -10,9 +10,6 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo( name = "generatebibliography")
 public class MendeleyBiblographyMojo extends AbstractMojo {
 
-    @Parameter(property = "generatebibliography.enabled")
-    private String enabled;
-
     @Parameter(property = "generatebibliography.directoryPath")
     private String directoryPath;
 
@@ -39,8 +36,12 @@ public class MendeleyBiblographyMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        if (this.enabled.equals("true")) {
-            BibliographyUtility bibliographyUtility = new BibliographyUtility(this.directoryPath, this.groupId, this.tagName, this.secret, this.client_id, this.username, this.password, this.redirect_uri);
+        if (!this.groupId.equals("place_holder") && !this.tagName.equals("place_holder")
+                && !this.secret.equals("place_holder") && !this.username.equals("place_holder")
+                && !this.password.equals("place_holder") && !this.client_id.equals("place_holder")
+                && !this.redirect_uri.equals("place_holder")) {
+            BibliographyUtility bibliographyUtility = new BibliographyUtility(this.directoryPath, this.groupId,
+                    this.tagName, this.secret, this.client_id, this.username, this.password, this.redirect_uri);
             bibliographyUtility.writeBibliography();
         } else {
             BibliographyUtility bibliographyUtility = new BibliographyUtility(this.directoryPath);

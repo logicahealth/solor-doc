@@ -87,7 +87,7 @@
     </section>
     <section>
         <title>Motivation and Foundation</title>
-            <para>A recent whitepaper<footnote>
+            <para>A 2018 whitepaper<footnote>
                 <para>John D. Amore, et. al; “Interoperability Progress and Remaining Data Quality
                     Barriers of Certified Health Information Technologies”, July 6, 2018</para>
             </footnote>cited that great strides have been made in healthcare data interoperability
@@ -113,20 +113,45 @@
             be able to consistently represent and encode clinical data and observations. This is the
             next great challenge to conquer for health data interoperability to positively influence
             patient outcomes nationwide through clinical decision support. </para>
-            <para>SOLOR (System of Logical Representation) is an effort that is directly tackling
-            these issues of representation. SOLOR is an integrated medical terminology system, based
-            on the overlapping but distinct terminology systems of SNOMED, LOINC and RxNorm. SOLOR
-            was designed to unambiguously define what can be measured (concepts). Working hand in
-            hand with SOLOR, there needs to be a clinical statement model, of which there are quite
-            a few (HL7 FHIR, CIMI, ANF) which defines how to record a measurement. Measurements may
-            be quantitative or existential. </para>
-            <para>SOLOR is concerned with the Language and Dialect layer of the following diagram
-            illustrating the architectural separation of concerns: <inlinemediaobject>
+        <para>When considering these challenges, it can be daunting to consider from where to start.
+            There are hundreds of thousands of clinicians around the world, and up to the current
+            century each was documenting their observations from seeing patients in their own way.
+            Granted there have been efforts over the years to standardize medical terminology in
+            order to encode it properly into systems, but even then there are instances where
+            nuances of medical observations cannot be captured consistently, from something as basic
+            as nuances of language (i.e. English versus Chinese) to the specifics of how a
+            measurement was actually taken procedurally - for example, in arriving at a quantitative
+            measurement such as 90 beats per minute for a patient's pulse, one clinician may have
+            used a pulseometer, while another may have arrived at that measurement using fingers to
+            the patient's left wrist and a stopwatch.   While the quantitative measurement is the
+            same, the procedural information should also be documented and the differences
+            noted.</para>
+        <para> A systematic way to think about this (borrowed from the software development
+            industry) is something called Separation of Concerns.  Separation of Concerns is an
+            architectural design principle that allows a complete system to be subdivided into
+            several distinct sections.   If concerns are well separated from each other, individual
+            sections may be able to be reused, as well as worked on and updated independently to
+            address new requirements and use cases.  This is especially useful and important in a
+            medical context given how many different health information and clinical terminology
+            projects are ongoing at any given time, efforts that are often uncoordinated and led by
+            disparate and unrelated standards development organizations.</para>
+            <para>The following diagram shows how the concept of Separation of Concerns can be
+            applied to the problem of systematically and consistently representing data from
+            clinical observations: <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="images/architecture_separation_of_concerns.jpg"/>
+                    <imagedata fileref="images/architecture_separation_of_concerns_r2.jpg"/>
                 </imageobject>
             </inlinemediaobject></para>
         <para/>
+        <para>SOLOR (System of Logical Representation) is an effort that is directly tackling these
+            issues of representation, concerned primarily with the Language and Dialect layer in the
+            Separation of Concerns.   SOLOR is an integrated medical terminology system, based on
+            the overlapping but distinct terminology systems of SNOMED, LOINC and RxNorm. SOLOR was
+            designed to unambiguously define what can be measured (concepts). Working hand in hand
+            with SOLOR, there needs to be a clinical statement model, of which there are quite a few
+            (HL7 FHIR, CIMI, ANF) which defines how to record a measurement. Measurements may be
+            quantitative or existential.  </para>
+        <para> </para>
     </section>
 
 </chapter>

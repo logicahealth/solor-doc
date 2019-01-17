@@ -464,6 +464,31 @@ Question from Stephanie: How is this different from the Reusability principle?"?
           data entry time, or during other   </para>
       </section>
     </section>
+    <section>
+      <title><?oxy_comment_start author="steph" timestamp="20170816T143204-0700" comment="I made this its own section since it wasn&apos;t labeled as a principle or concern.  However, the description seems to read as a principle.  Should it be moved to the Principles section?"?>"Not
+        Elsewhere Classified" Revisited<?oxy_comment_end?></title>
+      <para>Each concept used as a [interpretation, qualifier, ?], within a value set, must be
+        accompanied by sufficient information to reconstruct the value set, and the value set
+        must provide a partial order such that the concept's "range" of meaning can be
+        determined. </para>
+      <para>For example, a concept representing a color selected from the value set {Red, Green,
+        Blue} will have a different range than a color selected from the value set {Red, Orange,
+        Green, Yellow, Blue (get a better example of a granular color set ordered properly by em
+        spectrum)}.</para>
+      <para>Create a set of "intrepretative concepts," or a similar construct, that is the
+        intrepretation of that concept when constrainted by a value set...</para>
+      <para>Same preferred name, fully specified name incorporates the identify of the refset that
+        constrained the concept. </para>
+      <section xml:id="section_9869b6ed-bff6-465c-a282-c5a642e53861">
+        <title>Values from Constraints</title>
+        <para>If a concept is used as an intrepretation, the values from which they were
+          selected must accompany somehow so that the value can be determined against a
+          partial ordering. </para>
+        <para>Interpretation concepts can have children just like the can have units of
+          measure?</para>
+      </section>
+    </section>
+    
   </section>
   <xi:include href="requirements-driven.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <xi:include href="architecture-centric.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

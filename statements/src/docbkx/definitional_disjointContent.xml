@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
-         xmlns:xlink="http://www.w3.org/1999/xlink">
+    xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Disjoint Content</title>
 
     <section>
         <title>Introduction</title>
         <para>Classes are disjoint if they cannot have common instances. In an ontology, all classes
             are assumed to have potential overlapping instances unless they are explicitly stated to
-            not have them. The current modeling of SNOMED CT does not contain any such statements,
-            therefore all concepts are considered to have the potential to allow overlapping
-            concepts. For example, there is no formal statement that would prohibit the clinical
-            findings and body structure hierarchies from containing concepts that have parents from
-            both hierarchies even though this should never be the case. With the exception of the
-            physical object and products that currently overlap, the top level primitive hierarchies
-            like clinical findings and body structures should be disjoint.</para>
+            not have them. Since Solor relies heavily on SNOMED, a discussion of this topic is
+            necessary.</para>
+        <para>The current modeling of SNOMED CT does not contain any explicit statements stating
+            disjointness, therefore all concepts are considered to have the potential to allow
+            overlapping concepts. For example, there is no formal statement that would prohibit the
+            clinical findings and body structure hierarchies from containing concepts that have
+            parents from both hierarchies even though this should never be the case. With the
+            exception of the physical object and products that currently overlap, the top level
+            primitive hierarchies like clinical findings and body structures should be
+            disjoint.</para>
     </section>
-    
+
     <section>
         <title>Problem</title>
         <para>Explicitly stating disjoint content would assist not only in detecting potential
@@ -36,10 +39,16 @@
             assist in the creation of post-coordinated expressions as they can be queried and used
             to restrict the allowable parents assigned when using multiple focus concepts.</para>
     </section>
-    
+
     <section>
         <title>Solution</title>
-        <para>All top level primitive concepts should be stated as disjoint with the exception of 260787004 |Physical object (physical object)|and 373873005 |Pharmaceutical / biologic product (product)|.  A particular focus was placed on primitive hierarchies of substance and body Structure.  For each hierarchy, we focused on identifying all concepts that are currently disjoint from each other beginning at the top of the hierarchy and traversing downward.  This method will identify potential disjoint statements, which were reviewed by clinicians to confirm that they are correct.</para>
+        <para>All top level primitive concepts should be stated as disjoint with the exception of
+            260787004 |Physical object (physical object)|and 373873005 |Pharmaceutical / biologic
+            product (product)|. A particular focus was placed on primitive hierarchies of substance
+            and body Structure. For each hierarchy, all concepts that are
+            currently disjoint from each other beginning at the top of the hierarchy and traversing
+            downward were the focus. This method will identify potential disjoint statements, which were reviewed
+            by clinicians to confirm that they are correct.</para>
         <para>
             <mediaobject>
                 <imageobject>
@@ -47,41 +56,41 @@
                 </imageobject>
             </mediaobject>
         </para>
-        
+
     </section>
-    
+
     <section>
         <title>Results</title>
-        <para>We utilized the US Extension to SNOMED CT to perform our initial assessment for
+        <para>The US Extension to SNOMED CT was utilized to perform an initial assessment for
             disjoint statements. While calculating the disjoint statements for the upper level
-            hierarchies we noticed that 243796009 |Situation with explicit context (situation)| and
+            hierarchies, 243796009 |Situation with explicit context (situation)| and
             123037004 |Body structure (body structure)| were not being calculated as potentially
             disjoint. The single concept that was causing them not to be stated as disjoint was
             119741000119108 |History of amputation of right lower limb (situation)| due to the fact
             that it was modeled in the US Extension as having parents in both hierarchies. This
             issue was reported to the National Library of Medicine and has been corrected in the
             March 2017 US Extension.</para>
-        <para>We added 169 disjoint statements to the upper level primitive hierarchies to test the
+        <para>169 disjoint statements were added to the upper level primitive hierarchies to test the
             feasibility of running a reasoner over them successfully and within a reasonable amount
             of time using disjoint statements using the minimum number of statements needed. </para>
-        <para>We utilized the tls2_StatedRelationshipsToOwlKRSS_Script_INT.pl from the SNOMED
-            International GitHub registry to create an OWL file from the March 2017 US Edition
+        <para>The tls2_StatedRelationshipsToOwlKRSS_Script_INT.pl from the SNOMED
+            International GitHub registry was utilized to create an OWL file from the March 2017 US Edition
             release. Utilizing this file within the Protégé 5.2.0 editor and the included HermiT
-            reasoner, we reasoned over the OWL file without disjoint statements in 3,015,366
-            milliseconds. We then added the 169 disjoint statements to the upper level primitive
-            concepts and were able to reason over this version in 2,494,176 milliseconds. </para>
-        <para>We then performed the same test using the Snorocket reasoner plugin and achieved the
+            reasoner, the OWL file without disjoint statements was reasoned in 3,015,366
+            milliseconds. The 169 disjoint statements were then added to the upper level primitive
+            concepts and reasoning over this version took 2,494,176 milliseconds. </para>
+        <para>The same test was performed using the Snorocket reasoner plugin and achieved the
             results of 122,438 milliseconds and 54,498 milliseconds respectively. Therefore adding
             disjoint statements does not increase the time to reason over the OWL version of SNOMED,
             but actually significantly decreased the amount of time using both reasoners we
             tested.</para>
-        <para>We tested an additional 133 concepts for potential disjointness within the substance,
+        <para>Additional 133 concepts were tested for potential disjointness within the substance,
             body structure, and situation with explicit context hierarchies as these hierarchies are
-            most likely to benefit from the addition of disjoint statements. We were able to add 13
+            most likely to benefit from the addition of disjoint statements. 13
             substance statements, 1193 body structure statements, and 12 situation with explicit
-            context statements. These disjoint statements only cover the immediate children for the
-            all the hierarchies listed above except for body structures, where we went down three
-            levels to identify potential disjoint content. </para>
+            context statements were able to be added. These disjoint statements only cover the immediate children for the
+            all the hierarchies listed above except for body structures, where a traversal down three
+            levels deep was performed to identify potential disjoint content. </para>
         <para>However, adding disjoint statements to these concepts will provide limited benefit for
             error checking. The body structure and substance hierarchies will have limited use cases
             for extension and post-coordination once the redesign is complete. The situation with
@@ -94,7 +103,7 @@
             hierarchies would be the best use of resources in the short term until the redesign of
             the concept model for body structure and substances is complete. </para>
     </section>
-    
+
     <section>
         <title>Conclusion</title>
         <para>Without statements to detect disjoint content, there is a potential for modeling
@@ -107,5 +116,5 @@
             become more useful once the redesign of the concept model for the various hierarchies is
             complete.</para>
     </section>
-    
+
 </section>

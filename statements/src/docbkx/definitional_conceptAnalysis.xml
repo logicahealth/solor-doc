@@ -2,12 +2,14 @@
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
     xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Concept Analysis: Identify SOLOR Content that Requires Special Handling</title>
+    <title>Content Requiring Special Handling</title>
     <section>
         <title>Purpose</title>
-        <para>The creation of RefSets containing SNOMED CT concepts that require special handling
-            supports the maintenance of this content over time without the necessity of re-reviewing
-            the entire content. </para>
+        <para>The creation of groupings (RefSets) containing SNOMED CT concepts that require special
+            handling supports the maintenance of this content over time without the necessity of
+            re-reviewing the entire content. Within SOLOR, these various RefSets are imported and
+            are properly grouped within the system. Subsequently, set of rules could be developed
+            and applied to handle each of the cases appropriately. </para>
 
         <para>Concepts may require special handling for a number of reasons:<itemizedlist>
                 <listitem>
@@ -108,11 +110,10 @@
             <para>“absence” concepts are generally located in the “situation with explicit context”
                 hierarchy, where the Context terminological model is consistently applied. Concepts
                 including or implying absence, which are located outside this hierarchy pose
-                challenges for the logical semantic hierarchies they reside in. For the purpose of
-                this project we focused only on identifying concepts that are currently not located
-                within the “situation with explicit context” hierarchy. Some of these identified
-                concepts may need to be relocated to the situation hierarchy as a result of this
-                project.</para>
+                challenges for the logical semantic hierarchies they reside in. This study focused
+                only on identifying concepts that are currently not located within the “situation
+                with explicit context” hierarchy. Some of these identified concepts may need to be
+                relocated to the situation hierarchy as a result of this project.</para>
             <para>Currently the logical hierarchy for absence concepts remains “upside-down”.</para>
             <para><emphasis role="bold"><emphasis role="underline"
                 >Example:</emphasis></emphasis></para>
@@ -332,10 +333,9 @@
             <para>The only exceptions are concepts whose description actually contains a specific
                 context (e.g. father smokes), and these are all grouped in the “situation with
                 explicit context” hierarchy. Concepts, where the patient is not the subject of
-                record outside this hierarchy do not adhere to the guidelines. For the purposes of
-                this project we are not focusing on the concepts within the “situation with explicit
-                context” hierarchy as they have their context already identified using the context
-                attributes.</para>
+                record outside this hierarchy do not adhere to the guidelines. This study did not
+                focus on the concepts within the “situation with explicit context” hierarchy as they
+                have their context already identified using the context attributes.</para>
             <section>
                 <title>Approach</title>
                 <para>The initial task was to evaluate 50,000 concepts and determine their potential
@@ -738,12 +738,12 @@
                         </listitem>
                         <listitem>
                             <para>If the concept being evaluated included a plural form of a
-                                potentially lateralizable body structure in the FSN, we considered
-                                this concept to represent bilaterality and evaluated it as such. For
-                                example, 248422003 |Warm hands (finding)| does not specify right,
-                                left, or bilateral in the FSN but since it uses the term “hands,” we
-                                considered it to be bilateral and evaluated against the current
-                                SNOMED CT modelling guidance as stated above.</para>
+                                potentially lateralizable body structure in the FSN, the concept
+                                would be considered to represent bilaterality and evaluated it as
+                                such. For example, 248422003 |Warm hands (finding)| does not specify
+                                right, left, or bilateral in the FSN but since it uses the term
+                                “hands,” it would be considered as bilateral and evaluated against the
+                                current SNOMED CT modelling guidance as stated above.</para>
                         </listitem>
                         <listitem>
                             <para>If the concept being evaluated represented sidedness of a
@@ -946,7 +946,7 @@
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Additional keywords were identified during our review process that
+                        <para>Additional keywords were identified during the review process that
                             should be added to future review efforts:</para>
                         <itemizedlist>
                             <listitem>
@@ -988,7 +988,7 @@
                     <listitem>
                         <para>If there is an Open procedure and the only “closed” concept that would
                             ever need to be created would be one that uses only one specific device,
-                            we would consider these two concepts as inverse. For example, 179820004
+                            these two concepts would be considered as inverse. For example, 179820004
                             |Open excision of implanted ligament (procedure)| is inverse of
                             179891009 |Arthroscopic excision of implanted ligament (procedure)| and
                             265071006 |Open bilateral clipping of fallopian tubes (procedure)| is
@@ -1287,7 +1287,7 @@
                 not subject of information” are lower.</para>
             <para>However, considering that the second team of reviewers have not been part of the
                 previous discussions around the inclusion/exclusion criteria and were only given the
-                rule sets to follow, we perceive the results as positive.</para>
+                rule sets to follow, the results were perceived as positive.</para>
             <para>The results of these metrics informed the final decision on the
                 Inclusion/Exclusion criteria for each final RefSet.</para>
         </section>
@@ -1540,15 +1540,15 @@
                 </table>
             </para>
 
-            <para>Before creating assignments we categorized the concepts as either those that have
-                a term that included right, left, or bilateral and those that have an attribute that
+            <para>Before creating assignments, concepts were considered as either those that have a
+                term that included right, left, or bilateral and those that have an attribute that
                 uses a concept with a laterality of right, left or bilateral. If the concept had a
                 term with right, left or bilateral and no attribute or if the attribute had a
-                laterality where the value was the parent (side) of right and left we considered
-                those concepts to be within the set that probably did not include laterality. If the
-                concept was associated with a laterality attribute that was either right or left we
-                considered it to probably include laterality whether it was correctly modelled or
-                not.</para>
+                laterality where the value was the parent (side) of right and left, those concepts
+                were considered to be within the set that probably did not include laterality. If
+                the concept was associated with a laterality attribute that was either right or
+                left, it was considered as a probable concept that includes laterality whether it
+                was correctly modelled or not.</para>
             <para>Sensitivity of 78.38% and Specificity of 99.81% </para>
         </section>
 
@@ -1591,7 +1591,7 @@
             </table>
 
             <para>After conducting a pilot certain keywords were identified a less likely to be
-                inverse. We separated these concepts into separate assignments. After further
+                inverse. These concepts were into separate assignments. After further
                 review, 30% of these concepts contained other keywords that made them inverse. </para>
             <para>Sensitivity of 82.27% and Specificity of 39.58%</para>
             <para> </para>
@@ -1680,12 +1680,11 @@
                 </tbody>
             </table>
 
-            <para>Leaf Nodes and Intermediate Primitives were concepts that we would more likely see
-                as concepts that should be Fully Defined. However, in many cases that really
-                depended upon whether new Concept Model attributes could be added to SNOMED CT. The
-                other Primitive concepts we reviewed were concepts that were not Leaf Nodes and
-                Intermediate Primitive concepts that we reviewed and we did not expect to find many
-                of them that could be fully defined.</para>
+            <para>Leaf Nodes and Intermediate Primitives were concepts that were likely to be
+                concepts that should be Fully Defined. However, in many cases that highly depended
+                upon whether new Concept Model attributes could be added to SNOMED CT. The other
+                Primitive concepts reviewed were non Leaf Nodes and Intermediate Primitive concepts,
+                and not many of these expected to be fully defined. </para>
             <para>Sensitivity of 26.65% and Specificity of 73.40%</para>
         </section>
     </section>

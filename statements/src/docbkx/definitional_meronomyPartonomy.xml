@@ -41,24 +41,25 @@
                     </itemizedlist>
                 </listitem>
             </itemizedlist>
+            Unless properly identified, it is difficult for a reasoner to determine if it is part or whole.
         </para>
-        <para>For this task we will be evaluating the representation of <emphasis role="italic"
+        <para>This study evaluated the representation of <emphasis role="italic"
                 >Part-of</emphasis> relationships in the Body Structure, Pharmaceutical/Biologic
             Product, and Laboratory Procedure (LOINC) hierarchies, and developing and testing a
             proposed model where appropriate.</para>
     </section>
     <section>
         <title>Tooling</title>
-        <para>To evaluate the proposed model for the three hierarchies, we will continue to use the
-            termMed’s termSpace authoring tool. termSpace currently supports Object Properties with
-            reflexive and transitive properties. For the Pharmaceutical/Biological Product
-            hierarchy, we will use Nested Expressions to represent the powders used for injection
-            solutions, as they do not currently exist as pre-coordinated concepts. termSpace can
-            represent LOINC concepts to support the partonomy modeling of laboratory concepts;
-            however, these concepts will need to be transformed into a SNOMED RF2 format in order to
-            load them into termSpace. Due to the complexities of adding LOINC to termSpace we were
-            not able to test the LOINC model at this time. We will continue to work with termMed to
-            represent LOINC in termSpace to potentially test the model in future iterations.</para>
+        <para>termMed’s termSpace authoring tool was used to evaluate the proposed model for the
+            three hierarchies. termSpace currently supports Object Properties with reflexive and
+            transitive properties. For the Pharmaceutical/Biological Product hierarchy, Nested
+            Expressions were used to represent the powders used for injection solutions, as they do
+            not currently exist as pre-coordinated concepts. termSpace can represent LOINC concepts
+            to support the partonomy modeling of laboratory concepts; however, these concepts will
+            need to be transformed into a SNOMED RF2 format in order to load them into termSpace.
+            LOINC model was unable to be tested due to the complexities of adding LOINC to
+            termSpace. Collaboration will continue with termMed to represent LOINC in termSpace to
+            potentially test the model in future iterations.</para>
     </section>
     <section>
         <title>Body Structure Concepts</title>
@@ -96,8 +97,8 @@
         </mediaobject>
         <section>
             <title>Proposed Body Structure Model</title>
-            <para>With the forthcoming update to the SNOMED CT Anatomy concept model, we do not
-                recommend exploring this area for concept model work, but instead focus on the
+            <para>With the forthcoming update to the SNOMED CT Anatomy concept model, exploration of
+                this area is not recommended for concept model work, but instead focus on the
                 Pharmaceutical/Substance and Laboratory hierarchies, where no current implementation
                 of partonomy is planned.</para>
         </section>
@@ -116,17 +117,17 @@
             active ingredient, but different strengths for each product in the package.</para>
         <section>
             <title>Proposed Pharmaceutical / Substance Model</title>
-            <para>We propose to add a new attribute |Has packaging component (attribute)| that will
+            <para>Add a new attribute |Has packaging component (attribute)| that will
                 take as a value another concept from the product hierarchy. This will be a <emphasis
                     role="italic">Part-of</emphasis> attribute and will need to be transitive and
                 reflexive. These concepts will need to have a new hierarchy to live under as they
                 are not really subtypes of the product that make up the packages but are packages
-                that contain them. We suggest creating a new hierarchy named “Package” containing
+                that contain them. Creating a new hierarchy named “Package” containing
                 multiple products (product) and as needed create sub-hierarchies to ease
-                navigation.</para>
+                navigation is suggested.</para>
             <para>Below are examples of the products that potentially require the addition of new
                 product concepts in order for the new attribute to be modeled or require the use of
-                nested expressions to represent the missing content. For our pilot work we
+                nested expressions to represent the missing content. The pilot study
                 represented these concepts using nested expressions, however if the model were
                 implemented in the International Release of SNOMED CT it may require creating
                 pre-coordinated concepts.<itemizedlist>
@@ -134,9 +135,9 @@
                         <para>Disodium etidronate 400mg tablet and calcium carbonate 1.25g
                             effervescent tablet pack (product) – Disodium etidronate 400mg tablet
                             and calcium carbonate 1.25g effervescent tablet exist and will be used
-                            to fully define this concept. We need to determine the purpose of the
+                            to fully define this concept. The puropse of the
                             parent concept, 346404007 |Disodium etidronate+calcium carbonate
-                            (product)|. </para>
+                            (product)|, must be determined. </para>
                     </listitem>
                     <listitem>
                         <para>Lutropin alfa 75iu injection (pdr for recon)+solvent (product) –
@@ -159,7 +160,7 @@
                         <para>Quetiapine 25mg+100mg+150mg tablet starter pack (product) – This
                             concept is a representation of three separate tablets contained within a
                             pack. All three tablets exist as separate pre-coordinated concepts and
-                            we could easily fully define this concepts with three separate “Has
+                            could easily be fully defined with three separate “Has
                             packaging” components. </para>
                     </listitem>
                 </itemizedlist></para>
@@ -178,7 +179,7 @@
         </mediaobject>
         <section>
             <title>Proposed Laboratory Model</title>
-            <para>We propose to add a new attribute that applies to concepts in the Observable
+            <para>Add a new attribute that applies to concepts in the Observable
                 Entity hierarchy named Contains lab test (attribute). This attribute will take other
                 Observable Entity concepts as values and will be transitive and reflexive.</para>
             <mediaobject>

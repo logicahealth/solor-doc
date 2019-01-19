@@ -48,31 +48,31 @@
             reproducible and to keep quality checks simple. Although Nested Expressions
             are easily represented in the compositional grammar syntax and OWL, they
             would require major changes to the SNOMED CT RF2 structure.</para>
-        <para>The purpose of this task is to identify a sample of expressions that are not nested
+        <para>The purpose of this study is to identify a sample of expressions that are not nested
             and do not require nesting (see file named
             “der2_Refset_SimpleSnapshot_VA1000161_20180531_No Nesting_readable”) and a sample of
-            expressions that should be nested and where we have proposed a model for nesting (see
-            file named “der2_Refset_SimpleSnapshot_VA1000161_20180531_Nesting_readable”). </para>
+            expressions that should be nested and where a model for nesting (see
+            file named “der2_Refset_SimpleSnapshot_VA1000161_20180531_Nesting_readable”) is proposed. </para>
     </section>
     <section>
         <title>Tooling</title>
-        <para>To evaluate the proposed model for nesting we used the termMed termSpace authoring
-            tool, which allowed us to add alternate definitions to SNOMED CT concepts and test the
-            effects. Although termSpace currently supports nesting, this feature will be removed
-            with the September 2018 US Release due to the Model Advisory Group’s decision not to
-            support nesting. One concern not to support nesting is the notion that it would cause a
-            Description Logic classifier to take longer to complete classification. However, we have
-            not yet seen any significant decrease in classification time with using nested
-            expressions at a single level.</para>
+        <para>termMed termSpace authoring tool was used to evaluate the proposed model for nesting.
+            Additionally, the tool allowed for addition of alternate definitions to SNOMED CT
+            concepts and testing its effects. Although termSpace currently supports nesting, this
+            feature will be removed with the September 2018 US Release due to the Model Advisory
+            Group’s decision not to support nesting. One concern not to support nesting is the
+            notion that it would cause a Description Logic classifier to take longer to complete
+            classification. However, significant decrease in classification time using nested
+            expressions at a single level have not been seen.</para>
     </section>
     <section>
         <title>Pharmaceutical / Biological Concepts</title>
-        <para>During our work on partonomy, we identified the need to use Nested Expressions to
-            fully define products in two instances. The first instance involved concepts that did
+        <para>During our work on partonomy, the need to use Nested Expressions to
+            fully define products in two instances was identified. The first instance involved concepts that did
             not have a precoordinated concept available to fully define drugs that were representing
             packages that contain multiple drugs. The second set of concepts represented a powder
             that is packaged separately from the solution used to mix prior to use. The model below
-            represents the pharmacy model we tested in the Base Year and has not been updated to the
+            represents the pharmacy model tested, and it has not been updated to the
             new drug model SNOMED International released in January 2018.</para>
         
         <mediaobject>
@@ -127,35 +127,34 @@
         <para>Using Nested Expressions to represent missing lateralized anatomy concepts will cut
             down the need to request new body structure concepts or temporarily creating new
             concepts in local extensions that will have to be reconciled with each
-            international/national release. We chose to represent the package concepts using Nested
-            Expressions rather than creating new concepts in an extension. However, these concepts
-            would be much better suited as a pre-coordinated concept in the international or
-            national release as they have the potential to be used for data recording or retrieval.
-            Any further uses of nesting outside of laterality would need to be evaluated and
-            constrained to ensure that modeling can be easily checked for completeness and
-            consistency. Outside of the two use cases we tested for Nested Expressions, one could
-            make modifications to findings and procedures that are used as values for defining
-            relationships. However, in most cases these concepts would probably be better suited as
-            pre-coordinated concepts.</para>
+            international/national release. Representation of package concepts using Nested
+            Expression was the chosen method rather than creating new concepts in an extension.
+            However, these concepts would be much better suited as a pre-coordinated concept in the
+            international or national release as they have the potential to be used for data
+            recording or retrieval. Any further uses of nesting outside of laterality would need to
+            be evaluated and constrained to ensure that modeling can be easily checked for
+            completeness and consistency. Outside of the two use cases tested for Nested
+            Expressions, one could make modifications to findings and procedures that are used as
+            values for defining relationships. However, in most cases these concepts would probably
+            be better suited as pre-coordinated concepts.</para>
     </section>
     <section>
-        <title>Deliverables</title>
-        <para>We have created two Reference Sets as a part of PWS Task 5.5.2 to represent (1) those reviewed concepts where nesting could be used to represent both the product and laterality nesting and (2) those reviewed concepts that would not need nesting.</para>
+        <title>Resulting Artifacts</title>
+        <para>Two Reference Sets were created:(1) those
+            reviewed concepts where nesting could be used to represent both the product and
+            laterality nesting and (2) those reviewed concepts that would not need nesting.</para>
     </section>
     <section>
         <title>Additional Issues</title>
-        <para>When modeling the Pharmaceutical/Biological Product hierarchy, we used the model
-            developed in the Base Year to test concrete domains. SNOMED International has since
-            started utilizing the new drug model in the January 2018 international release. The work
-            we did in the Base Year will become obsolete as the new model is implemented. The new
-            SNOMED CT drug model will allow for the addition of more fully defined content including
-            the addition of more values to represent concepts that include units of presentation
-            like cartridges, which do not exist in the model we evaluated in the Base Year. We have
-            begun to remove the definitions that were added to the Pharmaceutical/Biological Product
-            hierarchy in the Base Year that are included in the review of concepts for Nested
-            Expressions but were included in the No Nesting RefSet as they do not require a nested
-            expression. In some cases, these concepts were partially modeled in the Base Year by an
-            automated update. For example:<itemizedlist>
+        <para>When modeling the Pharmaceutical/Biological Product hierarchy, a model developed by
+            Solor developers was used to test concrete domains. SNOMED International has since
+            started utilizing the new drug model in the January 2018 international release, which
+            will make the Solor developer model obsolete once the SNOMED model is implemented. The
+            new SNOMED CT drug model will allow for the addition of more fully defined content
+            including the addition of more values to represent concepts that include units of
+            presentation like cartridges. With the new SNOMED model, removal of definitions added
+            during previous work has begun, where some were partially modeled via an automated
+            update. For example:<itemizedlist>
                 <listitem>
                     <para>318166002 |Bendrofluazide+potassium 2.5mg/7.7Mmol m/r tablet
                         (product)|</para>
@@ -165,7 +164,8 @@
                         (product)|</para>
                 </listitem>
                 <listitem>
-                    <para>134499006 |Budesonide + formoterol fumarate 100/6mcg breath-actuated dry powder inhaler (product)|</para>
+                    <para>134499006 |Budesonide + formoterol fumarate 100/6mcg breath-actuated dry
+                        powder inhaler (product)|</para>
                 </listitem>
                 <listitem>
                     <para>134498003 |Budesonide+eformoterol fumarate 200/6mcg breath-actuated dry
@@ -180,8 +180,8 @@
                         medoxomil 40mg tablet (product)|</para>
                 </listitem>
             </itemizedlist></para>
-        <para>In the Pharmaceutical/Biological Product hierarchy we identified allergy kits that are
-            represented as separate concepts should potentially be considered duplicates:</para>
+        <para>In the Pharmaceutical/Biological Product hierarchy, allergy kits that are
+            represented as separate concepts were identified and should potentially be considered duplicates:</para>
         <para>
             <itemizedlist>
                 <listitem>

@@ -6,14 +6,31 @@
 
     <section>
         <title>Introduction</title>
-        <para>Concrete domains can be used in SNOMED CT to represent and reason over values like
-            integers in Description Logic. Our initial work focused on medications and evaluating
-            the use of concrete domains to represent not only the product strength, but also the
-            unit of use size. To fully test the feasibility of concrete domains, additional
-            attributes were also added, in order to fully represent all information regarding
-            medications, which will then allow concepts to be fully defined. Thus, this will enable
-            testing the equivalence and subsumption of concepts by the Description Logic classifiers
-            within the tooling.</para>
+        <para>Concrete domains are used to model concrete properties such as numbers, time
+            intervals, spatial regions<footnote>
+                <para> Lutz, C. (1999). IJCAI'99 Proceedings of the 16th international joint
+                    conference on Artifical intelligence - Volume 1. Retrieved from
+                    https://www.ijcai.org/Proceedings/99-1/Papers/014.pdf</para>
+            </footnote>. However, a limitation of description logic is the ability to fully
+            represent concrete values. For example, "male husband is younger than a female spouce"
+            could only be represented by an abstract mean and do not fully capture the semantics <footnote>
+                <para> Lutz, Carsten. (2019). The Complexity of Description Logics with Concrete
+                    Domains. Retrieved from
+                    http://www.cs.man.ac.uk/~ezolin/dl/bib/Complexity_of_Description_Logics_with_concrete_domains_(Lutz_PhD_2002).pdf</para>
+            </footnote>. </para>
+        <para>In patient records, there is no shortage of a need to represent these values (weight,
+            temperature, dosages, etc), and SNOMED CT has already begun work on addressing concrete
+            domain. In order to "stand on the shoulder of giants", SOLOR developers relies heavily
+            on current SNOMED CT work to extend the representation of concrete domains. Therefore,
+            the intent of this discussion is to propose the use of SNOMED CT model to represent and
+            reason over values like integers in Description Logic.</para>
+
+        <para> This initial work focused on medications and evaluating the use of concrete domains
+            to represent not only the product strength, but also the unit of use size. To fully test
+            the feasibility of concrete domains, additional attributes were also added, in order to
+            fully represent all information regarding medications, which will then allow concepts to
+            be fully defined. Thus, this will enable testing the equivalence and subsumption of
+            concepts by the Description Logic classifiers within the tooling.</para>
         <para>At the beginning of the project there was no ability to represent numeric attributes
             of concepts in SNOMED CT, which made machine readability of numeric attributes
             difficult, prone to error, and left a large portion of Products as primitive concepts.
@@ -37,7 +54,7 @@
         <para>To speed up the modeling process, already available data around strength and units
             from NDF-RT through RxNorm RXNSAT relationships that was linked to the SNOMED CT
             concepts through the RXCUI was used. Technical validation was performed on these values
-            and any incorrect strength or units we identified were corrected before using these
+            and any incorrect strength or units identified were corrected before using these
             values to populate the relationships. After loading the new relationships into the
             terminology editor, further manual review was conducted to verify the relationships and
             add any missing information.</para>
@@ -115,14 +132,14 @@
         <title>Findings</title>
         <para>Under the new SNOMED CT International Drug Concept Model, existing concepts will be
             updated to meet the new modelling guidelines and terming updated to conform to the
-            terming guidelines in the editorial guide. One of the most frequent issues we found
+            terming guidelines in the editorial guide. One of the most frequent issues found
             while modelling the medication attributes was that the Fully Specified Names (FSN) were
             not completely fully specified or that the values needed to fully define a concept were
-            not available. For example, the common issues we saw around FSN’s were due to the salt
+            not available. For example, the common issues seen around FSN’s were due to the salt
             or dose form not present or not fully defined in the FSN, but modelled with the more
             specific value in the current Has active ingredient and Has dose form attributes. With
             the SNOMED CT International review and application of the new modelling guidelines these
-            FSN’s should be corrected and fix the issues we found with FSN’s.</para>
+            FSN’s should be corrected and fix the issues found with FSN’s.</para>
         <para>
             <itemizedlist>
                 <listitem>
@@ -136,7 +153,7 @@
                 </listitem>
             </itemizedlist>
         </para>
-        <para>Another common issue with fully defining concepts using our proposed model was
+        <para>Another common issue with fully defining concepts using this proposed model was
             associated with sugar free, gluten free, preservative free, etc. dose forms. This issue
             is currently out of scope for the new SNOMED CT International Drug Concept Model and
             will prevent the concepts that currently exist in SNOMED CT from being fully defined. A
@@ -157,12 +174,12 @@
         </itemizedlist>
         <para>The sections of the SNOMED CT International Drug Concept Model dealing with Grouper,
             Virtual Medicinal Product (VMP), and Virtual Medicinal Product Form (VMPF) concepts in
-            the Pharmaceutical / biological product hierarchy did not affect our concrete domain
+            the Pharmaceutical / biological product hierarchy did not affect the concrete domain
             work as these concepts do not include product strength as a part of their FSN. However,
             correcting issues with these concepts will have downstream effects on the modelling of
-            the concepts we made modified. </para>
+            concepts. </para>
         <para>The section that was most relevant to the concrete domain work was the Virtual
-            Clinical Drug model. The main differences between our approaches are:</para>
+            Clinical Drug model. The main differences between the approaches are:</para>
         <para>
             <itemizedlist>
                 <listitem>
@@ -175,14 +192,14 @@
                 </listitem>
                 <listitem>
                     <para>The SNOMED CT International model separates out numerator and denominator
-                        for both strength and units whereas we chose to normalize the
+                        for both strength and units whereas this model normalized the
                         strength.</para>
                 </listitem>
             </itemizedlist>
         </para>
-        <para>After the testing of concrete domains using the pharmacy model we reviewed concepts in
-            findings, procedures and observables to determine the feasibility of applying concrete
-            domains to concepts in those hierarchies as well. We identified 3668 concepts that may
+        <para>After the testing of concrete domains using the pharmacy model, concepts in
+            findings, procedures and observables were reviewed to determine the feasibility of applying concrete
+            domains to concepts in those hierarchies as well. 3668 concepts were identified that may
             potentially benefit from the use of concrete domains in these hierarchies. </para>
         <para>These concepts mainly fall into 4 categories:</para>
         <para>

@@ -3,90 +3,42 @@
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.1">
     <title>Definitional</title>
-    <para/>
-    <!--
-    <section xml:id="section_dee954de-4001-4685-9833-e9c05ee21eb5">
-        <title>Definitional Layer Concerns</title>
-        <section xml:id="section_615b2dd9-e376-4230-a325-ff53dd483330">
-            <title>EL++ definitions of concepts</title>
-            <para/>
-        </section>
+    <section>
+        <title>Introduction</title>
+        <para> We, as humans, are able to express individual concepts and expand on just the name of
+            the concept, because we are able to associate certain characteristics to individual
+            concepts to further describe itself, as well as establishing connections or
+            relationships between concepts. Once concepts have a meaning beyond just a name, and
+            have relationships to other meaningful concepts, then reasoning can occur. </para>
+        <para>While the purpose of the Language Layer is to provide necessary vocabulary to express
+            various domains of medicine, the purpose of the Definitional Layer is to expand on just
+            a name to go with an idea - single concepts with a name by itself adds no value (i.e.
+            XYZ). In other words, a system must be capable of capturing not just the words (XYZ) of
+            the concept, but also provide a mechanism to express characteristics of that concept
+            (XYZ has the color white [assuming color and white is already defined]) and
+            relationships between concepts (XYZ is a beta-blocker). Additionaly, once relationships
+            of meaningful concepts are established, reasoning can occur (beta-blocker is used to
+            treat high blood pressure, therefore, XYZ treats high blood pressure).</para>
+        <para>Once a system is able to 'digest' the meaning of concepts, it can begin to utilize
+            logic to conduct reasoning. In the field of computer science, the study of Description
+            Logic is to represent the domain, then using these concepts to specify properties of
+            objects and individuals occuring in the domain. Additionally, another feature of
+            Description Logic is the capability to conduct reasoning on represented knowledge<footnote>
+                <para> Badder, F., Nutt, W. (2003). The description logic handbook. Retrieved from
+                    https://www.inf.unibz.it/~franconi/dl/course/dlhb/dlhb-02.pdf</para>
+            </footnote>. The goal of this section is to first provide a primer to those who may not
+            be fully immersed in the study of description logic, then an in troduction to SOLOR
+            designs to allow for a robust representation and relationships of concepts, followed by
+            topics or concerns from SOLOR developers and contributors that necessitates a discussion
+            on why these concerns could affect a system to conduct reasoning properly or
+            successfully. </para>
     </section>
-    -->
-    <section xml:id="section_913ac530-33db-42cc-bcf1-73fc29283537">
-        <title>Definitional Layer Exclusions</title>
-        <para/>
-        <section xml:id="section_f26a133b-3726-4ba5-90c9-93df878218c2">
-            <title>Logical negation</title>
-            <para/>
-        </section>
-        <section xml:id="section_6b1213dd-2975-48a7-b943-daad9d7685a2">
-            <title>Measurement</title>
-            <para/>
-        </section>
-    </section>
+        
+    <xi:include href="definitional_primer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="definitional_solorDesign.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="definitional_topicsOfConcern.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     
-    <section xml:id="section_aad44d58-84cd-40d4-af58-cb3e06af98e2">
-        <title>Definitional Operators</title>
-        <para>is one of the few description logics for which standard reasoning problems such as
-            consistency, and concept subsumption are decidable in polynomial time. To gain this
-            tractability, commonly-used constructors such as universal value restrictions, inverse
-            roles, and functional roles have been sacrificed.<footnote>
-                <para>Comparison of Reasoners for large Ontologies in the OWL 2 EL Profile. Kathrin
-                    Dentler, Ronald Cornet, Annette ten Teije, and Nicolette de Keizer <link
-                        xlink:href="http://www.semantic-web-journal.net/sites/default/files/swj120_2.pdf"
-                    /></para>
-            </footnote>
-        </para>
-        <section xml:id="section_8c35c127-885e-4150-b5e2-61a8b52781ae">
-            <title>Conjunction</title>
-            <para/>
-        </section>
-        <section xml:id="section_0dbbbabf-43d9-4c54-bb3b-a2486ead3066">
-            <title>Disjointness</title>
-            <para/>
-        </section>
-        <section xml:id="section_e8b2a42a-7161-4f40-bc25-c7ba0811177e">
-            <title>Reflexive roles</title>
-            <para/>
-        </section>
-        <section xml:id="section_196f1d52-7e7e-49f6-9cf6-d41e0d2d8922">
-            <title>Role inclusions</title>
-            <para>role inclusions allow expression of role hierarchies, transitive roles and right
-                identities.</para>
-        </section>
-        <section xml:id="section_da6bb31b-f469-4672-adbd-f3a3f0260f9c">
-            <title>Necessary axioms</title>
-            <para/>
-        </section>
-        <section xml:id="section_3bb1da79-8716-4162-8438-ab1c2a157e51">
-            <title>Sufficient axioms</title>
-            <para/>
-        </section>
-        <section xml:id="section_9a15e626-7aa5-49b3-af6d-acd39143393d">
-            <title>Defining relationships</title>
-            <para>Role relationship are represented as existential restrictions</para>
-        </section>
-        <section xml:id="section_898d51d6-ab3a-4d63-8922-2c64d1dc3beb">
-            <title>Quantities</title>
-            <para>Concrete domains are a construct that can define new classes by specifying
-                restrictions on attributes that have literal values (as opposed to relationships to
-                other concepts). The binary operators, equal to, greater than, greater than or equal
-                to, less than, and less than or equal to, can be used in concrete domain
-                expressions, and literal values can be integers, floating point numbers, string
-                literals, and dates. <footnote>
-                    <para>SNOROCKET 2.0 Concurrent Domains and Concurrent Classification</para>
-                </footnote></para>
-            <para>Concrete domains are used to model quantities in the definition of concepts, such
-                as defining how much ibuprofen may be in a medication tablet.</para>
-        </section>
-        <section xml:id="section_0c3e5d18-25cc-459b-8489-50dfef99306d">
-            <title/>
-            <para/>
-        </section>
-    </section>   
-
-
-    <xi:include href="SOLOR-definitional.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    
+    
     
 </chapter>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Description Logic Primer</title>
+    
+    
+    <section xml:id="section_aad44d58-84cd-40d4-af58-cb3e06af98e2">
+        <title>Description Logic</title>
+        <para>is one of the few description logics for which standard reasoning problems such as
+            consistency, and concept subsumption are decidable in polynomial time. To gain this
+            tractability, commonly-used constructors such as universal value restrictions, inverse
+            roles, and functional roles have been sacrificed.<footnote>
+                <para>Comparison of Reasoners for large Ontologies in the OWL 2 EL Profile. Kathrin
+                    Dentler, Ronald Cornet, Annette ten Teije, and Nicolette de Keizer <link
+                        xlink:href="http://www.semantic-web-journal.net/sites/default/files/swj120_2.pdf"
+                    /></para>
+            </footnote>
+        </para>
+        
+        <section>
+            <title>EL++</title>
+        </section>
+        
+        <section>
+            <title>Definitional Operators</title>
+            
+            <section xml:id="section_8c35c127-885e-4150-b5e2-61a8b52781ae">
+                <title>Conjunction</title>
+                <para/>
+            </section>
+            <section xml:id="section_0dbbbabf-43d9-4c54-bb3b-a2486ead3066">
+                <title>Disjointness</title>
+                <para/>
+            </section>
+            <section xml:id="section_e8b2a42a-7161-4f40-bc25-c7ba0811177e">
+                <title>Reflexive roles</title>
+                <para/>
+            </section>
+            <section xml:id="section_196f1d52-7e7e-49f6-9cf6-d41e0d2d8922">
+                <title>Role inclusions</title>
+                <para>role inclusions allow expression of role hierarchies, transitive roles and right
+                    identities.</para>
+            </section>
+            <section xml:id="section_da6bb31b-f469-4672-adbd-f3a3f0260f9c">
+                <title>Necessary axioms</title>
+                <para/>
+            </section>
+            <section xml:id="section_3bb1da79-8716-4162-8438-ab1c2a157e51">
+                <title>Sufficient axioms</title>
+                <para/>
+            </section>
+            <section xml:id="section_9a15e626-7aa5-49b3-af6d-acd39143393d">
+                <title>Defining relationships</title>
+                <para>Role relationship are represented as existential restrictions</para>
+            </section>
+            <section xml:id="section_898d51d6-ab3a-4d63-8922-2c64d1dc3beb">
+                <title>Quantities</title>
+                <para>Concrete domains are a construct that can define new classes by specifying
+                    restrictions on attributes that have literal values (as opposed to relationships to
+                    other concepts). The binary operators, equal to, greater than, greater than or equal
+                    to, less than, and less than or equal to, can be used in concrete domain
+                    expressions, and literal values can be integers, floating point numbers, string
+                    literals, and dates. <footnote>
+                        <para>SNOROCKET 2.0 Concurrent Domains and Concurrent Classification</para>
+                    </footnote></para>
+                <para>Concrete domains are used to model quantities in the definition of concepts, such
+                    as defining how much ibuprofen may be in a medication tablet.</para>
+            </section>
+            <section xml:id="section_0c3e5d18-25cc-459b-8489-50dfef99306d">
+                <title/>
+                <para/>
+            </section>
+            
+        </section>
+    </section>   
+    
+    <section xml:id="section_913ac530-33db-42cc-bcf1-73fc29283537">
+        <title>Definitional Layer Exclusions</title>
+        <para/>
+        <section xml:id="section_f26a133b-3726-4ba5-90c9-93df878218c2">
+            <title>Logical negation</title>
+            <para/>
+        </section>
+        <section xml:id="section_6b1213dd-2975-48a7-b943-daad9d7685a2">
+            <title>Measurement</title>
+            <para/>
+        </section>
+    </section>
+    
+</section>

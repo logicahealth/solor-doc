@@ -1,32 +1,326 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-    <title>SOLOR Foundation</title>
-    <para/>
-    <para>When dealing with the complexities of the various architectural layers, one of the most
-        important things to note is that any one of SOLOR's architectural layers will be undergoing
-        modifications at any given point in time, as various Standards Development Organizations go
-        through each of their various drafting, balloting, and approval lifecycles. Therefore it is
-        important to establish as a foundation for SOLOR a versioning and modularity architecture
-        that allows changes and subchanges to be referenced uniquely so that all parties can be on
-        the same page as to a particular version.</para>
-    <para/>
-    <para>For example, the following diagram shows how each module could be given a unique version
-        number and contain all layers of the architectural stack. In the instance that a particular
-        versioned module needs to be extended, an extension module could be added to that main
-        versioned module without the need to go to a completely new full module version. This
-        arrangement accounts for the constant change in the healthcare interoperability space while
-        still allowing two organizations to baseline on the same version for testing or exchange
-        purposes (i.e. Module M13, Extension E25)</para>
-    <para/>
-    <figure>
-        <title>Versioning; Modules and Extensions</title>
-        <mediaobject>
-            <imageobject>
-                <imagedata fileref="images/modules_and_extensions_r2.jpg" scale="50"/>
-            </imageobject>
-        </mediaobject>
-    </figure>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.1">
+    <title>SOLOR Architecture</title>
+    <section>
+        <title>Versioning Overview</title>
+        <para/>
+        <para>When dealing with the complexities of the various architectural layers, one of the
+            most important things to note is that any one of SOLOR's architectural layers will be
+            undergoing modifications at any given point in time, as various Standards Development
+            Organizations go through each of their various drafting, balloting, and approval
+            lifecycles. Therefore it is important to establish as a foundation for SOLOR a
+            versioning and modularity architecture that allows changes and subchanges to be
+            referenced uniquely so that all parties can be on the same page as to a particular
+            version.</para>
+        <para/>
+        <para>For example, the following diagram shows how each module could be given a unique
+            version number and contain all layers of the architectural stack. In the instance that a
+            particular versioned module needs to be extended, an extension module could be added to
+            that main versioned module without the need to go to a completely new full module
+            version. This arrangement accounts for the constant change in the healthcare
+            interoperability space while still allowing two organizations to baseline on the same
+            version for testing or exchange purposes (i.e. Module M13, Extension E25)</para>
+        <para/>
+        <figure>
+            <title>Versioning; Modules and Extensions</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/modules_and_extensions_r3.jpg" scale="50"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+    </section>
+    <section>
+        <title>Architecture</title>
+        <para>An interoperable, integrated terminology model concerns (a) the foundation and
+            building blocks of the common model; (b) how the transformation process of disparate
+            standards into the common model is made repeatable and interoperable with other
+            environments; and, (c) how the modules of the common model are tightly versioned
+            controlled over time. </para>
+        <para>In this chapter we are concerned with detailing SOLOR’s architectural foundation that
+            will support semantic interoperability. We achieve this foundation in two ways:</para>
+        <para>1. Use of SNOMED CT, RxNorm, and LOINC as the primary building blocks for the
+            foundational architecture (more on this in chapter 3)</para>
+        <para>2. Enablement of semantic operability within the foundational architecture through
+            normalization of representation and achieving coherence within and among the primary
+            building blocks of the architecture.</para>
+        <para/>
+        <para>SOLOR is an ecosystem that allows users to import, transform, and view content from
+            disparate medical terminologies, all in one common model. Users can navigate and search
+            SOLOR content, view details of the data elements, and select specific concepts to view
+            more information. As SOLOR is open-source, developers are encouraged to build on top of
+            existing functionalities.</para>
+        <para>We adopted contemporary software principles to create a multilayered architecture for
+            integrating standard medical terminologies. We sought to adhere to three main principles
+            in our architectural design: (a) to store concepts from medical terminologies so that
+            one could apply classifiers and identifiers; (b) to allow for versioning and updates
+            over time in a way that preserved concept orientation; and, (c) to promote
+            collaborative, distributive workflows for developers. </para>
+        <section>
+            <title>Building Blocks</title>
+            <para>SOLOR has two fundamental building blocks: concepts and semantics. Concept is
+                defined as an idea or a general notion. When abstracted out, it can be used to
+                represent any idea, whether that is a medically related idea (e.g., heart attack) or
+                an idea to represent a metadata (e.g., a synonym or a fully specified name). A
+                semantic enables addition of semantic data to the underlying concept’s content, in a
+                standardized way that provides for the same means of identifying, modularizing, and
+                versioning. In other words, a semantic is attached to a concept to provide
+                contextual meaning to the concept. Semantics can be grouped together in a collection
+                to form an ‘assemblage’. An assemblage consists of semantics that reference a
+                component and provide additional data to that member for some purpose. SOLOR also
+                has ‘description semantics’ with additional metadata specifying details including
+                but not limited to ‘language’ and ‘description type’.</para>
+        </section>
+        <section>
+            <title>Transformation Overview</title>
+            <para>After a standards developer releases its content, a process will need to occur to
+                transform data from its native format into SOLOR components. This programmatic
+                process is tailored to each incoming data stream, where it will account for data
+                represented in its original format. Other than transformation and applying
+                versioning coordinates, the underlying process will also address the notion of
+                dependency. For example, SNOMED US Extension will have a dependency on SNOMED
+                International, and relationships from the LOINC-SNOMED collaboration effort will
+                have a dependency on SNOMED and LOINC. </para>
+            <para>Once the content is in SOLOR, there is a step where equivalency is determined
+                through various methods where concepts of the same idea are aggregated. For example,
+                Gentamycin from SNOMED is the same as Gentamycin from LOINC, and is also the same
+                Gentamycin from RxNorm. The end result from this process is the creation of a SOLOR
+                concept that is devoid of any source information (but will have traceability). This
+                end result is what will be exposed to the user to view and use. In the Gentamycin
+                example, a user will find this concept that is devoid of any source information and
+                will not need to know if this is the SNOMED/LOINC/RxNorm Gentamycin that needs to be
+                selected. If the Gentamycin concept was used in the context of identifying what
+                medication the patient is currently taking, then the underlying process will be able
+                to transmit the RxNorm code if the receiving system is expecting RxNorm codes.
+                Conversely, if SOLOR were adopted more universally, the transmitted information
+                could be isolated to the SOLOR Gentamycin rather than a distinct code from a
+                specific terminology. </para>
+        </section>
+        <section>
+            <title>Identifiable Components</title>
+            <para>A universally unique identifier (UUID) is a 128-bit number used to identify
+                information in computer systems.(ref] ) The identifiable component layer of SOLOR
+                manages the reproducible assignment of UUIDs to all imported components as well as
+                the assignment of primordial UUIDs to all internally generated components. If
+                imported components already provide UUIDs to identify components, those UUIDs will
+                be used. The identifiable component layer must allow components to have more than
+                one UUID identifier, and if previously independent components are given each other’s
+                identifiers as alternate identifiers, the identifiable component layer must
+                dynamically merge the parts of these previously distinct components into a single
+                integrated component. This merging of components by merging identifiers is a simple
+                means for managing duplicated content as it is identified.</para>
+            <para>
+                <link linkend="_msoanchor_1">[CR(-A1]</link><link
+                    xlink:href="http://www.rfc-editor.org/info/rfc4122"
+                    >http://www.rfc-editor.org/info/rfc4122</link>
+            </para>
+        </section>
+        <section>
+            <title>Chronology</title>
+            <para>The chronology component of the architecture layer provides a means to generically
+                represent the revisions to a component over time, and to index those revisions by
+                status (e.g., active, inactive), effective time of change, author of change, module
+                within which the change occurred (international edition, US extension, etc.), and
+                the development path of the change (development, release candidate, etc.). Taken
+                together, these fields can be referred to as a version’s STAMP (status, time,
+                author, module, and path). STAMP provides a foundation for version control and
+                configuration management of all the components of the information architecture. The
+                STAMP will provide a means to modularize content so that modules can be turned on
+                and off depending on specific use cases, and that modular content can be developed
+                independently from unrelated modules. This modularity will enable simplified
+                development and quality assurance processes for each module. The following figure
+                shows the UML representation of SOLOR’s chronology layer on the left, and that of
+                STAMP on the right.</para>
+            <figure>
+                <title>Chronology and STAMP</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/stamp_chronology.png" scale="50"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
+    </section>
+    <section>
+        <title>Challenges</title>
+        <para>SOLOR is an integrated clinical transformation process to represent and bring together
+            disparate terminology standards by using a single model that can encompass any
+            customized content. In our experience with building the SOLOR semantic architecture and
+            transformation process, we have come to understand that health IT systems must address
+            the following antipatterns: </para>
+        <section>
+            <title>Accidental Complexity</title>
+            <para>Accidental (or incidental) complexity is complexity that arises in computer
+                programs or their development process that is non-essential to the problem to be
+                solved. While essential complexity is inherent and unavoidable, accidental
+                complexity is caused by the approach chosen to solve the problem. Some examples of
+                accidental complexity as they relate to informatics are described in the following
+                sections.</para>
+            <section>
+                <title>Semantic-laden Identifiers</title>
+                <para>Solving a distributed identifier allocation problem by using namespaces that
+                    are assigned to organizations (or committees in the case of HL7), semantics are
+                    often introduced into the identifier, which some developers use to identify what
+                    organization created the components that were associated with those identifiers.
+                    Exposing derivable semantics in the identifier can lead to complexity when
+                    users/developers demand that the semantics be maintained, which may result in
+                    unnecessary retirement as described in the next section. Reliance on UUIDs
+                    rather than on identifiers with derivable semantics would eliminate this
+                    complexity.</para>
+            </section>
+            <section>
+                <title>Unnecessary Retirement</title>
+                <para>An unintended side effect of using identified namespaces as part of
+                    distributed identifier assignment, is an increase in the complexity of
+                    transferring responsibility for a component from one organization to another.
+                    This complexity includes an elaborate sequence of marking a component for
+                    retirement in one release, actually retiring it in a subsequent release, and
+                    creating an essentially identical component with an identifier derived from the
+                    new organization’s namespace. Furthermore, there is the need for the creation of
+                    mapping solutions to keep historical relationships between components retired
+                    for these reasons to the current concepts that replace them. Again, reliance on
+                    UUIDs rather than on identifiers with derivable semantics would eliminate this
+                    complexity.</para>
+            </section>
+            <section>
+                <title>Post-coordination</title>
+                <para>Terminology models sometimes make it necessary to require post-coordination to
+                    provide domain coverage at the point of care, however, the information models we
+                    use in healthcare typically can’t handle post-coordination well. Reliance on the
+                    information model to represent post-coordination has introduced complexity that
+                    might be avoided if we used a dynamic means to assign unique identifiers to
+                    post-coordinated expressions.</para>
+            </section>
+            <section>
+                <title>Accidental Complexity Solutions </title>
+                <para> Accidental complexity must be minimized in any good architecture, design, and
+                    implementation. Working in short iterations with ongoing design reviews may help
+                    reduce accidental complexity. We must also develop an example implementation in
+                    parallel with the architecture, so that complexity can be identified early, and
+                    evaluated critically with respect to the essential or accidental nature of that
+                    complexity.</para>
+            </section>
+        </section>
+        <section>
+            <title>Design by Committee</title>
+            <para>A project that has many designers involved but no unifying plan or vision.</para>
+            <section>
+                <title>No Unifying Vision</title>
+                <para>Design by committee is the result of having many contributors to a project,
+                    but no unifying vision. A complex software design is the product of a committee
+                    process. The design has so many features and variations that it is infeasible
+                    for any group of developers to realize the specifications in a reasonable time
+                    frame.</para>
+            </section>
+            <section>
+                <title>Interoperability at the Expense of Operability</title>
+                <para>Interoperability provides an illusion of operability between disparate
+                    systems, and therefore there is no need to standardize.</para>
+            </section>
+            <section>
+                <title>Design by Committee Solutions</title>
+                <para>A solution to design by committee is to articulate a set of architectural
+                    principles to which architectural components will be evaluated against, and to
+                    have the committee be advisory to an architect that provides the unifying
+                    vision.</para>
+            </section>
+        </section>
+        <section>
+            <title>Stovepipe</title>
+            <para>The Stovepipe Enterprise antipattern is characterized by a lack of coordination
+                and planning across a set of systems. If every subsystem has a unique interface,
+                then the system is overly complex. Absence of common multisystem conventions is a
+                key problem for systems. For example, currently, essentially no terminology systems
+                are the same with regard to their representation and semantics, despite the
+                requirement that they must work together.</para>
+            <section>
+                <title>Overlapping and unreconciled models</title>
+                <para>SNOMED CT and LOINC are classic examples of two terminologies that are
+                    proposed for common use in health IT, but that are not well coordinated, and
+                    have unreconciled content (content that is not made consistent or compatible).
+                    As an example of unreconciled content, SNOMED CT and LOINC all have
+                    representations for Amoxicillin. In LOINC, Amoxicillin is a textual value in the
+                    has-component field of the concept:</para>
+                <para> </para>
+                <para>AMOXICILLIN [MASS/VOLUME] IN SERUM OR PLASMA</para>
+                <para>HAS-COMPONENT: AMOXICILLIN</para>
+                <para> </para>
+                <para>While SNOMED CT has the concept:</para>
+                <para> </para>
+                <para>AMOXICILLIN MEASUREMENT (PROCEDURE)</para>
+                <para>COMPONENT: AMOXICILLIN (SUBSTANCE)</para>
+                <para> </para>
+                <para>In SNOMED CT, Amoxicillin is also a concept, rather than just a text
+                    value.</para>
+                <para> </para>
+                <para>From an end-user’s perspective, the artificial separation and uncoordinated
+                    development of these important systems has been a burden. RxNorm may help bridge
+                    the medication components of the overlap, but there are other overlapping
+                    domains (method, type of scale, system, time aspect, and non-pharmaceutical
+                    components) that RxNorm does not cover. The UMLS may help us formally reconcile
+                    some of these other domains, but if coordination and reconciliation can be part
+                    of the development processes for these sources, rather than a cleanup exercise
+                    for implementers, we can allocate resources to solving more compelling
+                    problems.</para>
+                <para>We hope that the newly announced cooperative agreement between IHTSDO (owners
+                    of SNOMED CT) and the Regenstrief Institute (owners of LOINC), and the NLM
+                    (owners of RxNorm) will change the coordination of these systems in a
+                    significantly helpful way. Although SNOMED CT and LOINC are classic examples of
+                    overlapping and unreconciled models, there are many other examples. The UMLS
+                    identifies over 150 sources, most of which are uncoordinated, and have
+                    independent models. These overlapping and unreconciled models create an
+                    unnecessary burden for the implementer.</para>
+            </section>
+            <section>
+                <title>Uncoordinated development</title>
+                <para>Today, related components from different organizations do not share their work
+                    prior to a release. The result of this lack of sharing is that dependent
+                    components are always out of date with the latest release of the underlying
+                    standard. For example, how can you keep a mapping of SNOMED CT to ICD-10-CM
+                    components up to date, when it takes 6 months after the release of SNOMED CT to
+                    update and quality assure the map? As an implementer, does that mean you should
+                    wait 6 months for the map to be updated before deploying the latest SNOMED CT
+                    release? What if the new SNOMED CT release contains new content that may improve
+                    the diagnosis, treatment, or prevention of disease? Is it really acceptable to
+                    delay implementation of the latest SNOMED CT release by 6 months while waiting
+                    for dependent system components to be updated after the fact?</para>
+            </section>
+            <section>
+                <title>Stovepipe solutions</title>
+                <para>The primary solution for the stovepipe systems we are working with is to break
+                    down the barriers that prevent collaborative development of content, tools,
+                    processes, and ultimately architecture. Today, deployment delay is not a
+                    significant issue because clinical decision support is relatively nascent, and
+                    pharmacy, laboratory, and clinical systems are poorly integrated. However, if we
+                    successfully create compelling decision support on an integrated and shareable
+                    platform, coordination of development and release cycles among clinical
+                    terminologies, logical representation, clinical facts, and clinical knowledge
+                    bases will become increasingly important. We must prepare for success and work
+                    to better coordinate development among dependent components.</para>
+                <para>Here we propose leveraging opportunities that are helping to break down these
+                    barriers. Those opportunities include acquisition and development of open-source
+                    tooling. Improvements in open-source tooling will help break down collaborative
+                    barriers significantly. Such improvement is a fundamental focus of our
+                    architecture effort. The solution to the stovepipe antipattern is effective
+                    collaboration without barriers of proprietary concern.</para>
+            </section>
+        </section>
+    </section>
+    <section>
+        <title>Summary</title>
+        <para>Currently, medical terminologies come from different sources and are represented by
+            disparate models. However, by using a common model that integrates these terminologies
+            seamlessly, SOLOR's architecutral layer can display content from different sources after
+            the SOLOR transformation process. Users will consequently not need to burden themselves
+            with unnecessary complexities, and can instead focus on the meaning of medical
+            content.(ref) Built upon an architecture intended to facilitate semantic
+            interoperability, SOLOR stores concepts with UUIDs and classifiers, is maintained by
+            robust version control, and promotes modular, collaborative development. Next steps
+            include developing a list of agency-specific and industry-specific use cases for SOLOR
+            upon which a formative evaluation approach and data collection and analysis can be
+            conducted.</para>
+    </section>
 </chapter>

@@ -87,25 +87,50 @@
     </section>
     <section>
         <title>Motivation and Foundation</title>
-            <para>A 2018 whitepaper <citation>interoperabilityreport2018</citation> cited that great strides have been made in healthcare data interoperability
-            in the past decade…the vast majority of clinicians and patients have access to some
-            portion of their health data in electronic format, thanks to the proliferation of
-            electronic health record (EHR) systems installed in clinical care environments. The data
-            in these EHRs usually follow HL7’s Consolidated Clinical Document Architecture (C-CDA)
-            as it has become the generally accepted primary data standard for structured clinical
-            data exchange.</para>
-
-            <para>However, the whitepaper also found that significant gaps exist in the accurate
-                encoding of the data contained in those C-CDA documents – in an analysis conducted
-                of C-CDA documents produced by various EHR vendors and clinical organizations, the
-                four most frequent problems identified as part of this analysis were that
-                medications should be encoded in RxNorm (frequency of medication appearing in 13.7%
-                of sampled test case documents), vital signs and results should use LOINC (9.2% of
-                sampled documents), vital signs, and results should use unified code of units of
-                measure (UCUM) for physical values (8.7% of sampled documents) and the inclusion of
-                conflicting status information for medications (6.7% of sampled documents)<citation>interoperabilityreport2018</citation>.</para>
-            <para>These issues can have a direct impact on patient safety and point to the need to
-            be able to consistently represent and encode clinical data and observations. This is the
+        <para>The essential challenge of informatics practice within the healthcare enterprise, is
+            to quickly deliver a high fidelity reasoned interpretation of principles and facts to
+            the point of care—and then to quickly aggregate these point of care experiences for
+            analytic analysis so that new principles and facts can be formulated and validated as
+            part of a continuous optimization of healthcare knowledge and delivery. To effectively
+            answer this challenge, we must focus on simplification and integration of knowledge
+            assets, and on build, test, deploy, and release processes for delivering these assets to
+            the points of care and analysis. This focus on perhaps mundane topics is not because we
+            think that novelty has no place in our work; rather, that without a focus on aspects of
+            our delivery challenge that are often treated as peripheral to the overall problem, we
+            cannot achieve reliable, rapid, low-risk knowledge-asset development and delivery in an
+            efficient manner.</para>
+        <para>The Veteran’s Administration ISAAC (InformaticS Architecture ACceleration) effort
+            seeks a holistic approach to architecture that supports novelty within a rigorous—and
+            vertically integrated—deployment pipeline that enables knowledge engineers, developers,
+            testers, build managers, and operations personnel to work together effectively to
+            deliver assets to the points of care and analysis. This pipeline must support integrated
+            delivery of iterative revisions of specifications, services, and content which are today
+            delivered by isolated silo organizations who place the implementation burden upon their
+            consumers. This pipeline will be built from existing software-based best practices, and
+            will embrace DevOps culture and practice by emphasizing collaboration and communication
+            while automating the process of product delivery. ISAAC’s KOMET (KnOwledge Management
+            EnvironmenT) realizes ISAAC’s architecture within a DevOps environment that integrates
+            development, testing, publication, and delivery of specifications, content, and services
+            into a vertically integrated environment that supports continuous delivery.</para>
+        <para>A 2018 whitepaper <citation>interoperabilityreport2018</citation> cited that great
+            strides have been made in healthcare data interoperability in the past decade…the vast
+            majority of clinicians and patients have access to some portion of their health data in
+            electronic format, thanks to the proliferation of electronic health record (EHR) systems
+            installed in clinical care environments. The data in these EHRs usually follow HL7’s
+            Consolidated Clinical Document Architecture (C-CDA) as it has become the generally
+            accepted primary data standard for structured clinical data exchange.</para>
+        <para>However, the whitepaper also found that significant gaps exist in the accurate
+            encoding of the data contained in those C-CDA documents – in an analysis conducted of
+            C-CDA documents produced by various EHR vendors and clinical organizations, the four
+            most frequent problems identified as part of this analysis were that medications should
+            be encoded in RxNorm (frequency of medication appearing in 13.7% of sampled test case
+            documents), vital signs and results should use LOINC (9.2% of sampled documents), vital
+            signs, and results should use unified code of units of measure (UCUM) for physical
+            values (8.7% of sampled documents) and the inclusion of conflicting status information
+            for medications (6.7% of sampled
+                documents)<citation>interoperabilityreport2018</citation>.</para>
+        <para>These issues can have a direct impact on patient safety and point to the need to be
+            able to consistently represent and encode clinical data and observations. This is the
             next great challenge to conquer for health data interoperability to positively influence
             patient outcomes nationwide through clinical decision support. </para>
         <para>When considering these challenges, it can be daunting to consider from where to start.
@@ -118,34 +143,62 @@
             measurement was actually taken procedurally - for example, in arriving at a quantitative
             measurement such as 90 beats per minute for a patient's pulse, one clinician may have
             used a pulseometer, while another may have arrived at that measurement using fingers to
-            the patient's left wrist and a stopwatch.   While the quantitative measurement is the
+            the patient's left wrist and a stopwatch. While the quantitative measurement is the
             same, the procedural information should also be documented and the differences
             noted.</para>
-        <para> A systematic way to think about this (borrowed from the software development
-            industry) is something called Separation of Concerns.  Separation of Concerns is an
-            architectural design principle that allows a complete system to be subdivided into
-            several distinct sections.   If concerns are well separated from each other, individual
-            sections may be able to be reused, as well as worked on and updated independently to
-            address new requirements and use cases.  This is especially useful and important in a
-            medical context given how many different health information and clinical terminology
-            projects are ongoing at any given time, efforts that are often uncoordinated and led by
-            disparate and unrelated standards development organizations.</para>
-            <para>The following diagram shows how the concept of Separation of Concerns can be
-            applied to the problem of systematically and consistently representing data from
-            clinical observations: <inlinemediaobject>
+    </section>
+    <section>
+        <title>Separation of Concerns</title>
+        <para>A systematic way to think about this (borrowed from the software development industry)
+            is something called Separation of Concerns. Separation of Concerns is an architectural
+            design principle that allows a complete system to be subdivided into several distinct
+            sections. If concerns are well separated from each other, individual sections may be
+            able to be reused, as well as worked on and updated independently to address new
+            requirements and use cases. This is especially useful and important in a medical context
+            given how many different health information and clinical terminology projects are
+            ongoing at any given time, efforts that are often uncoordinated and led by disparate and
+            unrelated standards development organizations.</para>
+        <para>The following diagram shows how the concept of Separation of Concerns can be applied
+            to the problem of systematically and consistently representing data from clinical
+            observations: <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="images/architecture_separation_of_concerns_r2.jpg" scale="50"/>
+                    <imagedata fileref="images/architecture_separation_of_concerns_r3.jpg"
+                        scale="50"/>
                 </imageobject>
             </inlinemediaobject></para>
-        <para/>
+        <para>Starting from the bottom to the top of the architectural diagram, the layers of the
+            Separation of Concerns are described as: </para>
+        <para><emphasis role="underline">Architecture</emphasis> – Provides an interoperable,
+            integrated common terminology model which concerns (a) the foundation and building
+            blocks of the common model; (b) how the transformation process of disparate standards
+            into the common model is made repeatable and interoperable with other environments; and,
+            (c) how the modules of the common model are tightly versioned controlled over time. </para>
+        <para><emphasis role="underline">Terminology Knowledge</emphasis> – Structured sets of
+            medical terms and codes that define concepts of interest, including descriptions,
+            dialects, language, and semantic hierarchy. This layer also incorporates logical
+            operators such as negation and combinations of concepts. </para>
+        <para><emphasis role="underline">Statement Model</emphasis> – Packaging of the terminology
+            content in standardized data structures so that they can be readily consumed in the
+            informational retrieval process for analysis. Additional metadata to describe subject,
+            numerical, and categorical details related to concepts can be added in this
+            layer.</para>
+        <para><emphasis role="underline">Assertional Knowledge </emphasis>– Rule based engine to
+            allow concepts and combinations of concepts to assimilate into triggers, warning rules,
+            alerts, for possible adverse outcomes. </para>
+        <para><emphasis role="underline">Procedural Knowledge</emphasis> – Protocols at the
+            application or system level to support clinical decision support, quality measurement,
+            and/or patient safety. Integrates the architectural and terminology layers, incorporates
+            the statement model for information retrieval, uses the assertional layer to apply rules
+            and, and ultimately defines the procedure to be carried out for the patient through
+            clinical decision support applications or analytics. </para>
         <para>SOLOR (System of Logical Representation) is an effort that is directly tackling these
-            issues of representation, concerned primarily with the Language and Dialect layer in the
-            Separation of Concerns.   SOLOR is an integrated medical terminology system, based on
-            the overlapping but distinct terminology systems of SNOMED, LOINC and RxNorm. SOLOR was
-            designed to unambiguously define what can be measured (concepts). Working hand in hand
-            with SOLOR, there needs to be a clinical statement model, of which there are quite a few
-            (HL7 FHIR, CIMI, ANF) which defines how to record a measurement. Measurements may be
-            quantitative or existential.  </para>
+            issues of representation, concerned primarily with the Architecture and Terminology
+            layer in the Separation of Concerns. SOLOR is an integrated medical terminology system,
+            based on the overlapping but distinct terminology systems of SNOMED, LOINC and RxNorm.
+            SOLOR was designed to unambiguously define what can be measured (concepts). Working hand
+            in hand with SOLOR, there needs to be a clinical statement model, of which there are
+            quite a few (HL7 FHIR, CIMI, ANF) which defines how to record a measurement.
+            Measurements may be quantitative or existential. </para>
         <para> </para>
     </section>
 

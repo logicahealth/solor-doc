@@ -10,14 +10,20 @@
      <title>Clinical Input Form Statements</title>
      
      <section>
+
+      <para>
+          Ideally, clinical information is represented in a manner that is most efficient for use.  The problem is that users have many different requirements for clinical information, thus no single representation can be the most efficient representation for all the various use cases.  Thus, maximum efficiency for each use case necessitates that any particular clinical information be available in multiple representations.  Although different in form, each of these different representations semantically model the same information. These are known as isosemantic models.
+      </para>
      	
      	<para>
-     		A clinical statement represents an entry in the patient record that documents in a structured/computable manner clinical information about a subject of information, such as a patient or a relative of the patient, and that is asserted by a particular source, recorded, and potentially verified.
+     		A clinical statement represents an entry in the patient record that documents in a structured/computable manner clinical information related to the patient that is asserted by a particular source, recorded, and potentially verified.
      	</para>
 
          <para>
          	Clinicians author clinical statements and enter them into their organization’s electronic health record (EHR).  Clinicians typically enter the information via a manner that we call here the clinical input form (CIF).  However, the CIF is not a literal form that clinicians select and enter data in. Rather, it refers to the manner in which information is presented to the clinicians and how they enter the data, such as by constraining the information to allow only certain values to be entered, such as through a drop-down list or radio button, or breaking up large chunks of related information into smaller parts.  For example, when a clinician orders a medication, rather than selecting this information all at once with a single item, they will choose the various parts of the medication order, such as:
         </para>
+
+
 
         <itemizedlist spacing='compact'>
             <listitem>
@@ -42,12 +48,17 @@
             </listitem>
         </itemizedlist>
 
-        <para>
-        	Ideally, the way the information is presented to clinicians is in a manner that is most efficient for the clinicians to use.  However, what is an efficient way for clinicians to select and enter data may not be the most efficient way for data analysts to use when they are querying data once it has been normalized and stored in a database, such as when creating a new CDS rule or compiling prevalence statistics.  For this, the data is normalized using the analysis normal form (ANF) and stored in a database.  Again, the ANF is not necessarily a physical structure, but is how a data analyst might see the data when they are looking at it in a database, and not as clinicians would see it in the user interface (i.e., CIF).
-        </para>
+        
+
 
         <para>
-     		As a forward to this discussion it is necessary to provide some historical background about the Clinical Information Modeling Initiative(CIMI) model. The CIMI working group created a reference model with no working knowledge of a division between analysis normal form and clinical input form. The model they created was developed along standard lines of informatics thinking and thus ended up being a CIF model because CIF models are the norm in informatics.  Thus, CIMI simply called this model the CIMI model.  But now to distinquish it from the ANF model being proposed to CIMI, we will call the current CIMI model, the CIMI CIF model.
+          is an efficient way for clinicians to select and enter data may not be the most efficient way for data analysts to use when they are querying data once it has been normalized and stored in a database, such as when creating a new CDS rule or compiling prevalence statistics.  For this, the data is normalized using the analysis normal form (ANF) and stored in a database.  Again, the ANF is not necessarily a physical structure, but is how a data analyst might see the data when they are looking at it in a database, and not as clinicians would see it in the user interface (i.e., CIF).
+        </para>
+
+       
+
+        <para>
+     		As a forward to this discussion it is necessary to provide some historical background about the Clinical Information Modeling Initiative (CIMI) model. The CIMI working group created a reference model with no working knowledge of a division between analysis normal form and clinical input form. The model they created was developed along standard lines of informatics thinking and thus ended up being a CIF model because CIF models are the norm in informatics.  Thus, CIMI simply called this model the CIMI model.  But now to distinquish it from the ANF model being proposed to CIMI, we will call the current CIMI model, the CIMI CIF model.
      	</para>
 
 
@@ -83,7 +94,7 @@
 	    </para>
 
 	    <para>
-	        The UML/BMM classes are more abstract and the archetypes are where specific semantics such as 'blood glucose' or 'diabetes present; are asserted.
+	        The UML/BMM classes are more abstract and the archetypes are where specific semantics such as 'blood glucose' or 'diabetes present, are asserted.
 	    </para>
 
 	    <sect2>
@@ -138,17 +149,22 @@
                 Patient had an appendectomy.
               </para>
             </listitem>
+            <listitem>
+              <para>
+                Patient has a paternal uncle with Hemophilia C.
+              </para>
+            </listitem>
           </itemizedlist>
 
           <para>
-            Clinical Statement, shown in <xref linkend="cif_msg_cstatement_0135"/>, has a ‘key’, ‘topic’, ‘context’, and ‘meta’. The ‘key’ is the terminology meaning binding for the entire Clinical Statement.  The ‘topic’ is the clinical entity being described.  The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated.  Finally, ‘meta’ is the collection of metadata that is associated with the clinical statement: the who, where, why and when information.
+            Clinical Statement, shown in <xref linkend="cif_msg_cstatement_0135"/>, has a ‘key’, ‘topic’, ‘context’, and ‘metadata’. The ‘key’ is the terminology meaning binding for the entire Clinical Statement.  The ‘topic’ is the clinical entity being described.  The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated.  Finally, ‘metadata’ is the collection of metadata that is associated with the clinical statement: the who, where, why and when information.
           </para>
 
           <figure xml:id="cif_msg_cstatement_0135">
               <title>Clinical Statement</title>
               <mediaobject>
                   <imageobject>
-                      <imagedata fileref="images/cif_clinical_statement.jpg" align="center" format="jpg" width="50%"/>
+                      <imagedata fileref="images/cif_clinical_statement.png" align="center" format="png" width="100%"/>
                   </imageobject>
               </mediaobject>
           </figure>
@@ -161,16 +177,44 @@
                 <term><emphasis role='bold'>Topic</emphasis></term>
                 <listitem>
                     <para>
-                        The ‘topic’ is the clinical entity described by the Clinical Statement. A few examples of topic include clinical assertions, evaluation results, and procedures. For each of these topics the information described is quite different. Therefore, CIMI describes topic types that contain the appropriate attributes to describe the required information for the given topic. The number of topic types will change as CIMI progresses. Currently the allowable topic types are EventTopic, ProcedureTopic and FindingTopic which has suptypes of EvaluationResultTopic and AssertionTopic. 
+                        The ‘topic’ is the clinical entity described by the Clinical Statement. A few examples of topic include clinical assertions, evaluation results, and procedures. For each of these topics the information described is quite different. Therefore, CIMI describes topic types that contain the appropriate attributes to describe the required information for the given topic. The number of topic types will change as CIMI progresses. Currently the allowable topic types are listed here. 
                     </para>
+
+                    <itemizedlist mark='bullet' spacing='compact'>
+                        <listitem><para>ProcedureTopic</para></listitem>
+                        <listitem><para>FindingTopic</para>
+                            <itemizedlist mark='bullet' spacing='compact'>
+                                <listitem><para>EvaluationResultTopic</para></listitem>
+                                <listitem><para>AssertionTopic</para></listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term><emphasis role='bold'>Context</emphasis></term>
                 <listitem>
                     <para>
-                        The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated. CIMI describes context types that contain the appropriate attributes to describe the required information for the given context. The number of context types will change as CIMI progresses. Currently the allowable context types are EventContext, ActionContext, and FindingContext.  ActionContext has subtypes with examples including RequestContext, OrderContext and PerformanceContext. FindingContext has subtypes with examples such as PresenceContext, AbsenceContext, and GoalContext.
+                        The ‘context’ describes the circumstances that form the setting in which the ‘topic’ should be evaluated. CIMI describes context types that contain the appropriate attributes to describe the required information for the given context. The number of context types will change as CIMI progresses. Currently the allowable context types are listed here.
                     </para>
+
+                    <itemizedlist mark='bullet' spacing='compact'>
+                        <listitem><para>ActionContext</para>
+                            <itemizedlist mark='bullet' spacing='compact'>
+                                <listitem><para>RequestContext</para></listitem>
+                                <listitem><para>OrderContext</para></listitem>
+                                <listitem><para>PerformanceContext</para></listitem>
+                            </itemizedlist>
+                        </listitem>
+                        <listitem><para>FindingContext</para>
+                            <itemizedlist mark='bullet' spacing='compact'>
+                                <listitem><para>PresenceContext</para></listitem>
+                                <listitem><para>AbsenceContext</para></listitem>
+                                <listitem><para>GoalContext</para></listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+
                 </listitem>
             </varlistentry>
             <varlistentry>
@@ -190,12 +234,6 @@
       Earlier, descriptive examples of Clinical Statements were given.  Here we will represent a few of these examples using the Clinical Statement ‘topic - context’ paradigm.  In <xref linkend="cif_msg_cstatement_chf_0135"/>, the example for “Patient has diagnosis of congestive heart failure” is illustrated. The topic has been declared to be of type AssertionTopic stating “assertion of congestive heart failure”, and the context has been declared to be of type PresenceAbsenceContext stating “Known Present”. What may not be apparent in the figure is that when the topic is declared to be of type AssertionTopic then all the attributes of AssertionTopic are available for use. However, in the figure only the attribute named ‘result’ is shown for clarity.  
     </para>
 
-    <para>
-      In <xref linkend="cif_msg_cstatement_order_0135"/>, the example for “Patient has an order for Physical Therapy.” is shown. The topic has been declared to be of type ProcedureTopic stating “procedure of type physical therapy”, and the context has been declared to be of type OrderContext. Again, the majority of attributes for ProcedureTopic and OrderContext are not shown for clarity.
-    </para>
-
-    
-
     <figure xml:id="cif_msg_cstatement_chf_0135">
         <title>Patient has diagnosis of congestive heart failure.</title>
         <mediaobject>
@@ -204,6 +242,10 @@
             </imageobject>
         </mediaobject>
     </figure>
+
+    <para>
+      In <xref linkend="cif_msg_cstatement_order_0135"/>, the example for “Patient has an order for Physical Therapy.” is shown. The topic has been declared to be of type ProcedureTopic stating “procedure of type physical therapy”, and the context has been declared to be of type OrderContext. Again, the majority of attributes for ProcedureTopic and OrderContext are not shown for clarity.
+    </para>
 
     <figure xml:id="cif_msg_cstatement_order_0135">
         <title>Patient has an order for Physical Therapy.</title>
@@ -242,7 +284,11 @@
 	<title>Topic Patterns</title>
 
     <para>
-        Topic Patterns include all the attributes required to fully describe a clinical entity. The topic patterns CIMI has developed to date include FindingTopic, ProcedureTopic, and EventTopic, wheith FindingTopic having children of AssertionTopic and EvaluationResultTopic. They are shown in <xref linkend="cif_msg_topic_hierarchy_0135"/> and are described in the following sections. Each of these topic subtypes contain a collection of attributes that describe the given pattern.  These patterns provide the foundational structure for detailed clinical model (DCM) archetype instances that can be visualized at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink> 
+        Topic Patterns include all the attributes required to fully describe a clinical entity. The main topic pattern categories CIMI has developed to date include FindingTopic and ProcedureTopic, with FindingTopic having children of AssertionTopic and EvaluationResultTopic. They are shown in <xref linkend="cif_msg_topic_hierarchy_0135"/> and are described in the following sections.  Each of these topic subtypes contain a collection of attributes that describe the given pattern.  These patterns provide the foundational structure for detailed clinical model (DCM) archetype instances that can be visualized at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink> 
+    </para>
+
+    <para>
+        It should be noted that topics shown in <xref linkend="cif_msg_topic_hierarchy_0135"/> are further subtyped and AssertionTopic, EvaluationResultTopic, and ProcedureTopic are the main branching points that we will cover in the next sections of this document.  These are the branch points from which further topic subtypes will be created.  The attributes inherited from FindingTopic and StatementTopic are shown as if they exist in AssertionTopic, EvaluationTopic, and ProcedureTopic.  
     </para>
 
     <figure xml:id="cif_msg_topic_hierarchy_0135">
@@ -258,26 +304,10 @@
         <title>AssertionTopic</title>
 
         <para>
-            The first topic type described here is the AssertionTopic pattern with its included attributes, as shown in <xref linkend="cif_msg_assertion_0135"/>. ConditionTopic, shown in <xref linkend="cif_msg_condition_0135"/> is a child of AssertionTopic which is used to represent a clinical finding such as the presence (or absence) of a condition in a patient. For example:
+            The first topic type we will describe is the AssertionTopic pattern with its included attributes, as shown in <xref linkend="cif_msg_assertion_0135"/>. Many other topic patterns can then be subclassed from AssertionTopic. One example of this is ConditionTopic, shown in <xref linkend="cif_msg_condition_0135"/> which is a child of AssertionTopic used to represent a condition in a patient. ConditionTopic adds attributes such as clinicalCourse, severity, and diseasePhase that help to further describe conditions.  If these additional attributes are unnecessary, then AssertionTopic can be used rather than ConditionTopic.  Note in the diagram, for simplicity, ConditionTopic is shown with the attributes it inherits from AssertionTopic
         </para>
 
-        <itemizedlist mark='bullet' spacing='compact'>
-            <listitem>
-              <para>
-                ChestPainAssertion asserts the presence of chest pain.
-              </para>
-            </listitem>
-            <listitem>
-              <para>
-                ChestPainAbsenceAssertion asserts the absence of chest pain.
-              </para>
-            </listitem>
-            <listitem>
-              <para>
-                EdemaAssertion asserts the presence of edema.
-              </para>
-            </listitem>
-        </itemizedlist>
+        
 
 
         <figure xml:id="cif_msg_assertion_0135">
@@ -298,6 +328,26 @@
             </mediaobject>
         </figure>
 
+        <para>The class AssertionTopic or ConditionTopic could be constrained as part of a ClinicalStatement to:</para>
+
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                assert the presence of chest pain.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                assert the absence of chest pain.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                assert the presence of edema.
+              </para>
+            </listitem>
+        </itemizedlist>
+
         <para>
             The assertion pattern for a clinical statement is as follows:
         </para>
@@ -310,7 +360,7 @@
             </listitem>
             <listitem>
               <para>
-                topic.result = a code representing what is being asserted (i.e., “rash”, “auto accident”, “hypertrophy”, etc.).
+                topic.result = a code representing what is being asserted (i.e., a code for “rash”, “auto accident”, “hypertrophy”, etc.).
               </para>
             </listitem>
         </itemizedlist>
@@ -341,7 +391,7 @@
             <title>Assertions</title>
 
             <para>
-                Assertions affirm or deny the existence of clinical conditions, diseases, symptoms, etc., in the patient.  As just described, different varieties of assertion may extend an existing AssertionTopic class with any additional attributes necessary to fully represent this new group of assertions. Table 1 shows examples of clinical statements using the AssertionTopic class for the topic, and Table 2 shows examples of clinical statement using FindingSiteAssertionTopic for the topic.  These examples show the ‘topic.topicCode’, ‘topic.result’, and ‘context.contextCode’ for each, with the addition of any extra attributes from the chosen topic needed to describe the clinical statement.  Context will be discussed in depth later in this document. For now, be aware the chosen context is a full class with many attributes but here we are only showing the context code attribute that is common to all context types.
+                Assertions affirm or deny the existence of clinical conditions, diseases, symptoms, etc.  As just described, different varieties of assertion may extend an existing AssertionTopic class with any additional attributes necessary to fully represent this new group of assertions. <xref linkend="cif_example_1_0135"/> and <xref linkend="cif_example_2_0135"/> show examples of clinical statements using the AssertionTopic class for the topic, and <xref linkend="cif_example_3_0135"/> and <xref linkend="cif_example_4_0135"/> show examples of clinical statement using FindingSiteAssertionTopic for the topic.  These examples show the ‘topic.topicCode’, ‘topic.result’, and ‘context.contextCode’ for each, with the addition of any extra attributes from the chosen topic needed to describe the clinical statement.  Context will be discussed in depth later in this document. For now, be aware the chosen context is a full class with many attributes but here we are only showing the context code attribute that is common to all context types.
             </para>
 
             <example xml:id="cif_example_1_0135">
@@ -421,7 +471,7 @@
         <title>Evaluation Result</title>
 
         <para>
-            The second topic pattern we will discuss is EvaluationResultTopic which is used to document a characteristic of a patient or a clinical value being observed. An EvaluationResultTopic may hold the name of a test in the ‘topicCode’ attribute (e.g., “heart rate evaluation”, “serum glucose lab test”, etc.) and the resulting value of the test in the ‘result’ attribute. Viewed another way, the EvaluationResultTopic topicCode holds a question (e.g., "what is the heart rate?", "what is the serum glucose?") and the ‘result’ holds the answer. Any clinical statement such as a laboratory test, a vital sign, or a questionnaire question that fits this pattern of a question and a resulting value is modeled with the EvaluationResultTopic pattern.
+            The second topic pattern we will discuss is EvaluationResultTopic which is used to document a characteristic of a patient or a clinical value being observed. An EvaluationResultTopic may hold the code for a test in the ‘topicCode’ attribute (e.g., code for “heart rate evaluation”, “serum glucose lab test”, etc.) and the resulting value of the test in the ‘result’ attribute. Viewed another way, the EvaluationResultTopic topicCode holds a question (e.g., "what is the heart rate?", "what is the serum glucose?") and the ‘result’ holds the answer. Any clinical statement such as a laboratory test, a vital sign, or a questionnaire question that fits this pattern of a question and a resulting value is modeled with the EvaluationResultTopic pattern.
         </para>
 
         <para>
@@ -755,7 +805,7 @@
     	<title>The Representation of Topic</title>
 
     	<para>
-    		In the ANF model, the topic is represented by a single field containing a simple to complex snomed expression whereas in the CIF model, all the pieces of information that make up the topic are broken out and structured as needed into multiple properties with propery names and appropriate datatypes.  
+    		In the ANF model, the topic is represented by a single field containing a simple to complex SNOMED expression whereas in the CIF model, all the pieces of information that make up the topic are broken out and structured as needed into multiple properties with propery names and appropriate datatypes.  
     	</para>
 
     	<figure xml:id="cif_msg_topic_comparison_0135">
@@ -768,7 +818,7 @@
         </figure>
 
         <para>
-        	One implication of this is that the ANF is using two formalisms to represent the detailed clinical model.  First it uses the formalism that represents the ANF reference model and constraints such as HL7's StructureDefinition syntax or OpenEHR's BMM/ADL syntax.  Second, it uses Snomed's syntax for post-coordinated Snomed expressions.  Tools for authoring and analysis would be required to parse and process both syntaxes.
+        	One implication of this is that the ANF is using two formalisms to represent the detailed clinical model.  First it uses the formalism that represents the ANF reference model and constraints such as HL7's StructureDefinition syntax or OpenEHR's BMM/ADL syntax.  Second, it uses SNOMED's syntax for post-coordinated Snomed expressions.  Tools for authoring and analysis would be required to parse and process both syntaxes.
         </para>
 
         <para>
@@ -786,11 +836,11 @@
 		</para>
 
 		<para>
-			In the ANF moded, the topic represents what is being observed and the result may only be a range of either a count or quantity. No coded results are allowed.
+			In the ANF model, the topic represents what is being observed and the result may only be a range of either a count or quantity. No coded results are allowed.
 		</para>
 
 		<para>
-    	 	 In the CIF model, when creating a model with a numeric result, the choice is quite clear and the choice will be an EvaluationResult, such as a topic of 'SerumSodium' and result with a numeric quantity.  In this case, the CIF and ANF model or very aligned, except for the fact that the ANF model will use a range of that quantity.
+    	 	 In the CIF model, when creating a model with a numeric result, the choice is quite clear and the choice will be an EvaluationResult, such as a topic of 'SerumSodium' and result with a numeric quantity.  In this case, the CIF and ANF models are very aligned, except for the fact that the ANF model will use a range representing the quantity.
 
 
     	  </para>
@@ -799,7 +849,7 @@
     	</para>
 
     	<para>
-    		The ANF model can not do an EvaluationResult style model as it doesn't allow code results.  Thus ANF is forced to make one and only choice, which is an assertion style where the particular breath sound is the topic, and the result will be numeric count indicating presence or absence.
+    		The ANF model can not do an EvaluationResult style model as it doesn't allow coded results.  Thus ANF is forced to make one and only choice, which is an assertion style where the particular breath sound is the topic, and the result will be a numeric count indicating presence or absence.
     	</para>
 
 
@@ -854,9 +904,6 @@
                 <para>Pleural Rub</para>
             </listitem>
             <listitem>
-                <para>Pleural Rub</para>
-            </listitem>
-            <listitem>
                 <para>Prolonged Expiration</para>
             </listitem>
             <listitem>
@@ -881,7 +928,7 @@
 
 
     	<para>
-    		When querying instance data, the Assertion or ANF style is much more difficult for things like breath sounds.  To query any breath sound instances, you have knowledge of all possible breath sound topics and query for each.  With the EvaluationResult style, querying is simpler as you simply query for a topic of 'breath sound', and the code result tells you what type of breath sound it is.  Thus you do not have to know all the members of the valueset apriori to form the query.
+    		When querying instance data, the Assertion or ANF style is much more difficult for things like breath sounds.  To query any breath sound instances, you must have knowledge of all the possible breath sound topics and query for each.  With the EvaluationResult style, querying is simpler as you simply query for a topic of 'breath sound', and the coded result tells you what type of breath sound it is.  Thus you do not have to know all the members of the valueset apriori to form the query.
     	</para>
 
 
@@ -976,7 +1023,7 @@
           <entry>The main concept of interest in a clinical statement, about which the other attributes and relationships provide additional information </entry>
         </row>
         <row>
-          <entry>Meta</entry>
+          <entry>Metadata</entry>
           <entry></entry>
           <entry>Attribution information relating to the statement itself such as who authored, verified, recorded, or signed the statement. Meta includes the who, where, why and when information</entry>
         </row>

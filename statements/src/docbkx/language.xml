@@ -3,34 +3,44 @@
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
      <title>Language</title>
-     <para>Language is used to describe identified components.</para>
+     <para>Language is used to describe identified components. While the initial focus of Solor will be to use the English language versions from the foundational coding systems, support for other languages will be included as a part of Solor.</para>
     <section>
         <title>Language Layer Concerns</title>
         <section xml:id="section_ed272173-6351-49e9-8503-abffd8bc18bb">
             <title>Language</title>
+            <para>SNOMED CT, LOINC, and RxNorm as well as other coding systems have various ways of representing language.  </para>
+            <para>SNOMED CT uses a combination of tables to represent language.  The Description table in SNOMED CT includes one Fully Specified Name and at least one synonym for each language.  The Preferred and Acceptable Synonyms per language are then specified in a Language Reference Set.  Any additional synonyms, other than the preferred, would be identifed as acceptable.</para>
+            <para>RxNorm identifies language in the RXNCONSO file in the STR field.  The language of the name is specified in the LAT field and the source the name comes from is represented in the STT field.  The names in the RXNCONSO are not unique as the same name can come from multiple sources.</para>
+            <para>LOINC has names spread across multiple fields with the Fully Specified Name constructed as a concatenation of the six parts.  It also contains a Long Common Name and a Short Name.</para>
         </section>
         <section xml:id="section_2f530c57-07b6-4abf-9399-db11515f1977">
             <title>Dialect</title>
-            <para/>
+            <para>Merriam-Webster's Dictionary defines a dialect as &quot;a regional variety of language distinguished by features of vocabulary, grammar, and pronunciation from other regional varieties and constituting together with them a single language&quot;.  Two common differences between dialects deal with spelling variants and phrases that have alternate meanings.  An example of a spelling variant would be &quot;Anesthetic&quot; in the US dialect versus &quot;Anaesthetic&quot; in the British dialect.  The same word in one dialect can mean have a different meaning in another, for example napkin in the US is used to describe a piece of cloth or paper used to wipe the hands and mouth at a table while in the UK it is used to describe a diaper. </para>
+        </section>
+        <section>
+        	<title>Interface Terminology</title>
+        	<para>Structured, standardized terms that uniquely identify a concept need to be associated with more natural common phrases preferred by end-users.</para>
         </section>
     </section>
     <section xml:id="section_7a5f5087-2a21-4b5e-8993-53fd045b53ff">
         <title>Cross Cutting Concerns</title>
         <section xml:id="section_ce7e4daf-e50d-4ada-93c7-305f036ce86d">
             <title>Understandability, Reproducibility, and Utility</title>
+            <para>The language used to describe a component must be concordant with the underlying semantics of the object being identified.  Therefore there needs to be guidelines in place to ensure only correct terms are associated with an object in SOLOR.</para>
+            <para>Having a consistent naming convention defined will assist with textual queries to identify duplicates when concepts are primitive and not able to be fully defined using relationships within SOLOR. Having a consistent way of representing Fully Specified Names will alleviate the issue of users creating duplicate concepts like &quot;Disorder of immune function&quot; and &quot;Immune function disorder&quot;.</para>
+            <para>Consistent naming is also important to support effective retrieval.  For example, the SNOMED CT concept 386560004 |Glasgow coma score finding (finding)| has 13 children all with the string Glasgow coma scale instead of Glasgow coma score.  </para>
+            <para>Another common issue is to add a synonym to a concept that is more specific than the concept itself.  A concept should only have synonyms that accurately represent a concept and not any of it's children.  If a synonym has a more specific meaning a new concept should be created.</para>
         </section>
         <section xml:id="section_c3d7371d-1785-4e89-b280-9b4a53cd3665">
             <title>Query</title>
-            <para/>
+            <para>Word variants – renal vs kidney</para>
+            <para>Misspellings – Certain terms are more commonly misspelled when searching over healthcare descriptions.  The ability for a search mechanism to recognize them and to search over both the correct and incorrect spellings will help to identify the correct concept.  For example, perineal vs peroneal, aphagia vs aphasia </para>
+        	<para>Word order – terms can be combined in different ways to mean the same synonym.  The ability to search over a term in varying order of phrases is important.  For example, Disorder of the eye vs Eye disorder.</para>
+        	<para>Components query – important of LOINC searches where you may want to search on a certain axis.</para>
+        	<para>Active and inactive – need to be able to search over both active and inactive terms.</para>
+        	<para>Regular Expressions</para>
+        	<para>Grouping Results by hierarchy</para>
         </section>
     </section>
-    <section xml:id="section_2e1cddb2-d093-4e8c-8eb5-82f469e48ce8">
-        <title>Concordance</title>
-        <para>The language used to describe a component must be concordant with the underlying
-            semantics of the object being identified. </para>
-    </section>
-    <section xml:id="section_ca4b7d58-3817-4eb0-a835-71dc1ad73555">
-        <title>KOMET support for Language</title>
-        <para/>
-    </section>
+    
 </chapter>

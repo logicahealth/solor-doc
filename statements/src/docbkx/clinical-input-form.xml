@@ -94,7 +94,7 @@
 	    </para>
 
 	    <para>
-	        The UML/BMM classes are more abstract and the archetypes are where specific semantics such as 'blood glucose' or 'diabetes present, are asserted.
+	        The UML/BMM classes are more abstract and the archetypes are where specific semantics such as 'blood glucose' or 'diabetes present,' are asserted.
 	    </para>
 
 	    <sect2>
@@ -221,7 +221,7 @@
                 <term><emphasis role='bold'>Metadata</emphasis></term>
                 <listitem>
                     <para>
-                        ‘metadata’ is not actually an attribute of ClinicalStatement, but is intended here to represent the various attributes in clinical statement that represent metadata about the clinical statement. This includes attribution information relating to the statement itself such as who authored, verified, recorded, or signed the statement or more informally, the who, where, why, and when information. Other attributes of this nature are recordStatus and encounter.
+                        ‘metadata’ is not actually an attribute of ClinicalStatement, but is intended here to represent the various attributes in clinical statement that represent metadata about the clinical statement. This includes attribution information relating to the statement itself such as who authored, verified, recorded, or signed the statement or more informally, the who, where, why, and when information.  Other attributes include 'subject of record' and 'subject of information'.
                     </para>
                 </listitem>
             </varlistentry>
@@ -373,7 +373,7 @@
             </para>
 
             <para>
-                Note there are two ways to introduce an attribute that is not always used. A UML class specialization specifies a new class that has all of the attributes of its parent and may then specify additional attributes. An archetype may choose to use whichever class, parent or child, is appropriate. Or, the additional attribute may be added to the original class and the archetype may then use the attribute or "constrain it out" by setting its cardinality to zero. As previously state, CIMI modelers prefer the first approach, extension through UML class specialization, that avoids the need to constrain elements out of archetypes.
+                Note there are two ways to introduce an attribute that is not always used. A UML class specialization specifies a new class that has all of the attributes of its parent and may then specify additional attributes. An archetype may choose to use whichever class, parent or child, is appropriate. Or, the additional attribute may be added to the original class and the archetype may then use the attribute or "constrain it out" by setting its cardinality to zero. As previously stated, CIMI modelers prefer the first approach, extension through UML class specialization, that avoids the need to constrain elements out of archetypes.
             </para>
 
             <figure xml:id="cif_msg_assertion_hierarchy_0135">
@@ -805,7 +805,7 @@
     	<title>The Representation of Topic</title>
 
     	<para>
-    		In the ANF model, the topic is represented by a single field containing a simple to complex SNOMED expression whereas in the CIF model, all the pieces of information that make up the topic are broken out and structured as needed into multiple properties with propery names and appropriate datatypes.  
+    		In the ANF model, the topic is represented by a single field containing a simple to complex SNOMED expression whereas in the CIF model, all the pieces of information that make up the topic are broken out and structured as needed into multiple properties with property names and appropriate datatypes.  
     	</para>
 
     	<figure xml:id="cif_msg_topic_comparison_0135">

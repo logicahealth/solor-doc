@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+
+        <title>ANF Modeling Principles</title>
+        <orderedlist numeration="upperalpha" spacing='compact'>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Separation of Concerns:</emphasis>As defined by Wikipedia
+                    <footnote xml:id="__FN3__">
+                        <para>
+                            <link xlink:href="https://en.wikipedia.org/wiki/Separation_of_concerns" xmlns:xlink="http://www.w3.org/1999/xlink">https://en.wikipedia.org/wiki/Separation_of_concerns</link></para>
+                    </footnote>:  Separation of Concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern.  A concern is a set of information that affects the code of a computer program.  A concern can be as general as the details of the hardware the code is being optimized for, or as specific as the name of a class to instantiate.  A program that embodies SoC well is called a modular program.  Modularity, and hence separation of concerns, is achieved by encapsulating information inside a section of code that has a well-defined interface.  Encapsulation is a means of information hiding.  Layered designs in information systems are another embodiment of separation of concerns (e.g., presentation layer, business logic layer, data access layer, persistence layer).  The value of separation of concerns is simplifying development and maintenance of computer programs.  When concerns are well-separated, individual sections can be reused, as well as developed and updated independently.  Of special value is the ability to later improve or modify one section of code without having to know the details of the other sections, and without having to make corresponding changes to those sections.</para>
+                <para>The use of immutable objects (see principle B Immutability below) is a technique that fulfills the Separation of Concerns principle.</para>
+                <para>Attributes that describe specific semantic concepts should be grouped together into a single class and not be spread across a number of classes.  Doing the latter leads to tight coupling between classes.  Doing the former leads to better decomposition of a potentially complex domain.</para>
+                <itemizedlist spacing='compact'>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Example:</emphasis>Attributes for a Role (e.g., Practitioner) should not be mixed with attributes for an Entity (e.g., Person).  This allows a person to assume a number of roles over their lifetime or to function in more than one role.</para>
+                    </listitem>
+                </itemizedlist>
+
+
+                <figure xml:id="cimi_anf_separation_layers_0139">
+                    <title>Architectural Separation of Concerns</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/anf_separation_layers.png" align="center" format="png" width="90%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+
+                <para>
+                    <xref linkend="cimi_anf_separation_layers_0139"/> shows the Statement layer is separate from Terminology layers, yet most CIF statement models mix terminolgy concerns into the structural attributes of the statement model.  ANF attempts to maintain a clean separation between these layers.  The Language and Definitional layers are used to define what is being measured, such as Dot-blot hemorrhage of the retina or Type 1 diabetes.
+                </para>
+
+
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Immutability:  </emphasis>An Immutable Object as defined by Wikipedia
+                    <footnote xml:id="__FN4__">
+                        <para>
+                            <link xlink:href="https://en.wikipedia.org/wiki/immutable_object" xmlns:xlink="http://www.w3.org/1999/xlink">https://en.wikipedia.org/wiki/immutable_object</link></para>
+                    </footnote>:  Used in object-oriented and functional programming, an immutable object is something that cannot be changed after it is created, in contrast to mutable objects that can be changed after they are created.  There are multiple reasons for using immutable objects, including improved readability and runtime efficiency and higher security.</para>
+                <para>Although building immutable objects requires a bit more up-front complexity, the downstream simplification forced by this abstraction easily offsets the effort.  One of the benefits of switching to a functional mindset is the realization that tests exist to check that changes occur successfully in code.  In other words, testing’s real purpose is to validate mutation – and the more mutation you have, the more testing is required to make sure you get it right.  If you isolate the places where changes occur by severely restricting mutation, you create a much smaller space for errors to occur and have few plates to test.</para>
+                <para>Finally, one of the best features of immutable classes is how well they fit into the composition abstraction.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Composition Over Inheritance:  </emphasis>Composition over inheritance (or composite reuse principle) in object-oriented programming is the principle that classes should achieve polymorphic behavior and code reuse by their composition (by containing those instances of other classes that implement the desired functionality) rather than inheritance from a base or parent class.</para>
+                <para>To favor composition over inheritance is a design principle that gives the design higher flexibility.  It is more natural to build business-domain classes out of various components than trying to find commonality between them and creating a family tree.</para>
+                <para>Initial design is simplified by identifying system object behaviors in separate interfaces instead of creating a hierarchical relationship to distribute behaviors among business-domain classes via inheritance.  This approach more easily accommodates future requirements changes that would otherwise require a complete restructuring of business-domain classes in the inheritance model.</para>
+                <para>
+                    <emphasis role="bold">
+                        <emphasis>Item for Consideration:</emphasis>
+                    </emphasis>
+                    <emphasis>Should we say that we only allow inheritance for a single concern, i.e., we can subtype measurement but not subtype a combination of statement type and measurement type?</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">ANF Clinical Statements Represent the Minimum Disjoint Set:  </emphasis>Analysis Normal Form (ANF) clinical statements represent the minimum disjoint set of statement topic, result, and circumstance and may not be further specified.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">ANF Classes Cleanly Separate Concerns:  </emphasis>Analysis Normal Form (ANF) classes must cleanly separate the concerns of concept definition and the concerns of domain models.</para>
+                <itemizedlist spacing='compact'>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">
+                                <emphasis>NOTE:  </emphasis>
+                            </emphasis>
+                            <emphasis>Need to define the domain models thoroughly here.</emphasis>The strawman description is that domain models use concept definitions as a building block to define non-defining relationships or associations between concepts.  The domain model represents cardinality, optionality, and other constraints.</para>
+                        <itemizedlist spacing='compact'>
+                            <listitem>
+                                <para>
+                                    <emphasis role="bold">Example:</emphasis>Laterality should be a concern of either the concept definition or the domain model, but not both.  We can relax this principle for the Clinical Input Form (CIF) but for ANF we need a clean and invariant separation of concerns.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold"><emphasis>NOTE:  </emphasis></emphasis>
+                            <emphasis>
+                                Need to determine better names for “concept definition” and “domain models.”
+                            </emphasis>
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Clinical Statement Model Stability:</emphasis>Stability is different from immutability.  Stable means that the model can still meet unanticipated requirements without having to change.  It is not acceptable to change the model every time a new way to administer a drug or to treat a condition is identified.  By representing these types of potentially dynamic concerns in the terminology expressions, as opposed to static fields in a class structure, we do not have to change the model every time something new is discovered.  As Terry Winograd said, anticipating breakdowns, and providing a space for action when they occur, is a design imperative.</para>
+                <para>In some regards, in this context “stable” means “not brittle.”  A model easily broken by changes that someone could anticipate is one possible definition of brittle.  A stable model is critical in the phase of a known changing landscape.  We do that by isolating areas of anticipated change into a dynamic data structure.  That dynamic data structure may also be immutable in an object that represents a clinical statement.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Overall Model Simplicity:  </emphasis>In cases where different principles collide, we shall favor the enhancement of simplicity of the entire system over simplicity in one area of the system.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Cohesion:  </emphasis>Related classes should reside in the same module or construction.  The placement of a class in a module should reduce the dependencies between modules.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Reusability:  </emphasis>Architectural patterns should encourage class reusability where possible.  Reusability may further refine encapsulation when composition is considered.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Assumption-free:  </emphasis>Implied semantics must be surfaced explicitly in the model.</para>
+                <itemizedlist spacing='compact'>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Example:  </emphasis>Implicit in the statement, “I order a book from Amazon” are:  paying for the book, delivery of the book to some location, and the transfer of ownership of the book from the vendor to the client.</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Design by Composition and/or Class Specialization:  </emphasis>The capture of additional model expressivity must be captured by composition and/or by class specialization.  The modeling approach should avoid the use of design by constraint (except for terminology binding and attribute type constraints) as it violates proper decoupling and encapsulation.  An example of design by constraint is to create a single procedure class containing all attributes for all known procedures and constraining out irrelevant attributes in a more specialized model.  This approach is very difficult to implement and violates numerous object-oriented best practices.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">No False Dichotomies:  </emphasis>Dichotomies that are not completely disjoint (mutually exclusive) lead to arbitrary classification rules and result in ambiguity based on different assumptions about the domain.  These must be avoided.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Model Should Avoid Semantic Overloading (semantic precision): </emphasis>Semantic overloading occurs when a model attribute’s meaning changes entirely, depending on context.  While the refinement of the semantics of an attribute in a subclass is acceptable, a change of meaning is problematic.  For instance, in FHIR, the Composition class defines an attribute called Subject.  In some subclasses, the attribute may be the entity that this composition refers to (e.g., the patient in a medical record).  In other cases, it is the topic being discussed by the composition (e.g., a medication orderable catalog).</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Convention Over Configuration:  </emphasis>Convention over configuration (also known as coding by convention) is a software design paradigm used by software frameworks that attempt to decrease the number of decisions that a developer using the framework is required to make without necessarily losing flexibility.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Model Consistency:</emphasis>Patterns should allow the consistent representation of information that is commonly shared across models.  For instance, attribution and participation information should be captured consistently.  Failure to do so forces implementers to develop heuristics to capture and normalize attribution information that is represented or extended differently in different classes (e.g., FHIR).</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Model Symmetry:  </emphasis>There should be symmetry in the models wherever we can have it.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="bold">Iterative development and validation of model using use cases:</emphasis>TBD</para>
+            </listitem>
+        </orderedlist>
+
+</section>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
+<section version="5.1" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ns5="http://www.w3.org/1999/xhtml"
+  xmlns:ns4="http://www.w3.org/1998/Math/MathML" xmlns:ns3="http://www.w3.org/2000/svg"
+  xmlns:ns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>FHIR Implementation for Patient Safety</title>
+  <synopsis> </synopsis>
+  <para>This chapter identifies a set of options involving FHIR implementation constructs and
+    approaches that can leverage to improve the semantic precision of FHIR resources using
+    Solor-based semantic constraints.</para>
+  <section>
+    <title>Background</title>
+    <para> Similar to other interoperability standards, HL7 Fast Healthcare Interoperability
+      Resources (FHIR) provide a great of flexibility to implementers: a choice of services,
+      optional data elements, minimal terminology constraints, and extensions – including modifiers
+      – are wide open. However, while flexibility is useful to promote standards adoption, it leads
+      to ambiguity, lack of semantic consistency, and poor patient outcomes. Therefore, successful
+      standards implementations that support patient safety require rigorous conformance using
+      profiles organized into implementation guides. </para>
+  </section>
+  <section>
+    <title>FHIR Conformance Methodology</title>
+    <para> The concept of “profiling” a standard for a use case and to address specific requirements
+      it used broadly standards like DICOM, NCPDP, and HL7 message, document, resources.
+      Best-practices over the past decades define a profile (or template) as an unambiguous
+      specification of a standard structure that has been analyzed for particular set of
+      requirements. It prescribes a set of precise constraints upon the standard thus ensuring the
+      implementation is testable and the semantics are precise. The constraints affect the presence,
+      occurrences, and meaning of the data elements. Since FHIR is also a standard-based Application
+      Programming Interface and a Data Services standards, conformance also describes the services
+      supported by a FHIR server. FHIR conformance is documented using FHIR several definitional
+      resources: <itemizedlist>
+        <listitem>
+          <para><citation>ImplementationGuide</citation>: this resource is used todescribe an
+            implementation guide and references any profiles including extensions required by to
+            meet the purpose of the implementation guide.</para>
+        </listitem>
+        <listitem>
+          <para>
+            <citation> StructureDefinition</citation>: this resurce to describe profiles of FHIR
+            resources that contain how data elements, references, and extensions are supposed to
+            instantiated. Profiles provide terminology bindings for coded data elements – using
+            ValueSet resources. Conformance predicates to validate FHIR based on CIMI models and
+            Solor could be created using FHIRPath. </para>
+        </listitem>
+        <listitem>
+          <para><citation>ValueSet</citation>: this resources is used to describe a value set. Value
+            sets reference concepts specified <citation>CodeSystem</citation> including external
+            code systems like SNOMED CT, LOINC, RxNorm, etc. </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para> Profiling FHIR can more effective a family of a profiles are derived from a common set of
+      base profiles as seen in <xref linkend="Profiling_method"/> . This methodology ensures that
+      organizations and vendors are able to adopt common/national requirements. Similarly, an
+      organization like VA could create a set of profiles derived from national profiles. Project
+      and application may create further specializations of organization profiles that inherit the
+      base profiles specifications. FHIR allows implementation guides to redefine what it means to
+      support a data element. It allows VA to create profiles and implementation guides that are
+      explicitly intended to promote patient safety. </para>
+    <figure xml:id="Profiling_method">
+      <title>FHIR Profiling Methodology</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/profiling_method.jpg" align="center" format="jpg" width="95%"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>The US Core Implementation Guide introduces a reusable set of profiles that address
+      national regulatory requirements (i.e. Meaningful Use 2015). US implementers can use them as
+      the starting point for additional constraints or extensions. For instance, the VA may create
+      extension specific to military service, Veteran care to ensure interoperability with DoD and
+      other community providers. The only way to accomplish this level of patient-centered
+      information exchange is to create precise implementation guides that leverage Solor. Since
+      standards represent a union of data and interoperability requirements, implementers need to
+      constrain or extend a standard consistent with their requirements. The more constrained and
+      precise a profile, the more likely it is that resources that conform to those profiles will be
+      semantically interoperable. such that the source and consuming system interpret the data in
+      same way and present it to clinicians in the same context. Common meaning requires common
+      semantics, assumptions, and data elements. Profiles are therefore the must-have element of
+      successful implementation.</para>
+    <para>FHIR conformance concepts and resources that were approved as Normative in FHIR Release 5
+      (January 2019). This fact provides a stable foundation for creating implementation guides,
+      profile, and value sets that illustrate best practices for semantic interoperability. Such
+      example profiles and resources can guide a next generation of application developers and
+      integrators. FHIR is an emerging a specification information exchange and for application
+      development and systems built from the ground up on standard-based concepts. </para>
+  </section>
+  <section>
+    <title>HL7 engagement: FHIR implementations using Solor</title>
+    <para>Based on an analysis of FHIR Release 4 and considering the roadmap for Release 5, there
+      several important options to employ Solor in FHIR implementation guide development: <itemizedlist>
+        <listitem>
+          <para>FHIR conformance provides a mechanism to eliminate ambiguity, increase precision,
+            and manage extensions. Filter-based, enumerated, and aggregated value sets are support
+            by Terminology Servers. Solor assemblages could become the basis for FHIR ValueSets that
+            use rigorous versioning based on globally-unique canonical identifiers.</para>
+        </listitem>
+        <listitem>
+          <para>All the resources needed to implement FHIR have reached Normative status in Release
+            4. Only two business-related resource have reached that status: Observation and Patient.
+            Other resources are still in “Trial Use” and will reach Normative status after 2020. The
+            VA could leverage Solor to propose value set bindings that improve the clarity of FHIR
+            resources and US-realm profiles managed by the US Realm Taskforce.</para>
+        </listitem>
+        <listitem>
+          <para> The VA will also be responsible for managing/governance of VA-specific profiles and
+            implementation guides. Solor assemblages may be used to provide precise vocabulary
+            bindings for coded data elements needed to address VA-specific requirements. </para>
+        </listitem>
+        <listitem>
+          <para>Solor and CIMI models may be used to specify FHIR profile and data validation
+            predicates using FHIRPath: standard-based, platform-neutral navigation and data
+            validation language using syntax-generator(ANTLR) grammar. FHIRPath is standard-based
+            notation already used to specify invariant for FHIR resources. It is also applicable to
+            conformance predicates, logical expressions, and filters. It can be used to express
+            additinal contrainst on data capture and validation rules can be specified and processed
+            are runtime. <figure>
+              <title>FHIR Resource Invariant</title>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="images/FHIRPath_resource_invariants.jpg" align="center"
+                    format="jpg" width="95%"/>
+                </imageobject>
+              </mediaobject>
+            </figure>
+          </para>
+        </listitem>
+        <listitem>
+          <para> Future work to produce SNOMED CT value sets using Solor assemblages is permitted
+            under the agreement HL7 and IHTSDO. Publishing best-practices as value sets,
+            implementation guides, and profiles will improve the quality treatment data such that
+            it’s can be shared among provider to improve outcomes and promote patient safety.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+  </section>
+</section>

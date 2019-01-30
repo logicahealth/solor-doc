@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section version="5.1" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+    xmlns:ns3="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>MDMI SOLOR 2.0 Presentation</title>   
+	<section>
+		<title>Webinar Agenda</title>
+      <orderedlist spacing='compact'>
+        <listitem>
+          <para>MDMI Background</para>
+        </listitem>
+        <listitem>
+          <para>Positioning of MDMI with SOLOR</para>
+        </listitem>
+        <listitem>
+          <para>MDMI Technical Introduction.</para>
+        </listitem>
+        <listitem>
+          <para>Why MDMI Needs SOLOR / A Reference Model</para>
+        </listitem>
+        <listitem>
+          <para>Our Present Plan</para>
+        </listitem>
+        <listitem>
+          <para>Future Opportunities</para>
+        </listitem>
+      </orderedlist>
+	</section>
+  <section>
+    <title>MDMI Background</title>        
+    <itemizedlist mark='bullet' spacing='compact'>
+      <listitem>
+        <para>Model Driven Message Interoperability (MDMI)</para>
+		    <itemizedlist mark='bullet' spacing='compact'>
+			    <listitem>
+			      <para>An open Object Management Group (OMG) standard</para>
+			    </listitem>
+			    <listitem>
+			       <para>current version 1.0</para>
+			    </listitem>
+			    <listitem>
+			       <para>
+				       provides transformations between information in different applications and services
+			       </para>
+			    </listitem>
+			  </itemizedlist>
+      </listitem>
+    </itemizedlist>
+		    <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                Projects using MDMI:
+              </para>
+			  <itemizedlist mark='bullet' spacing='compact'>
+			  <listitem>
+			    <para>
+				Partners Research (CCDA to i2b2)
+				</para>
+			  </listitem>
+			  <listitem>
+			    <para>
+				SAMHSA (Semantic Information Workbench, IExHUB, and OCP)
+				</para>
+			  </listitem>
+			  <listitem>
+			    <para>
+				IPO JET Project (DES, VLER, FHIR) 
+				</para>
+			  </listitem>
+			  <listitem>
+			    <para>
+				Massachusetts Behavioral Healthcare Community Partners (Spreadsheets) 
+			    </para>
+			  </listitem>
+			  <listitem>
+			    <para>
+				Perspecta (Transformation Service and Context Awareness in Clinical Pathways)
+			    </para>
+			   </listitem>
+				</itemizedlist>
+            </listitem>
+          </itemizedlist>
+    <figure xml:id="mdmi_image1_0135">
+        <title>OMG Logo</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/image1.png" align="center" format="png" width="100%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+  </section> 
+  <section>
+    <title>MDMI Positioning</title>          
+          <itemizedlist mark='' spacing='compact'>
+            <listitem>
+              <para>
+                Information Technology / System - Software Engineering
+              </para>
+            </listitem>
+            
+            <listitem>
+              <para>
+                Web Science / Healthcare Informatics
+              </para>
+            </listitem>
+          </itemizedlist>
+		  <itemizedlist mark='' spacing='compact'>
+            <listitem>
+              <para>
+                Procedural and Assertion Knowledge
+              </para>
+            </listitem>
+			<listitem>
+              <para>
+                Structured Information / Domain Models
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Definitional Knowledge
+              </para>
+            </listitem>
+          </itemizedlist>
+    <figure xml:id="mdmi_image2_0135">
+        <title>INFORMATION ARCHITECTURE PICTURE</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/image2.png" align="center" format="png" width="40%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+  </section>
+  <section>
+    <title>MDMI &amp; SOLOR</title>       
+      <itemizedlist mark='bullet' spacing='compact'>
+        
+          <para>Shared Goals and Principles</para>
+			    
+			      <listitem>
+			         <para>
+				          Working to improve the quality and safety of healthcare
+				        </para>
+			      </listitem>
+			      <listitem>
+				      <para>
+				        Encoded data (ontologies and terminologies) is the foundation of meaning
+			         </para>
+			      </listitem>
+			      <listitem>
+			         <para>
+				          Big bang transitions don’t work
+			         </para>
+			      </listitem>
+			      <listitem>
+			         <para>
+				          Decision support will drive best practices and clinical workflow across the entire continuum of care, integrating multiple providers working in independent systems
+			         </para>
+			      </listitem>  
+            
+          </itemizedlist>
+    <figure xml:id="mdmi_image3_0135">
+        <title>the System Of Logical Representation</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image3.png" align="center" format="png" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+  </section>
+   <section>
+    <title>MDMI MetaModel (Tranformation Model)</title>       
+          <itemizedlist mark='' spacing='compact'>
+            <listitem>
+              <para>
+                Examples
+              </para>
+            </listitem>
+          </itemizedlist>
+      <figure xml:id="mdmi_image4_0135">
+        <title>mdmi model</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image4.png" align="center" format="png" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+    <figure xml:id="mdmi_image4b_0135">
+        <title>cda</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image4b.png" align="center" format="png" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+    <figure xml:id="mdmi_image5_0135">
+        <title>seer</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image5.png" align="center" format="png" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+	    <figure xml:id="mdmi_image6_0135">
+        <title>fhir</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image6.png" align="center" format="png" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+  </section> 
+   <section>
+    <title>MDMI Tranformations</title>       
+    <figure xml:id="mdmi_image7_0135">
+        <title>Runtime</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/image7.png" align="center" format="png" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+  </section> 
+    <section>
+    <title>MDMI Design Environment</title>           
+    <figure xml:id="mdmi_image8_0135">
+        <title>Design Image</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image8.png" align="center" format="png" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+  </section> 
+  <section>
+    <title>MDMI SEER &amp; SOLOR: Similarities</title>          
+    <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                Both SEER and SOLOR are open source.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Both SEER and SOLOR have unambiguous, unique atomic concepts.
+              </para>
+            </listitem>
+            
+		        <listitem>
+              <para>
+                Both SEER and SOLOR are extensible, with local and shared extensions that can be added if the desired concept does not already exist.
+              </para>
+            </listitem>
+      </itemizedlist>
+   </section>
+   <section>
+    <title>Our Need</title>       
+      <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                The initial driver for MDMI Version 2.0 was based on experience: the description of a business element used in MDMI was the only resource for understanding the meaning of the business element. Descriptions are subject to interpretation.
+              </para>
+			       <itemizedlist mark='bullet' spacing='compact'>
+			           <listitem>
+			               <para>
+				                  Example 1 – Industry Standards Experiences. HL7 projects.
+				            </para>
+			           </listitem>
+			           <listitem>
+			               <para>
+				                Example 2 – Transformations between existing implementations experiences. IPO and HIE projects. 
+			               </para>
+			           </listitem>
+			         </itemizedlist>
+            </listitem>
+			      <listitem>
+              <para>
+			           Bottom Line: 
+			         </para>
+			           <itemizedlist mark='bullet' spacing='compact'>
+			               <listitem>
+			                   <para>
+				                    There can be data quality issues in transformations using current practices.
+			                   </para>
+			               </listitem>
+			           </itemizedlist>
+              </listitem>
+          </itemizedlist>
+  </section>
+<section>
+    <title>Our Need</title>       
+          <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                The plan for MDMI 2.0 is to use SOLOR as the Reference Model to add Semantic Concepts for each Business Element in the SEER to provide a unique, post-coordinated description.
+              </para> 
+            </listitem>
+          </itemizedlist>
+  </section>
+   <section>
+    <title>MDMI 2.0</title>   
+	  <itemizedlist mark='bullet' spacing='compact'>
+         <listitem>
+              <para>
+                The plan for MDMI 2.0 is to use SOLOR as the Reference Model to add Semantic Concepts for each Business Element in the SEER to provide a unique, post-coordinated description. 
+              </para>
+			   </listitem>
+         <listitem>
+			      <itemizedlist mark='bullet' spacing='compact'>
+			        <listitem>
+				        <para>
+				          The business elements in MDMI 2.0 will have post-coordinated concepts linked to the semantic concepts in SOLOR.
+			           </para>
+			         </listitem>
+			       <listitem>
+			             <para>
+				              SOLOR provides a harmonized understanding of many industry standard healthcare ontologies &amp; terminologies
+			             </para>
+			       </listitem>
+			      </itemizedlist>
+          </listitem>
+        </itemizedlist>
+    <figure xml:id="mdmi_image10_0135">
+        <title>ODM / SOLOR </title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image10.png" align="center" format="png" width="100%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+    </section> 
+<section>
+    <title>Benefits of MDMI 2.0</title>       
+        <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                Precision
+              </para>
+            
+			        <itemizedlist mark='bullet' spacing='compact'>
+			           <listitem>
+			              <para>
+				            Insurance that each business element is unique. The requirement is to have disjointed semantic concepts/classes in the SEER linked to Concepts in SOLOR.
+			             </para> 
+			           </listitem>
+			        </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>
+			               Search
+                </para>
+			         <itemizedlist mark='bullet' spacing='compact'>
+			               <listitem>
+			                   <para>
+				                    An improved search mechanism for the over 3,500 business elements in SEER (the number is continuously growing)
+			                   </para>
+			               </listitem>
+			               <itemizedlist mark='bullet' spacing='compact'>
+				                    <listitem>
+				                          <para>
+				                              New capability: a classification system based on disjoint classes where users can employ standard “programming” techniques
+				                          </para>
+				                  </listitem>
+			               </itemizedlist>
+                   </itemizedlist>
+                 </listitem>
+			   <listitem>
+			         <para>
+				          The use of semantic web technologies for discovery.
+				      </para>
+			   </listitem>
+      </itemizedlist>
+    <figure xml:id="mdmi_image11_0135">
+        <title>Immunization Example</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image11.png" align="center" format="png" width="60%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+  </section>
+  <section>
+    <title>Benefits of MDMI 2.0 and SOLOR</title>       
+          <itemizedlist mark='bullet' spacing='compact'>
+            <listitem>
+              <para>
+                Content Awareness
+              </para>
+			  </listitem>
+			  <itemizedlist mark='bullet' spacing='compact'>
+			    <listitem>
+				<para>
+				Shared Clinical Pathways
+				</para>
+			  </listitem>
+			    <itemizedlist mark='bullet' spacing='compact'>
+				 <listitem>
+				 <para>
+				  Use of the SEER  linked to SOLOR to annotate concepts in process models and services
+				  </para>
+				</listitem>
+				</itemizedlist>
+				<listitem>
+				<para>
+				Dynamic Discovery at Point of Care Service 
+				</para>
+			  </listitem>
+			  </itemizedlist>
+			    <itemizedlist mark='bullet' spacing='compact'>
+				<listitem>
+				<para>
+				  Florida and Massachusetts Behavioral Health Community, Opioid Crisis
+				  </para>
+				</listitem>
+			    <listitem>
+				  <para>
+				  Point of Care service provider recognized problem
+				  </para>
+				</listitem>
+				<listitem>
+				<para>
+				  How do they provide the What, Who, and When
+				  </para>
+				</listitem>
+			</itemizedlist>
+          </itemizedlist>
+    <figure xml:id="mdmi_image12_0135">
+        <title>Workflow example</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Image12.png" align="center" format="png" width="100%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+  </section>
+    <section>
+    <title>In Summary</title>          
+          <itemizedlist mark='bullett' spacing='compact'>
+            <listitem>
+              <para>
+                MDMI and SOLOR are complementary.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                MDMI would like to use SOLOR as the Reference Model for meaning.
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Filling the gap in the Information Architecture will continue to reveal new opportunities to drive best practices and clinical workflow across the entire continuum of care, integrating multiple providers working in independent systems.
+              </para>
+            </listitem>
+          </itemizedlist>
+  </section>
+  </section>

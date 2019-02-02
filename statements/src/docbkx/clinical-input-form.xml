@@ -304,7 +304,7 @@
         <title>AssertionTopic</title>
 
         <para>
-            The first topic type we will describe is the AssertionTopic pattern with its included attributes, as shown in <xref linkend="cif_msg_assertion_0135"/>. Many other topic patterns can then be subclassed from AssertionTopic. One example of this is ConditionTopic, shown in <xref linkend="cif_msg_condition_0135"/> which is a child of AssertionTopic used to represent a condition in a patient. ConditionTopic adds attributes such as clinicalCourse, severity, and diseasePhase that help to further describe conditions.  If these additional attributes are unnecessary, then AssertionTopic can be used rather than ConditionTopic.  Note in the diagram, for simplicity, ConditionTopic is shown with the attributes it inherits from AssertionTopic
+            The first topic type we will describe is the AssertionTopic pattern with its included attributes, as shown in <xref linkend="cif_msg_assertion_0135"/>. Many other topic patterns can then be subclassed from AssertionTopic. One example of this is ConditionTopic, shown in <xref linkend="cif_msg_condition_0135"/> which is a child of AssertionTopic used to represent a condition in a patient. ConditionTopic adds attributes such as clinicalCourse, severity, and diseasePhase that help to further describe conditions.  If these additional attributes are unnecessary, then AssertionTopic can be used rather than ConditionTopic.  
         </para>
 
         
@@ -318,6 +318,10 @@
                 </imageobject>
             </mediaobject>
         </figure>
+
+        <para>
+          Note in the diagram, for simplicity, ConditionTopic is shown with the attributes it inherits from AssertionTopic.
+        </para>
 
         <figure xml:id="cif_msg_condition_0135">
             <title>ConditionTopic</title>
@@ -713,14 +717,7 @@
                     </para>
                 </listitem>
             </varlistentry>
-            <varlistentry>
-                <term><emphasis role='bold'>EventContext</emphasis></term>
-                <listitem>
-                    <para>
-                        Not shown in the above diagram, EventContext is a child of StatementContext. At this time specializations of EventContext have not been defined. It is anticipated that EventOccurrence and EventNonOccurrence specializations will be introduced. 
-                    </para>
-                </listitem>
-            </varlistentry>
+            
         </variablelist>
 
         <figure xml:id="cif_msg_performance_0135">

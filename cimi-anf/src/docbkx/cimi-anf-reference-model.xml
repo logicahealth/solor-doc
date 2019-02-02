@@ -44,8 +44,7 @@
         <section>
             <title>subjectOfRecordId</title>
             <para>
-                The subject of record is the subject whose clinical record contains this clinical statement. If this statement is in John Doe's patient record, then John Doe is the subject of record.  
-                Subject of Record Identifier is a unique identifier for the subject of record represented by a UUID. 
+                A patient's clinical record will contain many statements.  The subjectOfRecordId is a uuid which identifies the patient clinical record in which this statement is contained.   If this statement is in John Doe's patient record, then John Doe is the subject of record and the subjectOfRecordId is a uuid that identifies John Doe.                  
             </para>
         </section>
 
@@ -68,7 +67,7 @@
         <section>
             <title>subjectOfInformation</title>
             <para>
-                Subject of Information is used to express <emphasis role="bold">WHO</emphasis> the clinical statement is about, e.g. the patient, a family member, or a donor.
+                Subject of Information is a coded field used to express <emphasis role="bold">WHO</emphasis> the clinical statement is about. A patient's clinical record may contain statements not only about the patient, but also statements about children, relatives and donors.   Thus, some possible values for subjectOfInformation, would include codes for 'subject of record' (the patient), 'family member', or 'donor'.  The majority of statements will have a subjectOfInformation with a value of 'subject of record', since most statements in a patient record will be about the patient.
             </para>
         </section>
 
@@ -88,7 +87,7 @@
             <para>
                 <emphasis role="bold">
                     <emphasis>Requests for actions</emphasis>
-                </emphasis>are always procedures or interventions: 
+                </emphasis>can be requests for actions such as procedures or interventions: 
             </para>
                 <itemizedlist spacing='compact'>
                     <listitem>
@@ -122,7 +121,7 @@
                     </listitem>
                 </itemizedlist>
 
-            <para>The topic is the central component of clinical statements.</para>
+            <para>The topic is the central component of clinical statements. The following are proposed principles for the topic of a clinical statement.</para>
 
                 <itemizedlist spacing='compact'>
                     <listitem>
@@ -284,7 +283,7 @@
                 <section>
                     <title>requestedResult</title>
                     <para>
-                        A requested result is a patient goal to be achieved or a request for action further specified or quantified.
+                        A requested result is a patient goal to be achieved. It can include specified or quantified details of an action that is to be performed, such as '3 times daily'.
                     </para>
                     <para>
                         <emphasis role="bold">Examples: </emphasis>
@@ -345,7 +344,7 @@
                 </section>
                 <section>
                     <title>performanceParticipant</title>
-                    <para>Participants in performing the action, e.g. technician, nurse</para>
+                    <para>Participants involved in performing the action, e.g. technician, nurse</para>
                 </section>
             </section>
 
@@ -462,8 +461,7 @@
                 <section>
                     <title>measureSemantic</title>
                     <para>
-                        Measure semantic represents the unit of measure. It is described using a logical expression. In systolic blood pressure, the unit of measure is millimeters of mercury, and thus the measure semantic is a SNOMED CT concept: 259018001 |Millimeter of mercury (qualifier value). For blood glucose measurement daily for 2 weeks, the measure semantic would be “258705008 |week (qualifier value)”. In cases where the measure pertains to something relative to the statement time, as in the example above of “History of breast cancer” the standardized time/date format ISO 8601 is used for the measure semantic: 
-                        <emphasis role="bold">ISO 8601 prior to statement time</emphasis>.
+                        Measure semantic represents the unit of measure. It is described using a logical expression. In systolic blood pressure, the unit of measure is millimeters of mercury, and thus the measure semantic is a SNOMED CT concept: 259018001 |Millimeter of mercury (qualifier value). For blood glucose measurement daily for 2 weeks, the measure semantic would be “258705008 |week (qualifier value)”. In cases where the measure pertains to something relative to the statement time, as in the example above of “History of breast cancer” the standardized time/date format ISO 8601 is used for the measure semantic: ISO 8601 prior to statement time.
                     </para>
                 </section>
             </section>

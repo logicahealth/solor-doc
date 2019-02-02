@@ -49,7 +49,7 @@
         <title>The Representation of Results</title>
 
         <para>
-            In the CIMI CIF model, EvaluationResult and Assertion models are used to represent results.  EvalurationResult has a topic representing what is being observed, and a result represented by a choice of datatypes. An Assertion on the otherhand, has simply a topic with a value of 'assertion', and a result stated what is being asserted.
+            In the CIMI CIF model, EvaluationResult and Assertion models are used to represent results.  EvaluationResult has a topic representing what is being observed, and a result represented by a choice of datatypes. An Assertion on the otherhand, has simply a topic with a value of 'assertion', and a result stated what is being asserted.
         </para>
 
         <para>
@@ -57,7 +57,7 @@
         </para>
 
         <para>
-             In the CIF model, when creating a model with a numeric result, the choice is quite clear and the choice will be an EvaluationResult, such as a topic of 'SerumSodium' and result with a numeric quantity.  In this case, the CIF and ANF model or very aligned, except for the fact that the ANF model will use a range of that quantity.
+             In the CIF model, when creating a model with a numeric result, the choice is quite clear and the choice will be an EvaluationResult, such as a topic of 'SerumSodium' and result with a numeric quantity.  In this case, the CIF and ANF model are very aligned, except for the fact that the ANF model will use a range of that quantity.
 
 
           </para>
@@ -66,7 +66,7 @@
         </para>
 
         <para>
-            The ANF model cannot do an EvaluationResult style model as it doesn't allow code results.  Thus ANF is forced to make one and only choice, which is an assertion style where the particular breath sound is the topic, and the result will be numeric count indicating presence or absence.
+            The ANF model cannot do an EvaluationResult style model as it doesn't allow coded results.  Thus ANF is forced to make one and only choice, which is an assertion style where the particular breath sound is the topic, and the result will be numeric count indicating presence or absence.
         </para>
 
 
@@ -145,7 +145,7 @@
 
 
         <para>
-            When querying instance data, the Assertion or ANF style is much more difficult for things like breath sounds.  To query any breath sound instances, you have knowledge of all possible breath sound topics and query for each.  With the EvaluationResult style, querying is simpler as you simply query for a topic of 'breath sound', and the code result tells you what type of breath sound it is.  Thus you do not have to know all the members of the valueset apriori to form the query.
+            When querying instance data, the Assertion or ANF style is much more difficult for things like breath sounds.  To query any breath sound instances, you must have knowledge of all possible breath sound topics and query for each.  With the EvaluationResult style, querying is simpler as you simply query for a topic of 'breath sound', and the code result tells you what type of breath sound it is.  Thus you do not have to know all the members of the valueset apriori to form the query.
         </para>
 
 

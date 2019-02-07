@@ -12,6 +12,7 @@
             <para>SNOMED CT uses a combination of tables to represent language.  The Description table in SNOMED CT includes one Fully Specified Name and at least one synonym for each language.  The Preferred and Acceptable Synonyms per language are then specified in a Language Reference Set.  Any additional synonyms, other than the preferred, would be identifed as acceptable.</para>
             <para>RxNorm identifies language in the RXNCONSO file in the STR field.  The language of the name is specified in the LAT field and the source the name comes from is represented in the STT field.  The names in the RXNCONSO are not unique as the same name can come from multiple sources.</para>
             <para>LOINC has names spread across multiple fields with the Fully Specified Name constructed as a concatenation of the six parts.  It also contains a Long Common Name and a Short Name.</para>
+            <para>Descriptions within a coding system can span multiple languages.  For example, &quot;deja vu&quot; exists in both the French and English languages as it is the description used to describe the memory finding.</para>
         </section>
         <section xml:id="section_2f530c57-07b6-4abf-9399-db11515f1977">
             <title>Dialect</title>

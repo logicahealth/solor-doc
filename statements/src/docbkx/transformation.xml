@@ -13,7 +13,7 @@
         <title>Asymmetric Hierarchy Transformation</title>
         <mediaobject>
             <imageobject>
-                <imagedata fileref="images/asymmetric_transformation.jpg" align="center" format="jpg" width="50%"/>
+                <imagedata fileref="images/asymmetric_transformation.jpg" align="center" format="jpg"  scalefit="1" width="100%" contentdepth="100%"/>
             </imageobject>
         </mediaobject>
     </figure>
@@ -26,12 +26,12 @@
         <title>Symmetric Hierarchy Transformation</title>
         <mediaobject>
             <imageobject>
-                <imagedata fileref="images/symmetric_transformation.jpg" align="center" format="jpg" width="50%"/>
+                <imagedata fileref="images/symmetric_transformation.jpg" align="center" format="jpg"  scalefit="1" width="100%" contentdepth="100%"/>
             </imageobject>
         </mediaobject>
     </figure>
 
-    <sect2>
+    <section>
         <title>Transformation Strategy</title>
 
   <para>
@@ -42,7 +42,7 @@
         <title>Transformation Strategy</title>
         <mediaobject>
             <imageobject>
-                <imagedata fileref="images/cem_cimi_transformation_full_all.jpg" align="center" format="jpg" width="80%"/>
+                <imagedata fileref="images/cem_cimi_transformation_full_all.jpg" align="center" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
             </imageobject>
         </mediaobject>
     </figure>
@@ -66,13 +66,13 @@
         <title>CEML to BMM/ADL Transformation</title>
         <mediaobject>
             <imageobject>
-                <imagedata fileref="images/cem_cimi_transformation.jpg" align="center" format="jpg" width="60%"/>
+                <imagedata fileref="images/cem_cimi_transformation.jpg" align="center" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
             </imageobject>
         </mediaobject>
     </figure>
-   </sect2>
+   </section>
 
-    <sect2>
+    <section>
         <title>Datatype Issues</title>
 
     <para>
@@ -95,50 +95,51 @@
             data    Boolean         
         </programlisting>
     </example>
-    </sect2>
+    </section>
 
-    <sect2>
+    <section>
     <title>BMM Packaging</title>
 
     <para>
         Another issue regarding the generic transformation involves the packaging of CIMI models within a BMM.  CIMI currently has three BMM files called 'Core', 'Foundation', and 'Clinical' and within each of these, there are multiple packages, and then a random order to the models within these packages.  CEM models, on the other hand, each exist in their own file.  Thus, in the generic transformation, going from CIMI to CEM and back to CIMI and retaining the original packaging would be impossible without externally recording the packaging location in some way. 
     </para>
-    </sect2>
+    </section>
 
-    <sect2>
+    <section>
         <title>Recursion Issues</title>
         <para>
         Another problem with the generic transformation is that CIMI models within the BMM allow recursion.  For example, a Substance model could reference an Ingredient model which could then reference the original Substance model creating an infinite recursive tree from Substance on down.  Although the CEM Abstract Instance Model is recursive with respect to the generic Clinical Element, CEML currently does not allow recursive constraint models. The simplest solution here is to modify the CEM compiler to allow recursion. It should be noted that the CEM compiler did allow recursion in the past, but the decision was made to disallow it at some point along the evolution of CEML.
         </para>
-    </sect2>
+    </section>
 
 
-    <sect2>
+    <section>
         <title>ADL and CEML Constraint Consistencies</title>
 
       <para>
         ADL and CEML Constraints used to bind terminology to the model, such as simple binding of about codes and valuesets have high consistency and should pose no problems in the transformation.  Also, cardinality constraints within the two should pose no problems.
       </para>
 
-    </sect2>
+    </section>
 
-    <sect2>
+    <section>
         <title>ADL and CEML Constraint Inconsistencies</title>
 
         <para>
-            One major difference that exists between CEML and ADL is the ability of one constraint model to peek into another constraint model and further constrain that model.  This is called an 'inner constraint', as the outer model is constraining the inner model. This can be seen in <xref linkend="ceml_example_0135"/>, where the SystolicBloodPressure model constrains the valueset of the inner BodyPosition model.  ADL does not have a mechanism to step into another ADL model and further constrain that inner model.  But ADL does have the ability to walk a deep path in the BMM to apply a constraint, so in many cases it won't be a problem.  In the CEML example above, this problem could be solved by creating a SystolicBloodPressureBodyPosition model thus constraining with a new model rather than an inner constraint.
+            One major difference that exists between CEML and ADL is the ability of one constraint model to peek into another constraint model and further constrain that model.  
+            This is called an 'inner constraint', as the outer model is constraining the inner model. This can be seen in <xref linkend="ceml_example_0135"/>, where the SystolicBloodPressure model constrains the valueset of the inner BodyPosition model.  ADL does not have a mechanism to step into another ADL model and further constrain that inner model.  But ADL does have the ability to walk a deep path in the BMM to apply a constraint, so in many cases it won't be a problem.  In the CEML example above, this problem could be solved by creating a SystolicBloodPressureBodyPosition model thus constraining with a new model rather than an inner constraint.
         </para>
 
         <para>
             Another problem is the random assignment of id's in ADL such as 'id2', 'id5', and 'id34'. A round trip of the generic transformation engine could possible end up with different id's and still be consistent and valid.  In this case, storing id information to an external file could be used to keep id's consistent.
         </para>
 
-    </sect2>
+    </section>
 
 
 
 
-    <sect2>
+    <section>
         <title>Style Transformation</title>
 
         <para>
@@ -153,14 +154,14 @@
         <title>Style Transformation</title>
         <mediaobject>
             <imageobject>
-                <imagedata fileref="images/style_transformation.jpg" align="center" format="jpg" width="60%"/>
+                <imagedata fileref="images/style_transformation.jpg" align="center" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
             </imageobject>
         </mediaobject>
     </figure>
  
 
 
-    </sect2>
+    </section>
 
  
 

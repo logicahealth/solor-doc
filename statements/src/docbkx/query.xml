@@ -29,7 +29,7 @@
                     representing states of knowledge</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/tri-valued-approach.png" width="5.5in"/>
+                        <imagedata fileref="images/tri-valued-approach.png" scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -82,16 +82,61 @@
                 same time). In fact, the presence of certain of the rows in the record at
                 the same time would be inconsistent with the logical model defined
                 above.</para>
-            <figure>
-                <title>Example assignments of present, absent, and indeterminate based on
-                    various interval values</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/assignment-of-tri-value.png"
-                            width="5.5in"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
+            <para>
+                <table frame="border">
+                    <caption>Example assignments of present, absent, and indeterminate based on
+                        various interval values</caption>
+                    <col width="33%"/>
+                    <col width="33%"/>
+                    <col width="33%"/>
+                    <thead align="left">
+                        <tr>
+                            <th>Phenomenon <emphasis>ph</emphasis></th>
+                            <th><emphasis>ph</emphasis>.value</th>
+                            <th>Present/Absent/Indeterminate</th>
+                        </tr>
+                    </thead>
+                    <tbody align="left">
+                        <tr>
+                            <td>Pressure Ulcer(s)</td>
+                            <td>[5,5]</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>Pressure Ulcer(s)</td>
+                            <td>[0,∞]</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>Pressure Ulcer(s)</td>
+                            <td>[0,0]</td>
+                            <td>Absent</td>
+                        </tr>
+                        <tr>
+                            <td>Pressure Ulcer(s)</td>
+                            <td>[0,3]</td>
+                            <td>Indeterminate</td>
+                        </tr>
+                        <tr>
+                            <td>Nausea</td>
+                            <td>[0,∞]</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>Nausea</td>
+                            <td>[0,0]</td>
+                            <td>Absent</td>
+                        </tr>
+                        <tr>
+                            <td>Nausea</td>
+                            <td>&lt;no instances></td>
+                            <td>Indeterminate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+
+            
         </section>
         <section xml:id="_Ref493858870">
             <title>Assigning Values to Phenomena That Include Refining Attributes</title>
@@ -108,7 +153,7 @@
                 <mediaobject>
                     <imageobject>
                         <imagedata fileref="images/post-coordinated-phenomenon.png"
-                            width="5.5in"/>
+                            scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -133,7 +178,7 @@
                 <mediaobject>
                     <imageobject>
                         <imagedata fileref="images/assignment-of-interval-value.png"
-                            width="5.5in"/>
+                            scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -158,7 +203,7 @@
                     <imageobject>
                         <imagedata
                             fileref="images/incorrect-assignment-of-interval-value.png"
-                            width="5.5in"/>
+                            scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -199,7 +244,7 @@
                 <title>Set-theoretic view of the subsumption relationship. </title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/set-theoretic-view.png" width="5.5in"/>
+                        <imagedata fileref="images/set-theoretic-view.png" scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -219,7 +264,7 @@
                     the clinical domain. </title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/subsumption-hierarchy.png" width="5.5in"
+                        <imagedata fileref="images/subsumption-hierarchy.png" scalefit="1" width="100%" contentdepth="100%"
                         />
                     </imageobject>
                 </mediaobject>
@@ -269,7 +314,7 @@
                     post-coordinated phenomena.</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/correct-subsumption.png" width="5.5in"/>
+                        <imagedata fileref="images/correct-subsumption.png" scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -340,15 +385,64 @@
                 complete truth table for the query above based on a number of potential
                 values in the patient record are shown in <xref linkend="_Ref493946553"
                 />.</para>
-            <figure xml:id="_Ref493946553">
-                <title>Complete truth table for querying using interval values and the
-                    tri-valued model of knowledge</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/complete-truth-table.png" width="5.5in"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
+            <para>
+                <table frame="border">
+                    <caption>Complete truth table for querying using interval values and the
+                        tri-valued model of knowledge</caption>
+                    <col width="20%"/>
+                    <col width="20%"/>
+                    <col width="20%"/>
+                    <col width="20%"/>
+                    <col width="20%"/>
+                    <thead align="left">
+                        <tr>
+                            <th>Pressure Ulcer Value</th>
+                            <th>Not Present (<emphasis>ph</emphasis>)</th>
+                            <th>Absent(<emphasis>ph</emphasis>)</th>
+                            <th>Present(<emphasis>ph</emphasis>)</th>
+                            <th>NOT Absent(<emphasis>ph</emphasis>)</th>
+                        </tr>
+                    </thead>
+                    <tbody align="left">
+                        <tr>
+                            <td>[3,3]</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                            <td>TRUE</td>
+                            <td>TRUE</td>
+                        </tr>
+                        <tr>
+                            <td>[0,∞]</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                            <td>TRUE</td>
+                            <td>TRUE</td>
+                        </tr>
+                        <tr>
+                            <td>[0,0]</td>
+                            <td>TRUE</td>
+                            <td>TRUE</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                        </tr>
+                        <tr>
+                            <td>[0,5]</td>
+                            <td>TRUE</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                            <td>TRUE</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;no records></td>
+                            <td>TRUE</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                            <td>TRUE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            
         </section>
         <section>
             <title>Practical examples</title>
@@ -491,16 +585,56 @@
                 that the patient does NOT have pressure ulcers, whereas a Boolean value of
                 FALSE indicates that the patient DOES have pressure ulcers (since the
                 queries are testing for the absence of that phenomenon).</para>
-            <figure>
-                <title>Example truth table of negated querying under closed-world and
-                    open-world assumptions.</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/truth-table-of-negated-query.png"
-                            width="5.5in"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
+            <para>
+                <table frame="border">
+                    <caption>Example truth table of negated querying under closed-world and
+                        open-world assumptions.</caption>
+                    <col width="25%"/>
+                    <col width="25%"/>
+                    <col width="25%"/>
+                    <col width="25%"/>
+                    <thead align="left">
+                        <tr>
+                            <th>Pressure Ulcer Value</th>
+                            <th>CWA Query</th>
+                            <th>OWA Query 1</th>
+                            <th>OWA Query 2</th>
+                        </tr>
+                    </thead>
+                    <tbody align="left">
+                        <tr>
+                            <td>[3,3]</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                        </tr>
+                        <tr>
+                            <td>[0,∞]</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                        </tr>
+                        <tr>
+                            <td>[0,0]</td>
+                            <td>TRUE</td>
+                            <td>TRUE</td>
+                            <td>TRUE</td>
+                        </tr>
+                        <tr>
+                            <td>[0,5]</td>
+                            <td>TRUE</td>
+                            <td>TRUE</td>
+                            <td>FALSE</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;no records></td>
+                            <td>TRUE</td>
+                            <td>FALSE</td>
+                            <td>FALSE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
             <para>The potential variance in query responses depending on how a negation
                 query is formulated and how the absence of a phenomenon is represented in
                 the medical record is a problem for health-care applications that depend on
@@ -515,4 +649,3 @@
     </section>
     
 </appendix>
-

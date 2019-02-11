@@ -3,15 +3,15 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.1">
-    <title>SOLOR Architecture</title>
+    <title>Solor Architecture</title>
     <section>
         <title>Versioning Overview</title>
         <para/>
         <para>When dealing with the complexities of the various architectural layers, one of the
-            most important things to note is that any one of SOLOR's architectural layers will be
+            most important things to note is that any one of Solor's architectural layers will be
             undergoing modifications at any given point in time, as various Standards Development
             Organizations go through each of their various drafting, balloting, and approval
-            lifecycles. Therefore it is important to establish as a foundation for SOLOR a
+            lifecycles. Therefore it is important to establish as a foundation for Solor a
             versioning and modularity architecture that allows changes and subchanges to be
             referenced uniquely so that all parties can be on the same page as to a particular
             version.</para>
@@ -40,7 +40,7 @@
             standards into the common model is made repeatable and interoperable with other
             environments; and, (c) how the modules of the common model are tightly versioned
             controlled over time. </para>
-        <para>In this chapter we are concerned with detailing SOLOR’s architectural foundation that
+        <para>In this chapter we are concerned with detailing Solor’s architectural foundation that
             will support semantic interoperability. We achieve this foundation in two ways:</para>
         <para>1. Use of SNOMED CT, RxNorm, and LOINC as the primary building blocks for the
             foundational architecture (more on this in chapter 3)</para>
@@ -48,10 +48,10 @@
             normalization of representation and achieving coherence within and among the primary
             building blocks of the architecture.</para>
         <para/>
-        <para>SOLOR is an ecosystem that allows users to import, transform, and view content from
+        <para>Solor is an ecosystem that allows users to import, transform, and view content from
             disparate medical terminologies, all in one common model. Users can navigate and search
-            SOLOR content, view details of the data elements, and select specific concepts to view
-            more information. As SOLOR is open-source, developers are encouraged to build on top of
+            Solor content, view details of the data elements, and select specific concepts to view
+            more information. As Solor is open-source, developers are encouraged to build on top of
             existing functionalities.</para>
         <para>We adopted contemporary software principles to create a multilayered architecture for
             integrating standard medical terminologies. We sought to adhere to three main principles
@@ -61,7 +61,7 @@
             collaborative, distributive workflows for developers. </para>
         <section>
             <title>Building Blocks</title>
-            <para>SOLOR has two fundamental building blocks: concepts and semantics. Concept is
+            <para>Solor has two fundamental building blocks: concepts and semantics. Concept is
                 defined as an idea or a general notion. When abstracted out, it can be used to
                 represent any idea, whether that is a medically related idea (e.g., heart attack) or
                 an idea to represent a metadata (e.g., a synonym or a fully specified name). A
@@ -70,24 +70,24 @@
                 versioning. In other words, a semantic is attached to a concept to provide
                 contextual meaning to the concept. Semantics can be grouped together in a collection
                 to form an ‘assemblage’. An assemblage consists of semantics that reference a
-                component and provide additional data to that member for some purpose. SOLOR also
+                component and provide additional data to that member for some purpose. Solor also
                 has ‘description semantics’ with additional metadata specifying details including
                 but not limited to ‘language’ and ‘description type’.</para>
         </section>
         <section>
             <title>Transformation Overview</title>
             <para>After a standards developer releases its content, a process will need to occur to
-                transform data from its native format into SOLOR components. This programmatic
+                transform data from its native format into Solor components. This programmatic
                 process is tailored to each incoming data stream, where it will account for data
                 represented in its original format. Other than transformation and applying
                 versioning coordinates, the underlying process will also address the notion of
                 dependency. For example, SNOMED US Extension will have a dependency on SNOMED
                 International, and relationships from the LOINC-SNOMED collaboration effort will
                 have a dependency on SNOMED and LOINC. </para>
-            <para>Once the content is in SOLOR, there is a step where equivalency is determined
+            <para>Once the content is in Solor, there is a step where equivalency is determined
                 through various methods where concepts of the same idea are aggregated. For example,
                 Gentamycin from SNOMED is the same as Gentamycin from LOINC, and is also the same
-                Gentamycin from RxNorm. The end result from this process is the creation of a SOLOR
+                Gentamycin from RxNorm. The end result from this process is the creation of a Solor
                 concept that is devoid of any source information (but will have traceability). This
                 end result is what will be exposed to the user to view and use. In the Gentamycin
                 example, a user will find this concept that is devoid of any source information and
@@ -95,14 +95,14 @@
                 selected. If the Gentamycin concept was used in the context of identifying what
                 medication the patient is currently taking, then the underlying process will be able
                 to transmit the RxNorm code if the receiving system is expecting RxNorm codes.
-                Conversely, if SOLOR were adopted more universally, the transmitted information
-                could be isolated to the SOLOR Gentamycin rather than a distinct code from a
+                Conversely, if Solor were adopted more universally, the transmitted information
+                could be isolated to the Solor Gentamycin rather than a distinct code from a
                 specific terminology. </para>
         </section>
         <section>
             <title>Identifiable Components</title>
             <para>A universally unique identifier (UUID) is a 128-bit number used to identify
-                information in computer systems.(ref] ) The identifiable component layer of SOLOR
+                information in computer systems.(ref] ) The identifiable component layer of Solor
                 manages the reproducible assignment of UUIDs to all imported components as well as
                 the assignment of primordial UUIDs to all internally generated components. If
                 imported components already provide UUIDs to identify components, those UUIDs will
@@ -132,7 +132,7 @@
                 and off depending on specific use cases, and that modular content can be developed
                 independently from unrelated modules. This modularity will enable simplified
                 development and quality assurance processes for each module. The following figure
-                shows the UML representation of SOLOR’s chronology layer on the left, and that of
+                shows the UML representation of Solor’s chronology layer on the left, and that of
                 STAMP on the right.</para>
             <figure>
                 <title>Chronology and STAMP</title>
@@ -146,9 +146,9 @@
     </section>
     <section>
         <title>Challenges</title>
-        <para>SOLOR is an integrated clinical transformation process to represent and bring together
+        <para>Solor is an integrated clinical transformation process to represent and bring together
             disparate terminology standards by using a single model that can encompass any
-            customized content. In our experience with building the SOLOR semantic architecture and
+            customized content. In our experience with building the Solor semantic architecture and
             transformation process, we have come to understand that health IT systems must address
             the following antipatterns: </para>
         <section>
@@ -313,13 +313,13 @@
         <title>Summary</title>
         <para>Currently, medical terminologies come from different sources and are represented by
             disparate models. However, by using a common model that integrates these terminologies
-            seamlessly, SOLOR's architecutral layer can display content from different sources after
-            the SOLOR transformation process. Users will consequently not need to burden themselves
+            seamlessly, Solor's architecutral layer can display content from different sources after
+            the Solor transformation process. Users will consequently not need to burden themselves
             with unnecessary complexities, and can instead focus on the meaning of medical
             content.(ref) Built upon an architecture intended to facilitate semantic
-            interoperability, SOLOR stores concepts with UUIDs and classifiers, is maintained by
+            interoperability, Solor stores concepts with UUIDs and classifiers, is maintained by
             robust version control, and promotes modular, collaborative development. Next steps
-            include developing a list of agency-specific and industry-specific use cases for SOLOR
+            include developing a list of agency-specific and industry-specific use cases for Solor
             upon which a formative evaluation approach and data collection and analysis can be
             conducted.</para>
     </section>

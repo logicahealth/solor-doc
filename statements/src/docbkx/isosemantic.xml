@@ -21,7 +21,7 @@
 
 <section>
     <info>
-        <title>Transformation Languages for Converting CIMI DCM Instances to SOLOR DL Expressions
+        <title>Transformation Languages for Converting CIMI DCM Instances to Solor DL Expressions
         </title>
         <author>
             <personname>Walter Sujansky</personname>
@@ -33,14 +33,14 @@
         <title>Introduction</title>
         <para>This whitepaper addresses processes for transforming clinical data that were collected
             using an object-oriented data model (CIMI) into semantically equivalent data structures
-            represented using a description-logic model (SOLOR). The paper discusses the motivation
+            represented using a description-logic model (Solor). The paper discusses the motivation
             for performing such transformations and evaluates several candidate languages for
             specifying and executing the transformations. Specific recommendations are made
-            regarding the next steps in selecting the best language for CIMI-to-SOLOR
+            regarding the next steps in selecting the best language for CIMI-to-Solor
             transformations of clinical data.</para>
     </section>
     <section>
-        <title>Motivation for CIMI to SOLOR Transformations</title>
+        <title>Motivation for CIMI to Solor Transformations</title>
         <para>CIMI detailed clinical models (DCMs)<footnote xml:id="__EN1__">
                 <para> Goossen, W. Detailed Clinical Models: Representing Knowledge, Data and
                     Semantics in Healthcare Information Technology. Healthc Inform Res. 2014 Jul;
@@ -100,26 +100,26 @@
             <title>Benefitting from Description Logic Semantics</title>
             <para>Description logics (DLs) are ontological representation systems based on a subset
                 of first order logic. A prominent example of a DL system in healthcare is SNOMED-CT,
-                and its derivative system SOLOR. SOLOR defines a formal model for the representation
+                and its derivative system Solor. Solor defines a formal model for the representation
                 of ontological knowledge and includes an inference engine (“reasoner”) for deriving
                 new, latent information based on the represented knowledge and the rules of logic. </para>
-            <para>For example, SOLOR can automatically infer that “Appendicitis” is a
+            <para>For example, Solor can automatically infer that “Appendicitis” is a
                 “Gastrointestinal Disease” and involves the process of “Inflammation”, based solely
                 on the rules of logic and provided ontological definitions of “Gastrointestinal
                 Disease”, “Gastrointestinal System”, “Appendicitis”, and “Appendix”. Such inferences
                 can be useful, for example, in finding all patients who have a gastrointestinal
                 disease for purposes of research, or determining why a specific patient may have a
                 fever for purposes of decision support.</para>
-            <para>Although SOLOR is based on a different formalism that CIMI DCMs, SOLOR
+            <para>Although Solor is based on a different formalism that CIMI DCMs, Solor
                 representations of medical concepts share a number of features with CIMI DCMs.
                 Specifically, both modeling systems use of an object-oriented framework that
                 organizes concepts into hierarchies and specifies the features of concepts using
                 attributes, which themselves can take other defined concepts as values. Hence, there
-                exists the opportunity to map between CIMI DCMs and SOLOR expressions, and to
-                transform CIMI data instances into SOLOR concept expressions based on these
+                exists the opportunity to map between CIMI DCMs and Solor expressions, and to
+                transform CIMI data instances into Solor concept expressions based on these
                 mappings. The sound execution of such transformations allows clinical information
                 systems to capture and share data using the CIMI formalism, but then retrieve and
-                analyze the data using the SOLOR formalism and the additional inferencing power it
+                analyze the data using the Solor formalism and the additional inferencing power it
                 provides.</para>
         </section>
         <section>
@@ -159,13 +159,13 @@
                 detailed knowledge of the nested DCM data structure and the specific combinations of
                 attributes that represent certain semantic concepts.</para>
             <para>However, there is a better alternative if one could first transform the CIMI DCM
-                representations of all recorded observations into SOLOR DL representations. Such
+                representations of all recorded observations into Solor DL representations. Such
                 transformations would allow the same query to be formulated and executed more easily
                 using DL inference. </para>
             <para>For example, the expression in <xref linkend="_Ref494375725"/> shows the DL
                 formulation of the same<footnote xml:id="__FN2__">
                     <para>Note that this representation lacks the temporal “DateOfOnset” attribute,
-                        because that attribute falls outside of the SOLOR concept model (as further
+                        because that attribute falls outside of the Solor concept model (as further
                         discussed in Section <xref linkend="_Ref494460383"/>).</para>
                 </footnote> “Pain in right lower quadrant” observation represented in <xref
                     linkend="_Ref494372763"/>. <xref linkend="_Ref494375725"/> shows both the
@@ -182,10 +182,10 @@
                 </mediaobject>
             </figure>
             <para>Initially, the DL expression in <xref linkend="_Ref494375725"/> is subsumed within
-                the SOLOR concept hierarchy only by the concept “Pain,” because the expression
+                the Solor concept hierarchy only by the concept “Pain,” because the expression
                 explicitly specifies only that the expression is a sub-class of Pain. This
                 hierarchical classification would not help a query to recognize that the patient
-                with this finding, in fact, has an instance of “Abdominal pain.” However, the SOLOR
+                with this finding, in fact, has an instance of “Abdominal pain.” However, the Solor
                 ontology also includes the DL definition of the more specific concept “Abdominal
                 Pain,” specified as follows:</para>
             <figure>
@@ -199,17 +199,17 @@
                 </mediaobject>
             </figure>
             <para>Based on this logical definition of “Abdominal Pain,” on the DL definitions of
-                several other clinical concepts, and on formal rules of logic, a SOLOR reasoner can
+                several other clinical concepts, and on formal rules of logic, a Solor reasoner can
                 infer that the DL expression for “Pain in right lower quadrant” is subsumed by
                 “Abdominal Pain.” In fact, the reasoner can correctly classify the expression into
                 the subsumption hierarchy of <xref linkend="_Ref494378771"/>. Using these inferred
                 subsumption relationships, the previous query to retrieve all patients who had
                 experienced abdominal pain may now be reformulated as follows:</para>
-            <para>SELECT PatientID FROM Findings WHERE SOLOR-Expression(Findings) Is-A
-                SOLOR-Code(“Abdominal Pain”) </para>
-            <para>where “SOLOR-Expression” is a function that converts the CIMI DCM instance into an
-                equivalent DL expression, and SOLOR-Code(“Abdominal Pain”) is a function that
-                resolves to the existing coded concept for abdominal pain in the SOLOR terminology.
+            <para>SELECT PatientID FROM Findings WHERE Solor-Expression(Findings) Is-A
+                Solor-Code(“Abdominal Pain”) </para>
+            <para>where “Solor-Expression” is a function that converts the CIMI DCM instance into an
+                equivalent DL expression, and Solor-Code(“Abdominal Pain”) is a function that
+                resolves to the existing coded concept for abdominal pain in the Solor terminology.
                 Note that “Is-A” represents a predicate that tests for subsumption between the two.
                 In this manner, the power of DL semantics can greatly simplify query formulation
                 against a large compendium of complex patient data collected using CIMI DCMs. </para>
@@ -234,9 +234,9 @@
         <section>
             <title>Overview</title>
             <para><xref linkend="_Ref494394277"/> summarizes the transformation process to convert
-                CIMI DCM data instances to SOLOR post-coordinated DL expressions<footnote
+                CIMI DCM data instances to Solor post-coordinated DL expressions<footnote
                     xml:id="__EN3__">
-                    <para> SOLOR post-coordinated expressions are a derivative of, and very similar
+                    <para> Solor post-coordinated expressions are a derivative of, and very similar
                         to, SNOMED-CT post-coordinated expressions, which are formally defined in
                         the following document: <link xmlns:xlink="http://www.w3.org/1999/xlink"
                             xlink:href="http://doc.ihtsdo.org/download/doc_CompositionalGrammarSpecificationAndGuide_Current-en-US_INT_20150522.pdf"
@@ -244,7 +244,7 @@
                         (Accessed 9/30/2017).</para>
                 </footnote>. At the instance (“Data”) level, the task must automatically and
                 faithfully transforms data represented in the CIMI object-oriented formalism to data
-                represented in the SOLOR DL formalism, which consists of the EL profile of the OWL 2
+                represented in the Solor DL formalism, which consists of the EL profile of the OWL 2
                 description-logic language<footnote xml:id="__EN4__">
                     <para>
                         <link xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -258,7 +258,7 @@
                 Specifically, they are based on the structure and contents of a particular CIMI DCM,
                 and can only transform data instances conforming to that DCM. Each distinct DCM,
                 therefore, requires its own mapping specifications. The mapping specifications are
-                also specific to the SOLOR DL model and terminology contents, because the model and
+                also specific to the Solor DL model and terminology contents, because the model and
                 contents define the allowed outputs of the transformation process. </para>
             <figure xml:id="_Ref494394277">
                 <title>Architectural framework for transforming CIMI DCM instances to DL
@@ -292,7 +292,7 @@
                 cardinality) and therefore not populated in the DCM instance shown in <xref
                     linkend="_Ref494398277"/>.</para>
             <para>The DCM instance in <xref linkend="_Ref494398277"/> is another example of an input
-                to the CIMI-to-SOLOR transformation process. It is the example used in the next
+                to the CIMI-to-Solor transformation process. It is the example used in the next
                 section to describe the outputs of the transformation process.</para>
             <figure xml:id="_Ref494398277">
                 <title>An alternative CIMI DCM instance of a pain observation. </title>
@@ -317,38 +317,38 @@
         </section>
         <section xml:id="_Ref494460383">
             <title>Outputs</title>
-            <para>The outputs to the transformation process are SOLOR post-coordinated DL
+            <para>The outputs to the transformation process are Solor post-coordinated DL
                 expressions that are semantically consistent with the input data instances. These
-                expressions must conform to three aspects of the SOLOR terminology model</para>
+                expressions must conform to three aspects of the Solor terminology model</para>
             <orderedlist>
                 <listitem>
-                    <para><emphasis role="underline">OWL 2 EL Description Logic</emphasis>. SOLOR
+                    <para><emphasis role="underline">OWL 2 EL Description Logic</emphasis>. Solor
                         (like SNOMED-CT) uses just a subset of complete first-order logic to define
                         medical concepts and represent post-coordinated expressions. The OWL 2 EL
                         subset of first-order logic was chosen to ensure polynomial-time inference
-                        operations, in particular classification of the large SOLOR terminology
+                        operations, in particular classification of the large Solor terminology
                         corpus. OWL 2 EL definitions and expressions can be represented using a
                         number of equivalent syntaxes, including the SNOMED Expression Grammar,
                         Manchester Syntax, OWL Functional Syntax, OWL/XML syntax, and OWL/RDF
                         syntax. Most examples in this paper use the Manchester Syntax, for clarity
                         and brevity (e.g., see <xref linkend="_Ref494375725"/>). In practice, the
-                        output of CIMI-to-SOLOR transformations may best be rendered in OWL
+                        output of CIMI-to-Solor transformations may best be rendered in OWL
                         Functional Syntax, which is still relatively concise and supported as an
                         input format by most OWL reasoners. <xref linkend="_Ref494460754"/> shows an
                         example of this syntax.</para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="underline">SOLOR Content Model</emphasis>. SOLOR (like
+                    <para><emphasis role="underline">Solor Content Model</emphasis>. Solor (like
                         SNOMED-CT) constrains the attributes that can be used to describe each type
                         of medical concept, as well as the allowed values for those attributes. The
-                        specification of the allowed attributes and values is called the SOLOR
+                        specification of the allowed attributes and values is called the Solor
                         Content Model. <xref linkend="_Ref494400687"/>, for example, shows an
-                        excerpt of the SOLOR Concept Model for observations of the type “Clinical
+                        excerpt of the Solor Concept Model for observations of the type “Clinical
                         Finding”. </para>
                 </listitem>
             </orderedlist>
             <figure xml:id="_Ref494400687">
-                <title>Excerpt of the SOLOR Concept Model for Clinical Findings</title>
+                <title>Excerpt of the Solor Concept Model for Clinical Findings</title>
                 <mediaobject>
                     <imageobject>
                         <imagedata
@@ -358,28 +358,28 @@
                 </mediaobject>
             </figure>
             <para>Note that “Clinical Finding” is the concept type for all pain observations, and
-                therefore the SOLOR Concept Model shown in <xref linkend="_Ref494400687"/> specifies
+                therefore the Solor Concept Model shown in <xref linkend="_Ref494400687"/> specifies
                 the set of attributes that can be assigned in the DLs transformation of the CIMI DCM
                 instance shown in <xref linkend="_Ref494398277"/>. In particular, a number of the
-                attributes allowed by the DCM are not allowed by the SOLOR Concept Model (e.g.,
+                attributes allowed by the DCM are not allowed by the Solor Concept Model (e.g.,
                 “DateOfOnset”, “Duration”, and “ExacerbatingFactor”), which results in their
                 necessary exclusion from the transformation result. The mapping specification for
-                the DCM must include only the allowed attributes and values to produce valid SOLOR
+                the DCM must include only the allowed attributes and values to produce valid Solor
                 DL output results. <xref linkend="_Ref494401653"/> illustrates the attributes of the
                 DCM originally shown in <xref linkend="_Ref494398304"/> that must be excluded. Note
                 that the DCM attribute “BodyLocationPrecoord” is not excluded, because it maps to
-                the semantically equivalent attribute “Finding Site” in the SOLOR Concept
+                the semantically equivalent attribute “Finding Site” in the Solor Concept
                 Model.</para>
             <orderedlist continuation="continues">
                 <listitem>
-                    <para><emphasis role="underline">SOLOR Terminology Content</emphasis>. Lastly,
+                    <para><emphasis role="underline">Solor Terminology Content</emphasis>. Lastly,
                         the transformed CIMI DCM instance can only include references to codes and
-                        concepts that already exist within the SOLOR Terminology Model. For example,
+                        concepts that already exist within the Solor Terminology Model. For example,
                         the value of the “BodyLocationPrecoord” attribute (“Right lower quadrant of
                         abdomen” in the example of <xref linkend="_Ref494398277"/>) can only be
-                        transformed to an existing SOLOR concept, or to a nested post-coordinated
-                        expression consisting of existing SOLOR concepts and attributes. In this
-                        case, the specified value does map to an existing SOLOR concept, “Structure
+                        transformed to an existing Solor concept, or to a nested post-coordinated
+                        expression consisting of existing Solor concepts and attributes. In this
+                        case, the specified value does map to an existing Solor concept, “Structure
                         of right lower quadrant of abdomen,” so an accurate translation of that
                         attribute/value pair is possible. </para>
                 </listitem>
@@ -413,7 +413,7 @@
     </section>
     <section>
         <title>Choice of Transformation Languages</title>
-        <para>A number of options exist for expressing the transformation logic for CIMI-to-SOLOR
+        <para>A number of options exist for expressing the transformation logic for CIMI-to-Solor
             translations and for executing the transformation on specific instances of CIMI DCMs.
             This section discusses several of the options and the trade-offs among them.</para>
         <section>
@@ -474,7 +474,7 @@
                     />. Note that the transformation output is specified as any text (including XML
                     elements) that is not preceded by the XML namespace prefix “xsl:”. In this case,
                     the output includes the XML element “SubClassOf”, which is an element name in
-                    the OWL/XML syntax used to render the SOLOR DL output of a CIMI-to-SOLOR
+                    the OWL/XML syntax used to render the Solor DL output of a CIMI-to-Solor
                     transformation (see <xref linkend="_Ref494460754"/> for the complete OWL/XML
                     output of the transformation).</para>
                 <figure xml:id="_Ref494459836">
@@ -492,20 +492,20 @@
                 <title>Example Transformation</title>
                 <para>The XSLT excerpt shown in <xref linkend="_Ref494459836"/> is part of a larger
                     XSLT script that can translate any instance of the CIMI DCM specific in <xref
-                        linkend="_Ref494398304"/> into an appropriate SOLOR DL expression. In the
+                        linkend="_Ref494398304"/> into an appropriate Solor DL expression. In the
                     case of this script, the output is rendered using the OWL/XML Syntax, although
                     (as discussed in Section <xref linkend="_Ref494460383"/>) any number of
                     equivalent syntaxes could be used to render the OWL 2 EL output of the
                     translation.</para>
                 <para><xref linkend="_Ref494460754"/> shows the actual result of executing the XSLT
                     script on the CIMI DCM instance shown in <xref linkend="_Ref494398277"/>. The
-                    resulting DL expression can be directly loaded into a SOLOR terminology reasoner
+                    resulting DL expression can be directly loaded into a Solor terminology reasoner
                     and classified with respect to all of the other concepts in the terminology. The
                     result of this classification would be the subsumption hierarchy shown in <xref
                         linkend="_Ref494378771"/>, which can be used subsequently to infer that the
                     original CIMI DCM instance matches the query condition for patients with
                     abdominal pain:</para>
-                <para>WHERE SOLOR-Expression(Findings) Is-A SOLOR-Code(“Abdominal Pain”)</para>
+                <para>WHERE Solor-Expression(Findings) Is-A Solor-Code(“Abdominal Pain”)</para>
                 <figure xml:id="_Ref494460754">
                     <title>Output of the XSLT script in <xref linkend="_Ref494459836"/> run against
                         the CIMI DCM instance in <xref linkend="_Ref494398277"/>.</title>
@@ -521,7 +521,7 @@
             <section>
                 <title>Advantages and Limitations</title>
                 <para>XSLT is effective in representing and executing the transformation logic
-                    needed for CIMI-to-SOLOR translations, at least in a limited set of test cases
+                    needed for CIMI-to-Solor translations, at least in a limited set of test cases
                     explored. In general, XSLT provides various advantages, as well as limitations,
                     for this task.</para>
                 <para><emphasis role="bold">Advantages</emphasis></para>
@@ -600,7 +600,7 @@
                     “elements”, “attributes”, “comments”, “namespaces”, etc. In fact, FML
                     transformation rules do not specify any target syntax for inputs or outputs,
                     just the general concepts of named classes, class members, and member values.
-                    This flexibility would allow CIMI-to-SOLOR transformation inputs to be
+                    This flexibility would allow CIMI-to-Solor transformation inputs to be
                     represented in different formats than XML, were that to be deemed preferable.
                     For example, instances rendered using JSON, ODIN<footnote xml:id="__EN10__">
                         <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -673,7 +673,7 @@
             <section>
                 <title>Advantages and Limitations</title>
                 <para>The FHIR Mapping Language may also be effective in representing and executing
-                    the transformation logic needed for CIMI-to-SOLOR translations. As with XSLT,
+                    the transformation logic needed for CIMI-to-Solor translations. As with XSLT,
                     however, there exist certain trade-offs in its use.</para>
                 <para><emphasis role="bold">Advantages</emphasis></para>
                 <itemizedlist>
@@ -717,7 +717,7 @@
         <section xml:id="_Ref494462079">
             <title>QVT</title>
             <para>A third alternative is to develop a new transformation language customized to
-                support the requirements of CIMI-to-SOLOR translations, based on the QVT language
+                support the requirements of CIMI-to-Solor translations, based on the QVT language
                 used to develop the FHIR Mapping Language. </para>
             <section>
                 <title>Overview</title>
@@ -769,24 +769,24 @@
         </section>
         <section>
             <title>Recommendations</title>
-            <para>Given the requirements of the CIMI-to-SOLOR transformation task and the features
+            <para>Given the requirements of the CIMI-to-Solor transformation task and the features
                 of available transformation languages, the following two-pronged approach is
                 recommended at this time:</para>
             <orderedlist>
                 <listitem>
-                    <para>Perform further sample CIMI-to-SOLOR transformations using XSLT. This
+                    <para>Perform further sample CIMI-to-Solor transformations using XSLT. This
                         pilot activity will shed further light on the feasibility of XSLT for the
                         task, the effective use of external functions, and the
                         readability/maintainability of the resulting transformation scripts.</para>
                 </listitem>
                 <listitem>
                     <para>In parallel, explore the customization and use of a QVT-based
-                        transformation language for CIMI-to-SOLOR transformations. This approach
+                        transformation language for CIMI-to-Solor transformations. This approach
                         will allow for the rendering of CIMI DCM instances in formats other than
                         XML. Pilot use of QVT will enable comparison with XSLT in terms of (a)
                         feasibility, conciseness, and maintainability of transformation scripts, (b)
                         utility of the available tooling and documentation for QVT, and (3) the
-                        required customization effort to create a production CIMI-to-SOLOR
+                        required customization effort to create a production CIMI-to-Solor
                         transformation capability based on QVT.</para>
                 </listitem>
             </orderedlist>
@@ -794,7 +794,7 @@
     </section>
     <section>
         <title>Conclusion</title>
-        <para>A semantically correct and efficient model for translating CIMI DCM instances to SOLOR
+        <para>A semantically correct and efficient model for translating CIMI DCM instances to Solor
             DL expressions could confer the benefits of both the object-oriented and
             description-logic models to clinical data management. Reconciliation and translation
             between the two models, however, is in an early phase of exploration. Considerable

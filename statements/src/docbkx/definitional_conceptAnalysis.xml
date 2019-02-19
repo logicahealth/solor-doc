@@ -5,12 +5,11 @@
     <title>Content Requiring Special Handling</title>
     <section>
         <title>Purpose</title>
-        <para>The creation of groupings (RefSets) containing SNOMED CT concepts that require special
-            handling supports the maintenance of this content over time without the necessity of
-            re-reviewing the entire content. Within Solor, these various RefSets are imported and
-            are properly grouped within the system. Subsequently, set of rules could be developed
-            and applied to handle each of the cases appropriately. </para>
-
+        <para>The creation of groupings (Assemblage) containing SNOMED CT concepts that require
+            special handling supports the maintenance of this content over time without the
+            necessity of re-reviewing the entire content. Within Solor, these various Assemblages
+            are imported and are properly grouped within the system. Subsequently, a set of rules
+            could be developed and applied to handle each of the cases appropriately. </para>
         <para>Concepts may require special handling for a number of reasons:<itemizedlist>
                 <listitem>
                     <para>Hierarchies may be incorrect and could affect retrieval</para>
@@ -23,12 +22,11 @@
                     <para>Use of concepts may have to be limited</para>
                 </listitem>
             </itemizedlist></para>
-
-        <para>This document outlines the agreed upon rules, the reasoning for applying those rules
-            and provides practical examples of how they are applied. Also, included are the
-            inter-rater reliability metrics for the concepts evaluated and specificity and
-            sensitivity metrics for the keywords used to find relevant concepts. </para>
-
+        <para>This section outlines the agreed upon rules, the reasoning for applying those rules
+            and provides practical examples of how they are applied.
+            <?oxy_comment_start author="timowilliams" timestamp="20190218T173255-0600" comment="If we remove these sections or move them to the appendix we should remove this sentence."?>Also,
+            included are the inter-rater reliability metrics for the concepts evaluated and
+            specificity and sensitivity metrics for the keywords used to find relevant concepts. </para><?oxy_comment_end?>
         <para>The concepts identified in this task as either meeting inclusion or exclusion criteria
             belong to the following categories: <itemizedlist>
                 <listitem>
@@ -47,8 +45,7 @@
                     <para>Concept is an inverse of a concept</para>
                 </listitem>
                 <listitem>
-                    <para>Concept is a primitive concept versus those that should be fully
-                        defined</para>
+                    <para>Concept is a primitive concept that should be fully defined</para>
                 </listitem>
             </itemizedlist>
         </para>
@@ -1003,7 +1000,7 @@
         </section>
 
         <section>
-            <title>Primative Concepts</title>
+            <title>Primitive Concepts</title>
             <para>The purpose of the Primitive RefSets is to identify concepts that could be easily
                 fully defined under the current concept model of SNOMED CT. From the SNOMED CT
                 Technical Implementation Guide, a fully defined concept is defined as:</para>
@@ -1172,7 +1169,8 @@
         </section>
     </section>
     <section>
-        <title>Reliability of Rule Sets</title>
+        <?oxy_comment_start author="timowilliams" timestamp="20190218T164257-0600" comment="I would move this section to the appendix so it could be left out if needed."?>
+        <title>Reliability of Rule Sets<?oxy_comment_end?></title>
         <para>In order to determine reliability of the identified keywords and rule sets for each
             RefSet, metrics of agreement/disagreement for the initial review were used.</para>
         <para>After the first two Terminologists reviewed the 50,000 SNOMED CT concepts
@@ -1281,7 +1279,6 @@
                     </tbody>
                 </table>
             </para>
-
             <para>The results of this exercise show that the rules for the “Compound Observation”
                 RefSet appear to be the most reproducible. The numbers for “Absence” and “Patient
                 not subject of information” are lower.</para>
@@ -1427,12 +1424,6 @@
         </section>
 
         <section>
-            <title>Final Keywords and Rules for “Laterality”</title>
-            <para>Keywords of "Left", "Right", and "Bilateral" were used to identifed
-                concepts.</para>
-        </section>
-
-        <section>
             <title>Final Keywords and Rules for "Inverse"</title>
             <para>As listed in the "Approach" section for "Inverse Concepts"</para>
         </section>
@@ -1444,7 +1435,8 @@
     </section>
 
     <section>
-        <title>Sensitivity and Specificity</title>
+        <?oxy_comment_start author="timowilliams" timestamp="20190218T163410-0600" comment="I would move this section to the appendix so it could be left out if needed."?>
+        <title>Sensitivity and Specificity<?oxy_comment_end?></title>
         <para>Using the defined set of keywords the sensitivity and specificity of the initial
             automated queries was tested against the final RefSets. By running the queries against
             the original 50,000 concepts the following metrics were applied to the results: <itemizedlist>
@@ -1457,23 +1449,19 @@
                         positives/false negatives (Specificity)</para>
                 </listitem>
             </itemizedlist></para>
-
         <section>
             <title>Sensitivity and Specificity of Keywords for “Absence”</title>
             <para>Sensitivity of 73% and Specificity of 95%</para>
         </section>
-
         <section>
             <title>Sensitivity and Specificity of Keywords for “Patient not Subject of
                 Information”</title>
             <para>Sensitivity of 75% and Specificity of 99%</para>
         </section>
-
         <section>
             <title>Sensitivity and Specificity of Keywords for “Compound Observation”</title>
             <para>Sensitivity of 93% and Specificity of 94%</para>
         </section>
-
         <section>
             <title>Sensitivity and Specificity of keywords for "Laterality"</title>
             <para>
@@ -1539,7 +1527,6 @@
                     </tbody>
                 </table>
             </para>
-
             <para>Before creating assignments, concepts were considered as either those that have a
                 term that included right, left, or bilateral and those that have an attribute that
                 uses a concept with a laterality of right, left or bilateral. If the concept had a
@@ -1551,7 +1538,6 @@
                 was correctly modelled or not.</para>
             <para>Sensitivity of 78.38% and Specificity of 99.81% </para>
         </section>
-
         <section>
             <title>Sensitivity and Specificity of Keywords for “Inverse”</title>
             <table frame="border" border="1">
@@ -1589,10 +1575,9 @@
                     </tr>
                 </tbody>
             </table>
-
             <para>After conducting a pilot certain keywords were identified a less likely to be
-                inverse. These concepts were into separate assignments. After further
-                review, 30% of these concepts contained other keywords that made them inverse. </para>
+                inverse. These concepts were into separate assignments. After further review, 30% of
+                these concepts contained other keywords that made them inverse. </para>
             <para>Sensitivity of 82.27% and Specificity of 39.58%</para>
             <para> </para>
         </section>
@@ -1610,7 +1595,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     <tr>
                         <td>Leaf Nodes</td>
                         <td>28394</td>
@@ -1679,7 +1663,6 @@
                     </tr>
                 </tbody>
             </table>
-
             <para>Leaf Nodes and Intermediate Primitives were concepts that were likely to be
                 concepts that should be Fully Defined. However, in many cases that highly depended
                 upon whether new Concept Model attributes could be added to SNOMED CT. The other

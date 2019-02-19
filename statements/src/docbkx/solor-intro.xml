@@ -168,37 +168,51 @@
             </inlinemediaobject></para>
         <para>Starting from the bottom to the top of the architectural diagram, the layers of the
             Separation of Concerns are described as: </para>
-        <para><emphasis role="underline">Architecture</emphasis> – Provides an interoperable,
-            integrated common terminology model which concerns (a) the foundation and building
-            blocks of the common model; (b) how the transformation process of disparate standards
-            into the common model is made repeatable and interoperable with other environments; and,
-            (c) how the modules of the common model are tightly versioned controlled over time. </para>
-        <para><emphasis role="underline">Terminology Knowledge</emphasis> – Structured sets of
-            medical terms and codes that define concepts of interest, including descriptions,
-            dialects, language, and semantic hierarchy. This layer also incorporates logical
-            operators such as negation and combinations of concepts. </para>
-        <para><emphasis role="underline">Statement Model</emphasis> – Packaging of the terminology
-            content in standardized data structures so that they can be readily consumed in the
-            informational retrieval process for analysis. Additional metadata to describe subject,
-            numerical, and categorical details related to concepts can be added in this
-            layer.</para>
-        <para><emphasis role="underline">Assertional Knowledge </emphasis>– Rule based engine to
-            allow concepts and combinations of concepts to assimilate into triggers, warning rules,
-            alerts, for possible adverse outcomes. </para>
-        <para><emphasis role="underline">Procedural Knowledge</emphasis> – Protocols at the
-            application or system level to support clinical decision support, quality measurement,
-            and/or patient safety. Integrates the architectural and terminology layers, incorporates
-            the statement model for information retrieval, uses the assertional layer to apply rules
-            and, and ultimately defines the procedure to be carried out for the patient through
-            clinical decision support applications or analytics. </para>
-        <para>Solor (System of Logical Representation) is an effort that is directly tackling these
-            issues of representation, concerned primarily with the Architecture and Terminology
-            layer in the Separation of Concerns. Solor is an integrated medical terminology system,
-            based on the overlapping but distinct terminology systems of SNOMED, LOINC and RxNorm.
-            Solor was designed to unambiguously define what can be measured (concepts). Working hand
-            in hand with Solor, there needs to be a clinical statement model, of which there are
-            quite a few (HL7 FHIR, CIMI, ANF) which defines how to record a measurement.
-            Measurements may be quantitative or existential. </para>
+        <para>Architecture – Provides an interoperable, integrated common terminology model which
+            concerns (a) the foundation and building blocks of the common model; (b) how the
+            repeatable transformation process of disparate standards into the common model promotes
+            interoperability with other environments; and, (c) how the modules of the architecture
+            are tightly version controlled over time. </para>
+        <para>Terminology Knowledge – Structured sets of medical terms and codes that define
+            concepts of interest, including descriptions, dialects, language, and semantic
+            hierarchy. This layer also incorporates logical operators and description logic such as
+            ‘representation of absence’. </para>
+        <para>Statement Model – Packaging of the terminology content in standardized data structures
+            so that they can be readily consumed by the information retrieval process for analysis.
+            Within the data structures, additional detail to describe subject, numerical, and
+            categorical information related to concepts can be added in this layer.</para>
+        <para>Assertional Knowledge – Translation of guidelines to assist clinical decision making.
+            This includes facts and knowledge upon which concepts and combinations of concepts can
+            assimilate into protocols.</para>
+        <para>Procedural Knowledge – Information about standard ways to carry out specific
+            procedures as well as other procedural guidelines, e.g. treatment protocols for diseases
+            and Order Sets focused on particular patient situations. Procedural knowledge, together
+            with assertional knowledge, enables clinical decision support, quality measurement, and
+            supports patient safety. Integrates the architectural and terminology layers,
+            incorporates the statement model for information retrieval, uses the assertional layer
+            to apply rules.</para>
+        <para>Examining a clinical procedure for controlling hypertension illustrates each of the
+            layers of the informatics architectural separation of concerns. At the Terminology
+            layer, there may be various codes and terms from disparate source terminologies to
+            define the hypertension concept. For example, the concept “essential hypertension” is
+            defined by the ICD-10 CM code I10 and 59621000 in SNOMED CT. Ideally, these overlapping
+            codes and terms would be oriented to the same parent concept during the transformation
+            and integration process at the Architecture layer. Furthermore, any updates over time to
+            code sets or value sets that define hypertension (in the NLM’s Value Set Authority
+            Center for instance) would be maintained by continuous integration at the Architecture
+            layer. Moving to the statement layer, blood pressure measurement values may be packaged
+            as a numerical measurement (e.g., systolic BP = 140 mmHg) or the categorial data (e.g.,
+            pregnancy induced hypertension vs. renal hypertension) within a standard data structure
+            to facilitate information exchange or retrieval, such as within a FHIR Observation
+            Resource. At the Assertional layer, guidelines such as the recommendation to control
+            hypertension to under 140/90 mmHg might be translated into a clinical workflow
+            facilitated by Health Information Technology (HIT). If HIT is involved with programmed
+            Clinical Decision Support, there may be additional rules to suggest hypertension
+            medications (e.g., beta-blockers, ACE inhibitors) while also including rules avoid
+            medication contra-indications. Finally, at the Procedural-level, there may be a
+            treatment protocol for different kinds of hypertension, including the considerations of,
+            e.g. patient age, co-morbidities etc., which can be generated by an electronic clinical
+            decision support system (Statement + Assertional layers). </para>
         <para> </para>
     </section>
 

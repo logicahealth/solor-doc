@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+
+         <title>Analysis Normal Form</title>   
+
+         <section>
+            <title>Isosemantic Models</title>    
+
+            <para>
+                Ideally, clinical information is modeled in a manner that is most efficient for use. This is a problem because there are many different use cases for clinical information with a wide range of requirements.  There is no single model that can be the most efficient model for all the various use cases. Maximum efficiency for each use case necessitates that any particular clinical information be available in multiple modeled forms.  These models, although different in form,  semantically model the same information, and are known as isosemantic models.   Any particular detailed clinical model exists within a family of isosemantic siblings.
+            </para>
+
+            <para>
+                CIMI recognizes and supports the existence of isosemantic models and designates one isosemantic sibling as the CIMI 'preferred' model.  The problem is that CIMI has not clearly stated for what use case this model is preferred.  It could be the case that CIMI is mixing the multiple requirements of transformation, clinical data input, clinical data storage, clinical data querying, clinical data analysis, and modeler preference in the development of the CIMI 'preferred' model.
+            </para>
+
+            <para>
+                We feel it will be best for CIMI to clearly define the use case or use cases for any particular isosemantic family member.  The moniker of 'preferred' could be substituted with the actual use case. For example, if the intent of the model is to act as a common transformation pathway, then CIMI could use a term like the 'rosetta' member within an isosemantic family. Or if the intent for an isosemantic member is to support clinician data input, state that as the use case.  
+            </para>
+
+            <para>
+                Here we address the use case of clincial data analysis and present the Analysis Normal Form (ANF) which will represent one member in each isosemantic family of detailed clinical models.
+            </para>
+
+        </section>
+
+        <section>
+            <title>Clinical Statements – What are they, and <emphasis>how are they used</emphasis>?</title>
+            
+            <para>
+                A clinical statement represents an entry in the patient record that documents in a structured/computable manner clinical information related to the patient that is asserted by a particular source, recorded, and potentially verified.
+            </para>
+
+             <para>
+                Clinicians author clinical statements and enter them into their organization’s electronic health record (EHR).  Clinicians typically enter the information via a manner that we call here the clinical input form (CIF).  However, the CIF is not a literal form that clinicians select and enter data in. Rather, it refers to the manner in which information is presented to the clinicians and how they enter the data, such as by constraining the information to allow only certain values to be entered, such as through a drop-down list or radio button, or breaking up large chunks of related information into smaller parts.  For example, when a clinician orders a medication, rather than selecting this information all at once with a single item, they will choose the various parts of the medication order, such as:
+            </para>
+
+            
+            <itemizedlist spacing='compact'>
+                <listitem>
+                    <para>
+                        Kind of drug and strength (e.g., Acetaminophen 150 mg)
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Amount and how often the patient should take the medication (e.g., 1 tablet twice daily)
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Duration (2 days)
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Any constraints (e.g., do not exceed a total daily dosage of 600 mg)
+                    </para>
+                </listitem>
+            </itemizedlist>
+
+
+
+            <para>
+                Ideally, the way the information is presented to clinicians is in a manner that is most efficient for the clinicians to use.  However, what is an efficient way for clinicians to select and enter data may not be the most efficient way for data analysts to use when they are querying data once it has been normalized and stored in a database, such as when creating a new CDS rule or compiling prevalence statistics.  For this, the data is normalized using the 
+                <emphasis>Analysis Normal Form (ANF)</emphasis>
+                and stored in a database.  Again, the ANF is not necessarily a physical structure, but is how a data analyst might see the data when they are looking at it in a database, and not as clinicians would see it in the user interface (i.e., CIF).
+            </para>
+
+
+            <itemizedlist spacing='compact'>
+                <listitem>
+                    <para>Clinician collects data &#x21D2; Clinical Input Form</para>
+                </listitem>
+                <listitem>
+                    <para>Data is normalized &#x21D2; Transformation process from CIF to ANF  &#x21D2; Representable/storable in multiple types of databases.</para>
+                </listitem>
+                <listitem>
+                    <para>Data analyst who is using or querying the data (e.g., creating a CDS rule or working on prevalence statistics) &#x21D2; ANF (it is how the data is represented or stored in the database; must know enough about the data to know what is stored in the topic vs. what is stored as a result or detail)</para>
+                </listitem>
+            </itemizedlist>
+
+            <para>
+                The goal of ANF is to enable analysts to understand the data and how it is stored in lieu of having to teach them about the thousands of ways data can exist within an isosemantic family (i.e., CIF) and ensure the data that has to be expressed can be expressed in an operable and scalable way.  The more that data is normalized, the simpler it will become to analyze, and the likelihood of analysis errors will be reduced.  Without the ANF, the probability of patient safety risks is increased.  Examples of problems that can occur are:
+            </para>
+
+            <itemizedlist spacing='compact'>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">
+                            An inability to determine that two clinical statements are equivalent
+                        </emphasis>
+                    </para>
+                    <itemizedlist spacing='compact'>
+                        <listitem>
+                            <para>
+                                Taking two 250 mg acetaminophen tablets is the same as taking one 500 mg tablet but the analyst only queries for one of the statements, not both.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                Presence of dot blot hemorrhage and 2 dot blot hemorrhages observed are equal in regard to presence and absence but the analyst queries only for presence vs. a quantitative finding of dot blot hemorrhages.
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">
+                            An inability to express something that is clinically significant
+                        </emphasis>
+                    </para>
+                    <itemizedlist spacing='compact'>
+                        <listitem>
+                            <para>
+                                We may not be able to express chest pain on inspiration, which can be a sign of pleurisy.  The ability to differentiate cardiac chest pain from other types of chest pain is clinically important.  An example of something that needs to be represented is <emphasis>chest pain that worsens when you breathe, cough, or sneeze</emphasis>.
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">
+                            An error is made in recording or in querying a repository for clinical statements
+                        </emphasis>
+                    </para>
+                    <itemizedlist spacing='compact'>
+                        <listitem>
+                            <para>On October 1, 2016, a provider enters a medication order for acetaminophen 250 mg for a patient to take 1 tablet twice daily for 2 days starting October 1, 2016</para>
+                            <itemizedlist spacing='compact'>
+                                <listitem>
+                                    <para>CIF:  Provider enters the medication order </para>
+                                </listitem>
+                                <listitem>
+                                    <para>
+                                        ANF:  Analyst creates a CDS rule to identify all patients ordered acetaminophen during the period September 1 – December 31, 2016.  However, while the analyst creates a query to search for a clinical statement (i.e., Request) where acetaminophen was the direct substance and was ordered during the period September 1 – December 31, 2016, the analyst did not include a Request topic of “Administration of drug or medication PO BID for pain.”  Thus, the medication order would not be included in the query results.
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </section>
+
+        <section>
+            <title>Types of Clinical Statements </title>
+
+            <para>
+                The types of clinical statements represented in ANF are listed and described below.  The rationale for selecting these types is:  Clinicians basically do two categories of things with a patient that need to be documented as clinical statements:  
+            </para>
+
+            <orderedlist>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">Performance of action</emphasis>:  Actions may include passive observation of a phenomenon related to patients and their health status or family history, and may also include active interventions, such as providing education or administering medications or documenting that a patient is participating in exercise to improve their overall health status.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">Request for action</emphasis>:  Requests for future actions may include defining goals, consultation with other providers, or active interventions.</para>
+                </listitem>
+            </orderedlist>
+
+            <para>
+                <emphasis role="bold">NOTE:  </emphasis>Given that this work is not yet finalized, it is possible that additional clinical statement types may be needed.
+            </para>
+
+            
+
+            <section>
+                <title>Performance Clinical Statements</title>
+                <para>A performance statement describes an action that has previously been performed, and – if applicable - the results of that action.  As shown in the examples below, this can range from documenting that a subject of record: </para>
+                <itemizedlist spacing='compact'>
+                    <listitem>
+                        <para>Was observed to have the presence or absence of a clinical phenomenon</para>
+                    </listitem>
+                    <listitem>
+                        <para>Underwent a specific test/screening or procedure, and its resultant value, if any</para>
+                    </listitem>
+                    <listitem>
+                        <para>Was administered a medication or other substance </para>
+                    </listitem>
+                    <listitem>
+                        <para>Was provided educational materials</para>
+                    </listitem>
+                    <listitem>
+                        <para>Has any other state or specific characteristic that is clinically relevant</para>
+                    </listitem>
+                </itemizedlist>
+                <para>If the performance statement:</para>
+                <itemizedlist spacing='compact'>
+                    <listitem>
+                        <para>Regards a measurement that was taken, all information about that measurement will be included as part of the clinical statement, such as its value and unit of measure and any details about how the measurement was taken. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Results in an order(s) placed during the same encounter that was made to learn more about the phenomenon or to monitor it, then a link will be made to the order(s).  </para>
+                    </listitem>
+                </itemizedlist>
+                <para>Examples of performance clinical statements:</para>
+                <orderedlist spacing='compact'>
+                    <listitem>
+                        <para>Systolic blood pressure of 120 mmHg taken from right brachial artery while seated and no more than 30 minutes after the patient last urinated</para>
+                    </listitem>
+                    <listitem>
+                        <para>Diabetes mellitus is present</para>
+                    </listitem>
+                    <listitem>
+                        <para>Diabetes mellitus is not present</para>
+                    </listitem>
+                    <listitem>
+                        <para>Three dot blot hemorrhages</para>
+                    </listitem>
+                    <listitem>
+                        <para>Dot blot hemorrhage is present</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient taking one Acetaminophen 100 mg tablet by mouth daily as needed for pain</para>
+                    </listitem>
+                    <listitem>
+                        <para>Positive screen for fall risk</para>
+                    </listitem>
+                    <listitem>
+                        <para>Negative screen for PTSD and depression</para>
+                    </listitem>
+                    <listitem>
+                        <para>Family history of colon cancer </para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient provided educational materials on pre-diabetes diagnosis</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient counseled on the health risks of continuing smoking </para>
+                    </listitem>
+                </orderedlist>
+            </section>
+            <section>
+                <title>Request Clinical Statements</title>
+                <para>A Request clinical statement describes a request for an action made by a clinician. Most of the times, but not always, the object of the request (e.g., lab test, medication order) will be fulfilled by someone other than the clinician (e.g., lab technician, pharmacist) making the request.  All information about the request will be documented in this clinical statement, including information about details relating to the request, such as patient must fast for 12 hours before having a lipids blood test.</para>
+                <para>Examples of Request clinical statements:</para>
+                <orderedlist spacing='compact'>
+                    <listitem>
+                        <para>Lipids panel for patient Jane Doe.  Patient must fast for 12 hours prior to the blood test.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Head CT with contrast for patient John Doe.  </para>
+                    </listitem>
+                    <listitem>
+                        <para>Cardiology referral for patient Mary Smith.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Penicillin medication for patient Michael Smith to be taken twice a day by mouth with food for 10 days.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to participate in group tobacco cessation counseling once a week.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to lose 15 pounds within 3 months.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to exercise at least 3 times a week for 30 minutes per day for 3 months. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to decrease the number of packs smoked per day from 3 to 2 within 6 months by using a nicotine patch.</para>
+                    </listitem>
+                </orderedlist>
+            </section>
+        </section>
+
+
+
+
+  
+
+</chapter>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+    <title>Differences between ANF and CIF</title>
+
+    <para>
+        There are two fundamental differences between the ANF and CIF approach.  The first is the representation of topic, and the second is the representation of results.  
+    </para>
+
+    <orderedlist numeration="arabic" spacing='compact'>
+        <listitem>
+            <para>The representation of topic.</para>
+        </listitem>
+        <listitem>
+            <para>The representation of results.</para>
+        </listitem>
+    </orderedlist>
+
+    <section>
+        <title>The Representation of Topic</title>
+
+        <para>
+            In the ANF model, the topic is represented by a single field containing a simple to complex SNOMED expression, whereas in the CIF model, all the pieces of information that make up the topic are broken out and structured as needed into multiple properties with property names and appropriate datatypes.  
+        </para>
+
+        <figure>
+                <title>Topic comparison for a complex topic</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cif_anf_topic.png" align="center" format="png" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+        </figure>
+
+        <para>
+            One implication of this is that the ANF is using two formalisms to represent the detailed clinical model.  First it uses the formalism that represents the ANF reference model and constraints such as HL7's StructureDefinition syntax or OpenEHR's BMM/ADL syntax.  Second, it uses SNOMED's syntax for post-coordinated SNOMED expressions.  Tools for authoring and analysis would be required to parse and process both syntaxes.
+        </para>
+
+        <para>
+            The CIF model, on the otherhand, would be fully represented using the formalism that represents the CIF reference model and contraints such as HL7's StructureDefinition syntax or OpenEHR's BMM/ADL syntax.
+        </para>
+
+    </section>
+
+
+    <section>
+        <title>The Representation of Results</title>
+
+        <para>
+            In the CIMI CIF model, EvaluationResult and Assertion models are used to represent results.  EvaluationResult has a topic representing what is being observed, and a result represented by a choice of datatypes. An Assertion on the otherhand, has simply a topic with a value of 'assertion', and a result stated what is being asserted.
+        </para>
+
+        <para>
+            In the ANF model, the topic represents what is being observed and the result may only be a range of either a count or quantity. No coded results are allowed.
+        </para>
+
+        <para>
+             In the CIF model, when creating a model with a numeric result, the choice is quite clear and the choice will be an EvaluationResult, such as a topic of 'SerumSodium' and result with a numeric quantity.  In this case, the CIF and ANF model are very aligned, except for the fact that the ANF model will use a range of that quantity.
+
+
+          </para>
+             <para>
+               But when a CIF model has a potential coded result, the choice between EvaluationResult and Assertion becomes muddied. For example, a model for Breath Sound could be an EvaluationResult with a topic of 'breath sound' and a coded result with the following valueset.  Thus any of the breath sounds within the valueset can act as a result for this model.  The other option, is that each of the breath sounds in the valueset is modeled as an Assertion with a topic of 'assertion', and a result of each particular code.  To decided which model is better, usually we ponder how the clinician thinks about the data, or how it will be collected, or how it will be queried. 
+        </para>
+
+        <para>
+            The ANF model cannot do an EvaluationResult style model as it doesn't allow coded results.  Thus ANF is forced to make one and only choice, which is an assertion style where the particular breath sound is the topic, and the result will be numeric count indicating presence or absence.
+        </para>
+
+
+
+        <itemizedlist spacing='compact'>
+            <listitem>
+                <para>Absent</para>
+            </listitem>
+            <listitem>
+                <para>Audible</para>
+            </listitem>
+            <listitem>
+                <para>Clear</para>
+            </listitem>
+            <listitem>
+                <para>Coarse Breath Sounds</para>
+            </listitem>
+            <listitem>
+                <para>Coarse Crackles</para>
+            </listitem>
+            <listitem>
+                <para>Crackles</para>
+            </listitem>
+            <listitem>
+                <para>Diminished</para>
+            </listitem>
+            <listitem>
+                <para>Expiratory wheezing</para>
+            </listitem>
+            <listitem>
+                <para>Faint</para>
+            </listitem>
+            <listitem>
+                <para>Fine Crackles</para>
+            </listitem>
+            <listitem>
+                <para>Forced</para>
+            </listitem>
+            <listitem>
+                <para>Inspiratory wheezing</para>
+            </listitem>
+            <listitem>
+                <para>Left Ventricular Assist Device Noise</para>
+            </listitem>
+            <listitem>
+                <para>Markedly Decreased</para>
+            </listitem>
+            <listitem>
+                <para>Moderately Decreased</para>
+            </listitem>
+            <listitem>
+                <para>Pleural Rub</para>
+            </listitem>
+            <listitem>
+                <para>Prolonged Expiration</para>
+            </listitem>
+            <listitem>
+                <para>Rhonchi</para>
+            </listitem>
+            <listitem>
+                <para>Slightly Decreased</para>
+            </listitem>
+            <listitem>
+                <para>Stridor</para>
+            </listitem>
+            <listitem>
+                <para>Tubular Breath Sounds</para>
+            </listitem>
+            <listitem>
+                <para>Upper Airway Congestion</para>
+            </listitem>
+            <listitem>
+                <para>Wheeze</para>
+            </listitem>
+        </itemizedlist>
+
+
+        <para>
+            When querying instance data, the Assertion or ANF style is much more difficult for things like breath sounds.  To query any breath sound instances, you must have knowledge of all possible breath sound topics and query for each.  With the EvaluationResult style, querying is simpler as you simply query for a topic of 'breath sound', and the code result tells you what type of breath sound it is.  Thus you do not have to know all the members of the valueset apriori to form the query.
+        </para>
+
+
+    </section>
+
+
+</chapter>

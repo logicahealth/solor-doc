@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+
+         <title>Clinical Statement Examples</title>
+
+          <section>
+            <title>Request : Medication Order</title>
+            
+         
+            <table>
+                <title>Example of a Medication Order</title>
+                <tgroup cols="3">
+                    <colspec colname="c1" colwidth="17*"/>
+                    <colspec colname="c2" colwidth="14*"/>
+                    <colspec colname="c3" colwidth="69*"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry align="center" nameend="c3" namest="c1">
+                                <para>
+                                    <emphasis role="bold">Clinical Statement</emphasis>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry nameend="c3" namest="c1">
+                                <para>Narrative:    Ibuprofen 400 mg tablet oral every 6 hours as needed for back pain; may increase dose frequency to one tablet every 4 hours</para>
+                                <para>Statement type:   
+                                    <link linkend="_bookmark37">
+                                        <emphasis role="underline">
+                                            <emphasis>[Request]</emphasis></emphasis>
+                                    </link>
+                                </para>
+                                <para>Subject of info:  
+                                    <emphasis>[410604004 |Subject of record]</emphasis></para>
+                
+                                <para>Authors:  
+                                    <emphasis>[223366009|Healthcare professional]</emphasis></para>
+                                <para>Topic: 
+                                    <emphasis>[71388002|Procedure]-</emphasis></para>
+                                <para>
+                                    <emphasis>(260686004|Method)</emphasis>
+                                    
+                                    <emphasis>[129445006|Administration - action]</emphasis></para>
+                                <para>
+                                    <emphasis>(363701004|Direct substance)</emphasis>
+                                    
+                                    <emphasis>[197805|Ibuprofen 400 MG Oral Tablet]</emphasis></para>
+                                <para>
+                                    <emphasis>(410675002|Route of administration)</emphasis>
+                                    
+                                    <emphasis>[260548002|Oral]</emphasis></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="4">
+                                <para>Circumstance:</para>
+                            </entry>
+                            <entry align="center" nameend="c3" namest="c2">
+                                <para>Request Circumstance</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry nameend="c3" namest="c2">
+                                <para>Timing: 
+                                    <literal>[2007-04-05T14:30Z, 2007-04-05T15:00Z]±P5M </literal>
+                                    <emphasis>[ISO 8601]</emphasis></para>
+                                <para>Purposes: 
+                                    <emphasis>[161891005 |Backache (finding)]</emphasis></para>
+                                <para>Triggers: associate statement backache present Participants:  
+                                    <emphasis>[410604004 |Subject of record]</emphasis></para>
+                                <para>Priority: 
+                                    <emphasis>[50811001 |Routine (qualifier value)]</emphasis></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="1">
+                                <para>Repetitions:</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Repetition</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="right">
+                                <para>Start: Duration: Frequency: Maximum: Duration:</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry nameend="c3" namest="c2">
+                                <para>Result: 4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry nameend="c3" namest="c1">
+                                <para>Associations: </para>
+                                <para>Statement time:   
+                                    <literal>[2007-04-05T14:30Z, 2007-04-05T15:00Z]±P5M </literal>
+                                    <emphasis>[ISO 8601]</emphasis></para>
+                                <para>Stamp coordinate: 
+                                    <emphasis>[SOLOR Module]</emphasis>
+                                    , 
+                                    <emphasis>[Release Path]</emphasis>
+                                    , 2007-04-05T14:30Z Statement id:   a3b46565-f8cd-4354-b4b6-3dff42d33496</para>
+                                <para>Subject of record ID:</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            
+    </section>
+
+        <section>
+            <title>Examples of Modeling Performance Clinical Statements </title>
+
+            <section>
+                <title>Performance Statement Example 1</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Systolic blood pressure of 120 mmHg taken from right brachial artery while seated, rested for at least 10 minutes, and no more than 30 minutes from when the patient last urinated. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of systolic blood pressure on right brachial artery. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[120, 120]</para>
+                                <para>
+                                    <emphasis role="bold">Unit:</emphasis>mmHg</para>
+                                <para>
+                                    <emphasis role="bold">Resolution:</emphasis>1</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Associated Statements</emphasis></term>
+                        <listitem>
+                            <para>Seated</para>
+                            <para>Rested for at least 10 minutes</para>
+                            <para>Urinated within 30 minutes of BP being taken </para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 2</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Patient has systolic blood pressure of 122 mmHg while patient is seated, right brachial artery. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of systolic blood pressure on right brachial artery. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[122, 122] </para>
+                                <para>
+                                    <emphasis role="bold">Unit:</emphasis>mmHg</para>
+                                <para>
+                                    <emphasis role="bold">Resolution:</emphasis>1</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Associated Statements</emphasis></term>
+                        <listitem>
+                            <para>Seated</para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 3</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Patient has systolic blood pressure of 125 mmHg, while patient is seated, adult automated cuff, 30 minutes or less after emptying bladder, at doctor’s office. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of systolic blood pressure. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[125, 125]</para>
+                                <para>
+                                    <emphasis role="bold">Unit:</emphasis>mmHg</para>
+                                <para>
+                                    <emphasis role="bold">Resolution:</emphasis>1</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Associated Statements</emphasis></term>
+                        <listitem>
+                            <para>Adult automated cuff used</para>
+                            <para>Seated</para>
+                            <para>Urinated within 30 minutes of BP being taken </para>
+                            <para>Taken at Doctor’s office</para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 4</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Patient has thromboembolism history. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of thromboembolism. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[1, inf) </para>
+                                <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Timing</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[1, inf) </para>
+                                <para>
+                                    <emphasis role="bold">measureSemantic: </emphasis>ISO 8601 prior to statement time</para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 5</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Diabetes Mellitus present. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of Diabetes Mellitus. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[1, inf) </para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 6</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Diabetes Mellitus not present. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of Diabetes Mellitus. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[0,0] </para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 7</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Three dot blot hemorrhages. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of Dot blot hemorrhage. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[3,3]</para>
+                                <para>
+                                    <emphasis role="bold">Unit:</emphasis>count</para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 8</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Dot blot hemorrhage present. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of Dot blot hemorrhage. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[1, inf) </para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 9</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Patient observed to have fall risk. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of fall risk. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Observation Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[1,1] </para>
+                                <para>
+                                    <emphasis role="bold">Unit:</emphasis>count</para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Performance Statement Example 10</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Family history (mother) of colon cancer. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Subject of Information</emphasis></term>
+                        <listitem>
+                            <para>
+                                Mother. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Observation of colon cancer. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">Value: </emphasis>[1,inf)] </para>
+                                <para>
+                                    <emphasis role="bold">measureSemantic: </emphasis>ISO 8601 prior to statement time</para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+
+        </section>
+        <section>
+            <title>Examples of Modeling Request Clinical Statements</title>
+
+            <section>
+                <title>Request Statement Example 1</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Request for Administration of Acetaminophen 100 mg tablet by mouth daily as needed for pain. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Administration of Acetaminophen 100 mg tablet oral. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Requested Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[1,1] </para>
+                                <para>
+                                    <emphasis role="bold">Resolution:</emphasis>(1)</para>
+                                <para>
+                                    <emphasis role="bold">measureSemantic:</emphasis>Oral tablet</para>
+                                <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Frequency</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>Value: [1,inf)</para>
+                                <para>
+                                    <emphasis role="bold">Resolution:</emphasis>1</para>
+                                <para>
+                                    <emphasis role="bold">measureSemantic:</emphasis>day</para>
+                                <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Purpose</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>Therapeutic; Pain</para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Request Statement Example 2</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Request for x-ray chest to evaluate chest pain (routine). 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Performance of Chest x-ray. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">Priority:</emphasis>Routine</para>
+                                <para>
+                                    <emphasis role="bold">Purpose:</emphasis>Evaluation; chest pain</para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+            <section>
+                <title>Request Statement Example 3</title>
+
+
+                <variablelist>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Narrative</emphasis></term>
+                        <listitem>
+                            <para>
+                                Request for administration of nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets (routine). 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Topic</emphasis></term>
+                        <listitem>
+                            <para>
+                                Administration of nitroglycerin 0.4 mg tablet sublingual. 
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><emphasis role='bold'>Circumstance</emphasis></term>
+                        <listitem>
+                            <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Requested Result</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>
+                                    <emphasis role="bold">Value: </emphasis>[1,1] </para>
+                                <para>
+                                    <emphasis role="bold">Resolution:</emphasis>(1)</para>
+                                <para>
+                                    <emphasis role="bold">measureSemantic:</emphasis>Sublingual tablet</para>
+                                <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Frequency</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>Value: [5,15]</para>
+                                <para>
+                                    <emphasis role="bold">Resolution:</emphasis>5</para>
+                                <para>
+                                    <emphasis role="bold">measureSemantic:</emphasis>minute</para>
+                                <para>
+                                    <emphasis role="bold">
+                                        <emphasis>Purpose</emphasis>
+                                    </emphasis>
+                                </para>
+                                <para>Therapeutic; chest pain</para>
+                                <para>
+                                    <emphasis role="bold">Priority:</emphasis>Routine</para>
+                        </listitem>
+                    </varlistentry>
+                    
+                </variablelist>
+
+            </section>
+
+
+        </section>
+    
+
+  
+
+</chapter>

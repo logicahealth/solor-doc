@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+
+         <title>ANF Reference Model</title>   
+
+         <para>
+            The ANF Reference Model is a small static model that can easily be described with UML, OpenEHR BMM, or FHIR StructureDefintion.  Detailed Clinical Models are then described as contraints of this reference model.  The core of the model is the class ClinicalStatement seen in <xref linkend="cimi_anf_model-clinical_statement_0139"/>.
+         </para>
+
+         <section>
+            <title>Clinical Statement</title>
+
+
+            <figure>
+                <title>ClinicalStatement</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/anf_dt_clinicalstatement.png" align="center" format="png" width="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+            <para>
+                Clinical Statement is the main class which describes an entry of clinial information into the patient record.  Most importantly it contains the 'topic' which describes what this statement is about, and the 'circumstance' which will contain either request or result information regarding the 'topic'.
+            </para>
+
+        
+
+        <section>
+            <title>statementTime</title>
+            <para>
+                Statement Time describes when the statement was documented in ISO 8601 Date/Time Standard Format
+            </para>
+        </section>
+
+        <section>
+            <title>statementId</title>
+            <para>
+                Statement Identifier is a unique identifier for the statement represented by a UUID.
+            </para>
+        </section>
+
+        <section>
+            <title>subjectOfRecordId</title>
+            <para>
+                A patient's clinical record will contain many statements.  The subjectOfRecordId is a uuid which identifies the patient clinical record in which this statement is contained.   If this statement is in John Doe's patient record, then John Doe is the subject of record and the subjectOfRecordId is a uuid that identifies John Doe.                  
+            </para>
+        </section>
+
+        <section>
+            <title>statementAuthor</title>
+            <para>
+                Statement author is an optional list of authoring participants (<xref linkend="cimi_anf_model-participant_0139"/>).  Either a Participant or its subclass IdentifiedParticipant can be used.  Participant includes a coded <emphasis>participantRole</emphasis> for values such as 'Healthcare professional', 'Nurse', or 'Requestor'.  IdentifiedParticipant adds the additional attribute <emphasis>participantId</emphasis> which is a UUID to uniquely identify the participant.
+            </para>
+
+            <figure>
+                <title>Participant</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/anf_dt_participant.png" align="center" format="png" width="60%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>       
+        
+        <section>
+            <title>subjectOfInformation</title>
+            <para>
+                Subject of Information is a coded field used to express <emphasis role="bold">WHO</emphasis> the clinical statement is about. A patient's clinical record may contain statements not only about the patient, but also statements about children, relatives and donors.   Thus, some possible values for subjectOfInformation, would include codes for 'subject of record' (the patient), 'family member', or 'donor'.  The majority of statements will have a subjectOfInformation with a value of 'subject of record', since most statements in a patient record will be about the patient.
+            </para>
+        </section>
+
+        <section>
+            <title>statementType</title>
+            <para>
+                Statement Type distinguishes between a performance ('performed') and a request ('requested'). Performances may be observational performances, e.g. the observation of a clinical finding or disorder being present or absent. They can also be a procedure or intervention which has been performed on the subject of record in the past, e.g. “a procedure using a 12-lead electrocardiogram”. Performances can – but do not have to – include quantitative or qualitative results, e.g. “3 dot blot hemorrhages” or “Hepatitis A antibody positive”. 
+            </para>
+        </section>
+
+        <section>
+            <title>topic</title>
+            <para>
+                Topic is the expression of <emphasis role="bold">WHAT</emphasis> is being requested or what was performed. For both clinical statement types (request or performance) a pre-coordinated or post-coordinated SOLOR “procedure” concept as a logical expression is required to sufficiently capture the action, which is either requested or performed.
+            </para>
+
+            <para>
+                <emphasis role="bold">
+                    <emphasis>Requests for actions</emphasis>
+                </emphasis>can be requests for actions such as procedures or interventions: 
+            </para>
+                <itemizedlist spacing='compact'>
+                    <listitem>
+                        <para>Stress echocardiogram</para>
+                    </listitem>
+                    <listitem>
+                        <para>Administration of Aspirin 81 mg oral tablet</para>
+                    </listitem>
+                    <listitem>
+                        <para>Systolic blood pressure measurement</para>
+                    </listitem>
+                </itemizedlist>
+
+            <para>
+                <emphasis role="bold">
+                    <emphasis>Performances of actions</emphasis>
+                </emphasis>can be performed procedures like the examples above. They can also be observational procedures, describing the absence or presence of clinical findings or disorders. In these cases, the observation action of the clinical findings and disorders is performed:
+            </para>
+                <itemizedlist spacing='compact'>
+                    <listitem>
+                        <para>Congestive heart failure </para>
+                    </listitem>
+                    <listitem>
+                        <para>History of malignant neoplasm of bone </para>
+                    </listitem>
+                    <listitem>
+                        <para>Numbness of left arm</para>
+                    </listitem>
+                    <listitem>
+                        <para>History of cognitive behavioral therapy</para>
+                    </listitem>
+                </itemizedlist>
+
+            <para>The topic is the central component of clinical statements. The following are proposed principles for the topic of a clinical statement.</para>
+
+                <itemizedlist spacing='compact'>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Proposed Principle 1:</emphasis> The topic defines the action being performed or requested.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Proposed Principle 2:</emphasis> The topic has to be able to exist on its own and still retain original intent and clarity of meaning.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Proposed Principle 3:</emphasis> The topic includes what is being measured or observed.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis role="bold">Proposed Principle 4:</emphasis> Each clinical statement may only have one topic.
+                        </para>
+                    </listitem>
+                </itemizedlist>
+        </section>
+
+        <section>
+            <title>circumstance</title>
+            <figure>
+                <title>Circumstance and subtypes</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/anf_dt_circumstance-hier.png" align="center" format="png" width="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>
+                Circumstances can describe <emphasis role="bold">HOW</emphasis>, 
+                <emphasis role="bold">WHY</emphasis> and <emphasis role="bold">WHEN</emphasis>
+                a requested or performed action will be or was carried out. Requests and performances have some shared circumstances:
+            </para>
+            <itemizedlist spacing='compact'>
+                <listitem>
+                    <para>Timing: 
+                        <emphasis role="bold">WHEN</emphasis>
+                        a requested action should be performed or 
+                        <emphasis role="bold">WHEN</emphasis>
+                        an observed finding or disorder was present or absent. </para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Examples: </para>
+                            <itemizedlist spacing='compact'>
+                                <listitem>
+                                    <para>Cardiology Consult in 2 weeks</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Breast cancer screening 3 months ago</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Purpose: 
+                        <emphasis role="bold">WHY</emphasis>
+                        an action was requested or performed </para>
+                    <itemizedlist spacing='compact'>
+                        <listitem>
+                            <para>Examples:</para>
+                            <itemizedlist spacing='compact'>
+                                <listitem>
+                                    <para>Echocardiogram to evaluate arrhythmia</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Education about allergens for anaphylaxis management</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+            <para>Other circumstances are specific to requests or performances.</para>
+
+
+            <section>
+                <title>RequestCircumstance</title>
+
+                <para>
+                    Request circumstance further specifies <emphasis role="bold">HOW</emphasis>
+                    a requested action is to be performed, e.g. how often or how long.
+                </para>
+
+                <figure>
+                    <title>RequestCircumstance</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/anf_dt_requestcircumstance.png" align="center" format="png" width="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                
+                
+                <section>
+                    <title>conditionalTrigger</title>
+                    <para>TBD</para>
+                </section>
+                <section>
+                    <title>requestedParticipant</title>
+                    <para>
+                        Requested participants is an optional list of either specific persons or roles who perform an action, assist in performing an action or are targets of an action. 
+                    </para>
+
+                    <para>Examples: </para>
+                        <itemizedlist spacing='compact'>
+                            <listitem>
+                                <para>Cardiology consultation with Chief Cardiologist</para>
+                            </listitem>
+                            <listitem>
+                                <para>Smoking cessation education with patient and patient’s spouse</para>
+                            </listitem>
+                        </itemizedlist>
+                </section>
+                <section>
+                    <title>priortity</title>
+                    <para>
+                        Priority expresses the priority with which a requested action has to be carried out, e.g. “routine” or “stat”.
+                    </para>
+                </section>
+                <section>
+                    <title>repetition</title>
+                    <figure>
+                        <title>Repetition</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/anf_dt_repetition.png" align="center" format="png" width="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                    <para>
+                        Repetition is used to describe when an action is requested for more than a single occurrence:
+                    </para>
+                    <itemizedlist spacing='compact'>
+                        <listitem>
+                            <para>When the repeated action should begin (periodStart), e.g. NOW</para>
+                        </listitem>
+                        <listitem>
+                            <para>How long the repetitions should persist (periodDuration), e.g. for 3 weeks</para>
+                        </listitem>
+                        <listitem>
+                            <para>How often the action should occur (eventFrequency), e.g. 3 times per week</para>
+                        </listitem>
+                        <listitem>
+                            <para>How long between actions (eventSeparation), e.g. for 2 weeks</para>
+                        </listitem>
+                        <listitem>
+                            <para>How long every action should last (eventDuration), e.g. for 5 minutes</para>
+                        </listitem>
+                    </itemizedlist>
+                </section>
+                <section>
+                    <title>requestedResult</title>
+                    <para>
+                        A requested result is a patient goal to be achieved. It can include specified or quantified details of an action that is to be performed, such as '3 times daily'.
+                    </para>
+                    <para>
+                        <emphasis role="bold">Examples: </emphasis>
+                    </para>
+                    <itemizedlist spacing='compact'>
+                        <listitem>
+                            <para>Narrative:    Administration of Metoprolol tartrate 50 mg oral daily 2 times to lower <emphasis role="underline">systolic blood </emphasis><emphasis role="underline">pressure to &lt;130 mmHg</emphasis>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>Narrative:    Diltiazem 30 mg, 
+                                <emphasis role="underline">one tablet</emphasis>
+                                oral daily 4 times
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </section>
+            </section>
+
+
+            <section>
+                <title>PerformanceCircumstance</title>
+
+                <para>
+                    Performance Circumstance specifies the result of the performance.
+                </para>
+
+                <figure>
+                    <title>PerformanceCircumstance</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/anf_dt_performancecircumstance.png" align="center" format="png" width="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                
+                <section>
+                    <title>result</title>
+                    <para>Result of diagnostic or observational procedures. There are two types of results shown in 
+                        <xref linkend="cimi_anf_model-result_0139"/> which are InterventionResult and ObservationResult.
+                    </para>
+                    <para>
+                        <emphasis role="bold">Examples:</emphasis>
+                    </para>
+                    <itemizedlist spacing='compact'>
+                        <listitem>
+                            <para>Narrative:    Systolic blood pressure 
+                                <emphasis role="underline">120 mmHg</emphasis>
+                            </para>
+                        </listitem>
+                        <listitem>                          
+                            <para>Narrative:    Body weight 
+                                <emphasis role="underline">165 pounds</emphasis>
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+
+                </section>
+                <section>
+                    <title>performanceParticipant</title>
+                    <para>Participants involved in performing the action, e.g. technician, nurse</para>
+                </section>
+            </section>
+
+            <section>
+                <title>UnstructuredCircumstance</title>
+
+                <para>Unstructured Circumstance is used to document additional parts of clinical statements, which are not necessary for accurate data coding or retrieval.</para>
+
+                <figure>
+                    <title>UnstructuredCircumstance</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/anf_dt_unstructuredcircumstance.png" align="center" format="png" width="70%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+
+                
+                <section>
+                    <title>unstructuredText</title>
+                    <para>Text field to document unstructured circumstances.</para>
+                </section>
+            </section>
+        </section>
+        <section>
+            <title>statementAssociation</title>
+
+            <para>
+                Statement associations enable the clinical statement to link to other clinical statements.  They are part of the narrative, but are not considered part of the topic. They can further specify, e.g. instructions that apply to the performance of an action.  If the topic is a laboratory result panel, each association would point to another statement which is a laboratory result.
+            </para>
+
+            <figure>
+                    <title>StatementAssociation</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/anf_dt_statementassociation.png" align="center" format="png" width="80%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            
+            <section>
+                <title>associationSemantic</title>
+                <para>
+                    Association semantic is a logical expression to capture how the target statement is associated.
+                </para>
+            </section>
+            <section>
+                <title>associatedStatementId</title>
+                <para>
+                    Associated Statement Id is a UUID to identify associated statements.  This UUID is the statementId of the target ClinicalStatement
+                </para>
+            </section>
+        </section>
+    
+    </section>
+
+    <section>
+        <title>Measure and Result</title>
+
+        <para>
+            A unique aspect of the the ANF Model is that all measures and results are numeric ranges.  The hierarchy of classes to represent these is shown in <xref linkend="cimi_anf_model-result_0139"/>.  An important point to notice in this class diagram is that the ANF Model does not allow coded results, only a numeric interval is possible.
+        </para>
+
+        <figure>
+            <title>Result Hierarchy</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/anf_dt_result.png" align="center" format="png" width="80%"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+
+        <section>
+                <title>Measure</title>
+                
+                <para>
+                    Measure captures measurable elements of clinical statements, e.g. the results of test procedures, time periods, frequencies of repetitions for procedures or medication administrations. Note that the inherited attributes from the Interval class will be discussed here.
+                </para>
+                <section>
+                    <title>lowerBound</title>
+                    <para>
+                        Lower bound represents the lower bound of a measurable element. This can be the lower bound of a range: For the “Administration of 25 to 50 mg of medication X” the lower bound is 25. For a test result, which is not a range, lower and upper bound are the same. Example: systolic blood pressure 110 mmHg. The lower and upper bound are both 110 mmHg.
+                    </para>
+                </section>
+                <section>
+                    <title>upperBound</title>
+                    <para>
+                        Upper bound represents the upper bound of a measurable element. This can be the upper boundary of a range: For the “Administration of 25 to 50 mg of medication X” the the upper bound is 50 mg. In cases, where the measurable element does not represent a range, upper and lower bound have the same value.
+                    </para>
+                </section>
+                <section>
+                    <title>includeLowerBound</title>
+                    <para>
+                        Include lower bound states whether the lower bound in the interval is included in the interval. In the medication examples above, the lower bound would be included. The lower range dose of 25 mg of medication X dose can be administered. 
+                    </para>
+                    <para>
+                        The inclusion or exclusion of lower bound is needed to express measurable elements which include relative properties, such as “greater than”, “less than” and others. Example: “Persistent cough for more than 10 days”. If a lower bound of “10” is chosen, it would not be included, because the example states: 
+                        <emphasis role="underline">more</emphasis>
+                        than 10 days. Choosing “11” would require to include the lower bound. 
+                    </para>
+                </section>
+                <section>
+                    <title>includeUpperBound</title>
+                    <para>
+                        Include upper bound states whether the upper bound in the interval is included in the interval. Similar to lower bound, where the measurable element has relative properties, the same rules apply. If the upper bound of a measure is not defined, e.g. “blood glucose measurement daily for at least 2 weeks”, the upper bound will be captured as “inf” (infinite). Infinite as an upper bound is never included.
+                    </para>
+                </section>
+                <section>
+                    <title>resolution</title>
+                    <para>
+                        The Resolution within a measure defines the possible or allowed increments in which the measured “thing” can be counted. In the example of the systolic blood pressure of 110 mmHg, the resolution is “1”, because the blood pressure measurement result can be counted in 1 mmHg increments. The Resolution is not always defined or known. Example: a clinical statement like “History of breast cancer” implies an undefined amount of time in the past and it is not stated, if it is years, months, etc.
+                    </para>
+                </section>
+                <section>
+                    <title>measureSemantic</title>
+                    <para>
+                        Measure semantic represents the unit of measure. It is described using a logical expression. In systolic blood pressure, the unit of measure is millimeters of mercury, and thus the measure semantic is a SNOMED CT concept: 259018001 |Millimeter of mercury (qualifier value). For blood glucose measurement daily for 2 weeks, the measure semantic would be “258705008 |week (qualifier value)”. In cases where the measure pertains to something relative to the statement time, as in the example above of “History of breast cancer” the standardized time/date format ISO 8601 is used for the measure semantic: ISO 8601 prior to statement time.
+                    </para>
+                </section>
+            </section>
+
+            <section>
+                <title>InterventionResult</title>
+
+                <para>
+                    Intervention Result is a result, thus inheriting all the attributes of Result, and adds the attribute <emphasis>status</emphasis>, which is a coded value representing the current status of the intervention.
+                </para>
+
+                <figure>
+                    <title>Result Hierarchy</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/anf_dt_interventionresult.png" align="center" format="png" width="80%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+
+
+            </section>
+
+            <section>
+                <title>ObservationResult</title>
+
+                <para>
+                    Observation Result is a result, thus inheriting all the attributes of Result, and adds the attributes <emphasis>healthRisk</emphasis> and <emphasis>normalRange</emphasis>.  Health Risk is used to flag a result with coded values such as 'low', 'normal', high', and 'critical'.  Normal Range is the interval of values that are normal.
+                </para>
+
+                <figure>
+                    <title>Result Hierarchy</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/anf_dt_observationresult.png" align="center" format="png" width="80%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+
+
+    </section>
+         
+
+</chapter>

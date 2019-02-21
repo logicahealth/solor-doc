@@ -1,0 +1,19 @@
+<assembly>
+    <id>html</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/site/docbook</directory>
+            <includes>
+                <include>**/*.html</include>
+                <include>images/*</include>
+            </includes>
+            <outputDirectory>${project.groupId}/${project.artifactId}</outputDirectory>
+            <fileMode>0444</fileMode>
+            <directoryMode>0444</directoryMode>
+        </fileSet>
+    </fileSets>
+    <includeBaseDirectory>false</includeBaseDirectory>
+</assembly>

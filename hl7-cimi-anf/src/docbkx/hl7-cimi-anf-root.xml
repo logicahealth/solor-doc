@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="CSS/docbook.xml.css"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <info>
+        <title>HL7 CIMI ANF</title>
+        <subtitle>
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="images/solor_logo_png_20190208.png" scalefit="1" width="100%" contentdepth="100%"/>
+                </imageobject>
+            </inlinemediaobject>
+        </subtitle>
+    </info>
+
+    <part>
+        <title>Statements</title>
+        
+        <xi:include href="../../../statements/src/docbkx/statements-intro.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../../statements/src/docbkx/cem-cimi.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../../statements/src/docbkx/analysis-normal-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../../statements/src/docbkx/clinical-input-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../../statements/src/docbkx/isosemantic.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../../statements/src/docbkx/knart-statement.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
+
+    <part>
+        <title>CIMI ANF</title>
+
+        <xi:include href="cimi-anf-intro.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="cimi-anf-statements.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="cimi-anf-principles.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="cimi-anf-reference-model.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="cimi-anf-differences.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="cimi-anf-statement-examples.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+    </part>
+
+
+</book>

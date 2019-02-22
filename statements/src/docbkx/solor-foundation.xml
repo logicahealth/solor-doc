@@ -59,21 +59,33 @@
             one could apply classifiers and identifiers; (b) to allow for versioning and updates
             over time in a way that preserved concept orientation; and, (c) to promote
             collaborative, distributive workflows for developers. </para>
-        <section>
-            <title>Building Blocks</title>
-            <para>Solor has two fundamental building blocks: concepts and semantics. Concept is
-                defined as an idea or a general notion. When abstracted out, it can be used to
-                represent any idea, whether that is a medically related idea (e.g., heart attack) or
-                an idea to represent a metadata (e.g., a synonym or a fully specified name). A
-                semantic enables addition of semantic data to the underlying concept’s content, in a
-                standardized way that provides for the same means of identifying, modularizing, and
-                versioning. In other words, a semantic is attached to a concept to provide
-                contextual meaning to the concept. Semantics can be grouped together in a collection
-                to form an ‘assemblage’. An assemblage consists of semantics that reference a
-                component and provide additional data to that member for some purpose. Solor also
-                has ‘description semantics’ with additional metadata specifying details including
-                but not limited to ‘language’ and ‘description type’.</para>
-        </section>
+        <section><title>Building Blocks</title><para>Solor has two fundamental building blocks:
+                concepts and semantics. Concept is defined as an idea or a general notion. When
+                abstracted out, it can be used to represent any idea, whether that is a medically
+                related idea (e.g., heart attack) or an idea to represent a metadata (e.g., a
+                synonym or a fully specified name). A semantic enables addition of semantic data to
+                the underlying concept’s content, in a standardized way that provides for the same
+                means of identifying, modularizing, and versioning. In other words, a semantic is
+                attached to a concept to provide contextual meaning to the concept. Semantics can be
+                grouped together in a collection to form an ‘assemblage’. An assemblage consists of
+                semantics that reference a component and provide additional data to that member for
+                some purpose. Solor also has ‘description semantics’ with additional metadata
+                specifying details including but not limited to ‘language’ and ‘description
+                type’.</para><para><emphasis role="bold">Concept:</emphasis> represents any idea,
+                whether that is medically related (e.g., heart attack) or metadata (e.g.,
+                author)</para> •Fields: Universally Unique ID <para><emphasis role="bold">String
+                    Semantic:</emphasis> provides identifier to the concept in a standardized
+                way</para> •Fields: Source Terminology Code <para><emphasis role="bold">Description
+                    Semantic</emphasis>: provides a human-readable description</para> •Fields:
+            Fully-Specified Name, Long Common Name, Short Name, and Display Name <para><emphasis
+                    role="bold">Logic Graph Semantic</emphasis>: provides description logic for
+                traversing  hierarchies and for specifiying the view of the relationships between
+                and amongst data elements </para><para> •Fields: Parent-child-sibling relationship
+                    </para><para><emphasis role="bold">Assemblage</emphasis>: Grouping set (i.e.,
+                “assemblage”) specifically created to store all of the data elements, data types,
+                and metadata for a particular use case</para><para> •Fields:  variable to
+                accommodate a variety of use cases. For instance, [String, String, String, String],
+                [ID, String, Integer, Concept ]</para></section>
         <section>
             <title>Transformation Overview</title>
             <para>After a standards developer releases its content, a process will need to occur to
@@ -120,30 +132,117 @@
         </section>
         <section>
             <title>Chronology</title>
-            <para>The chronology component of the architecture layer provides a means to generically
-                represent the revisions to a component over time, and to index those revisions by
-                status (e.g., active, inactive), effective time of change, author of change, module
-                within which the change occurred (international edition, US extension, etc.), and
-                the development path of the change (development, release candidate, etc.). Taken
-                together, these fields can be referred to as a version’s STAMP (status, time,
-                author, module, and path). STAMP provides a foundation for version control and
-                configuration management of all the components of the information architecture. The
-                STAMP will provide a means to modularize content so that modules can be turned on
-                and off depending on specific use cases, and that modular content can be developed
-                independently from unrelated modules. This modularity will enable simplified
-                development and quality assurance processes for each module. The following figure
-                shows the UML representation of Solor’s chronology layer on the left, and that of
-                STAMP on the right.</para>
-            <figure>
-                <title>Chronology and STAMP</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/stamp_chronology.png" scalefit="1" width="100%" contentdepth="100%"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
+            <section>
+                <title>STAMP Coordinate</title>
+                <para>The chronology component of the architecture layer provides a means to
+                    generically represent the revisions to a component over time, and to index those
+                    revisions by status (e.g., active, inactive), effective time of change, author
+                    of change, module within which the change occurred (international edition, US
+                    extension, etc.), and the development path of the change (development, release
+                    candidate, etc.). Taken together, these fields can be referred to as a version’s
+                    STAMP (status, time, author, module, and path). STAMP provides a foundation for
+                    version control and configuration management of all the components of the
+                    information architecture. The STAMP will provide a means to modularize content
+                    so that modules can be turned on and off depending on specific use cases, and
+                    that modular content can be developed independently from unrelated modules. This
+                    modularity will enable simplified development and quality assurance processes
+                    for each module. The following figure shows the UML representation of Solor’s
+                    chronology layer on the left, and that of STAMP on the right.</para>
+                <figure>
+                    <title>Chronology and STAMP</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/stamp_chronology.png" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <para>There are also more nuanced components within Status, Time, Author, Module,
+                    and Path that can be configured. These include: ‘Allowed States’ (related to
+                    Status), precedence, and the ability to specify groups of modules in a ‘Module
+                    Set’. Precedence can be set to stratify the mathematical constructs surrounding
+                    the components (e.g., path, time) so that one component can be prioritized over
+                    the other. </para>
+                <para>In summary, STAMP provides a high degree of configuration for navigating
+                    versions of content and how that content may be interacted with in the Solor
+                    ecosystem. </para>
+            </section>
+            <section>
+                <title>Language Coordinate</title>
+                <para>The language coordinate provides the ability to configure details around what
+                    language of content to provide, and to select a particular dialect, and/or the
+                    order of dialects available in the Solor ecosystem. This also provides the
+                    ability for users to get the exact level of granularity of content they desire.
+                </para>
+            </section>
+            <section>
+                <title>Logic Coordinate</title>
+                <para>The logic coordinate allows configuration of description logics and formal
+                    knowledge representation of Solor content. The fundamental modeling concept is
+                    an axiom—a logical statement relating roles and/or concepts. Within the Logic
+                    coordinate, users can specify which classifier to use (e.g., Snorocket), and
+                    which concepts they want to classift in their given use case (e.g., Solor
+                    content vs. Health content). Users can also specify how they want to configure
+                    the stated and inferred parent-child (supertype-subtype) relationships that are
+                    either available in the source terminology native logic, or additional
+                    integration provided by the Solor common model. </para>
+            </section>
+            <section>
+                <title>Manifold Coordinate</title>
+                <para>In order to easily exchange the complex configurations of facets of the Solor
+                    common model, we need a unifying object to do that. The Manifold Coordinate
+                    restricts the instantiation of the configurations of the STAMP coordinate,
+                    Language Coordinate, and Logic Coordinate to one object, and provides a global
+                    access point to it (i.e., Singleton design pattern). In other words, it acts as
+                    an abstraction layer between the nuanced configurability of the other
+                    coordinates, and how it is ultimately executed with the Solor ecosystem is used.
+                </para>
+            </section>
+            <section>
+                <title>FLWOR </title>
+                <para>FLWOR is an acronym for "For, Let, Where, Order by, Return". The programming
+                    language <link xlink:href="https://en.wikipedia.org/wiki/XQuery">XQuery</link>
+                    defines FLWOR as an expression that supports iteration and binding of variables
+                    to intermediate results. FLWOR is loosely analogous to <link
+                        xlink:href="https://en.wikipedia.org/wiki/SQL">SQL</link>'s <link
+                        xlink:href="https://en.wikipedia.org/wiki/Select_(SQL)"
+                        >SELECT-FROM-WHERE</link> and can be used to provide join-like functionality
+                    to <link xlink:href="https://en.wikipedia.org/wiki/XML">navigating</link>
+                    content.</para>
+                <itemizedlist>
+                    <listitem>
+                        <emphasis role="bold">For</emphasis>
+                        <para> - selects a sequence of nodes</para>
+                    </listitem>
+                    <listitem>
+                        <emphasis role="bold">Let</emphasis>
+                        <para> - binds a sequence to a variable</para>
+                    </listitem>
+                    <listitem>
+                        <emphasis role="bold">Where</emphasis>
+                        <para> - filters the nodes</para>
+                    </listitem>
+                    <listitem>
+                        <emphasis role="bold">Order by</emphasis>
+                        <para> - sorts the nodes</para>
+                    </listitem>
+                    <listitem>
+                        <emphasis role="bold">Return</emphasis>
+                        <para> - what to return (gets evaluated once for every node)</para>
+                    </listitem>
+                </itemizedlist>
+                <para>The advanced version control and modularity provided by the Solor Architecture
+                    is embedded within a FLWOR framework. This allows for complex querying
+                    capabilities to navigate and search for concepts, data elements, metadata, the
+                    relationships between and amongst these data elements, and how they change over
+                    time and/or differ between and amongst the modules. The complexities of these
+                    queries are abstracted into a user-friendly graphical user-interface, and users
+                    are provided precise options for configuring their queries and use cases.
+                </para>
+            </section>
         </section>
     </section>
+    
     <section>
         <title>Challenges</title>
         <para>Solor is an integrated clinical transformation process to represent and bring together

@@ -47,6 +47,9 @@
                 <listitem>
                     <para>Concept is a primitive concept that should be fully defined</para>
                 </listitem>
+                <listitem>
+                    <para>Concept is symmetrically modeled</para>
+                </listitem>
             </itemizedlist>
         </para>
     </section>
@@ -59,11 +62,11 @@
             <para>Absence, where in the strictest sense within the description logic realm, is "NOT"
                 and it means "everything but". If one were to express "not diabetes", it equates to
                 "everything but diabetes".</para>
-            <para>This is further complicated within SNOMED by the parent-child relationship "isA".
+            <para>This is further complicated within SNOMED by the parent-child relationship "Is A".
                 Take the following figure as an example:</para>
             <para>
                 <figure>
-                    <title>Effect of isA on absence</title>
+                    <title>Effect of Is A on absence</title>
                     <mediaobject>
                         <imageobject>
                             <imagedata fileref="images/definitional_conceptAnalysis_negation_00.png"
@@ -72,12 +75,12 @@
                     </mediaobject>
                 </figure>
             </para>
-            <para>In a hierarchical structure, isA is a one-way pointer. If B is achild, and A is a
-                parent, that means B isA A. However, one cannot flip that relationship. For example,
-                one can express that one is "having an apple", and by the definition of isA, one can
-                assume that one is "having a fruit" (apple is a fuit). However, this directionality
-                cannot be flipped because "having a fruit" does not necessarily mean that one is
-                "having an apple".</para>
+            <para>In a hierarchical structure, Is A is a one-way pointer. If B is a child, and A is
+                a parent, that means B "is A" A. However, one cannot flip that relationship. For
+                example, one can express that one is "having an apple", and by the definition of "is
+                A", one can assume that one is "having a fruit" (apple is a fuit). However, this
+                directionality cannot be flipped because "having a fruit" does not necessarily mean
+                that one is "having an apple".</para>
             <para>In a separate example, what if "No apple" is a child of "No fruit"? If one were
                 having "no apple", it doesn't necessarily mean that one is having "no fruit" (one
                 could very well have other fruits). However, in this scenario, if one were to
@@ -104,13 +107,14 @@
             <para><emphasis role="bold"><emphasis role="underline"
                 >Example:</emphasis></emphasis></para>
             <para>65124004 |Swelling (finding)| vs. 300890009 |Swelling absent (situation)|</para>
-            <para>“absence” concepts are generally located in the “situation with explicit context”
-                hierarchy, where the Context terminological model is consistently applied. Concepts
-                including or implying absence, which are located outside this hierarchy pose
-                challenges for the logical semantic hierarchies they reside in. This study focused
-                only on identifying concepts that are currently not located within the “situation
-                with explicit context” hierarchy. Some of these identified concepts may need to be
-                relocated to the situation hierarchy as a result of this project.</para>
+            <para>“absence” concepts are generally located in the 243796009 |Situation with explicit
+                context (situation)| hierarchy, where the Context terminological model is
+                consistently applied. Concepts including or implying absence, which are located
+                outside this hierarchy pose challenges for the logical semantic hierarchies they
+                reside in. This study focused only on identifying concepts that are currently not
+                located within the “situation with explicit context” hierarchy. Some of these
+                identified concepts may need to be relocated to the situation hierarchy as a result
+                of this project.</para>
             <para>Currently the logical hierarchy for absence concepts remains “upside-down”.</para>
             <para><emphasis role="bold"><emphasis role="underline"
                 >Example:</emphasis></emphasis></para>
@@ -120,9 +124,9 @@
             <section>
                 <title>Approach</title>
                 <para>The initial task was to evaluate 50,000 concepts and determine their potential
-                    membership in one or more of the RefSets.</para>
-                <para>For each of the RefSets for inclusion, word patterns that explicitly or
-                    implicitly identify a concept as a member of the RefSet were developed. As a
+                    membership in one or more of the Assemblages.</para>
+                <para>For each of the Assemblages for inclusion, word patterns that explicitly or
+                    implicitly identify a concept as a member of the Assemblage were developed. As a
                     first automated step, queries using string matching of those patterns or
                     keywords were applied to the following SNOMED CT hierarchies:<orderedlist>
                         <listitem>
@@ -136,17 +140,18 @@
                         </listitem>
                     </orderedlist></para>
                 <para>Based on the keywords, terminologists developed a set of rules for each
-                    inclusion/exclusion to be applied to each RefSet. </para>
+                    inclusion/exclusion to be applied to each Assemblage. </para>
                 <para>The sets of concepts that resulted from the initial automated query were then
-                    assigned to at least two independent reviewers to confirm or deny RefSet
+                    assigned to at least two independent reviewers to confirm or deny Assemblage
                     membership for each concept based on the rule sets. Disagreements between the
                     reviewers were extracted and analyzed to determine if the rules needed to be
                     adjusted in order to achieve maximum reproducibility. Adjustments included
                     clarifying rules, adding rules or in some cases eliminating ambiguous rules. </para>
                 <para>Certain concepts such as “Dental referral - child (procedure)” or “Fetal
                     distress affecting management of mother (disorder)”, which were identified as
-                    ambiguous to an extent, where inclusion or exclusion from RefSet membership
-                    could not be determined were extracted and added to a separate RefSet.</para>
+                    ambiguous to an extent, where inclusion or exclusion from Assemblage membership
+                    could not be determined were extracted and added to a separate
+                    Assemblage.</para>
             </section>
             <section>
                 <title>Rule Set Considerations</title>
@@ -160,7 +165,7 @@
                     than” in the second concept implies it. </para>
             </section>
             <section>
-                <title>Rules Defined For Inclusion in “Absence” RefSet</title>
+                <title>Rules Defined For Inclusion in “Absence” Assemblage</title>
                 <itemizedlist>
                     <listitem>
                         <para> FSN states that something about the <emphasis role="underline"
@@ -187,7 +192,7 @@
                 </itemizedlist>
             </section>
             <section>
-                <title>Queries to Identify Candidate Concepts for Absence RefSet</title>
+                <title>Queries to Identify Candidate Concepts for Absence Assemblage</title>
                 <para>Identify content that would need to be evaluated for absence concepts: <itemizedlist>
                         <listitem>
                             <para>All Situations with a Finding Context = Known Absent </para>
@@ -237,7 +242,7 @@
                     development of a set of rules as described above. </para>
             </section>
             <section>
-                <title>Examples for Inclusion/Exclusion in Absence RefSet</title>
+                <title>Examples for Inclusion/Exclusion in Absence Assemblage</title>
                 <para><emphasis role="bold">Keyword: “NO”</emphasis>
                     <mediaobject>
                         <imageobject>
@@ -268,7 +273,7 @@
                     </mediaobject>
                 </para>
 
-                <para><emphasis role="bold">Keyword: “NONT” or "NON-X"</emphasis>
+                <para><emphasis role="bold">Keyword: “NONE” or "NON-X"</emphasis>
                     <mediaobject>
                         <imageobject>
                             <imagedata
@@ -336,9 +341,9 @@
             <section>
                 <title>Approach</title>
                 <para>The initial task was to evaluate 50,000 concepts and determine their potential
-                    membership in one or more of the RefSets.</para>
-                <para>For each of the RefSets for inclusion, word patterns that explicitly or
-                    implicitly identify a concept as a member of the RefSet were developed. As a
+                    membership in one or more of the Assemblages.</para>
+                <para>For each of the Assemblages for inclusion, word patterns that explicitly or
+                    implicitly identify a concept as a member of the Assemblage were developed. As a
                     first automated step, queries using string matching of those patterns or
                     keywords were applied to the following SNOMED CT hierarchies:<orderedlist>
                         <listitem>
@@ -352,28 +357,29 @@
                         </listitem>
                     </orderedlist></para>
                 <para>Based on the keywords, terminologists developed a set of rules for each
-                    inclusion/exclusion to be applied to each RefSet. </para>
+                    inclusion/exclusion to be applied to each Assemblage. </para>
                 <para>The sets of concepts that resulted from the initial automated query were then
-                    assigned to at least two independent reviewers to confirm or deny RefSet
+                    assigned to at least two independent reviewers to confirm or deny Assemblage
                     membership for each concept based on the rule sets. Disagreements between the
                     reviewers were extracted and analyzed to determine if the rules needed to be
                     adjusted in order to achieve maximum reproducibility. Adjustments included
                     clarifying rules, adding rules or in some cases eliminating ambiguous rules. </para>
                 <para>Certain concepts such as “Dental referral - child (procedure)” or “Fetal
                     distress affecting management of mother (disorder)”, which were identified as
-                    ambiguous to an extent, where inclusion or exclusion from RefSet membership
-                    could not be determined were extracted and added to a separate RefSet.</para>
+                    ambiguous to an extent, where inclusion or exclusion from Assemblage membership
+                    could not be determined were extracted and added to a separate
+                    Assemblage.</para>
             </section>
             <section>
                 <title>Rule Set Considerations</title>
                 <para><emphasis role="bold">Definition for Inclusion: The SNOMED CT concept is about
                         something / someone other than the patient.</emphasis></para>
                 <para>Although it can be assumed that all SNOMED CT concepts, which are included in
-                    this RefSet are ultimately used to document something in a patient’s record,
+                    this Assemblage are ultimately used to document something in a patient’s record,
                     this particular concept for documentation is <emphasis role="bold"
                         >NOT</emphasis> about the patient.</para>
                 <para><emphasis role="bold">Rule for Inclusion in “Patient Not Subject of Record”
-                        RefSet:</emphasis></para>
+                        Assemblage:</emphasis></para>
                 <para>The concept is about patient’s family, family members, friends or other social
                     contacts, even if it is the patient’s family members, friends or other social
                     contacts.</para>
@@ -392,7 +398,7 @@
             </section>
             <section>
                 <title>Queries to Identify Candidate Concepts for Patient Not Subject of Record
-                    RefSet</title>
+                    Assemblage</title>
                 <para><emphasis role="bold">Identify content where the subject of record in NOT the
                         patient: </emphasis><itemizedlist>
                         <listitem>
@@ -445,7 +451,7 @@
             </section>
             <section>
                 <title>Examples for Inclusion/Exclusion in “Patient Not Subject of Record”
-                    RefSet</title>
+                    Assemblage</title>
                 <para><emphasis role="bold">Examples: “Family”, “Family Members”, “Friends” or Other
                         “Social Contacts”</emphasis>
                     <mediaobject>
@@ -469,9 +475,9 @@
             <section>
                 <title>General Approach</title>
                 <para>The initial task was to evaluate 50,000 concepts and determine their potential
-                    membership in one or more of the RefSets.</para>
-                <para>For each of the RefSets for inclusion, word patterns that explicitly or
-                    implicitly identify a concept as a member of the RefSet were developed. As a
+                    membership in one or more of the Assemblages.</para>
+                <para>For each of the Assemblages for inclusion, word patterns that explicitly or
+                    implicitly identify a concept as a member of the Assemblage were developed. As a
                     first automated step, queries using string matching of those patterns or
                     keywords were applied to the following SNOMED CT hierarchies:<orderedlist>
                         <listitem>
@@ -485,24 +491,25 @@
                         </listitem>
                     </orderedlist></para>
                 <para>Based on the keywords, terminologists developed a set of rules for each
-                    inclusion/exclusion to be applied to each RefSet. </para>
+                    inclusion/exclusion to be applied to each Assemblage. </para>
                 <para>The sets of concepts that resulted from the initial automated query were then
-                    assigned to at least two independent reviewers to confirm or deny RefSet
+                    assigned to at least two independent reviewers to confirm or deny Assemblage
                     membership for each concept based on the rule sets. Disagreements between the
                     reviewers were extracted and analyzed to determine if the rules needed to be
                     adjusted in order to achieve maximum reproducibility. Adjustments included
                     clarifying rules, adding rules or in some cases eliminating ambiguous rules. </para>
                 <para>Certain concepts such as “Dental referral - child (procedure)” or “Fetal
                     distress affecting management of mother (disorder)”, which were identified as
-                    ambiguous to an extent, where inclusion or exclusion from RefSet membership
-                    could not be determined were extracted and added to a separate RefSet.</para>
+                    ambiguous to an extent, where inclusion or exclusion from Assemblage membership
+                    could not be determined were extracted and added to a separate
+                    Assemblage.</para>
             </section>
             <section>
                 <title>Rule Set Considerations</title>
                 <para><emphasis role="bold">Definition for Inclusion: The SNOMED CT concept
                         describes more than one observation or procedure</emphasis></para>
                 <para><emphasis role="bold">Rules for Inclusion in “Compound Observation”
-                        RefSet:</emphasis></para>
+                        Assemblage:</emphasis></para>
                 <para>
                     <itemizedlist>
                         <listitem>
@@ -555,7 +562,7 @@
             </section>
             <section>
                 <title>Queries to Identify Candidate Concepts for Compound Observation
-                    RefSet</title>
+                    Assemblage</title>
                 <para><emphasis role="bold">Identify content that are compound observation
                         concepts:</emphasis></para>
                 <para>
@@ -644,7 +651,7 @@
 
         <section>
             <title>Laterality Concepts</title>
-            <para>The purpose of the Laterality RefSets is to identify concepts that are not
+            <para>The purpose of the Laterality Assemblages is to identify concepts that are not
                 currently modelled with the correct body structure that utilizes laterality. This
                 only pertains to laterality as currently represented in SNOMED CT, which is used to
                 designate one or both of paired bilaterally symmetrical (or near symmetrical) body
@@ -694,7 +701,7 @@
             <section>
                 <title>Rule Set Considerations</title>
                 <para><emphasis role="bold"><emphasis role="italic">Rules for Inclusion in
-                            “Laterality” RefSet:</emphasis></emphasis></para>
+                            “Laterality” Assemblage:</emphasis></emphasis></para>
                 <para>
                     <orderedlist>
                         <listitem>
@@ -720,7 +727,7 @@
                                 representing the left body structure. If the concept is modelled
                                 using the bilateral body structure (e.g. 40638003 |Structure of both
                                 eyes (body structure)|), it was added to the Laterality Incorrectly
-                                Modeled RefSet. For example, 12239101000119100 |Bilateral
+                                Modeled Assemblage. For example, 12239101000119100 |Bilateral
                                 degeneration of macula (disorder)| should have two different role
                                 groups, one with 721947001 |Structure of macula lutea of left eye
                                 (body structure)| and the other with 721945009 |Structure of macula
@@ -745,16 +752,16 @@
                         <listitem>
                             <para>If the concept being evaluated represented sidedness of a
                                 non-bilaterally symmetrical body structure, it was added to the Does
-                                Not Include Laterality RefSet. For example, 111283005 |Chronic
+                                Not Include Laterality Assemblage. For example, 111283005 |Chronic
                                 left-sided heart failure (disorder)| represents heart failure on the
                                 left side of the heart. </para>
                         </listitem>
                         <listitem>
                             <para>If the concept being evaluated was ambiguous as to whether it
                                 represented one side vs both sides, it was placed in the Ambiguous
-                                Laterality RefSet. For example, “lacrimal canaliculi” concepts were
-                                considered to be ambiguous since their FSNs did not specify if it
-                                was the lacrimal canaliculi of both eyes or the right or left
+                                Laterality Assemblage. For example, “lacrimal canaliculi” concepts
+                                were considered to be ambiguous since their FSNs did not specify if
+                                it was the lacrimal canaliculi of both eyes or the right or left
                                 eye.</para>
                         </listitem>
                     </orderedlist>
@@ -764,13 +771,13 @@
 
         <section>
             <title>Inverse Concepts</title>
-            <para>The purpose of the Inverse RefSets is to identify concepts that <emphasis
+            <para>The purpose of the Inverse Assemblages is to identify concepts that <emphasis
                     role="underline">should</emphasis> have an opposing concept due to a description
                 indicating an opposite or inverse concept, regardless of whether that opposing
                 concept currently exists in SNOMED CT. It is <emphasis role="underline"
                     >not</emphasis> the purpose to identify and pair opposing concepts. In many
                 cases, the opposing concept does not exist in SNOMED CT and the next iteration (not
-                a part of this PWS) of this RefSet should be to link the two inverse concepts
+                a part of this PWS) of this Assemblage should be to link the two inverse concepts
                 together to identify missing content.</para>
 
             <section>
@@ -969,7 +976,7 @@
             <section>
                 <title>Rule Set Considerations</title>
                 <para><emphasis role="bold"><emphasis role="italic">Rules for Inclusion in “Inverse”
-                            RefSet:</emphasis></emphasis></para>
+                            Assemblage:</emphasis></emphasis></para>
                 <orderedlist>
                     <listitem>
                         <para>Concepts were only considered inverse if a valid opposing concept
@@ -1001,9 +1008,9 @@
 
         <section>
             <title>Primitive Concepts</title>
-            <para>The purpose of the Primitive RefSets is to identify concepts that could be easily
-                fully defined under the current concept model of SNOMED CT. From the SNOMED CT
-                Technical Implementation Guide, a fully defined concept is defined as:</para>
+            <para>The purpose of the Primitive Assemblage is to identify concepts that could be
+                easily fully defined under the current concept model of SNOMED CT. From the SNOMED
+                CT Technical Implementation Guide, a fully defined concept is defined as:</para>
             <para> “A <link xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
                     >Concept</link> is considered to be <link
                     xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined"
@@ -1129,17 +1136,17 @@
                         <listitem>
                             <para>If the evaluated concept can be fully defined within the current
                                 SNOMED CT concept model and no changes are required, then it will be
-                                placed in the Can Be Fully Defined RefSet. For example, 201558003
-                                |Reactive arthropathy of shoulder (disorder)| can be changed to
-                                fully defined today as there is nothing missing from its
+                                placed in the Can Be Fully Defined Assemblage. For example,
+                                201558003 |Reactive arthropathy of shoulder (disorder)| can be
+                                changed to fully defined today as there is nothing missing from its
                                 definition.</para>
                         </listitem>
                         <listitem>
                             <para>If a concept could be fully defined by the addition of a new
                                 concept to represent a single parent or by adding a single concept
                                 that could be used as a value for a current concept model attribute,
-                                the concept will be placed in the Can Be Fully Defined RefSet. For
-                                example, 207959006 |Closed fracture lumbar vertebra, wedge
+                                the concept will be placed in the Can Be Fully Defined Assemblage.
+                                For example, 207959006 |Closed fracture lumbar vertebra, wedge
                                 (disorder)| currently cannot be considered as fully defined because
                                 an Associated Morphology concept doesn’t currently exist to
                                 represent a Wedge Fracture. By adding that single concept, the
@@ -1156,15 +1163,481 @@
                             <para>If the evaluated concept requires a change to the Concept Model,
                                 for example, adding a new attribute or changing the range of values
                                 an existing Concept Model attribute takes, then it will be placed in
-                                the Can Not Be Fully Defined RefSet. For example, 427252003 |Pain
-                                radiating to right side of chest (finding)| cannot be fully defined
-                                because there is no concept model attribute to represent that the
-                                pain radiated to the right side of the chest. Currently, it only
-                                indicates radiating pain and doesn’t specify the body structure of
-                                chest or that it is on the right side.</para>
+                                the Can Not Be Fully Defined Assemblage. For example, 427252003
+                                |Pain radiating to right side of chest (finding)| cannot be fully
+                                defined because there is no concept model attribute to represent
+                                that the pain radiated to the right side of the chest. Currently, it
+                                only indicates radiating pain and doesn’t specify the body structure
+                                of chest or that it is on the right side.</para>
                         </listitem>
                     </orderedlist>
                 </para>
+            </section>
+        </section>
+        <section>
+            <title>Symmetric Concepts</title>
+            <para>We consider modeling of concepts to be “symmetrical” if:</para>
+            <orderedlist>
+                <listitem>
+                    <para>Concepts which are opposites of each other (inverse concepts):</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Exist in SNOMED and</para>
+                        </listitem>
+                        <listitem>
+                            <para>Reside in the correct hierarchy under the correct parent concept</para>
+                            <table>
+                                <caption><emphasis role="bold">Inverse Concepts:</emphasis> In this
+                                    example, it is the two children concepts that are being
+                                    evaluated for symmetry, not the parents.</caption>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <para>299331007 |Knee joint varus deformity (finding)| has two children, which are opposites. Both are present and under the correct parent concept:</para>
+                                                <itemizedlist>
+                                                    <listitem>
+                                                        <para>64925008 |Acquired genu varum (disorder)|</para>
+                                                    </listitem>
+                                                    <listitem>
+                                                        <para>79168008 |Congenital genu varum (disorder)|</para>
+                                                    </listitem>
+                                                </itemizedlist>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                
+                            </table>
+                            <para><emphasis role="bold">Note</emphasis>: Inverse concepts do not necessarily have to reside under the <emphasis role="underline">same</emphasis> parent to be considered symmetrically modeled.</para>
+                            <table frame="border" border="1">
+                                <caption><emphasis role="bold">Inverse Concepts:</emphasis> In the
+                                    example below, again it is the children concepts that are being
+                                    evaluated for symmetry and not the parent. In this example, the
+                                    child concepts reside under different (but correct)
+                                    parents.</caption>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <para>230763008 |Traumatic cerebral edema (disorder)| and
+                                                    330011000119102 |Non-traumatic cerebral edema (disorder)|
+                                                    are inverse, where: </para>
+                                                <itemizedlist>
+                                                    <listitem>
+                                                        <para>230763008 |Traumatic cerebral edema (disorder)| is
+                                                            a child of 127295002 |Traumatic brain injury
+                                                            (disorder)|</para>
+                                                    </listitem>
+                                                    <listitem>
+                                                        <para>330011000119102 |Non-traumatic cerebral edema
+                                                            (disorder)| is a child of 2032001 |Cerebral edema
+                                                            (disorder)|</para>
+                                                    </listitem>
+                                                </itemizedlist>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Further, for non-inverse concepts, we consider modeling of concepts to be “symmetrical” if:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Concepts, which do not have more than one of the same attribute with
+                                different values in the inferred view (e.g. an attribute of clinical course
+                                with a value of acute and an attribute of clinical course with a value of
+                                chronic)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Concepts are parent concepts of a Leaf Node and have all the correct Leaf
+                                concepts</para>
+                        </listitem>
+                        <listitem>
+                            <para>Concepts, which are Grades, Scales, Stages, and Scores, where all concepts
+                                exist and were consistently modeled</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>  
+            </orderedlist>
+            
+            <para>Some keywords that could indicate the need for symmetry are not always
+                reliable, for example:</para>
+            <itemizedlist>
+                <listitem>
+                            <para><emphasis role="italic">Traumatic vs. non-traumatic</emphasis></para>
+                            <para> - concepts without a stated “traumatic” in the FSN are considered non-traumatic by default.</para>
+                 </listitem>
+                 <listitem>
+                            <para><emphasis role="italic">With vs. without</emphasis></para>
+                            <para> - not every concept that has a “with” or “without” in the FSN
+                                needs its opposite, e.g. Diagnostic arthroscopy of elbow with
+                                synovial biopsy (procedure) does not need a “…without
+                                biopsy”.</para>
+                  </listitem>
+            </itemizedlist>
+            
+            
+            <section>
+                <title>General Approach</title>
+                <para>The below approach was used to identify the content to be reviewed to create
+                    the Assemblages:</para>
+                    <itemizedlist>
+                            <listitem>
+                                <para><emphasis role="bold">Missing Content – Via Inverse Work</emphasis></para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Inverse Assemblage work identified roughly 6,000
+                                    concepts that needed to be reviewed to confirm missing opposing
+                                    concepts</para>
+                                    </listitem>
+                                </itemizedlist>
+                                
+                                <table frame="border" border="1">
+                                    <caption>Example of missing opposing concepts</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Conceptid</th>
+                                                        <th>Fully Specified Name
+                                                            (FSN)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>8587003</td>
+                                                        <td>
+                                                            <para>Congenital diverticulum of colon (disorder)</para>
+                                                            <para>Missing opposite: Acquired diverticulum of colon
+                                                                (disorder)</para>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8656007</td>
+                                                        <td>
+                                                            <para>Total traumatic cataract (disorder)</para>
+                                                            <para>Missing opposite: Partial traumatic cataract
+                                                                (disorder)</para>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9027003</td>
+                                                        <td>
+                                                            <para>Normal pulmonary arterial wedge pressure
+                                                                (finding)</para>
+                                                            <para>Missing opposite: Abnormal pulmonary arterial
+                                                                wedge pressure (finding)</para>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21370008</td>
+                                                        <td>
+                                                            <para>Tenotomy of abductor of hip, open
+                                                                (procedure)</para>
+                                                            <para>Missing opposite: Tenotomy of abductor of hip,
+                                                                closed (procedure)</para>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                        </table>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis role="bold">Missing Content – Via Leaf Nodes</emphasis></para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Identify all concepts that are parents of a leaf with only one leaf (child).</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis role="bold">Content Modeled Inappropriately – Non-Inverse</emphasis></para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Concepts that are inferred where concepts each have more than one of the same Attribute Type</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>From this set of concepts, remove any Concept that is modeled with more than one of the same Attribute Type and the same Value</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Also remove from this set of concepts, any Concept with Attributes that are frequently used with different values, like Finding Site or Associated Morphology</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Finally remove from this set of concepts, any Concepts from hierarchies that will not be reviewed (Products, Substances, Qualifier value, Situations, Body structures)</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>The remaining set of concepts are considered to potentially have content modeled inappropriately and should be reviewed.</para>
+                                        
+                                        <figure label="Content Modeled Inappropriately (C I.)– Concept with multiple Clinical Course attributes that have different values">
+                                            <title>Content Modeled Inappropriately (C I. above)–
+                                        Concept with multiple Clinical Course attributes that have
+                                        different values</title>
+                                            <mediaobject>
+                                            <imageobject>
+                                                <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig1.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                            </imageobject>
+                                            </mediaobject>
+                                        </figure>
+                                        <figure label="Content modeled appropriately(CII. above) - Concept with multiple Associated morphology attributes and the same values">
+                                            <title>Content modeled appropriately(<?oxy_comment_start author="timowilliams" timestamp="20190220T124719-0600" comment="How to link to the listitem above?"?>CII. above<?oxy_comment_end?>) - Concept with multiple Associated morphology attributes and the same values</title>
+                                            <mediaobject>
+                                                <imageobject>
+                                                    <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig2.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                                </imageobject>
+                                            </mediaobject>
+                                        </figure>
+                                        
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis role="bold">Concept Modeled Inappropriately – Inverse</emphasis></para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Using concepts that are paired as inverse of each other, we
+                                            identified those concepts that are modeled differently based on
+                                            querying the number of defining relationship differences. Not
+                                            all of the identified modeling differences are symmetrical
+                                            modeling issues but can be an indicator of them.</para>
+                                        <figure label="Example of Inverse Concepts modeled with radical differences – The Open subcapital facture of left femur concept is incorrectly modeled with multiple role groups while the Closed subcapital fracture of left femur is correctly modeled with a single role group">
+                                            <title>Example of Inverse Concepts modeled with radical differences – The Open subcapital facture of left femur concept is incorrectly modeled with multiple role groups while the Closed subcapital fracture of left femur is correctly modeled with a single role group</title>
+                                            <mediaobject>
+                                                <imageobject>
+                                                    <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig3.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                                </imageobject>
+                                            </mediaobject>
+                                        </figure>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                        <listitem>
+                            <para> <emphasis role="bold">Identify concepts that contain a common phrase without the appropriate corresponding role. </emphasis></para>
+                            <para>This does not necessarily cause a symmetry issue as the concept may still be placed in the correct hierarchy, but can be used as a query to find a symmetry issue. If the concepts are in the appropriate hierarchy, they are considered to be symmetrical even though they are under-modeled.</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Find all concepts that have common phrases like “Acute”, “Chronic”, “Acquired”, “Congenital” and that do not have the corresponding attribute. </para>
+                                </listitem>
+                            </itemizedlist>
+                            <figure label="FSN contains &quot;Acute&quot;, but does not have a Clinical Course = Acute">
+                                <title>FSN contains "Acute", but does not have a Clinical Course = Acute</title>
+                                <mediaobject>
+                                    <imageobject>
+                                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig4.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                    </imageobject>
+                                </mediaobject>
+                            </figure>
+                        </listitem>
+                   </itemizedlist>
+            </section>
+            <section>
+                <title>Rules for Evaluating Membership in Assemblages</title>
+                <para>For the Symmetry project, four Assemblages were created that categorize our
+                    efforts as follows:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para><emphasis role="bold">Symmetric Concepts</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>A simple Assemblage of symmetrical child concepts that were
+                                    reviewed and deemed to be in the correct hierarchy and under the
+                                    correct parent.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Non-symmetric Concepts</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>A simple Assemblage of non-symmetrical child concepts that
+                                    were reviewed and deemed to be placed in the wrong hierarchy
+                                    (under an incorrect parent).</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Symmetric Concepts Children Present</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>A simple Assemblage of parent concepts that had correct
+                                    symmetric children.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Non-symmetric Concepts, Non-existent Children</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>An Annotation Assemblage with parent concepts that are missing
+                                    symmetrical children that should exist and any comments on what
+                                    needs to be done to make them symmetrical.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist>
+                <para><emphasis role="bold">Notes:</emphasis></para> 
+                <itemizedlist>
+                    <listitem>
+                        <para>Overlap can exist between the Symmetric Concept and Symmetric Concepts
+                            Children Present Assemblages as well as between Non-symmetric Concepts
+                            and Non-symmetric Concepts, Non-existent Children Assemblages. For
+                            example for Symmetric Concept Assemblage, we could have “Acquired bone
+                            deformity” and “Congenital bone deformity” as inverse child concepts,
+                            where both are children of “Bone deformity.” “Congenital bone deformity”
+                            could be a parent of a leaf node concept “Congenital deformity of
+                            femur.” Thus, that concept is a parent concept with correct symmetric
+                            children and the parent goes into the Symmetric Concepts Children
+                            Present Assemblage.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Symmetric Concepts Assemblage and Non-symmetric Concepts Assemblage
+                            are mutually exclusive.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Symmetric Concepts Children Present Assemblage and Non-symmetric
+                            Concepts, Non-existent Children Assemblage are mutually
+                            exclusive.</para>
+                    </listitem>
+                </itemizedlist>
+            </section>
+            <section>
+                <title>Rules for Placing Concepts in the Assemblages</title>
+                <para><emphasis role="bold">Note:</emphasis> For this “symmetric modeling” review, we only consider concepts “incorrectly modeled” if the incorrect modeling pertains to symmetry. If concepts have other – unrelated – modeling issues, they are not referenced as “incorrectly modeled”.</para>
+
+                <itemizedlist>
+                    <listitem>
+                        <para>Inverse concepts</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>If an inverse concept has an existing opposite concept and it
+                                    is in the appropriate hierarchy, it was considered Symmetric
+                                    Correct Modeling and placed in the “Symmetric Concepts”
+                                    Assemblage.</para>
+                            </listitem>
+                            <listitem>
+                                <para>If an inverse concept has an existing opposite concept and it
+                                    is in the wrong hierarchy, it was considered Symmetric Incorrect
+                                    Modeling and placed in the “Non-Symmetric Concepts”
+                                    Assemblage.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Parents of leaf concepts (concepts with only one child):</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>If the child is in the correct hierarchy and is modeled
+                                    correctly, it was considered Symmetric Correct Modeling and
+                                    placed in the “Symmetric Concepts Children Present”
+                                    Assemblage.</para>
+                            </listitem>
+                            <listitem>
+                                <para>If the child does not exist or is incorrectly modeled, it was
+                                    considered non-symmetric and placed in the “Non-symmetric
+                                    Concepts, Non-existent Children” Assemblage.</para>
+                                <para><emphasis role="bold">Note:</emphasis> “correct modeling” only applies to the correct inferred view for this concept as it pertains to symmetry. <emphasis role="bold">If a concept has other modeling problems, it is not marked as “incorrectly modeled”.</emphasis></para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist>
+                    
+            </section>
+            <section>
+                <title>Other Symmetry Issues</title>
+                <para>During our review, we identified another symmetry issue, as shown below, which was out of scope for this deliverable, but could possibly be proposed to the IHTSDO as an area of content to be reviewed and edited to achieve consistency.</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Clinical Course vs. Associated Morphology</para>
+                        <para>Throughout SNOMED, inconsistent modeling using attributes “clinical course” and “associated morphology” exists.</para>
+                        <para>Example:</para>
+                        <para>19429009 |Chronic ulcer of skin (disorder)| is modeled using 116676008 |Associated morphology (attribute)| = 405719001 |Chronic ulcer (morphologic abnormality)|</para>
+                        <para>111422001 |Chronic abscess of breast (disorder)| is modeled using both the |Associated morphology (attribute)| = 79203009 |Chronic abscess (morphologic abnormality)| and the 263502005 |Clinical course (attribute)| = 90734009 |Chronic (qualifier value)|</para>
+                    </listitem>
+                </itemizedlist>
+            </section>
+        </section>
+        <section>
+            <title>Grades, Scales, Stages, and Scores</title>
+            <para>As a part of the Symmetry Assemblage creation all concepts that represent
+                Grades, Scales, Stages and Scores were evaluated to ensure all are present in the
+                Finding and Disorder hierarchies and are consistently modeled with the appropriate
+                Observable entity, Procedure and Stage and scales hierarchies.</para>
+            <para>The following analysis of the inconsistent use of Procedures and/or Observable
+                Entities as the value of the “Interprets” Attribute is exploratory and not part of
+                the Assemblage creation. </para>
+             <para>The Findings and Disorders reviewed were found to use a Procedure 42 times
+                        vs. an Observable Entity 352 times. In 41 cases, both a Procedure and
+                        Observable Entity were used for the Interprets attribute. 400 of the
+                        concepts had no Interprets Attribute at all. </para>
+            <figure label="Grade concept with an Interprets = Procedure">
+                <title>Grade concept with an Interprets = Procedure</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig5.png" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            
+            <figure label="Grade concept with an Interprets = Observable Entity">
+                <title>Grade concept with an Interprets = Observable Entity</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig6.png" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            
+            <figure label="Grade Concept with both a Procedure and Observable Entity used for the Interprets Attribute">
+                <title>Grade Concept with both a Procedure and Observable Entity used for the Interprets Attribute</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig7.png" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            
+            <figure label="Grade with no Interprets Attribute">
+                <title>Grade with no Interprets Attribute</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig8.png" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+            <section>
+                <title>Potential Changes to Grades, Scales, Stages, and Scores Concepts</title>
+                <para>A consistent model needs to be developed and implemented to ensure Grades, Scales,
+                    Stages, and Scores concepts are symmetrical. There are many possible options
+                    available for creating a consistent concept model for Grades, Scales, Stages, and
+                    Scores but the options outlined below can be accomplished without the addition of
+                    new concept model attributes. It will require the addition of 254291000 |Staging and
+                    scales (staging scale)| as an allowable value for Interprets. A large number of
+                    Observable Entity concepts would either need to be retired or remodeled as subtypes
+                    in the Procedure hierarchy.</para>
+                <figure label="Proposed Model for Grades, Scales, Stages, and Scores Concepts">
+                    <title>Proposed Model for Grades, Scales, Stages, and Scores Concepts</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig9.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            <para>In the example below, the 120861000119102 |Systolic heart failure stage C
+                (disorder)| concept is modeled using an Interprets to a new concept |American Heart
+                Association (AHA) and American College of Cardiology (ACC) Stages of Heart Failure
+                (staging scale)| and a Has interpretation to the existing concept 261626008 |Stage C
+                (qualifier value)|. Separately, a new Procedure concept would need to be created,
+                |Assessment using American Heart Association (AHA) and American College of
+                Cardiology (ACC) Stages of Heart Failure (Procedure)|. Since these stages focus on
+                the functioning of the cardiovascular system, the new procedure concepts would have
+                a Has focus attribute that would link it to the 301458000 |Functional cardiovascular
+                finding (finding)|.</para>
+            <para><anchor xml:id="_Toc257165"/>Figure 10. Example of Systolic heart failure stage modeled with the new concept model</para>
+                <figure label="Example of Systolic heart failure stage modeled with the new concept model">
+                    <title>Example of Systolic heart failure stage modeled with the new concept model</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig10.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
             </section>
         </section>
     </section>
@@ -1172,9 +1645,9 @@
         <?oxy_comment_start author="timowilliams" timestamp="20190218T164257-0600" comment="I would move this section to the appendix so it could be left out if needed."?>
         <title>Reliability of Rule Sets<?oxy_comment_end?></title>
         <para>In order to determine reliability of the identified keywords and rule sets for each
-            RefSet, metrics of agreement/disagreement for the initial review were used.</para>
+            Assemblage, metrics of agreement/disagreement for the initial review were used.</para>
         <para>After the first two Terminologists reviewed the 50,000 SNOMED CT concepts
-            individually, applying the initial set of rules for each RefSet. After this first
+            individually, applying the initial set of rules for each Assemblage. After this first
             review, disagreements between the two Terminologists were extracted from the concept
             files and re-assigned for discussion and reconciliation. </para>
         <section>
@@ -1182,8 +1655,8 @@
             <para>In the course of the reconciliation discussion, the initial rules were
                 re-evaluated and either confirmed, adjusted, clarified or eliminated to achieve a
                 set of rules that is sufficiently expressive and reproducible.</para>
-            <para>The RefSet membership status of all reconciled concepts was updated in the
-                RefSets.</para>
+            <para>The Assemblage membership status of all reconciled concepts was updated in the
+                Assemblages.</para>
             <para>The following metrics for agreement/disagreement percentages between the first two
                 reviewers were calculated:</para>
             <para>
@@ -1230,9 +1703,9 @@
         </section>
         <section>
             <title>Second Review for Inter-Rater Reliability</title>
-            <para>After producing the “baseline” RefSets on which the two Terminologists agreed,
+            <para>After producing the “baseline” Assemblages on which the two Terminologists agreed,
                 another team of two reviewers reviewed a random 10% of the concepts in the baseline
-                RefSets, applying the rules for Inclusion/Exclusion. Inter-rater reliability was
+                Assemblages, applying the rules for Inclusion/Exclusion. Inter-rater reliability was
                 calculated again between the two new reviewers. </para>
             <para>
                 <table frame="border" border="1">
@@ -1280,20 +1753,20 @@
                 </table>
             </para>
             <para>The results of this exercise show that the rules for the “Compound Observation”
-                RefSet appear to be the most reproducible. The numbers for “Absence” and “Patient
-                not subject of information” are lower.</para>
+                Assemblage appear to be the most reproducible. The numbers for “Absence” and
+                “Patient not subject of information” are lower.</para>
             <para>However, considering that the second team of reviewers have not been part of the
                 previous discussions around the inclusion/exclusion criteria and were only given the
                 rule sets to follow, the results were perceived as positive.</para>
             <para>The results of these metrics informed the final decision on the
-                Inclusion/Exclusion criteria for each final RefSet.</para>
+                Inclusion/Exclusion criteria for each final Assemblage.</para>
         </section>
     </section>
 
     <section>
         <title>Final Set of Keywords and Rules</title>
         <para>Based on the metrics and findings above, the set of keywords for <emphasis role="bold"
-                >automatic queries</emphasis> remained unchanged for all RefSets. The rules for
+                >automatic queries</emphasis> remained unchanged for all Assemblages. The rules for
             manual reviews was adjusted. This final set represents the criteria with the highest
             reproducibility.</para>
 
@@ -1332,8 +1805,8 @@
 
         <section>
             <title>Final Keywords and Rules for “Patient not Subject of Information”</title>
-            <para>During the initial discussion and reviews of candidate concepts for this RefSet,
-                the following rules had been stated:</para>
+            <para>During the initial discussion and reviews of candidate concepts for this
+                Assemblage, the following rules had been stated:</para>
             <para>
                 <itemizedlist>
                     <listitem>
@@ -1366,7 +1839,7 @@
                 patient, because the sample is sourced from the patient. The same reasoning was
                 applied to the pattern of concepts about objects or devices because, e.g. the
                 “catheter” is seen in the patient’s body.</para>
-            <para>This reasoning lead to leaving a single rule for inclusion in this RefSet:
+            <para>This reasoning lead to leaving a single rule for inclusion in this Assemblage:
                         <emphasis><emphasis role="bold">Concept is about patient’s family, family
                         members, friends or other social contacts, even if it is the patient’s
                         family members, friends or other social
@@ -1438,10 +1911,10 @@
         <?oxy_comment_start author="timowilliams" timestamp="20190218T163410-0600" comment="I would move this section to the appendix so it could be left out if needed."?>
         <title>Sensitivity and Specificity<?oxy_comment_end?></title>
         <para>Using the defined set of keywords the sensitivity and specificity of the initial
-            automated queries was tested against the final RefSets. By running the queries against
-            the original 50,000 concepts the following metrics were applied to the results: <itemizedlist>
+            automated queries was tested against the final Assemblages. By running the queries
+            against the original 50,000 concepts the following metrics were applied to the results: <itemizedlist>
                 <listitem>
-                    <para>Percentage of concepts from the final RefSets returned by the query
+                    <para>Percentage of concepts from the final Assemblages returned by the query
                         (Sensitivity)</para>
                 </listitem>
                 <listitem>
@@ -1579,13 +2052,11 @@
                 inverse. These concepts were into separate assignments. After further review, 30% of
                 these concepts contained other keywords that made them inverse. </para>
             <para>Sensitivity of 82.27% and Specificity of 39.58%</para>
-            <para> </para>
         </section>
         <section>
             <title>Sensitivity and Specificity of Search Criteria for “Can Be Fully Defined”</title>
             <table frame="border" border="1">
-                <caption>Sensitivity and Specificity of keywords for "Can Be Fully
-                    Defined".</caption>
+                <caption>Sensitivity and Specificity of keywords for "Can Be Fully Defined".</caption>
                 <thead>
                     <tr>
                         <th>Primitive Results</th>
@@ -1676,9 +2147,9 @@
     <!-- May need to supplement this section with "Absence", "paient not subject", and "compound" if this section is needed -->
     <!--
     <section>
-        <title>Resulting Refset</title>
-        <annotation><para>need refset descriptions for negation, subj not of record, compound</para></annotation>
-        <para>This review resulted in eight additional RefSets that identify the concepts that meet
+        <title>Resulting Assemblage</title>
+        <annotation><para>need Assemblage descriptions for negation, subj not of record, compound</para></annotation>
+        <para>This review resulted in eight additional Assemblages that identify the concepts that meet
             and those that do not meet the criteria above.
             
             <itemizedlist>
@@ -1730,43 +2201,44 @@
         <para>The reproducibility of the rules stated and applied during the two manual review
             cycles was perceived positive. </para>
 
-        <para>For "Absence", "Patient not subject" and "Compound Observation" RefSets, the set of keywords for automated queries
-            returned results with a high rate of Specificity. The Sensitivity for the “Compound
-            Observation” RefSet was also high. However, the Sensitivity of the queries for
-            “Absence” and “Patient not Subject of Information” was lower. Identifying additional
-            keywords may be useful to elevate the Sensitivity in those categories.</para>
+        <para>For "Absence", "Patient not subject" and "Compound Observation" Assemblages, the set
+            of keywords for automated queries returned results with a high rate of Specificity. The
+            Sensitivity for the “Compound Observation” Assemblage was also high. However, the
+            Sensitivity of the queries for “Absence” and “Patient not Subject of Information” was
+            lower. Identifying additional keywords may be useful to elevate the Sensitivity in those
+            categories.</para>
         
-        <para>The Inverse RefSets had good inter-rater agreement but the Fully Defined and
-            Laterality RefSets had lower inter-rater agreement rates. The Fully Defined and
-            Laterality RefSets both required the evaluation of the modeling of the defining
+        <para>The Inverse Assemblages had good inter-rater agreement but the Fully Defined and
+            Laterality Assemblages had lower inter-rater agreement rates. The Fully Defined and
+            Laterality Assemblages both required the evaluation of the modeling of the defining
             relationships and judging their correctness. The experience of the clinical reviewing
             team with the SNOMED CT Concept Model is critical to getting a high inter-rater
-            agreement rate when creating RefSets that depend on reviewing modelling. As the SNOMED
-            CT Concept Model increases in complexity, the education and experience with modelling of
-            SNOMED CT concepts will become even more critical in reviewing and maintaining these
-            RefSets. </para>
+            agreement rate when creating Assemblages that depend on reviewing modelling. As the
+            SNOMED CT Concept Model increases in complexity, the education and experience with
+            modelling of SNOMED CT concepts will become even more critical in reviewing and
+            maintaining these Assemblages. </para>
         <para>For the 5,069 concepts that were identified as having laterality, 33.79% were deemed
             to be incorrectly modeled. While this is a rather large number, SNOMED International is
             currently modeling a large number of laterality concepts and this number should be
             decreasing with each release. </para>
-        <para>The sensitivity for the Primitive RefSets is relatively low because reviewers needed
-            to decide if the addition of some qualifier value or a new parent concept would make
-            these concepts definable. In many cases there needed to be the addition of new concept
-            model attribute to fully define concepts. The queries used to identify these concepts
-            for review were not able to tell which primitive concepts could be fully defined with
-            and without Concept Model changes. Overall, the exercise of reviewing primitives is very
-            useful to identify more concepts that could be fully defined. </para>
+        <para>The sensitivity for the Primitive Assemblages is relatively low because reviewers
+            needed to decide if the addition of some qualifier value or a new parent concept would
+            make these concepts definable. In many cases there needed to be the addition of new
+            concept model attribute to fully define concepts. The queries used to identify these
+            concepts for review were not able to tell which primitive concepts could be fully
+            defined with and without Concept Model changes. Overall, the exercise of reviewing
+            primitives is very useful to identify more concepts that could be fully defined. </para>
                 
         <para>Overall, this approach to identify SNOMED CT concepts that require special handling
             shows that automated queries can be very useful as a first “screening” step, but manual
-            review and reconciliation still has to be performed to arrive at evaluated RefSets that
-            adhere to reliable inclusion/exclusion criteria. Creating RefSets that identify modeling
-            issues can present problems when the review of concepts spans multiple release dates and
-            the tooling used to do the review is updated while the review is still taking place.
-            This requires additional work at the end of the project to ensure that the review of the
-            concepts for errors does not identify concepts that were correctly placed when they were
-            initially reviewed, but are now incorrectly placed due to corrections or changes made to
-            the latest release.</para>
+            review and reconciliation still has to be performed to arrive at evaluated Assemblages
+            that adhere to reliable inclusion/exclusion criteria. Creating Assemblages that identify
+            modeling issues can present problems when the review of concepts spans multiple release
+            dates and the tooling used to do the review is updated while the review is still taking
+            place. This requires additional work at the end of the project to ensure that the review
+            of the concepts for errors does not identify concepts that were correctly placed when
+            they were initially reviewed, but are now incorrectly placed due to corrections or
+            changes made to the latest release.</para>
     </section>
 
 

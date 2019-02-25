@@ -21,8 +21,8 @@
 <!--  Parameter settings                                          -->
 <!--==============================================================-->
 <!-- start chapters on odd page -->
-<xsl:param name="double.sided" select="1"/>
-<xsl:param name="force.blank.pages" select="1"/>
+<xsl:param name="double.sided" select="0"/>
+<xsl:param name="force.blank.pages" select="0"/>
 <xsl:param name="page.margin.inner">1in</xsl:param>
 <xsl:param name="page.margin.outer">1in</xsl:param>
 

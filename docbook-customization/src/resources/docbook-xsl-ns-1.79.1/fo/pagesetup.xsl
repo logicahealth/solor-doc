@@ -3289,7 +3289,8 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format"
   <xsl:variable name="first">
     <xsl:choose>
       <xsl:when test="$force.blank.pages = 0">auto</xsl:when>
-      <xsl:otherwise>auto-odd</xsl:otherwise>
+      <!--<xsl:otherwise>auto-odd</xsl:otherwise>-->
+      <xsl:otherwise>auto</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
   <!-- Select the first content that the stylesheet places

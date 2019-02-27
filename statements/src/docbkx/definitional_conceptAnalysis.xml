@@ -1187,9 +1187,7 @@
                         <listitem>
                             <para>Reside in the correct hierarchy under the correct parent concept</para>
                             <table>
-                                <caption><emphasis role="bold">Inverse Concepts:</emphasis> In this
-                                    example, it is the two children concepts that are being
-                                    evaluated for symmetry, not the parents.</caption>
+                                <caption>Inverse Concepts #1</caption>
                                     <tbody>
                                         <tr>
                                             <td>
@@ -1205,15 +1203,11 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                
                             </table>
+                            <para>In this example, it is the two children concepts that are being evaluated for symmetry, not the parents.</para>
                             <para><emphasis role="bold">Note</emphasis>: Inverse concepts do not necessarily have to reside under the <emphasis role="underline">same</emphasis> parent to be considered symmetrically modeled.</para>
                             <table frame="border" border="1">
-                                <caption><emphasis role="bold">Inverse Concepts:</emphasis> In the
-                                    example below, again it is the children concepts that are being
-                                    evaluated for symmetry and not the parent. In this example, the
-                                    child concepts reside under different (but correct)
-                                    parents.</caption>
+                                <caption>Inverse Concepts #2</caption>
                                     <tbody>
                                         <tr>
                                             <td>
@@ -1236,6 +1230,7 @@
                                         </tr>
                                     </tbody>
                             </table>
+                            <para>In the example below, again it is the children concepts that are being evaluated for symmetry and not the parent. In this example, the child concepts reside under different (but correct) parents.</para>
                         </listitem>
                     </itemizedlist>
                 </listitem>
@@ -1365,18 +1360,18 @@
                                     <listitem>
                                         <para>The remaining set of concepts are considered to potentially have content modeled inappropriately and should be reviewed.</para>
                                         
-                                        <figure label="Content Modeled Inappropriately (C I.)– Concept with multiple Clinical Course attributes that have different values">
-                                            <title>Content Modeled Inappropriately (C I. above)–
-                                        Concept with multiple Clinical Course attributes that have
-                                        different values</title>
+                                        <figure>
+                                            <title>Content Modeled Inappropriately (C I. above)</title>
+                                            <para>Concept with multiple Clinical Course attributes that have different values</para>
                                             <mediaobject>
                                             <imageobject>
                                                 <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig1.png" scalefit="1" width="100%" contentdepth="100%"/>
                                             </imageobject>
                                             </mediaobject>
                                         </figure>
-                                        <figure label="Content modeled appropriately(CII. above) - Concept with multiple Associated morphology attributes and the same values">
-                                            <title>Content modeled appropriately(<?oxy_comment_start author="timowilliams" timestamp="20190220T124719-0600" comment="How to link to the listitem above?"?>CII. above<?oxy_comment_end?>) - Concept with multiple Associated morphology attributes and the same values</title>
+                                        <figure>
+                                            <title>Content Modeled appropriately(<?oxy_comment_start author="timowilliams" timestamp="20190220T124719-0600" comment="How to link to the listitem above?"?>CII. above<?oxy_comment_end?>)</title>
+                                            <para>Concept with multiple Associated morphology attributes and the same values</para>
                                             <mediaobject>
                                                 <imageobject>
                                                     <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig2.png" scalefit="1" width="100%" contentdepth="100%"/>
@@ -1396,8 +1391,9 @@
                                             querying the number of defining relationship differences. Not
                                             all of the identified modeling differences are symmetrical
                                             modeling issues but can be an indicator of them.</para>
-                                        <figure label="Example of Inverse Concepts modeled with radical differences – The Open subcapital facture of left femur concept is incorrectly modeled with multiple role groups while the Closed subcapital fracture of left femur is correctly modeled with a single role group">
-                                            <title>Example of Inverse Concepts modeled with radical differences – The Open subcapital facture of left femur concept is incorrectly modeled with multiple role groups while the Closed subcapital fracture of left femur is correctly modeled with a single role group</title>
+                                        <figure>
+                                            <title>Example of Inverse Concepts modeled with radical differences</title>
+                                            <para>The Open subcapital facture of left femur concept is incorrectly modeled with multiple role groups while the Closed subcapital fracture of left femur is correctly modeled with a single role group</para>
                                             <mediaobject>
                                                 <imageobject>
                                                     <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig3.png" scalefit="1" width="100%" contentdepth="100%"/>
@@ -1415,7 +1411,7 @@
                                     <para>Find all concepts that have common phrases like “Acute”, “Chronic”, “Acquired”, “Congenital” and that do not have the corresponding attribute. </para>
                                 </listitem>
                             </itemizedlist>
-                            <figure label="FSN contains &quot;Acute&quot;, but does not have a Clinical Course = Acute">
+                            <figure>
                                 <title>FSN contains "Acute", but does not have a Clinical Course = Acute</title>
                                 <mediaobject>
                                     <imageobject>
@@ -1565,7 +1561,7 @@
                         vs. an Observable Entity 352 times. In 41 cases, both a Procedure and
                         Observable Entity were used for the Interprets attribute. 400 of the
                         concepts had no Interprets Attribute at all. </para>
-            <figure label="Grade concept with an Interprets = Procedure">
+            <figure>
                 <title>Grade concept with an Interprets = Procedure</title>
                 <mediaobject>
                     <imageobject>
@@ -1574,7 +1570,7 @@
                 </mediaobject>
             </figure>
             
-            <figure label="Grade concept with an Interprets = Observable Entity">
+            <figure>
                 <title>Grade concept with an Interprets = Observable Entity</title>
                 <mediaobject>
                     <imageobject>
@@ -1583,7 +1579,7 @@
                 </mediaobject>
             </figure>
             
-            <figure label="Grade Concept with both a Procedure and Observable Entity used for the Interprets Attribute">
+            <figure>
                 <title>Grade Concept with both a Procedure and Observable Entity used for the Interprets Attribute</title>
                 <mediaobject>
                     <imageobject>
@@ -1592,7 +1588,7 @@
                 </mediaobject>
             </figure>
             
-            <figure label="Grade with no Interprets Attribute">
+            <figure>
                 <title>Grade with no Interprets Attribute</title>
                 <mediaobject>
                     <imageobject>
@@ -1611,7 +1607,7 @@
                     scales (staging scale)| as an allowable value for Interprets. A large number of
                     Observable Entity concepts would either need to be retired or remodeled as subtypes
                     in the Procedure hierarchy.</para>
-                <figure label="Proposed Model for Grades, Scales, Stages, and Scores Concepts">
+                <figure>
                     <title>Proposed Model for Grades, Scales, Stages, and Scores Concepts</title>
                     <mediaobject>
                         <imageobject>
@@ -1630,7 +1626,7 @@
                 a Has focus attribute that would link it to the 301458000 |Functional cardiovascular
                 finding (finding)|.</para>
             <para><anchor xml:id="_Toc257165"/>Figure 10. Example of Systolic heart failure stage modeled with the new concept model</para>
-                <figure label="Example of Systolic heart failure stage modeled with the new concept model">
+                <figure>
                     <title>Example of Systolic heart failure stage modeled with the new concept model</title>
                     <mediaobject>
                         <imageobject>
@@ -1661,7 +1657,7 @@
                 reviewers were calculated:</para>
             <para>
                 <table frame="border" border="1">
-                    <caption>Agreement</caption>
+                    <caption>Agreement #1</caption>
                     <thead>
                         <tr>
                             <th>Concepts</th>
@@ -1709,7 +1705,7 @@
                 calculated again between the two new reviewers. </para>
             <para>
                 <table frame="border" border="1">
-                    <caption>Agreement</caption>
+                    <caption>Agreement #2</caption>
                     <thead>
                         <tr>
                             <th> </th>

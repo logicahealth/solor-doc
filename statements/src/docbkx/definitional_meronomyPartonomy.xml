@@ -89,12 +89,15 @@
             Model at:
             https://confluence.ihtsdotools.org/display/IAP/Revision+of+IS-A+relationships+for+anatomy </para>
         <para>FMA also includes a role hierarchy for <emphasis role="italic">Part-of</emphasis>
-            relationships as seen below:</para>
-        <mediaobject>
-            <imageobject>
-                <imagedata fileref="images/definitional_meronmoyPartonomy_00.jpg" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
-            </imageobject>
-        </mediaobject>
+            relationships.</para>
+        <figure>
+            <title>FMA Part-of Role Hierarchy</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/definitional_meronmoyPartonomy_00.jpg" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
         <section>
             <title>Proposed Body Structure Model</title>
             <para>With the forthcoming update to the SNOMED CT Anatomy concept model, exploration of
@@ -172,21 +175,27 @@
             represent Panels. These panel concepts contain both individual laboratory tests and
             other panel concepts. Panels may also require multiple sufficient sets to represent
             tests that are not always a part of the panel but optional. </para>
-        <mediaobject>
-            <imageobject>
-                <imagedata fileref="images/definitional_meronmoyPartonomy_01.jpg" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
-            </imageobject>
-        </mediaobject>
+        <figure>
+            <title>LOINC Panel with optional parts</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/definitional_meronmoyPartonomy_01.jpg" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
         <section>
             <title>Proposed Laboratory Model</title>
             <para>Add a new attribute that applies to concepts in the Observable
                 Entity hierarchy named Contains lab test (attribute). This attribute will take other
                 Observable Entity concepts as values and will be transitive and reflexive.</para>
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="images/definitional_meronmoyPartonomy_02.jpg" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
-                </imageobject>
-            </mediaobject>
+            <figure>
+                <title>LOINC Panel with multiple levels of parts</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/definitional_meronmoyPartonomy_02.jpg" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
             <para>To fully represent the information contained within the LOINC Panel spreadsheet an
                 Ordered RefSet would have to be created because the tests contained in the panel are
                 ordered in the spreadsheet.</para>

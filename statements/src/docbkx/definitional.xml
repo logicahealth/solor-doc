@@ -5,20 +5,26 @@
     <title>Definitional</title>
     <section>
         <title>Introduction</title>
-        <para> We, as humans, are able to express individual concepts and expand on just the name of
+        <para>We, as humans, are able to express individual concepts and expand on just the name of
             the concept, because we are able to associate certain characteristics to individual
             concepts to further describe itself, as well as establishing connections or
             relationships between concepts. Once concepts have a meaning beyond just a name, and
             have relationships to other meaningful concepts, then reasoning can occur. </para>
-        <para>While the purpose of the Language Layer is to provide necessary vocabulary to express
-            various domains of medicine, the purpose of the Definitional Layer is to expand on just
-            a name to go with an idea - single concepts with a name by itself adds no value (i.e.
-            XYZ). In other words, a system must be capable of capturing not just the words (XYZ) of
-            the concept, but also provide a mechanism to express characteristics of that concept
-            (XYZ has the color white [assuming color and white is already defined]) and
-            relationships between concepts (XYZ is a beta-blocker). Additionaly, once relationships
-            of meaningful concepts are established, reasoning can occur (beta-blocker is used to
-            treat high blood pressure, therefore, XYZ treats high blood pressure).</para>
+        <para>While the purpose of the
+            <?oxy_comment_start author="steph" timestamp="20190305T154953-0700" comment="Again, as a novice, I look to the PASTA diagram to see the various layers of the architecture and I don&apos;t see a layer for language.  I may have missed it but where does the language layer lie within PASTA?  Same question for Definitional layer and any other layers that aren&apos;t shown or related to those layers shown in the PASTA diagram.  If they are sub-layers, can you add them to the diagram?"?>Language<?oxy_comment_end?>
+            Layer is to provide necessary vocabulary to express various domains of medicine, the
+            purpose of the Definitional Layer is to expand on just a name to go with an idea -
+            single concepts with a name by itself adds no value (i.e. XYZ). In other words, a system
+            must be capable of capturing not just the words (XYZ) of the concept, but also provide a
+            mechanism to express characteristics of that concept (XYZ has the color white [assuming
+            color and white
+            <?oxy_comment_start author="steph" timestamp="20190305T155303-0700" comment="Change to &quot;are&quot; since plural."?>is<?oxy_comment_end?>
+            already defined]) and relationships between concepts (XYZ is a beta-blocker).
+            <?oxy_comment_start author="steph" timestamp="20190305T155326-0700" comment="Change to &quot;Additionally&quot;."?>Additionaly<?oxy_comment_end?>,
+            once relationships of meaningful concepts are established, reasoning can occur
+            (beta-blocker is used to treat high blood pressure, therefore,
+            <?oxy_comment_start author="steph" timestamp="20190305T155453-0700" comment="I don&apos;t understand what the example of XYZ has a color white has to do with it being a beta-blocker."?>XYZ<?oxy_comment_end?>
+            treats high blood pressure).</para>
         <para>Once a system is able to 'digest' the meaning of concepts, it can begin to utilize
             logic to conduct reasoning. In the field of computer science, the study of Description
             Logic is to represent the domain, then using these concepts to specify properties of
@@ -27,9 +33,9 @@
                 <para> Badder, F., Nutt, W. (2003). The description logic handbook. Retrieved from
                     https://www.inf.unibz.it/~franconi/dl/course/dlhb/dlhb-02.pdf</para>
             </footnote>. The goal of this section is to first provide a primer to those who may not
-            be fully immersed in the study of description logic, then an in troduction to Solor
+            be fully immersed in the study of description logic, then an introduction to Solor
             designs to allow for a robust representation and relationships of concepts, followed by
-            topics or concerns from Solor developers and contributors that necessitates a discussion
+            topics or concerns from Solor developers and contributors that necessitate a discussion
             on why these concerns could affect a system to conduct reasoning properly or
             successfully. </para>
     </section>

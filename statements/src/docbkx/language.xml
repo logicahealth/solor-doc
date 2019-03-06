@@ -16,7 +16,17 @@
         </section>
         <section xml:id="section_2f530c57-07b6-4abf-9399-db11515f1977">
             <title>Dialect</title>
-            <para>Merriam-Webster's Dictionary defines a dialect as &quot;a regional variety of language distinguished by features of vocabulary, grammar, and pronunciation from other regional varieties and constituting together with them a single language&quot;.  Two common differences between dialects deal with spelling variants and phrases that have alternate meanings.  An example of a spelling variant would be &quot;Anesthetic&quot; in the US dialect versus &quot;Anaesthetic&quot; in the British dialect.  The same word in one dialect can mean have a different meaning in another, for example napkin in the US is used to describe a piece of cloth or paper used to wipe the hands and mouth at a table while in the UK it is used to describe a diaper. </para>
+            <para>Merriam-Webster's Dictionary defines a dialect as &quot;a regional variety of
+                language distinguished by features of vocabulary, grammar, and pronunciation from
+                other regional varieties and constituting together with them a single
+                language&quot;. Two common differences between dialects deal with spelling variants
+                and phrases that have alternate meanings. An example of a spelling variant would be
+                &quot;Anesthetic&quot; in the US dialect versus &quot;Anaesthetic&quot; in the
+                British dialect. The same word in one dialect can mean have a different meaning in
+                another, for example
+                <?oxy_comment_start author="steph" timestamp="20190305T153845-0700" comment="Is there a reason that quotes weren&apos;t used with this, like they were in the prior example?"?>napkin<?oxy_comment_end?>
+                in the US is used to describe a piece of cloth or paper used to wipe the hands and
+                mouth at a table while in the UK it is used to describe a diaper. </para>
         </section>
         <section>
         	<title>Interface Terminology</title>
@@ -27,19 +37,29 @@
         <title>Cross Cutting Concerns</title>
         <section xml:id="section_ce7e4daf-e50d-4ada-93c7-305f036ce86d">
             <title>Understandability, Reproducibility, and Utility</title>
-            <para>The language used to describe a component must be concordant with the underlying semantics of the object being identified.  Therefore there needs to be guidelines in place to ensure only correct terms are associated with an object in Solor.</para>
+            <para>The language used to describe a component must be concordant with the underlying
+                semantics of the object being identified. Therefore, there needs to be guidelines in
+                place to ensure only correct terms are associated with an object in Solor.</para>
             <para>Having a consistent naming convention defined will assist with textual queries to identify duplicates when concepts are primitive and not able to be fully defined using relationships within Solor. Having a consistent way of representing Fully Specified Names will alleviate the issue of users creating duplicate concepts like &quot;Disorder of immune function&quot; and &quot;Immune function disorder&quot;.</para>
             <para>Consistent naming is also important to support effective retrieval.  For example, the SNOMED CT concept 386560004 |Glasgow coma score finding (finding)| has 13 children all with the string Glasgow coma scale instead of Glasgow coma score.  </para>
-            <para>Another common issue is to add a synonym to a concept that is more specific than the concept itself.  A concept should only have synonyms that accurately represent a concept and not any of it's children.  If a synonym has a more specific meaning a new concept should be created.</para>
+            <para>Another common issue is to add a synonym to a concept that is more specific than
+                the concept itself. A concept should only have synonyms that accurately represent a
+                concept and not any of
+                <?oxy_comment_start author="steph" timestamp="20190305T153943-0700" comment="Should be revised to &quot;its&quot;."?>it's<?oxy_comment_end?>
+                children. If a synonym has a more specific meaning, a new concept should be
+                created.</para>
         </section>
         <section xml:id="section_c3d7371d-1785-4e89-b280-9b4a53cd3665">
-            <title>Query</title>
+            <title><?oxy_comment_start author="steph" timestamp="20190305T154146-0700" comment="This section should be revised so it can be read as in the prior sections.  Here&apos;s it&apos;s just a list of what appear to be definitions.  You at least need some introductory paragraph that explains what you have listed here. "?>Query<?oxy_comment_end?></title>
             <para>Word variants – renal vs kidney</para>
             <para>Misspellings – Certain terms are more commonly misspelled when searching over healthcare descriptions.  The ability for a search mechanism to recognize them and to search over both the correct and incorrect spellings will help to identify the correct concept.  For example, perineal vs peroneal, aphagia vs aphasia </para>
         	<para>Word order – terms can be combined in different ways to mean the same synonym.  The ability to search over a term in varying order of phrases is important.  For example, Disorder of the eye vs Eye disorder.</para>
-        	<para>Components query – important of LOINC searches where you may want to search on a certain axis.</para>
+        	<para>Components query –
+                <?oxy_comment_start author="steph" timestamp="20190305T154240-0700" comment="Should this be &quot;importance&quot;?"?>important<?oxy_comment_end?>
+                of LOINC searches where you may want to search on a certain axis.</para>
         	<para>Active and inactive – need to be able to search over both active and inactive terms.</para>
-        	<para>Regular Expressions</para>
+        	<para>Regular
+                <?oxy_comment_start author="steph" timestamp="20190305T154320-0700" comment="It looks like definitions or explanations of this and the one below still need to be provided."?>Expressions<?oxy_comment_end?></para>
         	<para>Grouping Results by hierarchy</para>
         </section>
     </section>

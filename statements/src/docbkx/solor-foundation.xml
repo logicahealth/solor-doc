@@ -7,14 +7,15 @@
     <section>
         <title>Versioning Overview</title>
         <para/>
-        <para>When dealing with the complexities of the various architectural layers, one of the
-            most important things to note is that any one of Solor's architectural layers will be
-            undergoing modifications at any given point in time, as various Standards Development
-            Organizations go through each of their various drafting, balloting, and approval
-            lifecycles. Therefore it is important to establish as a foundation for Solor a
-            versioning and modularity architecture that allows changes and subchanges to be
-            referenced uniquely so that all parties can be on the same page as to a particular
-            version.</para>
+        <para>When dealing with the complexities of the various
+            <?oxy_comment_start author="steph" timestamp="20190305T101717-0700" comment="Does this mean within the architecture layer, there are various layers or are you referring to the PASTA layers?  Again, it&apos;s confusing to me to refer to all of it as the architecture and then within it, have an architecture layer."?>architectural<?oxy_comment_end?>
+            layers, one of the most important things to note is that any one of Solor's
+            architectural layers will be undergoing modifications at any given point in time, as
+            various Standards Development Organizations go through each of their various drafting,
+            balloting, and approval lifecycles. Therefore it is important to establish as a
+            foundation for Solor a versioning and modularity architecture that allows changes and
+            subchanges to be referenced uniquely so that all parties can be on the same page as to a
+            particular version.</para>
         <para/>
         <para>For example, the following diagram shows how each module could be given a unique
             version number and contain all layers of the architectural stack. In the instance that a
@@ -43,7 +44,7 @@
         <para>In this chapter we are concerned with detailing Solor’s architectural foundation that
             will support semantic interoperability. We achieve this foundation in two ways:</para>
         <para>1. Use of SNOMED CT, RxNorm, and LOINC as the primary building blocks for the
-            foundational architecture (more on this in chapter 3)</para>
+            foundational architecture (more on this in chapter 3).</para>
         <para>2. Enablement of semantic operability within the foundational architecture through
             normalization of representation and achieving coherence within and among the primary
             building blocks of the architecture.</para>
@@ -62,40 +63,46 @@
         <section><title>Building Blocks</title><para>Solor has two fundamental building blocks:
                 concepts and semantics. Concept is defined as an idea or a general notion. When
                 abstracted out, it can be used to represent any idea, whether that is a medically
-                related idea (e.g., heart attack) or an idea to represent a metadata (e.g., a
-                synonym or a fully specified name). A semantic enables addition of semantic data to
-                the underlying concept’s content, in a standardized way that provides for the same
-                means of identifying, modularizing, and versioning. In other words, a semantic is
-                attached to a concept to provide contextual meaning to the concept. Semantics can be
-                grouped together in a collection to form an ‘assemblage’. An assemblage consists of
-                semantics that reference a component and provide additional data to that member for
-                some purpose. Solor also has ‘description semantics’ with additional metadata
-                specifying details including but not limited to ‘language’ and ‘description
-                type’.</para><para><emphasis role="bold">Concept:</emphasis> represents any idea,
-                whether that is medically related (e.g., heart attack) or metadata (e.g.,
-                author)</para> •Fields: Universally Unique ID <para><emphasis role="bold">String
-                    Semantic:</emphasis> provides identifier to the concept in a standardized
-                way</para> •Fields: Source Terminology Code <para><emphasis role="bold">Description
-                    Semantic</emphasis>: provides a human-readable description</para> •Fields:
-            Fully-Specified Name, Long Common Name, Short Name, and Display Name <para><emphasis
-                    role="bold">Logic Graph Semantic</emphasis>: provides description logic for
-                traversing  hierarchies and for specifiying the view of the relationships between
-                and amongst data elements </para><para> •Fields: Parent-child-sibling relationship
-                    </para><para><emphasis role="bold">Assemblage</emphasis>: Grouping set (i.e.,
-                “assemblage”) specifically created to store all of the data elements, data types,
-                and metadata for a particular use case</para><para> •Fields:  variable to
-                accommodate a variety of use cases. For instance, [String, String, String, String],
-                [ID, String, Integer, Concept ]</para></section>
+                related idea (e.g., heart attack) or an idea to represent
+                <?oxy_comment_start author="steph" timestamp="20190305T101830-0700" comment="I believe metadata is plural and you should remove &quot;a&quot;."?>a<?oxy_comment_end?>
+                metadata (e.g., a synonym or a fully specified name). A semantic enables addition of
+                semantic data to the underlying concept’s content, in a standardized way that
+                provides for the same means of identifying, modularizing, and versioning. In other
+                words, a semantic is attached to a concept to provide contextual meaning to the
+                concept. Semantics can be grouped together in a collection to form an ‘assemblage’.
+                An assemblage consists of semantics that reference a component and provide
+                additional data to that member for some purpose. Solor also has ‘description
+                semantics’ with additional metadata specifying details including but not limited to
+                ‘language’ and ‘description type’.</para><para><emphasis role="bold"
+                    >Concept:</emphasis> represents any idea, whether that is medically related
+                (e.g., heart attack) or metadata (e.g., author)</para> •Fields: Universally Unique
+            ID <para><emphasis role="bold">String Semantic:</emphasis> provides identifier to the
+                concept in a standardized way</para> •Fields: Source Terminology Code
+                    <para><emphasis role="bold">Description Semantic</emphasis>: provides a
+                human-readable description</para> •Fields: Fully-Specified Name, Long Common Name,
+            Short Name, and Display Name <para><emphasis role="bold">Logic Graph
+                Semantic</emphasis>: provides description logic for traversing hierarchies and for
+                specifiying the view of the relationships between and amongst data elements
+                </para><para>
+                •<?oxy_comment_start author="steph" timestamp="20190305T102225-0700" comment="For some reason in the PDF version of this document, there is a blank line shown between &quot;Logic Graphic Semantic&quot; and &quot;Fields&quot; and the same for &quot;Assemblage&quot; and &quot;Fields&quot; below.  Do you know why?"?>Fields<?oxy_comment_end?>:
+                Parent-child-sibling relationship </para><para><emphasis role="bold"
+                    >Assemblage</emphasis>: Grouping set (i.e., “assemblage”) specifically created
+                to store all of the data elements, data types, and metadata for a particular use
+                case</para><para> •Fields: Variable to accommodate a variety of use cases. For
+                instance,
+                [<?oxy_comment_start author="steph" timestamp="20190305T084629-0700" comment=" Would it be better to revise this to StringA, StringB, StringC, StringD)?"?>String<?oxy_comment_end?>,
+                String, String, String], [ID, String, Integer, Concept ]</para></section>
         <section>
             <title>Transformation Overview</title>
             <para>After a standards developer releases its content, a process will need to occur to
                 transform data from its native format into Solor components. This programmatic
                 process is tailored to each incoming data stream, where it will account for data
-                represented in its original format. Other than transformation and applying
-                versioning coordinates, the underlying process will also address the notion of
-                dependency. For example, SNOMED US Extension will have a dependency on SNOMED
-                International, and relationships from the LOINC-SNOMED collaboration effort will
-                have a dependency on SNOMED and LOINC. </para>
+                represented in its original format. Other than
+                <?oxy_comment_start author="steph" timestamp="20190305T102621-0700" comment="Should this be &quot;transforming&quot; instead?"?>transformation<?oxy_comment_end?>
+                and applying versioning coordinates, the underlying process will also address the
+                notion of dependency. For example, SNOMED US Extension will have a dependency on
+                SNOMED International, and relationships from the LOINC-SNOMED collaboration effort
+                will have a dependency on SNOMED and LOINC. </para>
             <para>Once the content is in Solor, there is a step where equivalency is determined
                 through various methods where concepts of the same idea are aggregated. For example,
                 Gentamycin from SNOMED is the same as Gentamycin from LOINC, and is also the same
@@ -140,11 +147,13 @@
                     of change, module within which the change occurred (international edition, US
                     extension, etc.), and the development path of the change (development, release
                     candidate, etc.). Taken together, these fields can be referred to as a version’s
-                    STAMP (status, time, author, module, and path). STAMP provides a foundation for
-                    version control and configuration management of all the components of the
-                    information architecture. The STAMP will provide a means to modularize content
-                    so that modules can be turned on and off depending on specific use cases, and
-                    that modular content can be developed independently from unrelated modules. This
+                    STAMP
+                    (<?oxy_comment_start author="steph" timestamp="20190305T103043-0700" comment="Why does the diagram below in the STAMP column refer to &quot;state&quot; vs. &quot;status&quot;?"?>status<?oxy_comment_end?>,
+                    time, author, module, and path). STAMP provides a foundation for version control
+                    and configuration management of all the components of the information
+                    architecture. The STAMP will provide a means to modularize content so that
+                    modules can be turned on and off depending on specific use cases, and that
+                    modular content can be developed independently from unrelated modules. This
                     modularity will enable simplified development and quality assurance processes
                     for each module. The following figure shows the UML representation of Solor’s
                     chronology layer on the left, and that of STAMP on the right.</para>
@@ -164,7 +173,7 @@
                     the components (e.g., path, time) so that one component can be prioritized over
                     the other. </para>
                 <para>In summary, STAMP provides a high degree of configuration for navigating
-                    versions of content and how that content may be interacted with in the Solor
+                    versions of content and how that content may be interacted within the Solor
                     ecosystem. </para>
             </section>
             <section>
@@ -179,12 +188,16 @@
                 <title>Logic Coordinate</title>
                 <para>The logic coordinate allows configuration of description logics and formal
                     knowledge representation of Solor content. The fundamental modeling concept is
-                    an axiom—a logical statement relating roles and/or concepts. Within the Logic
+                    an axiom—a logical statement relating roles and/or concepts. Within the
+                    <?oxy_comment_start author="steph" timestamp="20190305T141831-0700" comment="WIthin this same paragraph, why is this sometimes capitalized and sometimes it&apos;s not?  Same for Manifold Coordinate section below.  I think you should be consistent when referring to them."?>Logic<?oxy_comment_end?>
                     coordinate, users can specify which classifier to use (e.g., Snorocket), and
-                    which concepts they want to classift in their given use case (e.g., Solor
-                    content vs. Health content). Users can also specify how they want to configure
-                    the stated and inferred parent-child (supertype-subtype) relationships that are
-                    either available in the source terminology native logic, or additional
+                    which concepts they want to
+                    <?oxy_comment_start author="steph" timestamp="20190305T141858-0700" comment="Should this be &quot;classify&quot;?"?>classift<?oxy_comment_end?>
+                    in their given use case (e.g., Solor content vs. Health content). Users can also
+                    specify how they want to configure the stated and inferred parent-child
+                    (supertype-subtype) relationships that are either available in the source
+                    terminology native logic, or
+                    <?oxy_comment_start author="steph" timestamp="20190305T142004-0700" comment="Recommend adding &quot;through&quot; between &quot;or&quot; and &quot;additional&quot;."?>additional<?oxy_comment_end?>
                     integration provided by the Solor common model. </para>
             </section>
             <section>
@@ -273,16 +286,17 @@
             <section>
                 <title>Unnecessary Retirement</title>
                 <para>An unintended side effect of using identified namespaces as part of
-                    distributed identifier assignment, is an increase in the complexity of
-                    transferring responsibility for a component from one organization to another.
-                    This complexity includes an elaborate sequence of marking a component for
-                    retirement in one release, actually retiring it in a subsequent release, and
-                    creating an essentially identical component with an identifier derived from the
-                    new organization’s namespace. Furthermore, there is the need for the creation of
-                    mapping solutions to keep historical relationships between components retired
-                    for these reasons to the current concepts that replace them. Again, reliance on
-                    UUIDs rather than on identifiers with derivable semantics would eliminate this
-                    complexity.</para>
+                    distributed identifier
+                    <?oxy_comment_start author="steph" timestamp="20190305T143300-0700" comment="I don&apos;t think the comma is needed."?>assignment<?oxy_comment_end?>,
+                    is an increase in the complexity of transferring responsibility for a component
+                    from one organization to another. This complexity includes an elaborate sequence
+                    of marking a component for retirement in one release, actually retiring it in a
+                    subsequent release, and creating an essentially identical component with an
+                    identifier derived from the new organization’s namespace. Furthermore, there is
+                    the need for the creation of mapping solutions to keep historical relationships
+                    between components retired for these reasons to the current concepts that
+                    replace them. Again, reliance on UUIDs rather than on identifiers with derivable
+                    semantics would eliminate this complexity.</para>
             </section>
             <section>
                 <title>Post-coordination</title>
@@ -295,7 +309,7 @@
             </section>
             <section>
                 <title>Accidental Complexity Solutions </title>
-                <para> Accidental complexity must be minimized in any good architecture, design, and
+                <para>Accidental complexity must be minimized in any good architecture, design, and
                     implementation. Working in short iterations with ongoing design reviews may help
                     reduce accidental complexity. We must also develop an example implementation in
                     parallel with the architecture, so that complexity can be identified early, and
@@ -340,9 +354,10 @@
                 <para>SNOMED CT and LOINC are classic examples of two terminologies that are
                     proposed for common use in health IT, but that are not well coordinated, and
                     have unreconciled content (content that is not made consistent or compatible).
-                    As an example of unreconciled content, SNOMED CT and LOINC all have
-                    representations for Amoxicillin. In LOINC, Amoxicillin is a textual value in the
-                    has-component field of the concept:</para>
+                    As an example of unreconciled content, SNOMED CT
+                    <?oxy_comment_start author="steph" timestamp="20190305T144810-0700" comment="Recommend revising &quot;all&quot; to &quot;both&quot;."?>and<?oxy_comment_end?>
+                    LOINC all have representations for Amoxicillin. In LOINC, Amoxicillin is a
+                    textual value in the has-component field of the concept:</para>
                 <para> </para>
                 <para>AMOXICILLIN [MASS/VOLUME] IN SERUM OR PLASMA</para>
                 <para>HAS-COMPONENT: AMOXICILLIN</para>
@@ -412,14 +427,16 @@
         <title>Summary</title>
         <para>Currently, medical terminologies come from different sources and are represented by
             disparate models. However, by using a common model that integrates these terminologies
-            seamlessly, Solor's architecutral layer can display content from different sources after
-            the Solor transformation process. Users will consequently not need to burden themselves
-            with unnecessary complexities, and can instead focus on the meaning of medical
-            content.(ref) Built upon an architecture intended to facilitate semantic
-            interoperability, Solor stores concepts with UUIDs and classifiers, is maintained by
-            robust version control, and promotes modular, collaborative development. Next steps
-            include developing a list of agency-specific and industry-specific use cases for Solor
-            upon which a formative evaluation approach and data collection and analysis can be
-            conducted.</para>
+            seamlessly, Solor's
+            <?oxy_comment_start author="steph" timestamp="20190305T152815-0700" comment="Need to fix spelling."?>architecutral<?oxy_comment_end?>
+            layer can display content from different sources after the Solor transformation process.
+            Users will consequently not need to burden themselves with unnecessary complexities, and
+            can instead focus on the meaning of medical
+            content.(<?oxy_comment_start author="steph" timestamp="20190305T152907-0700" comment="When will this be added?"?>ref<?oxy_comment_end?>)
+            Built upon an architecture intended to facilitate semantic interoperability, Solor
+            stores concepts with UUIDs and classifiers, is maintained by robust version control, and
+            promotes modular, collaborative development. Next steps include developing a list of
+            agency-specific and industry-specific use cases for Solor upon which a formative
+            evaluation approach and data collection and analysis can be conducted.</para>
     </section>
 </chapter>

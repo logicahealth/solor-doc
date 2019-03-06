@@ -3,33 +3,43 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <section xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-     <title>Solor definitional knowledge</title>
+     <title><?oxy_comment_start author="steph" timestamp="20190306T103648-0700" comment="This is nitpicky but I think you should be consistent in your headings WRT capitalization.  As you can see here, sometimes the first letter of each word is capitalized, where appropriate, but sometimes it&apos;s just the first word."?>Solor<?oxy_comment_end?>
+        definitional knowledge</title>
      <para>In order to represent the various domains of healthcare, Solor "stands on the shoulder of
-        giants" by building on existing content from SNOMED, LOINC, and RxNorm. Purpose of this
-        section is to discuss the categories within Solor where concepts resides, as well as the
-        relationships used to define the concepts. Ultimately, the goal of this representation of
-        concepts and its relationships would support the description logic component of
-        Solor.</para>
+        giants" by building on existing content from SNOMED, LOINC, and RxNorm.
+        <?oxy_comment_start author="steph" timestamp="20190306T103729-0700" comment="Insert &quot;The&quot; before &quot;purpose&quot;."?>Purpose<?oxy_comment_end?>
+        of this section is to discuss the categories within Solor where concepts reside, as well as
+        the relationships used to define the concepts. Ultimately, the goal of this representation
+        of concepts and
+        <?oxy_comment_start author="steph" timestamp="20190306T103833-0700" comment="Recommend changing to &quot;their&quot;."?>its<?oxy_comment_end?>
+        relationships would support the description logic component of Solor.</para>
     <section xml:id="section_c115dbd9-5a84-4499-a3a5-2b15b93a3df2">
         <title>Top Level Categories</title>
-        <para>
-            In SNOMED, various hierarchies (i.e. Procedures, Clinical Findings, etc) are used to store and maintain various concepts.
-            These hierarchies are typically modeled such that higher level concepts (i.e. Disorder of endocrine system) are more generic than lower level concepts, which
-            are more granular (i.e. Type 1 diabetes mellitus). Through series of isA relationships, which will be explained in the next section,
-            one could traverse down the hierarchy from a top level generic concept to a very specific concept. In an attempt to gather
-            'like' concepts, Solor created top level categories or concepts to 'house' concepts that belong to those categories. This section
-            will describe the intent and purpose of these categories.
-        </para>
+        <para>In SNOMED, various hierarchies
+            (i.<?oxy_comment_start author="steph" timestamp="20190306T103907-0700" comment="Change to &quot;e.g.&quot;  Recommend doing a search of entire document for &quot;i.e.&quot; and revising as needed."?>e<?oxy_comment_end?>.
+            Procedures, Clinical Findings, etc) are used to store and maintain various concepts.
+            These hierarchies are typically modeled such that higher level concepts (i.e. Disorder
+            of endocrine system) are more generic than lower level concepts, which are more granular
+            (i.e. Type 1 diabetes mellitus). Through
+            <?oxy_comment_start author="steph" timestamp="20190306T104105-0700" comment="insert &quot;a&quot; before &quot;series&quot;."?>series<?oxy_comment_end?>
+            of isA relationships, which will be explained in the next section, one could traverse
+            down the hierarchy from a top level generic concept to a very specific concept. In an
+            attempt to gather 'like' concepts, Solor created top level categories
+            <?oxy_comment_start author="steph" timestamp="20190306T104203-0700" comment="Should this be &quot;of&quot; instead of &quot;or&quot;?"?>or<?oxy_comment_end?>
+            concepts to 'house' concepts that belong to those categories. This section will describe
+            the intent and purpose of these categories. </para>
         <section>
         	<title>Body structure</title>
         	<para>Contains both normal and abnormal anatomical structures.</para>
-            <para>Example Body structures include Structure of left lower limb (body structure),
+            <para>Example of Body structures include Structure of left lower limb (body structure),
                 Anastamosis, Roux-en-y (morphologic abnormality) and Skin xenograft (body
                 structure).</para>
         </section>
         <section>
         	<title>Environment or geographical location</title>
-        	<para>Contains both types of environments and named locations such as countries.  </para>
+        	<para>Contains
+                <?oxy_comment_start author="steph" timestamp="20190306T104342-0700" comment="What are the two types of environments?"?>both
+                types <?oxy_comment_end?>of environments and named locations such as countries. </para>
         </section>
         <section>
         	<title>Event</title>
@@ -49,7 +59,9 @@
         </section>
         <section xml:id="section_95cdc709-a966-470a-903c-15d1c23bc5b0">
             <title>Phenomenon</title>
-            <para>This Hierarchy contains both Observable Entities, Clinical Findings, and Disorders.</para>
+            <para>This Hierarchy contains
+                <?oxy_comment_start author="steph" timestamp="20190306T104512-0700" comment="Delete since it&apos;s more than 2 types of hierarchies."?>both<?oxy_comment_end?>
+                Observable Entities, Clinical Findings, and Disorders.</para>
         </section>
         <section xml:id="section_61ced842-fc16-4926-8d5f-d986bc519bef">
             <title>Procedure</title>
@@ -65,7 +77,10 @@
         </section>
         <section>
 	        <title>Situation with explicit context</title>
-	        <para>Clinical findings or Procedures that have contextual information applied to them.  This can include concepts like Family history, Procedures performed in the past or planned in the future.</para>
+	        <para>Clinical findings or Procedures that have contextual information applied to them.
+                This can include concepts like Family
+                history<?oxy_comment_start author="steph" timestamp="20190306T105945-0700" comment="The comma should be replaced with &quot;and&quot;."?>,<?oxy_comment_end?>
+                Procedures performed in the past or planned in the future.</para>
         </section>
         <section>
 	        <title>SNOMED CT Model Component</title>
@@ -94,16 +109,18 @@
     </section>
     <section xml:id="section_46da05f8-fe9b-42c3-8dca-838d32472394">
         <title>Relationship Types</title>
-        <para>As alluded in earlier sections, each concept with a name by itself does not provide any additional knowledge to reason.
-            If "Disorder of endocrine system" concept is placed into a bucket of like concepts, such as "Type 1 diabetes mellitus", 
-            without any formal definition, one could not possibly deduce that "Type 1 diabetes mellitus" is a type of endocrine system disorder.
-            Therefore, a series of relationships must be used to properly define the concept so that the concept could contain 
-            additional knowledge for reasoning to occur. With the simple example of diabetes, it may seem that one could simply
-            create a "Is A" relationship to relate "Disorder of endocrine system" and "Type 1 diabetes mellitus". Although it may
-            connect these two concepts, there needs to be additional relationship types to further define each concept to provide more context
-            and knowledge such that a concept is further defined and could provide additional knowledge. This section describes the
-            relationship types of Solor and provides example of its usage.
-        </para>
+        <para>As alluded in earlier sections, each concept with a name by itself does not provide
+            any additional knowledge to reason. If "Disorder of endocrine system" concept is placed
+            into a bucket of like concepts, such as "Type 1 diabetes mellitus", without any formal
+            definition, one could not possibly deduce that "Type 1 diabetes mellitus" is a type of
+            endocrine system disorder. Therefore, a series of relationships must be used to properly
+            define the concept so that the concept could contain additional knowledge for reasoning
+            to occur. With the simple example of diabetes, it may seem that one could simply create
+            an "Is A" relationship to relate "Disorder of endocrine system" and "Type 1 diabetes
+            mellitus". Although it may connect these two concepts, there needs to be additional
+            relationship types to further define each concept to provide more context and knowledge
+            such that a concept is further defined and could provide additional knowledge. This
+            section describes the relationship types of Solor and provides example of its usage. </para>
         <section>
             <title>Accepted relationship types</title>
             <section xml:id="section_5de4be15-8f7c-4fd7-a06a-1e7fef608580">
@@ -114,7 +131,8 @@
                 </formalpara>
                 <formalpara>
                     <title>Utility</title>
-                    <para>Describe why the role is useful here.</para>
+                    <para><?oxy_comment_start author="steph" timestamp="20190306T111442-0700" comment="When will the information here and below be provided?  Same question throughout the document where placeholders/stubs are shown."?>Describe
+                        why the role is useful here.<?oxy_comment_end?></para>
                 </formalpara>
                 <formalpara>
                     <title>Example of correct use</title>
@@ -151,7 +169,8 @@
                             <row>
                                 <entry morerows="6">Associated with</entry>
                                 <entry morerows="6">Clinical findings/Disorder</entry>
-                                <entry>Clinical finding (finding) OR</entry>
+                                <entry>Clinical finding (finding)
+                                    <?oxy_comment_start author="steph" timestamp="20190306T112934-0700" comment="By putting &quot;OR&quot; it seems to imply that it can&apos;t be an &quot;AND&quot; condition.  If it can, maybe just change column heading from Range to Range(s)?  Is the &quot;OR&quot; even necessary?"?>OR<?oxy_comment_end?></entry>
                             </row>
                             <row>
                                 <entry>Procedure (procedure) OR</entry>
@@ -172,7 +191,9 @@
                                 <entry>Physical force (physical force)</entry>
                             </row>
                             <row>
-                                <entry morerows="3">Causative agent</entry>
+                                <entry morerows="3"
+                                    ><?oxy_comment_start author="steph" timestamp="20190306T114245-0700" comment="In the sections that follow this table, it says that Associated with has 3 subtype attributes of Causative agent, Due to and Temporally related to.  However, that isn&apos;t reflected in this table.  Recommend revising the table so that sub-types are indented or something is done so that it&apos;s obvious they are sub-types."?>Causative
+                                    agent<?oxy_comment_end?></entry>
                                 <entry morerows="3">Clinical findings/Disorder</entry>
                                 <entry>Organism (organism) OR</entry>
                             </row>
@@ -467,7 +488,9 @@
                                 <entry>Process (qualifier value)</entry>
                             </row>
                             <row>
-                                <entry morerows="6">Relative to</entry>
+                                <entry morerows="6"
+                                    ><?oxy_comment_start author="steph" timestamp="20190306T112411-0700" comment="Should this also include Person in the Range column?  I saw that the Attribute for Inheres includes Person and thought maybe it would be applicable here as well.  Same comment for sub-types within sub-types, etc."?>Relative
+                                    to<?oxy_comment_end?></entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -632,21 +655,24 @@
                             <title>Causative agent</title>
                             <formalpara>
                                 <title>Definition</title>
-                                <para>The term disease causative agent usually refers to the biological pathogen
-                                    that causes a disease, such as a virus, parasite, fungus, or
-                                    bacterium, or can refer to a toxin or toxic chemical that causes
-                                    illness. Welding fume as a causative agent. <footnote>
-                                        <para>Welding of stainless steel is a well recognised cause of
-                                            occupational asthma, the chrome in the fume has been shown
-                                            to be the cause in some challenge tests. Non-stainless steel
-                                            welding is more problematic as specific causative agents
-                                            have not been demonstrated, but nevertheless occupational
-                                            asthma occurs. Probably the best evidence comes from
-                                            longitudinal studies of apprentice welders. </para>
+                                <para>The term disease causative agent usually refers to the
+                                    biological pathogen that causes a disease, such as a virus,
+                                    parasite, fungus, or bacterium, or can refer to a toxin or toxic
+                                    chemical that causes illness. Welding fume
+                                    <?oxy_comment_start author="steph" timestamp="20190306T114356-0700" comment="Should this be &quot;is&quot;?"?>as<?oxy_comment_end?>
+                                    a causative agent. <footnote>
+                                        <para>Welding of stainless steel is a well recognised cause
+                                            of occupational asthma, the chrome in the fume has been
+                                            shown to be the cause in some challenge tests.
+                                            Non-stainless steel welding is more problematic as
+                                            specific causative agents have not been demonstrated,
+                                            but nevertheless occupational asthma occurs. Probably
+                                            the best evidence comes from longitudinal studies of
+                                            apprentice welders. </para>
                                     </footnote><footnote>
                                         <para><link
-                                            xlink:href="https://en.wikipedia.org/wiki/Disease_causative_agent"
-                                        /></para>
+                                                xlink:href="https://en.wikipedia.org/wiki/Disease_causative_agent"
+                                            /></para>
                                     </footnote>
                                 </para>
                             </formalpara>
@@ -656,7 +682,8 @@
                             </formalpara>
                             <formalpara>
                                 <title>Example of correct use</title>
-                                <para>Priapism caused by drug (disorder) has an Causative agent of Drug or medicament (substance)</para>
+                                <para>Priapism caused by drug (disorder) has a Causative agent of
+                                    Drug or medicament (substance).</para>
                             </formalpara>
                             <formalpara>
                                 <title>Example of incorrect use</title>
@@ -675,7 +702,8 @@
                             </formalpara>
                             <formalpara>
                                 <title>Example of correct use</title>
-                                <para>Epilepsy due to cerebrovascular accident (disorder) has a Due to relationship of Cerebrovascular accident (disorder)</para>
+                                <para>Epilepsy due to cerebrovascular accident (disorder) has a Due
+                                    to relationship of Cerebrovascular accident (disorder).</para>
                             </formalpara>
                             <formalpara>
                                 <title>Example of incorrect use</title>
@@ -686,7 +714,9 @@
                             <title>Temporally related to</title>
                             <formalpara>
                                 <title>Definition</title>
-                                <para>Temporally related to is used in the Phenomenon hierarchy to specify the clinical entity occuring either before, during or after a phenomenon</para>
+                                <para>Temporally related to is used in the Phenomenon hierarchy to
+                                    specify the clinical entity occuring either before, during or
+                                    after a phenomenon.</para>
                             </formalpara>
                             <formalpara>
                                 <title>Utility</title>
@@ -1074,7 +1104,8 @@
                 </section>
                 <section xml:id="section_d4f10123-c18b-44ff-aecf-87be346c27fe">
                     <title>Pathologic process</title>
-                    <para>Pathologic processes are not always pathologic?</para>
+                    <para>Pathologic processes are not always
+                        <?oxy_comment_start author="steph" timestamp="20190306T115743-0700" comment="Does this need revision?"?>pathologic?<?oxy_comment_end?></para>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1150,7 +1181,9 @@
                     </formalpara>
                 </section>
                 <section>
-                    <title>Relative to</title>
+                    <title xml:id="title_647c5496-bad3-49f9-b075-205ce0a63355"
+                        ><?oxy_comment_start author="steph" timestamp="20190306T120022-0700" comment="In the table preceding this section, after &quot;Property&quot; and before &quot;Relative to&quot;, you have 3 other attributes that aren&apos;t listed here:  Process agent, Process duration, and Process output.  Should they be included here?"?>Relative<?oxy_comment_end?>
+                        to</title>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1334,7 +1367,7 @@
                             <row rowsep="1">
                                 <entry>Attribute</entry>
                                 <entry>Sub-Domain</entry>
-                                <entry>Range</entry>
+                                <entry><?oxy_comment_start author="steph" timestamp="20190306T120417-0700" comment="Same comments regarding A) &quot;OR&quot; as in prior table and also B) any sub-types for attributes."?>Range<?oxy_comment_end?></entry>
                             </row>
                         </thead>
                         <tbody>
@@ -1652,7 +1685,8 @@
                 </section>                
                 <section>
                     <title>Has specimen</title>
-                    <para/>
+                    <?oxy_comment_start author="steph" timestamp="20190306T125944-0700" comment="Delete empty paragraph here and in the other sections below where it&apos;s included."?>
+                    <para/><?oxy_comment_end?>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>

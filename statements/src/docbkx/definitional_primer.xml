@@ -7,18 +7,19 @@
     
     <section xml:id="section_aad44d58-84cd-40d4-af58-cb3e06af98e2">
         <title>Description Logic</title>
-        <para>Description Logics (DL) consists of a family of formal knowledge representation
+        <para>Description Logics (DL) consist of a family of formal knowledge representation
             language that implements mathematical logic to support formal expressions, reasoning,
             and formal proof. It is typically more expressive than propositional logic, which only
-            deals with fixed truth values, which may or may not be true (i.e. "it is raining"), and
-            cannot have variables to represent 'things' (i.e. books or temperature). However, it is
-            less expressive than first-order logic, which assumes the world contains Ojbects,
-            Relations and Functions, allows variables and can quantify over non-logical objects.
-            Main design principle of Description Logics is its balance between expressivity and
-            computational complexity to suit different applications, with medical ontology modeling
-            being one use case. </para>
-        <para> DLs provides a way to model the domain by proiding three entities: concepts, roles
-            and indivdual names: <itemizedlist>
+            deals with fixed truth values, which may or may not be true
+            (<?oxy_comment_start author="steph" timestamp="20190305T155849-0700" comment="Should be &quot;e.g.&quot; instead of &quot;i.e.&quot;  Same for example below for books or temperature."?>i.e.
+            <?oxy_comment_end?>"it is raining"), and cannot have variables to represent 'things'
+            (i.e. books or temperature). However, it is less expressive than first-order logic,
+            which assumes the world contains Objects, Relations and Functions, allows variables and
+            can quantify over non-logical objects. The main design principle of Description Logics
+            is its balance between expressivity and computational complexity to suit different
+            applications, with medical ontology modeling being one use case. </para>
+        <para>DLs provides a way to model the domain by providing three entities: concepts, roles
+            and individual names: <itemizedlist>
                 <listitem>
                     <para>Concepts - represents sets of individuals</para>
                 </listitem>
@@ -43,13 +44,12 @@
 
         <section>
             <title>Definitional Operators</title>
-            <para>
-                Once statements or axioms are established, a set of syntax and properties are used for further
-                expressivity. Below is an overview of common DL syntax and properties
-                seen in the medical domain, and major design considerations for Solor.
-            </para>
+            <para>Once statements or axioms are established, a set of syntax and properties are used
+                for further expressivity. Below is an overview of common DL syntax and properties
+                seen in the medical domain, and major design considerations for Solor. </para>
             <section xml:id="section_8c35c127-885e-4150-b5e2-61a8b52781ae">
-                <title>Conjunction ⨅</title>
+                <title>Conjunction
+                    <?oxy_comment_start author="steph" timestamp="20190305T160348-0700" comment="In Adobe PDF, it was the pound/hashtag symbol.  Same for the union and role inclusions."?>⨅<?oxy_comment_end?></title>
                 <para>Example: A ⨅ B (A and B)</para>
                 <para>"A and B" is true only if A is true and B is true. This syntax is also known as intersection.</para>
             </section>
@@ -73,7 +73,7 @@
                 <para>Condition A is said to be necessary for Condition B, if falsity of A
                     guarantees the falsity of B. </para>
                 <para>In other words, if A then B: B is necessary for A because A cannot be true
-                    unless B is true </para>
+                    unless B is true. </para>
                 <para>
                     Example:
                     <itemizedlist>
@@ -81,7 +81,7 @@
                             <para>A = Human being is alive</para>
                         </listitem>
                         <listitem>
-                            <para>B = air is necessary for human being to breathe</para>
+                            <para>B = Air is necessary for human being to breathe</para>
                         </listitem>
                         <listitem>
                             <para>If "Human being is alive", then "human being has air to breathe"</para>
@@ -93,19 +93,21 @@
                 <title>Sufficient axioms</title>
                 <para>Condition A is sufficient for Condition B, if and only if truth of A
                     guarantees the truth of B. </para>
-                <para/>
-                <para>
-                    Continuing with the 'necessary' example, air by itself does not guarantee a human being is alive
-                    since other factors are required, such as water. In other words, there are severl conditions 
-                    that are required for a human being to be alive, and a sufficient set of these conditions must be 
-                    present in order for a human being to be alive. 
-                </para>
+                <?oxy_comment_start author="steph" timestamp="20190306T100720-0700" comment="Need to delete this blank paragraph."?>
+                <para/><?oxy_comment_end?>
+                <para>Continuing with the 'necessary' example, air by itself does not guarantee a
+                    human being is alive since other factors are required, such as water. In other
+                    words, there are several conditions that are required for a human being to be
+                    alive, and a sufficient set of these conditions must be present in order for a
+                    human being to be alive. </para>
             </section>
             <section xml:id="section_9a15e626-7aa5-49b3-af6d-acd39143393d">
                 <title>Defining relationships</title>
-                <para>Role relationship are represented as existential restrictions. These are used to logically represent 
-                a concept by establishing a relationship with other concepts. This will be further elaborated in Solor 
-                Definitional Knowledge chapter of the Definitional Section.</para>
+                <para>Role relationships are represented as existential restrictions. These are used
+                    to logically represent a concept by establishing a relationship with other
+                    concepts. This will be further elaborated in
+                    <?oxy_comment_start author="steph" timestamp="20190306T100949-0700" comment="Insert &quot;the&quot; here, before &quot;Solor&quot;."?>Solor<?oxy_comment_end?>
+                    Definitional Knowledge chapter of the Definitional section.</para>
             </section>
             <section xml:id="section_898d51d6-ab3a-4d63-8922-2c64d1dc3beb">
                 <title>Quantities</title>
@@ -123,17 +125,20 @@
             </section>
             <section>
                 <title>EL++</title>
-                <para>Since Solor is based on SNOMED, and SNOMED utlizies a subset of EL++, a brief
-                    introduction to this topic appears to be necessary.
-                </para>
-                <para>
-                    According to www.w3.org (https://www.w3.org/2007/OWL/wiki/EL), EL++ is a lightweight description logic that admits sound and complete reasoning in polytime. It is a syntactic fragment of OWL 1.1 DL. In particular, it shares the semantics of OWL 1.1 DL. The design goals behind EL++ were two-fold:
-                    <itemizedlist>
+                <para>Since Solor is based on SNOMED, and SNOMED utilizes a subset of EL++, a brief
+                    introduction to this topic appears to be necessary. </para>
+                <para>According to www.w3.org
+                    (<?oxy_comment_start author="steph" timestamp="20190306T102255-0700" comment="Should this be included as a hyperlink vs. just text?"?>https<?oxy_comment_end?>://www.w3.org/2007/OWL/wiki/EL),
+                    EL++ is a lightweight description logic that admits sound and complete reasoning
+                    in polytime. It is a syntactic fragment of OWL 1.1 DL. In particular, it shares
+                    the semantics of OWL 1.1 DL. The design goals behind EL++ were two-fold: <itemizedlist>
                         <listitem>
-                            <para>capture the expressive power that is used by large-scale ontologies from practical applications</para>
+                            <para>capture the expressive power that is used by large-scale
+                                ontologies from practical applications</para>
                         </listitem>
                         <listitem>
-                            <para>have polytime reasoning problems, in particular classification and instance checking</para>
+                            <para>have polytime reasoning problems, in particular classification and
+                                instance checking</para>
                         </listitem>
                     </itemizedlist>
                 </para>
@@ -150,7 +155,7 @@
                         </listitem>
                         <listitem>
                             <para>Concept definition and conjunction but NOT disjunction or
-                                negation</para>
+                                <?oxy_comment_start author="steph" timestamp="20190306T102859-0700" comment="Should this be changed to representation of absence?"?>negation<?oxy_comment_end?></para>
                         </listitem>
                         <listitem>
                             <para>Role hierarchy but not role composition Domain and range constraints</para>
@@ -181,7 +186,8 @@
         <title>Definitional Layer Exclusions</title>
         <para/>
         <section xml:id="section_f26a133b-3726-4ba5-90c9-93df878218c2">
-            <title>Logical negation</title>
+            <title><?oxy_comment_start author="steph" timestamp="20190306T102924-0700" comment="Should this be change to representation of absence?"?>Logical<?oxy_comment_end?>
+                negation</title>
             <para/>
         </section>
         <section xml:id="section_6b1213dd-2975-48a7-b943-daad9d7685a2">

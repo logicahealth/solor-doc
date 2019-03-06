@@ -6,19 +6,50 @@
     <title>Concepts and Codes</title>
     <section>
         <title>Introduction</title>
-        <para/>
+        <para>The scope of content covered in terminologies varies from focusing on a very specific
+            domain to covering multiple domains.  The main terminologies supported in Solor (SNOMED
+            CT, LOINC, and RxNorm) all follow very structured and persistent code practices.  They
+            never delete codes but in some cases (RxNorm) they are moved to a separate table.  </para>
     </section>
     <section>
         <title>SNOMED CT Concepts</title>
-        <para/>
+        <para>SNOMED CT concepts span multiple domains, from findings and disorders to procedures
+            and pharmaceutical and biological products.  SNOMED CT concepts exist at multiple levels
+            of granularity and mechanisms exist to add missing content to ensure that information is
+            coded at the most granular level possible.  SNOMED CT Concepts are identified with a 6
+            to 18 digit integer that has some structure that describes where the identifier
+            originated (the original creator of the identifier) and what type of identifier it is.  </para>
     </section>
     <section>
         <title>LOINC Codes</title>
-        <para/>
+        <para>LOINC codes are used to identify laboratory and clinical measurements, observations
+            and documents.  Each named concept in LOINC is given a LOINC code which has no structure
+            other than a check digit appended to the end.  In addition, all of the components that
+            make up the LOINC name are assigned LOINC Part Codes (LP) to them in the LOINC Database.
+            LOINC Parts do not follow the same policies and maintenance practices as LOINC terms and
+            are not intended to be used as a standalone terminology.  Some LOINC codes are also
+            associated with answers (LA) and answer lists (LL) in the LOINC Database.  </para>
     </section>
     <section>
         <title>RxNorm</title>
-        <para/>
+        <para>RxNorm provides normalized clinical drug names and relationships between those names
+            and common drug vocabularies for the purpose of easing the exchange of clinical drug
+            information between systems that use different drug vocabularies.  Every concept in
+            RxNorm is given a unique RXCUI.  The names and codes from the common drug vocabularies
+            are then linked to that RXCUI.</para>
+    </section>
+    <section>
+        <title>Solor</title>
+        <para>Solor integrates the content from its native format into a common Solor format.  Once
+            the content is in Solor, there is a step where equivalency is determined through various
+            methods where concepts of the same idea are aggregated. For example, Gentamycin from
+            SNOMED is the same as Gentamycin from LOINC, and is also the same Gentamycin from
+            RxNorm. The end result from this process is the creation of a Solor concept that is
+            devoid of any source information (but will have traceability). This end result is what
+            will be exposed to the user to view and use. In the Gentamycin example, a user will find
+            this concept that is devoid of any source information and will not need to know if this
+            is the SNOMED/LOINC/RxNorm Gentamycin that needs to be selected.  Solor concepts are
+            identified using a Univerally Unique Identifier (UUID).</para>
     </section>
     
 </chapter>

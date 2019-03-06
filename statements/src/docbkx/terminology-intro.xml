@@ -6,17 +6,47 @@
     <title>Terminology Intro</title>
     <para>The desiderata for the design of a controlled healthcare vocabulary was first published in
         1989 with seven items and was expanded in 1998 to a list of twelve disederata in the paper
-        by JJ Cimino "Desiderata for Controlled Medical Vocabularies in the Twenty-First Century".<itemizedlist>
+        by JJ Cimino <citation>Desiderata for Controlled Medical Vocabularies in the Twenty-First
+            Century</citation>.  These desiderata are used to describe desirable characteristics of
+        controlled medical terminologies.  They are:<itemizedlist>
             <listitem>
                 <para>Content</para>
                 <para>While missing content is expected, formally stated processes for requesting
-                    and adding content is required.</para>
+                    and adding content is required.  SNOMED CT, LOINC and RxNorm all have formal
+                    processes in place for requesting changes to the terminologies either through
+                    the organization that maintains them or through a national release center in the
+                    case of SNOMED CT.  In addition, SNOMED CT includes formal mechanisms for users
+                    to extend the terminology and add missing content locally.</para>
             </listitem>
             <listitem>
                 <para>Concept orientation</para>
                 <para>The most granular piece of a terminology must be a concept with a single
-                    coherent meaning.  Terms associated with a code should represent a single
+                    coherent meaning. Terms associated with a code should represent a single
                     concept.</para>
+                <para>In the 1998 paper <citation>Representing Thoughts, Words, and Things in the
+                        UMLS</citation> the authors describe that the Ogden Richards semiotic
+                        triangle<quote> shows that, although written or spoken symbols (words)
+                        cannot completely capture the essence of a reference (thought) or of a
+                        referent (thing), there is a correspondence among them. Either a word or an
+                        object can inspire a thought, and people may endeavor to express their
+                        thoughts with words or by identifying objects in the world. The relationship
+                        between a word and a thing is indirect, however. The link can be completed
+                        only when an interpreter (usually a person) processes the word, which
+                        invokes a corresponding thought, and then links that thought to a thing in
+                        the world (the “referent”). This diagram is seductive in its
+                        simplicity.</quote></para>
+                <para><quote>By implying a one-to-one relationship between each pair of members in
+                        the triangle, this simple diagram masks hidden complexity. Ogden and
+                        Richards alluded to this complexity by the dotted line between a symbol and
+                        a referent, indicating that the link between a symbol and a referent can
+                        only be made indirectly through an interpreter, but the notion that a symbol
+                        does—or could—refer to a single thought and that a thought does—or
+                        could—refer to a single referent is a fallacy. Thus, it has been
+                        historically recognized that multiple terms may refer to the same object or
+                        idea, a single term may refer ambiguously to more than one object or idea,
+                        and terms may be confusing because they are out of date. It is within this
+                        context that we seek solutions to improve our ability to communicate about
+                        biomedical concepts.</quote></para>
                 <para>
                     <figure>
                         <title>Ogden and Richards semiotic triangle</title>
@@ -31,40 +61,73 @@
             <listitem>
                 <para>Concept permanence</para>
                 <para>A concepts meaning cannot change and concepts cannot be deleted after they
-                    have been released.</para>
+                    have been released. Once added to a terminology concepts and their identifiers
+                    should persist. However, a mechanism to make concepts inactive when they are
+                    deemed to be duplicate or erroneous should be available.</para>
             </listitem>
             <listitem>
                 <para>Meaningless concept identifiers</para>
-                <para>Concepts should use unique identifies that do not contain any </para>
+                <para>Concepts should use unique identifiers that do not contain any contextual
+                    information about a concept. Identifiers should not include any hierarchical
+                    information that would prevent changes in the concepts hierarchy without
+                    retirement.</para>
             </listitem>
             <listitem>
                 <para>Polyhierarchy</para>
                 <para>Concepts should be allowed to exist in multiple hierarchies if appropriate.
                     For example, Bacterial meningitis is both a subtype of Meningitis and Bacterial
-                    infection.</para>
+                    infection and should exist in both hierarchies.</para>
             </listitem>
             <listitem>
                 <para>Formal definitions</para>
+                <para>While hierarchical information is paramount, the addition of additional
+                    definitional knowledge can help maintain and correctly place concepts within the
+                    appropriate hierarchy. Allowing computers to use this additional information can
+                    aid in properly placing concepts in hierarchies that developers did not
+                    originally add to a concept.</para>
             </listitem>
             <listitem>
-                <para>No residual categories</para>
+                <para>No residual categories (Reject "Not Elsewhere Classified")</para>
+                <para>Since terminologies will never be completely finished it is easy to reject the
+                    concept orientation desiderata and begin to create or use concepts as grouper
+                    categories for missing content. Doing so introduces a "semantic drift" that will
+                    cause problems with properly identifying historical data. By assigning meaning
+                    to a category, information is lost</para>
             </listitem>
             <listitem>
                 <para>Multiple granularities</para>
+                <para>The ability to represent meaning occurs at various levels depending on the
+                    setting of care and users of the terminology. As care progresses a more finer
+                    grained concept may be required to more accurately represent the dagnosis.
+                </para>
             </listitem>
             <listitem>
                 <para>Multiple consistent views</para>
+                <para>In addition to representing meaning at various levels, the display of the
+                    concepts that are relevant to certain users should be able to be customized.
+                    Allowing users to view concepts in a way that is intuitive will support the
+                    adoption of terminologies by making the terminology more usable.</para>
             </listitem>
             <listitem>
                 <para>Representing context</para>
+                <para>Terminologies should allow for the representation of the context in which the
+                    concepts should be used. While some contextual information should not be
+                    supported in the terminology (like date, time, names, etc) other contextual
+                    information should be supported (for example severity and laterality).</para>
             </listitem>
             <listitem>
                 <para>Graceful evolution</para>
+                <para>Change in terminologies is inevitable but should not be done radically or
+                    without clear documented reasons for the change that have been tested and vetted
+                    by end-users. </para>
             </listitem>
             <listitem>
                 <para>Recognize redundancy</para>
                 <para>Duplicate concepts should not exist in the terminology and processes should be
-                    in place to both prevent and detect them.</para>
+                    in place to both prevent and detect them. With large terminologies it is
+                    inevitable that duplicate and erroneous concepts are added. Robust terminologies
+                    need processes and procedures in place to identify and retire duplicate and
+                    erroneous concepts.</para>
             </listitem>
         </itemizedlist></para>
     

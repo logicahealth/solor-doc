@@ -11,13 +11,14 @@
             language that implements mathematical logic to support formal expressions, reasoning,
             and formal proof. It is typically more expressive than propositional logic, which only
             deals with fixed truth values, which may or may not be true
-            (<?oxy_comment_start author="steph" timestamp="20190305T155849-0700" comment="Should be &quot;e.g.&quot; instead of &quot;i.e.&quot;  Same for example below for books or temperature."?>i.e.
-            <?oxy_comment_end?>"it is raining"), and cannot have variables to represent 'things'
-            (i.e. books or temperature). However, it is less expressive than first-order logic,
-            which assumes the world contains Objects, Relations and Functions, allows variables and
-            can quantify over non-logical objects. The main design principle of Description Logics
-            is its balance between expressivity and computational complexity to suit different
-            applications, with medical ontology modeling being one use case. </para>
+            (<?oxy_comment_start author="steph" timestamp="20190305T155849-0700" comment="Should be &quot;e.g.&quot; instead of &quot;i.e.&quot;  Same for example below for books or temperature." id="cpw_mqc_1hb"?><?oxy_comment_start author="erhwang" timestamp="20190307T083716-0700" comment="fixed" parentID="cpw_mqc_1hb" mid="1"?>e.g.
+            <?oxy_comment_end mid="1"?><?oxy_comment_end?>"it is raining"), and cannot have
+            variables to represent 'things' (e.g. books or temperature). However, it is less
+            expressive than first-order logic, which assumes the world contains Objects, Relations
+            and Functions, allows variables and can quantify over non-logical objects. The main
+            design principle of Description Logics is its balance between expressivity and
+            computational complexity to suit different applications, with medical ontology modeling
+            being one use case. </para>
         <para>DLs provides a way to model the domain by providing three entities: concepts, roles
             and individual names: <itemizedlist>
                 <listitem>
@@ -49,7 +50,7 @@
                 seen in the medical domain, and major design considerations for Solor. </para>
             <section xml:id="section_8c35c127-885e-4150-b5e2-61a8b52781ae">
                 <title>Conjunction
-                    <?oxy_comment_start author="steph" timestamp="20190305T160348-0700" comment="In Adobe PDF, it was the pound/hashtag symbol.  Same for the union and role inclusions."?>⨅<?oxy_comment_end?></title>
+                    <?oxy_comment_start author="steph" timestamp="20190305T160348-0700" comment="In Adobe PDF, it was the pound/hashtag symbol.  Same for the union and role inclusions." id="mdf_xqc_1hb"?><?oxy_comment_start author="erhwang" timestamp="20190307T084017-0700" comment="Need tech team to take a look at this" parentID="mdf_xqc_1hb" mid="3"?>⨅<?oxy_comment_end mid="3"?><?oxy_comment_end?></title>
                 <para>Example: A ⨅ B (A and B)</para>
                 <para>"A and B" is true only if A is true and B is true. This syntax is also known as intersection.</para>
             </section>
@@ -93,8 +94,6 @@
                 <title>Sufficient axioms</title>
                 <para>Condition A is sufficient for Condition B, if and only if truth of A
                     guarantees the truth of B. </para>
-                <?oxy_comment_start author="steph" timestamp="20190306T100720-0700" comment="Need to delete this blank paragraph."?>
-                <para/><?oxy_comment_end?>
                 <para>Continuing with the 'necessary' example, air by itself does not guarantee a
                     human being is alive since other factors are required, such as water. In other
                     words, there are several conditions that are required for a human being to be
@@ -105,8 +104,8 @@
                 <title>Defining relationships</title>
                 <para>Role relationships are represented as existential restrictions. These are used
                     to logically represent a concept by establishing a relationship with other
-                    concepts. This will be further elaborated in
-                    <?oxy_comment_start author="steph" timestamp="20190306T100949-0700" comment="Insert &quot;the&quot; here, before &quot;Solor&quot;."?>Solor<?oxy_comment_end?>
+                    concepts. This will be further elaborated in the
+                    <?oxy_comment_start author="steph" timestamp="20190306T100949-0700" comment="Insert &quot;the&quot; here, before &quot;Solor&quot;." id="s4x_vqc_1hb"?><?oxy_comment_start author="erhwang" timestamp="20190307T083955-0700" comment="fixed" parentID="s4x_vqc_1hb" mid="5"?>Solor<?oxy_comment_end mid="5"?><?oxy_comment_end?>
                     Definitional Knowledge chapter of the Definitional section.</para>
             </section>
             <section xml:id="section_898d51d6-ab3a-4d63-8922-2c64d1dc3beb">
@@ -128,7 +127,7 @@
                 <para>Since Solor is based on SNOMED, and SNOMED utilizes a subset of EL++, a brief
                     introduction to this topic appears to be necessary. </para>
                 <para>According to www.w3.org
-                    (<?oxy_comment_start author="steph" timestamp="20190306T102255-0700" comment="Should this be included as a hyperlink vs. just text?"?>https<?oxy_comment_end?>://www.w3.org/2007/OWL/wiki/EL),
+                    (<?oxy_comment_start author="steph" timestamp="20190306T102255-0700" comment="Should this be included as a hyperlink vs. just text?" id="mnb_brc_1hb"?><?oxy_comment_start author="erhwang" timestamp="20190307T084125-0700" comment="I struggled with this. What if users are reading a hard copy? They can&apos;t click on it, so full URL given should the reader want to look it up?" parentID="mnb_brc_1hb" mid="7"?>https<?oxy_comment_end mid="7"?><?oxy_comment_end?>://www.w3.org/2007/OWL/wiki/EL),
                     EL++ is a lightweight description logic that admits sound and complete reasoning
                     in polytime. It is a syntactic fragment of OWL 1.1 DL. In particular, it shares
                     the semantics of OWL 1.1 DL. The design goals behind EL++ were two-fold: <itemizedlist>
@@ -155,7 +154,8 @@
                         </listitem>
                         <listitem>
                             <para>Concept definition and conjunction but NOT disjunction or
-                                <?oxy_comment_start author="steph" timestamp="20190306T102859-0700" comment="Should this be changed to representation of absence?"?>negation<?oxy_comment_end?></para>
+                                representation of
+                                <?oxy_comment_start author="steph" timestamp="20190306T102859-0700" comment="Should this be changed to representation of absence?" id="ghz_drc_1hb"?><?oxy_comment_start author="erhwang" timestamp="20190307T084216-0700" comment="fixed" parentID="ghz_drc_1hb" mid="9"?>absence<?oxy_comment_end mid="9"?><?oxy_comment_end?></para>
                         </listitem>
                         <listitem>
                             <para>Role hierarchy but not role composition Domain and range constraints</para>
@@ -186,7 +186,7 @@
         <title>Definitional Layer Exclusions</title>
         <para/>
         <section xml:id="section_f26a133b-3726-4ba5-90c9-93df878218c2">
-            <title><?oxy_comment_start author="steph" timestamp="20190306T102924-0700" comment="Should this be change to representation of absence?"?>Logical<?oxy_comment_end?>
+            <title><?oxy_comment_start author="steph" timestamp="20190306T102924-0700" comment="Should this be change to representation of absence?" id="drx_vrc_1hb"?><?oxy_comment_start author="erhwang" timestamp="20190307T084732-0700" comment="Represetation of absence is kind of Logical Negation. Logical Negation is a known &apos;phrase&apos; in Description Logic. Since this section is addressing what Solor WON&apos;T be addressing, I think it is best to leave it as Logical negation &amp; write a bit on it when this section is expanded with verbiage." parentID="drx_vrc_1hb" mid="11"?>Logical<?oxy_comment_end mid="11"?><?oxy_comment_end?>
                 negation</title>
             <para/>
         </section>

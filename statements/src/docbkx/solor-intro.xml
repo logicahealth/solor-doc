@@ -87,7 +87,7 @@
     <section>
         <title>Motivation and Foundation</title>
         <para>The essential challenge of informatics practice within the healthcare
-            <?oxy_comment_start author="steph" timestamp="20190305T083636-0700" comment="Recommend removing comma."?>enterprise<?oxy_comment_end?>,
+            <?oxy_comment_start author="steph" timestamp="20190305T083636-0700" comment="Recommend removing comma." flag="done"?>enterprise<?oxy_comment_end?>
             is to quickly deliver a high fidelity reasoned interpretation of principles and facts to
             the point of care—and then to quickly aggregate these point of care experiences for
             analytic analysis so that new principles and facts can be formulated and validated as
@@ -124,12 +124,14 @@
             C-CDA documents produced by various EHR vendors and clinical organizations, the four
             most frequent problems identified as part of this analysis were that medications should
             be encoded in RxNorm
-            (<?oxy_comment_start author="steph" timestamp="20190305T083855-0700" comment="Is this saying that while these standards should be used, the cited percentages are showing that in fact, in the majority of cases they are not being used?  If yes, I think this should be re-worded to make that clear."?>frequency<?oxy_comment_end?>
+            (<?oxy_comment_start author="steph" timestamp="20190305T083855-0700" comment="Is this saying that while these standards should be used, the cited percentages are showing that in fact, in the majority of cases they are not being used?  If yes, I think this should be re-worded to make that clear." id="kzf_r5j_1hb" flag="done"?><?oxy_comment_start author="bechang" timestamp="20190308T081510-0700" comment="Yes, that is the intent of what these numbers show.  Added a sentence at the end of the paragraph to make this clear." parentID="kzf_r5j_1hb" flag="done" mid="2"?>frequency<?oxy_comment_end mid="2"?><?oxy_comment_end?>
             of medication appearing in 13.7% of sampled test case documents), vital signs and
             results should use LOINC (9.2% of sampled documents), vital signs, and results should
             use unified code of units of measure (UCUM) for physical values (8.7% of sampled
             documents) and the inclusion of conflicting status information for medications (6.7% of
-            sampled documents)<citation>interoperabilityreport2018</citation>.</para>
+            sampled documents)<citation>interoperabilityreport2018</citation>.   In short - even
+            though standards and value sets exist for the encoding of data in EHRs, in the vast
+            majority of instances this is simply not being done.</para>
         <para>These issues can have a direct impact on patient safety and point to the need to be
             able to consistently represent and encode clinical data and observations. This is the
             next great challenge to conquer for health data interoperability to positively influence
@@ -140,14 +142,13 @@
             Granted there have been efforts over the years to standardize medical terminology in
             order to encode it properly into systems, but even then there are instances where
             nuances of medical observations cannot be captured consistently, from something as basic
-            as nuances of language
-            (<?oxy_comment_start author="steph" timestamp="20190305T100747-0700" comment="I think this should be &quot;e.g.&quot; vs. &quot;i.e.&quot; since &quot;i.e.&quot; means &quot;in other words&quot; and that doesn&apos;t seem to be correct here."?>i<?oxy_comment_end?>.e.
-            English versus Chinese) to the specifics of how a measurement was actually taken
-            procedurally - for example, in arriving at a quantitative measurement such as 90 beats
-            per minute for a patient's pulse, one clinician may have used a pulseometer, while
-            another may have arrived at that measurement using fingers to the patient's left wrist
-            and a stopwatch. While the quantitative measurement is the same, the procedural
-            information should also be documented and the differences noted.</para>
+            as nuances of language (e.g.. English versus Chinese) to the specifics of how a
+            measurement was actually taken procedurally - for example, in arriving at a quantitative
+            measurement such as 90 beats per minute for a patient's pulse, one clinician may have
+            used a pulseometer, while another may have arrived at that measurement using fingers to
+            the patient's left wrist and a stopwatch. While the quantitative measurement is the
+            same, the procedural information should also be documented and the differences
+            noted.</para>
     </section>
     <section>
         <title>Separation of Concerns</title>
@@ -190,13 +191,13 @@
         <para>Procedural Knowledge – Information about standard ways to carry out specific
             procedures as well as other procedural guidelines, e.g. treatment protocols for diseases
             and
-            <?oxy_comment_start author="steph" timestamp="20190305T101327-0700" comment="I don&apos;t think &quot;Order Sets&quot; needs to be capitalized."?>Order<?oxy_comment_end?>
-            Sets focused on particular patient situations. Procedural knowledge, together with
+            o<?oxy_comment_start author="steph" timestamp="20190305T101327-0700" comment="I don&apos;t think &quot;Order Sets&quot; needs to be capitalized." flag="done"?>rder<?oxy_comment_end?>
+            sets focused on particular patient situations. Procedural knowledge, together with
             assertional knowledge, enables clinical decision support, quality measurement, and
-            supports patient safety.
-            <?oxy_comment_start author="steph" timestamp="20190305T101352-0700" comment="This isn&apos;t a complete sentence and needs revision.  Should it be part of the prior sentence?"?>Integrates<?oxy_comment_end?>
+            supports patient safety. This layer
+            i<?oxy_comment_start author="steph" timestamp="20190305T101352-0700" comment="This isn&apos;t a complete sentence and needs revision.  Should it be part of the prior sentence?" id="o1r_2vj_1hb" flag="done"?><?oxy_comment_start author="bechang" timestamp="20190308T081906-0700" comment="Clarified." parentID="o1r_2vj_1hb" flag="done" mid="6"?>ntegrates<?oxy_comment_end mid="6"?><?oxy_comment_end?>
             the architectural and terminology layers, incorporates the statement model for
-            information retrieval, uses the assertional layer to apply rules.</para>
+            information retrieval, and uses the assertional layer to apply rules.</para>
         <para>Examining a clinical procedure for controlling hypertension illustrates each of the
             layers of the informatics architectural separation of concerns. At the Terminology
             layer, there may be various codes and terms from disparate source terminologies to
@@ -214,10 +215,10 @@
             hypertension to under 140/90 mmHg might be translated into a clinical workflow
             facilitated by Health Information Technology (HIT). If HIT is involved with programmed
             Clinical Decision Support, there may be additional rules to suggest hypertension
-            medications (e.g., beta-blockers, ACE inhibitors) while also including rules
-            <?oxy_comment_start author="steph" timestamp="20190305T101503-0700" comment="&quot;to&quot; should be inserted here."?>avoid<?oxy_comment_end?>
+            medications (e.g., beta-blockers, ACE inhibitors) while also including rules to
+            <?oxy_comment_start author="steph" timestamp="20190305T101503-0700" comment="&quot;to&quot; should be inserted here." flag="done"?>avoid<?oxy_comment_end?>
             medication
-            <?oxy_comment_start author="steph" timestamp="20190305T101538-0700" comment="I don&apos;t think this should be hyphenated."?>contra<?oxy_comment_end?>-indications.
+            <?oxy_comment_start author="steph" timestamp="20190305T101538-0700" comment="I don&apos;t think this should be hyphenated." flag="done"?>contra<?oxy_comment_end?>indications.
             Finally, at the Procedural-level, there may be a treatment protocol for different kinds
             of hypertension, including the considerations of, e.g. patient age, co-morbidities etc.,
             which can be generated by an electronic clinical decision support system (Statement +

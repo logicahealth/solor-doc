@@ -3,31 +3,25 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <section xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-     <title><?oxy_comment_start author="steph" timestamp="20190306T103648-0700" comment="This is nitpicky but I think you should be consistent in your headings WRT capitalization.  As you can see here, sometimes the first letter of each word is capitalized, where appropriate, but sometimes it&apos;s just the first word."?>Solor<?oxy_comment_end?>
+     <title><?oxy_comment_start author="steph" timestamp="20190306T103648-0700" comment="This is nitpicky but I think you should be consistent in your headings WRT capitalization.  As you can see here, sometimes the first letter of each word is capitalized, where appropriate, but sometimes it&apos;s just the first word." id="l15_jmk_1hb"?><?oxy_comment_start author="timowilliams" timestamp="20190308T113005-0600" comment="Changes will be made where Relevant.  In some cases words after the first may need to be capitalized since that is they way they are in the terminology.  For example SNOMED CT Model Component." parentID="l15_jmk_1hb" mid="1"?>Solor<?oxy_comment_end mid="1"?><?oxy_comment_end?>
         definitional knowledge</title>
      <para>In order to represent the various domains of healthcare, Solor "stands on the shoulder of
-        giants" by building on existing content from SNOMED, LOINC, and RxNorm.
-        <?oxy_comment_start author="steph" timestamp="20190306T103729-0700" comment="Insert &quot;The&quot; before &quot;purpose&quot;."?>Purpose<?oxy_comment_end?>
-        of this section is to discuss the categories within Solor where concepts reside, as well as
-        the relationships used to define the concepts. Ultimately, the goal of this representation
-        of concepts and
-        <?oxy_comment_start author="steph" timestamp="20190306T103833-0700" comment="Recommend changing to &quot;their&quot;."?>its<?oxy_comment_end?>
-        relationships would support the description logic component of Solor.</para>
+        giants" by building on existing content from SNOMED, LOINC, and RxNorm. The purpose of this
+        section is to discuss the categories within Solor where concepts reside, as well as the
+        relationships used to define the concepts. Ultimately, the goal of this representation of
+        concepts and their relationships would support the description logic component of
+        Solor.</para>
     <section xml:id="section_c115dbd9-5a84-4499-a3a5-2b15b93a3df2">
-        <title>Top Level Categories</title>
-        <para>In SNOMED, various hierarchies
-            (i.<?oxy_comment_start author="steph" timestamp="20190306T103907-0700" comment="Change to &quot;e.g.&quot;  Recommend doing a search of entire document for &quot;i.e.&quot; and revising as needed."?>e<?oxy_comment_end?>.
-            Procedures, Clinical Findings, etc) are used to store and maintain various concepts.
-            These hierarchies are typically modeled such that higher level concepts (i.e. Disorder
-            of endocrine system) are more generic than lower level concepts, which are more granular
-            (i.e. Type 1 diabetes mellitus). Through
-            <?oxy_comment_start author="steph" timestamp="20190306T104105-0700" comment="insert &quot;a&quot; before &quot;series&quot;."?>series<?oxy_comment_end?>
-            of isA relationships, which will be explained in the next section, one could traverse
-            down the hierarchy from a top level generic concept to a very specific concept. In an
-            attempt to gather 'like' concepts, Solor created top level categories
-            <?oxy_comment_start author="steph" timestamp="20190306T104203-0700" comment="Should this be &quot;of&quot; instead of &quot;or&quot;?"?>or<?oxy_comment_end?>
-            concepts to 'house' concepts that belong to those categories. This section will describe
-            the intent and purpose of these categories. </para>
+        <title>Top level categories</title>
+        <para>In SNOMED, various hierarchies (e.g. Procedures, Clinical Findings, etc) are used to
+            store and maintain various concepts. These hierarchies are typically modeled such that
+            higher level concepts (i.e. Disorder of endocrine system) are more generic than lower
+            level concepts, which are more granular (e.g. Type 1 diabetes mellitus). Through a
+            series of isA relationships, which will be explained in the next section, one could
+            traverse down the hierarchy from a top level generic concept to a very specific concept.
+            In an attempt to gather 'like' concepts, Solor created top level categories of concepts
+            to 'house' concepts that belong to those categories. This section will describe the
+            intent and purpose of these categories. </para>
         <section>
         	<title>Body structure</title>
         	<para>Contains both normal and abnormal anatomical structures.</para>
@@ -37,9 +31,9 @@
         </section>
         <section>
         	<title>Environment or geographical location</title>
-        	<para>Contains
-                <?oxy_comment_start author="steph" timestamp="20190306T104342-0700" comment="What are the two types of environments?"?>both
-                types <?oxy_comment_end?>of environments and named locations such as countries. </para>
+        	<para>This hierarcy contains the
+                <?oxy_comment_start author="steph" timestamp="20190306T104342-0700" comment="What are the two types of environments?" flag="done"?>types
+                <?oxy_comment_end?>of environments and named locations such as countries. </para>
         </section>
         <section>
         	<title>Event</title>
@@ -59,9 +53,8 @@
         </section>
         <section xml:id="section_95cdc709-a966-470a-903c-15d1c23bc5b0">
             <title>Phenomenon</title>
-            <para>This Hierarchy contains
-                <?oxy_comment_start author="steph" timestamp="20190306T104512-0700" comment="Delete since it&apos;s more than 2 types of hierarchies."?>both<?oxy_comment_end?>
-                Observable Entities, Clinical Findings, and Disorders.</para>
+            <para>This Hierarchy contains Observable Entities, Clinical Findings, and
+                Disorders.</para>
         </section>
         <section xml:id="section_61ced842-fc16-4926-8d5f-d986bc519bef">
             <title>Procedure</title>
@@ -78,9 +71,8 @@
         <section>
 	        <title>Situation with explicit context</title>
 	        <para>Clinical findings or Procedures that have contextual information applied to them.
-                This can include concepts like Family
-                history<?oxy_comment_start author="steph" timestamp="20190306T105945-0700" comment="The comma should be replaced with &quot;and&quot;."?>,<?oxy_comment_end?>
-                Procedures performed in the past or planned in the future.</para>
+                This can include concepts like Family history and Procedures performed in the past
+                or planned in the future.</para>
         </section>
         <section>
 	        <title>SNOMED CT Model Component</title>
@@ -108,53 +100,57 @@
         </section>
     </section>
     <section xml:id="section_46da05f8-fe9b-42c3-8dca-838d32472394">
-        <title>Relationship Types</title>
+        <title>Relationship types</title>
         <para>As alluded in earlier sections, each concept with a name by itself does not provide
-            any additional knowledge to reason. If "Disorder of endocrine system" concept is placed
-            into a bucket of like concepts, such as "Type 1 diabetes mellitus", without any formal
-            definition, one could not possibly deduce that "Type 1 diabetes mellitus" is a type of
-            endocrine system disorder. Therefore, a series of relationships must be used to properly
-            define the concept so that the concept could contain additional knowledge for reasoning
-            to occur. With the simple example of diabetes, it may seem that one could simply create
-            an "Is A" relationship to relate "Disorder of endocrine system" and "Type 1 diabetes
-            mellitus". Although it may connect these two concepts, there needs to be additional
-            relationship types to further define each concept to provide more context and knowledge
-            such that a concept is further defined and could provide additional knowledge. This
-            section describes the relationship types of Solor and provides example of its usage. </para>
+            any additional knowledge to reason. If the concept "Disorder of endocrine system" is
+            placed into a bucket of like concepts, such as "Type 1 diabetes mellitus", without any
+            formal definition, one could not possibly deduce that "Type 1 diabetes mellitus" is a
+            type of endocrine system disorder. Therefore, a series of relationships must be used to
+            properly define the concept so that the concept could contain additional knowledge for
+            reasoning to occur. With the simple example of diabetes, it may seem that one could
+            simply create an "Is A" relationship to relate "Disorder of endocrine system" and "Type
+            1 diabetes mellitus". Although it may connect these two concepts, there needs to be
+            additional relationship types to further define each concept to provide more context and
+            knowledge such that a concept is further defined and could provide additional knowledge.
+            This section describes the relationship types of Solor and provides example of its
+            usage. </para>
         <section>
             <title>Accepted relationship types</title>
             <section xml:id="section_5de4be15-8f7c-4fd7-a06a-1e7fef608580">
                 <title>Is a</title>
                 <formalpara>
                     <title>Definition</title>
-                    <para>Is a Relationships are used to represent a hierarchical parent/child relationship between two concepts.</para>
+                    <para>Is a Relationships are used to represent a hierarchical parent/child
+                        relationship between two concepts. Is a relationships should only be used in
+                        the cases of a true parent child relationship between two concepts. Only
+                        proximal Is a relationships should be distributed in releases, however they
+                        may exist in modeling views.  Concepts can have more than one Is a
+                        relationship but must have at least one Is a Relationship.</para>
                 </formalpara>
                 <formalpara>
                     <title>Utility</title>
-                    <para><?oxy_comment_start author="steph" timestamp="20190306T111442-0700" comment="When will the information here and below be provided?  Same question throughout the document where placeholders/stubs are shown."?>Describe
-                        why the role is useful here.<?oxy_comment_end?></para>
+                    <para><?oxy_comment_start author="steph" timestamp="20190306T111442-0700" comment="When will the information here and below be provided?  Same question throughout the document where placeholders/stubs are shown." id="u5j_lp2_1hb" mid="4"?><?oxy_comment_start author="timowilliams" timestamp="20190307T160515-0600" comment="Yes.  It will be provided.  " parentID="u5j_lp2_1hb"?>Is
+                        a Relationships give a hierarchical structure to Solor and provide a
+                        mechanism to query and retrieve subtype
+                        concepts<?oxy_comment_end?><?oxy_comment_end mid="4"?>.</para>
                 </formalpara>
                 <formalpara>
-                    <title>Example of correct use</title>
-                    <para>Give an example of correct use here.</para>
-                </formalpara>
-                <formalpara>
-                    <title>Example of incorrect use</title>
-                    <para>Give an example of incorrect use here.</para>
+                    <title>Example</title>
+                    <para>Bacterial pneumonia (disorder) has two Is a Relationships, one to
+                        Bacterial lower respiratory infection (disorder) and another to Infective
+                        pneumonia (disorder).</para>
                 </formalpara>
             </section>
             <section>
-                <title>Phenomenon Relationship Types</title>
+                <title>Phenomenon relationship types</title>
                 
                 <table frame="topbot" rowsep="0" colsep="0">
                     <title>Phenomenon Relationship Types Sub-Domain and Range</title>
-                    <tgroup cols="3" align="left">
-                        <colspec colname="c1" colnum="1" colwidth="1*"/>
-                        <colspec colname="c2" colnum="2" colwidth="1*"/>
-                        <colspec colname="c3" colnum="3" colwidth="1.75*"/>
+                    <tgroup cols="4" align="left">
                         <thead>
                             <row rowsep="1">
                                 <entry>Attribute</entry>
+                                <entry>Parent Attribute</entry>
                                 <entry>Domain</entry>
                                 <entry>Range</entry>
                             </row>
@@ -162,15 +158,17 @@
                         <tbody>
                             <row>
                                 <entry>Associated morphology</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Morphologically abnormal structure (morphologic
                                     abnormality)</entry>
                             </row>
                             <row>
                                 <entry morerows="6">Associated with</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Clinical findings/Disorder</entry>
                                 <entry>Clinical finding (finding)
-                                    <?oxy_comment_start author="steph" timestamp="20190306T112934-0700" comment="By putting &quot;OR&quot; it seems to imply that it can&apos;t be an &quot;AND&quot; condition.  If it can, maybe just change column heading from Range to Range(s)?  Is the &quot;OR&quot; even necessary?"?>OR<?oxy_comment_end?></entry>
+                                    <?oxy_comment_start author="steph" timestamp="20190306T112934-0700" comment="By putting &quot;OR&quot; it seems to imply that it can&apos;t be an &quot;AND&quot; condition.  If it can, maybe just change column heading from Range to Range(s)?  Is the &quot;OR&quot; even necessary?" id="ejj_tqc_1hb"?><?oxy_comment_start author="timowilliams" timestamp="20190307T093910-0600" comment="OR is correct.  AND would imply that you need All of them, when you can really only have one at a time.  We could remove the OR as well." parentID="ejj_tqc_1hb" mid="11"?>OR<?oxy_comment_end mid="11"?><?oxy_comment_end?></entry>
                             </row>
                             <row>
                                 <entry>Procedure (procedure) OR</entry>
@@ -192,8 +190,9 @@
                             </row>
                             <row>
                                 <entry morerows="3"
-                                    ><?oxy_comment_start author="steph" timestamp="20190306T114245-0700" comment="In the sections that follow this table, it says that Associated with has 3 subtype attributes of Causative agent, Due to and Temporally related to.  However, that isn&apos;t reflected in this table.  Recommend revising the table so that sub-types are indented or something is done so that it&apos;s obvious they are sub-types."?>Causative
-                                    agent<?oxy_comment_end?></entry>
+                                    ><?oxy_comment_start author="steph" timestamp="20190306T114245-0700" comment="In the sections that follow this table, it says that Associated with has 3 subtype attributes of Causative agent, Due to and Temporally related to.  However, that isn&apos;t reflected in this table.  Recommend revising the table so that sub-types are indented or something is done so that it&apos;s obvious they are sub-types." id="gym_lq2_1hb"?><?oxy_comment_start author="timowilliams" timestamp="20190307T161255-0600" comment="I have added it to all the tables." parentID="gym_lq2_1hb" mid="7"?>Causative
+                                    agent<?oxy_comment_end mid="7"?><?oxy_comment_end?></entry>
+                                <entry morerows="3">Associated with</entry>
                                 <entry morerows="3">Clinical findings/Disorder</entry>
                                 <entry>Organism (organism) OR</entry>
                             </row>
@@ -208,6 +207,7 @@
                             </row>
                             <row>
                                 <entry morerows="2">Due to</entry>
+                                <entry morerows="2">Associated with</entry>
                                 <entry morerows="2">Clinical findings/Disorder</entry>
                                 <entry>Clinical finding (finding) OR</entry>
                             </row>
@@ -219,6 +219,7 @@
                             </row>
                             <row>
                                 <entry morerows="1">Temporally related to</entry>
+                                <entry morerows="1">Associated with</entry>
                                 <entry morerows="1">Clinical findings/Disorder</entry>
                                 <entry>Clinical finding (finding) OR</entry>
                             </row>
@@ -227,11 +228,13 @@
                             </row>
                             <row>
                                 <entry>Before</entry>
+                                <entry>Temporally related to</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Procedure (procedure)</entry>
                             </row>
                             <row>
                                 <entry morerows="1">During AND/OR after</entry>
+                                <entry morerows="1">Temporally related to</entry>
                                 <entry morerows="1">Clinical findings/Disorder</entry>
                                 <entry>Clinical finding (finding) OR</entry>
                             </row>
@@ -240,11 +243,13 @@
                             </row>
                             <row>
                                 <entry>During</entry>
+                                <entry>During AND/OR after</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Procedure (procedure)</entry>
                             </row>
                             <row>
                                 <entry morerows="1">After</entry>
+                                <entry morerows="1">During AND/OR after</entry>
                                 <entry morerows="1">Clinical findings/Disorder</entry>
                                 <entry>Clinical finding (finding) OR</entry>
                             </row>
@@ -253,11 +258,13 @@
                             </row>
                             <row>
                                 <entry>Clinical course</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Courses (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="1">Characterizes</entry>
+                                <entry morerows="1">None</entry>
                                 <entry morerows="1">Observable entity</entry>
                                 <entry>Process (qualifier value) OR</entry>
                             </row>
@@ -266,6 +273,7 @@
                             </row>
                             <row>
                                 <entry morerows="6">Component</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -289,6 +297,7 @@
                             </row>
                             <row>
                                 <entry morerows="6">Direct Site</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -312,11 +321,13 @@
                             </row>
                             <row>
                                 <entry>Episodicity</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Episodicities (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="2">Finding informer</entry>
+                                <entry morerows="2">None</entry>
                                 <entry morerows="2">Clinical findings/Disorder</entry>
                                 <entry>Performer of method (person) OR</entry>
                             </row>
@@ -330,22 +341,26 @@
                             </row>
                             <row>
                                 <entry>Finding method</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Procedure (procedure)</entry>
                             </row>
                             <row>
                                 <entry>Finding site</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Anatomical or acquired body structure (body
                                     structure)</entry>
                             </row>
                             <row>
                                 <entry>Has definitional manifestation</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Clinical finding (finding)</entry>
                             </row>
                             <row>
                                 <entry morerows="1">Has interpretation</entry>
+                                <entry morerows="1">None</entry>
                                 <entry morerows="1">Clinical findings/Disorder</entry>
                                 <entry>Finding values (qualifier value) OR</entry>
                             </row>
@@ -354,11 +369,13 @@
                             </row>
                             <row>
                                 <entry>Has realization</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder, Observable entity</entry>
                                 <entry>Process (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="6">Inherent location</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -382,6 +399,7 @@
                             </row>
                             <row>
                                 <entry morerows="7">Inheres in</entry>
+                                <entry morerows="7">None</entry>
                                 <entry morerows="7">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -408,6 +426,7 @@
                             </row>
                             <row>
                                 <entry morerows="2">Interprets</entry>
+                                <entry morerows="2">None</entry>
                                 <entry morerows="2">Clinical findings/Disorder</entry>
                                 <entry>Observable entity (observable entity) OR</entry>
                             </row>
@@ -419,11 +438,13 @@
                             </row>
                             <row>
                                 <entry>Occurrence</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Periods of life (qualifier value)</entry>
                             </row>
                             <row>
-                                <entry morerows="3">Pathologic process</entry>
+                                <entry morerows="3">Pathological process</entry>
+                                <entry morerows="3">None</entry>
                                 <entry morerows="3">Clinical findings/Disorder</entry>
                                 <entry>Autoimmune (qualifier value) OR</entry>
                             </row>
@@ -438,6 +459,7 @@
                             </row>
                             <row>
                                 <entry morerows="2">Precondition</entry>
+                                <entry morerows="2">None</entry>
                                 <entry morerows="2">Observable entity</entry>
                                 <entry>Clinical finding (finding) OR</entry>
                             </row>
@@ -449,16 +471,19 @@
                             </row>
                             <row>
                                 <entry>Procedure device</entry>
+                                <entry>None</entry>
                                 <entry>Observable entity</entry>
                                 <entry>Device (physical object)</entry>
                             </row>
                             <row>
                                 <entry>Property</entry>
+                                <entry>None</entry>
                                 <entry>Observable entity</entry>
                                 <entry>Property of meaurement (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="4">Process agent</entry>
+                                <entry morerows="4">None</entry>
                                 <entry morerows="4">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -476,11 +501,13 @@
                             </row>
                             <row>
                                 <entry>Process duration</entry>
+                                <entry>None</entry>
                                 <entry>Observable entity</entry>
                                 <entry>Time frame (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="1">Process output</entry>
+                                <entry morerows="1">None</entry>
                                 <entry morerows="1">Observable entity</entry>
                                 <entry>Substance (substance) OR</entry>
                             </row>
@@ -489,8 +516,9 @@
                             </row>
                             <row>
                                 <entry morerows="6"
-                                    ><?oxy_comment_start author="steph" timestamp="20190306T112411-0700" comment="Should this also include Person in the Range column?  I saw that the Attribute for Inheres includes Person and thought maybe it would be applicable here as well.  Same comment for sub-types within sub-types, etc."?>Relative
-                                    to<?oxy_comment_end?></entry>
+                                    ><?oxy_comment_start author="steph" timestamp="20190306T112411-0700" comment="Should this also include Person in the Range column?  I saw that the Attribute for Inheres includes Person and thought maybe it would be applicable here as well.  Same comment for sub-types within sub-types, etc." id="tkc_21d_1hb"?><?oxy_comment_start author="timowilliams" timestamp="20190307T105051-0600" comment="Relative to does not currently accept Person as a value.  " parentID="tkc_21d_1hb" mid="14"?>Relative
+                                    to<?oxy_comment_end mid="14"?><?oxy_comment_end?></entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -514,6 +542,7 @@
                             </row>
                             <row>
                                 <entry morerows="6">Relative to part of</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -537,6 +566,7 @@
                             </row>
                             <row>
                                 <entry morerows="6">Scale type</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Quantitative (qualifier value) OR</entry>
                             </row>
@@ -560,21 +590,25 @@
                             </row>
                             <row>
                                 <entry>Severity</entry>
+                                <entry>None</entry>
                                 <entry>Clinical findings/Disorder</entry>
                                 <entry>Severities (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry>Technique</entry>
+                                <entry>None</entry>
                                 <entry>Observable entity</entry>
                                 <entry>Technique (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry>Time Aspect</entry>
+                                <entry>None</entry>
                                 <entry>Observable entity</entry>
                                 <entry>Time frame (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="6">Towards</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -598,11 +632,13 @@
                             </row>
                             <row>
                                 <entry>Units</entry>
+                                <entry>None</entry>
                                 <entry>Observable entity</entry>
                                 <entry>Unit of measure (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry>Using device</entry>
+                                <entry>Procedure device</entry>
                                 <entry>Observable entity</entry>
                                 <entry>Device (physical object)</entry>
                             </row>
@@ -614,19 +650,16 @@
                     <title>Associated morphology</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>Associated morphology is used to define Phenomenon by specifying the
+                            morphologic changes that are characteristic of a disease.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section xml:id="section_87e359be-fce9-48a8-8be5-620410a0fe2f">
@@ -641,13 +674,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Anemia associated with acquired immunodeficiency syndrome (disorder) has an Associated with of Acquired immune deficiency syndrome (disorder)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                     <section>
                         <title>Associated With Subtype Roles</title>
                         <para>Associated With has three Subtype Attributes: Causative agent, Due to, and Temporally related to.</para>
@@ -658,33 +688,31 @@
                                 <para>The term disease causative agent usually refers to the
                                     biological pathogen that causes a disease, such as a virus,
                                     parasite, fungus, or bacterium, or can refer to a toxin or toxic
-                                    chemical that causes illness. Welding fume
-                                    <?oxy_comment_start author="steph" timestamp="20190306T114356-0700" comment="Should this be &quot;is&quot;?"?>as<?oxy_comment_end?>
-                                    a causative agent. <footnote>
-                                        <para>Welding of stainless steel is a well recognised cause
-                                            of occupational asthma, the chrome in the fume has been
-                                            shown to be the cause in some challenge tests.
-                                            Non-stainless steel welding is more problematic as
-                                            specific causative agents have not been demonstrated,
-                                            but nevertheless occupational asthma occurs. Probably
-                                            the best evidence comes from longitudinal studies of
-                                            apprentice welders. </para>
-                                    </footnote><footnote>
+                                    chemical that causes illness. <footnote>
                                         <para><link
                                                 xlink:href="https://en.wikipedia.org/wiki/Disease_causative_agent"
                                             /></para>
-                                    </footnote>
-                                </para>
+                                    </footnote></para>
                             </formalpara>
                             <formalpara>
                                 <title>Utility</title>
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
-                                <para>Priapism caused by drug (disorder) has a Causative agent of
-                                    Drug or medicament (substance).</para>
+                                <title>Example</title>
+                                <para>Welding of stainless steel is a well recognised cause of
+                                    occupational asthma, the chrome in the fume has been shown to be
+                                    the cause in some challenge tests. Non-stainless steel welding
+                                    is more problematic as specific causative agents have not been
+                                    demonstrated, but nevertheless occupational asthma occurs.
+                                    Probably the best evidence comes from longitudinal studies of
+                                    apprentice welders.Priapism caused by drug (disorder) has a
+                                    Causative agent of Drug or medicament (substance).</para>
                             </formalpara>
+                            <?oxy_comment_start author="timowilliams" timestamp="20190308T084255-0600" comment="Need to insert an expression once they are available in Solor Viewer
+"?>
+                            <para>Welders asthma (disorder) has Causative agent of Welding fume
+                                (substance)<?oxy_comment_end?></para>
                             <formalpara>
                                 <title>Example of incorrect use</title>
                                 <para>Give an example of incorrect use here.</para>
@@ -701,7 +729,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Epilepsy due to cerebrovascular accident (disorder) has a Due
                                     to relationship of Cerebrovascular accident (disorder).</para>
                             </formalpara>
@@ -723,7 +751,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>This attribute is currently not used to define a concept in SNOMED CT.  However the subtype attributes are used.</para>
                             </formalpara>
                             <formalpara>
@@ -744,7 +772,7 @@
                                         <para>Describe why the role is useful here.</para>
                                     </formalpara>
                                     <formalpara>
-                                        <title>Example of correct use</title>
+                                        <title>Example</title>
                                         <para>Give an example of correct use here.</para>
                                     </formalpara>
                                     <formalpara>
@@ -763,7 +791,7 @@
                                         <para>Describe why the role is useful here.</para>
                                     </formalpara>
                                     <formalpara>
-                                        <title>Example of correct use</title>
+                                        <title>Example</title>
                                         <para>Give an example of correct use here.</para>
                                     </formalpara>
                                     <formalpara>
@@ -784,7 +812,7 @@
                                                 <para>Describe why the role is useful here.</para>
                                             </formalpara>
                                             <formalpara>
-                                                <title>Example of correct use</title>
+                                                <title>Example</title>
                                                 <para>Give an example of correct use here.</para>
                                             </formalpara>
                                             <formalpara>
@@ -803,7 +831,7 @@
                                                 <para>Describe why the role is useful here.</para>
                                             </formalpara>
                                             <formalpara>
-                                                <title>Example of correct use</title>
+                                                <title>Example</title>
                                                 <para>Give an example of correct use here.</para>
                                             </formalpara>
                                             <formalpara>
@@ -828,13 +856,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Characterizes</title>
@@ -847,13 +872,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>   
                 <section>
                     <title>Component</title>
@@ -866,13 +888,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Direct site</title>
@@ -885,13 +904,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section xml:id="section_86f91d25-ce47-4ff6-8c30-bb79e2cf9cc6">
                     <title>Episodicity</title>
@@ -904,13 +920,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section xml:id="section_17485546-727a-4a18-9d5e-95838a9c9be3">
                     <title>Finding informer</title>
@@ -923,13 +936,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section xml:id="section_7815c644-cffb-4e13-8e7f-410370f22e87">
                     <title>Finding method</title>
@@ -942,13 +952,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Finding site</title>
@@ -961,13 +968,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has definitional manifestation</title>
@@ -980,13 +984,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section xml:id="section_8f46677a-931d-4814-95d9-0625557f2ea7">
                     <title>Has interpretation</title>
@@ -999,13 +1000,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has realization</title>
@@ -1018,13 +1016,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Inherent location</title>
@@ -1037,13 +1032,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Inheres in</title>
@@ -1056,13 +1048,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section xml:id="section_484246dd-75d8-4dec-8e6a-fa2d891ed6c4">
                     <title>Interprets</title>
@@ -1075,13 +1064,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section xml:id="section_3cd89bbc-bf93-4e7c-9626-2d2e53e8749c">
                     <title>Occurrence</title>
@@ -1094,34 +1080,30 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section xml:id="section_d4f10123-c18b-44ff-aecf-87be346c27fe">
-                    <title>Pathologic process</title>
-                    <para>Pathologic processes are not always
-                        <?oxy_comment_start author="steph" timestamp="20190306T115743-0700" comment="Does this need revision?"?>pathologic?<?oxy_comment_end?></para>
+                    <title>Pathological process</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>Pathological processes is used in the Phenomenon hierarchy to define
+                            the underlying pathological process of a disorder that is not structural
+                            and cannot be represented using the Associated morphology relationship
+                            type.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
-                        <para>Give an example of correct use here.</para>
+                        <title>Example</title>
+                        <para>Lupus hepatitis (disorder) has a Pathological Process of Autoimmune
+                            process (qualifier value)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Precondition</title>
@@ -1134,13 +1116,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Procedure device</title>
@@ -1153,13 +1132,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Property</title>
@@ -1172,13 +1148,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title xml:id="title_647c5496-bad3-49f9-b075-205ce0a63355"
@@ -1193,13 +1166,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Relative to part of</title>
@@ -1212,13 +1182,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Scale type</title>
@@ -1231,13 +1198,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section xml:id="section_c4f6fcbe-c090-4cc0-84ac-531dc17a9959">
                     <title>Severity</title>
@@ -1250,13 +1214,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Technique</title>
@@ -1269,13 +1230,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Time aspect</title>
@@ -1288,13 +1246,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Towards</title>
@@ -1307,13 +1262,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Units</title>
@@ -1326,13 +1278,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Using device</title>
@@ -1345,39 +1294,36 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
             </section>
             
             <section>
-                <title>Procedure Relationship Types</title>
+                <title>Procedure relationship types</title>
                 <table>
                     <title>Procedure Relationship Types Sub-Domain and Range</title>
-                    <tgroup cols="3" align="left">
-                        <colspec colname="c1" colnum="1" colwidth="1*"/>
-                        <colspec colname="c2" colnum="2" colwidth="1*"/>
-                        <colspec colname="c3" colnum="3" colwidth="1.75*"/>
+                    <tgroup cols="4" align="left">
                         <thead>
                             <row rowsep="1">
                                 <entry>Attribute</entry>
+                                <entry>Parent Attribute</entry>
                                 <entry>Sub-Domain</entry>
-                                <entry><?oxy_comment_start author="steph" timestamp="20190306T120417-0700" comment="Same comments regarding A) &quot;OR&quot; as in prior table and also B) any sub-types for attributes."?>Range<?oxy_comment_end?></entry>
+                                <entry><?oxy_comment_start author="steph" timestamp="20190306T120417-0700" comment="Same comments regarding A) &quot;OR&quot; as in prior table and also B) any sub-types for attributes." flag="done"?>Range<?oxy_comment_end?></entry>
                             </row>
                         </thead>
                         <tbody>
                             <row>
                                 <entry>Access</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Surgical access values (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="6">Component</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Evaluation procedure</entry>
                                 <entry>Body structure (body structure) OR</entry>
                             </row>
@@ -1401,6 +1347,7 @@
                             </row>
                             <row>
                                 <entry morerows="1">Direct substance</entry>
+                                <entry morerows="1">None</entry>
                                 <entry morerows="1">Procedure</entry>
                                 <entry>Substance (substance) OR</entry>
                             </row>
@@ -1409,6 +1356,7 @@
                             </row>
                             <row>
                                 <entry morerows="1">Has focus</entry>
+                                <entry morerows="1">None</entry>
                                 <entry morerows="1">Procedure</entry>
                                 <entry>Clinical finding (finding) OR</entry>
                             </row>
@@ -1417,99 +1365,117 @@
                             </row>
                             <row>
                                 <entry>Has intent</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Intents (nature of procedure values) (qualifier
                                     value)</entry>
                             </row>
                             <row>
                                 <entry>Has specimen</entry>
+                                <entry>None</entry>
                                 <entry>Evaluation procedure</entry>
                                 <entry>Specimen (specimen)</entry>
                             </row>
                             <row>
                                 <entry>Measurement method</entry>
+                                <entry>None</entry>
                                 <entry>Evaluation procedure</entry>
                                 <entry>Laboratory procedure categorized by method
                                     (procedure)</entry>
                             </row>
                             <row>
                                 <entry>Method</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Action (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry>Priority</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Priorities (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry>Procedure device</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Device (physical object)</entry>
                             </row>
                             <row>
                                 <entry>Direct device</entry>
+                                <entry>Procedure device</entry>
                                 <entry>Procedure</entry>
                                 <entry>Device (physical object)</entry>
                             </row>
                             <row>
                                 <entry>Indirect device</entry>
+                                <entry>Procedure device</entry>
                                 <entry>Procedure</entry>
                                 <entry>Device (physical object)</entry>
                             </row>
                             <row>
                                 <entry>Using device</entry>
+                                <entry>Procedure device</entry>
                                 <entry>Procedure</entry>
                                 <entry>Device (physical object)</entry>
                             </row>
                             <row>
                                 <entry>Using access device</entry>
+                                <entry>Using device</entry>
                                 <entry>Procedure</entry>
                                 <entry>Device (physical object)</entry>
                             </row>
                             <row>
                                 <entry>Procedure morphology</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Morphologically abnormal structure (morphologic
                                     abnormality)</entry>
                             </row>
                             <row>
                                 <entry>Direct morphology</entry>
+                                <entry>Procedure morphology</entry>
                                 <entry>Procedure</entry>
                                 <entry>Morphologically abnormal structure (morphologic
                                     abnormality)</entry>
                             </row>
                             <row>
                                 <entry>Indirect morphology</entry>
+                                <entry>Procedure morphology</entry>
                                 <entry>Procedure</entry>
                                 <entry>Morphologically abnormal structure (morphologic
                                     abnormality)</entry>
                             </row>
                             <row>
                                 <entry>Procedure site</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Anatomical or acquired body structure (body
                                     structure)</entry>
                             </row>
                             <row>
                                 <entry>Procedure site - Direct</entry>
+                                <entry>Procedure site</entry>
                                 <entry>Procedure</entry>
                                 <entry>Anatomical or acquired body structure (body
                                     structure)</entry>
                             </row>
                             <row>
                                 <entry>Procedure site - Indirect</entry>
+                                <entry>Procedure site</entry>
                                 <entry>Procedure</entry>
                                 <entry>Anatomical or acquired body structure (body
                                     structure)</entry>
                             </row>
                             <row>
                                 <entry>Property</entry>
+                                <entry>None</entry>
                                 <entry>Evaluation procedure</entry>
                                 <entry>Property of meaurement (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="4">Recipient category</entry>
+                                <entry morerows="4">None</entry>
                                 <entry morerows="4">Procedure</entry>
                                 <entry>Person (person) OR</entry>
                             </row>
@@ -1528,6 +1494,7 @@
                             </row>
                             <row>
                                 <entry morerows="2">Revision status</entry>
+                                <entry morerows="2">None</entry>
                                 <entry morerows="2">Procedure</entry>
                                 <entry>Primary operation (qualifier value)</entry>
                             </row>
@@ -1539,11 +1506,13 @@
                             </row>
                             <row>
                                 <entry>Route of administration</entry>
+                                <entry>None</entry>
                                 <entry>Administration of substance via specific route</entry>
                                 <entry>Route of administration value (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="6">Scale type</entry>
+                                <entry morerows="6">None</entry>
                                 <entry morerows="6">Evaluation procedure</entry>
                                 <entry>Quantitative (qualifier value) OR</entry>
                             </row>
@@ -1567,21 +1536,25 @@
                             </row>
                             <row>
                                 <entry>Surgical approach</entry>
+                                <entry>None</entry>
                                 <entry>Surgical procedure</entry>
                                 <entry>Procedural approach (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry>Time aspect</entry>
+                                <entry>None</entry>
                                 <entry>Evaluation procedure</entry>
                                 <entry>Time frame (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry>Using energy</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Physical force (physical force)</entry>
                             </row>
                             <row>
                                 <entry>Using substance</entry>
+                                <entry>None</entry>
                                 <entry>Procedure</entry>
                                 <entry>Substance (substance)</entry>
                             </row>
@@ -1599,13 +1572,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Open removal of foreign body from colon (procedure) has an Access of Open approach - access (qualifier value)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Component</title>
@@ -1618,13 +1588,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>XXXXX</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Direct substance</title>
@@ -1637,13 +1604,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section> 
                 <section>
                     <title>Has focus</title>
@@ -1656,13 +1620,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has intent</title>
@@ -1675,18 +1636,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>                
                 <section>
                     <title>Has specimen</title>
-                    <?oxy_comment_start author="steph" timestamp="20190306T125944-0700" comment="Delete empty paragraph here and in the other sections below where it&apos;s included."?>
-                    <para/><?oxy_comment_end?>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1696,17 +1652,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Measurement method</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1716,17 +1668,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Method</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1736,17 +1684,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Priority</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1756,17 +1700,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Procedure device</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1776,19 +1716,15 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                     <section>
                         <title>Subtype Roles</title>
                         <para>Procedure device has three subtype roles.</para>
                         <section>
                             <title>Direct device</title>
-                            <para/>
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Insert definition here.</para>
@@ -1798,7 +1734,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
                             <formalpara>
@@ -1808,7 +1744,6 @@
                         </section>
                         <section>
                             <title>Indirect device</title>
-                            <para/>
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Insert definition here.</para>
@@ -1818,7 +1753,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
                             <formalpara>
@@ -1828,7 +1763,6 @@
                         </section>
                         <section>
                             <title>Using device</title>
-                            <para/>
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Insert definition here.</para>
@@ -1838,7 +1772,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
                             <formalpara>
@@ -1850,7 +1784,6 @@
                                 <para>Using device has a single subtype role.</para>
                                 <section>
                                     <title>Using access device</title>
-                                    <para/>
                                     <formalpara>
                                         <title>Definition</title>
                                         <para>Insert definition here.</para>
@@ -1860,7 +1793,7 @@
                                         <para>Describe why the role is useful here.</para>
                                     </formalpara>
                                     <formalpara>
-                                        <title>Example of correct use</title>
+                                        <title>Example</title>
                                         <para>Give an example of correct use here.</para>
                                     </formalpara>
                                     <formalpara>
@@ -1874,7 +1807,6 @@
                 </section>
                 <section>
                     <title>Procedure morphology</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1884,19 +1816,15 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                     <section>
                         <title>Subtype Roles</title>
                         <para>Procedure morphology has two subtype roles.</para>
                         <section>
                             <title>Direct morphology</title>
-                            <para/>
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Insert definition here.</para>
@@ -1906,7 +1834,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
                             <formalpara>
@@ -1916,7 +1844,6 @@
                         </section>
                         <section>
                             <title>Indirect morphology</title>
-                            <para/>
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Insert definition here.</para>
@@ -1926,7 +1853,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
                             <formalpara>
@@ -1938,7 +1865,6 @@
                 </section>
                 <section>
                     <title>Procedure Site</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -1948,19 +1874,15 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                     <section>
                         <title>Subtype Roles</title>
                         <para>Procedure Site has two subtype roles.</para>
                         <section>
                             <title>Procedure site - Direct</title>
-                            <para/>
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Insert definition here.</para>
@@ -1970,7 +1892,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
                             <formalpara>
@@ -1980,7 +1902,6 @@
                         </section>
                         <section>
                             <title>Procedure site - Indirect</title>
-                            <para/>
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Insert definition here.</para>
@@ -1990,7 +1911,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
                             <formalpara>
@@ -2002,7 +1923,6 @@
                 </section>
                 <section>
                     <title>Property</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2012,17 +1932,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Recipient category</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2032,17 +1948,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Revision status</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2052,17 +1964,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Route of administration</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2072,17 +1980,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Scale type</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2092,17 +1996,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Surgical approach</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2112,17 +2012,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Time aspect</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2132,17 +2028,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Using energy</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2152,17 +2044,13 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Using substance</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2172,26 +2060,21 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
             </section>
             <section>
-                <title>Body structure Relationship Types</title>
+                <title>Body structure relationship types</title>
                     <table>
                         <title>Body structure Relationship Types Sub-Domain and Range</title>
-                        <tgroup cols="3" align="left">
-                            <colspec colname="c1" colnum="1" colwidth="1*"/>
-                            <colspec colname="c2" colnum="2" colwidth="1*"/>
-                            <colspec colname="c3" colnum="3" colwidth="1.75*"/>
+                        <tgroup cols="4" align="left">
                             <thead>
                                 <row rowsep="1">
                                     <entry>Attribute</entry>
+                                    <entry>Parent Attribute</entry>
                                     <entry>Sub-Domain</entry>
                                     <entry>Range</entry>
                                 </row>
@@ -2199,36 +2082,43 @@
                             <tbody>
                                 <row>
                                     <entry>All or part of</entry>
+                                    <entry>None</entry>
                                     <entry>Body structure</entry>
                                     <entry>Body structure (body structure)</entry>
                                 </row>
-                                <row>
-                                    <entry>Part of</entry>
-                                    <entry>Body structure</entry>
-                                    <entry>Body structure (body structure)</entry>
-                                </row>
+                            <row>
+                                <entry>Proper part of</entry>
+                                <entry>All or part of</entry>
+                                <entry>Body structure</entry>
+                                <entry>Body structure (body structure)</entry>
+                            </row>
                                 <row>
                                     <entry>Constitutional part of</entry>
-                                    <entry>Body structure</entry>
-                                    <entry>Body structure (body structure)</entry>
-                                </row>
-                                <row>
-                                    <entry>Lateral half of</entry>
+                                    <entry>Proper part of</entry>
                                     <entry>Body structure</entry>
                                     <entry>Body structure (body structure)</entry>
                                 </row>
                                 <row>
                                     <entry>Regional part of</entry>
+                                    <entry>Proper part of</entry>
                                     <entry>Body structure</entry>
                                     <entry>Body structure (body structure)</entry>
                                 </row>
+                            <row>
+                                <entry>Lateral half of</entry>
+                                <entry>Regional part of</entry>
+                                <entry>Body structure</entry>
+                                <entry>Body structure (body structure)</entry>
+                            </row>
                                 <row>
                                     <entry>Systemic part of</entry>
+                                    <entry>Proper part of</entry>
                                     <entry>Body structure</entry>
                                     <entry>Body structure (body structure)</entry>
                                 </row>
                                 <row>
                                     <entry>Laterality</entry>
+                                    <entry>None</entry>
                                     <entry>Body structure</entry>
                                     <entry>Side (qualifier value)</entry>
                                 </row>
@@ -2247,18 +2137,15 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                     <section>
                         <title>All or part of Subtype Roles</title>
                         <para>All or part of currently has one subtype role, Part of.</para>
                         <section>
-                            <title>Part of</title>
+                            <title>Proper part of</title>
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Insert definition here.</para>
@@ -2268,7 +2155,7 @@
                                 <para>Describe why the role is useful here.</para>
                             </formalpara>
                             <formalpara>
-                                <title>Example of correct use</title>
+                                <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
                             <formalpara>
@@ -2276,8 +2163,9 @@
                                 <para>Give an example of incorrect use here.</para>
                             </formalpara>
                             <section>
-                                <title>Part of Subtype Roles</title>
-                                <para>Part of has four subtype roles that can be further used to define Body structures.</para>
+                                <title>Proper part of Subtype Roles</title>
+                                <para>Part of has three subtype roles that can be further used to
+                                    define Body structures.</para>
                                 <section>
                                     <title>Constitutional part of</title>
                                     <formalpara>
@@ -2289,26 +2177,7 @@
                                         <para>Describe why the role is useful here.</para>
                                     </formalpara>
                                     <formalpara>
-                                        <title>Example of correct use</title>
-                                        <para>Give an example of correct use here.</para>
-                                    </formalpara>
-                                    <formalpara>
-                                        <title>Example of incorrect use</title>
-                                        <para>Give an example of incorrect use here.</para>
-                                    </formalpara>
-                                </section>
-                                <section>
-                                    <title>Lateral half of</title>
-                                    <formalpara>
-                                        <title>Definition</title>
-                                        <para>Insert definition here.</para>
-                                    </formalpara>
-                                    <formalpara>
-                                        <title>Utility</title>
-                                        <para>Describe why the role is useful here.</para>
-                                    </formalpara>
-                                    <formalpara>
-                                        <title>Example of correct use</title>
+                                        <title>Example</title>
                                         <para>Give an example of correct use here.</para>
                                     </formalpara>
                                     <formalpara>
@@ -2327,13 +2196,37 @@
                                         <para>Describe why the role is useful here.</para>
                                     </formalpara>
                                     <formalpara>
-                                        <title>Example of correct use</title>
+                                        <title>Example</title>
                                         <para>Give an example of correct use here.</para>
                                     </formalpara>
                                     <formalpara>
                                         <title>Example of incorrect use</title>
                                         <para>Give an example of incorrect use here.</para>
                                     </formalpara>
+                                    <section>
+                                        <title>Regional part of Subtype Roles</title>
+                                        <para>Regional part of has one subtype role that can be
+                                            further used to define Body structures.</para>
+                                        <section>
+                                            <title>Lateral half of</title>
+                                            <formalpara>
+                                                <title>Definition</title>
+                                                <para>Insert definition here.</para>
+                                            </formalpara>
+                                            <formalpara>
+                                                <title>Utility</title>
+                                                <para>Describe why the role is useful here.</para>
+                                            </formalpara>
+                                            <formalpara>
+                                                <title>Example</title>
+                                                <para>Give an example of correct use here.</para>
+                                            </formalpara>
+                                            <formalpara>
+                                                <title>Example of incorrect use</title>
+                                                <para>Give an example of incorrect use here.</para>
+                                            </formalpara>
+                                        </section>
+                                    </section>
                                 </section>
                                 <section>
                                     <title>Systemic part of</title>
@@ -2346,7 +2239,7 @@
                                         <para>Describe why the role is useful here.</para>
                                     </formalpara>
                                     <formalpara>
-                                        <title>Example of correct use</title>
+                                        <title>Example</title>
                                         <para>Give an example of correct use here.</para>
                                     </formalpara>
                                     <formalpara>
@@ -2372,7 +2265,7 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Structure of right knee region (body structure) has a Laterality of
                             Right (qualifier value)</para>
                     </formalpara>
@@ -2386,17 +2279,15 @@
             </section>
             
             <section>
-                <title>Situation with explicit context Relationship Types</title>
+                <title>Situation with explicit context relationship types</title>
                     <table>
                         <title>Situation with explicit context Relationship Types Sub-Domain and
                             Range</title>
-                        <tgroup cols="3" align="left">
-                            <colspec colname="c1" colnum="1" colwidth="1*"/>
-                            <colspec colname="c2" colnum="2" colwidth="1*"/>
-                            <colspec colname="c3" colnum="3" colwidth="1.75*"/>
+                        <tgroup cols="4" align="left">
                             <thead>
                                 <row rowsep="1">
                                     <entry>Attribute</entry>
+                                    <entry>Parent Attribute</entry>
                                     <entry>Sub-Domain</entry>
                                     <entry>Range</entry>
                                 </row>
@@ -2404,6 +2295,7 @@
                             <tbody>
                                 <row>
                                     <entry morerows="1">Associated finding</entry>
+                                    <entry morerows="1">None</entry>
                                     <entry morerows="1">Finding with explicit context</entry>
                                     <entry>Clinical finding (finding) OR</entry>
                                 </row>
@@ -2412,26 +2304,31 @@
                                 </row>
                                 <row>
                                     <entry>Associated procedure</entry>
+                                    <entry>None</entry>
                                     <entry>Procedure with explicit context</entry>
                                     <entry>Procedure (procedure)</entry>
                                 </row>
                                 <row>
                                     <entry>Finding context</entry>
+                                    <entry>None</entry>
                                     <entry>Finding with explicit context</entry>
                                     <entry>Finding context value (qualifier value)</entry>
                                 </row>
                                 <row>
                                     <entry>Procedure context</entry>
+                                    <entry>None</entry>
                                     <entry>Procedure with explicit context</entry>
                                     <entry>Context values for actions (qualifier value)</entry>
                                 </row>
                                 <row>
                                     <entry>Subject relationship context</entry>
+                                    <entry>None</entry>
                                     <entry>Situation with explicit context</entry>
                                     <entry>Person (person)</entry>
                                 </row>
                                 <row>
                                     <entry>Temporal context</entry>
+                                    <entry>None</entry>
                                     <entry>Situation with explicit context</entry>
                                     <entry>Temporal context value (qualifier value)</entry>
                                 </row>
@@ -2450,13 +2347,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Family history: Diabetes mellitus (situation) has an Associated finding of Diabetes mellitus (disorder)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Associated procedure</title>
@@ -2469,13 +2363,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>183985008 |Renal transplant planned (situation)| has an Associated procedure of Transplant of kidney (procedure)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Finding context</title>
@@ -2488,13 +2379,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Chvostek sign positive (situation) has a Finding context of Known present (qualifier value)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Procedure context</title>
@@ -2507,13 +2395,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Hemodialysis procedure done (situation) has a Procedure context of Done (qualifier value)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Subject relationship context</title>
@@ -2526,13 +2411,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>History of arthritis (situation) has a Subject relationship context of Subject of record (person).  Family history: Alzheimer's disease (situation) has a Subject relationship context of Person in family of subject (person)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Temporal context</title>
@@ -2545,119 +2427,132 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Hip replacement planned (situation) has a Temporal context of Current or specified time (qualifier value).  The concept History of malignant neoplasm (situation) has a Temporal context of In the past (qualifier value)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
             </section>
 
             <section>
-                <title>Medication Relationship Types</title>
+                <title>Medication relationship types</title>
                 <table>
                     <title>Medication Relationship Types Sub-Domain and Range</title>
-                    <tgroup cols="3" align="left">
-                        <colspec colname="c1" colnum="1" colwidth="1*"/>
-                        <colspec colname="c2" colnum="2" colwidth="1*"/>
-                        <colspec colname="c3" colnum="3" colwidth="1.75*"/>
+                    <tgroup cols="4" align="left">
                         <thead>
                             <row rowsep="1">
                                 <entry>Attribute</entry>
+                                <entry>Parent Attribute</entry>
                                 <entry>Sub-Domain</entry>
                                 <entry>Range</entry>
                             </row>
                         </thead>
                         <tbody>
                             <row>
+                                <entry>Has ingredient</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Substance (substance)</entry>
+                            </row>
+                            <row>
                                 <entry>Has active ingredient</entry>
-                                <entry>Medication</entry>
-                                <entry>Substance (substance)</entry>
-                            </row>
-                            <row>
-                                <entry>Has BoSS</entry>
-                                <entry>Medication</entry>
-                                <entry>Substance (substance)</entry>
-                            </row>
-                            <row>
-                                <entry>Has manufactured dose form</entry>
-                                <entry>Medication</entry>
-                                <entry>Pharmaceutical dose form (dose form)</entry>
-                            </row>
-                            <row>
-                                <entry>Has presentation strength denominator unit</entry>
-                                <entry>Medication</entry>
-                                <entry>Unit of measure (qualifier value)</entry>
-                            </row>
-                            <row>
-                                <entry>Has presentation strength denominator value</entry>
-                                <entry>Medication</entry>
-                                <entry>Number (qualifier value)</entry>
-                            </row>
-                            <row>
-                                <entry>Has presentation strength numerator unit</entry>
-                                <entry>Medication</entry>
-                                <entry>Unit of measure (qualifier value)</entry>
-                            </row>
-                            <row>
-                                <entry>Has presentation strength numerator value</entry>
-                                <entry>Medication</entry>
-                                <entry>Number (qualifier value)</entry>
-                            </row>
-                            <row>
-                                <entry>Has concentration strength denominator unit</entry>
-                                <entry>Medication</entry>
-                                <entry>Unit of measure (qualifier value)</entry>
-                            </row>
-                            <row>
-                                <entry>Has concentration strength denominator value</entry>
-                                <entry>Medication</entry>
-                                <entry>Number (qualifier value)</entry>
-                            </row>
-                            <row>
-                                <entry>Has concentration strength numerator unit</entry>
-                                <entry>Medication</entry>
-                                <entry>Unit of measure (qualifier value)</entry>
-                            </row>
-                            <row>
-                                <entry>Has concentration strength numerator value</entry>
-                                <entry>Medication</entry>
-                                <entry>Number (qualifier value)</entry>
-                            </row>
-                            <row>
-                                <entry>Has precise active ingredient</entry>
-                                <entry>Medication</entry>
-                                <entry>Substance (substance)</entry>
-                            </row>
-                            <row>
                                 <entry>Has ingredient</entry>
                                 <entry>Medication</entry>
                                 <entry>Substance (substance)</entry>
                             </row>
                             <row>
+                                <entry>Has precise active ingredient</entry>
+                                <entry>Has active ingredient</entry>
+                                <entry>Medication</entry>
+                                <entry>Substance (substance)</entry>
+                            </row>
+                            <row>
+                                <entry>Has basis of strength substance</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Substance (substance)</entry>
+                            </row>
+                            <row>
+                                <entry>Has manufactured dose form</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Pharmaceutical dose form (dose form)</entry>
+                            </row>
+                            <row>
+                                <entry>Has presentation strength denominator unit</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Unit of measure (qualifier value)</entry>
+                            </row>
+                            <row>
+                                <entry>Has presentation strength denominator value</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Number (qualifier value)</entry>
+                            </row>
+                            <row>
+                                <entry>Has presentation strength numerator unit</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Unit of measure (qualifier value)</entry>
+                            </row>
+                            <row>
+                                <entry>Has presentation strength numerator value</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Number (qualifier value)</entry>
+                            </row>
+                            <row>
+                                <entry>Has concentration strength denominator unit</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Unit of measure (qualifier value)</entry>
+                            </row>
+                            <row>
+                                <entry>Has concentration strength denominator value</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Number (qualifier value)</entry>
+                            </row>
+                            <row>
+                                <entry>Has concentration strength numerator unit</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Unit of measure (qualifier value)</entry>
+                            </row>
+                            <row>
+                                <entry>Has concentration strength numerator value</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Number (qualifier value)</entry>
+                            </row>
+                            <row>
                                 <entry>Has unit of presentation</entry>
+                                <entry>None</entry>
                                 <entry>Medication</entry>
                                 <entry>Unit of presentation (unit of presentation)</entry>
                             </row>
                             <row>
                                 <entry>Plays role</entry>
+                                <entry>None</entry>
                                 <entry>Medication</entry>
                                 <entry>Role (role)</entry>
                             </row>
                             <row>
-                                <entry>Count of base of active ingredient</entry>
-                                <entry>Medication</entry>
-                                <entry>Number (qualifier value)</entry>
-                            </row>
-                            <row>
                                 <entry>Count of active ingredient</entry>
+                                <entry>None</entry>
                                 <entry>Medication</entry>
                                 <entry>Number (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry>Count of base and modification pair</entry>
+                                <entry>None</entry>
+                                <entry>Medication</entry>
+                                <entry>Number (qualifier value)</entry>
+                            </row>
+                            <row>
+                                <entry>Count of base of active ingredient</entry>
+                                <entry>None</entry>
                                 <entry>Medication</entry>
                                 <entry>Number (qualifier value)</entry>
                             </row>
@@ -2665,7 +2560,7 @@
                     </tgroup>
                 </table>
                 <section>
-                    <title>Has active ingredient</title>
+                    <title>Has ingredient</title>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2675,32 +2570,77 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
+                    <section>
+                        <title>Has ingredient Subtype Roles</title>
+                        <para>Has ingredient has one subtype role to further define
+                            Medications.</para>
+                        <section>
+                            <title>Has active ingredient</title>
+                            <formalpara>
+                                <title>Definition</title>
+                                <para>Has active ingredient represents the substance that has a
+                                    therapeutic action</para>
+                            </formalpara>
+                            <formalpara>
+                                <title>Utility</title>
+                                <para>Describe why the role is useful here.</para>
+                            </formalpara>
+                            <formalpara>
+                                <title>Example</title>
+                                <para>Give an example of correct use here.</para>
+                            </formalpara>
+                            <formalpara>
+                                <title>Example of incorrect use</title>
+                                <para>Give an example of incorrect use here.</para>
+                            </formalpara>
+                            <section>
+                                <title>Has active ingredient Subtype Roles</title>
+                                <para>Has active ingredient has one subtype role to further define
+                                    Medications.</para>
+                                <section>
+                                    <title>Has precise active ingredient</title>
+                                    <formalpara>
+                                        <title>Definition</title>
+                                        <para>Insert definition here.</para>
+                                    </formalpara>
+                                    <formalpara>
+                                        <title>Utility</title>
+                                        <para>Describe why the role is useful here.</para>
+                                    </formalpara>
+                                    <formalpara>
+                                        <title>Example</title>
+                                        <para>Give an example of correct use here.</para>
+                                    </formalpara>
+                                    <formalpara>
+                                        <title>Example of incorrect use</title>
+                                        <para>Give an example of incorrect use here.</para>
+                                    </formalpara>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
                 </section>
                 <section>
-                    <title>Has BoSS</title>
+                    <title>Has basis of strength substance</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>Has basis of strength substance is used to represent an active
+                            ingredient or part of the active ingredient that the strength of a
+                            product is based on.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has manufactured dose form</title>
@@ -2713,13 +2653,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has presentation strength denominator unit</title>
@@ -2732,13 +2669,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has presentation strength denominator value</title>
@@ -2751,13 +2685,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has presentation strength numerator unit</title>
@@ -2770,13 +2701,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has presentation strength numerator value</title>
@@ -2789,13 +2717,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has concentration strength denominator unit</title>
@@ -2808,13 +2733,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has concentration strength denominator value</title>
@@ -2827,13 +2749,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has concentration strength numerator unit</title>
@@ -2846,13 +2765,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has concentration strength numerator value</title>
@@ -2865,51 +2781,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
-                </section>
-                <section>
-                    <title>Has precise active ingredient</title>
-                    <formalpara>
-                        <title>Definition</title>
-                        <para>Insert definition here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of correct use</title>
-                        <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
-                </section>
-                <section>
-                    <title>Has ingredient</title>
-                    <formalpara>
-                        <title>Definition</title>
-                        <para>Insert definition here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of correct use</title>
-                        <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Has unit of presentation</title>
@@ -2922,13 +2797,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Plays role</title>
@@ -2941,13 +2813,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Count of base of active ingredient</title>
@@ -2960,13 +2829,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Count of active ingredient</title>
@@ -2979,13 +2845,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
                 <section>
                     <title>Count of base and modification pair</title>
@@ -2998,27 +2861,22 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
             </section>
             
             <section>
-                <title>Substance Relationship Types</title>
+                <title>Substance relationship types</title>
                 <table>
                     <title>Substance Relationship Types Sub-Domain and Range</title>
-                    <tgroup cols="3" align="left">
-                        <colspec colname="c1" colnum="1" colwidth="1*"/>
-                        <colspec colname="c2" colnum="2" colwidth="1*"/>
-                        <colspec colname="c3" colnum="3" colwidth="1.75*"/>
+                    <tgroup cols="4" align="left">
                         <thead>
                             <row rowsep="1">
                                 <entry>Attribute</entry>
+                                <entry>Parent Attribute</entry>
                                 <entry>Sub-Domain</entry>
                                 <entry>Range</entry>
                             </row>
@@ -3026,11 +2884,13 @@
                         <tbody>
                             <row>
                                 <entry>Has disposition</entry>
+                                <entry>None</entry>
                                 <entry>Substance</entry>
                                 <entry>Disposition (disposition)</entry>
                             </row>
                             <row>
                                 <entry>Is modification of</entry>
+                                <entry>None</entry>
                                 <entry>Substance</entry>
                                 <entry>Substance (substance)</entry>
                             </row>
@@ -3049,28 +2909,23 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Estradiol (substance) has a Has disposition of Estrogen
                             (disposition)</para>
                     </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
-                    </formalpara>
+                    
                 </section>
             </section>
 
             <section>
-                <title>Specimen Relationship Types</title>
+                <title>Specimen relationship types</title>
                 <table>
                     <title>Specimen Relationship Types Sub-Domain and Range</title>
-                    <tgroup cols="3" align="left">
-                        <colspec colname="c1" colnum="1" colwidth="1*"/>
-                        <colspec colname="c2" colnum="2" colwidth="1*"/>
-                        <colspec colname="c3" colnum="3" colwidth="1.75*"/>
+                    <tgroup cols="4" align="left">
                         <thead>
                             <row rowsep="1">
                                 <entry>Attribute</entry>
+                                <entry>Parent Attribute</entry>
                                 <entry>Sub-Domain</entry>
                                 <entry>Range</entry>
                             </row>
@@ -3078,18 +2933,21 @@
                         <tbody>
                             <row>
                                 <entry>Specimen source morphology</entry>
+                                <entry>None</entry>
                                 <entry>Specimen</entry>
                                 <entry>Morphologically abnormal structure (morphologic
                                     abnormality)</entry>
                             </row>
                             <row>
                                 <entry>Specimen source topography</entry>
+                                <entry>None</entry>
                                 <entry>Specimen</entry>
                                 <entry>Anatomical or acquired body structure (body
                                     structure)</entry>
                             </row>
                             <row>
                                 <entry morerows="4">Specimen source identity</entry>
+                                <entry morerows="4">None</entry>
                                 <entry morerows="4">Specimen</entry>
                                 <entry>Person (person) OR</entry>
                             </row>
@@ -3107,11 +2965,13 @@
                             </row>
                             <row>
                                 <entry>Specimen procedure</entry>
+                                <entry>None</entry>
                                 <entry>Specimen</entry>
                                 <entry>Procedure (procedure)</entry>
                             </row>
                             <row>
                                 <entry>Specimen substance</entry>
+                                <entry>None</entry>
                                 <entry>Specimen</entry>
                                 <entry>Substance (substance)</entry>
                             </row>
@@ -3130,14 +2990,10 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Specimen from eye obtained by fine needle aspiration biopsy (specimen)
                             has a Specimen procedure of Fine needle aspiration biopsy of eye
                             (procedure).</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
@@ -3153,13 +3009,9 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Environmental swab (specimen) has a Specimen source identity of
                             Environment (environment).</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
@@ -3175,13 +3027,9 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Swab from abscess of brain (specimen) has a Specimen source morphology
                             of Abscess (morphologic abnormality).</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
@@ -3196,13 +3044,9 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Excised breast ectopic tissue sample (specimen) has a Specimen source
                             topography of Breast structure (body structure).</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
@@ -3217,19 +3061,15 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Arterial blood specimen (specimen) has a Specimen substance of
                             Arterial blood (substance).</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
             </section>
 
             <section>
-                <title>Unspecified Relationship Types</title>
+                <title>Unspecified relationship types</title>
                 <section>
                     <title>Contained in</title>
                     <formalpara>
@@ -3241,17 +3081,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
                     <title>Is about</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3261,17 +3096,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>      
                 <section>
                     <title>Observes</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3281,17 +3111,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
                     <title>Procedure agent</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3301,17 +3126,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
                     <title>Procedure duration</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3321,17 +3141,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
                     <title>Procedure output</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3341,17 +3156,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
                     <title>Property type</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3361,17 +3171,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
                 <section>
                     <title>Role group</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3381,17 +3186,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section> 
                 <section>
                     <title>Specified by</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3401,17 +3201,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>     
                 <section>
                     <title>Subject of information</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3421,17 +3216,12 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section> 
                 <section>
                     <title>Tributary of</title>
-                    <para/>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -3441,12 +3231,8 @@
                         <para>Describe why the role is useful here.</para>
                     </formalpara>
                     <formalpara>
-                        <title>Example of correct use</title>
+                        <title>Example</title>
                         <para>Give an example of correct use here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Give an example of incorrect use here.</para>
                     </formalpara>
                 </section>
             </section>

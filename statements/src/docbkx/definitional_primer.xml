@@ -49,23 +49,22 @@
                 for further expressivity. Below is an overview of common DL syntax and properties
                 seen in the medical domain, and major design considerations for Solor. </para>
             <section xml:id="section_8c35c127-885e-4150-b5e2-61a8b52781ae">
-                <title>Conjunction
-                    <?oxy_comment_start author="steph" timestamp="20190305T160348-0700" comment="In Adobe PDF, it was the pound/hashtag symbol.  Same for the union and role inclusions." id="mdf_xqc_1hb"?><?oxy_comment_start author="erhwang" timestamp="20190307T084017-0700" comment="Need tech team to take a look at this" parentID="mdf_xqc_1hb" mid="3"?>⨅<?oxy_comment_end mid="3"?><?oxy_comment_end?></title>
-                <para>Example: A ⨅ B (A and B)</para>
+                <title>Conjunction &#x2227;</title>
+                <para>Example: A &#x2227; B (A and B)</para>
                 <para>"A and B" is true only if A is true and B is true. This syntax is also known as intersection.</para>
             </section>
             <section xml:id="section_0dbbbabf-43d9-4c54-bb3b-a2486ead3066">
-                <title>Disjointness ⨆</title>
-                <para>Example: A ⨆ B (A or B)</para>
-                <para>"A or B" is true if A is true, or if B is true, or if both A and B are true. This syntax is also known as union</para>
+                <title>Disjointness &#x2228;</title>
+                <para>Example: A &#x2228; B (A or B)</para>
+                <para>"A or B" is true if A is true, or if B is true, or if both A and B are true. This syntax is also known as union.</para>
             </section>
             <section xml:id="section_e8b2a42a-7161-4f40-bc25-c7ba0811177e">
                 <title>Reflexive roles</title>
                 <para>Every element is related to itself. For example, X = X</para>
             </section>
             <section xml:id="section_196f1d52-7e7e-49f6-9cf6-d41e0d2d8922">
-                <title>Role inclusions ⊑</title>
-                <para>Example: A ⊑ B (all A are B)</para>
+                <title>Role inclusions &#x2282;</title>
+                <para>Example: A &#x2282; B (all A are B)</para>
                 <para>Role inclusions allow expression of role hierarchies, transitive roles and
                     right identities.</para>
             </section>

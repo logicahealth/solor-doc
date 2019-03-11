@@ -25,8 +25,8 @@
 <xsl:param name="force.blank.pages" select="0"/>
 <xsl:param name="page.margin.inner">1in</xsl:param>
 <xsl:param name="page.margin.outer">1in</xsl:param>
-
-
+<xsl:param name="symbol.font.family" select="'Symbol,ZapfDingbats,Lucida Sans Unicode'"/>
+  
 <!--==============================================================-->
 <!--  Attribute sets                                              -->
 <!--==============================================================-->

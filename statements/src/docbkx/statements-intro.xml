@@ -34,7 +34,8 @@
     <section>
         <info>
             <title>Clinical Observation Modeling</title>
-            <title>Clinical Observation Modeling</title>
+            <title><?oxy_comment_start author="steph" timestamp="20190313T143945-0600" comment="Why is the heading repeated here, both with same section number and this one with additional info?"?>Clinical<?oxy_comment_end?>
+                Observation Modeling</title>
             <subtitle>Supporting Domain Semantics, Flexibility, and Interoperability</subtitle>
 
             <author>
@@ -66,23 +67,25 @@
             <title>Statement Models</title>
 
             <para>Statement models (<footnote xml:id="__FN2__">
-                <para>Statement models are also referred to as “Clinical Observation Models,” “Archetypes,”
-                        “Clinical Event Models,” and “Clinical Models” in the informatics literature
-                        and vernacular.</para>
+                    <para>Statement models are also referred to as “Clinical Observation Models,”
+                        “Archetypes,” “Clinical Event Models,” and “Clinical Models” in the
+                        informatics literature and vernacular.</para>
                 </footnote>) are conceptual-level data models of the discrete statements about
                 patients that can be stored in, processed by, and retrieved from a clinical
-                information system. statement models are defined for discrete types of clinical statements such
-                as blood pressure measurements, lab test results, physical exam findings,
-                patient-reported symptoms, clinical diagnoses, and other observations.</para>
+                information system. Statement models are defined for discrete types of clinical
+                statements such as blood pressure measurements, lab test results, physical exam
+                findings, patient-reported symptoms, clinical diagnoses, and other
+                observations.</para>
 
-            <para>statement models define the structure and semantics of discrete clinical observations as
-                formal “types” that are later instantiated to represent specific recorded
-                observations that apply to particular patients. Like object types in programming
-                languages, these type definitions include enumerations of the specific data elements
-                that may make up the observation, the datatypes used to populate those elements, and
-                which elements must be populated in every instantiated object versus optionally
-                populated. <xref linkend="_Ref474327938" xrefstyle="select:label"/> shows the
-                graphical depiction of an example statement model for a blood pressure measurement.</para>
+            <para>Statement models define the structure and semantics of discrete clinical
+                observations as formal “types” that are later instantiated to represent specific
+                recorded observations that apply to particular patients. Like object types in
+                programming languages, these type definitions include enumerations of the specific
+                data elements that may make up the observation, the datatypes used to populate those
+                elements, and which elements must be populated in every instantiated object versus
+                optionally populated. <xref linkend="_Ref474327938" xrefstyle="select:label"/> shows
+                the graphical depiction of an example statement model for a blood pressure
+                measurement.</para>
 
             <figure xml:id="_Ref474327938">
                 <title>Example clinical object model for a blood pressure measurement</title>
@@ -97,31 +100,32 @@
             <section>
                 <title>The Role of Clinical Observation Models</title>
 
-                <para>In general, clinical observation models serve at least two purposes.</para>
+                <para>In general, clinical observation models serve at least two purposes:</para>
 
                 <orderedlist>
                     <listitem>
-                        <para>statement models <emphasis role="underline"
-                                ><emphasis>standardize</emphasis></emphasis> the capture, retrieval,
-                            and exchange of clinical observations within and between information
-                            systems. As seen in <xref linkend="_Ref474327938"
+                        <para>Statement models <emphasis role="underline"
+                                    ><emphasis>standardize</emphasis></emphasis> the capture,
+                            retrieval, and exchange of clinical observations within and between
+                            information systems. As seen in <xref linkend="_Ref474327938"
                                 xrefstyle="select:label"/>, even relatively basic observations can
                             comprise numerous sub-components. Different implementers of clinical
                             information systems may model these sub-components and their
                             relationships in arbitrarily different ways, which can prevent different
                             software modules from managing and processing the same observations
-                            consistently and correctly. Formal and agreed-upon statement models provide a shared
-                            model of each type of observation that enables software modules created
-                            by different implementers to handle the same observations uniformly.
-                            Note that such software modules may comprise different parts of the same
-                            information system (such as the user interface and the rules engine of a
-                            single EHR) or entirely different information systems (such as distinct
-                            EHRs from different commercial vendors).</para>
+                            consistently and correctly. Formal and agreed-upon statement models
+                            provide a shared model of each type of observation that enables software
+                            modules created by different implementers to handle the same
+                            observations uniformly. Note that such software modules may comprise
+                            different parts of the same information system (such as the user
+                            interface and the rules engine of a single EHR) or entirely different
+                            information systems (such as distinct EHRs from different commercial
+                            vendors).</para>
                     </listitem>
 
                     <listitem>
                         <para>Statement models <emphasis role="underline"
-                                ><emphasis>de-couple</emphasis></emphasis> the creation and
+                                    ><emphasis>de-couple</emphasis></emphasis> the creation and
                             maintenance of domain-specific objects in clinical medicine (such as
                             observations) from their technical implementation in software code and
                             database structures. The types of clinical observations that may be
@@ -134,12 +138,13 @@
                             database, a time-consuming and costly implementation process must be
                             applied. Clinical applications and databases, however, that are
                             implemented at a more abstract level can process <emphasis>any
-                            </emphasis>statement models that conform to a certain high-level reference model.
-                            Such implementations may not need to change as statement models are added or
-                            updated. statement models can therefore serve as conceptual-level objects that
-                            represent domain-specific data and drive domain-specific functionality
-                            without being tightly coupled, at least in theory, to the underling
-                            implementation of the information system.</para>
+                            </emphasis>statement models that conform to a certain high-level
+                            reference model. Such implementations may not need to change as
+                            statement models are added or updated. Statement models can therefore
+                            serve as conceptual-level objects that represent domain-specific data
+                            and drive domain-specific functionality without being tightly coupled,
+                            at least in theory, to the underling implementation of the information
+                            system.</para>
                     </listitem>
                 </orderedlist>
 
@@ -244,20 +249,20 @@
 
                 <orderedlist spacing="compact">
                     <listitem>
-                        <para>the set of Elements that may be used to represent various kinds of
+                        <para>The set of Elements that may be used to represent various kinds of
                             observations</para>
                     </listitem>
 
                     <listitem>
-                        <para>the datatypes used to populate those Elements</para>
+                        <para>The datatypes used to populate those Elements</para>
                     </listitem>
 
                     <listitem>
-                        <para>which Elements must be populated versus being optional, and</para>
+                        <para>Which Elements must be populated versus being optional, and</para>
                     </listitem>
 
                     <listitem>
-                        <para>whether Elements can have only one or may have multiple values.</para>
+                        <para>Whether Elements can have only one or may have multiple values.</para>
                     </listitem>
                 </orderedlist>
 
@@ -333,9 +338,10 @@
                     />).</para>
 
                 <para><xref linkend="_Ref474415737" xrefstyle="select:label"/> shows an example
-                    OpenEHR Template that represents the information captured during an initial
-                    visit to a heart failure clinic. Note that the template combines a number of
-                    Archetypes, such as Blood Pressure, Pulse, and Full Blood Count, as well as adds
+                    <?oxy_comment_start author="steph" timestamp="20190313T152535-0600" comment="Why are some items in the template below numbered while others are not?"?>OpenEHR<?oxy_comment_end?>
+                    Template that represents the information captured during an initial visit to a
+                    heart failure clinic. Note that the template combines a number of Archetypes,
+                    such as Blood Pressure, Pulse, and Full Blood Count, as well as adds
                     navigational and organizational nodes such as “Physical Exam.” The latter nodes
                     are also Archetypes, specifically sub-classes of the Section object specified in
                     the Reference Model.</para>
@@ -355,7 +361,7 @@
                     constituent Archetypes. Such constraints may entail the inclusion of only a
                     subset of the Archetype’s Elements, the allowance of only a subset of the coded
                     values specified for an Element, the designation of default values for Elements,
-                    etc. The purpose of these constraints is to customize an Archetypes for use in a
+                    etc. The purpose of these constraints is to customize an Archetype for use in a
                     specific context, while ensuring that any data collected or retrieved using
                     Templates that contain the Archetype conform to the Archetype’s underlying
                     constraints.</para>
@@ -378,7 +384,8 @@
                     within and across information systems.</para>
 
                 <figure xml:id="_Ref474416536">
-                    <title>Example of a Screen Form generated from an OpenEHR Template</title>
+                    <title><?oxy_comment_start author="steph" timestamp="20190313T152917-0600" comment="In the example, why does Pulse appear to be under Weight and BP under Height?"?>Example<?oxy_comment_end?>
+                        of a Screen Form generated from an OpenEHR Template</title>
 
                     <mediaobject>
                         <imageobject>

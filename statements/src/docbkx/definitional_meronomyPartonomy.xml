@@ -5,8 +5,9 @@
     <title>Meronomy / Partonomy</title>
     <section>
         <title>Introduction</title>
-        <para>Partonomy/Meronomy is a type of hierarchy that deals with part-whole relationships.
-                <emphasis role="italic">Part-of</emphasis> Relationships are:</para>
+        <para><?oxy_comment_start author="steph" timestamp="20190313T130843-0600" comment="Above it&apos;s referred to as Meronomy/Partonomy.  I think all references to it should be consistent.  Which is correct?"?>Partonomy/Meronomy<?oxy_comment_end?>
+            is a type of hierarchy that deals with part-whole relationships. <emphasis role="italic"
+                >Part-of</emphasis> Relationships are:</para>
         <para>
             <itemizedlist>
                 <listitem>
@@ -40,9 +41,8 @@
                         </listitem>
                     </itemizedlist>
                 </listitem>
-            </itemizedlist>
-            Unless properly identified, it is difficult for a reasoner to determine if it is part or whole.
-        </para>
+            </itemizedlist>Unless properly identified, it is difficult for a reasoner to determine
+            if it is part or whole. </para>
         <para>This study evaluated the representation of <emphasis role="italic"
                 >Part-of</emphasis> relationships in the Body Structure, Pharmaceutical/Biologic
             Product, and Laboratory Procedure (LOINC) hierarchies, and developing and testing a
@@ -57,19 +57,19 @@
             not currently exist as pre-coordinated concepts. termSpace can represent LOINC concepts
             to support the partonomy modeling of laboratory concepts; however, these concepts will
             need to be transformed into a SNOMED RF2 format in order to load them into termSpace.
-            LOINC model was unable to be tested due to the complexities of adding LOINC to
-            termSpace. Collaboration will continue with termMed to represent LOINC in termSpace to
-            potentially test the model in future iterations.</para>
+            However, the LOINC model was unable to be tested due to the complexities of adding LOINC
+            to termSpace. Collaboration will continue with termMed to represent LOINC in termSpace
+            to potentially test the model in future iterations.</para>
     </section>
     <section>
         <title>Body Structure Concepts</title>
         <para>There are currently 42,596 <emphasis role="italic">Part-of</emphasis> Relationships
             assigned to Body Structure concepts remaining from the 2003 decision to transform them
             to non-defining. </para>
-        <para>SNOMED International is currently in discussions with Foundational Model of Anatomy
-            (FMA) to collaborate on an anatomy model in SNOMED CT. SNOMED International is currently
-            modeling <emphasis role="italic">Part-of</emphasis> relationships in a Protégé version
-            of the Body Structure hierarchy; however, they are only exporting the resulting
+        <para>SNOMED International is currently in discussions with the Foundational Model of
+            Anatomy (FMA) to collaborate on an anatomy model in SNOMED CT. SNOMED International is
+            currently modeling <emphasis role="italic">Part-of</emphasis> relationships in a Protégé
+            version of the Body Structure hierarchy; however, they are only exporting the resulting
                 <emphasis role="italic">IS-A</emphasis> relationships. As a part of the <emphasis
                 role="italic">IS-A</emphasis> and <emphasis role="italic">Part-of</emphasis>
             Modeling Subproject at SNOMED International, they plan to perform Quality Assurance (QA)
@@ -130,17 +130,16 @@
                 navigation is suggested.</para>
             <para>Below are examples of the products that potentially require the addition of new
                 product concepts in order for the new attribute to be modeled or require the use of
-                nested expressions to represent the missing content. The pilot study
-                represented these concepts using nested expressions, however if the model were
-                implemented in the International Release of SNOMED CT it may require creating
-                pre-coordinated concepts.<itemizedlist>
+                nested expressions to represent the missing content. The pilot study represented
+                these concepts using nested expressions, however if the model were implemented in
+                the International Release of SNOMED CT, it may require creating pre-coordinated concepts.<itemizedlist>
                     <listitem>
                         <para>Disodium etidronate 400mg tablet and calcium carbonate 1.25g
                             effervescent tablet pack (product) – Disodium etidronate 400mg tablet
                             and calcium carbonate 1.25g effervescent tablet exist and will be used
-                            to fully define this concept. The puropse of the
-                            parent concept, 346404007 |Disodium etidronate+calcium carbonate
-                            (product)|, must be determined. </para>
+                            to fully define this concept. The purpose of the parent concept,
+                            346404007 |Disodium etidronate+calcium carbonate (product)|, must be
+                            determined. </para>
                     </listitem>
                     <listitem>
                         <para>Lutropin alfa 75iu injection (pdr for recon)+solvent (product) –
@@ -153,11 +152,12 @@
                 clinical drugs represented as pre-coordinated concepts and will not require the use
                 of a nested expression.<itemizedlist>
                     <listitem>
-                        <para>324934004 |Proguanil hydrochloride 100mg tablet and chloroquine
-                            phosphate 250mg tablet pack (product)| - Proguanil hydrochloride 100mg
-                            tablet and chloroquine phosphate 250mg tablet both exist as separate
-                            pre-coordinated concepts and could be used to fully define this
-                            concept.</para>
+                        <?oxy_comment_start author="steph" timestamp="20190313T135043-0600" comment="This is another concept that is now inactive in SNOMED.  Does that matter?  If yes, should all referenced concepts be reviewed and replaced as needed?"?>
+                        <para>324934004<?oxy_comment_end?> |Proguanil hydrochloride 100mg tablet and
+                            chloroquine phosphate 250mg tablet pack (product)| - Proguanil
+                            hydrochloride 100mg tablet and chloroquine phosphate 250mg tablet both
+                            exist as separate pre-coordinated concepts and could be used to fully
+                            define this concept.</para>
                     </listitem>
                     <listitem>
                         <para>Quetiapine 25mg+100mg+150mg tablet starter pack (product) – This
@@ -196,9 +196,9 @@
                     </imageobject>
                 </mediaobject>
             </figure>
-            <para>To fully represent the information contained within the LOINC Panel spreadsheet an
-                Ordered RefSet would have to be created because the tests contained in the panel are
-                ordered in the spreadsheet.</para>
+            <para>To fully represent the information contained within the LOINC Panel spreadsheet,
+                an Ordered RefSet would have to be created because the tests contained in the panel
+                are ordered in the spreadsheet.</para>
             <para>In order to represent the optional tests that are sometimes part of a Panel there
                 are several options. These optional tests and panels could be represented in an
                 Association Reference Set, but a better representation may be using multiple

@@ -45,10 +45,10 @@
         <para>All top level primitive concepts should be stated as disjoint with the exception of
             260787004 |Physical object (physical object)|and 373873005 |Pharmaceutical / biologic
             product (product)|. A particular focus was placed on primitive hierarchies of substance
-            and body Structure. For each hierarchy, all concepts that are
-            currently disjoint from each other beginning at the top of the hierarchy and traversing
-            downward were the focus. This method will identify potential disjoint statements, which were reviewed
-            by clinicians to confirm that they are correct.</para>
+            and body structure. For each hierarchy, all concepts that are currently disjoint from
+            each other beginning at the top of the hierarchy and traversing downward were the focus.
+            This method will identify potential disjoint statements, which were reviewed by
+            clinicians to confirm that they are correct.</para>
         <figure>
             <title>Query strategy to identify potential disjoint content</title>
             <mediaobject>
@@ -85,13 +85,14 @@
             disjoint statements does not increase the time to reason over the OWL version of SNOMED,
             but actually significantly decreased the amount of time using both reasoners we
             tested.</para>
-        <para>Additional 133 concepts were tested for potential disjointness within the substance,
-            body structure, and situation with explicit context hierarchies as these hierarchies are
-            most likely to benefit from the addition of disjoint statements. 13
+        <para>An additional 133 concepts were tested for potential disjointness within the
+            substance, body structure, and situation with explicit context hierarchies as these
+            hierarchies are most likely to benefit from the addition of disjoint statements. 13
             substance statements, 1193 body structure statements, and 12 situation with explicit
-            context statements were able to be added. These disjoint statements only cover the immediate children for the
-            all the hierarchies listed above except for body structures, where a traversal down three
-            levels deep was performed to identify potential disjoint content. </para>
+            context statements were able to be added. These disjoint statements only cover the
+            immediate children for all the hierarchies listed above except for body structures,
+            where a traversal down three levels deep was performed to identify potential disjoint
+            content. </para>
         <para>However, adding disjoint statements to these concepts will provide limited benefit for
             error checking. The body structure and substance hierarchies will have limited use cases
             for extension and post-coordination once the redesign is complete. The situation with
@@ -108,10 +109,10 @@
     <section>
         <title>Conclusion</title>
         <para>Without statements to detect disjoint content, there is a potential for modeling
-            errors, such as modeling incorrect parents for SNOMED CT concepts. This will affects
-            both equivalence detection and content retrieval via the SNOMED CT hierarchies. Adding
+            errors, such as modeling incorrect parents for SNOMED CT concepts. This will affect both
+            equivalence detection and content retrieval via the SNOMED CT hierarchies. Adding
             disjoint content statements to the SNOMED CT definitions will assist both SNOMED CT
-            International and extension content creators by providing built in QA to prevent errors
+            International and extension content creators by providing built-in QA to prevent errors
             in assigning parents. The creation of these statements should focus on the upper level
             primitive hierarchies and their direct descendants. Assigning further statements may
             become more useful once the redesign of the concept model for the various hierarchies is

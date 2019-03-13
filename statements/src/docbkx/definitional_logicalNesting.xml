@@ -22,10 +22,10 @@
             post-coordinated expressions for years and are able to be represented as a part of the
             compositional grammar. </para>
         <para>However, SNOMED International is not currently permitting the use of nesting outside
-            of post-coordinated expressions. The rational as stated in the <link
+            of post-coordinated expressions. The rationale as stated in the <link
                 xlink:href="https://docs.google.com/document/d/1tqNEA6S4fEF4fgj15OPabYA2E0VTz8epxvRRwczKizQ/edit#heading=h.yijdvy700v01"
                 >SNOMED CT Logic Profile Enhancements document</link> is due to two main reasons
-            currently limiting the use of nested expression:</para>
+            currently limiting the use of nested expressions:</para>
         <para>
             <orderedlist>
                 <listitem>
@@ -50,21 +50,24 @@
             are easily represented in the compositional grammar syntax and OWL, they
             would require major changes to the SNOMED CT RF2 structure.</para>
         <para>The purpose of this study is to identify a sample of expressions that are not nested
-            and do not require nesting (see file named
-            “der2_Refset_SimpleSnapshot_VA1000161_20180531_No Nesting_readable”) and a sample of
-            expressions that should be nested and where a model for nesting (see
-            file named “der2_Refset_SimpleSnapshot_VA1000161_20180531_Nesting_readable”) is proposed. </para>
+            and do not require nesting
+            (<?oxy_comment_start author="steph" timestamp="20190313T140743-0600" comment="Are this file and the one referenced below going to be made available within the SIA document?  If not, should these references be deleted?"?>see<?oxy_comment_end?>
+            file named “der2_Refset_SimpleSnapshot_VA1000161_20180531_No Nesting_readable”) and a
+            sample of expressions that should be nested and where a model for nesting (see file
+            named “der2_Refset_SimpleSnapshot_VA1000161_20180531_Nesting_readable”) is proposed. </para>
     </section>
     <section>
         <title>Tooling</title>
         <para>termMed termSpace authoring tool was used to evaluate the proposed model for nesting.
             Additionally, the tool allowed for addition of alternate definitions to SNOMED CT
-            concepts and testing its effects. Although termSpace currently supports nesting, this
-            feature will be removed with the September 2018 US Release due to the Model Advisory
-            Group’s decision not to support nesting. One concern not to support nesting is the
-            notion that it would cause a Description Logic classifier to take longer to complete
-            classification. However, significant decrease in classification time using nested
-            expressions at a single level have not been seen.</para>
+            concepts and testing its effects.
+            <?oxy_comment_start author="steph" timestamp="20190313T142028-0600" comment="If this did happen, should this sentence be revised accordingly?"?>Although
+            termSpace currently supports nesting, this feature will be removed with the September
+            2018 US Release <?oxy_comment_end?>due to the Model Advisory Group’s decision not to
+            support nesting. One concern not to support nesting is the notion that it would cause a
+            Description Logic classifier to take longer to complete classification. However,
+            significant decrease in classification time using nested expressions at a single level
+            have not been seen.</para>
     </section>
     <section>
         <title>Pharmaceutical / Biological Concepts</title>
@@ -97,7 +100,7 @@
         <para>Our work on identifying Findings and Procedures that incorrectly use laterality has
             identified a set of concepts that are not currently modeled correctly due to a
             lateralized body structure not existing as a precoordinated concept. Rather than add
-            these concepts to an extension or submit them for addition they could easily use nested
+            these concepts to an extension or submit them for addition, they could easily use nested
             expressions to represent the missing body structure concepts that have a laterality
             attribute assigned to them.</para>
         <figure>
@@ -130,7 +133,7 @@
             down the need to request new body structure concepts or temporarily creating new
             concepts in local extensions that will have to be reconciled with each
             international/national release. Representation of package concepts using Nested
-            Expression was the chosen method rather than creating new concepts in an extension.
+            Expressions was the chosen method rather than creating new concepts in an extension.
             However, these concepts would be much better suited as a pre-coordinated concept in the
             international or national release as they have the potential to be used for data
             recording or retrieval. Any further uses of nesting outside of laterality would need to

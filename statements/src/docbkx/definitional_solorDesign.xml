@@ -2143,7 +2143,9 @@
                     
                     <section>
                         <title>All or part of Subtype Roles</title>
-                        <para>All or part of currently has one subtype role, Part of.</para>
+                        <para>All or part of currently has
+                            <?oxy_comment_start author="steph" timestamp="20190306T155557-0700" comment="Why isn&apos;t &quot;All&quot; also a subtype?  It seems to be inconsistent with how other subtypes were used.  For example, in  Phenomenon Relationships, the attribute of During AND/OR After had 2 subtypes, 1 for During and 1 for After."?>one
+                            subtype role, Part of.<?oxy_comment_end?></para>
                         <section>
                             <title>Proper part of</title>
                             <formalpara>
@@ -2889,8 +2891,8 @@
                                 <entry>Disposition (disposition)</entry>
                             </row>
                             <row>
-                                <entry>Is modification of</entry>
-                                <entry>None</entry>
+                                <entry><?oxy_comment_start author="steph" timestamp="20190311T122423-0600" comment="This is missing in the sub-section below"?>Is
+                                    modification of<?oxy_comment_end?></entry>
                                 <entry>Substance</entry>
                                 <entry>Substance (substance)</entry>
                             </row>
@@ -2979,7 +2981,8 @@
                     </tgroup>
                 </table>
                 <section>
-                    <title>Specimen procedure</title>
+                    <title><?oxy_comment_start author="steph" timestamp="20190311T122656-0600" comment="Shouldn&apos;t these be shown in the same order as they are in the table above?  All others have been shown that way."?>Specimen<?oxy_comment_end?>
+                        procedure</title>
                     <formalpara>
                         <title>Definition</title>
                         <para>Specimen procedure is used in the Specimen hierarchy to represent the
@@ -3037,7 +3040,9 @@
                     <formalpara>
                         <title>Definition</title>
                         <para>Specimen source topography is used in the Specimen hierarchy to
-                            specify the body structure from which the specimen was obtained.</para>
+                            specify the
+                            <?oxy_comment_start author="steph" timestamp="20190311T122855-0600" comment="Should this also include &quot;anatomical or acquired&quot; as it does in the table?"?>body<?oxy_comment_end?>
+                            structure from which the specimen was obtained.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
@@ -3069,7 +3074,8 @@
             </section>
 
             <section>
-                <title>Unspecified relationship types</title>
+                <title><?oxy_comment_start author="steph" timestamp="20190311T124517-0600" comment="Should these be shown in a table first, as was done in other sections?"?>Unspecified<?oxy_comment_end?>
+                    Relationship Types</title>
                 <section>
                     <title>Contained in</title>
                     <formalpara>

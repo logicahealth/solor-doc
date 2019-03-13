@@ -233,15 +233,6 @@
                                 <entry>Procedure (procedure)</entry>
                             </row>
                             <row>
-                                <entry morerows="1">During AND/OR after</entry>
-                                <entry morerows="1">Temporally related to</entry>
-                                <entry morerows="1">Clinical findings/Disorder</entry>
-                                <entry>Clinical finding (finding) OR</entry>
-                            </row>
-                            <row>
-                                <entry>Procedure (procedure)</entry>
-                            </row>
-                            <row>
                                 <entry>During</entry>
                                 <entry>During AND/OR after</entry>
                                 <entry>Clinical findings/Disorder</entry>
@@ -655,23 +646,28 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>The Associated morphology is useful in identifying the morphologic
+                            change associated with a disease.  This is usually grouped with a
+                            finding site to fully define a disease.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Elbow fracture (disorder) has an Associated morphology of Fracture
+                            (morphologic abnormality)</para>
                     </formalpara>
                 </section>
                 <section xml:id="section_87e359be-fce9-48a8-8be5-620410a0fe2f">
                     <title>Associated with</title>
-                    <para>The Associated with attribute is used to define Phenomenon to specify an association between two concepts that doesn't explicitly state a causal relationship. </para>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Associated with attribute is used to define Phenomenon to specify an
+                            association between two concepts that doesn't explicitly state a causal
+                            relationship. </para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>The Associated with attribute is useful to define higher level
+                            concepts that collect the various subtype attributes.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -696,7 +692,9 @@
                             </formalpara>
                             <formalpara>
                                 <title>Utility</title>
-                                <para>Describe why the role is useful here.</para>
+                                <para>The Causative agent attribute is useful to identify the cause
+                                    of a disease that correctly place the concept in the proper
+                                    hierarchy and aid in search and retreival of concepts.</para>
                             </formalpara>
                             <formalpara>
                                 <title>Example</title>
@@ -713,29 +711,27 @@
 "?>
                             <para>Welders asthma (disorder) has Causative agent of Welding fume
                                 (substance)<?oxy_comment_end?></para>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
-                            </formalpara>
                         </section>
                         <section xml:id="section_35002908-5e0d-44a7-9f12-8995f5f83eb7">
                             <title>Due to</title>
                             <formalpara>
                                 <title>Definition</title>
-                                <para>Due to is used to relate a Phenomenon directly with its cause.</para>
+                                <para>Due to is used to relate a Phenomenon directly with its causal
+                                    Phenomenon, Event or Procedure.  If the Phenomenon, Event, or
+                                    Procedure does not directly cause the disease then the parent
+                                    attribute of Associated with should be used instead.</para>
                             </formalpara>
                             <formalpara>
                                 <title>Utility</title>
-                                <para>Describe why the role is useful here.</para>
+                                <?oxy_comment_start author="timowilliams" timestamp="20190311T130134-0500" comment="Add Utility
+"?>
+                                <para>Describe why the role is useful
+                                    here.<?oxy_comment_end?></para>
                             </formalpara>
                             <formalpara>
                                 <title>Example</title>
                                 <para>Epilepsy due to cerebrovascular accident (disorder) has a Due
-                                    to relationship of Cerebrovascular accident (disorder).</para>
-                            </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
+                                    to relationship of Cerebrovascular accident (disorder)</para>
                             </formalpara>
                         </section>
                         <section xml:id="section_810578dc-6715-4ce1-9f6f-76e573029f31">
@@ -744,19 +740,18 @@
                                 <title>Definition</title>
                                 <para>Temporally related to is used in the Phenomenon hierarchy to
                                     specify the clinical entity occuring either before, during or
-                                    after a phenomenon.</para>
+                                    after a Phenomenon or Procedure.</para>
                             </formalpara>
                             <formalpara>
                                 <title>Utility</title>
-                                <para>Describe why the role is useful here.</para>
+                                <para>Temporally related to is a parent attribute that can be used
+                                    to describe a more general concept that will collect the
+                                    subtypes of Before or During AND/OR after.</para>
                             </formalpara>
                             <formalpara>
                                 <title>Example</title>
-                                <para>This attribute is currently not used to define a concept in SNOMED CT.  However the subtype attributes are used.</para>
-                            </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
+                                <para>This attribute is currently not used to define a concept in
+                                    Solor. However the subtype attributes are used.</para>
                             </formalpara>
                             <section>
                                 <title>Temporally related to Subtype Roles</title>
@@ -765,81 +760,61 @@
                                     <title>Before</title>
                                     <formalpara>
                                         <title>Definition</title>
-                                        <para>Insert definition here.</para>
+                                        <para>Before is used in the Phenomenon hierarchy to define
+                                            complications that occur prior to a procedure.</para>
                                     </formalpara>
                                     <formalpara>
                                         <title>Utility</title>
-                                        <para>Describe why the role is useful here.</para>
+                                        <?oxy_comment_start author="timowilliams" timestamp="20190311T131202-0500" comment="Add Utility
+"?>
+                                        <para>Describe why the role is useful
+                                        here.</para><?oxy_comment_end?>
                                     </formalpara>
                                     <formalpara>
                                         <title>Example</title>
-                                        <para>Give an example of correct use here.</para>
-                                    </formalpara>
-                                    <formalpara>
-                                        <title>Example of incorrect use</title>
-                                        <para>Give an example of incorrect use here.</para>
+                                        <para>This attribute is currently not used to define a
+                                            concept in Solor.</para>
                                     </formalpara>
                                 </section>
-                                <section>
-                                    <title>During AND/OR after</title>
+                                <section xml:id="section_7980b392-93d1-4c4f-9170-81282209aa76">
+                                    <title>After</title>
                                     <formalpara>
                                         <title>Definition</title>
-                                        <para>Insert definition here.</para>
+                                        <para>The After attribute is used to define Phenomenon that
+                                            occur after another Phenomenon or Procedure.</para>
                                     </formalpara>
                                     <formalpara>
                                         <title>Utility</title>
-                                        <para>Describe why the role is useful here.</para>
+                                        <para>After indicates a sequence of events and not
+                                            necessarily a cause.  If a cause is implied then a Due
+                                            to relationship should be used instead.</para>
                                     </formalpara>
                                     <formalpara>
                                         <title>Example</title>
-                                        <para>Give an example of correct use here.</para>
+                                        <para>Postablative testicular hypofunction (disorder) has an
+                                            After relationship of Testicular ablation
+                                            (procedure)</para>
+                                    </formalpara>
+                                </section>
+                                <section xml:id="section_043b6cac-b917-4e6e-bdc2-9f3f4cc66f3b">
+                                    <title>During</title>
+                                    <formalpara>
+                                        <title>Definition</title>
+                                        <para>The During attribute is used to define Phenomenon that
+                                            occur during another Phenomenon or Procedure.</para>
                                     </formalpara>
                                     <formalpara>
-                                        <title>Example of incorrect use</title>
-                                        <para>Give an example of incorrect use here.</para>
+                                        <title>Utility</title>
+                                        <para>During indicates a sequence of events and not
+                                            necessarily a cause.  If a cause is implied then a Due
+                                            to relationship should be used instead.</para>
                                     </formalpara>
-                                    <section>
-                                        <title>Subtype Roles</title>
-                                        <para>During AND/OR after has two subtype roles, During and After</para>
-                                        <section xml:id="section_043b6cac-b917-4e6e-bdc2-9f3f4cc66f3b">
-                                            <title>During</title>
-                                            <formalpara>
-                                                <title>Definition</title>
-                                                <para>Insert definition here.</para>
-                                            </formalpara>
-                                            <formalpara>
-                                                <title>Utility</title>
-                                                <para>Describe why the role is useful here.</para>
-                                            </formalpara>
-                                            <formalpara>
-                                                <title>Example</title>
-                                                <para>Give an example of correct use here.</para>
-                                            </formalpara>
-                                            <formalpara>
-                                                <title>Example of incorrect use</title>
-                                                <para>Give an example of incorrect use here.</para>
-                                            </formalpara>
-                                        </section>
-                                        <section xml:id="section_7980b392-93d1-4c4f-9170-81282209aa76">
-                                            <title>After</title>
-                                            <formalpara>
-                                                <title>Definition</title>
-                                                <para>Insert definition here.</para>
-                                            </formalpara>
-                                            <formalpara>
-                                                <title>Utility</title>
-                                                <para>Describe why the role is useful here.</para>
-                                            </formalpara>
-                                            <formalpara>
-                                                <title>Example</title>
-                                                <para>Give an example of correct use here.</para>
-                                            </formalpara>
-                                            <formalpara>
-                                                <title>Example of incorrect use</title>
-                                                <para>Give an example of incorrect use here.</para>
-                                            </formalpara>
-                                        </section>
-                                    </section>
+                                    <formalpara>
+                                        <title>Example</title>
+                                        <para>Intraoperative hemorrhage requiring transfusion
+                                            (disorder) has a During relationship of Surgical
+                                            procedure (procedure)</para>
+                                    </formalpara>
                                 </section>
                             </section>
                         </section>
@@ -849,15 +824,19 @@
                     <title>Clinical course</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Clinical course attribute is used in the Phenomenon hierarchy to
+                            represent both the course and onset of a disease.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Course and onset are two categorizations that are typically used in
+                            conjunction with each other though sometimes are considered separately.
+                            For example, sudden onset and short-term courses</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Chronic inflammatory demyelinating polyneuropathy (disorder) has a
+                            Clinical course of Chronic (qualifier value)</para>
                     </formalpara>
                     
                 </section>
@@ -865,15 +844,19 @@
                     <title>Characterizes</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Characterizes attribute is used in the Phenomenon hierarchy to
+                            specify the process the property describes and depends.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190312T080837-0500" comment="Add Utility
+"?>
+                        <para>Describe why the role is useful here.<?oxy_comment_end?></para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Heart rate measured at systemic artery (observable entity) has a
+                            Characterizes of Cardiac process (qualifier value)</para>
                     </formalpara>
                     
                 </section>   
@@ -881,15 +864,19 @@
                     <title>Component</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Component attribute is used in the Phenomenon hieararchy to
+                            specify the numerator of a relational property type.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190312T083838-0500" comment="Add Utility
+"?>
+                        <para>Describe why the role is useful here.<?oxy_comment_end?></para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Hepatitis antibody radioimmunoassay (procedure) has a Component of
+                            Hepatitis antibody (substance)</para>
                     </formalpara>
                     
                 </section>
@@ -897,15 +884,21 @@
                     <title>Direct site</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Direct site attribute is used in the Phenomenon hierarchy to
+                            define the direct and sometimes the indirect entity on which and
+                            observation is made.  An indirect site is allowed to be specified when a
+                            direct observation cannot be made.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190312T101310-0500" comment="Add Utility
+"?>
+                        <para>Describe why the role is useful here.</para><?oxy_comment_end?>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Heart rate measured at systemic artery (observable entity) has a
+                            Direct site of Systemic arterial structure (body structure)</para>
                     </formalpara>
                     
                 </section>
@@ -913,15 +906,21 @@
                     <title>Episodicity</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Episodicity attribute is used in the Phenomenon hierarchy to
+                            define the episode of care provided by a healthcare provider.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Episodicity is not used define the episode of disease experienced by
+                            the patient.  Episodicity is not currently used to define concepts in
+                            Solor, but can be used to define new concepts or post-coordinated
+                            expressions as needed.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Arthritis (disorder) with Episodicity = First episode (qualifier
+                            value) represents the firsttimethe patient presents to their healthcare
+                            provider with arthritis.</para>
                     </formalpara>
                     
                 </section>
@@ -929,15 +928,19 @@
                     <title>Finding informer</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Finding informer attribute is used to define the entity that
+                            informs about the clinical finding.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Finding informer is used to differentiate patient vs provider
+                            determined findings.  Finding informer is frequently grouped with
+                            Finding method.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Complaining of cough (finding) has a Finding informer of Subject of
+                            record or other provider of history (person)</para>
                     </formalpara>
                     
                 </section>
@@ -945,15 +948,18 @@
                     <title>Finding method</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Finding method attribute is used in the Phenomenon hierarchy to
+                            define the way a finding was determined.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Finding method is usually used in conjunction with the Finding
+                            informer attribute.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Finding of pulse taking by auscultation (finding) has a Finding method
+                            of Auscultation (procedure)</para>
                     </formalpara>
                     
                 </section>
@@ -961,15 +967,18 @@
                     <title>Finding site</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Finding site attribute is used in the Phenomenon hierarchy to
+                            define the body site affected.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190312T140705-0500" comment="Add Utility"?>
+                        <para>Describe why the role is useful here.<?oxy_comment_end?></para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Cervical lymph node abscess (disorder) has a Finding Site of Cervical
+                            lymph node structure (body structure)</para>
                     </formalpara>
                     
                 </section>
@@ -977,15 +986,7 @@
                     <title>Has definitional manifestation</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Retired</para>
                     </formalpara>
                     
                 </section>
@@ -993,15 +994,19 @@
                     <title>Has interpretation</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Has interpretation attribute is used in the Phenomenon hierarchy
+                            to define the judgement of the thing being evaluated or interpreted in
+                            the Interprets attribute.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Has interpretation is grouped together to with Interprets to represent
+                            what is being evaluated with its interpretation.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Electrocardiogram normal (finding) has a Has interpretation of Normal
+                            (qualifier value)</para>
                     </formalpara>
                     
                 </section>
@@ -1057,15 +1062,18 @@
                     <title>Interprets</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Interprets attribute is used in the Phenomenon hierarchy to define
+                            the entity being evaluated.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Interprets is grouped together to with Has Interpretation to represent
+                            what is being evaluated with its interpretation.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Electrocardiogram normal (finding) has an Interprets of
+                            Electrocardiographic procedure (procedure)</para>
                     </formalpara>
                     
                 </section>
@@ -1151,11 +1159,55 @@
                         <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    
+                </section>
+                <section>
+                    <title>Process agent</title>
+                    <formalpara>
+                        <title>Definition</title>
+                        <para>Insert definition here.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Utility</title>
+                        <para>Describe why the role is useful here.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Example</title>
+                        <para>Give an example of correct use here.</para>
+                    </formalpara>
+                </section>
+                <section>
+                    <title>Process duration</title>
+                    <formalpara>
+                        <title>Definition</title>
+                        <para>Insert definition here.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Utility</title>
+                        <para>Describe why the role is useful here.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Example</title>
+                        <para>Give an example of correct use here.</para>
+                    </formalpara>
+                </section>
+                <section>
+                    <title>Process output</title>
+                    <formalpara>
+                        <title>Definition</title>
+                        <para>Insert definition here.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Utility</title>
+                        <para>Describe why the role is useful here.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Example</title>
+                        <para>Give an example of correct use here.</para>
+                    </formalpara>
                 </section>
                 <section>
                     <title xml:id="title_647c5496-bad3-49f9-b075-205ce0a63355"
-                        ><?oxy_comment_start author="steph" timestamp="20190306T120022-0700" comment="In the table preceding this section, after &quot;Property&quot; and before &quot;Relative to&quot;, you have 3 other attributes that aren&apos;t listed here:  Process agent, Process duration, and Process output.  Should they be included here?"?>Relative<?oxy_comment_end?>
+                        ><?oxy_comment_start author="steph" timestamp="20190306T120022-0700" comment="In the table preceding this section, after &quot;Property&quot; and before &quot;Relative to&quot;, you have 3 other attributes that aren&apos;t listed here:  Process agent, Process duration, and Process output.  Should they be included here?" flag="done"?>Relative<?oxy_comment_end?>
                         to</title>
                     <formalpara>
                         <title>Definition</title>
@@ -1569,7 +1621,9 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190313T151824-0500" comment="Add Utility
+"?>
+                        <para>Describe why the role is useful here.<?oxy_comment_end?></para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -1581,15 +1635,18 @@
                     <title>Component</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>XXXX.</para>
+                        <para>The Component attribute is used in the Procedure hierarchy to
+                            represent what is being observed or measured.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>The Component attribute is used specificially to define Evaluation
+                            procedures.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>XXXXX</para>
+                        <para>Fluorescent antibody measurement (procedure) has a Component of
+                            Antibody (substance)</para>
                     </formalpara>
                     
                 </section>
@@ -1597,15 +1654,19 @@
                     <title>Direct substance</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Direct substance attribute is used in the Procedure hierarchy to
+                            represent the Substance or Medicine on which the procedure's method
+                            directly acts.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Medications are currently not used to define Procedures, but can be
+                            used in Extensions and Post-coordinated expressions.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Intra-amniotic prostaglandin instillation (procedure) has a Direct
+                            substance of Prostaglandin (substance)</para>
                     </formalpara>
                     
                 </section> 
@@ -1613,15 +1674,19 @@
                     <title>Has focus</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>Has focus is used in the Procedure hierarchy to define the focus of a
+                            procedure.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190313T161413-0500" comment="Add Utility
+"?>
+                        <para>Describe why the role is useful here.<?oxy_comment_end?></para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Viral screening (procedure) has a Has focus of Viral disease
+                            (disorder)</para>
                     </formalpara>
                     
                 </section>
@@ -1629,15 +1694,19 @@
                     <title>Has intent</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Has intent attribute is used in the Procedure hierarchy to define
+                            the intent of a procedure.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190313T163213-0500" comment="Add Utility
+"?>
+                        <para>Describe why the role is useful here.<?oxy_comment_end?></para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>Diagnostic procedure (procedure) has a Has intent of Diagnostic intent
+                            (qualifier value)</para>
                     </formalpara>
                     
                 </section>                
@@ -1645,7 +1714,8 @@
                     <title>Has specimen</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>Has specimen is used in the Procedure hierarchy to define the type of
+                            specimen a measurement or observation is performed.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
@@ -1737,10 +1807,6 @@
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
-                            </formalpara>
                         </section>
                         <section>
                             <title>Indirect device</title>
@@ -1756,10 +1822,6 @@
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
-                            </formalpara>
                         </section>
                         <section>
                             <title>Using device</title>
@@ -1774,10 +1836,6 @@
                             <formalpara>
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
-                            </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
                             </formalpara>
                             <section>
                                 <title>Subtype Roles</title>
@@ -1795,10 +1853,6 @@
                                     <formalpara>
                                         <title>Example</title>
                                         <para>Give an example of correct use here.</para>
-                                    </formalpara>
-                                    <formalpara>
-                                        <title>Example of incorrect use</title>
-                                        <para>Give an example of incorrect use here.</para>
                                     </formalpara>
                                 </section>
                             </section>
@@ -1837,10 +1891,6 @@
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
-                            </formalpara>
                         </section>
                         <section>
                             <title>Indirect morphology</title>
@@ -1855,10 +1905,6 @@
                             <formalpara>
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
-                            </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
                             </formalpara>
                         </section>
                     </section>
@@ -1895,10 +1941,6 @@
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
-                            </formalpara>
                         </section>
                         <section>
                             <title>Procedure site - Indirect</title>
@@ -1913,10 +1955,6 @@
                             <formalpara>
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
-                            </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
                             </formalpara>
                         </section>
                     </section>
@@ -2127,7 +2165,8 @@
                     </table>
                 
                 <section>
-                    <title>All or part of</title>
+                    <?oxy_comment_start author="timowilliams" timestamp="20190313T141241-0500" comment="All or part of and all of its subtypes are currently not used to define concepts in SCT.  They are not expected to be implemented until January 2020."?>
+                    <title>All or part of<?oxy_comment_end?></title>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>
@@ -2140,7 +2179,6 @@
                         <title>Example</title>
                         <para>Give an example of correct use here.</para>
                     </formalpara>
-                    
                     <section>
                         <title>All or part of Subtype Roles</title>
                         <para>All or part of currently has one subtype role, Part of.</para>
@@ -2157,10 +2195,6 @@
                             <formalpara>
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
-                            </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
                             </formalpara>
                             <section>
                                 <title>Proper part of Subtype Roles</title>
@@ -2180,10 +2214,6 @@
                                         <title>Example</title>
                                         <para>Give an example of correct use here.</para>
                                     </formalpara>
-                                    <formalpara>
-                                        <title>Example of incorrect use</title>
-                                        <para>Give an example of incorrect use here.</para>
-                                    </formalpara>
                                 </section>
                                 <section>
                                     <title>Regional part of</title>
@@ -2198,10 +2228,6 @@
                                     <formalpara>
                                         <title>Example</title>
                                         <para>Give an example of correct use here.</para>
-                                    </formalpara>
-                                    <formalpara>
-                                        <title>Example of incorrect use</title>
-                                        <para>Give an example of incorrect use here.</para>
                                     </formalpara>
                                     <section>
                                         <title>Regional part of Subtype Roles</title>
@@ -2221,10 +2247,6 @@
                                                 <title>Example</title>
                                                 <para>Give an example of correct use here.</para>
                                             </formalpara>
-                                            <formalpara>
-                                                <title>Example of incorrect use</title>
-                                                <para>Give an example of incorrect use here.</para>
-                                            </formalpara>
                                         </section>
                                     </section>
                                 </section>
@@ -2242,10 +2264,6 @@
                                         <title>Example</title>
                                         <para>Give an example of correct use here.</para>
                                     </formalpara>
-                                    <formalpara>
-                                        <title>Example of incorrect use</title>
-                                        <para>Give an example of incorrect use here.</para>
-                                    </formalpara>
                                 </section>
                             </section>
                         </section>
@@ -2262,18 +2280,17 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190312T153838-0500" comment="Add Utility
+"?>
+                        <para><?oxy_comment_end?>Laterality is useful for defining body structures
+                            that are symmetric to both sides of the body only.  There are currently
+                            no attributes used to represent sidedness that could define concepts
+                            like Structure of left side of heart (body structure).</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
                         <para>Structure of right knee region (body structure) has a Laterality of
                             Right (qualifier value)</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example of incorrect use</title>
-                        <para>Structure of right side of heart (body structure) should not have a
-                            Laterality since it describes a side of the heart and not a right
-                            heart.</para>
                     </formalpara>
                 </section>
             </section>
@@ -2340,11 +2357,14 @@
                     <title>Associated finding</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Links the Situation with explicit context concept to the related Phenomenon or Event</para>
+                        <para>Associated finding links the Situation with explicit context concept
+                            to the related Phenomenon or Event</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>The Associated finding attribute is used to link a Phenomenon or Event
+                            to the contextual information contained in the Finding context, Suject
+                            relationship context and Temporal context attributes.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -2356,12 +2376,16 @@
                     <title>Associated procedure</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Links the Situation with explicit context concept to the related Procedure</para>
+                        <para>Associated procedure links the Situation with explicit context concept
+                            to the related Procedure</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para/>
                     </formalpara>
+                    <para>The Associated procedure attribute is used to link a Procedure to the
+                        contextual information contained in the Procedure context, Suject
+                        relationship context and Temporal context attributes.</para>
                     <formalpara>
                         <title>Example</title>
                         <para>183985008 |Renal transplant planned (situation)| has an Associated procedure of Transplant of kidney (procedure)</para>
@@ -2376,7 +2400,8 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Finding context is used to define the contextual information about
+                            whether a Phenomenon or Event is known or unknown.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -2392,7 +2417,8 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Procedure context is used to define the contextual information about
+                            the status of a Procedure.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -2408,7 +2434,8 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Subject relationship context is useful for representing the contextual
+                            information regarding who the Procedure, Phenomenon, or Event is about.  </para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -2424,7 +2451,8 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Temporal context is useful for representing the contextual information
+                            regarding when a Procedure, Phenomenon, or Event occurred.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -2593,10 +2621,6 @@
                                 <title>Example</title>
                                 <para>Give an example of correct use here.</para>
                             </formalpara>
-                            <formalpara>
-                                <title>Example of incorrect use</title>
-                                <para>Give an example of incorrect use here.</para>
-                            </formalpara>
                             <section>
                                 <title>Has active ingredient Subtype Roles</title>
                                 <para>Has active ingredient has one subtype role to further define
@@ -2614,10 +2638,6 @@
                                     <formalpara>
                                         <title>Example</title>
                                         <para>Give an example of correct use here.</para>
-                                    </formalpara>
-                                    <formalpara>
-                                        <title>Example of incorrect use</title>
-                                        <para>Give an example of incorrect use here.</para>
                                     </formalpara>
                                 </section>
                             </section>
@@ -2906,14 +2926,33 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190312T164433-0500" comment="Add Utility
+"?>
+                        <para>Describe why the role is useful here.</para><?oxy_comment_end?>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
                         <para>Estradiol (substance) has a Has disposition of Estrogen
                             (disposition)</para>
                     </formalpara>
-                    
+                </section>
+                <section>
+                    <title>Is modification of</title>
+                    <formalpara>
+                        <title>Definition</title>
+                        <para>The Is modification of attirbute is used in the Substance hierarchy to define the structural modification of another concept</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Utility</title>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190312T164446-0500" comment="Add Utility
+"?>
+                        <para>Describe why the role is useful here.<?oxy_comment_end?></para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Example</title>
+                        <para>Rilmenidine phosphate (substance) has an Is modification of
+                            Rilmenidine (substance)</para>
+                    </formalpara>
                 </section>
             </section>
 
@@ -2987,7 +3026,8 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Specimen procedure is useful for defining Specimen concepts that are
+                            obtained by performing a procedure.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -3006,7 +3046,8 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Specimen source identity is useful for defining the entity from which
+                            a Specimen concepts was obtained.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -3024,7 +3065,8 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Specimen source morphology is useful for defining the morphologic
+                            change the Specimen concept was obtained from.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -3041,8 +3083,9 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
                     </formalpara>
+                    <para>Specimen source morphology is useful for defining the body structure the
+                        Specimen concept was obtained from.</para>
                     <formalpara>
                         <title>Example</title>
                         <para>Excised breast ectopic tissue sample (specimen) has a Specimen source
@@ -3058,7 +3101,8 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
+                        <para>Specimen substance is useful for defining the substance the Specimen
+                            concept is comprised of.</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -3102,51 +3146,6 @@
                 </section>      
                 <section>
                     <title>Observes</title>
-                    <formalpara>
-                        <title>Definition</title>
-                        <para>Insert definition here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example</title>
-                        <para>Give an example of correct use here.</para>
-                    </formalpara>
-                </section>
-                <section>
-                    <title>Procedure agent</title>
-                    <formalpara>
-                        <title>Definition</title>
-                        <para>Insert definition here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example</title>
-                        <para>Give an example of correct use here.</para>
-                    </formalpara>
-                </section>
-                <section>
-                    <title>Procedure duration</title>
-                    <formalpara>
-                        <title>Definition</title>
-                        <para>Insert definition here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example</title>
-                        <para>Give an example of correct use here.</para>
-                    </formalpara>
-                </section>
-                <section>
-                    <title>Procedure output</title>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>

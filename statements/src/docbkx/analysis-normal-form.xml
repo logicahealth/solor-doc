@@ -12,9 +12,9 @@
     <para>The goals of Analysis Normal Form (ANF) are to enable analysts to understand the data and
         how it is stored in lieu of having to teach them about the thousands of ways data can be
         entered (i.e., CIF), and to ensure the data we need expressed can be expressed in an
-        operable, scalable way. The more normalized the data, the simpler it is to analyze reducing
-        the likelihood of analysis errors. The probability of patient safety risks increases greatly
-        without the ANF. Examples of problems that can occur are: <itemizedlist>
+        operable, scalable way. The more normalized the data, the simpler it is to analyze, thus
+        reducing the likelihood of analysis errors. The probability of patient safety risks
+        increases greatly without the ANF. Examples of problems that can occur are: <itemizedlist>
             <listitem>
                 <para>An inability to determine that two clinical statements are equivalent</para>
                 <itemizedlist>
@@ -30,7 +30,6 @@
                     </listitem>
                 </itemizedlist>
             </listitem>
-
             <listitem>
                 <para>An inability to express something that is clinically significant</para>
                 <itemizedlist>
@@ -43,7 +42,6 @@
                     </listitem>
                 </itemizedlist>
             </listitem>
-
             <listitem>
                 <para>An error is made in recording or in querying a repository for clinical
                     statements</para>
@@ -66,16 +64,11 @@
                                     topic of “Administration of drug or medication PO BID for pain.”
                                     Thus, the medication order would not be included in the query
                                     results.</para>
-
-
                             </listitem>
                         </itemizedlist>
                     </listitem>
-
                 </itemizedlist>
             </listitem>
-
-
         </itemizedlist>
         <orderedlist numeration="upperalpha">
             <listitem>
@@ -101,24 +94,22 @@
                                     but not both. We can relax this principle for the Clinical Input
                                     Form (CIF) but for ANF we need a clean and invariant separation
                                     of concerns.</para>
-
                             </listitem>
                         </itemizedlist>
                     </listitem>
-
                     <listitem>
                         <para><emphasis role="bold">NOTE:</emphasis> Need to determine better names
                             for “concept definition” and “domain models.”</para>
                     </listitem>
                 </itemizedlist>
-
             </listitem>
         </orderedlist>
     </para>
     <section>
-        <title>Clinical Statements</title>
+        <title><?oxy_comment_start author="steph" timestamp="20190319T122237-0600" comment="This information has been previously stated and not sure why it&apos;s repeated here."?>Clinical<?oxy_comment_end?>
+            Statements</title>
         <para> A clinical statement represents an entry in the patient record that documents
-            clinical information <itemizedlist>
+            clinical information: <itemizedlist>
                 <listitem>
                     <para>about a subject of information, such as a patient or a relative of the
                         patient</para>
@@ -146,7 +137,7 @@
             </itemizedlist>
         </para>
         <section>
-            <title>Principles</title>
+            <title><?oxy_comment_start author="steph" timestamp="20190319T123842-0600" comment="Why are there principles for clinical statements in this section and in the section that follows the section titled Use case: Systolic BP while seated with feet on the floor for 5 minutes?  Why not have all the clinical statement principles in one section? "?>Principles<?oxy_comment_end?></title>
             <para>
                 <itemizedlist>
                     <listitem>
@@ -161,9 +152,12 @@
                                     medications.</para>
                             </listitem>
                             <listitem>
-                                <para><emphasis role="bold">Request for action</emphasis>, which may
-                                    include passive observation of a phenomenon related to patients
-                                    and their health status or family history, and active
+                                <para><emphasis role="bold">Request for action</emphasis>,
+                                    <?oxy_comment_start author="steph" timestamp="20190319T122822-0600" comment="What is the difference between this and the definition of performance of action above?  Why is this defined differently from how it&apos;s defined in the Statement Types section.  There, it&apos;s defined as shown below.  I think they should be consistent.  
+
+Request for action:  Requests for future actions may include defining goals, consultation with other providers, or active interventions.  "?>which<?oxy_comment_end?>
+                                    may include passive observation of a phenomenon related to
+                                    patients and their health status or family history, and active
                                     interventions, such as providing education or administering
                                     medications.</para>
                             </listitem>
@@ -171,7 +165,8 @@
                     </listitem>
                     <listitem>
                         <para><emphasis role="bold">Proposed Principle 2:</emphasis> Both types of
-                            clinical statements consist of topics and circumstances</para>
+                            clinical statements consist of topics and
+                            <?oxy_comment_start author="steph" timestamp="20190319T124804-0600" comment="Back when I was working on the ANF guidelines, I know we had many discussions re: usage of circumstances vs. details.  Is &quot;circumstances&quot; correct here?  I&apos;m a bit confused as to if it&apos;s relating to the same info that was shown earlier in the table for details."?>circumstances<?oxy_comment_end?></para>
                     </listitem>
                     <listitem>
                         <para><emphasis role="bold">Proposed Principle 3:</emphasis> Each clinical
@@ -187,7 +182,8 @@
 
     <section xml:id="section_0c80a3a9-6e1a-46ac-9644-a752cdd1eaa7">
         <title>Clinical Statement Components</title>
-        <para>separation</para>
+        <?oxy_comment_start author="steph" timestamp="20190319T124835-0600" comment="What is this here for?"?>
+        <para>separation<?oxy_comment_end?></para>
         <para>
             <table frame="all" rowsep="0" colsep="0"
                 xml:id="table_6e66c516-542f-4971-b663-03b1ea202f8a">
@@ -274,8 +270,10 @@
                                     <row>
                                         <entry colsep="0" rowsep="0" align="right">Priority:</entry>
                                         <entry namest="c2" nameend="c3" colsep="1" rowsep="1"
-                                                ><emphasis>[50811001 |Routine (qualifier
-                                                value)]</emphasis></entry>
+                                                ><emphasis>[50811001
+                                                |<?oxy_comment_start author="steph" timestamp="20190319T125145-0600" comment="This wasn&apos;t stated in the narrative.  Is it assumed that if it&apos;s not stated otherwise, it&apos;s routine priority?"?>Routine
+                                                (qualifier
+                                            value)]<?oxy_comment_end?></emphasis></entry>
                                     </row>
                                     <row>
                                         <entry colsep="1" rowsep="0" align="right"
@@ -292,7 +290,9 @@
                                     <row>
                                         <entry colsep="1" rowsep="0" align="right"/>
                                         <entry colsep="0" rowsep="0" align="right">Duration:</entry>
-                                        <entry colsep="1" rowsep="0" align="left">24 hours</entry>
+                                        <entry colsep="1" rowsep="0" align="left"
+                                            ><?oxy_comment_start author="steph" timestamp="20190319T125255-0600" comment="Again, this wasn&apos;t stated in the narrative.  Should it have been?  By stating it&apos;s only 24 hours, doesn&apos;t that mean the patient should only be taking the aspirin for 1 day, every 4-6 hours?  If yes, I don&apos;t know that based on the narrative."?>24
+                                            hours<?oxy_comment_end?></entry>
                                     </row>
                                     <row>
                                         <entry colsep="1" rowsep="0" align="right"/>
@@ -327,7 +327,8 @@
                                 <emphasis>[ISO 8601]</emphasis></entry>
                         </row>
                         <row>
-                            <entry>Stamp coordinate:</entry>
+                            <entry><?oxy_comment_start author="steph" timestamp="20190319T125454-0600" comment="Shouldn&apos;t this be in all caps?"?>Stamp
+                                <?oxy_comment_end?>coordinate:</entry>
                             <entry><emphasis>[Solor Module]</emphasis>, <emphasis>[Release
                                     Path]</emphasis>, 2007-04-05T14:30Z</entry>
                         </row>
@@ -380,30 +381,27 @@
                 <title>Participant</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/image3.png"  scalefit="1" width="100%" contentdepth="100%"
-                        />
+                        <imagedata fileref="images/image3.png" scalefit="1" width="100%"
+                            contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
             <para> Optional list of participants, e.g. “Healthcare professional”, “Nurse”</para>
         </section>
-
-
         <section>
-            <title>Participant Role</title>
+            <title><?oxy_comment_start author="steph" timestamp="20190319T125612-0600" comment="Should this and the section below for Participant Identifier be sub-sections of the Statement Authors section?"?>Participant<?oxy_comment_end?>
+                Role</title>
             <para>Optional role for participants, e.g. “Requester”.</para>
         </section>
         <section>
             <title>Participant Identifier</title>
             <para>Optional. UUID Identifier for the participant.</para>
         </section>
-
         <section>
             <title>Subject of Information </title>
             <para>Subject of Information is used to express <emphasis role="bold">WHO</emphasis> the
                 clinical statement is about, e.g. the patient or a family member.</para>
         </section>
-
         <section>
             <title>Statement Type</title>
             <para>Statement Type distinguishes between a performance (“performed”) and a request
@@ -414,18 +412,18 @@
                 not have to – include quantitative or qualitative results, e.g. “3 dot blot
                 hemorrhages” or “Hepatitis A antibody positive”. </para>
         </section>
-
         <section>
             <title>Topic</title>
-            
-            <para> The topic is the expression of <emphasis role="bold">WHAT</emphasis> is being
+            <para>The topic is the expression of <emphasis role="bold">WHAT</emphasis> is being
                 requested or what was performed. For both clinical statement types (request or
                 performance) a pre-coordinated or post-coordinated Solor “procedure” concept as a
                 logical expression is required to sufficiently capture the action, which is either
                 requested or performed. </para>
             <para>
-                <emphasis role="bold">Requests for actions</emphasis> are always procedures or
-                interventions: <itemizedlist>
+                <emphasis role="bold">Requests for actions</emphasis>
+                <?oxy_comment_start author="steph" timestamp="20190319T125834-0600" comment="What if it&apos; a request for a consult?  Is that considered an intervention?  If yes, may want to provide it as an example and/or clarify it in the definition of request for action.  Is a patient goal considered an intervention?"?>are
+                always procedures or interventions:<?oxy_comment_end?>
+                <itemizedlist>
                     <listitem>
                         <para>Stress echocardiogram</para>
                     </listitem>
@@ -471,28 +469,31 @@
                 </itemizedlist>
             </para>
         </section>
-
         <section>
             <title>Circumstance</title>
             <figure>
-                <title>Circumstance, including request, performance, and unstructured subtypes</title>
+                <title>Circumstance, including request, performance, and
+                    <?oxy_comment_start author="steph" timestamp="20190319T131046-0600" comment="This is the first time a type of unstructured for clinical statements has been mentioned.  Shouldn&apos;t it have been mentioned before when action and performance were mentioned?"?>unstructured<?oxy_comment_end?>
+                    subtypes</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/image4.png" scalefit="1" width="100%" contentdepth="100%"
-                        />
+                        <imagedata fileref="images/image4.png" scalefit="1" width="100%"
+                            contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
-            <para> Circumstances can describe <emphasis role="bold">HOW</emphasis>, <emphasis
-                    role="bold">WHY</emphasis> and <emphasis role="bold">WHEN</emphasis> a requested
-                or performed action will be or was carried out. Requests and performances have some
+            <para><?oxy_comment_start author="steph" timestamp="20190319T131218-0600" comment="Again, how is this different than the details/roles that were displayed in a table in the prior section?  Didn&apos;t they describe the when, how, and why?"?>Circumstances<?oxy_comment_end?>
+                can describe <emphasis role="bold">HOW</emphasis>, <emphasis role="bold"
+                    >WHY</emphasis> and <emphasis role="bold">WHEN</emphasis> a requested or
+                performed action will be or was carried out. Requests and performances have some
                 shared circumstances: <itemizedlist>
                     <listitem>
                         <para>Timing: <emphasis role="bold">WHEN</emphasis> a requested action
                             should be performed or <emphasis role="bold">WHEN</emphasis> an observed
-                            finding or disorder was present or absent. 
-                           
-                                <annotation><para>Section stubbed in - content needed to describe how ANF handles measurement of absence </para></annotation>
+                            finding or disorder was present or absent. <annotation>
+                                <para>Section stubbed in - content needed to describe how ANF
+                                    handles measurement of absence </para>
+                            </annotation>
                             <itemizedlist>
                                 <listitem>
                                     <para>Examples: <itemizedlist>
@@ -508,8 +509,10 @@
                             </itemizedlist></para>
                     </listitem>
                     <listitem>
-                        <para>Purpose: <emphasis role="bold">WHY</emphasis> an action was requested
-                            or performed <itemizedlist>
+                        <para>Purpose:
+                                <?oxy_comment_start author="steph" timestamp="20190319T131504-0600" comment="Isn&apos;t this the same as indication in the Detail/Roles table?"?><emphasis
+                                role="bold"><?oxy_comment_end?>WHY</emphasis> an action was
+                            requested or performed <itemizedlist>
                                 <listitem>
                                     <para>Examples: <itemizedlist>
                                             <listitem>
@@ -517,8 +520,10 @@
                                             </listitem>
                                             <listitem>
                                                 <para>Education about allergens for anaphylaxis
-                                                  management Other circumstances are specific to
-                                                  requests or performances.</para>
+                                                  management
+                                                  <?oxy_comment_start author="steph" timestamp="20190319T131540-0600" comment="I don&apos;t think this belongs at the end of the sentence but not sure where it belongs, maybe as a third bulleted item?"?>Other
+                                                  circumstances are specific to requests or
+                                                  performances.<?oxy_comment_end?></para>
                                             </listitem>
                                         </itemizedlist></para>
                                 </listitem>
@@ -532,11 +537,12 @@
                     <title>Request circumstance</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/image5.png" scalefit="1" width="100%" contentdepth="100%"/>
+                            <imagedata fileref="images/image5.png" scalefit="1" width="100%"
+                                contentdepth="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
-                <para> Request circumstance further specify <emphasis role="bold">HOW</emphasis> a
+                <para>Request circumstances further specify <emphasis role="bold">HOW</emphasis> a
                     requested action is to be performed, e.g. how often, how long or with which
                     category of priority. </para>
                 <section>
@@ -547,7 +553,8 @@
                     <title>Requested Participants</title>
                     <para>Requested participants can be either specific persons or roles who perform
                         an action, assist in performing an action or are targets of an action.
-                        <emphasis role="bold">Examples:</emphasis> <itemizedlist>
+                            <emphasis role="bold">Examples:</emphasis>
+                        <itemizedlist>
                             <listitem>
                                 <para>Cardiology consultation with Chief Cardiologist</para>
                             </listitem>
@@ -569,14 +576,15 @@
                         <title>Repetition</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="images/image6.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                <imagedata fileref="images/image6.png" scalefit="1" width="100%"
+                                    contentdepth="100%"/>
                             </imageobject>
                         </mediaobject>
                     </figure>
-                    <para> If an action is requested for more than a single occurrence, the
+                    <para>If an action is requested for more than a single occurrence, the
                         repetition allows to specify: <itemizedlist>
                             <listitem>
-                                <para> When the repeated action should begin (PeriodStart), e.g.
+                                <para>When the repeated action should begin (PeriodStart), e.g.
                                     NOW</para>
                             </listitem>
                             <listitem>
@@ -600,23 +608,28 @@
                 </section>
                 <section>
                     <title>Requested Result</title>
+                    <para>A requested result is a patient goal to be achieved or a request for
+                        action further specified or quantified. </para>
                     <para>
-                        A patient goal to be achieved or a request for action further specified or quantified.
+                        <emphasis role="bold">Examples:</emphasis>
                     </para>
-                    <para>
-                        <emphasis role="bold">Examples:</emphasis> </para><para> Narrative: Administration of Metoprolol tartrate 50 mg oral daily 2 times to lower <emphasis
-                            role="underline">systolic blood pressure to &lt;130 mmHg</emphasis>
-                    </para><para> Narrative: Diltiazem 30 mg, <emphasis role="underline">one tablet</emphasis> oral daily 4
-                        times </para>
+                    <para> Narrative: Administration of Metoprolol tartrate 50 mg oral daily 2 times
+                        to lower <emphasis role="underline">systolic blood pressure to &lt;130
+                            mmHg</emphasis>
+                    </para>
+                    <para> Narrative: Diltiazem 30 mg, <emphasis role="underline">one
+                            tablet</emphasis> oral daily 4 times </para>
                 </section>
             </section>
             <section xml:id="section_fd49869a-31cb-4f61-9c3e-958d8b1326c5">
                 <title>Performance Circumstance</title>
                 <figure>
-                    <title>Performance</title>
+                    <title>Performance
+                        <?oxy_comment_start author="steph" timestamp="20190319T133153-0600" comment="I added &quot;Circumstance.&quot;"?>Circumstance<?oxy_comment_end?></title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/image7.png" scalefit="1" width="100%" contentdepth="100%"/>
+                            <imagedata fileref="images/image7.png" scalefit="1" width="100%"
+                                contentdepth="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
@@ -625,9 +638,9 @@
                     <para>Result of diagnostic or observational procedures</para>
                     <para><emphasis role="bold">Examples:</emphasis></para>
                     <para>Narrative: Systolic blood pressure <emphasis role="underline">120
-                        mmHg</emphasis></para>
-                    <para>Narrative: Body weight <emphasis role="underline">165 pounds</emphasis></para>
-                    
+                            mmHg</emphasis></para>
+                    <para>Narrative: Body weight <emphasis role="underline">165
+                        pounds</emphasis></para>
                 </section>
                 <section>
                     <title>Performance Participants</title>
@@ -648,8 +661,8 @@
                 <title>Statement Association</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/image8.png" scalefit="1" width="100%" contentdepth="100%"
-                        />
+                        <imagedata fileref="images/image8.png" scalefit="1" width="100%"
+                            contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -691,7 +704,8 @@
         </section>
         <section>
             <title>KNART Types and Structure</title>
-            <para>Four types of KNARTs are described in the HL7 KNART Specification3): <itemizedlist>
+            <para>Four types of KNARTs are described in the HL7 KNART
+                Specification<?oxy_comment_start author="steph" timestamp="20190319T142025-0600" comment="Is this supposed to be a reference to the HL7 KNART specification?"?>3)<?oxy_comment_end?>: <itemizedlist>
                     <listitem>
                         <para>Documentation Template</para>
                     </listitem>
@@ -699,15 +713,16 @@
                         <para>Order Set</para>
                     </listitem>
                     <listitem>
-                        <para>Consultation Request</para>
+                        <para><?oxy_comment_start author="steph" timestamp="20190319T141941-0600" comment="This is not included in the HL7 KNART specification.  Rather, it was added as a new KNART for the work done in the CDS KNART project."?>Consultation
+                            Request<?oxy_comment_end?></para>
                     </listitem>
                     <listitem>
                         <para>Event Condition Action (ECA) Rule</para>
                     </listitem>
                 </itemizedlist>
             </para>
-            <para> The clinical content of each KNART is specific to clinical domains and
-                prioritized areas of focus within the domains. </para>
+            <para>The clinical content of each KNART is specific to clinical domains and prioritized
+                areas of focus within the domains. </para>
             <para> Example: <itemizedlist>
                     <listitem>
                         <para>Domain: Cardiology includes <itemizedlist>
@@ -724,7 +739,7 @@
                     </listitem>
                 </itemizedlist>
             </para>
-            <para> The “Composite KNART” for each of the clinical focus areas above is comprised of
+            <para>The “Composite KNART” for each of the clinical focus areas above is comprised of
                 at least the documentation template, the order set and the consultation request.
                 Many, but not all Composite KNARTs also have ECA rules. </para>
         </section>
@@ -739,9 +754,9 @@
         </section>
         <section>
             <title>Order Sets</title>
-            <para> Order sets are used to document requests for diagnostic or therapeutic procedures
+            <para>Order sets are used to document requests for diagnostic or therapeutic procedures
                 for the patient. As such, these requested procedures will occur at a future time. </para>
-            <para> Common categories for the ordered procedures include: <itemizedlist>
+            <para>Common categories for the ordered procedures include: <itemizedlist>
                     <listitem>
                         <para>Administration/Prescription/Dispensing of medications </para>
                     </listitem>
@@ -780,7 +795,9 @@
         </section>
         <section>
             <title>Consultation Request</title>
-            <para> Consult Requests are often relatively short KNARTs, which include <itemizedlist>
+            <para> Consult Requests are often relatively
+                <?oxy_comment_start author="steph" timestamp="20190319T142309-0600" comment="Recommend revising &quot;short&quot; to &quot;simple&quot;."?>short<?oxy_comment_end?>
+                KNARTs, which include <itemizedlist>
                     <listitem>
                         <para>Reason for Consult, e.g. chest pain</para>
                     </listitem>
@@ -801,7 +818,7 @@
         </section>
         <section>
             <title>ECA Rule</title>
-            <para> ECA Rules are used in Clinical Decision Support to trigger a defined action after
+            <para>ECA Rules are used in Clinical Decision Support to trigger a defined action after
                 a distinct event occurred. Example: Notify clinician if laboratory test result with
                 “abnormal” flag has been received. </para>
         </section> 
@@ -809,20 +826,20 @@
     </section>
     <section>
         <title>Terminology Service Request (TSR)</title>
-        <para> The clinical statements within a KNART, which have to be captured by standard
+        <para>The clinical statements within a KNART, which have to be captured by standard
             terminologies using a number of codes from e.g., SNOMED CT, RxNorm or LOINC are
-            represented in Terminology Service Requests (TSRs). One TSR contains a variable
-            number of Instance Requests (IRs), each of which represents a single clinical
-            statement. The format used to assemble and encode a TSR is a MS Excel spreadsheet
-            template. </para>
-        <para> The example below shows orders as they potentially appear in a KNART: <figure>
-            <title>Order Example (Cardiology Order Set)</title>
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="images/ANF_TSR_OS.png" scalefit="1" width="100%" contentdepth="100%"/>
-                </imageobject>
-            </mediaobject>
-        </figure>
+            represented in Terminology Service Requests (TSRs). One TSR contains a variable number
+            of Instance Requests (IRs), each of which represents a single clinical statement. The
+            format used to assemble and encode a TSR is a MS Excel spreadsheet template. </para>
+        <para>The example below shows orders as they potentially appear in a KNART: <figure>
+                <title>Order Example (Cardiology Order Set)</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/ANF_TSR_OS.png" scalefit="1" width="100%"
+                            contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
         </para>
         <para> The order from the KNART above appears in the TSR as an Instance Request: <figure>
             <title>Order Set Instance Request in TSR Template</title>
@@ -836,31 +853,33 @@
     </section>
     <section>
         <title>KNART Information Modeling Overview</title>
-        <para> The Analysis Normal Form (ANF) provides a set of guidelines to model clinical
+        <para>The Analysis Normal Form (ANF) provides a set of guidelines to model clinical
             statements. A clinical statement represents an entry in the patient record that
             documents in a structured/computable manner clinical information about a subject of
             information, such as a patient or a relative of the patient, and asserted by a
             particular source, recorded, and potentially verified. </para>
-        <para> The Analysis Normal Form (ANF) constitutes a model for defining the components of
-            data elements from KNARTs on a general level, independent of any specific
-            terminology. The ANF defines the principles, which distinguish the “topic” of
-            clinical statements from the “circumstances” of e.g., an action request. The topic
-            describes the “what” whereas the circumstances describe the “how”. </para>
-        <para> Details of the ANF model for clinical statements and their components have been
+        <para>The Analysis Normal Form (ANF) constitutes a model for defining the components of data
+            elements from KNARTs on a general level, independent of any specific terminology. The
+            ANF defines the principles, which distinguish the “topic” of clinical statements from
+            the “circumstances” of e.g., an action request. The topic describes the “what” whereas
+            the
+            <?oxy_comment_start author="steph" timestamp="20190319T142606-0600" comment="In the Circumstance section after the figure, it was previously said the circumstances also describe the when and why."?>circumstances
+            describe the “how”<?oxy_comment_end?>. </para>
+        <para>Details of the ANF model for clinical statements and their components have been
             discussed in previous sections of this document. </para>
     </section>
     <section>
         <title>Terminology Modeling Guidelines</title>
-        <para> The request and performance clinical statement types as described in the ANF Model
-            and Guidelines section of this document have a number of shared components. Other
-            components are specific to the statement type. The following sections will define the
-            terminology modeling principles for each component in detail. The choice of logical
-            expressions to use for each component is not always straightforward, and the terms in
-            the Solor terminologies are not always unambiguous in their semantic meaning. In
-            situations, where there may be more than one choice or more than one way to code a
-            clinical statement or one of its components, it is important to ensure consistency of
-            modeling approaches across clinical domains and clinical statements. </para>
-        <para> The following chapters will describe the terminology modeling guidelines based on the
+        <para>The request and performance clinical statement types as described in the ANF Model and
+            Guidelines section of this document have a number of shared components. Other components
+            are specific to the statement type. The following sections will define the terminology
+            modeling principles for each component in detail. The choice of logical expressions to
+            use for each component is not always straightforward, and the terms in the Solor
+            terminologies are not always unambiguous in their semantic meaning. In situations where
+            there may be more than one choice or more than one way to code a clinical statement or
+            one of its components, it is important to ensure consistency of modeling approaches
+            across clinical domains and clinical statements. </para>
+        <para>The following chapters will describe the terminology modeling guidelines based on the
             current ANF model and the current TSR template fields. The TSR template has two tabs for
             Instance Requests (IRs). One tab “request” contains IRs for requested actions, one tab
             “performance” contains IRs for performed actions. Both tabs have a number of fields in
@@ -892,9 +911,11 @@
             <title>subjectOfInformation (Request and Performance)</title>
             <para> Format: Logical Expression </para>
             <para>Terminology: SNOMED CT </para>
-            <para> Subject of information is in most cases the patient: 410604004 |Subject of record
-                (person)|. However, if the information is about, e.g. the patient’s mother or
-                another family member, it is not the patient. </para>
+            <para>Subject of information is in most cases the patient: 410604004 |Subject of record
+                (person)|.
+                <?oxy_comment_start author="steph" timestamp="20190319T143942-0600" comment="I reworded this sentence as it read awkwardly to me."?>However,
+                it may also be about someone other than the patient, e.g. the patient’s mother or
+                another family member. <?oxy_comment_end?></para>
             <para> Examples: 72705000 |Mother (person)|, 303071001 |Person in the family (person)|
             </para>
         </section>
@@ -905,11 +926,11 @@
                 different to a certain extent. </para>
             <para> Format: Logical Expression</para>
             <para> Terminology: Solor</para>
-            <para> The actual coding of the topic depends on the procedure requested or performed.
+            <para>The actual coding of the topic depends on the procedure requested or performed.
                 Generally, pre-coordinated or post-coordinated expressions are used.
                 Post-coordinated expressions can be “hybrids” and include terms from different
                 terminology standards (See Medication example below). </para>
-            <para> The pre-coordinated or post-coordinated expressions in the topic field are ALWAYS
+            <para>The pre-coordinated or post-coordinated expressions in the topic field are ALWAYS
                 procedures. </para>
         </section>
         <section>
@@ -1014,7 +1035,7 @@
                                             <listitem>
                                                 <para>To achieve consistency in the modeling
                                                   approach, instead of using the pre-coordinated
-                                                  concept above post-coordinate the body structure
+                                                  concept above, post-coordinate the body structure
                                                   and the laterality: </para>
                                                 <para>[241570001 |Computed tomography of lower limb
                                                   (procedure)]- </para>
@@ -1060,7 +1081,7 @@
             <title>Observational Procedures (Performance)</title>
             <para> In the “performance” tab of TSRs, many of the IRs pertain to the documentation of
                 findings or disorders. These are “observational” procedures, often documented within
-                “history and physical” sections of documentation templaWeaktes, which describe the
+                “history and physical” sections of documentation templates, which describe the
                 presence or absence of a finding or disorder. </para>
             <para> This category of IRs is always captured as a post-coordinated expression in the
                 topic field. </para>
@@ -1169,7 +1190,7 @@
                     </listitem>
                 </itemizedlist>
             </para>
-            <para> Using additional fields in the timing circumstance, depends upon the degree of
+            <para> Using additional fields in the timing circumstance depends upon the degree of
                 specificity within the IR. </para>
             <para> Example (unspecific): History of breast cancer </para>
             <para>
@@ -1304,7 +1325,9 @@
                     </listitem>
                 </itemizedlist>
             </para>
-            <para> Example (specific date): Completed Appointed on March 12 2018 with Cardiology </para>
+            <para> Example (specific date): Completed Appointed on March
+                <?oxy_comment_start author="steph" timestamp="20190319T150503-0600" comment="The day in the timing.lowerBound and .upperBound fields below is 19, not 12.  Need to make consistent."?>12<?oxy_comment_end?>,
+                2018 with Cardiology </para>
             <para>
                 <table frame="border" border="1">
                     <caption>Timing - specific date</caption>
@@ -1546,7 +1569,8 @@
             </para>
         </section>
         <section>
-            <title>repetition.period components</title>
+            <title><?oxy_comment_start author="steph" timestamp="20190319T152134-0600" comment="Why are the repetition.periodDuration components shown both here and also in a separate section below?  I think it&apos;s confusing and recommend including only the periodStart components in this section and renaming it.  That way, there&apos;s a specific section for each set of components."?>repetition.period
+                components<?oxy_comment_end?></title>
             <para>
                 <emphasis role="bold">Example IR:</emphasis> Naproxen sodium 550 mg tablet oral
                 every 12 hours as needed for back pain </para>

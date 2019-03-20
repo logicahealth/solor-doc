@@ -398,14 +398,15 @@
             <section>
                 <title>Querying OpenEHR Data</title>
 
-                <para>Although OpenEHR Templates may combine and further constraint Archetypes to
+                <para>Although OpenEHR Templates may combine and further constrain Archetypes to
                     enable purpose-specific data collection and data processing, the querying of
                     OpenEHR data need not consider the structure of any individual Templates that
                     were used to instantiate clinical observations. Rather, querying requires
                     knowledge of only the Archetypes, the underlying Reference Model, and any
-                    controlled terminologies used in the definition of Archetypes (See <xref
-                        linkend="_Ref474421318" xrefstyle="select:label"/> for a graphical
-                    representation of these dependencies).</para>
+                    controlled terminologies used in the definition of Archetypes (See
+                        <?oxy_comment_start author="steph" timestamp="20190318T113916-0600" comment="In the figure, unless this is a reference to a source other than VA, recommend revising spelling of &quot;artefacts&quot; to &quot;artifacts.&quot;  Also, the oval for Terminology Bindings probably should be brought to the front so it&apos;s not cutoff by the rectangle currently in front of it."?><xref
+                        linkend="_Ref474421318" xrefstyle="select:label"/><?oxy_comment_end?> for a
+                    graphical representation of these dependencies).</para>
 
                 <figure xml:id="_Ref474421318">
                     <title>Architectural components used in querying of OpenEHR data.</title>
@@ -455,9 +456,11 @@
                 extensible. However, the ultimate effectiveness of these EHR systems depends to a
                 great extent on the specific design of the clinical observation models they include.
                 As discussed, the same types of observations may be modeled in many different ways,
-                and the design choices made influence the ease and consistency with which the
-                clinical observation models can be used. This section discusses some of those
-                choices and the design criteria that should govern them.</para>
+                and the design choices made
+                <?oxy_comment_start author="steph" timestamp="20190318T114421-0600" comment="I think &quot;will&quot; should be added between &quot;made&quot; and &quot;influence.&quot;"?>influence<?oxy_comment_end?>
+                the ease and consistency with which the clinical observation models can be used.
+                This section discusses some of those choices and the design criteria that should
+                govern them.</para>
 
             <section>
                 <title>Clinical Observations in the Abstract</title>
@@ -552,7 +555,7 @@
                 <title>General Design Patterns for Clinical Observations</title>
 
                 <para>At least three general structural patterns may be considered for the design of
-                    clinical observation models, Assertion, Evaluation, and Belief:</para>
+                    clinical observation models:  Assertion, Evaluation, and Belief:</para>
 
                 <itemizedlist>
                     <listitem>
@@ -562,7 +565,7 @@
 
                         <itemizedlist spacing="compact">
                             <listitem>
-                                <para> Aspect = NULL </para>
+                                <para>Aspect = NULL </para>
                             </listitem>
                             <listitem>
                                 <para>Value = (Asthma, with type = intrinsic, with severity = mild,
@@ -588,7 +591,7 @@
 
                         <itemizedlist spacing="compact">
                             <listitem>
-                                <para> Aspect = Serum LDL Cholesterol </para>
+                                <para>Aspect = Serum LDL Cholesterol </para>
                             </listitem>
                             <listitem>
                                 <para>Value = (185, with units-of-measure = mmHg)</para>
@@ -615,7 +618,7 @@
                             specified. Examples:</para>
                         <itemizedlist spacing="compact">
                             <listitem>
-                                <para> Aspect = Diagnosis </para>
+                                <para>Aspect = Diagnosis </para>
                             </listitem>
                             <listitem>
                                 <para>Value = (Asthma, with type = intrinsic, with severity = mild,
@@ -625,8 +628,7 @@
 
                         <itemizedlist spacing="compact">
                             <listitem>
-                                <para> Aspect = Serum LDL Cholesterol, with Fasting-State = True
-                                </para>
+                                <para>Aspect = Serum LDL Cholesterol, with Fasting-State = True </para>
                             </listitem>
                             <listitem>
                                 <para>Value = (185, with units-of-measure = mg/dL)</para>
@@ -652,7 +654,8 @@
                 <para>Given that multiple design patterns exist for clinical observations, it’s
                     useful to consider design criteria that can guide modeling choice. Among the
                     best known criteria for designing clinical concepts are the properties of
-                    Understandability, Reproducibility, and Usability<footnote xml:id="__FN6__">
+                    Understandability, Reproducibility, and Usability (URU)<footnote
+                        xml:id="__FN6__">
                         <para>Walker D. GP Vocabulary Project—Stage 2 Report: SNOMED Clinical Terms
                             (SNOMED CT); November, 2004. Available from: <link
                                 xlink:href="https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd"
@@ -668,9 +671,13 @@
                     </listitem>
 
                     <listitem>
-                        <para><emphasis role="underline">Reproducibility</emphasis>: The retrieval
-                            and representation of the same concept should not vary according to the
-                            nature of the interface, user preferences, or the time of entry.</para>
+                        <para><emphasis role="underline"
+                                ><?oxy_comment_start author="steph" timestamp="20190318T121945-0600" comment="For readability and consistency purposes, I think it would be better if the Reproducibility and Usability were put in the positive vs. negative aspects, as Understandability is.  Possible revised wording is shown below.
+Reproducibility:  The retrieval and representation of the same concept should be consistent regardless of the nature of the interface, user preferences, or time of entry.
+Usability:  One should model concepts, concept properties, and distinction among concepts only for which there is current use in healthcare."?>Reproducibility<?oxy_comment_end?></emphasis>:
+                            The retrieval and representation of the same concept should not vary
+                            according to the nature of the interface, user preferences, or the time
+                            of entry.</para>
                     </listitem>
 
                     <listitem>
@@ -681,9 +688,9 @@
                 </itemizedlist>
 
                 <para>Among these criteria, reproducibility is arguably the most important in
-                    selecting optimal design pattern for clinical observations, because the property
-                    of reproducibility most influences the value of clinical observations as
-                        <emphasis>standardized</emphasis> representations of clinical information
+                    selecting an optimal design pattern for clinical observations, because the
+                    property of reproducibility most influences the value of clinical observations
+                    as <emphasis>standardized</emphasis> representations of clinical information
                     that can be shared by different software modules and information systems. As
                     illustrated in <xref linkend="_Ref474505861" xrefstyle="select:label"/>,
                     multiple software modules may use the same clinical observation models to
@@ -715,7 +722,8 @@
                     </mediaobject>
                 </figure>
 
-                <para><xref linkend="_Ref474689633" xrefstyle="select:label"/> shows a poorly
+                <para><xref linkend="_Ref474689633" xrefstyle="select:label"/> shows a
+                    <?oxy_comment_start author="steph" timestamp="20190318T123151-0600" comment="I think it would be helpful if this were followed by an example that showed the proper way to model this."?>poorly<?oxy_comment_end?>
                     designed clinical observation model that violates the reproducibility criterion.
                     Using this model, the family history of a particular problem or diagnosis could
                     be represented in two different ways, depending on the user’s preference. Such
@@ -777,7 +785,10 @@
                     </listitem>
                 </orderedlist>
 
-                <para>In net, option 2 may be the preferred approach. Modelers should allow for
+                <para><?oxy_comment_start author="steph" timestamp="20190318T123808-0600" comment="What does this mean...in summary?"?>In
+                    net<?oxy_comment_end?>,
+                    <?oxy_comment_start author="steph" timestamp="20190318T123734-0600" comment="I have to admit that given the ANF model and how simple it is, option 2 being the preferred option surprised me.  It may be due to my lack of understanding of all of this and how they relate to each other."?>option
+                    2 may be the preferred approach<?oxy_comment_end?>. Modelers should allow for
                     multiple design patterns, as needed, but strive for maximum standardization for
                     any specific type of observation (i.e., lab result versus symptom versus
                     diagnosis, etc.). Such an approach will enable maximum flexibility for modeling
@@ -795,14 +806,18 @@
             recorded, and potentially verified.</para>
         <para>Clinicians author clinical statements and enter them into their organization’s
             electronic health record (EHR). Clinicians typically input the information via a manner
-            that we call here the <emphasis>clinical input form (CIF)</emphasis>. However, the CIF
-            is not a literal form that clinicians select and enter data in. Rather, it refers to the
-            manner in which information is presented to the clinicians and how they input the data,
-            such as by constraining the information to allow only certain values to be entered, such
-            as through a drop-down list or radio button, or breaking up large chunks of related
-            information into smaller parts. For example, when a clinician orders a medication,
-            rather than selecting this information all at once with a single item, they will choose
-            the various parts of the medication order, such as:</para>
+            that we call here the
+                <emphasis><?oxy_comment_start author="steph" timestamp="20190319T163411-0600" comment="On 1/6/19, Joey Coyle sent an email to me and Keith recommended renaming CIF to something else.  He said &quot;In writing this I&apos;ve realized that current CIMI and all the models we do at Intermountain are not about clinical input.  In fact, we have found that these models are usually too post-coordinated for clinical input screens, and user facing applications have to use more pre-coordinated valuesets for the job at hand.  The application then deconstructs these codes into our more post-coordinated models.  The post-coordination is actually more for storage and consistent querying than it is for data input.&quot;
+
+I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to see if changes should be made as needed in this document based on Joey&apos;s recommendation."?>clinical
+                input form (CIF)<?oxy_comment_end?></emphasis>. However, the CIF is not a literal
+            form that clinicians select and enter data in. Rather, it refers to the manner in which
+            information is presented to the clinicians and how they input the data, such as by
+            constraining the information to allow only certain values to be entered, such as through
+            a drop-down list or radio button, or breaking up large chunks of related information
+            into smaller parts. For example, when a clinician orders a medication, rather than
+            selecting this information all at once with a single item, they will choose the various
+            parts of the medication order, such as:</para>
         <itemizedlist>
             <listitem>
                 <para>Kind of drug and strength (e.g., Acetaminophen 150 mg)</para>
@@ -812,7 +827,7 @@
                     twice daily)</para>
             </listitem>
             <listitem>
-                <para>Duration (2 days)</para>
+                <para>Duration (e.g., 2 days)</para>
             </listitem>
             <listitem>
                 <para>Any constraints (e.g., do not exceed a total daily dosage of 600 mg)</para>
@@ -829,7 +844,9 @@
             clinicians would see it in the user interface (i.e., CIF).</para>
         <itemizedlist>
             <listitem>
-                <para>Clinician collects data à Clinical Input Form</para>
+                <para>Clinician collects data
+                    <?oxy_comment_start author="steph" timestamp="20190318T124139-0600" comment="Is &quot;via&quot; or something similar supposed to be included here?  Is the &quot;a&quot; with the accent over it supposed to do that instead?  If yes, it&apos;s confusing to me.  Same comment for other 2 bullets below."?>à<?oxy_comment_end?>
+                    Clinical Input Form.</para>
             </listitem>
             <listitem>
                 <para>Data is normalized à Transformation process from CIF to ANF à
@@ -841,7 +858,7 @@
                 <para>Data analyst who is using or querying the data (e.g., creating a CDS rule or
                     working on prevalence statistics) à ANF (it is how the data is represented or
                     stored in the database; must know enough about the data to know what is stored
-                    in the topic vs. what is stored as a result or detail)</para>
+                    in the topic vs. what is stored as a result or detail).</para>
             </listitem>
         </itemizedlist>
         <table frame="topbot" rowsep="0" colsep="0"
@@ -904,15 +921,16 @@
                     xlink:href="#ge_solor_Insulin_dependent_diabetes_mellitus_type_1A_cc0759c3-623e-3417-badb-8dbad681e0f5"><inlinemediaobject>
                         <imageobject>
                             <imagedata>
+                                <?oxy_comment_start author="steph" timestamp="20190318T130906-0600" comment="The examples of topics shown here have a lot of white space shown after them in the PDF and it&apos;s distracting.  Recommend you just type the examples instead in a bulleted list."?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="242px" height="14px">
                                     <text x="1" y="7"
                                         style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
                                             >[<tspan dy="1.5"
                                             style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; "
                                             >&#xF2D8; </tspan>
-                                        <tspan dy="-1.5"/>Insulin dependent diabetes mellitus type
-                                        1 A]</text>
-                                </svg>
+                                        <tspan dy="-1.5"/>Insulin dependent diabetes mellitus type 1
+                                        A]</text>
+                                </svg><?oxy_comment_end?>
                             </imagedata>
                         </imageobject>
                     </inlinemediaobject></link>, <link
@@ -1001,14 +1019,17 @@
         </section>
 
         <section xml:id="section_12d7f603-3acd-4e35-b9b8-3f4994aa2d70">
-            <title>Understandable, Reproducible, and Useful</title>
-            <para>Given a narrative, fill out the form </para>
+            <title>Understandable, Reproducible, and
+                <?oxy_comment_start author="steph" timestamp="20190318T131224-0600" comment="Should this be Usable, to be consistent with prior section on URU, where it says it&apos;s:  Understandability, Reproducibility, and Usability?  Same where &quot;Useful&quot; is shown below."?>Useful<?oxy_comment_end?></title>
+            <para>Given a narrative, fill out the form. </para>
             <example xml:id="example_dc87fd7a-561e-4335-ae79-9bde3fb1fc05">
                 <title>Pulse observed to be 110</title>
                 <para>A patient tells their health-care provider that they had a <link
                         xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
                             <imageobject>
                                 <imagedata>
+                                    <?oxy_comment_start author="steph" timestamp="20190318T131339-0600" comment="1) Same a prior comment:  in the PDF there is a lot of white space in this and it&apos;s distracting and recommend just typing it.
+2) THere isn&apos;t anything in the narrative that states the pulse rate was 110 - shouldn&apos;t there be?"?>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="126px"
                                         height="14px">
                                         <text x="1" y="7"
@@ -1017,7 +1038,7 @@
                                                 style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; "
                                                 >&#xF060; </tspan>
                                             <tspan dy="-1.5"/>Pulse rate]</text>
-                                    </svg>
+                                    </svg><?oxy_comment_end?>
                                 </imagedata>
                             </imageobject>
                         </inlinemediaobject></link> on Monday, April 23rd at 9:15 am Pacific
@@ -1028,21 +1049,24 @@
                 <para>A health-care provider tells a patient that they would like their resting
                     pulse to be less than 70. </para>
             </example>
-            <para>In the case of a human interpretor, they can often believe that they understand a
-                statement, even when there is a great deal of information missing from the
-                statement. In the above example, it was probably assumed that the units used to
-                measure the blood pressure was mm/Hg, that the patient was at rest and seated, and
-                that the pressure was measured from a brachial artery, either the brachial artery in
-                the right arm, or the brachial artery in the left arm. </para>
-            <para>In a face-to-face interaction, statements can often be clarified to confirm
+            <para>In the case of a human
+                <?oxy_comment_start author="steph" timestamp="20190318T132121-0600" comment="Should this be spelled as &quot;interpreter&quot; instead?"?>interpretor<?oxy_comment_end?>,
+                they can often believe that they understand a statement, even when there is a great
+                deal of information missing from the statement. In the above example, it was
+                probably assumed that the units used to measure the blood pressure was mm/Hg, that
+                the patient was at rest and seated, and that the pressure was measured from a
+                brachial artery, either the brachial artery in the right arm, or the brachial artery
+                in the left arm. </para>
+            <para>In a face-to-face interaction, statements can often be clarified to
+                <?oxy_comment_start author="steph" timestamp="20190318T132219-0600" comment="What if assumed content isn&apos;t always correct?  Could it also deny it?"?>confirm<?oxy_comment_end?>
                 assumed content, and to ensure effective communication of information from the
                 creator to the interpretor. When recording statements for future interpretation,
                 such verification of assumed content cannot be performed. This inability to clarify
                 statements after the fact requires that statements sufficiently record the
                 circumstances necessary to reproducibly interpret the statement.</para>
+            <?oxy_comment_start author="steph" timestamp="20190318T132302-0600" comment="I don&apos;t think these empty paragraphs are needed."?>
+            <para/><?oxy_comment_end?>
             <para/>
-            <para/>
-
             <editorial-rule>
                 <title>Understandable</title>
                 <mathphrase>Editorial rules must be understandable to an editor or user simply by
@@ -1052,7 +1076,7 @@
             <editorial-rule>
                 <title>Reproducible</title>
                 <mathphrase>Independent observers encountering a topic and equivalent circumstances
-                    will record equivalent statements</mathphrase>
+                    will record equivalent statements.</mathphrase>
             </editorial-rule>
             <editorial-rule>
                 <title>Useful</title>
@@ -1060,13 +1084,12 @@
                     intended to support. </mathphrase>
             </editorial-rule>
             <para/>
-
-
         </section>
         <section xml:id="section_f73a5fd3-af2d-4e34-8a4b-3854a63e7ffd">
             <title>Structured Statement</title>
-            <para>Narrative: Pulse observed to be 100 bpm on Monday, April 23rd at 9:15 am Pacific
-                Standard Time</para>
+            <para>Narrative: Pulse observed to be 100 bpm on Monday,
+                <?oxy_comment_start author="steph" timestamp="20190318T132951-0600" comment="Need to add &quot;2018&quot; here and in the narrative below since you included it in Statement time."?>April
+                23rd <?oxy_comment_end?>at 9:15 am Pacific Standard Time</para>
             <para>Action Topic: Pulse</para>
             <para>Circumstance: facts or conditions relevant to an action; Two types of action:
                 request, performance</para>
@@ -1086,8 +1109,9 @@
                         <tbody>
                             <row>
                                 <entry>Narrative:</entry>
-                                <entry>Pulse observed to be 100 bpm on Monday, April 23rd at 9:15 am
-                                    Pacific Standard Time</entry>
+                                <entry>Pulse observed to be 100 bpm on Monday, April
+                                    <?oxy_comment_start author="steph" timestamp="20190318T132844-0600" comment="Need to add &quot;2018&quot; here since you showed it below in Statement time."?>23rd<?oxy_comment_end?>
+                                    at 9:15 am Pacific Standard Time</entry>
                             </row>
                             <row>
                                 <entry>Topic:</entry>
@@ -1156,7 +1180,7 @@
                             special value is the ability to later improve or modify one section of
                             code without having to know the details of the other sections, and
                             without having to make corresponding changes to those sections.</para>
-                        <para>The use of immutable objects (see principle B Immutability below) is a
+                        <para>The use of immutable objects (see Immutability principle below) is a
                             technique that fulfills the Separation of Concerns principle.</para>
                         <para>Attributes that describe specific semantic concepts should be grouped
                             together into a single class and not be spread across a number of
@@ -1275,9 +1299,11 @@
                             constraint (except for terminology binding and attribute type
                             constraints) as it violates proper decoupling and encapsulation. An
                             example of design by constraint is to create a single procedure class
-                            containing all attributes for all known procedures and constraining out
-                            irrelevant attributes in a more specialized model. This approach is very
-                            difficult to implement and violates numerous object-oriented best
+                            containing
+                            <?oxy_comment_start author="steph" timestamp="20190318T143951-0600" comment="Previously it was said that design by constraint should be avoided except for attribute type constraints.  Is the example here different from that?"?>all
+                            attributes<?oxy_comment_end?> for all known procedures and constraining
+                            out irrelevant attributes in a more specialized model. This approach is
+                            very difficult to implement and violates numerous object-oriented best
                             practices.</para>
                     </listitem>
                     <listitem>
@@ -1327,7 +1353,8 @@
 
                 <para>
                     <table frame="topbot" rowsep="0" colsep="0">
-                        <title>Pulse Measurement Statement</title>
+                        <title><?oxy_comment_start author="steph" timestamp="20190318T150005-0600" comment="For both Pulse Measurement and Pulse Request statements, why isn&apos;t the info for the rest of the fields included, as applicable, particularly Narrative and Topic?"?>Pulse<?oxy_comment_end?>
+                            Measurement Statement</title>
                         <tgroup cols="2" align="left">
                             <colspec colname="c1" colnum="1" colwidth="1*"/>
                             <colspec colname="c2" colnum="2" colwidth="3*"/>
@@ -1459,8 +1486,9 @@
                     </editorial-rule>
                     <editorial-rule>
                         <title>Include lower bound</title>
-                        <mathphrase>Indicate if the lower bound is within the interval represented
-                            by this measurement, or outside the interval represented by this
+                        <mathphrase><?oxy_comment_start author="steph" timestamp="20190318T151038-0600" comment="Recommend revising sentence to:  Indicate if the lower bound is withi or outside the interval represented by this measurement.  Same for Include upper bound below."?>Indicate<?oxy_comment_end?>
+                            if the lower bound is within the interval represented by this
+                            measurement, or outside the interval represented by this
                             measurement.</mathphrase>
                     </editorial-rule>
                     <editorial-rule>
@@ -1488,7 +1516,7 @@
             <title>Statement Types</title>
             <para>The types of clinical statements are listed and described below. The rationale for
                 selecting these types is: Clinicians basically do two categories of things with a
-                patient that need to be documented as clinical statements: </para>
+                patient that need to be documented as clinical statements.</para>
             <orderedlist>
                 <listitem>
                     <para><emphasis role="bold">Performance of action</emphasis>: Actions may
@@ -1506,10 +1534,12 @@
             </orderedlist>
             <para><emphasis role="bold">NOTE: </emphasis>Given that this work is not finalized yet,
                 it is possible that additional clinical statement types may need to be added in the
-                event during creation of the KNARTs there are clinical terminology artifacts
+                event
+                <?oxy_comment_start author="steph" timestamp="20190318T152038-0600" comment="Since that contract ended and apparently did not result in identifying new statement types that are needed, should this sentence be revised?"?>during
+                creation of the KNARTs<?oxy_comment_end?> there are clinical terminology artifacts
                 identified that do not fit into any of the types listed above.</para>
             <para>Any statement that states or implies an “if/then” clause should be expressed and
-                captured as an ECA rule</para>
+                captured as an Event Condition Action (ECA) rule.</para>
             <para>Example: </para>
             <itemizedlist>
                 <listitem>
@@ -1657,13 +1687,13 @@
             <para>The following components are used in multiple places within clinical statements. </para>
             <para/>
             <section xml:id="section_a4879816-b718-4def-80a1-926f2850f40e">
-                <title>Stamp Coordinate</title>
-                <para>The stamp coordinate represents the versions of the integrated terminology and
+                <title><?oxy_comment_start author="steph" timestamp="20190318T152743-0600" comment="I changed this to all caps since that&apos;s how it&apos;s referred to previously."?>STAMP<?oxy_comment_end?>
+                    Coordinate</title>
+                <para>The STAMP coordinate represents the versions of the integrated terminology and
                     statement model used to represent a clinical statement. </para>
             </section>
             <section xml:id="_Ref493843805">
                 <title>Phenomena and Interval Values</title>
-
                 <para>In many representation models, such as SNOMED-CT and CIMI, a somewhat
                     arbitrary distinction exists between the modeling of “Findings” and “Observable
                     Entities.” The former typically document the presence or absence of some
@@ -1705,15 +1735,17 @@
                     modeled as either a Finding or Observable Entity, any subsequent query to
                     determine whether a patient had a pressure ulcer would need to test for the
                     observation in two different ways:</para>
-                <para> Because the observation of pressure ulcers<link
+                <para><?oxy_comment_start author="steph" timestamp="20190318T153036-0600" comment="This paragraph doesn&apos;t make sense.  It also seems partially redundant of the paragraph above it."?>Because
+                    the observation of pressure ulcers<link
                         xlink:href="#con_224b97e0-b703-39f6-ba4b-aa27f5dc15aa"><inlinemediaobject>
                             <imageobject>
                                 <imagedata>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="126px"
                                         height="14px">
+                                        <?oxy_comment_start author="steph" timestamp="20190318T152917-0600" comment="Same as prior comment.  Recommend just typing this here."?>
                                         <text x="1" y="7"
                                             style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
-                                                >[<tspan dy="1.5"
+                                                ><?oxy_comment_end?>[<tspan dy="1.5"
                                                 style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; "
                                                 >&#xF061; </tspan>
                                             <tspan dy="-1.5"/>Tetralogy of Fallot]</text>
@@ -1736,9 +1768,9 @@
                                     </svg>
                                 </imagedata>
                             </imageobject>
-                        </inlinemediaobject></link> Text after. any subsequent query to determine
-                    whether a patient had a pressure ulcer would need to test for the observation in
-                    two different ways </para>
+                        </inlinemediaobject></link> Text after.<?oxy_comment_end?> any subsequent
+                    query to determine whether a patient had a pressure ulcer would need to test for
+                    the observation in two different ways </para>
                 <para><emphasis>IF EXISTS object WHERE object.conceptId = “3456_PressureUlcers” AND
                         (object.value = “Present” OR object.value &gt; 0)</emphasis></para>
                 <para>This duality of representation complicates data querying and significantly
@@ -1746,15 +1778,14 @@
                     for all the ways that an observation may be represented, resulting in
                     false-negative query results.</para>
                 <para>To resolve the arbitrary distinction between “Findings” and “Observable
-                    Entities,” one must consolidate these redundant concepts types into the single
+                    Entities,” one must consolidate these redundant concept types into the single
                     concept type “Phenomenon.” Further, one must introduce a new data type to
                     represent the values of Phenomena, one that can express both the “presence”
                     (present/absent/indeterminate) and numeric (integer, real) values that Findings
                     and Observable Entities can currently represent, respectively. This new data
-                    type is an “interval value” </para>
+                    type is an “interval value.” </para>
                 <para/>
                 <section>
-
                     <title>The Interval Value Data Type</title>
                     <para>An interval value data type (or “interval value”) formally represents a
                         numeric interval between two non-negative real numbers. The interval can be
@@ -1792,9 +1823,9 @@
                         denotes the value “absent”. Any interval value that includes
                             <emphasis>both</emphasis> the number 0 and at least one number &gt; 0
                         denotes the value “indeterminate”. Lastly, there are two interval values
-                        that explicitly denote “present” and “absent,” respectively. These value may
-                        be assigned to phenomena that would not otherwise take on a numeric value
-                        (such as “nausea”):</para>
+                        that explicitly denote “present” and “absent,” respectively. These values
+                        may be assigned to phenomena that would not otherwise take on a numeric
+                        value (such as “nausea”):</para>
                     <para>Nausea value = (0,∞] : present</para>
                     <para>Nausea value = [0,0] : absent </para>
                     <para><xref linkend="_Ref493768774"/> lists a number of phenomena and how their
@@ -1848,14 +1879,14 @@
                     <para><emphasis>IsWithin</emphasis>( [15,20], [0,10] ) =&gt; FALSE (interval
                             i<subscript>2</subscript> “is disjoint with” interval
                             i<subscript>1</subscript>)</para>
-                    <para><emphasis>IsWithin</emphasis>( [5,15], [0,10] ) =&gt; UNKNOWN (interval
-                            i<subscript>2</subscript> “overlaps” interval
-                        i<subscript>1</subscript>)</para>
+                    <para><emphasis><?oxy_comment_start author="steph" timestamp="20190319T095940-0600" comment="Why wouldn&apos;t this be false vs. unknown since upperbound for interval2 is 10 vs. 15?"?>IsWithin<?oxy_comment_end?></emphasis>(
+                        [5,15], [0,10] ) =&gt; UNKNOWN (interval i<subscript>2</subscript>
+                        “overlaps” interval i<subscript>1</subscript>)</para>
                     <para>Other useful examples:</para>
                     <para><emphasis>IsWithin( [2,2], (0,</emphasis>∞<emphasis>] ) =&gt;
                             TRUE</emphasis></para>
-                    <para><emphasis>IsWithin( [0,2], (0,</emphasis>∞<emphasis>] ) =&gt; UNKNOWN
-                        </emphasis></para>
+                    <para><emphasis><?oxy_comment_start author="steph" timestamp="20190319T095750-0600" comment="Again, I definitely am not a mathematician and am just trying to understand this.  Why is this unknown vs. false since the interval2 excluded 0 and interval1 includes it?"?>IsWithin<?oxy_comment_end?>(
+                            [0,2], (0,</emphasis>∞<emphasis>] ) =&gt; UNKNOWN </emphasis></para>
                     <para><emphasis>IsWithin( (0,2], (0,</emphasis>∞<emphasis>] ) =&gt;
                             TRUE</emphasis></para>
                     <para><emphasis>IsWithin( [0,0], (0,</emphasis>∞<emphasis>] ) =&gt;
@@ -1868,8 +1899,6 @@
                 <para>Based on the definition of the IsWithin() predicate, patient records may be
                     queried for the presence or the numeric value of clinical observations using a
                     single formalism.</para>
-
-
                 <section xml:id="section_4ba31e20-94ae-4d32-86a6-0d16fe45b3a9">
                     <title>UUID</title>
                     <para>The UUID is the means by which all clinical statement items that require
@@ -1879,28 +1908,30 @@
                     <title>Logical Expression</title>
                 </section>
                 <section xml:id="section_d77f3cb2-b433-4811-acee-39c70e475f67">
-                    <title>Stamp Coordinate</title>
+                    <title>STAMP Coordinate</title>
                 </section>
             </section>
             <section xml:id="section_55e57c1b-49ed-47b3-8e74-b443103c0af8">
                 <title>Compound Statements</title>
                 <section xml:id="section_2beebad7-bd18-4e6d-8228-f67220a7750a">
-                    <title>Use case: Systolic BP while seated with feet on the floor for 5
-                        minutes</title>
-                    <bridgehead renderas="sect1">Principles</bridgehead>
+                    <title>Use case: Systolic BP while seated with
+                        <?oxy_comment_start author="steph" timestamp="20190319T102044-0600" comment="This is nit picky but the use case only says seated and doesn&apos;t specify feet on the floor.  I am short and can be seated but not have feet on the floor, such as when I&apos;m sitting on the exam table having my BP checked and my feet don&apos;t reach."?>feet<?oxy_comment_end?>
+                        on the floor for 5 minutes</title>
+                    <bridgehead renderas="sect1"
+                        ><?oxy_comment_start author="steph" timestamp="20190319T100537-0600" comment="Should this be under a numbered section heading?"?>Principles<?oxy_comment_end?></bridgehead>
                     <itemizedlist>
                         <listitem>
                             <para><emphasis role="bold">Proposed Principle 1:</emphasis> Clinical
                                 statements have separable and inseparable components; clinical
                                 statements with separable components are considered
-                                    <emphasis>compound</emphasis> clinical statements</para>
+                                    <emphasis>compound</emphasis> clinical statements.</para>
                         </listitem>
                         <listitem>
                             <para><emphasis role="bold">Proposed Principle 2:</emphasis> Separable
                                 components are statements, which require a value. </para>
                             <itemizedlist>
                                 <listitem>
-                                    <para>The values can be </para>
+                                    <para>The values can be: </para>
                                     <itemizedlist>
                                         <listitem>
                                             <para>numerical </para>
@@ -1917,21 +1948,21 @@
                         </listitem>
                         <listitem>
                             <para><emphasis role="bold">Proposed Principle 3:</emphasis> Clinical
-                                statements with values can stand alone</para>
+                                statements with values can stand alone.</para>
                         </listitem>
                         <listitem>
                             <para><emphasis role="bold">Proposed Principle 4:</emphasis> Clinical
                                 statements with present/absent values can be components that play a
-                                role in the focus of the statement</para>
+                                role in the focus of the statement.</para>
                         </listitem>
                         <listitem>
-                            <para><emphasis role="bold">Proposed Principle 4:</emphasis> Inseparable
-                                components of clinical statements do not require values</para>
+                            <para><emphasis role="bold">Proposed Principle 5:</emphasis> Inseparable
+                                components of clinical statements do not require values.</para>
                         </listitem>
                     </itemizedlist>
                     <para>Compound clinical statements with separable components should be
-                        represented as “panels”, with each separable clinical statement as a “stand
-                        alone” statement, which can be referenced by multiple “panels”.</para>
+                        represented as “panels,” with each separable clinical statement as a “stand
+                        alone” statement, which can be referenced by multiple “panels.”</para>
                     <para><emphasis role="bold">Examples:</emphasis></para>
                     <table xml:id="table_87bc807a-743b-4148-a89f-8daf97b8f242">
                         <title>Separable/Inseparable Statements - Blood Pressure Measurement Use
@@ -2139,10 +2170,11 @@
                             <para>Warm skin = present</para>
                         </listitem>
                     </itemizedlist>
-                    <para>Other components, such as <emphasis>right brachial artery</emphasis> or
-                            <emphasis>adult BP cuff</emphasis> in the BP measurement use case are
-                        considered separable, although they may appear to be able to stand alone and
-                        have values of present/absent.</para>
+                    <para>Other components, such as <emphasis>right brachial artery</emphasis> and
+                            <emphasis>adult BP cuff</emphasis> in the BP measurement use case
+                        <?oxy_comment_start author="steph" timestamp="20190319T101541-0600" comment="This contradicts what is shown in the table above, that clearly has them labeled as inseparable components."?>are
+                        considered separable<?oxy_comment_end?>, although they may appear to be able
+                        to stand alone and have values of present/absent.</para>
                     <para><emphasis>Example </emphasis><emphasis role="underline"
                                 ><emphasis>action</emphasis></emphasis><emphasis> statement:
                             </emphasis>Systolic<emphasis> </emphasis>BP 120 mmHg taken on right
@@ -2335,7 +2367,8 @@
                                     </row>
                                     <row>
                                         <entry valign="middle">
-                                            <para>Body position</para>
+                                            <para><?oxy_comment_start author="steph" timestamp="20190319T102442-0600" comment="Again in the BP use case example, body position (sitting) was shown as inseparable.  Not sure if right brachial artery is considered approach/access route but if yes, then it too was shown in the example as inseparable vs. separable."?>Body
+                                                position<?oxy_comment_end?></para>
                                         </entry>
                                         <entry valign="middle">
                                             <para>Position of the body during a
@@ -2633,8 +2666,9 @@
                                             <para>Device used</para>
                                         </entry>
                                         <entry valign="middle">
-                                            <para>Device used to perform something, such as using a
-                                                BP cuff to measure blood pressure </para>
+                                            <para><?oxy_comment_start author="steph" timestamp="20190319T104135-0600" comment="Again, in the BP use case, the adult BP cuff was shown as an inseparable component."?>Device
+                                                used to perform something, such as using a BP cuff
+                                                to measure blood pressure <?oxy_comment_end?></para>
                                         </entry>
                                         <entry align="center" valign="middle">
                                             <para>no</para>
@@ -2826,7 +2860,9 @@
                                     </itemizedlist>
                                 </listitem>
                                 <listitem>
-                                    <para><emphasis role="bold">Role: Body Site</emphasis></para>
+                                    <para><emphasis role="bold">Role:
+                                            <?oxy_comment_start author="steph" timestamp="20190319T104600-0600" comment="Body Site was not included in the Details table above.  Should it have been?"?>Body
+                                            Site<?oxy_comment_end?></emphasis></para>
                                     <itemizedlist>
                                         <listitem>
                                             <para>The body site of a finding or a procedure</para>
@@ -2906,7 +2942,9 @@
                                     <itemizedlist>
                                         <listitem>
                                             <para>How often something must be done, such as daily,
-                                                twice per day or once in a 24-hour period.</para>
+                                                twice per day or
+                                                <?oxy_comment_start author="steph" timestamp="20190319T105008-0600" comment="How is this different from daily, which is already shown as an example?"?>once
+                                                in a 24-hour period<?oxy_comment_end?>.</para>
                                             <itemizedlist>
                                                 <listitem>
                                                   <para>Chest x-ray <emphasis>once daily</emphasis>
@@ -2966,7 +3004,9 @@
                                     </itemizedlist>
                                 </listitem>
                                 <listitem>
-                                    <para><emphasis role="bold">Role: Dose Form</emphasis></para>
+                                    <para><emphasis role="bold">Role:
+                                            <?oxy_comment_start author="steph" timestamp="20190319T105154-0600" comment="This wasn&apos;t shown in the Details table above.  Should it have been?"?>Dose
+                                            Form<?oxy_comment_end?></emphasis></para>
                                     <itemizedlist>
                                         <listitem>
                                             <para>The form of preparation of a medication</para>
@@ -3081,8 +3121,9 @@
                                     </itemizedlist>
                                 </listitem>
                                 <listitem>
-                                    <para><emphasis role="bold">Role: Family
-                                        Member</emphasis></para>
+                                    <para><emphasis role="bold">Role:
+                                            <?oxy_comment_start author="steph" timestamp="20190319T110005-0600" comment="This one was also not shown in the table.  If the table wasn&apos;t all-inclusive, I think it would be best to show only examples in this section for details that were shown in the table, to avoid confusion."?>Family
+                                            Member<?oxy_comment_end?></emphasis></para>
                                     <itemizedlist>
                                         <listitem>
                                             <para>Blood relative of the patient, such as mother,
@@ -3114,7 +3155,7 @@
                                                 </listitem>
                                                 <listitem>
                                                   <para>Bedside blood sugar measurement reported by
-                                                  nurse</para>
+                                                  <?oxy_comment_start author="steph" timestamp="20190319T110057-0600" comment="This should be shown in italic font."?>nurse<?oxy_comment_end?></para>
                                                 </listitem>
                                             </itemizedlist>
                                         </listitem>
@@ -3154,8 +3195,9 @@
             </section>
             <section>
                 <title>Statement Models</title>
-                <para>Analysis normal form and clinical input form</para>
-            </section>
+                <para><?oxy_comment_start author="steph" timestamp="20190319T110646-0600" comment="Is this a placeholder until more information can be provided?  It&apos;s not a complete sentence."?>Analysis
+                    normal form and clinical input form</para>
+            </section><?oxy_comment_end?>
         </section>
         <section xml:id="section_74f143a7-6834-4d5e-9991-b7c87a6eb276">
             <title>Validation</title>
@@ -3166,13 +3208,13 @@
                             applied in the field. </para>
                     </listitem>
                     <listitem>
-                        <para>To provide information on how clinical statements will be modeled for
-                            the KBS Clinical Decision Support (CDS) Knowledge Artifact (KNART)
-                            project. Once the models are approved, model slots bound to
-                            terminologies will be identified for subsequent terminology binding
-                            definitions proposed by the VA Terminology Team. Modeling of clinical
-                            statements outside of the CDS KNART project is currently beyond the
-                            scope of this effort.</para>
+                        <para><?oxy_comment_start author="steph" timestamp="20190319T110739-0600" comment="WIll this section be updated since the KNART project is over?"?>To<?oxy_comment_end?>
+                            provide information on how clinical statements will be modeled for the
+                            KBS Clinical Decision Support (CDS) Knowledge Artifact (KNART) project.
+                            Once the models are approved, model slots bound to terminologies will be
+                            identified for subsequent terminology binding definitions proposed by
+                            the VA Terminology Team. Modeling of clinical statements outside of the
+                            CDS KNART project is currently beyond the scope of this effort.</para>
                         <para>These modeling guidelines were derived from several documented use
                             cases. The main goal of this effort is to provide a reproducible and a
                             principled approach to the formal capture of clinical knowledge within

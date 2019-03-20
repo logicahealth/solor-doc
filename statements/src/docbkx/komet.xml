@@ -3,7 +3,7 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <section xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-    <title>KOMET</title>
+    <title><?oxy_comment_start author="steph" timestamp="20190320T134219-0600" comment="I&apos;m a bit confused by this section.  My limited understanding of KOMET is that it&apos;s the editor for editing Solor content.  Is it also expected in some way to provide editing for CDS and/or CDS KNARTs?  That&apos;s what I understand based on reading this section but wanted to verify that that is correct (or not).  I would have thought there would be a separate editor for CDS and KNARTs."?>KOMET<?oxy_comment_end?></title>
     <para><!--NOTE ABOUT CONTENT: It would be very helpful to have an image that shows the relationship between the ISAAC strategy for the DERIVIATE architecture and the PRISME and KOMET environments--></para>
     <para xml:id="para_rl2_jtk_dbb">The VA’s Foundational Informatics Architecture – which we call
         ISAAC – is an integrative logical architecture, which deliberately builds each new layer
@@ -12,7 +12,8 @@
         by integrating their content and semantics, and normalizing the means to identify and
         version components, lexically search, logically define, semantically retrieve, and
         collaboratively extend. Support for evolutionary change is a critical feature of the
-        Foundational Informatics Architecture (DERIVIATE), given that support for changes in
+        <?oxy_comment_start author="steph" timestamp="20190320T132818-0600" comment="How does this relate to PASTF that is currently included in the Solor presentation?  Are they the same or different?  Since you&apos;re talking about PASTF, it would be helpful to know how they relate."?>Foundational
+        Informatics Architecture (DERIVIATE)<?oxy_comment_end?>, given that support for changes in
         knowledge over time is a critical aspect of health informatics. </para>
     <para xml:id="para_tl2_jtk_dbb">The primary goal of the Foundational Informatics Architecture
         (DERIVIATE) is semantic operability (vs. interoperability). Semantic operability is the
@@ -33,13 +34,15 @@
         Levels." CDS rules, order sets and documentation templates are also expressed in the
         "Procedural Knowledge" layer. </para>
     <para xml:id="para_vl2_jtk_dbb">The VA must have tools to help knowledge workers create and
-        maintain standards-based clinical decision support artifacts at enterprise scal. Tools must
+        maintain standards-based clinical decision support artifacts at enterprise scale. Tools must
         be able to produce CDS content that is standards compliant when such standards exist (e.g.
-        HL7 CDS Artifact Specificaiton DSTU 1.3). Tools must also build CDS artifacts that
-        contribute to an ecosystem of semantic operability. This necessarily means means building
+        HL7 CDS
+        <?oxy_comment_start author="steph" timestamp="20190320T133057-0600" comment="If this is referring to the HL7 CDS Knowledge Artifact (KNART) specification, then &quot;Knowledge&quot; should be inserted here."?>Artifact
+        <?oxy_comment_end?>Specification DSTU 1.3). Tools must also build CDS artifacts that
+        contribute to an ecosystem of semantic operability. This necessarily means building
         artifacts using standards-based “pad stone” building blocks of SNOMED CT, RxNorm and LOINC.
         CDS knowledge engineering content development tools must create artifacts in the layered
-        approach desribed in DERIVIATE (i.e., tools must build more complex standards-based
+        approach described in DERIVIATE (i.e., tools must build more complex, standards-based
         artifacts by reusing less complex standards-based artifacts as components whenever
         possible). Tools supporting a highly collaborative, integrated and layered knowledge
         management environment must be carefully designed to be highly reusable within a common
@@ -50,12 +53,15 @@
     <para/>
     <section>
         <title>Heuristic principles</title>
-        <para> To develop an optimal user interface (UI) for all of the editors that will be used to
-            create and update clinical decision support artifacts, the Contractor shall execute an
-            agile, User-Centered Design (UCD) and implementation process that addresses the stages
-            shown in the figure below. <!--NOTE ABOUT CONTENT: what image is expected?--> Note that
-            each stage is meant to be iterative and repeated as often as needed for each editor
-            before moving to the next editor. </para>
+        <para>
+            <?oxy_comment_start author="steph" timestamp="20190320T133622-0600" comment="This is a statement from a performance work statement and should be revised accordingly for this document."?>To
+            develop an optimal user interface (UI) for all of the editors that will be used to
+            create and update clinical decision support artifacts, the Contractor shall
+            execute<?oxy_comment_end?> an agile, User-Centered Design (UCD) and implementation
+            process that addresses the stages shown in the figure below.
+            <!--NOTE ABOUT CONTENT: what image is expected?--> Note that each stage is meant to be
+            iterative and repeated as often as needed for each editor before moving to the next
+            editor. </para>
         <para> Part of user-centered design includes measuring usability. </para>
         <para> Measuring usability starts with the five attributes of usability commonly referenced
             in the literature, shown below. </para>
@@ -73,7 +79,7 @@
                 <para>Prevents errors (not cause harm)</para>
             </listitem>
             <listitem>
-                <para>Satisfying to use (subjective impression</para>
+                <para>Satisfying to use (subjective impression)</para>
             </listitem>
         </itemizedlist>
         <para> To accomplish this, the usability testing strategy consists of two main components: </para>
@@ -106,7 +112,7 @@
             clinically relevant ways, regardless of their final composition. An obvious example is
             finding artifacts containing identical or similar terminological concepts. Another is
             that basic editing functions must be consistent, easily learned and similar to typical
-            editing conventions (e.g., copy, paste) </para>
+            editing conventions (e.g., copy, paste). </para>
         <para>Knowledge engineers must collaborate to develop CDS artifacts in several ways. First,
             knowledge engineers may request review and critique of their work products by others,
             both informally during the build process and formally prior to release. Some CDS
@@ -160,11 +166,13 @@
             and within the clinical workflow, and that conforms to the specifications in the HL7
             Version 3 Standard: CDS Knowledge Artifact Specification, DSTU Release 1.3 (or later HL7
             version or final standard if one is released). </para>
-        <para>The VA requires a Documentation Template Editor that can be used by the VA and non-VA
-            end users to generate Documentation Templates of various types as may be needed in the
-            full spectrum of medical practice. The Documentation Template Editor shall generate
-            documentation templates that ultimately will be used by VA clinicians to manage patient
-            care in a production environment. </para>
+        <para>The VA requires a
+            <?oxy_comment_start author="steph" timestamp="20190320T135048-0600" comment="Again, is this capability expected to be provided by KOMET?"?>Documentation
+            Template Editor <?oxy_comment_end?>that can be used by the VA and non-VA end users to
+            generate Documentation Templates of various types as may be needed in the full spectrum
+            of medical practice. The Documentation Template Editor shall generate documentation
+            templates that ultimately will be used by VA clinicians to manage patient care in a
+            production environment. </para>
         <para>The Documentation Template Editor shall be able to be used to create any type of
             documentation template as a structured collection of documentation concepts (also
             referred to as “form elements” or “observation items”). Per the HL7 Version 3 Standard:
@@ -214,7 +222,8 @@
             (KEs), Software Engineers (SEs), and Subject Matter Experts (SMEs) to convert medical
             knowledge into machine executable clinical decision support rules.” </para>
         <para>An ECA Rules editor should be able to facilitate the user’s ability to generate both
-            local (i.e., for a single facility), VISN (i.e, for a group of facilities), and
+            <?oxy_comment_start author="steph" timestamp="20190320T140654-0600" comment="Given the transition to Cerner, is the idea of creating something locally vs. for all VA facilities still being promoted?"?>local<?oxy_comment_end?>
+            (i.e., for a single facility), VISN (i.e, for a group of facilities), and
             enterprise-level ECA rules that are standardized, sharable, interoperable, and
             extensible. </para>
         <para>The VA requires a model-based ECA Rules editor that will allow the user to generate
@@ -274,7 +283,7 @@
             collection of orders (or actions in the HeD schema) relevant to that condition and
             presented to the clinician in a computerized provider order entry system (CPOE). </para>
         <para> Ordering providers use order sets as check lists, menus, and order construction
-            shortcuts. Order sets are often embellished with clinical rational and guidance about
+            shortcuts. Order sets are often embellished with clinical rationale and guidance about
             their proper use and literature references for the ordering provider. </para>
         <para> The HL7 CDS specification provides a conceptual overview diagram of required and
             optional components. </para>
@@ -304,7 +313,7 @@
             because poorly shareable platform-specific implementation details are not included in
             the exchanged artifacts. While platform-specific implementation details are absolutely
             needed in order to execute the artifact in a given live HIT system, they might impede
-            efforts to implement the clinical components of CDS artifact in some other environment.
+            efforts to implement the clinical components of CDS artifacts in some other environment.
             The separation of CDS artifact interchange format from implementation format is an
             important step towards creating an ecosystem of shareable standards-based CDS on
             shareable standards-based data. As a result of these beneficial tradeoffs, HL7 CDS
@@ -326,7 +335,8 @@
             documentation templates. Numerous organizational challenges must be met at different
             phases of the CDS lifecycle, including problem identification, solution analysis,
             knowledge development, organizational vetting, impact assessment and periodic assessment
-            (fig x in introduction). </para>
+            <?oxy_comment_start author="steph" timestamp="20190320T141206-0600" comment="Does a link need to be added here instead?"?>(fig
+            x in introduction). <?oxy_comment_end?></para>
         <para>CDS enterprise governance tools are designed to support organizational vetting and
             periodic review of enterprise knowledge artifacts. The desired end results are high
             quality knowledge artifacts that have been reviewed and approved for implementation by
@@ -359,16 +369,17 @@
     </section>
     <section xml:id="section_3c55c9c7-1167-4121-8604-a899817a143a">
         <title>Metrics and refactoring support</title>
+        <?oxy_comment_start author="steph" timestamp="20190320T141326-0600" comment="Should this be commented out for now until this is actually done and this section written?"?>
         <para xml:id="para_da3b0e7b-e8b6-42c5-92ff-3e430bc71a94">We need to think through the types
             of metrics and refactoring. Look at some of Fowler's books on these topics, and then
-            come up with analogies for our domain. </para>
+            come up with analogies for our domain. <?oxy_comment_end?></para>
         <section xml:id="section_45e1e916-3f2c-4f10-8924-06e99d682bee">
             <title>Linguistic knowledge refactoring</title>
             <para xml:id="para_0701d59a-65df-4241-8c41-72a2965a32d3">Linguistic knowledge codifies
                 the relationship between our words, and the shared concepts we hope they adequately
                 represent. In ISAAC, we depend on several aspects of linguistics to make abstract
                 concepts, initially defined with only a set of identifiers, sufficiently concrete to
-                prove a shared understanding of the thoughts those concepts represent.  For ISAAC,
+                prove a shared understanding of the thoughts those concepts represent. For ISAAC,
                 relevant aspects of linguistics include morphology (the structure of words), syntax
                 (the structure of sentences), semantics (meaning), pragmatics (language in context),
                 language variation (i.e., dialects), and language change over time.</para>

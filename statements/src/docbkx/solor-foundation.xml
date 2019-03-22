@@ -86,17 +86,18 @@
                 case</para> <para>•Fields: Variable to accommodate a variety of use cases. For
                 instance,
                 [<?oxy_comment_start author="steph" timestamp="20190305T084629-0700" comment=" Would it be better to revise this to StringA, StringB, StringC, StringD)?" flag="done"?>String<?oxy_comment_end?>A,
-                    StringB, StringC, StringD], [ID, String, Integer, Concept ]</para>  
+                    StringB, StringC, StringD], [ID, String, Integer, Concept ]</para>
             
-            <figure>
-                        <title>Solor Common Model Content</title>
-                        <mediaobject>
-                            <imageobject>
-                                <imagedata fileref="images/common_model.png" scalefit="1"
-                                    width="100%" contentdepth="100%"/>
-                            </imageobject>
-                        </mediaobject>
-                    </figure>
+            <!-- <figure>
+                <title>Solor Common Model Content</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/common_model.png" scalefit="1"
+                            width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>-->
+            
         </section>
         <section>
             <title>Transformation Overview</title>
@@ -137,11 +138,6 @@
                 dynamically merge the parts of these previously distinct components into a single
                 integrated component. This merging of components by merging identifiers is a simple
                 means for managing duplicated content as it is identified.</para>
-            <para>
-                <link linkend="_msoanchor_1">[CR(-A1]</link><link
-                    xlink:href="http://www.rfc-editor.org/info/rfc4122"
-                    >http://www.rfc-editor.org/info/rfc4122</link>
-            </para>
         </section>
         <section>
             <title>Chronology</title>
@@ -220,33 +216,28 @@
             <section>
                 <title>FLWOR </title>
                 <para>FLWOR is an acronym for "For, Let, Where, Order by, Return". The programming
-                    language <link xlink:href="https://en.wikipedia.org/wiki/XQuery">XQuery</link>
-                    defines FLWOR as an expression that supports iteration and binding of variables
-                    to intermediate results. FLWOR is loosely analogous to <link
-                        xlink:href="https://en.wikipedia.org/wiki/SQL">SQL</link>'s <link
-                        xlink:href="https://en.wikipedia.org/wiki/Select_(SQL)"
-                        >SELECT-FROM-WHERE</link> and can be used to provide join-like functionality
-                    to <link xlink:href="https://en.wikipedia.org/wiki/XML">navigating</link>
-                    content.</para>
+                    language XQuery defines FLWOR as an expression that supports iteration and binding of variables
+                    to intermediate results. FLWOR is loosely analogous to SQLs SELECT-FROM-WHERE and can be used to provide join-like functionality
+                    to navigating content.</para>
                 <itemizedlist>
                     <listitem>
-                        <emphasis role="bold">For</emphasis>
+                        <para>For</para>
                         <para> - selects a sequence of nodes</para>
                     </listitem>
                     <listitem>
-                        <emphasis role="bold">Let</emphasis>
+                        <para>Let</para>
                         <para> - binds a sequence to a variable</para>
                     </listitem>
                     <listitem>
-                        <emphasis role="bold">Where</emphasis>
+                        <para>Where</para>
                         <para> - filters the nodes</para>
                     </listitem>
                     <listitem>
-                        <emphasis role="bold">Order by</emphasis>
+                        <para>Order by</para>
                         <para> - sorts the nodes</para>
                     </listitem>
                     <listitem>
-                        <emphasis role="bold">Return</emphasis>
+                        <para>Return</para>
                         <para> - what to return (gets evaluated once for every node)</para>
                     </listitem>
                 </itemizedlist>

@@ -51,6 +51,111 @@
             is the SNOMED/LOINC/RxNorm Gentamycin that needs to be selected.  Solor concepts are
             identified using a Univerally Unique Identifier (UUID).</para>
     </section>
+    <section>
+        <title>Solor Integration - Integrating LOINC Method Attributes and SNOMED CT
+            Concepts</title>
+        <para>The collaborative agreement between LOINC and SNOMED CT developers has enabled
+            informaticists to leverage SNOMED CT for the representation of the building blocks of
+            LOINC (e.g., method) and for a more consistent representation of clinical and laboratory
+            observations in SNOMED CT. We utilized the derivative works from this collaborative
+            effort to represent LOINC and SNOMED CT in Solor, an open-source ecosystem for
+            integrating disparate medical terminologies in a common model. </para>
+        <para>Seamless integration of LOINC and SNOMED CT is non-trivial because LOINC and SNOMED CT
+            have different semantics models, and use different formalisms and tools for their
+            representation, have separate release cycles, and different versioning mechanisms.
+            Furthermore, the initial collaboration between LOINC and SNOMED CT provided equivalent
+            concepts between LOINC laboratory concepts and SNOMED CT concepts but did not include
+            many clinical concepts from LOINC. In this work, our objectives are (1) to assess the
+            extent to which LOINC method attributes can be represented by concepts in SNOMED CT, (2)
+            to describe how to integrate equivalent LOINC method attributes and SNOMED CT concepts
+            in the Solor common model, and (3) to explore the benefits and challenges of integrating
+            LOINC and SNOMED CT in the Solor common model. </para>
+        <para><emphasis role="bold">Methods:</emphasis> We sought to identify the overlaps and gaps
+            between method attributes in LOINC and concepts in SNOMED CT, and integrated the
+            equivalent concepts in Solor – an integrated common model for medical terminologies.
+            First, we gathered the list of method attributes from LOINC version 2.63 and mapped each
+            to a concept unique identifier (CUI) from the UMLS(using the UMLS API). For CUIs
+            representing a LOINC method attribute, we retrieved associated atoms from SNOMED CT in
+            the UMLS.2 Next, we imported each LOINC identifier and attached description logic
+            defining whether there was equivalency of the method attribute to SNOMED CT concepts.
+            When there was an overlap, a Solor-navigation concept was created which facilitated an
+            inferred taxonomy representation with semantic context from SNOMED CT attached to the
+            right LOINC method attribute. Finally, we evaluated the alignments obtained between
+            LOINC method attributes and SNOMED CT concepts to determine what method attributes in
+            LOINC were not covered by concepts in SNOMED CT. </para>
+        <para><emphasis role="bold">Results: </emphasis><emphasis role="italic"><emphasis
+                    role="underline">Semantic profile of LOINC method
+                attributes</emphasis></emphasis><emphasis role="italic"> –</emphasis> The method
+            axis of LOINC is used to specify methods used for particular clinical observations and
+            measurements. The distribution of the most prevalent semantic groups found in LOINC
+            method attributes include procedures (58%), concepts/ideas (14%), living beings (13%),
+            occupations (8%), and disorders (2%). Whereas, SNOMED CT concepts represent disorders
+            (22%), procedures (17%), body structures (11%), clinical findings other than disorders
+            (10%), and organisms (10%).1</para>
+        <para><emphasis role="italic"><emphasis role="underline">Coverage of LOINC method attributes
+                    by the UMLS and SNOMED CT</emphasis></emphasis><emphasis role="italic"> –
+            </emphasis>Of the 1702 LOINC methods, 1688 (99%) were mapped to a UMLS CUI. Sampling the
+            1% not mapped implies provisional codes added to a LOINC version update that were not
+            yet added to the UMLS version release. We computed the coverage of LOINC method
+            attributes by SNOMED CT by analyzing the count of LOINC method attributes that shared at
+            least 1 UMLS CUI with a corresponding SNOMED CT concept. Of the 1688 CUIs that
+            represented LOINC method attributes, 383 (23%) were associated with a SNOMED CT
+            concept.</para>
+        <para><emphasis role="italic"><emphasis role="underline">Solor
+                Transformation</emphasis></emphasis> –Solor is an ecosystem that allows users to
+            import, transform, view, and export content from disparate medical terminologies, all in
+            one common model. Users can navigate and search Solor content, view details of the data
+            elements, and select specific concepts to view more information. Solor has two
+            fundamental building blocks: concepts and semantics. A concept is defined as an idea or
+            a general notion and is represented by a universally unique identifier (UUID). A
+            semantic is attached to a concept to provide contextual meaning and semantic data to the
+            concept’s content. </para>
+        <para> Integrating LOINC method attributes into Solor required a transformation process in
+            which the LOINC data was transformed into Solor components using these defining
+            relationships to create OWL EL++ description logic definitions. The LOINC identifier was
+            used to create a Type 5 UUID for a Solor concept, so that the identifiers used in Solor
+            are idempotent, and are derivable directly from the LOINC data. Additionally, the
+            original LOINC identifier for this concept is properly represented, as are the other
+            data elements required by the LOINC license. These Solor concepts integrate SNOMED CT
+            and LOINC semantics; the LOINC Method semantic and SNOMED CT semantic are grouped under
+            the same Solor concept. Figure 1 exemplifies the integration: the LOINC method attribute
+            is “AUDIT”, and the SNOMED CT concept is “Alcohol use disorders identification
+            test”.</para>
+        <figure>
+            <title><emphasis role="bold">Solor Editor: Representation of LOINC and SNOMED CT in a
+                common model</emphasis></title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/Komet_LOINC_Int.png" scalefit="1"
+                        width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <para><emphasis role="bold">Conclusion</emphasis>: LOINC method attributes include concepts
+            ranging from procedures, administrative concepts, occupations, and a small number of
+            disorders and phenomena. Only about 23% of LOINC method attributes can be directly
+            represented by a SNOMED CT concept. The overall interoperability between LOINC method
+            attributes and SNOMED CT concepts was limited at best. Interestingly, there were a
+            number of procedures and specimen source details in LOINC method attributes with little
+            or no coverage by SNOMED CT. One suggestion is for developers of LOINC and SNOMED CT to
+            review these gaps and include better coverage in future versions, if appropriate. </para>
+        <para>Solor may assist in providing a collaborative ecosystem to host local extensions for
+            SNOMED CT to represent LOINC method attributes. Currently, implementers of LOINC and
+            SNOMED CT must traverse the distinct hierarchies of each source terminology and version.
+            Integrating the terminology content of LOINC and SNOMED CT into the Solor common model
+            may have a beneficial impact on the usability (i.e., reduced burden) for implementers in
+            both traversing distinct formalisms and maintaining version control. It may be helpful
+            to communicate more specific details about LOINC method attributes by leveraging the
+            right SNOMED CT concepts for additional details about the method attributes. Next steps
+            include conducting a formative evaluation with a purposive sample of experts in standard
+            clinical terminologies to assess the benefits and challenges of integrating and
+            representing overlapping LOINC and SNOMED CT content in Solor’s common model. We aim to
+            have this evaluation completed by Summer 2019 and will include these updated results if
+            accepted. Solor’s integration of disparate medical terminology content may help
+            implementers and authors of medical terminologies with orienting concepts and traversing
+            relationships between disparate standards. </para>
+        
+    </section>
     
 </chapter>
 

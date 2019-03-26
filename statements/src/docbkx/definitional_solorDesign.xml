@@ -2182,8 +2182,9 @@
                     <section>
                         <title>All or part of Subtype Roles</title>
                         <para>All or part of currently has
-                            <?oxy_comment_start author="steph" timestamp="20190306T155557-0700" comment="Why isn&apos;t &quot;All&quot; also a subtype?  It seems to be inconsistent with how other subtypes were used.  For example, in  Phenomenon Relationships, the attribute of During AND/OR After had 2 subtypes, 1 for During and 1 for After."?>one
-                            subtype role, Part of.<?oxy_comment_end?></para>
+                            <?oxy_comment_start author="steph" timestamp="20190306T155557-0700" comment="Why isn&apos;t &quot;All&quot; also a subtype?  It seems to be inconsistent with how other subtypes were used.  For example, in  Phenomenon Relationships, the attribute of During AND/OR After had 2 subtypes, 1 for During and 1 for After." id="okg_1df_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190325T155136-0500" comment="The listed relationships are the current future relationships as they exist in SNOMED.  These may be modified prior to the January 2020 release date.  Right now they are in here as a place holder until they are released and properly documented." parentID="okg_1df_fhb" mid="25"?>one
+                            subtype role, Part
+                            of.<?oxy_comment_end mid="25"?><?oxy_comment_end?></para>
                         <section>
                             <title>Proper part of</title>
                             <formalpara>
@@ -2282,12 +2283,10 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <?oxy_comment_start author="timowilliams" timestamp="20190312T153838-0500" comment="Add Utility
-"?>
-                        <para><?oxy_comment_end?>Laterality is useful for defining body structures
-                            that are symmetric to both sides of the body only.  There are currently
-                            no attributes used to represent sidedness that could define concepts
-                            like Structure of left side of heart (body structure).</para>
+                        <para>Laterality is useful for defining body structures that are symmetric
+                            to both sides of the body only. There are currently no attributes used
+                            to represent sidedness that could define concepts like Structure of left
+                            side of heart (body structure).</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -2911,8 +2910,9 @@
                                 <entry>Disposition (disposition)</entry>
                             </row>
                             <row>
-                                <entry><?oxy_comment_start author="steph" timestamp="20190311T122423-0600" comment="This is missing in the sub-section below"?>Is
+                                <entry><?oxy_comment_start author="steph" timestamp="20190311T122423-0600" comment="This is missing in the sub-section below" flag="done"?>Is
                                     modification of<?oxy_comment_end?></entry>
+                                <entry>None</entry>
                                 <entry>Substance</entry>
                                 <entry>Substance (substance)</entry>
                             </row>
@@ -3020,45 +3020,6 @@
                     </tgroup>
                 </table>
                 <section>
-                    <title><?oxy_comment_start author="steph" timestamp="20190311T122656-0600" comment="Shouldn&apos;t these be shown in the same order as they are in the table above?  All others have been shown that way."?>Specimen<?oxy_comment_end?>
-                        procedure</title>
-                    <formalpara>
-                        <title>Definition</title>
-                        <para>Specimen procedure is used in the Specimen hierarchy to represent the
-                            procedure perfomed to obtain the specimen.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Utility</title>
-                        <para>Specimen procedure is useful for defining Specimen concepts that are
-                            obtained by performing a procedure.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example</title>
-                        <para>Specimen from eye obtained by fine needle aspiration biopsy (specimen)
-                            has a Specimen procedure of Fine needle aspiration biopsy of eye
-                            (procedure).</para>
-                    </formalpara>
-                </section>
-                <section>
-                    <title>Specimen source identity</title>
-                    <formalpara>
-                        <title>Definition</title>
-                        <para>Specimen source identity is used in the Specimen hierarchy to specify
-                            the person, group or location from which a specimen was
-                            collected.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Utility</title>
-                        <para>Specimen source identity is useful for defining the entity from which
-                            a Specimen concepts was obtained.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example</title>
-                        <para>Environmental swab (specimen) has a Specimen source identity of
-                            Environment (environment).</para>
-                    </formalpara>
-                </section>
-                <section>
                     <title>Specimen source morphology</title>
                     <formalpara>
                         <title>Definition</title>
@@ -3082,19 +3043,58 @@
                     <formalpara>
                         <title>Definition</title>
                         <para>Specimen source topography is used in the Specimen hierarchy to
-                            specify the
-                            <?oxy_comment_start author="steph" timestamp="20190311T122855-0600" comment="Should this also include &quot;anatomical or acquired&quot; as it does in the table?"?>body<?oxy_comment_end?>
+                            specify the anatomical or acquired
+                            <?oxy_comment_start author="steph" timestamp="20190311T122855-0600" comment="Should this also include &quot;anatomical or acquired&quot; as it does in the table?" flag="done"?>body<?oxy_comment_end?>
                             structure from which the specimen was obtained.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
+                        <para>Specimen source morphology is useful for defining the body structure the
+                            Specimen concept was obtained from.</para>
                     </formalpara>
-                    <para>Specimen source morphology is useful for defining the body structure the
-                        Specimen concept was obtained from.</para>
                     <formalpara>
                         <title>Example</title>
                         <para>Excised breast ectopic tissue sample (specimen) has a Specimen source
                             topography of Breast structure (body structure).</para>
+                    </formalpara>
+                </section>
+                <section>
+                    <title>Specimen source identity</title>
+                    <formalpara>
+                        <title>Definition</title>
+                        <para>Specimen source identity is used in the Specimen hierarchy to specify
+                            the person, group or location from which a specimen was
+                            collected.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Utility</title>
+                        <para>Specimen source identity is useful for defining the entity from which
+                            a Specimen concepts was obtained.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Example</title>
+                        <para>Environmental swab (specimen) has a Specimen source identity of
+                            Environment (environment).</para>
+                    </formalpara>
+                </section>
+                <section>
+                    <title><?oxy_comment_start author="steph" timestamp="20190311T122656-0600" comment="Shouldn&apos;t these be shown in the same order as they are in the table above?  All others have been shown that way." flag="done"?>Specimen<?oxy_comment_end?>
+                        procedure</title>
+                    <formalpara>
+                        <title>Definition</title>
+                        <para>Specimen procedure is used in the Specimen hierarchy to represent the
+                            procedure perfomed to obtain the specimen.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Utility</title>
+                        <para>Specimen procedure is useful for defining Specimen concepts that are
+                            obtained by performing a procedure.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Example</title>
+                        <para>Specimen from eye obtained by fine needle aspiration biopsy (specimen)
+                            has a Specimen procedure of Fine needle aspiration biopsy of eye
+                            (procedure).</para>
                     </formalpara>
                 </section>
                 <section>
@@ -3118,7 +3118,7 @@
             </section>
 
             <section>
-                <title><?oxy_comment_start author="steph" timestamp="20190311T124517-0600" comment="Should these be shown in a table first, as was done in other sections?"?>Unspecified<?oxy_comment_end?>
+                <title><?oxy_comment_start author="steph" timestamp="20190311T124517-0600" comment="Should these be shown in a table first, as was done in other sections?" id="lyx_hvf_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190325T181057-0500" comment="These relationships are included in the SNOMED CT Concept model object attribute hierarchy but are not specified anywhere in the documentation as being used to define concepts.  I think they should probably be removed unless we find them somewhere in the SNOMED CT documentation." parentID="lyx_hvf_fhb" mid="32"?>Unspecified<?oxy_comment_end mid="32"?><?oxy_comment_end?>
                     Relationship Types</title>
                 <section>
                     <title>Contained in</title>
@@ -3166,7 +3166,7 @@
                     </formalpara>
                 </section>
                 <section>
-                    <title>Property type</title>
+                    <title>Property</title>
                     <formalpara>
                         <title>Definition</title>
                         <para>Insert definition here.</para>

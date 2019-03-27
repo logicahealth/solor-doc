@@ -7,7 +7,8 @@
     <section>
         <title>Versioning Overview</title>
         <para/>
-        <para>When dealing with the complexities of the various layers of the informatics
+        <para><?oxy_comment_start author="steph" timestamp="20190305T101717-0700" comment="Does this mean within the architecture layer, there are various layers or are you referring to the PASTA layers?  Again, it&apos;s confusing to me to refer to all of it as the architecture and then within it, have an architecture layer." flag="done"?><?oxy_comment_end?>When
+            dealing with the complexities of the various architectural layers of the informatics
             architectural separation of concerns, one of the most important things to note is that
             any one of Solor's architectural layers will be undergoing modifications at any given
             point in time, as various Standards Development Organizations go through each of their
@@ -63,7 +64,7 @@
                 concepts and semantics. Concept is defined as an idea or a general notion. When
                 abstracted out, it can be used to represent any idea, whether that is a medically
                 related idea (e.g., heart attack) or an idea to represent metadata (e.g., a synonym
-                or a fully specified name). A semantic enables addition of semantic data to the
+                or a fully specified name).<?oxy_comment_start author="steph" timestamp="20190305T101830-0700" comment="I believe metadata is plural and you should remove &quot;a&quot;."flag="done"?><?oxy_comment_end?> A semantic enables addition of semantic data to the
                 underlying concept’s content, in a standardized way that provides for the same means
                 of identifying, modularizing, and versioning. In other words, a semantic is attached
                 to a concept to provide contextual meaning to the concept. Semantics can be grouped
@@ -71,7 +72,14 @@
                 semantics that reference a component and provide additional data to that member for
                 some purpose. Solor also has ‘description semantics’ with additional metadata
                 specifying details including but not limited to ‘language’ and ‘description
-                type’.</para><para><emphasis role="bold">Concept:</emphasis> represents any idea,
+                type’.
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="images/Common_model.jpg"
+                        scale="50"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para><para><emphasis role="bold">Concept:</emphasis> represents any idea,
                 whether that is medically related (e.g., heart attack) or metadata (e.g.,
                 author)</para> <para>•Fields: Universally Unique ID </para> <para><emphasis role="bold">String
                     Semantic:</emphasis> provides identifier to the concept in a standardized
@@ -80,23 +88,14 @@
                             Fully-Specified Name, Long Common Name, Short Name, and Display Name </para><para><emphasis
                     role="bold">Logic Graph Semantic</emphasis>: provides description logic for
                 traversing hierarchies and for specifiying the view of the relationships between and
-                amongst data elements </para><para>•Fields: Parent-child-sibling relationship </para><para><emphasis role="bold"
+                amongst data elements </para><para>•<?oxy_comment_start author="steph" timestamp="20190305T102225-0700" comment="For some reason in the PDF version of this document, there is a blank line shown between &quot;Logic Graphic Semantic&quot; and &quot;Fields&quot; and the same for &quot;Assemblage&quot; and &quot;Fields&quot; below.  Do you know why?"?><?oxy_comment_end?>:Fields: Parent-child-sibling relationship </para><para><emphasis role="bold"
                     >Assemblage</emphasis>: Grouping set (i.e., “assemblage”) specifically created
                 to store all of the data elements, data types, and metadata for a particular use
                 case</para> <para>•Fields: Variable to accommodate a variety of use cases. For
                 instance,
                 [<?oxy_comment_start author="steph" timestamp="20190305T084629-0700" comment=" Would it be better to revise this to StringA, StringB, StringC, StringD)?" flag="done"?>String<?oxy_comment_end?>A,
                     StringB, StringC, StringD], [ID, String, Integer, Concept ]</para>
-            
-            <!-- <figure>
-                <title>Solor Common Model Content</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/common_model.png" scalefit="1"
-                            width="100%" contentdepth="100%"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>-->
+      
             
         </section>
         <section>
@@ -424,7 +423,7 @@
         <title>Summary</title>
         <para>Currently, medical terminologies come from different sources and are represented by
             disparate models. However, by using a common model that integrates these terminologies
-            seamlessly, Solor's architectural layer can display content from different sources after
+            seamlessly, Solor's architectural<?oxy_comment_start author="steph" timestamp="20190305T152815-0700" comment="Need to fix spelling."flag="done"?><?oxy_comment_end?> layer can display content from different sources after
             the Solor transformation process. Users will consequently not need to burden themselves
             with unnecessary complexities, and can instead focus on the meaning of medical content.
             Built upon an architecture intended to facilitate semantic interoperability, Solor

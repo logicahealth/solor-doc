@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
-    version="5.1">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Representing Statements</title>
     <blockquote>
         <attribution>Isaac Newton</attribution>
@@ -33,8 +32,7 @@
             <emphasis>understand</emphasis> the statement is the first requirement. </para>
     <section>
         <info>
-            <title>Clinical Observation Modeling</title>
-            <title><?oxy_comment_start author="steph" timestamp="20190313T143945-0600" comment="Why is the heading repeated here, both with same section number and this one with additional info?"?>Clinical<?oxy_comment_end?>
+            <title><?oxy_comment_start author="steph" timestamp="20190313T143945-0600" comment="Why is the heading repeated here, both with same section number and this one with additional info?" flag="done"?>Clinical<?oxy_comment_end?>
                 Observation Modeling</title>
             <subtitle>Supporting Domain Semantics, Flexibility, and Interoperability</subtitle>
 
@@ -51,8 +49,7 @@
             <para>This white paper emerged from discussions among informaticists, computer
                 scientists, and medical doctors about the appropriate modeling of clinical
                 observations in information systems. The participants included representatives of
-                the VHA-DoD, CIMI, HL7-FHIR, FHIM, SNOMED-CT, and OpenEHR initiatives<footnote
-                    xml:id="__FN1__">
+                the VHA-DoD, CIMI, HL7-FHIR, FHIM, SNOMED-CT, and OpenEHR initiatives<footnote xml:id="__FN1__">
                     <para>VHA = Veterans Health Administration; CIMI = Clinical Information Modeling
                         Initiative; HL7-FHIR = HL7 Fast Healthcare Interoperability Resources
                         working group; FHIM = Federal Health Information Modeling.</para>
@@ -92,7 +89,7 @@
 
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/image2com.png"  scalefit="1" width="100%" contentdepth="100%"/>
+                        <imagedata fileref="images/image2com.png" scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -104,11 +101,9 @@
 
                 <orderedlist>
                     <listitem>
-                        <para>Statement models <emphasis role="underline"
-                                    ><emphasis>standardize</emphasis></emphasis> the capture,
+                        <para>Statement models <emphasis role="underline"><emphasis>standardize</emphasis></emphasis> the capture,
                             retrieval, and exchange of clinical observations within and between
-                            information systems. As seen in <xref linkend="_Ref474327938"
-                                xrefstyle="select:label"/>, even relatively basic observations can
+                            information systems. As seen in <xref linkend="_Ref474327938" xrefstyle="select:label"/>, even relatively basic observations can
                             comprise numerous sub-components. Different implementers of clinical
                             information systems may model these sub-components and their
                             relationships in arbitrarily different ways, which can prevent different
@@ -124,8 +119,7 @@
                     </listitem>
 
                     <listitem>
-                        <para>Statement models <emphasis role="underline"
-                                    ><emphasis>de-couple</emphasis></emphasis> the creation and
+                        <para>Statement models <emphasis role="underline"><emphasis>de-couple</emphasis></emphasis> the creation and
                             maintenance of domain-specific objects in clinical medicine (such as
                             observations) from their technical implementation in software code and
                             database structures. The types of clinical observations that may be
@@ -168,7 +162,7 @@
 
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/image3com.png"  scalefit="1" width="100%" contentdepth="100%"/>
+                            <imagedata fileref="images/image3com.png" scalefit="1" width="100%" contentdepth="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
@@ -183,15 +177,11 @@
                     OpenEHR<footnote xml:id="__FN3__">
                     <para>Demski H, Garde S, Hildebrand C. Open data models for smart health
                         interconnected applications: the example of openEHR. BMC Med Inform Decis
-                        Mak. 2016 Oct 22;16(1):137. (available at <link
-                            xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/27770769"
-                            >https://www.ncbi.nlm.nih.gov/pubmed/27770769</link>).</para>
+                        Mak. 2016 Oct 22;16(1):137. (available at <link xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/27770769">https://www.ncbi.nlm.nih.gov/pubmed/27770769</link>).</para>
                 </footnote><superscript>,</superscript><footnote xml:id="__FN4__">
-                    <para><link xlink:href="http://www.openehr.org/what_is_openehr"
-                            >http://www.openehr.org/what_is_openehr</link>.</para>
+                    <para><link xlink:href="http://www.openehr.org/what_is_openehr">http://www.openehr.org/what_is_openehr</link>.</para>
                 </footnote> offers one such architecture that is relatively complete and mature, so
-                it serves as a good example. <xref linkend="_Ref474334719" xrefstyle="select:label"
-                /> illustrates the components of the OpenEHR architecture, which are further
+                it serves as a good example. <xref linkend="_Ref474334719" xrefstyle="select:label"/> illustrates the components of the OpenEHR architecture, which are further
                 described below.</para>
 
             <figure xml:id="_Ref474334719">
@@ -216,8 +206,7 @@
                     be used to populate the values of Elements, such as “Quantity”, “Text”, and
                     “Timed Event”. Collectively, these constructs define the general building blocks
                     available to construct more detailed models for representing clinical
-                    observations, actions, and other data in EHRs. <xref linkend="_Ref474335678"
-                        xrefstyle="select:label"/> shows the constructs of the OpenEHR reference
+                    observations, actions, and other data in EHRs. <xref linkend="_Ref474335678" xrefstyle="select:label"/> shows the constructs of the OpenEHR reference
                     model and how they are hierarchically organized to create the “scaffolding” for
                     patient records.</para>
 
@@ -272,8 +261,7 @@
                     representation of an OpenEHR archetype.</para>
 
                 <para>For primitive Elements, the Archetype may define further constraints that
-                    define how the Element may be populated, as shown in the callouts of <xref
-                        linkend="_Ref474337532" xrefstyle="select:label"/>. For example, the value
+                    define how the Element may be populated, as shown in the callouts of <xref linkend="_Ref474337532" xrefstyle="select:label"/>. For example, the value
                     of the “Systolic” Element in the Blood Pressure Artifact is specified to be a
                     “Quantity” datatype, to represent the property of “Pressure”, and to be recorded
                     using the units of measure “mm[Hg]”. Similarly, the “Position” Element is
@@ -292,15 +280,13 @@
                 </figure>
 
                 <para>OpenEHR Archetypes must be defined using only the constructs of the underlying
-                    Reference Model, as shown in <xref linkend="_Ref474334719"
-                        xrefstyle="select:label"/>. This constraint ensures that the Archetypes may
+                    Reference Model, as shown in <xref linkend="_Ref474334719" xrefstyle="select:label"/>. This constraint ensures that the Archetypes may
                     be stored and processed by the underlying database and application
                     implementations, which are otherwise loosely bound to the specific structures of
                     the Archetypes themselves.</para>
 
                 <para>The OpenEHR framework uses a specific structured language to define
-                    Archetypes, the Archetype Definition Language (ADL). <xref
-                        linkend="_Ref474337532" xrefstyle="select:label"/> shows the graphical
+                    Archetypes, the Archetype Definition Language (ADL). <xref linkend="_Ref474337532" xrefstyle="select:label"/> shows the graphical
                     rendering of an Archetype, although the actual definition is specified using a
                     text-based ADL expression (not shown). Other Model-Driven Development
                     frameworks, of course, may use different languages for defining statement models and
@@ -318,10 +304,8 @@
                     Archetypes, and (in theory, at least) de-couples Archetype specifications from
                     low-level implementation dependencies.</para>
 
-                <para>OpenEHR currently includes several hundred Archetypes<footnote
-                        xml:id="__FN5__">
-                        <para>See <link xlink:href="http://www.openehr.org/ckm/"
-                                >http://www.openehr.org/ckm/</link> for an online listing.</para>
+                <para>OpenEHR currently includes several hundred Archetypes<footnote xml:id="__FN5__">
+                        <para>See <link xlink:href="http://www.openehr.org/ckm/">http://www.openehr.org/ckm/</link> for an online listing.</para>
                     </footnote>, including many for clinical observations. The framework, however,
                     remains very much a work in progress, and many Archetypes remain in draft
                     form.</para>
@@ -334,11 +318,10 @@
                     to be combined and/or further constrained to create purpose-specific data
                     structures called “Templates”. Templates may then drive the automated generation
                     of computing artifacts used to collect, retrieve, or export clinical
-                    observations (see <xref linkend="_Ref474334719" xrefstyle="select:label"
-                    />).</para>
+                    observations (see <xref linkend="_Ref474334719" xrefstyle="select:label"/>).</para>
 
                 <para><xref linkend="_Ref474415737" xrefstyle="select:label"/> shows an example
-                    <?oxy_comment_start author="steph" timestamp="20190313T152535-0600" comment="Why are some items in the template below numbered while others are not?"?>OpenEHR<?oxy_comment_end?>
+                    <?oxy_comment_start author="steph" timestamp="20190313T152535-0600" comment="Why are some items in the template below numbered while others are not?" id="z4q_w3l_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190326T122423-0500" comment="The numbering you notice in the image below comes directly from the OpenEHR template.  See https://www.openehr.org/ckm/#" parentID="z4q_w3l_fhb" mid="2"?>OpenEHR<?oxy_comment_end mid="2"?><?oxy_comment_end?>
                     Template that represents the information captured during an initial visit to a
                     heart failure clinic. Note that the template combines a number of Archetypes,
                     such as Blood Pressure, Pulse, and Full Blood Count, as well as adds
@@ -356,8 +339,7 @@
                     </mediaobject>
                 </figure>
 
-                <para>Although not shown in <xref linkend="_Ref474415737" xrefstyle="select:label"
-                    />, Templates may also include additional constraints applied to their
+                <para>Although not shown in <xref linkend="_Ref474415737" xrefstyle="select:label"/>, Templates may also include additional constraints applied to their
                     constituent Archetypes. Such constraints may entail the inclusion of only a
                     subset of the Archetype’s Elements, the allowance of only a subset of the coded
                     values specified for an Element, the designation of default values for Elements,
@@ -368,15 +350,13 @@
 
                 <para>For example, <xref linkend="_Ref474416536" xrefstyle="select:label"/> shows a
                     graphical user interface (“Screen Form”) for data entry generated from the
-                    heart-failure Template in <xref linkend="_Ref474415737" xrefstyle="select:label"
-                    />. Because the Template design constrained the Blood Pressure Archetype to
+                    heart-failure Template in <xref linkend="_Ref474415737" xrefstyle="select:label"/>. Because the Template design constrained the Blood Pressure Archetype to
                     include only the “Systolic” and “Diastolic” Elements (as opposed to the full set
                     of Elements shown in <xref linkend="_Ref474337532" xrefstyle="select:label"/>),
                     the Screen Form displays only those two Elements. Note that the display includes
                     the units of measure and allowed value ranges specified for the “Systolic” and
                     “Diastolic” Elements, as derived from the complete Archetype. In this manner,
-                    all data collected via Screen Forms generated from the Template in <xref
-                        linkend="_Ref474415737" xrefstyle="select:label"/> will conform to the
+                    all data collected via Screen Forms generated from the Template in <xref linkend="_Ref474415737" xrefstyle="select:label"/> will conform to the
                     constraints specified within the Archetypes that the Template includes. This
                     aspect of Model Driven Development allows the observation modeling features and
                     constraints that are formally specified in Archetypes to be uniformly and
@@ -384,7 +364,7 @@
                     within and across information systems.</para>
 
                 <figure xml:id="_Ref474416536">
-                    <title><?oxy_comment_start author="steph" timestamp="20190313T152917-0600" comment="In the example, why does Pulse appear to be under Weight and BP under Height?"?>Example<?oxy_comment_end?>
+                    <title><?oxy_comment_start author="steph" timestamp="20190313T152917-0600" comment="In the example, why does Pulse appear to be under Weight and BP under Height?" id="iyc_rjl_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190326T123023-0500" comment="They are not under Pulse and Height, but are different data types.  Weight and Height can only have one value whereas Pulse and BP can have multiple values as they can be taken multiple times during an encounter.  If you look closely you can see that Weight and Height have the constraint (1..1) and Pulse and BP have (0..*)" parentID="iyc_rjl_fhb" mid="4"?>Example<?oxy_comment_end mid="4"?><?oxy_comment_end?>
                         of a Screen Form generated from an OpenEHR Template</title>
 
                     <mediaobject>
@@ -404,9 +384,8 @@
                     were used to instantiate clinical observations. Rather, querying requires
                     knowledge of only the Archetypes, the underlying Reference Model, and any
                     controlled terminologies used in the definition of Archetypes (See
-                        <?oxy_comment_start author="steph" timestamp="20190318T113916-0600" comment="In the figure, unless this is a reference to a source other than VA, recommend revising spelling of &quot;artefacts&quot; to &quot;artifacts.&quot;  Also, the oval for Terminology Bindings probably should be brought to the front so it&apos;s not cutoff by the rectangle currently in front of it."?><xref
-                        linkend="_Ref474421318" xrefstyle="select:label"/><?oxy_comment_end?> for a
-                    graphical representation of these dependencies).</para>
+                        <?oxy_comment_start author="steph" timestamp="20190318T113916-0600" comment="In the figure, unless this is a reference to a source other than VA, recommend revising spelling of &quot;artefacts&quot; to &quot;artifacts.&quot;  Also, the oval for Terminology Bindings probably should be brought to the front so it&apos;s not cutoff by the rectangle currently in front of it." id="wtk_gpl_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190326T131257-0500" comment="This is how it is spelled in the OpenEHR documentation and this image is taken directly from there." parentID="wtk_gpl_fhb" mid="6"?><xref linkend="_Ref474421318" xrefstyle="select:label"/><?oxy_comment_end?><?oxy_comment_end mid="6"?> for a graphical representation
+                    of these dependencies).</para>
 
                 <figure xml:id="_Ref474421318">
                     <title>Architectural components used in querying of OpenEHR data.</title>
@@ -422,8 +401,7 @@
                     constraints of the Archetypes used to collect them (even if those Archetypes are
                     combined and further constrained in Templates). Further, none of the
                     navigational elements of Templates (such as the grouping of Archetypes into a
-                    “Physical Exam” category, as shown in <xref linkend="_Ref474415737"
-                        xrefstyle="select:label"/>) influence the semantics of the Archetype data
+                    “Physical Exam” category, as shown in <xref linkend="_Ref474415737" xrefstyle="select:label"/>) influence the semantics of the Archetype data
                     collected via Templates. Specifically, the semantics of a clinical observation
                     represented by an Archetype should exist independently of any encompassing
                     navigational or organizational category in which that Archetype may appear
@@ -433,8 +411,7 @@
                 <para>At the same time, queries may reference sub-parts of an OpenEHR medical record
                     in which the Archetype instances were recorded. These named sub-parts of a
                     record, such as “Problem List” and “Medication Order List,” are also Archetypes
-                    defined to specialize the “Section” class of the Reference Model (see <xref
-                        linkend="_Ref474420488" xrefstyle="select:label"/>).</para>
+                    defined to specialize the “Section” class of the Reference Model (see <xref linkend="_Ref474420488" xrefstyle="select:label"/>).</para>
 
                 <para>Finally, queries may also reference the terminology model from which specific
                     codes were drawn when defining clinical observation Archetypes. For example, a
@@ -456,8 +433,8 @@
                 extensible. However, the ultimate effectiveness of these EHR systems depends to a
                 great extent on the specific design of the clinical observation models they include.
                 As discussed, the same types of observations may be modeled in many different ways,
-                and the design choices made
-                <?oxy_comment_start author="steph" timestamp="20190318T114421-0600" comment="I think &quot;will&quot; should be added between &quot;made&quot; and &quot;influence.&quot;"?>influence<?oxy_comment_end?>
+                and the design choices made will
+                <?oxy_comment_start author="steph" timestamp="20190318T114421-0600" comment="I think &quot;will&quot; should be added between &quot;made&quot; and &quot;influence.&quot;" flag="done"?>influence<?oxy_comment_end?>
                 the ease and consistency with which the clinical observation models can be used.
                 This section discusses some of those choices and the design criteria that should
                 govern them.</para>
@@ -527,8 +504,7 @@
                 </itemizedlist>
 
                 <para>Based on these abstract components of a clinical observation, the same
-                    observation can be modeled in different ways. The examples in <xref
-                        linkend="_Ref474687508" xrefstyle="select:label"/> show reasonable
+                    observation can be modeled in different ways. The examples in <xref linkend="_Ref474687508" xrefstyle="select:label"/> show reasonable
                     variations in the use of aspect, value, and context to represent the same
                     observation semantics.</para>
 
@@ -654,12 +630,9 @@
                 <para>Given that multiple design patterns exist for clinical observations, it’s
                     useful to consider design criteria that can guide modeling choice. Among the
                     best known criteria for designing clinical concepts are the properties of
-                    Understandability, Reproducibility, and Usability (URU)<footnote
-                        xml:id="__FN6__">
+                    Understandability, Reproducibility, and Usability (URU)<footnote xml:id="__FN6__">
                         <para>Walker D. GP Vocabulary Project—Stage 2 Report: SNOMED Clinical Terms
-                            (SNOMED CT); November, 2004. Available from: <link
-                                xlink:href="https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd"
-                                >https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd</link>.</para>
+                            (SNOMED CT); November, 2004. Available from: <link xlink:href="https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd">https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd</link>.</para>
                     </footnote>, defined as follows:</para>
 
                 <itemizedlist>
@@ -671,19 +644,18 @@
                     </listitem>
 
                     <listitem>
-                        <para><emphasis role="underline"
-                                ><?oxy_comment_start author="steph" timestamp="20190318T121945-0600" comment="For readability and consistency purposes, I think it would be better if the Reproducibility and Usability were put in the positive vs. negative aspects, as Understandability is.  Possible revised wording is shown below.
+                        <para><emphasis role="underline"><?oxy_comment_start author="steph" timestamp="20190318T121945-0600" comment="For readability and consistency purposes, I think it would be better if the Reproducibility and Usability were put in the positive vs. negative aspects, as Understandability is.  Possible revised wording is shown below.
 Reproducibility:  The retrieval and representation of the same concept should be consistent regardless of the nature of the interface, user preferences, or time of entry.
-Usability:  One should model concepts, concept properties, and distinction among concepts only for which there is current use in healthcare."?>Reproducibility<?oxy_comment_end?></emphasis>:
-                            The retrieval and representation of the same concept should not vary
-                            according to the nature of the interface, user preferences, or the time
-                            of entry.</para>
+Usability:  One should model concepts, concept properties, and distinction among concepts only for which there is current use in healthcare." flag="done"?>Reproducibility<?oxy_comment_end?></emphasis>:
+                            The retrieval and representation of the same concept should be
+                            consistent regardless of the nature of the interface, user preferences,
+                            or time of entry.</para>
                     </listitem>
 
                     <listitem>
-                        <para><emphasis role="underline">Usability</emphasis>: One should not model
-                            concepts, concept properties, or distinction among concepts for which
-                            there is no current use in healthcare.</para>
+                        <para><emphasis role="underline">Usefullness</emphasis>: One should model
+                            concepts, concept properties, and distinction among concepts only for
+                            which there is current use in healthcare.</para>
                     </listitem>
                 </itemizedlist>
 
@@ -701,8 +673,7 @@ Usability:  One should model concepts, concept properties, and distinction among
 
                 <para>To help ensure reproducibility, modelers should follow at least two guidelines
                     when creating clinical observation models: Avoid arbitrary variation and
-                    explicitly represent clinically relevant distinctions. <xref
-                        linkend="_Ref474506327" xrefstyle="select:label"/> illustrates relevant
+                    explicitly represent clinically relevant distinctions. <xref linkend="_Ref474506327" xrefstyle="select:label"/> illustrates relevant
                     examples and counterexamples of these guidelines. Note that the first example
                     shows three different modeling patterns for the same type of observation. In
                     this case, it would be preferable to model all observations of this type using
@@ -755,8 +726,7 @@ Usability:  One should model concepts, concept properties, and distinction among
                     <listitem>
                         <para><emphasis role="underline">Standardize on a single design
                                 pattern</emphasis> for all clinical observation models (i.e., either
-                            the Assertion, Evaluation, or Belief pattern described in <xref
-                                linkend="_Ref474506814" xrefstyle="select:label"/>). This approach
+                            the Assertion, Evaluation, or Belief pattern described in <xref linkend="_Ref474506814" xrefstyle="select:label"/>). This approach
                             may facilitate the tasks of data analysts and software developers, who
                             will need to learn many clinical observation models to use them
                             effectively in application development, CDS rule design, clinical
@@ -764,8 +734,7 @@ Usability:  One should model concepts, concept properties, and distinction among
 
                         <para>With this option, the “Belief” pattern is likely preferred, as it is
                             the most generic and supports all manner of clinical observations, as
-                            described in <xref linkend="_Ref474506814" xrefstyle="select:label"
-                            />.</para>
+                            described in <xref linkend="_Ref474506814" xrefstyle="select:label"/>.</para>
                     </listitem>
 
                     <listitem>
@@ -844,25 +813,21 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
             clinicians would see it in the user interface (i.e., CIF).</para>
         <itemizedlist>
             <listitem>
-                <para>Clinician collects data
-                    <?oxy_comment_start author="steph" timestamp="20190318T124139-0600" comment="Is &quot;via&quot; or something similar supposed to be included here?  Is the &quot;a&quot; with the accent over it supposed to do that instead?  If yes, it&apos;s confusing to me.  Same comment for other 2 bullets below."?>à<?oxy_comment_end?>
-                    Clinical Input Form.</para>
+                <para>Clinician collects data via Clinical Input Form.</para>
             </listitem>
             <listitem>
-                <para>Data is normalized à Transformation process from CIF to ANF à
-                    Representable/storable in multiple types of databases, which <emphasis
-                        role="underline">could</emphasis> include VistA but a separate process would
+                <para>Data is normalized via Transformation process from CIF to ANF à
+                    Representable/storable in multiple types of databases, which <emphasis role="underline">could</emphasis> include VistA but a separate process would
                     need to be performed to make that happen.</para>
             </listitem>
             <listitem>
                 <para>Data analyst who is using or querying the data (e.g., creating a CDS rule or
-                    working on prevalence statistics) à ANF (it is how the data is represented or
+                    working on prevalence statistics) via ANF (it is how the data is represented or
                     stored in the database; must know enough about the data to know what is stored
                     in the topic vs. what is stored as a result or detail).</para>
             </listitem>
         </itemizedlist>
-        <table frame="topbot" rowsep="0" colsep="0"
-            xml:id="table_f39f17ff-b1f9-4701-85db-324fb78b9f2b">
+        <table frame="topbot" rowsep="0" colsep="0" xml:id="table_f39f17ff-b1f9-4701-85db-324fb78b9f2b">
             <title>General Statement Model</title>
             <tgroup cols="2" align="left">
                 <colspec colname="c1" colnum="1" colwidth="102.37pt"/>
@@ -917,46 +882,30 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
         <editorial-rule>
             <title>Topic</title>
             <mathphrase>The <emphasis>topic</emphasis> is the center of interest or activity
-                represented by the statement. A few examples of topics include <link
-                    xlink:href="#ge_solor_Insulin_dependent_diabetes_mellitus_type_1A_cc0759c3-623e-3417-badb-8dbad681e0f5"><inlinemediaobject>
+                represented by the statement. A few examples of topics include <link xlink:href="#ge_solor_Insulin_dependent_diabetes_mellitus_type_1A_cc0759c3-623e-3417-badb-8dbad681e0f5"><inlinemediaobject>
                         <imageobject>
                             <imagedata>
                                 <?oxy_comment_start author="steph" timestamp="20190318T130906-0600" comment="The examples of topics shown here have a lot of white space shown after them in the PDF and it&apos;s distracting.  Recommend you just type the examples instead in a bulleted list."?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="242px" height="14px">
-                                    <text x="1" y="7"
-                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
-                                            >[<tspan dy="1.5"
-                                            style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; "
-                                            >&#xF2D8; </tspan>
-                                        <tspan dy="-1.5"/>Insulin dependent diabetes mellitus type 1
-                                        A]</text>
+                                    <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; ">&#xF2D8; </tspan>
+                                        <tspan dy="-1.5"/>Insulin dependent diabetes mellitus type 1 A]</text>
                                 </svg><?oxy_comment_end?>
                             </imagedata>
                         </imageobject>
-                    </inlinemediaobject></link>, <link
-                    xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
+                    </inlinemediaobject></link>, <link xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
                         <imageobject>
                             <imagedata>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="75px" height="14px">
-                                    <text x="1" y="7"
-                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
-                                            >[<tspan dy="1.5"
-                                            style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; "
-                                            >&#xF060; </tspan>
+                                    <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; ">&#xF060; </tspan>
                                         <tspan dy="-1.5"/>Pulse rate]</text>
                                 </svg>
                             </imagedata>
                         </imageobject>
-                    </inlinemediaobject></link>, <link
-                    xlink:href="#ge_solor_Administration_of_medication_8a39a4e6-97c8-3ab1-b589-71edfe1f32ce"><inlinemediaobject>
+                    </inlinemediaobject></link>, <link xlink:href="#ge_solor_Administration_of_medication_8a39a4e6-97c8-3ab1-b589-71edfe1f32ce"><inlinemediaobject>
                         <imageobject>
                             <imagedata>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="165px" height="14px">
-                                    <text x="1" y="7"
-                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
-                                            >[<tspan dy="1.5"
-                                            style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; "
-                                            >&#xF12F; </tspan>
+                                    <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; ">&#xF12F; </tspan>
                                         <tspan dy="-1.5"/>Administration of medication]</text>
                                 </svg>
                             </imagedata>
@@ -1020,7 +969,8 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
 
         <section xml:id="section_12d7f603-3acd-4e35-b9b8-3f4994aa2d70">
             <title>Understandable, Reproducible, and
-                <?oxy_comment_start author="steph" timestamp="20190318T131224-0600" comment="Should this be Usable, to be consistent with prior section on URU, where it says it&apos;s:  Understandability, Reproducibility, and Usability?  Same where &quot;Useful&quot; is shown below."?>Useful<?oxy_comment_end?></title>
+                <?oxy_comment_start author="steph" timestamp="20190318T131224-0600" comment="Should this be Usable, to be consistent with prior section on URU, where it says it&apos;s:  Understandability, Reproducibility, and Usability?  Same where &quot;Useful&quot; is shown below." id="dhf_f3m_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190326T153718-0500" comment="should be Useful instead of Usability
+" parentID="dhf_f3m_fhb" mid="15"?>Useful<?oxy_comment_end mid="15"?><?oxy_comment_end?></title>
             <para>Given a narrative, fill out the form. </para>
             <example xml:id="example_dc87fd7a-561e-4335-ae79-9bde3fb1fc05">
                 <title>Pulse observed to be 110</title>
@@ -1050,7 +1000,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                     pulse to be less than 70. </para>
             </example>
             <para>In the case of a human
-                <?oxy_comment_start author="steph" timestamp="20190318T132121-0600" comment="Should this be spelled as &quot;interpreter&quot; instead?"?>interpretor<?oxy_comment_end?>,
+                <?oxy_comment_start author="steph" timestamp="20190318T132121-0600" comment="Should this be spelled as &quot;interpreter&quot; instead?" flag="done"?>interpreter<?oxy_comment_end?>,
                 they can often believe that they understand a statement, even when there is a great
                 deal of information missing from the statement. In the above example, it was
                 probably assumed that the units used to measure the blood pressure was mm/Hg, that
@@ -1064,9 +1014,6 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                 such verification of assumed content cannot be performed. This inability to clarify
                 statements after the fact requires that statements sufficiently record the
                 circumstances necessary to reproducibly interpret the statement.</para>
-            <?oxy_comment_start author="steph" timestamp="20190318T132302-0600" comment="I don&apos;t think these empty paragraphs are needed."?>
-            <para/><?oxy_comment_end?>
-            <para/>
             <editorial-rule>
                 <title>Understandable</title>
                 <mathphrase>Editorial rules must be understandable to an editor or user simply by
@@ -1083,19 +1030,17 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                 <mathphrase>The representation must be useful for the purposes that the modeling is
                     intended to support. </mathphrase>
             </editorial-rule>
-            <para/>
         </section>
         <section xml:id="section_f73a5fd3-af2d-4e34-8a4b-3854a63e7ffd">
             <title>Structured Statement</title>
             <para>Narrative: Pulse observed to be 100 bpm on Monday,
-                <?oxy_comment_start author="steph" timestamp="20190318T132951-0600" comment="Need to add &quot;2018&quot; here and in the narrative below since you included it in Statement time."?>April
-                23rd <?oxy_comment_end?>at 9:15 am Pacific Standard Time</para>
+                <?oxy_comment_start author="steph" timestamp="20190318T132951-0600" comment="Need to add &quot;2018&quot; here and in the narrative below since you included it in Statement time." flag="done"?>April
+                23rd, 2018 <?oxy_comment_end?>at 9:15 am Pacific Standard Time</para>
             <para>Action Topic: Pulse</para>
             <para>Circumstance: facts or conditions relevant to an action; Two types of action:
                 request, performance</para>
             <para>
-                <table frame="topbot" rowsep="0" colsep="0"
-                    xml:id="table_9b08a484-6589-430a-bcb5-060703de35c3">
+                <table frame="topbot" rowsep="0" colsep="0" xml:id="table_9b08a484-6589-430a-bcb5-060703de35c3">
                     <title>Patient pulse representation of narrative with Structured
                         Statement</title>
                     <tgroup cols="2" align="left">
@@ -1110,8 +1055,8 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                             <row>
                                 <entry>Narrative:</entry>
                                 <entry>Pulse observed to be 100 bpm on Monday, April
-                                    <?oxy_comment_start author="steph" timestamp="20190318T132844-0600" comment="Need to add &quot;2018&quot; here since you showed it below in Statement time."?>23rd<?oxy_comment_end?>
-                                    at 9:15 am Pacific Standard Time</entry>
+                                    <?oxy_comment_start author="steph" timestamp="20190318T132844-0600" comment="Need to add &quot;2018&quot; here since you showed it below in Statement time." flag="done"?>23rd<?oxy_comment_end?>,
+                                    2018 at 9:15 am Pacific Standard Time</entry>
                             </row>
                             <row>
                                 <entry>Topic:</entry>
@@ -1140,8 +1085,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                         </row>
                                         <row rowsep="0">
                                             <entry colsep="0" rowsep="0">Result:</entry>
-                                            <entry colsep="0" rowsep="0" namest="c2" nameend="c3"
-                                                >120 beats per minute </entry>
+                                            <entry colsep="0" rowsep="0" namest="c2" nameend="c3">120 beats per minute </entry>
                                         </row>
                                     </tbody>
                                 </entrytbl>
@@ -1158,9 +1102,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                     <listitem>
                         <para><emphasis role="bold">Separation of Concerns:</emphasis> As defined by
                                 Wikipedia<footnote xml:id="__FN1A__">
-                                <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        xlink:href="https://en.wikipedia.org/wiki/Separation_of_concerns"
-                                        >https://en.wikipedia.org/wiki/Separation_of_concerns</link>
+                                <para><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://en.wikipedia.org/wiki/Separation_of_concerns">https://en.wikipedia.org/wiki/Separation_of_concerns</link>
                                 </para>
                             </footnote>: Separation of Concerns (SoC) is a design principle for
                             separating a computer program into distinct sections, such that each
@@ -1197,9 +1139,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                     <listitem>
                         <para><emphasis role="bold">Immutability: </emphasis>An Immutable Object as
                             defined by Wikipedia<footnote xml:id="__FN2A__">
-                                <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        xlink:href="https://en.wikipedia.org/wiki/immutable_object"
-                                        >https://en.wikipedia.org/wiki/immutable_object</link>
+                                <para><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://en.wikipedia.org/wiki/immutable_object">https://en.wikipedia.org/wiki/immutable_object</link>
                                 </para>
                             </footnote>: Used in object-oriented and functional programming, an
                             immutable object is something that cannot be changed after it is
@@ -1394,8 +1334,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                             </row>
                                             <row rowsep="0">
                                                 <entry colsep="0" rowsep="0">Result:</entry>
-                                                <entry colsep="0" rowsep="0" namest="c2"
-                                                  nameend="c3">120 beats per minute </entry>
+                                                <entry colsep="0" rowsep="0" namest="c2" nameend="c3">120 beats per minute </entry>
                                             </row>
                                         </tbody>
                                     </entrytbl>
@@ -1405,13 +1344,11 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                     </table>
                 </para>
                 <para>
-                    <table xml:id="table_7e8ac57c-08f8-4f1e-b1fc-af55f26c991d" colsep="0" rowsep="0"
-                        frame="topbot">
+                    <table xml:id="table_7e8ac57c-08f8-4f1e-b1fc-af55f26c991d" colsep="0" rowsep="0" frame="topbot">
                         <title>Pulse Request Statement</title>
                         <tgroup cols="2" align="left">
                             <colspec colname="c1" colnum="1" colwidth="1*" colsep="0" rowsep="0"/>
-                            <colspec colname="c2" colnum="2" colwidth="4*" colsep="0"
-                                rowsep="0"/>
+                            <colspec colname="c2" colnum="2" colwidth="4*" colsep="0" rowsep="0"/>
                             <thead>
                                 <row rowsep="1">
                                     <entry namest="c1" nameend="c2">Request Statement</entry>
@@ -1454,8 +1391,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                             <row rowsep="0">
                                                 <entry colsep="0" rowsep="0">Requested
                                                   result:</entry>
-                                                <entry colsep="0" rowsep="0" namest="c2"
-                                                  nameend="c3">&lt; 70 beats per minute</entry>
+                                                <entry colsep="0" rowsep="0" namest="c2" nameend="c3">&lt; 70 beats per minute</entry>
                                             </row>
                                         </tbody>
                                     </entrytbl>
@@ -1486,9 +1422,8 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                     </editorial-rule>
                     <editorial-rule>
                         <title>Include lower bound</title>
-                        <mathphrase><?oxy_comment_start author="steph" timestamp="20190318T151038-0600" comment="Recommend revising sentence to:  Indicate if the lower bound is withi or outside the interval represented by this measurement.  Same for Include upper bound below."?>Indicate<?oxy_comment_end?>
-                            if the lower bound is within the interval represented by this
-                            measurement, or outside the interval represented by this
+                        <mathphrase><?oxy_comment_start author="steph" timestamp="20190318T151038-0600" comment="Recommend revising sentence to:  Indicate if the lower bound is withi or outside the interval represented by this measurement.  Same for Include upper bound below." flag="done"?>Indicate<?oxy_comment_end?>
+                            if the lower bound is within or outside the interval represented by this
                             measurement.</mathphrase>
                     </editorial-rule>
                     <editorial-rule>
@@ -1687,7 +1622,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
             <para>The following components are used in multiple places within clinical statements. </para>
             <para/>
             <section xml:id="section_a4879816-b718-4def-80a1-926f2850f40e">
-                <title><?oxy_comment_start author="steph" timestamp="20190318T152743-0600" comment="I changed this to all caps since that&apos;s how it&apos;s referred to previously."?>STAMP<?oxy_comment_end?>
+                <title><?oxy_comment_start author="steph" timestamp="20190318T152743-0600" comment="I changed this to all caps since that&apos;s how it&apos;s referred to previously." flag="done"?>STAMP<?oxy_comment_end?>
                     Coordinate</title>
                 <para>The STAMP coordinate represents the versions of the integrated terminology and
                     statement model used to represent a clinical statement. </para>
@@ -1699,11 +1634,9 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                     Entities.” The former typically document the presence or absence of some
                     phenomenon in the patient (such as whether the patient has a pressure ulcer),
                     whereas the latter characterize some feature of the patient or the patient’s
-                    condition (such as the number of pressure ulcers a patient has). <xref
-                        linkend="table_95d32b2d-0ebf-4caf-abb0-380bf1ff3551"/> shows an example of
+                    condition (such as the number of pressure ulcers a patient has). <xref linkend="table_95d32b2d-0ebf-4caf-abb0-380bf1ff3551"/> shows an example of
                     the different representations for these two similar observations when modeled as
-                    Findings versus Observable Entity.<table frame="topbot" rowsep="0" colsep="0"
-                        xml:id="table_95d32b2d-0ebf-4caf-abb0-380bf1ff3551">
+                    Findings versus Observable Entity.<table frame="topbot" rowsep="0" colsep="0" xml:id="table_95d32b2d-0ebf-4caf-abb0-380bf1ff3551">
                         <title>An undesirable redundancy in representing clinical
                             observations.</title>
                         <tgroup cols="2" align="left">
@@ -1731,11 +1664,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                             </tbody>
                         </tgroup>
                     </table></para>
-                <para>Because the observation of pressure ulcers in a patient could be correctly
-                    modeled as either a Finding or Observable Entity, any subsequent query to
-                    determine whether a patient had a pressure ulcer would need to test for the
-                    observation in two different ways:</para>
-                <para><?oxy_comment_start author="steph" timestamp="20190318T153036-0600" comment="This paragraph doesn&apos;t make sense.  It also seems partially redundant of the paragraph above it."?>Because
+                <para><?oxy_comment_start author="steph" timestamp="20190318T153036-0600" comment="This paragraph doesn&apos;t make sense.  It also seems partially redundant of the paragraph above it." id="nf3_c5s_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190327T125559-0500" comment="Deleted paragraph above.  Will clarify paragraph in next round." parentID="nf3_c5s_fhb" mid="27"?>Because
                     the observation of pressure ulcers<link
                         xlink:href="#con_224b97e0-b703-39f6-ba4b-aa27f5dc15aa"><inlinemediaobject>
                             <imageobject>
@@ -1768,9 +1697,10 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                     </svg>
                                 </imagedata>
                             </imageobject>
-                        </inlinemediaobject></link> Text after.<?oxy_comment_end?> any subsequent
-                    query to determine whether a patient had a pressure ulcer would need to test for
-                    the observation in two different ways </para>
+                        </inlinemediaobject></link> Text
+                    after.<?oxy_comment_end mid="27"?><?oxy_comment_end?> any subsequent query to
+                    determine whether a patient had a pressure ulcer would need to test for the
+                    observation in two different ways: </para>
                 <para><emphasis>IF EXISTS object WHERE object.conceptId = “3456_PressureUlcers” AND
                         (object.value = “Present” OR object.value &gt; 0)</emphasis></para>
                 <para>This duality of representation complicates data querying and significantly
@@ -1836,8 +1766,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                             through examples.</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="images/interval-values-for-phenomena.png"
-                                    scalefit="1" width="100%" contentdepth="100%"/>
+                                <imagedata fileref="images/interval-values-for-phenomena.png" scalefit="1" width="100%" contentdepth="100%"/>
                             </imageobject>
                         </mediaobject>
                     </figure>
@@ -1917,8 +1846,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                     <title>Use case: Systolic BP while seated with
                         <?oxy_comment_start author="steph" timestamp="20190319T102044-0600" comment="This is nit picky but the use case only says seated and doesn&apos;t specify feet on the floor.  I am short and can be seated but not have feet on the floor, such as when I&apos;m sitting on the exam table having my BP checked and my feet don&apos;t reach."?>feet<?oxy_comment_end?>
                         on the floor for 5 minutes</title>
-                    <bridgehead renderas="sect1"
-                        ><?oxy_comment_start author="steph" timestamp="20190319T100537-0600" comment="Should this be under a numbered section heading?"?>Principles<?oxy_comment_end?></bridgehead>
+                    <bridgehead renderas="sect1"><?oxy_comment_start author="steph" timestamp="20190319T100537-0600" comment="Should this be under a numbered section heading?"?>Principles<?oxy_comment_end?></bridgehead>
                     <itemizedlist>
                         <listitem>
                             <para><emphasis role="bold">Proposed Principle 1:</emphasis> Clinical
@@ -2175,8 +2103,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                         <?oxy_comment_start author="steph" timestamp="20190319T101541-0600" comment="This contradicts what is shown in the table above, that clearly has them labeled as inseparable components."?>are
                         considered separable<?oxy_comment_end?>, although they may appear to be able
                         to stand alone and have values of present/absent.</para>
-                    <para><emphasis>Example </emphasis><emphasis role="underline"
-                                ><emphasis>action</emphasis></emphasis><emphasis> statement:
+                    <para><emphasis>Example </emphasis><emphasis role="underline"><emphasis>action</emphasis></emphasis><emphasis> statement:
                             </emphasis>Systolic<emphasis> </emphasis>BP 120 mmHg taken on right
                         brachial artery, using adult BP cuff</para>
                     <para>The right brachial artery and the adult BP have (implied) values of
@@ -2192,11 +2119,9 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                         </listitem>
                     </itemizedlist>
                     <para>The right brachial artery <emphasis role="bold">plays a role</emphasis> as
-                        the site of the blood pressure. Similarly, the adult BP cuff <emphasis
-                            role="bold">plays a role</emphasis> as the device used to perform the
+                        the site of the blood pressure. Similarly, the adult BP cuff <emphasis role="bold">plays a role</emphasis> as the device used to perform the
                         measurement. </para>
-                    <para><emphasis>Example </emphasis><emphasis role="underline"
-                                ><emphasis>request</emphasis></emphasis><emphasis> statement:
+                    <para><emphasis>Example </emphasis><emphasis role="underline"><emphasis>request</emphasis></emphasis><emphasis> statement:
                         </emphasis>BP measurement to take on right brachial artery, using adult BP
                         cuff</para>
                     <para>The right brachial artery and the adult BP have (implied) values of
@@ -2270,10 +2195,8 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                         <para><emphasis role="highlight"><emphasis role="bold">The criteria for
                                     identifying the focus and details that are not part of the
                                     focus, but play a role in a clinical statement suggest that
-                                    “details” are </emphasis><emphasis role="underline"><emphasis
-                                        role="bold">all</emphasis></emphasis><emphasis role="bold">
-                                    components, which </emphasis><emphasis role="underline"
-                                        ><emphasis role="bold">play a
+                                    “details” are </emphasis><emphasis role="underline"><emphasis role="bold">all</emphasis></emphasis><emphasis role="bold">
+                                    components, which </emphasis><emphasis role="underline"><emphasis role="bold">play a
                                     role</emphasis></emphasis><emphasis role="bold"> and are
                                     therefore separable components.</emphasis></emphasis></para>
                         <para><emphasis role="bold">Examples:</emphasis></para>
@@ -2293,8 +2216,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                             <para><emphasis role="bold">Detail</emphasis></para>
                                         </entry>
                                         <entry valign="middle">
-                                            <para><emphasis role="bold"
-                                                >Description</emphasis></para>
+                                            <para><emphasis role="bold">Description</emphasis></para>
                                         </entry>
                                         <entry align="center" valign="middle">
                                             <para><emphasis role="bold">Has (Pseudo-) Numeric
@@ -2313,8 +2235,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                         </entry>
                                         <entry align="center" valign="middle">
                                             <para><emphasis role="bold">Separable/</emphasis></para>
-                                            <para><emphasis role="bold"
-                                                >Inseparable</emphasis></para>
+                                            <para><emphasis role="bold">Inseparable</emphasis></para>
                                         </entry>
                                     </row>
                                     <row>
@@ -2491,8 +2412,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                             <para><emphasis role="bold">Detail</emphasis></para>
                                         </entry>
                                         <entry valign="middle">
-                                            <para><emphasis role="bold"
-                                                >Description</emphasis></para>
+                                            <para><emphasis role="bold">Description</emphasis></para>
                                         </entry>
                                         <entry align="center" valign="middle">
                                             <para><emphasis role="bold">Has (Pseudo-) Numeric
@@ -2511,8 +2431,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                         </entry>
                                         <entry align="center" valign="middle">
                                             <para><emphasis role="bold">Separable/</emphasis></para>
-                                            <para><emphasis role="bold"
-                                                >Inseparable</emphasis></para>
+                                            <para><emphasis role="bold">Inseparable</emphasis></para>
                                         </entry>
                                     </row>
                                     <row>
@@ -2739,8 +2658,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                             <para><emphasis role="bold">Detail</emphasis></para>
                                         </entry>
                                         <entry valign="middle">
-                                            <para><emphasis role="bold"
-                                                >Description</emphasis></para>
+                                            <para><emphasis role="bold">Description</emphasis></para>
                                         </entry>
                                         <entry align="center" valign="middle">
                                             <para><emphasis role="bold">Has (Pseudo-) Numeric
@@ -2759,8 +2677,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                         </entry>
                                         <entry align="center" valign="middle">
                                             <para><emphasis role="bold">Separable/</emphasis></para>
-                                            <para><emphasis role="bold"
-                                                >Inseparable</emphasis></para>
+                                            <para><emphasis role="bold">Inseparable</emphasis></para>
                                         </entry>
                                     </row>
                                     <row>
@@ -2821,8 +2738,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                     <itemizedlist>
                                         <listitem>
                                             <para>Passage used to reach the procedure site or take a
-                                                  measurement.<emphasis role="bold"
-                                                > </emphasis></para>
+                                                  measurement.<emphasis role="bold"> </emphasis></para>
                                             <itemizedlist>
                                                 <listitem>
                                                   <para>Excision of rib by <emphasis>cervical
@@ -3155,7 +3071,7 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                                                 </listitem>
                                                 <listitem>
                                                   <para>Bedside blood sugar measurement reported by
-                                                  <?oxy_comment_start author="steph" timestamp="20190319T110057-0600" comment="This should be shown in italic font."?>nurse<?oxy_comment_end?></para>
+                                                  <?oxy_comment_start author="steph" timestamp="20190319T110057-0600" comment="This should be shown in italic font." flag="done"?><emphasis>nurse</emphasis><?oxy_comment_end?></para>
                                                 </listitem>
                                             </itemizedlist>
                                         </listitem>

@@ -6,6 +6,21 @@
     <title>Concepts and Codes</title>
     <section>
         <title>Introduction</title>
+        <para>Terminology systems are increasingly critical components for achieving
+            interoperability across applications in the healthcare domain. The role of standard
+            terminologies in achieving interoperability for the purposes of advancing patient care
+            is well documented. Ideally, these clinical terminology standards intend to provide
+            rules to allow for the exchange, integration, and management of electronic clinical
+            information. The federal government recognizes the benefit of standard terminologies and
+            promotes their development and use. The <emphasis role="italic">Federal Health IT
+                Strategic Plan 2015-2020</emphasis> set a strategy to encourage consistent
+            terminology standards implementation in Electronic Health Records (EHR) and encourage
+            use through federal payment policies. A standard terminology is one that has wide
+            industry acceptance or use.</para>
+        <para>Standards are obtained from a variety of efforts, cover different domains of clinical
+            and nonclinical content relevant to the EHR, and serve various purposes. Currently, no
+            one terminology or classification system contains everything that is needed for the
+            medical record. </para>
         <para>The scope of content covered in terminologies varies from focusing on a very specific
             domain to covering multiple domains.  The main terminologies supported in Solor (SNOMED
             CT, LOINC, and RxNorm) all follow very structured and persistent code practices.  They
@@ -13,6 +28,11 @@
     </section>
     <section>
         <title>SNOMED CT Concepts</title>
+        <para>Systematized Nomenclature of Medicine-Clinical Terms (SNOMED CT®) is a comprehensive
+            clinical terminology, maintained by the International Health Terminology Standards
+            Development Organization (IHTSDO) representing over 300,000 concepts including disorders
+            (22%), procedures (17%), body structures (11%), clinical findings other than disorders
+            (10%), and organisms (10%).</para>
         <para>SNOMED CT concepts span multiple domains, from findings and disorders to procedures
             and pharmaceutical and biological products.  SNOMED CT concepts exist at multiple levels
             of granularity and mechanisms exist to add missing content to ensure that information is
@@ -22,6 +42,9 @@
     </section>
     <section>
         <title>LOINC Codes</title>
+        <para>Logical Observation Identifiers, Names, and Codes (LOINC®) is a terminology
+            representing about 50,000 clinical and laboratory observations, health measurements, and
+            documents, developed and maintained by the Regenstrief Institute.</para>
         <para>LOINC codes are used to identify laboratory and clinical measurements, observations
             and documents.  Each named concept in LOINC is given a LOINC code which has no structure
             other than a check digit appended to the end.  In addition, all of the components that
@@ -32,11 +55,83 @@
     </section>
     <section>
         <title>RxNorm</title>
+        <para>RxNORM is a terminology for human clinical drugs in the U.S representing drug
+            properties such as ingredient, strength, and dose form, maintained by the National
+            Library of Medicine (NLM) and distributed via the Unified Medical Language System </para>
         <para>RxNorm provides normalized clinical drug names and relationships between those names
             and common drug vocabularies for the purpose of easing the exchange of clinical drug
             information between systems that use different drug vocabularies.  Every concept in
             RxNorm is given a unique RXCUI.  The names and codes from the common drug vocabularies
             are then linked to that RXCUI.</para>
+    </section>
+    <section>
+        <title>UMLS</title>
+        <para>Terminology systems typically consist of the following elements: </para>
+        <itemizedlist>
+            <listitem>
+                <para>Coded Concepts – the discrete units of knowledge managed within the
+                    terminology. They typically consist of numeric codes and textual preferred
+                    names, synonyms, and descriptions. </para>
+            </listitem>
+            <listitem>
+                <para>Concept Hierarchies – the logical organization of concepts into parent-child
+                    and ancestor-descendant relationships that express the semantics of
+                    generalization and specialization. The hierarchical organization of a
+                    terminology may be explicitly expressed through stored parent-child and
+                    ancestor-descendant links, or it may be implicitly expressed through the logical
+                    definitions of individual concepts that a computer can use to infer parent-child
+                    and ancestor-descendant relationships. </para>
+            </listitem>
+            <listitem>
+                <para>Value Sets – named lists of individual concepts that represent more abstract
+                    categories useful in decision-support logic.</para>
+            </listitem>
+        </itemizedlist>
+                <para>New applications and new medical knowledge constantly call for expansion and
+                    enhancement of existing terminologies. However, since terminology systems are
+                    often non-static, incomplete and under specified, inconsistencies may be
+                    introduced. </para>
+                <para>While many of these challenges are related to terminology evolution, others
+                    may be related to the design of the standard clinical terminologies themselves.
+                    Cimino notably described the challenges of concept orientation, completeness,
+                    correctness, currency, granularity, and redundancy when designing re-usable
+                    medical terminologies. Today, 20 years later, a menagerie of inconsistent and
+                    overlapping terminology models hinders efforts that try to store and analyze
+                    encoded clinical data. Several efforts aim to assist. The National Library of
+                    Medicine (NLM) integrates terms and codes from over 150 source vocabularies by
+                    concept, attribute, and meaning in the Unified Medical Language System ® (UMLS)
+                    Metathesaurus. The NLM, also, in collaboration with the Office of the National
+                    Coordinator for Health Information Technology and Centers for Medicare &amp;
+                    Medicaid Services, hosts the Value Set Authority Center (VSAC). The VSAC aims to
+                    provide lists of values, codes, and names (i.e., value sets) from standard
+                    clinical terminologies to represent clinical concepts. </para>
+                <para>These tools, while helpful, have gaps. Raje et al. highlighted issues with
+                    completeness, correctness, and redundancy when they found gaps in the UMLS
+                    Metathesaurus’ coverage of disease concepts. Similarly, Winnenburg et al.
+                    highlighted duplicate value sets in the VSAC, and showed that 19% of value sets
+                    in 2011 contained invalid codes. In subsequent work, they highlighted issues
+                    related to granularity by evaluating over 1,000 value sets and found that value
+                    sets varied vastly in size with some only containing one code, while other value
+                    sets included over 20,000 codes. Similarly, Bahr et al. showed issues with
+                    concept orientation by analyzing medication value sets and found extraneous and
+                    missing ingredients in both the value sets and drug classes. </para>
+                <para>These issues related to integrating clinical content have a direct impact on
+                    patient safety and point to the need to be able to consistently represent and
+                    encode clinical data and observations. Therefore, quality assurance is an
+                    indispensable part the terminology management lifecycle. A central limitation of
+                    integrating controlled medical terminologies is that they often lack any formal
+                    model to denote the relationships among constituent data elements. </para>
+                <para>Recently, however, development teams for SNOMED CT, LOINC, and RxNorm have
+                    partnered to promote interoperability. Developers can now leverage SNOMED CT’s
+                    representation model for the building blocks of LOINC, and a new drug model in
+                    SNOMED CT facilitates extensions and consistency to RxNorm. Bodenreider et al.
+                    wrote about the recent collaboration: “while this evolution leads to greater
+                    compatibility and interoperability, integration of SNOMED CT, LOINC, and RxNorm
+                    still requires mappings among the three terminologies. Moreover, these three
+                    terminologies use different formalisms and tools for their representation, have
+                    their own release cycles and versioning mechanisms, which makes their seamless
+                    integration non trivial, if at all possible.” </para>
+          
     </section>
     <section>
         <title>Solor</title>
@@ -158,4 +253,3 @@
     </section>
     
 </chapter>
-

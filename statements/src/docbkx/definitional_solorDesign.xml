@@ -17,7 +17,7 @@
             store and maintain various concepts. These hierarchies are typically modeled such that
             higher level concepts (i.e. Disorder of endocrine system) are more generic than lower
             level concepts, which are more granular (e.g. Type 1 diabetes mellitus). Through a
-            series of isA relationships, which will be explained in the next section, one could
+            series of Is a relationships, which will be explained in the next section, one could
             traverse down the hierarchy from a top level generic concept to a very specific concept.
             In an attempt to gather 'like' concepts, Solor created top level categories of concepts
             to 'house' concepts that belong to those categories. This section will describe the
@@ -31,7 +31,7 @@
         </section>
         <section>
         	<title>Environment or geographical location</title>
-        	<para>This hierarcy contains the
+        	<para>This hierarchy contains the
                 <?oxy_comment_start author="steph" timestamp="20190306T104342-0700" comment="What are the two types of environments?" flag="done"?>types
                 <?oxy_comment_end?>of environments and named locations such as countries. </para>
         </section>
@@ -443,7 +443,7 @@
                                 <entry>Infectious process (qualifier value) OR</entry>
                             </row>
                             <row>
-                                <entry>Hypersensitivity process (qualfier value) OR</entry>
+                                <entry>Hypersensitivity process (qualifier value) OR</entry>
                             </row>
                             <row>
                                 <entry>Pathological developmental process (qualifier value)</entry>
@@ -470,7 +470,7 @@
                                 <entry>Property</entry>
                                 <entry>None</entry>
                                 <entry>Observable entity</entry>
-                                <entry>Property of meaurement (qualifier value)</entry>
+                                <entry>Property of measurement (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="4">Process agent</entry>
@@ -694,7 +694,7 @@
                                 <title>Utility</title>
                                 <para>The Causative agent attribute is useful to identify the cause
                                     of a disease that correctly place the concept in the proper
-                                    hierarchy and aid in search and retreival of concepts.</para>
+                                    hierarchy and aid in search and retrieval of concepts.</para>
                             </formalpara>
                             <formalpara>
                                 <title>Example</title>
@@ -704,7 +704,7 @@
                                     is more problematic as specific causative agents have not been
                                     demonstrated, but nevertheless occupational asthma occurs.
                                     Probably the best evidence comes from longitudinal studies of
-                                    apprentice welders.Priapism caused by drug (disorder) has a
+                                    apprentice welders. Priapism caused by drug (disorder) has a
                                     Causative agent of Drug or medicament (substance).</para>
                             </formalpara>
                             <?oxy_comment_start author="timowilliams" timestamp="20190308T084255-0600" comment="Need to insert an expression once they are available in Solor Viewer
@@ -739,7 +739,7 @@
                             <formalpara>
                                 <title>Definition</title>
                                 <para>Temporally related to is used in the Phenomenon hierarchy to
-                                    specify the clinical entity occuring either before, during or
+                                    specify the clinical entity occurring either before, during or
                                     after a Phenomenon or Procedure.</para>
                             </formalpara>
                             <formalpara>
@@ -864,8 +864,8 @@
                     <title>Component</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>The Component attribute is used in the Phenomenon hieararchy to
-                            specify the numerator of a relational property type.</para>
+                        <para>The Component attribute is used in the Phenomenon hierarchy to specify
+                            the numerator of a relational property type.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
@@ -919,8 +919,8 @@
                     <formalpara>
                         <title>Example</title>
                         <para>Arthritis (disorder) with Episodicity = First episode (qualifier
-                            value) represents the firsttimethe patient presents to their healthcare
-                            provider with arthritis.</para>
+                            value) represents the first time the patient presents to their
+                            healthcare provider with arthritis.</para>
                     </formalpara>
                     
                 </section>
@@ -1523,7 +1523,7 @@
                                 <entry>Property</entry>
                                 <entry>None</entry>
                                 <entry>Evaluation procedure</entry>
-                                <entry>Property of meaurement (qualifier value)</entry>
+                                <entry>Property of measurement (qualifier value)</entry>
                             </row>
                             <row>
                                 <entry morerows="4">Recipient category</entry>
@@ -1640,7 +1640,7 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>The Component attribute is used specificially to define Evaluation
+                        <para>The Component attribute is used specifically to define Evaluation
                             procedures.</para>
                     </formalpara>
                     <formalpara>
@@ -2364,7 +2364,7 @@
                     <formalpara>
                         <title>Utility</title>
                         <para>The Associated finding attribute is used to link a Phenomenon or Event
-                            to the contextual information contained in the Finding context, Suject
+                            to the contextual information contained in the Finding context, Subject
                             relationship context and Temporal context attributes.</para>
                     </formalpara>
                     <formalpara>
@@ -2385,7 +2385,7 @@
                         <para/>
                     </formalpara>
                     <para>The Associated procedure attribute is used to link a Procedure to the
-                        contextual information contained in the Procedure context, Suject
+                        contextual information contained in the Procedure context, Subject
                         relationship context and Temporal context attributes.</para>
                     <formalpara>
                         <title>Example</title>
@@ -2592,15 +2592,17 @@
                     <title>Has ingredient</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>Insert definition here.</para>
+                        <para>The Has ingredient attribute allows for the definition of a Substance
+                            that can be used as an ingredient for a Medicinal product.</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <para>Describe why the role is useful here.</para>
-                    </formalpara>
-                    <formalpara>
-                        <title>Example</title>
-                        <para>Give an example of correct use here.</para>
+                        <para>This attribute is not used to define Medicinal product, but is used as
+                            a parent attribute for Has active ingredient.  It is considered a
+                            grouper attribute for other ingredient attributes like Has active
+                            ingredient.  It can also be used for querying other ingredient
+                            attributes to find any Medicinal product with a specific ingredient
+                            regardless of the subtype attribute used.</para>
                     </formalpara>
                     
                     <section>
@@ -2630,7 +2632,9 @@
                                     <title>Has precise active ingredient</title>
                                     <formalpara>
                                         <title>Definition</title>
-                                        <para>Insert definition here.</para>
+                                        <para>Has precise active ingredient represents the most
+                                            specific substance present in the manufactured dose
+                                            form</para>
                                     </formalpara>
                                     <formalpara>
                                         <title>Utility</title>
@@ -2928,9 +2932,9 @@
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <?oxy_comment_start author="timowilliams" timestamp="20190312T164433-0500" comment="Add Utility
-"?>
-                        <para>Describe why the role is useful here.</para><?oxy_comment_end?>
+                        <para>The Has disposition attribute allows for the definition of behaviors
+                            like Antimicrobial (disposition), Decarboxylase (disposition), and
+                            Chelating agent (disposition).</para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>
@@ -2942,13 +2946,13 @@
                     <title>Is modification of</title>
                     <formalpara>
                         <title>Definition</title>
-                        <para>The Is modification of attirbute is used in the Substance hierarchy to define the structural modification of another concept</para>
+                        <para>The Is modification of attribute is used in the Substance hierarchy to
+                            define the structural modification of another concept</para>
                     </formalpara>
                     <formalpara>
                         <title>Utility</title>
-                        <?oxy_comment_start author="timowilliams" timestamp="20190312T164446-0500" comment="Add Utility
-"?>
-                        <para>Describe why the role is useful here.<?oxy_comment_end?></para>
+                        <para>The Is modification attribute allows for the definition of Substances
+                            that are modifications of other Substances.  </para>
                     </formalpara>
                     <formalpara>
                         <title>Example</title>

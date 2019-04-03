@@ -14,17 +14,21 @@
             information. The federal government recognizes the benefit of standard terminologies and
             promotes their development and use. The <emphasis role="italic">Federal Health IT
                 Strategic Plan 2015-2020</emphasis> set a strategy to encourage consistent
-            terminology standards implementation in Electronic Health Records (EHR) and encourage
-            use through federal payment policies. A standard terminology is one that has wide
-            industry acceptance or use.</para>
+            terminology standards implementation in Electronic Health Records (EHRs) and encourage
+            use through federal payment policies.
+            <?oxy_comment_start author="steph" timestamp="20190402T131526-0600" comment="I recommend moving this up so it&apos;s the 2nd sentence in this paragraph."?>A
+            standard terminology is one that has wide industry acceptance or
+            use.<?oxy_comment_end?></para>
         <para>Standards are obtained from a variety of efforts, cover different domains of clinical
             and nonclinical content relevant to the EHR, and serve various purposes. Currently, no
-            one terminology or classification system contains everything that is needed for the
-            medical record. </para>
+            <?oxy_comment_start author="steph" timestamp="20190402T131701-0600" comment="Recommend revising to &quot;single&quot; for readability purposes."?>one<?oxy_comment_end?>
+            terminology or classification system contains everything that is needed for the medical
+            record. </para>
         <para>The scope of content covered in terminologies varies from focusing on a very specific
-            domain to covering multiple domains.  The main terminologies supported in Solor (SNOMED
-            CT, LOINC, and RxNorm) all follow very structured and persistent code practices.  They
-            never delete codes but in some cases (RxNorm) they are moved to a separate table.  </para>
+            domain to covering multiple domains. The main terminologies supported in Solor (i.e.,
+            SNOMED CT, LOINC, and RxNorm) all follow very structured and persistent code practices.
+            They never delete codes but in some cases (i.e., RxNorm) they are moved to a separate
+            table. </para>
     </section>
     <section>
         <title>SNOMED CT Concepts</title>
@@ -34,11 +38,13 @@
             (22%), procedures (17%), body structures (11%), clinical findings other than disorders
             (10%), and organisms (10%).</para>
         <para>SNOMED CT concepts span multiple domains, from findings and disorders to procedures
-            and pharmaceutical and biological products.  SNOMED CT concepts exist at multiple levels
-            of granularity and mechanisms exist to add missing content to ensure that information is
-            coded at the most granular level possible.  SNOMED CT Concepts are identified with a 6
-            to 18 digit integer that has some structure that describes where the identifier
-            originated (the original creator of the identifier) and what type of identifier it is.  </para>
+            and pharmaceutical and biological products. SNOMED CT concepts exist at multiple levels
+            of granularity, and mechanisms exist to add missing content to ensure that information
+            is coded at the most granular level possible. SNOMED CT concepts are identified with a
+            <?oxy_comment_start author="steph" timestamp="20190402T132125-0600" comment="Does this go against the desiderata of a meaningless identifer, as mentioned in the terminology-intro.xml section?  If yes, should it be acknowledged?"?>6-
+            to 18-digit integer that has some structure that describes where the identifier
+            originated (the original creator of the identifier) and what type of identifier it is.
+            <?oxy_comment_end?></para>
     </section>
     <section>
         <title>LOINC Codes</title>
@@ -55,9 +61,10 @@
     </section>
     <section>
         <title>RxNorm</title>
-        <para>RxNORM is a terminology for human clinical drugs in the U.S representing drug
+        <para>RxNorm is a terminology for human clinical drugs in the U.S., representing drug
             properties such as ingredient, strength, and dose form, maintained by the National
-            Library of Medicine (NLM) and distributed via the Unified Medical Language System </para>
+            Library of Medicine (NLM) and distributed via the Unified Medical Language System
+            (UMLS).</para>
         <para>RxNorm provides normalized clinical drug names and relationships between those names
             and common drug vocabularies for the purpose of easing the exchange of clinical drug
             information between systems that use different drug vocabularies.  Every concept in
@@ -105,22 +112,23 @@
                     Medicaid Services, hosts the Value Set Authority Center (VSAC). The VSAC aims to
                     provide lists of values, codes, and names (i.e., value sets) from standard
                     clinical terminologies to represent clinical concepts. </para>
-                <para>These tools, while helpful, have gaps. Raje et al. highlighted issues with
-                    completeness, correctness, and redundancy when they found gaps in the UMLS
-                    Metathesaurus’ coverage of disease concepts. Similarly, Winnenburg et al.
-                    highlighted duplicate value sets in the VSAC, and showed that 19% of value sets
-                    in 2011 contained invalid codes. In subsequent work, they highlighted issues
-                    related to granularity by evaluating over 1,000 value sets and found that value
-                    sets varied vastly in size with some only containing one code, while other value
-                    sets included over 20,000 codes. Similarly, Bahr et al. showed issues with
-                    concept orientation by analyzing medication value sets and found extraneous and
-                    missing ingredients in both the value sets and drug classes. </para>
+                <para>These tools, while helpful, have gaps.
+            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph."?>Raje
+            et al. <?oxy_comment_end?>highlighted issues with completeness, correctness, and
+            redundancy when they found gaps in the UMLS Metathesaurus’ coverage of disease concepts.
+            Similarly, Winnenburg et al. highlighted duplicate value sets in the VSAC, and showed
+            that 19% of value sets in 2011 contained invalid codes. In subsequent work, they
+            highlighted issues related to granularity by evaluating over 1,000 value sets and found
+            that value sets varied vastly in size with some only containing one code, while other
+            value sets included over 20,000 codes. Similarly, Bahr et al. showed issues with concept
+            orientation by analyzing medication value sets and found extraneous and missing
+            ingredients in both the value sets and drug classes. </para>
                 <para>These issues related to integrating clinical content have a direct impact on
-                    patient safety and point to the need to be able to consistently represent and
-                    encode clinical data and observations. Therefore, quality assurance is an
-                    indispensable part the terminology management lifecycle. A central limitation of
-                    integrating controlled medical terminologies is that they often lack any formal
-                    model to denote the relationships among constituent data elements. </para>
+            patient safety and point to the need to be able to consistently represent and encode
+            clinical data and observations. Therefore, quality assurance is an indispensable part of
+            the terminology management lifecycle. A central limitation of integrating controlled
+            medical terminologies is that they often lack any formal model to denote the
+            relationships among constituent data elements. </para>
                 <para>Recently, however, development teams for SNOMED CT, LOINC, and RxNorm have
                     partnered to promote interoperability. Developers can now leverage SNOMED CT’s
                     representation model for the building blocks of LOINC, and a new drug model in

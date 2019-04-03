@@ -3,7 +3,7 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <section xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-     <title><?oxy_comment_start author="steph" timestamp="20190306T103648-0700" comment="This is nitpicky but I think you should be consistent in your headings WRT capitalization.  As you can see here, sometimes the first letter of each word is capitalized, where appropriate, but sometimes it&apos;s just the first word." id="l15_jmk_1hb"?><?oxy_comment_start author="timowilliams" timestamp="20190308T113005-0600" comment="Changes will be made where Relevant.  In some cases words after the first may need to be capitalized since that is they way they are in the terminology.  For example SNOMED CT Model Component." parentID="l15_jmk_1hb" mid="1"?>Solor<?oxy_comment_end mid="1"?><?oxy_comment_end?>
+     <title><?oxy_comment_start author="steph" timestamp="20190306T103648-0700" comment="This is nitpicky but I think you should be consistent in your headings WRT capitalization.  As you can see here, sometimes the first letter of each word is capitalized, where appropriate, but sometimes it&apos;s just the first word." id="l15_jmk_1hb" mid="1"?><?oxy_comment_start author="timowilliams" timestamp="20190308T113005-0600" comment="Changes will be made where Relevant.  In some cases words after the first may need to be capitalized since that is they way they are in the terminology.  For example SNOMED CT Model Component." parentID="l15_jmk_1hb"?><?oxy_comment_start author="steph" timestamp="20190402T155220-0600" comment="Okay" mid="2"?>Solor<?oxy_comment_end mid="2"?><?oxy_comment_end?><?oxy_comment_end mid="1"?>
         definitional knowledge</title>
      <para>In order to represent the various domains of healthcare, Solor "stands on the shoulder of
         giants" by building on existing content from SNOMED, LOINC, and RxNorm. The purpose of this
@@ -129,10 +129,10 @@
                 </formalpara>
                 <formalpara>
                     <title>Utility</title>
-                    <para><?oxy_comment_start author="steph" timestamp="20190306T111442-0700" comment="When will the information here and below be provided?  Same question throughout the document where placeholders/stubs are shown." id="u5j_lp2_1hb" mid="4"?><?oxy_comment_start author="timowilliams" timestamp="20190307T160515-0600" comment="Yes.  It will be provided.  " parentID="u5j_lp2_1hb"?>Is
+                    <para><?oxy_comment_start author="steph" timestamp="20190306T111442-0700" comment="When will the information here and below be provided?  Same question throughout the document where placeholders/stubs are shown." id="u5j_lp2_1hb" mid="5"?><?oxy_comment_start author="timowilliams" timestamp="20190307T160515-0600" comment="Yes.  It will be provided.  " parentID="u5j_lp2_1hb"?><?oxy_comment_start author="steph" timestamp="20190402T155427-0600" comment="Okay" mid="6"?>Is
                         a Relationships give a hierarchical structure to Solor and provide a
                         mechanism to query and retrieve subtype
-                        concepts<?oxy_comment_end?><?oxy_comment_end mid="4"?>.</para>
+                        concepts<?oxy_comment_end mid="6"?><?oxy_comment_end?><?oxy_comment_end mid="5"?>.</para>
                 </formalpara>
                 <formalpara>
                     <title>Example</title>
@@ -168,7 +168,7 @@
                                 <entry morerows="6">None</entry>
                                 <entry morerows="6">Clinical findings/Disorder</entry>
                                 <entry>Clinical finding (finding)
-                                    <?oxy_comment_start author="steph" timestamp="20190306T112934-0700" comment="By putting &quot;OR&quot; it seems to imply that it can&apos;t be an &quot;AND&quot; condition.  If it can, maybe just change column heading from Range to Range(s)?  Is the &quot;OR&quot; even necessary?" id="ejj_tqc_1hb"?><?oxy_comment_start author="timowilliams" timestamp="20190307T093910-0600" comment="OR is correct.  AND would imply that you need All of them, when you can really only have one at a time.  We could remove the OR as well." parentID="ejj_tqc_1hb" mid="11"?>OR<?oxy_comment_end mid="11"?><?oxy_comment_end?></entry>
+                                    <?oxy_comment_start author="steph" timestamp="20190306T112934-0700" comment="By putting &quot;OR&quot; it seems to imply that it can&apos;t be an &quot;AND&quot; condition.  If it can, maybe just change column heading from Range to Range(s)?  Is the &quot;OR&quot; even necessary?" id="ejj_tqc_1hb" mid="9"?><?oxy_comment_start author="timowilliams" timestamp="20190307T093910-0600" comment="OR is correct.  AND would imply that you need All of them, when you can really only have one at a time.  We could remove the OR as well." parentID="ejj_tqc_1hb"?><?oxy_comment_start author="steph" timestamp="20190402T155552-0600" comment="I think the &quot;OR&quot; is needed since it lets users know only one can be chosen.  I didn&apos;t know that and just wanted to confirm." mid="8"?>OR<?oxy_comment_end mid="8"?><?oxy_comment_end?><?oxy_comment_end mid="9"?></entry>
                             </row>
                             <row>
                                 <entry>Procedure (procedure) OR</entry>
@@ -190,8 +190,8 @@
                             </row>
                             <row>
                                 <entry morerows="3"
-                                    ><?oxy_comment_start author="steph" timestamp="20190306T114245-0700" comment="In the sections that follow this table, it says that Associated with has 3 subtype attributes of Causative agent, Due to and Temporally related to.  However, that isn&apos;t reflected in this table.  Recommend revising the table so that sub-types are indented or something is done so that it&apos;s obvious they are sub-types." id="gym_lq2_1hb"?><?oxy_comment_start author="timowilliams" timestamp="20190307T161255-0600" comment="I have added it to all the tables." parentID="gym_lq2_1hb" mid="7"?>Causative
-                                    agent<?oxy_comment_end mid="7"?><?oxy_comment_end?></entry>
+                                    ><?oxy_comment_start author="steph" timestamp="20190306T114245-0700" comment="In the sections that follow this table, it says that Associated with has 3 subtype attributes of Causative agent, Due to and Temporally related to.  However, that isn&apos;t reflected in this table.  Recommend revising the table so that sub-types are indented or something is done so that it&apos;s obvious they are sub-types." id="gym_lq2_1hb" mid="11"?><?oxy_comment_start author="timowilliams" timestamp="20190307T161255-0600" comment="I have added it to all the tables." parentID="gym_lq2_1hb"?><?oxy_comment_start author="steph" timestamp="20190402T155710-0600" comment="Thanks.  Did you see my other comment about indenting for sub-types, so we know they belong to an attribute and aren&apos;t independent/standalone attributes themselves?" mid="12"?>Causative
+                                    agent<?oxy_comment_end mid="12"?><?oxy_comment_end?><?oxy_comment_end mid="11"?></entry>
                                 <entry morerows="3">Associated with</entry>
                                 <entry morerows="3">Clinical findings/Disorder</entry>
                                 <entry>Organism (organism) OR</entry>
@@ -507,8 +507,8 @@
                             </row>
                             <row>
                                 <entry morerows="6"
-                                    ><?oxy_comment_start author="steph" timestamp="20190306T112411-0700" comment="Should this also include Person in the Range column?  I saw that the Attribute for Inheres includes Person and thought maybe it would be applicable here as well.  Same comment for sub-types within sub-types, etc." id="tkc_21d_1hb"?><?oxy_comment_start author="timowilliams" timestamp="20190307T105051-0600" comment="Relative to does not currently accept Person as a value.  " parentID="tkc_21d_1hb" mid="14"?>Relative
-                                    to<?oxy_comment_end mid="14"?><?oxy_comment_end?></entry>
+                                    ><?oxy_comment_start author="steph" timestamp="20190306T112411-0700" comment="Should this also include Person in the Range column?  I saw that the Attribute for Inheres includes Person and thought maybe it would be applicable here as well.  Same comment for sub-types within sub-types, etc." id="tkc_21d_1hb" mid="14"?><?oxy_comment_start author="timowilliams" timestamp="20190307T105051-0600" comment="Relative to does not currently accept Person as a value.  " parentID="tkc_21d_1hb"?><?oxy_comment_start author="steph" timestamp="20190402T155825-0600" comment="Okay" mid="15"?>Relative
+                                    to<?oxy_comment_end mid="15"?><?oxy_comment_end?><?oxy_comment_end mid="14"?></entry>
                                 <entry morerows="6">None</entry>
                                 <entry morerows="6">Observable entity</entry>
                                 <entry>Body structure (body structure) OR</entry>
@@ -2182,9 +2182,10 @@
                     <section>
                         <title>All or part of Subtype Roles</title>
                         <para>All or part of currently has
-                            <?oxy_comment_start author="steph" timestamp="20190306T155557-0700" comment="Why isn&apos;t &quot;All&quot; also a subtype?  It seems to be inconsistent with how other subtypes were used.  For example, in  Phenomenon Relationships, the attribute of During AND/OR After had 2 subtypes, 1 for During and 1 for After." id="okg_1df_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190325T155136-0500" comment="The listed relationships are the current future relationships as they exist in SNOMED.  These may be modified prior to the January 2020 release date.  Right now they are in here as a place holder until they are released and properly documented." parentID="okg_1df_fhb" mid="25"?>one
+                            <?oxy_comment_start author="steph" timestamp="20190306T155557-0700" comment="Why isn&apos;t &quot;All&quot; also a subtype?  It seems to be inconsistent with how other subtypes were used.  For example, in  Phenomenon Relationships, the attribute of During AND/OR After had 2 subtypes, 1 for During and 1 for After." id="okg_1df_fhb" mid="31"?><?oxy_comment_start author="timowilliams" timestamp="20190325T155136-0500" comment="The listed relationships are the current future relationships as they exist in SNOMED.  These may be modified prior to the January 2020 release date.  Right now they are in here as a place holder until they are released and properly documented." parentID="okg_1df_fhb"?><?oxy_comment_start author="steph" timestamp="20190402T160129-0600" comment="Okay
+" mid="30"?>one
                             subtype role, Part
-                            of.<?oxy_comment_end mid="25"?><?oxy_comment_end?></para>
+                            of.<?oxy_comment_end mid="30"?><?oxy_comment_end?><?oxy_comment_end mid="31"?></para>
                         <section>
                             <title>Proper part of</title>
                             <formalpara>
@@ -3122,7 +3123,7 @@
             </section>
 
             <section>
-                <title><?oxy_comment_start author="steph" timestamp="20190311T124517-0600" comment="Should these be shown in a table first, as was done in other sections?" id="lyx_hvf_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190325T181057-0500" comment="These relationships are included in the SNOMED CT Concept model object attribute hierarchy but are not specified anywhere in the documentation as being used to define concepts.  I think they should probably be removed unless we find them somewhere in the SNOMED CT documentation." parentID="lyx_hvf_fhb" mid="32"?>Unspecified<?oxy_comment_end mid="32"?><?oxy_comment_end?>
+                <title><?oxy_comment_start author="steph" timestamp="20190311T124517-0600" comment="Should these be shown in a table first, as was done in other sections?" id="lyx_hvf_fhb" mid="37"?><?oxy_comment_start author="timowilliams" timestamp="20190325T181057-0500" comment="These relationships are included in the SNOMED CT Concept model object attribute hierarchy but are not specified anywhere in the documentation as being used to define concepts.  I think they should probably be removed unless we find them somewhere in the SNOMED CT documentation." parentID="lyx_hvf_fhb"?><?oxy_comment_start author="steph" timestamp="20190402T160331-0600" comment=" I agree.  I just noticed the inconsistentcy from the prior sections where they were first listed in a table, followed by narrative of each item in the table." mid="36"?>Unspecified<?oxy_comment_end mid="36"?><?oxy_comment_end?><?oxy_comment_end mid="37"?>
                     Relationship Types</title>
                 <section>
                     <title>Contained in</title>

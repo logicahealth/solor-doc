@@ -364,7 +364,7 @@
                     within and across information systems.</para>
 
                 <figure xml:id="_Ref474416536">
-                    <title><?oxy_comment_start author="steph" timestamp="20190313T152917-0600" comment="In the example, why does Pulse appear to be under Weight and BP under Height?" id="iyc_rjl_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190326T123023-0500" comment="They are not under Pulse and Height, but are different data types.  Weight and Height can only have one value whereas Pulse and BP can have multiple values as they can be taken multiple times during an encounter.  If you look closely you can see that Weight and Height have the constraint (1..1) and Pulse and BP have (0..*)" parentID="iyc_rjl_fhb" mid="4"?>Example<?oxy_comment_end mid="4"?><?oxy_comment_end?>
+                    <title><?oxy_comment_start author="steph" timestamp="20190313T152917-0600" comment="In the example, why does Pulse appear to be under Weight and BP under Height?" id="iyc_rjl_fhb" mid="4"?><?oxy_comment_start author="timowilliams" timestamp="20190326T123023-0500" comment="They are not under Pulse and Height, but are different data types.  Weight and Height can only have one value whereas Pulse and BP can have multiple values as they can be taken multiple times during an encounter.  If you look closely you can see that Weight and Height have the constraint (1..1) and Pulse and BP have (0..*)" parentID="iyc_rjl_fhb"?><?oxy_comment_start author="steph" timestamp="20190403T114103-0600" comment="Okay, thanks.  To my untrained eyes, and particularly because of the indenting under Weight and Height, it looked as though they were included under them." mid="5"?>Example<?oxy_comment_end mid="5"?><?oxy_comment_end?><?oxy_comment_end mid="4"?>
                         of a Screen Form generated from an OpenEHR Template</title>
 
                     <mediaobject>
@@ -754,8 +754,8 @@ Usability:  One should model concepts, concept properties, and distinction among
                     </listitem>
                 </orderedlist>
 
-                <para><?oxy_comment_start author="steph" timestamp="20190318T123808-0600" comment="What does this mean...in summary?"?>In
-                    net<?oxy_comment_end?>,
+                <para><?oxy_comment_start author="steph" timestamp="20190318T123808-0600" comment="What does this mean...in summary?"?><?oxy_comment_start author="steph" timestamp="20190403T115123-0600" comment="Starting here, a lot of my comments and questions were not addressed.  I think they should be or at least let me know why they were not." mid="12"?>In
+                    net<?oxy_comment_end?><?oxy_comment_end mid="12"?>,
                     <?oxy_comment_start author="steph" timestamp="20190318T123734-0600" comment="I have to admit that given the ANF model and how simple it is, option 2 being the preferred option surprised me.  It may be due to my lack of understanding of all of this and how they relate to each other."?>option
                     2 may be the preferred approach<?oxy_comment_end?>. Modelers should allow for
                     multiple design patterns, as needed, but strive for maximum standardization for

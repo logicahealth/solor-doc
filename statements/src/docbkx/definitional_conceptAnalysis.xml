@@ -24,7 +24,7 @@
             </itemizedlist></para>
         <para>This section outlines the agreed upon rules, the reasoning for applying those rules
             and provides practical examples of how they are applied.
-            <?oxy_comment_start author="timowilliams" timestamp="20190218T173255-0600" comment="If we remove these sections or move them to the appendix we should remove this sentence."?>Also,
+            <?oxy_comment_start author="timowilliams" timestamp="20190218T173255-0600" comment="If we remove the inter-rater reliability and metric sections or move them to the appendix we should remove this sentence."?>Also,
             included are the inter-rater reliability metrics for the concepts evaluated and
             specificity and sensitivity metrics for the keywords used to find relevant concepts. </para><?oxy_comment_end?>
         <para>The concepts identified in this task as either meeting inclusion or exclusion criteria
@@ -76,8 +76,8 @@
                 </figure>
             </para>
             <para>In a hierarchical structure, Is A is a one-way pointer. If B is a child, and A is
-                a parent, that means B "is A" A. However, one cannot flip that relationship. For
-                example, one can express that one is "having an apple", and by the definition of "is
+                a parent, that means B "Is A" A. However, one cannot flip that relationship. For
+                example, one can express that one is "having an apple", and by the definition of "Is
                 A", one can assume that one is "having a fruit" (apple is a fruit). However, this
                 directionality cannot be flipped because "having a fruit" does not necessarily mean
                 that one is "having an apple".</para>
@@ -86,11 +86,12 @@
                 could very well have other fruits). However, in this scenario, if one were to
                 express having "no fruit", one could deduce that one is also having "no apple". Note
                 the directionality of the
-                <?oxy_comment_start author="steph" timestamp="20190311T130739-0600" comment="Should this be spelled as &quot;Is A&quot;?"?>isA<?oxy_comment_end?>
-                in this scenario, which is opposite of the previous example.</para>
+                <?oxy_comment_start author="steph" timestamp="20190311T130739-0600" comment="Should this be spelled as &quot;Is A&quot;?" flag="done"?>"Is
+                A"<?oxy_comment_end?> in this scenario, which is opposite of the previous
+                example.</para>
             <para>Not shown in the figure, but what if "No apple" is a child of "Fruit"?</para>
-            <para>Although simplistic, this example shows how
-                <?oxy_comment_start author="steph" timestamp="20190311T130841-0600" comment="Insert &quot;an&quot;."?>absence<?oxy_comment_end?>
+            <para>Although simplistic, this example shows how an
+                <?oxy_comment_start author="steph" timestamp="20190311T130841-0600" comment="Insert &quot;an&quot;." flag="done"?>absence<?oxy_comment_end?>
                 concept in a hierarchical structure significantly complicates any calculations.
                 Without a way to properly identify if a concept is an 'absence' concept,
                 computational methods could not be applied because the directionality as shown with
@@ -101,12 +102,10 @@
                 Concept Model. Where “Affirmation” represents a statement that e.g. a finding or a
                 disorder is present, absent states their absence.</para>
             <para>However, in SNOMED, the expression of "no diabetes" is a positive assertion that
-                something is not present. This is different than "everything but diabetes". <annotation>
-                    <para><?oxy_comment_start author="steph" timestamp="20190311T131456-0600" comment="Does this need to be removed?"?>reference<?oxy_comment_end?>
-                        separation of concern when it is available</para>
-                </annotation>As a result, these two potentially different semantics could lead to
-                confusion and delay if one were to apply computational methods - does "No diabetes"
-                mean "everything but diabetes" or "diabetes is not present"?</para>
+                something is not present. This is different than "everything but diabetes". As a
+                result, these two potentially different semantics could lead to confusion and delay
+                if one were to apply computational methods - does "No diabetes" mean "everything but
+                diabetes" or "diabetes is not present"?</para>
             <para><emphasis role="bold"><emphasis role="underline"
                 >Example:</emphasis></emphasis></para>
             <para>65124004 |Swelling (finding)| vs. 300890009 |Swelling absent (situation)|</para>
@@ -122,8 +121,8 @@
             <para><emphasis role="bold"><emphasis role="underline"
                 >Example:</emphasis></emphasis></para>
             <para>162298006 |No headache (situation)| is a subtype of 81765008 |No pain
-                (situation)|, but “no headache” does not
-                <?oxy_comment_start author="steph" timestamp="20190311T131848-0600" comment="Recommend adding &quot;necessarily&quot; here.  It could mean that the patient doesn&apos;t have pain and doesn&apos;t have a headache, correct?  "?>mean<?oxy_comment_end?>
+                (situation)|, but “no headache” does not necessarily
+                <?oxy_comment_start author="steph" timestamp="20190311T131848-0600" comment="Recommend adding &quot;necessarily&quot; here.  It could mean that the patient doesn&apos;t have pain and doesn&apos;t have a headache, correct?  " flag="done"?>mean<?oxy_comment_end?>
                 the patient has no pain.</para>
 
             <section>
@@ -190,8 +189,8 @@
                     <listitem>
                         <para> FSN negates everything “<emphasis role="bold">other</emphasis>” than
                             what it describes. </para>
-                        <para><emphasis role="bold">Example</emphasis>: Perception of <?oxy_comment_start author="steph" timestamp="20190312T102618-0600" comment="I think this should be &quot;nothing&quot; because this is saying the patient only perceives light."?>anything<?oxy_comment_end?>
-                            <emphasis role="bold">other</emphasis> than light in<emphasis>
+                        <para><emphasis role="bold">Example</emphasis>: Perception of nothing
+                                <emphasis role="bold">other</emphasis> than light in<emphasis>
                                 “Perceives light only (finding)” </emphasis></para>
                     </listitem>
                 </itemizedlist>
@@ -207,13 +206,12 @@
                         </listitem>
                         <listitem>
                             <para>Any concept in Clinical Findings, Procedures, Situation with
-                                Explicit
-                                Context<?oxy_comment_start author="steph" timestamp="20190312T102844-0600" comment="Is there supposed to be a note/footnote for this? "?>*<?oxy_comment_end?>,
-                                and Body Structures hierarchies with strings matching: </para>
+                                Explicit Context, and Body Structures hierarchies with strings
+                                matching: </para>
                             <itemizedlist>
                                 <listitem>
-                                    <para><?oxy_comment_start author="steph" timestamp="20190312T102928-0600" comment="What does this mean?"?>lower(term)
-                                        like<?oxy_comment_end?> '% no %' </para>
+                                    <para><?oxy_comment_start author="steph" timestamp="20190312T102928-0600" comment="What does this mean?" id="cx2_hlk_hhb"?><?oxy_comment_start author="timowilliams" timestamp="20190402T130153-0500" comment="They are the queries we used to find content.  I think it would be ok to remove the lower(term) like part and just leave the no, not, etc." parentID="cx2_hlk_hhb" mid="7"?>lower(term)
+                                        like<?oxy_comment_end mid="7"?><?oxy_comment_end?> '% no %' </para>
                                 </listitem>
                                 <listitem>
                                     <para>or lower(term) like 'no %' </para>
@@ -250,7 +248,7 @@
                     development of a set of rules as described above. </para>
             </section>
             <section>
-                <title><?oxy_comment_start author="steph" timestamp="20190312T103757-0600" comment="Recommend showing the examples in the same order as they are listed above."?>Examples<?oxy_comment_end?>
+                <title><?oxy_comment_start author="steph" timestamp="20190312T103757-0600" comment="Recommend showing the examples in the same order as they are listed above." flag="done"?>Examples<?oxy_comment_end?>
                     for Inclusion/Exclusion in Absence Assemblage</title>
                 <para><emphasis role="bold">Keyword: “NO”</emphasis>
                     <mediaobject>
@@ -271,22 +269,22 @@
                         </imageobject>
                     </mediaobject>
                 </para>
+                
+                <para><emphasis role="bold">Keyword: “NONE” or "NON-X"</emphasis>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="images/definitional_conceptAnalysis_inclusionExclusion_negation_03.jpg"
+                                format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </para>
 
                 <para><emphasis role="bold">Keyword: “WITHOUT”</emphasis>
                     <mediaobject>
                         <imageobject>
                             <imagedata
                                 fileref="images/definitional_conceptAnalysis_inclusionExclusion_negation_02.jpg"
-                                format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
-                        </imageobject>
-                    </mediaobject>
-                </para>
-
-                <para><emphasis role="bold">Keyword: “NONE” or "NON-X"</emphasis>
-                    <mediaobject>
-                        <imageobject>
-                            <imagedata
-                                fileref="images/definitional_conceptAnalysis_inclusionExclusion_negation_03.jpg"
                                 format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
                         </imageobject>
                     </mediaobject>
@@ -323,7 +321,7 @@
                 </para>
 
                 <para><emphasis role="bold">Keyword:
-                        “<?oxy_comment_start author="steph" timestamp="20190312T103414-0600" comment="This wasn&apos;t included in the list of search strings in the prior section.  Should it have been?"?>REJECTED<?oxy_comment_end?>”</emphasis>
+                        “<?oxy_comment_start author="steph" timestamp="20190312T103414-0600" comment="This wasn&apos;t included in the list of search strings in the prior section.  Should it have been?" id="a3c_ckk_hhb"?><?oxy_comment_start author="timowilliams" timestamp="20190402T125246-0500" comment="It was not one that we originally queried for but it was one that we found as a result of the review." parentID="a3c_ckk_hhb" mid="11"?>REJECTED<?oxy_comment_end mid="11"?><?oxy_comment_end?>”</emphasis>
                     <mediaobject>
                         <imageobject>
                             <imagedata
@@ -412,15 +410,13 @@
                 <para><emphasis role="bold">Identify content where the subject of record in NOT the
                         patient: </emphasis><itemizedlist>
                         <listitem>
-                            <para>Subject Relationship Context
-                                <?oxy_comment_start author="steph" timestamp="20190312T110715-0600" comment="Will the average reader know that this means &quot;Not equal to&quot;?"?>&lt;
-                                ><?oxy_comment_end?> Subject of Record</para>
+                            <para>Subject Relationship Context is not equal to Subject of
+                                Record</para>
                         </listitem>
                         <listitem>
                             <para>Any concept in Clinical Findings, Procedures, Situation with
-                                Explicit
-                                Context<?oxy_comment_start author="steph" timestamp="20190312T110806-0600" comment="Same as previous comment in previous section - is this supposed to have a note/footnote for it?"?>*<?oxy_comment_end?>,
-                                and Body Structures hierarchies with strings matching:</para>
+                                Explicit Context, and Body Structures hierarchies with strings
+                                matching:</para>
                             <itemizedlist>
                                 <listitem>
                                     <para>lower(term) like '%father%'</para>
@@ -566,10 +562,9 @@
                         </listitem>
                         <listitem>
                             <para>Concept is about X <emphasis role="bold"><emphasis role="italic"
-                                        >after
-                                        <?oxy_comment_start author="steph" timestamp="20190312T115236-0600" comment="I don&apos;t think &quot;to&quot; is needed."?>to<?oxy_comment_end?>
-                                    </emphasis></emphasis>Y, e.g., <emphasis role="italic">Seizure
-                                    after head injury (finding)</emphasis></para>
+                                        >after </emphasis></emphasis>Y, e.g., <emphasis
+                                    role="italic">Seizure after head injury
+                                (finding)</emphasis></para>
                         </listitem>
                     </itemizedlist>
                 </para>
@@ -583,13 +578,12 @@
                     <itemizedlist>
                         <listitem>
                             <para>Any concept in Clinical Findings, Procedures, Situation with
-                                Explicit
-                                Context<?oxy_comment_start author="steph" timestamp="20190312T115049-0600" comment="Same as prior comment in repeated section above and anywhere else it&apos;s shown."?>*<?oxy_comment_end?>,
-                                and Body Structures hierarchies with strings matching:</para>
+                                Explicit Context, and Body Structures hierarchies with strings
+                                matching:</para>
                             <itemizedlist>
                                 <listitem>
                                     <para>lower(term) like '%
-                                        <?oxy_comment_start author="steph" timestamp="20190312T115156-0600" comment="Why isn&apos;t the &quot;or&quot; condition listed here as well?  It&apos;s listed above, independent of the &quot;and/or&quot; condition.  Also, you have &quot;associated with&quot; shown above but you don&apos;t have it listed here but do have &quot;resulting&quot; and a couple of others."?>and<?oxy_comment_end?>
+                                        <?oxy_comment_start author="steph" timestamp="20190312T115156-0600" comment="Why isn&apos;t the &quot;or&quot; condition listed here as well?  It&apos;s listed above, independent of the &quot;and/or&quot; condition.  Also, you have &quot;associated with&quot; shown above but you don&apos;t have it listed here but do have &quot;resulting&quot; and a couple of others." id="yg4_kpk_hhb"?><?oxy_comment_start author="timowilliams" timestamp="20190402T133320-0500" comment="&quot;or&quot; wasn&apos;t included in the query except for through the AND/OR criteria." parentID="yg4_kpk_hhb" mid="13"?>and<?oxy_comment_end mid="13"?><?oxy_comment_end?>
                                         %'</para>
                                 </listitem>
                                 <listitem>
@@ -794,10 +788,9 @@
                 indicating an opposite or inverse concept, regardless of whether that opposing
                 concept currently exists in SNOMED CT. It is <emphasis role="underline"
                     >not</emphasis> the purpose to identify and pair opposing concepts. In many
-                cases, the opposing concept does not exist in SNOMED CT and the next iteration
-                <?oxy_comment_start author="steph" timestamp="20190312T122253-0600" comment="This was fine to include for the deliverable but should it be removed from this document?"?>(not
-                a part of this PWS) <?oxy_comment_end?>of this Assemblage should be to link the two
-                inverse concepts together to identify missing content.</para>
+                cases, the opposing concept does not exist in SNOMED CT and the next iteration of
+                this Assemblage should be to link the two inverse concepts together to identify
+                missing content.</para>
 
             <section>
                 <title>General Approach</title>
@@ -1031,7 +1024,7 @@
                 easily fully defined under the current concept model of SNOMED CT. From the SNOMED
                 CT Technical Implementation Guide, a fully defined concept is defined as:</para>
             <para> “A <link xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                    ><?oxy_comment_start author="steph" timestamp="20190312T123302-0600" comment="In the PDF version of this, the URL to the reference is shown immediately afterward the word to which it refers.  This makes it very difficult to read this section because there are so many references and it appears that the same reference is displayed multiple times, in some cases such as for &quot;concept&quot; and &quot;fully defined&quot;.  Recommend making these either as footnotes or endnotes.  I know this information is coming straight from the SCT technical implementation guide but in the PDF, it&apos;s very hard to read this section without your eyes glossing over."?>Concept<?oxy_comment_end?></link>
+                    ><?oxy_comment_start author="steph" timestamp="20190312T123302-0600" comment="In the PDF version of this, the URL to the reference is shown immediately afterward the word to which it refers.  This makes it very difficult to read this section because there are so many references and it appears that the same reference is displayed multiple times, in some cases such as for &quot;concept&quot; and &quot;fully defined&quot;.  Recommend making these either as footnotes or endnotes.  I know this information is coming straight from the SCT technical implementation guide but in the PDF, it&apos;s very hard to read this section without your eyes glossing over." id="uhq_ljs_hhb"?><?oxy_comment_start author="timowilliams" timestamp="20190403T151208-0500" comment="We will look into how it is being transformed to make sure it isn&apos;t including the link going forward.  My viewpoint is that we should link to it the first time it appears in a document or section but don&apos;t have to link to it every time.  For example, &quot;Concept&quot; should only have one link in this document and not the 12 or so it does now." parentID="uhq_ljs_hhb" mid="14"?>Concept<?oxy_comment_end mid="14"?><?oxy_comment_end?></link>
                 is considered to be <link
                     xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined"
                     >fully defined</link> if its <link
@@ -1197,16 +1190,46 @@
         <section>
             <title><?oxy_comment_start author="steph" timestamp="20190312T124733-0600" comment="There were changes to the whitepaper that was used to produce this section that are not reflected here.  See the document titled &quot;Task 5.5 Deliverable_v15_TrackChangesON_Klepacki_KH."?>Symmetric
                 Concepts<?oxy_comment_end?></title>
+            <para>Symmetry is the complete and consistent representation of the concept model for a
+                particular domain. Symmetry describes the need to eliminate two inconsistency issues
+                that arise in large terminologies regarding completeness: <emphasis role="italic"
+                    >selection bias</emphasis> (no ability to select the concept a user is looking
+                for) and <emphasis role="italic">measurement bias</emphasis> (inconsistent semantic
+                overloading of a parent concept due to the lack of appropriate children). In
+                addition, issues of completeness of hierarchies can also arise from the inconsistent
+                application of the concept model causing concepts to subsume under the inappropriate
+                hierarchy.</para>
             <para>We consider modeling of concepts to be “symmetrical” if:</para>
             <orderedlist>
                 <listitem>
-                    <para>Concepts which are opposites of each other (inverse concepts):</para>
+                    <para>Concepts which are opposites of each other (i.e., inverse
+                        concepts):</para>
                     <itemizedlist>
                         <listitem>
                             <para>Exist in SNOMED and</para>
                         </listitem>
                         <listitem>
                             <para>Reside in the correct hierarchy under the correct parent concept</para>
+                            <para><emphasis role="bold">Note:</emphasis> Some keywords that could
+                                indicate the need for symmetry are not always reliable, for
+                                example:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para><emphasis role="italic">Traumatic vs. non-traumatic</emphasis>
+                                    - concepts without a stated “traumatic” in the FSN are
+                                        considered non-traumatic by default.</para> 
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="italic">With vs. without</emphasis>
+                                            - not every concept that has a “with” or “without” in
+                                            the FSN needs its opposite, e.g. Diagnostic arthroscopy
+                                            of elbow with synovial biopsy (procedure) does not need
+                                            a “…without biopsy”.</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para><emphasis role="bold">Example 1 Inverse Concepts:</emphasis> In
+                                this example, it is the two children concepts that are being
+                                evaluated for symmetry, not the parents.</para>
                             <table>
                                 <caption>Inverse Concepts #1</caption>
                                     <tbody>
@@ -1225,8 +1248,11 @@
                                         </tr>
                                     </tbody>
                             </table>
-                            <para>In this example, it is the two children concepts that are being evaluated for symmetry, not the parents.</para>
                             <para><emphasis role="bold">Note</emphasis>: Inverse concepts do not necessarily have to reside under the <emphasis role="underline">same</emphasis> parent to be considered symmetrically modeled.</para>
+                            <para><emphasis role="bold">Example 2 Inverse Concepts:</emphasis> In the
+                                example below, again it is the children concepts that are being
+                                evaluated for symmetry and not the parent. In this example, the
+                                child concepts reside under different (but correct) parents.</para>
                             <table frame="border" border="1">
                                 <caption>Inverse Concepts #2</caption>
                                     <tbody>
@@ -1251,30 +1277,35 @@
                                         </tr>
                                     </tbody>
                             </table>
-                            <para>In the example below, again it is the children concepts that are being evaluated for symmetry and not the parent. In this example, the child concepts reside under different (but correct) parents.</para>
                         </listitem>
                     </itemizedlist>
+                    <para>Further, for non-inverse concepts, we consider the following concepts to
+                        be modeled symmetrically if:</para>
                 </listitem>
-                <listitem>
-                    <para>Further, for non-inverse concepts, we consider modeling of concepts to be “symmetrical” if:</para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>Concepts, which do not have more than one of the same attribute with
-                                different values in the inferred view (e.g. an attribute of clinical course
-                                with a value of acute and an attribute of clinical course with a value of
-                                chronic)</para>
-                        </listitem>
-                        <listitem>
-                            <para>Concepts are parent concepts of a Leaf Node and have all the correct Leaf
-                                concepts</para>
-                        </listitem>
-                        <listitem>
-                            <para>Concepts, which are Grades, Scales, Stages, and Scores, where all concepts
-                                exist and were consistently modeled</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>  
+                    
+                                    <listitem>
+                                        <para>Concepts, which have more than one of the same attribute
+                                            have the same attribute values in the inferred view.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Concepts are correctly modeled and in the correct
+                                            hierarchy.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Concepts, which are Leaf Node concepts with one child
+                                            have the correct Leaf Concept child.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Concepts, which are Grades, Scales, Stages, and Scores
+                                            have no missing concepts and the concepts are
+                                            consistently modeled.</para>
+                                    </listitem>
+                  
             </orderedlist>
+            <para><emphasis role="bold">Note</emphasis>: There can be overlap between 2 and 3,
+                meaning that the same concept <emphasis role="underline">can</emphasis> meet the
+                criteria in both 2 and 3 but does not <emphasis role="underline">have
+                to.</emphasis></para>
             
             <para>Some keywords that could indicate the need for symmetry are not always
                 reliable, for example:</para>
@@ -1302,9 +1333,9 @@
                                 <para><emphasis role="bold">Missing Content – Via Inverse Work</emphasis></para>
                                 <itemizedlist>
                                     <listitem>
-                                        <para>Inverse Assemblage work identified roughly 6,000
+                                        <para>Prior Inverse Assemblage work identified roughly 6,000
                                     concepts that needed to be reviewed to confirm missing opposing
-                                    concepts</para>
+                                    concepts.  Some examples are shown below.</para>
                                     </listitem>
                                 </itemizedlist>
                                 
@@ -1433,7 +1464,7 @@
                                 </listitem>
                             </itemizedlist>
                             <figure>
-                                <title><?oxy_comment_start author="steph" timestamp="20190312T152013-0600" comment="The figure below has a lot of white space and it should be cropped."?>FSN
+                                <title><?oxy_comment_start author="steph" timestamp="20190312T152013-0600" comment="The figure below has a lot of white space and it should be cropped." flag="done"?>FSN
                                 contains "Acute", but does not have a Clinical Course =
                                 Acute<?oxy_comment_end?></title>
                                 <mediaobject>
@@ -1603,7 +1634,7 @@
             </figure>
             
             <figure>
-                <title><?oxy_comment_start author="steph" timestamp="20190312T151907-0600" comment="The figures below have a lot of white space in it and should be cropped."?>Grade
+                <title><?oxy_comment_start author="steph" timestamp="20190312T151907-0600" comment="The figures below have a lot of white space in it and should be cropped." flag="done"?>Grade
                     Concept with both a Procedure and Observable Entity used for the Interprets
                     Attribute<?oxy_comment_end?></title>
                 <mediaobject>
@@ -1832,34 +1863,28 @@
             <para>During the initial discussion and reviews of candidate concepts for this
                 Assemblage, the following rules had been stated:</para>
             <para>
-                <itemizedlist>
+                <orderedlist>
                     <listitem>
                         <para>Concept is about samples, even if the "sample" originates from the
                             patient, e.g.</para>
                         <para><emphasis>Sample contaminated (finding)</emphasis></para>
                     </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
+                
                     <listitem>
                         <para>Concept is about objects or devices, e.g.</para>
                         <para><emphasis>Dialysis catheter in situ usable (finding)</emphasis></para>
                     </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
+                
                     <listitem>
                         <para>Concept is about patient’s family, family members, friends or other
                             social contacts, even if it is the patient’s family members, friends or
                             other social contacts, e.g.</para>
                         <para><emphasis>Finding of relatives surviving (finding)</emphasis></para>
                     </listitem>
-                </itemizedlist>
+                </orderedlist>
             </para>
             <para>Discussions about the kinds of concepts in
-                <?oxy_comment_start author="steph" timestamp="20190312T161516-0600" comment="Recommend using numbered vs bulleted list for easy identification of what you are referring to."?>1
+                <?oxy_comment_start author="steph" timestamp="20190312T161516-0600" comment="Recommend using numbered vs bulleted list for easy identification of what you are referring to." flag="done"?>1
                 and 2 (above)<?oxy_comment_end?> resulted in excluding them. A concept pertaining to
                 a “sample” was agreed as still being about the patient, because the sample is
                 sourced from the patient. The same reasoning was applied to the pattern of concepts
@@ -1968,12 +1993,6 @@
             <para>
                 <table frame="border" border="1">
                     <caption>Sensitivity and Specificity of Laterality Search Criteria.</caption>
-                    <col width="22%"/>
-                    <col width="11%"/>
-                    <col width="16%"/>
-                    <col width="16%"/>
-                    <col width="16%"/>
-                    <col width="16%"/>
                     <thead>
                         <tr>
                             <th>Laterality Results</th>
@@ -2031,12 +2050,12 @@
             <para>Before creating assignments, concepts were considered as either those that have a
                 term that included right, left, or bilateral and those that have an attribute that
                 uses a concept with a laterality of right, left or
-                <?oxy_comment_start author="steph" timestamp="20190312T162622-0600" comment="I would insert &quot;(RLB)&quot; here so that user knows what that means in the table above."?>bilateral<?oxy_comment_end?>.
-                If the concept had a term with right, left or bilateral and no attribute or if the
-                attribute had a laterality where the value was the parent (side) of right and left,
-                those concepts were considered to be within the set that probably did not include
-                laterality. If the concept was associated with a laterality attribute that was
-                either right or left, it was considered as a probable concept that includes
+                <?oxy_comment_start author="steph" timestamp="20190312T162622-0600" comment="I would insert &quot;(RLB)&quot; here so that user knows what that means in the table above." flag="done"?>bilateral<?oxy_comment_end?>
+                (RLB). If the concept had a term with right, left or bilateral and no attribute or
+                if the attribute had a laterality where the value was the parent (side) of right and
+                left, those concepts were considered to be within the set that probably did not
+                include laterality. If the concept was associated with a laterality attribute that
+                was either right or left, it was considered as a probable concept that includes
                 laterality whether it was correctly modelled or not.</para>
             <para>Sensitivity of 78.38% and Specificity of 99.81% </para>
         </section>
@@ -2044,10 +2063,6 @@
             <title>Sensitivity and Specificity of Keywords for “Inverse”</title>
             <table frame="border" border="1">
                 <caption>Sensitivity and Specificity of keywords for &quot;Inverse&quot;.</caption>
-                <col width="25%"/>
-                <col width="25%"/>
-                <col width="25%"/>
-                <col width="25%"/>
                 <thead>
                     <tr>
                         <th>Inverse Results</th>
@@ -2079,59 +2094,16 @@
             </table>
             <para>After conducting a pilot, certain keywords were identified as less likely to be
                 inverse. These concepts
-                <?oxy_comment_start author="steph" timestamp="20190312T162803-0600" comment="Is there a word missing here, maybe &quot;put&quot;?"?>were
-                into<?oxy_comment_end?> separate assignments. After further review, 30% of these
+                <?oxy_comment_start author="steph" timestamp="20190312T162803-0600" comment="Is there a word missing here, maybe &quot;put&quot;?" flag="done"?>were
+                put into<?oxy_comment_end?> separate assignments. After further review, 30% of these
                 concepts contained other keywords that made them inverse. </para>
             <para>Sensitivity of 82.27% and Specificity of 39.58%</para>
         </section>
         <section>
             <title>Sensitivity and Specificity of Search Criteria for “Can Be Fully Defined”</title>
             <table frame="border" border="1">
-                <caption>Sensitivity and Specificity of
-                    <?oxy_comment_start author="steph" timestamp="20190312T163017-0600" comment="Why is this table almost identical to the one shown below?  Can&apos;t we just use the one below since it has the parenthetical information after the figures?"?>keywords<?oxy_comment_end?>
-                    for "Can Be Fully Defined".</caption>
-                <thead>
-                    <tr>
-                        <th>Primitive Results</th>
-                        <th>Query Total</th>
-                        <th>Can Be Fully Defined</th>
-                        <th>Cannot Be Fully Defined</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Leaf Nodes</td>
-                        <td>28394</td>
-                        <td>7458</td>
-                        <td>20936</td>
-                    </tr>
-                    <tr>
-                        <td>Intermediate Primitives</td>
-                        <td>2133</td>
-                        <td>677</td>
-                        <td>1456</td>
-                    </tr>
-                    <tr>
-                        <td>Other</td>
-                        <td>2154</td>
-                        <td>573</td>
-                        <td>1581</td>
-                    </tr>
-                    <tr>
-                        <td>Totals</td>
-                        <td>32681</td>
-                        <td>8708</td>
-                        <td>23973</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table frame="border" border="1">
-                <caption>Table 3. Sensitivity and Specificity of Search Criteria for &quot;Can Be
-                    Fully Defined&quot;.</caption>
-                <col width="25%"/>
-                <col width="25%"/>
-                <col width="25%"/>
-                <col width="25%"/>
+                <caption>Sensitivity and Specificity of Search Criteria for &quot;Can Be Fully
+                    Defined&quot;.</caption>
                 <thead>
                     <tr>
                         <th>Primitive Results</th>
@@ -2235,13 +2207,13 @@
             cycles was perceived positive. </para>
 
         <para>For "Absence",
-            "<?oxy_comment_start author="steph" timestamp="20190312T163219-0600" comment="Should this be revised to &quot;Patient not subject of information&quot;?"?>Patient
-            not subject<?oxy_comment_end?>" and "Compound Observation" Assemblages, the set of
-            keywords for automated queries returned results with a high rate of Specificity. The
-            Sensitivity for the “Compound Observation” Assemblage was also high. However, the
-            Sensitivity of the queries for “Absence” and “Patient not Subject of Information” was
-            lower. Identifying additional keywords may be useful to elevate the Sensitivity in those
-            categories.</para>
+            "<?oxy_comment_start author="steph" timestamp="20190312T163219-0600" comment="Should this be revised to &quot;Patient not subject of information&quot;?" flag="done"?>Patient
+            not subject<?oxy_comment_end?> of information" and "Compound Observation" Assemblages,
+            the set of keywords for automated queries returned results with a high rate of
+            Specificity. The Sensitivity for the “Compound Observation” Assemblage was also high.
+            However, the Sensitivity of the queries for “Absence” and “Patient not Subject of
+            Information” was lower. Identifying additional keywords may be useful to elevate the
+            Sensitivity in those categories.</para>
         
         <para>The Inverse Assemblages had good inter-rater agreement but the Fully Defined and
             Laterality Assemblages had lower inter-rater agreement rates. The Fully Defined and

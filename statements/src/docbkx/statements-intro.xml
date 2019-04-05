@@ -321,7 +321,7 @@
                     observations (see <xref linkend="_Ref474334719" xrefstyle="select:label"/>).</para>
 
                 <para><xref linkend="_Ref474415737" xrefstyle="select:label"/> shows an example
-                    <?oxy_comment_start author="steph" timestamp="20190313T152535-0600" comment="Why are some items in the template below numbered while others are not?" id="z4q_w3l_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190326T122423-0500" comment="The numbering you notice in the image below comes directly from the OpenEHR template.  See https://www.openehr.org/ckm/#" parentID="z4q_w3l_fhb" mid="2"?>OpenEHR<?oxy_comment_end mid="2"?><?oxy_comment_end?>
+                    <?oxy_comment_start author="steph" timestamp="20190313T152535-0600" comment="Why are some items in the template below numbered while others are not?" id="z4q_w3l_fhb" flag="done" mid="2"?><?oxy_comment_start author="timowilliams" timestamp="20190326T122423-0500" comment="The numbering you notice in the image below comes directly from the OpenEHR template.  See https://www.openehr.org/ckm/#" parentID="z4q_w3l_fhb" flag="done"?>OpenEHR<?oxy_comment_end?><?oxy_comment_end mid="2"?>
                     Template that represents the information captured during an initial visit to a
                     heart failure clinic. Note that the template combines a number of Archetypes,
                     such as Blood Pressure, Pulse, and Full Blood Count, as well as adds
@@ -364,7 +364,7 @@
                     within and across information systems.</para>
 
                 <figure xml:id="_Ref474416536">
-                    <title><?oxy_comment_start author="steph" timestamp="20190313T152917-0600" comment="In the example, why does Pulse appear to be under Weight and BP under Height?" id="iyc_rjl_fhb" mid="4"?><?oxy_comment_start author="timowilliams" timestamp="20190326T123023-0500" comment="They are not under Pulse and Height, but are different data types.  Weight and Height can only have one value whereas Pulse and BP can have multiple values as they can be taken multiple times during an encounter.  If you look closely you can see that Weight and Height have the constraint (1..1) and Pulse and BP have (0..*)" parentID="iyc_rjl_fhb"?><?oxy_comment_start author="steph" timestamp="20190403T114103-0600" comment="Okay, thanks.  To my untrained eyes, and particularly because of the indenting under Weight and Height, it looked as though they were included under them." mid="5"?>Example<?oxy_comment_end mid="5"?><?oxy_comment_end?><?oxy_comment_end mid="4"?>
+                    <title><?oxy_comment_start author="steph" timestamp="20190313T152917-0600" comment="In the example, why does Pulse appear to be under Weight and BP under Height?" id="iyc_rjl_fhb" flag="done" mid="4"?><?oxy_comment_start author="timowilliams" timestamp="20190326T123023-0500" comment="They are not under Pulse and Height, but are different data types.  Weight and Height can only have one value whereas Pulse and BP can have multiple values as they can be taken multiple times during an encounter.  If you look closely you can see that Weight and Height have the constraint (1..1) and Pulse and BP have (0..*)" parentID="iyc_rjl_fhb" flag="done" mid="5"?><?oxy_comment_start author="steph" timestamp="20190403T114103-0600" comment="Okay, thanks.  To my untrained eyes, and particularly because of the indenting under Weight and Height, it looked as though they were included under them." flag="done"?>Example<?oxy_comment_end?><?oxy_comment_end mid="5"?><?oxy_comment_end mid="4"?>
                         of a Screen Form generated from an OpenEHR Template</title>
 
                     <mediaobject>
@@ -384,7 +384,7 @@
                     were used to instantiate clinical observations. Rather, querying requires
                     knowledge of only the Archetypes, the underlying Reference Model, and any
                     controlled terminologies used in the definition of Archetypes (See
-                        <?oxy_comment_start author="steph" timestamp="20190318T113916-0600" comment="In the figure, unless this is a reference to a source other than VA, recommend revising spelling of &quot;artefacts&quot; to &quot;artifacts.&quot;  Also, the oval for Terminology Bindings probably should be brought to the front so it&apos;s not cutoff by the rectangle currently in front of it." id="wtk_gpl_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190326T131257-0500" comment="This is how it is spelled in the OpenEHR documentation and this image is taken directly from there." parentID="wtk_gpl_fhb" mid="6"?><xref linkend="_Ref474421318" xrefstyle="select:label"/><?oxy_comment_end?><?oxy_comment_end mid="6"?> for a graphical representation
+                        <?oxy_comment_start author="steph" timestamp="20190318T113916-0600" comment="In the figure, unless this is a reference to a source other than VA, recommend revising spelling of &quot;artefacts&quot; to &quot;artifacts.&quot;  Also, the oval for Terminology Bindings probably should be brought to the front so it&apos;s not cutoff by the rectangle currently in front of it." id="wtk_gpl_fhb" flag="done"?><?oxy_comment_start author="timowilliams" timestamp="20190326T131257-0500" comment="This is how it is spelled in the OpenEHR documentation and this image is taken directly from there." parentID="wtk_gpl_fhb" flag="done" mid="7"?><xref linkend="_Ref474421318" xrefstyle="select:label"/><?oxy_comment_end?><?oxy_comment_end mid="7"?> for a graphical representation
                     of these dependencies).</para>
 
                 <figure xml:id="_Ref474421318">
@@ -882,30 +882,47 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
         <editorial-rule>
             <title>Topic</title>
             <mathphrase>The <emphasis>topic</emphasis> is the center of interest or activity
-                represented by the statement. A few examples of topics include <link xlink:href="#ge_solor_Insulin_dependent_diabetes_mellitus_type_1A_cc0759c3-623e-3417-badb-8dbad681e0f5"><inlinemediaobject>
+                represented by the statement. A few examples of topics include <link
+                    xlink:href="#ge_solor_Insulin_dependent_diabetes_mellitus_type_1A_cc0759c3-623e-3417-badb-8dbad681e0f5"><inlinemediaobject>
                         <imageobject>
                             <imagedata>
-                                <?oxy_comment_start author="steph" timestamp="20190318T130906-0600" comment="The examples of topics shown here have a lot of white space shown after them in the PDF and it&apos;s distracting.  Recommend you just type the examples instead in a bulleted list."?>
+                                <?oxy_comment_start author="steph" timestamp="20190318T130906-0600" comment="The examples of topics shown here have a lot of white space shown after them in the PDF and it&apos;s distracting.  Recommend you just type the examples instead in a bulleted list." id="eyq_p4g_3hb"?>
+                                <?oxy_comment_start author="timowilliams" timestamp="20190405T140343-0500" comment="This is the result of copying concepts out of KOMET and inserting them into the document.  We will research what is wrong with why they are displaying this way.  " parentID="eyq_p4g_3hb" mid="16"?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="242px" height="14px">
-                                    <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; ">&#xF2D8; </tspan>
-                                        <tspan dy="-1.5"/>Insulin dependent diabetes mellitus type 1 A]</text>
-                                </svg><?oxy_comment_end?>
+                                    <text x="1" y="7"
+                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
+                                            >[<tspan dy="1.5"
+                                            style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; "
+                                            >&#xF2D8; </tspan>
+                                        <tspan dy="-1.5"/>Insulin dependent diabetes mellitus type 1
+                                        A</text>
+                                </svg><?oxy_comment_end?><?oxy_comment_end mid="16"?>
                             </imagedata>
                         </imageobject>
-                    </inlinemediaobject></link>, <link xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
+                    </inlinemediaobject></link>, <link
+                    xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
                         <imageobject>
                             <imagedata>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="75px" height="14px">
-                                    <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; ">&#xF060; </tspan>
+                                    <text x="1" y="7"
+                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
+                                            >[<tspan dy="1.5"
+                                            style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; "
+                                            >&#xF060; </tspan>
                                         <tspan dy="-1.5"/>Pulse rate]</text>
                                 </svg>
                             </imagedata>
                         </imageobject>
-                    </inlinemediaobject></link>, <link xlink:href="#ge_solor_Administration_of_medication_8a39a4e6-97c8-3ab1-b589-71edfe1f32ce"><inlinemediaobject>
+                    </inlinemediaobject></link>, <link
+                    xlink:href="#ge_solor_Administration_of_medication_8a39a4e6-97c8-3ab1-b589-71edfe1f32ce"><inlinemediaobject>
                         <imageobject>
                             <imagedata>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="165px" height="14px">
-                                    <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; ">&#xF12F; </tspan>
+                                    <text x="1" y="7"
+                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
+                                            >[<tspan dy="1.5"
+                                            style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; "
+                                            >&#xF12F; </tspan>
                                         <tspan dy="-1.5"/>Administration of medication]</text>
                                 </svg>
                             </imagedata>
@@ -974,19 +991,13 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
             <para>Given a narrative, fill out the form. </para>
             <example xml:id="example_dc87fd7a-561e-4335-ae79-9bde3fb1fc05">
                 <title>Pulse observed to be 110</title>
-                <para>A patient tells their health-care provider that they had a <link
-                        xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
+                <para>A patient tells their health-care provider that they had a <link xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
                             <imageobject>
                                 <imagedata>
                                     <?oxy_comment_start author="steph" timestamp="20190318T131339-0600" comment="1) Same a prior comment:  in the PDF there is a lot of white space in this and it&apos;s distracting and recommend just typing it.
 2) THere isn&apos;t anything in the narrative that states the pulse rate was 110 - shouldn&apos;t there be?"?>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px"
-                                        height="14px">
-                                        <text x="1" y="7"
-                                            style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
-                                                >[<tspan dy="1.5"
-                                                style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; "
-                                                >&#xF060; </tspan>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px" height="14px">
+                                        <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; ">&#xF060; </tspan>
                                             <tspan dy="-1.5"/>Pulse rate]</text>
                                     </svg><?oxy_comment_end?>
                                 </imagedata>
@@ -1665,34 +1676,22 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
                         </tgroup>
                     </table></para>
                 <para><?oxy_comment_start author="steph" timestamp="20190318T153036-0600" comment="This paragraph doesn&apos;t make sense.  It also seems partially redundant of the paragraph above it." id="nf3_c5s_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190327T125559-0500" comment="Deleted paragraph above.  Will clarify paragraph in next round." parentID="nf3_c5s_fhb" mid="27"?>Because
-                    the observation of pressure ulcers<link
-                        xlink:href="#con_224b97e0-b703-39f6-ba4b-aa27f5dc15aa"><inlinemediaobject>
+                    the observation of pressure ulcers<link xlink:href="#con_224b97e0-b703-39f6-ba4b-aa27f5dc15aa"><inlinemediaobject>
                             <imageobject>
                                 <imagedata>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px"
-                                        height="14px">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px" height="14px">
                                         <?oxy_comment_start author="steph" timestamp="20190318T152917-0600" comment="Same as prior comment.  Recommend just typing this here."?>
-                                        <text x="1" y="7"
-                                            style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
-                                                ><?oxy_comment_end?>[<tspan dy="1.5"
-                                                style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; "
-                                                >&#xF061; </tspan>
+                                        <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"><?oxy_comment_end?>[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; ">&#xF061; </tspan>
                                             <tspan dy="-1.5"/>Tetralogy of Fallot]</text>
                                     </svg>
                                 </imagedata>
                             </imageobject>
                         </inlinemediaobject></link> in a patient could be correctly modeled as
-                    either a Finding or Observable Entity Text before. <link
-                        xlink:href="#table_9b08a484-6589-430a-bcb5-060703de35c3"><inlinemediaobject>
+                    either a Finding or Observable Entity Text before. <link xlink:href="#table_9b08a484-6589-430a-bcb5-060703de35c3"><inlinemediaobject>
                             <imageobject>
                                 <imagedata>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px"
-                                        height="14px">
-                                        <text x="1" y="7"
-                                            style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
-                                                >[<tspan dy="1.5"
-                                                style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; "
-                                                >&#xF2D8; </tspan>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px" height="14px">
+                                        <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; ">&#xF2D8; </tspan>
                                             <tspan dy="-1.5"/>Overriding structures]</text>
                                     </svg>
                                 </imagedata>

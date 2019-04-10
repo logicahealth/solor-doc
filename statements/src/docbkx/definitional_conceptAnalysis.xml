@@ -1024,17 +1024,13 @@
                 easily fully defined under the current concept model of SNOMED CT. From the SNOMED
                 CT Technical Implementation Guide, a fully defined concept is defined as:</para>
             <para> “A <link xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                    ><?oxy_comment_start author="steph" timestamp="20190312T123302-0600" comment="In the PDF version of this, the URL to the reference is shown immediately afterward the word to which it refers.  This makes it very difficult to read this section because there are so many references and it appears that the same reference is displayed multiple times, in some cases such as for &quot;concept&quot; and &quot;fully defined&quot;.  Recommend making these either as footnotes or endnotes.  I know this information is coming straight from the SCT technical implementation guide but in the PDF, it&apos;s very hard to read this section without your eyes glossing over." id="uhq_ljs_hhb" flag="done" mid="15"?><?oxy_comment_start author="timowilliams" timestamp="20190403T151208-0500" comment="We will look into how it is being transformed to make sure it isn&apos;t including the link going forward.  My viewpoint is that we should link to it the first time it appears in a document or section but don&apos;t have to link to it every time.  For example, &quot;Concept&quot; should only have one link in this document and not the 12 or so it does now." parentID="uhq_ljs_hhb" flag="done"?><?oxy_comment_start author="kmaulden" timestamp="20190404T101456-0400" comment="Link rendering in the PDF has been removed." parentID="uhq_ljs_hhb" flag="done" mid="14"?>Concept<?oxy_comment_end mid="14"?><?oxy_comment_end?><?oxy_comment_end mid="15"?></link>
+                    ><?oxy_comment_start author="steph" timestamp="20190312T123302-0600" comment="In the PDF version of this, the URL to the reference is shown immediately afterward the word to which it refers.  This makes it very difficult to read this section because there are so many references and it appears that the same reference is displayed multiple times, in some cases such as for &quot;concept&quot; and &quot;fully defined&quot;.  Recommend making these either as footnotes or endnotes.  I know this information is coming straight from the SCT technical implementation guide but in the PDF, it&apos;s very hard to read this section without your eyes glossing over." id="uhq_ljs_hhb" flag="done" mid="14"?><?oxy_comment_start author="timowilliams" timestamp="20190403T151208-0500" comment="We will look into how it is being transformed to make sure it isn&apos;t including the link going forward.  My viewpoint is that we should link to it the first time it appears in a document or section but don&apos;t have to link to it every time.  For example, &quot;Concept&quot; should only have one link in this document and not the 12 or so it does now." parentID="uhq_ljs_hhb" flag="done" mid="15"?><?oxy_comment_start author="kmaulden" timestamp="20190404T101456-0400" comment="Link rendering in the PDF has been removed." parentID="uhq_ljs_hhb" flag="done"?>Concept<?oxy_comment_end?><?oxy_comment_end mid="15"?><?oxy_comment_end mid="14"?></link>
                 is considered to be <link
                     xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined"
                     >fully defined</link> if its <link
                     xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/defining+characteristic"
                     >defining characteristics</link> are sufficient to define it relative to its
-                immediate supertype(s). A <link
-                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                    >Concept</link> which is not <link
-                    xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined"
-                    >fully defined</link> is <link
+                immediate supertype(s). A concept which is not fully defined is <link
                     xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Primitive"
                     >Primitive</link> and this is indicated by the value of the <link
                     xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/definitionStatusId"
@@ -1043,87 +1039,41 @@
             <orderedlist>
                 <listitem>
                     <para><link xlink:href="http://snomed.info/id/233604007"> 233604007
-                            |Pneumonia|</link> is a lung disease but unless <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/defining+characteristic"
-                            >defining characteristics</link> are specified that effectively
-                        distinguish <link xlink:href="http://snomed.info/id/233604007">233604007
-                            |pneumonia|</link> from other lung diseases then it is regarded as a
-                            <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/primitive"
-                            >primitive</link><link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link>. </para>
-                    <para>If a <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link> is <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/primitive"
-                            >primitive</link> then the <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/defining+characteristic"
-                            >defining characteristics</link> for that <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link> are incomplete. It is not possible to automatically
-                        compute that a <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link> represented as a <link
+                            |Pneumonia|</link> defining characteristics are specified that
+                        effectively distinguish 233604007 |pneumonia| from other lung diseases then
+                        it is regarded as a primitive concept. </para>
+                    <para>If a concept is primitive then the defining characteristics for that concept are incomplete. It is not possible to automatically
+                        compute that a concept represented as a <link
                             xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/postcoordinated"
-                            >postcoordinated</link> combination of several <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concepts</link> is or is not a <link
+                            >postcoordinated</link> combination of several concepts is or is not a <link
                             xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/subtype"
-                            >subtype</link> of a particular <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/primitive"
-                            >primitive</link><link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link>. </para>
+                            >subtype</link> of a particular primitive concept. </para>
                 </listitem>
                 <listitem>
-                    <para> The <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link> "lung disease" qualified by <link
+                    <para> The Concept "lung disease" qualified by <link
                             xlink:href="http://snomed.info/id/246075003">246075003 |causative
                             agent|</link> = <link xlink:href="http://snomed.info/id/41146007"
-                            >41146007 |bacteria|</link> may be <link
-                            xlink:href="http://snomed.info/id/233604007">233604007
-                            |pneumonia|</link> but could also be "bronchitis." </para>
-                    <para>In contrast if a <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link> is <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined"
-                            >fully defined</link> it is possible to state that any <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link> represented as a combination of the same <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/defining+characteristic"
-                            >defining characteristics</link> is equivalent to or a <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/subtype"
-                            >subtype</link> of that <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link>. </para>
+                            >41146007 |bacteria|</link> may be 233604007
+                            |pneumonia| but could also be "bronchitis." </para>
+                    <para>In contrast if a concept is fully defined it is possible to state that any
+                        concept represented as a combination of the same defining characteristics is
+                        equivalent to or a subtype of that concept. </para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="bold">Example:</emphasis> Assume that the <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept"
-                            >Concept</link><link xlink:href="http://snomed.info/id/53084003"
-                            >53084003 |bacterial pneumonia|</link> is <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/fully+defined"
-                            >fully defined</link> as <link
+                    <para><emphasis role="bold">Example:</emphasis> Assume that the Concept<link
+                            xlink:href="http://snomed.info/id/53084003">53084003 |bacterial
+                            pneumonia|</link> is fully defined as <link
                             xlink:href="http://snomed.info/id/312342009">312342009 |infective
-                            pneumonia|</link> with <link
-                            xlink:href="http://snomed.info/id/246075003">246075003 |causative
-                            agent|</link> = <link xlink:href="http://snomed.info/id/41146007"
-                            >41146007 |bacteria|</link> and that <link
-                            xlink:href="http://snomed.info/id/9861002">9861002 |pneumococcus|</link>
-                        is a <link xlink:href="http://snomed.info/id/41146007">41146007
-                            |bacteria|</link>. It then follows that the post coordinated
-                        representation of <link xlink:href="http://snomed.info/id/233607000"
-                            >233607000 |pneumococcal pneumonia|</link> as <link
-                            xlink:href="http://snomed.info/id/312342009">312342009 |infective
-                            pneumonia|</link> with <link
-                            xlink:href="http://snomed.info/id/246075003">246075003 |causative
-                            agent|</link> = <link xlink:href="http://snomed.info/id/9861002">9861002
-                            |pneumococcus|</link> is computably a <link
-                            xlink:href="https://confluence.ihtsdotools.org/display/DOCGLOSS/subtype"
-                            >subtype</link> of <link xlink:href="http://snomed.org/fictid"
-                            >|bacterial pneumonia.|</link>”</para>
+                            pneumonia|</link> with 246075003 |causative agent| = 41146007 |bacteria|
+                        and that <link xlink:href="http://snomed.info/id/9861002">9861002
+                            |pneumococcus|</link> is a <link
+                            xlink:href="http://snomed.info/id/41146007">41146007 |bacteria|</link>.
+                        It then follows that the post coordinated representation of <link
+                            xlink:href="http://snomed.info/id/233607000">233607000 |pneumococcal
+                            pneumonia|</link> as <link xlink:href="http://snomed.info/id/312342009"
+                            >312342009 |infective pneumonia|</link> with 246075003 |causative agent|
+                        = 9861002 |pneumococcus| is computably a subtype of |bacterial
+                        pneumonia.|</para>
                 </listitem>
             </orderedlist>
             <section>

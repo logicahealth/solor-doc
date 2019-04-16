@@ -53,16 +53,60 @@
             <title>Language
                 <?oxy_comment_start author="steph" timestamp="20190305T154146-0700" comment="This section should be revised so it can be read as in the prior sections.  Here&apos;s it&apos;s just a list of what appear to be definitions.  You at least need some introductory paragraph that explains what you have listed here. "?>Query<?oxy_comment_end?>
                 Requirements</title>
-            <para>Word variants – renal vs kidney</para>
-            <para>Misspellings – Certain terms are more commonly misspelled when searching over healthcare descriptions.  The ability for a search mechanism to recognize them and to search over both the correct and incorrect spellings will help to identify the correct concept.  For example, perineal vs peroneal, aphagia vs aphasia </para>
-        	<para>Word order – terms can be combined in different ways to mean the same synonym.  The ability to search over a term in varying order of phrases is important.  For example, Disorder of the eye vs Eye disorder.</para>
-        	<para>Components query –
-                <?oxy_comment_start author="steph" timestamp="20190305T154240-0700" comment="Should this be &quot;importance&quot;?" flag="done"?>important<?oxy_comment_end?>ance
-                of LOINC searches where you may want to search on a certain axis.</para>
-        	<para>Active and inactive – need to be able to search over both active and inactive terms.</para>
-        	<para>Regular
-                <?oxy_comment_start author="steph" timestamp="20190305T154320-0700" comment="It looks like definitions or explanations of this and the one below still need to be provided."?>Expressions<?oxy_comment_end?></para>
-        	<para>Grouping Results by hierarchy</para>
+            <para>For a search engine to retrieve meaningful results, it must be able to understand
+                common usages of everyday jargon, similar to how synonyms are used to help broaden
+                the way to express the same word. This section will describe several strategies used
+                to help with a query.</para>
+            <para><emphasis role="bold">Word variants</emphasis> – Similar to synonyms, word
+                variants are used to express the same word. While synonyms are explicitely created
+                as a term to describe a concept (for example, SNOMED's "Heart attack" and
+                "Myocardial infarction"), word variants are utilized during searching to assist in
+                finding the correct concept, rather than explicitely creating the term. Hypothetical
+                example - if "kidney failure" is a term created for a concept, a word variant of
+                'renal' could be created for 'kidney'. Instead of explicitely creating a separate
+                term of "renal failure", this word variant could be utilized during searching to
+                find all concepts that has the explicit term of "kidney failre" when a user enters
+                "renal failure" by replacing "renal" with "kidney". This would create the burden of
+                creating all possible variant termss for a given word.</para>
+            <para><emphasis role="bold">Misspellings</emphasis> – Certain terms are more commonly
+                misspelled when searching over healthcare descriptions. The ability for a search
+                mechanism to recognize them and to search over both the correct and incorrect
+                spellings will help to identify the correct concept. For example, perineal vs
+                peroneal, aphagia vs aphasia </para>
+        	<para><emphasis role="bold">Word order</emphasis> – terms can be combined in different ways
+                to mean the same synonym. The ability to search over a term in varying order of
+                phrases is important. For example, Disorder of the eye vs Eye disorder.</para>
+        	<para><emphasis role="bold">Components query</emphasis> – importance of this searching
+                strategy comes into play when a certain focus is desired for the search result. For
+                example, in LOINC, there may be circumstances where a certain axis is desired for
+                the search. Simlarly, certain hierarchy may be desired when searching in SNOMED. For
+                example, "cold" is a synonym of common cold (a disorder) in SNOMED, and also exists
+                as "cold sensation quality" (a qualifier value). By allowing users to limit the
+                search criteria (disorder vs. qualifier), the most appropriate query result will be
+                returned to the user.</para>
+        	<para><emphasis role="bold">Active and inactive</emphasis> – concepts and terms will come
+                in and out of use over time. This is often indicated by an active/inactive
+                designation. In order to properly return concepts/terms that are active, query
+                parameter must contain a parameter to designate if the query result should/shot not
+                return active and inactive concepts or terms.</para>
+        	<para><emphasis role="bold">Regular
+                    <?oxy_comment_start author="steph" timestamp="20190305T154320-0700" comment="It looks like definitions or explanations of this and the one below still need to be provided."?>Expressions<?oxy_comment_end?></emphasis>
+                - regular express or regex is a sequence of characters that defines a search
+                pattern. This pattern would allow a user to retrieve results based on a certain
+                pattern. For example "a|b*" would return all "a", "b" and other b's that fits the
+                pattern such as "bb", "bbb", "bab", etc. Since the depth and breadth of regular
+                expression is beyond the scope of this document, various syntaxes, usage and
+                explanation can be found in many resources such as <link
+                    xlink:href="https://regexr.com/"/>.</para>
+        	<para><emphasis role="bold">Grouping Results by hierarchy</emphasis> - this search
+                requirement can be thought of as a complement to "components query". After casting a
+                wide net, results could be a bag of various terms (common cold vs feeling cold) that
+                may be cumbersome for users to sift through if it is not organized in an orderly
+                fashion. Therefore, if results are placed together in a logical grouping, it would
+                assist the user in finding the appropriate query result. For example, in SNOMED, it
+                may be worthwhile to group results by hierarchy (disorder vs. procedures) to allow
+                an user to look for a result in a desired domain or in RxNorm where all Ingredient
+                results are grouped separately from Semantic Clincal Drug results.</para>
         </section>
     </section>
     

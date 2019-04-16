@@ -184,15 +184,38 @@
     
     <section xml:id="section_913ac530-33db-42cc-bcf1-73fc29283537">
         <title>Definitional Layer Exclusions</title>
-        <para/>
+        <para>While computation of language representation is an advanced area, there are certain
+            scenarios that are highly complex and we humans either cannot consistently explain how a
+            machine should interpret or there just is no way to consistently create the content in a
+            manner which a machine can deduce its true meaning. This section describe such
+            scenarios, which would create known undesired effects, or will be handled separately
+            from normal description logic operations.</para>
         <section xml:id="section_f26a133b-3726-4ba5-90c9-93df878218c2">
             <title><?oxy_comment_start author="steph" timestamp="20190306T102924-0700" comment="Should this be change to representation of absence?" id="drx_vrc_1hb" flag="done" mid="10"?><?oxy_comment_start author="erhwang" timestamp="20190307T084732-0700" comment="Represetation of absence is kind of Logical Negation. Logical Negation is a known &apos;phrase&apos; in Description Logic. Since this section is addressing what Solor WON&apos;T be addressing, I think it is best to leave it as Logical negation &amp; write a bit on it when this section is expanded with verbiage." parentID="drx_vrc_1hb" flag="done" mid="11"?><?oxy_comment_start author="steph" timestamp="20190402T154919-0600" comment="Okay" flag="done"?>Logical<?oxy_comment_end?><?oxy_comment_end mid="11"?><?oxy_comment_end mid="10"?>
                 negation</title>
-            <para/>
+            <para>Logical Negation, or "Representation of absence" as it is described throughout
+                this document, is the notion of how to describe something that is not present. The
+                complexity of this topic is described in [reference
+                definitional_conceptAnalysis.xml, section 1.2.1] and illustrates why it is difficult
+                to represent this notion of something that is not present. Furthermore, it describes
+                how current content in terminologies is inconsistently represented. The topic of
+                absence representation is described in greater detail in [reference
+                absence_representation_requirement.xml]. </para>
+            <para>Therefore, content deemed as "absence" content are identified, which is described
+                in [reference definitional_conceptAnalysis.xml, section 1.2]. The identification of
+                this set of content would allow a system to handle the "absence" computation, when
+                available, in a manner that is separtate and more specialized from typical
+                description logic operations.</para>
         </section>
         <section xml:id="section_6b1213dd-2975-48a7-b943-daad9d7685a2">
             <title>Measurement</title>
-            <para/>
+            <para>Measurement is a complex topic that is both addressed through information models
+                as well as how the content should represent that model. For the former, it is the
+                topic of Analyst Normal Form, and is described in [reference
+                analysis-normal-form.xml]. For the latter, this is described in [reference
+                definitional_concreteDomains.xml]. Therefore, measurement is a topic that was
+                determined to be one that should not be handeled by normal description logic, and
+                will be examined when foundational pieces are in place to address this topic.</para>
         </section>
     </section>
     

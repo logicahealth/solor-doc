@@ -7,21 +7,20 @@
     <section>
         <title>Introduction</title>
         <para>Terminology systems are increasingly critical components for achieving
-            interoperability across applications in the healthcare domain. The role of standard
-            terminologies in achieving interoperability for the purposes of advancing patient care
-            is well documented. Ideally, these clinical terminology standards intend to provide
-            rules to allow for the exchange, integration, and management of electronic clinical
-            information. The federal government recognizes the benefit of standard terminologies and
-            promotes their development and use. The <emphasis role="italic">Federal Health IT
-                Strategic Plan 2015-2020</emphasis> set a strategy to encourage consistent
-            terminology standards implementation in Electronic Health Records (EHRs) and encourage
-            use through federal payment policies.
-            <?oxy_comment_start author="steph" timestamp="20190402T131526-0600" comment="I recommend moving this up so it&apos;s the 2nd sentence in this paragraph."?>A
+            interoperability across applications in the healthcare domain.
+            <?oxy_comment_start author="steph" timestamp="20190402T131526-0600" comment="I recommend moving this up so it&apos;s the 2nd sentence in this paragraph." flag="done"?>A
             standard terminology is one that has wide industry acceptance or
-            use.<?oxy_comment_end?></para>
+            use.<?oxy_comment_end?>The role of standard terminologies in achieving interoperability
+            for the purposes of advancing patient care is well documented. Ideally, these clinical
+            terminology standards intend to provide rules to allow for the exchange, integration,
+            and management of electronic clinical information. The federal government recognizes the
+            benefit of standard terminologies and promotes their development and use. The <emphasis
+                role="italic">Federal Health IT Strategic Plan 2015-2020</emphasis> set a strategy
+            to encourage consistent terminology standards implementation in Electronic Health
+            Records (EHRs) and encourage use through federal payment policies. </para>
         <para>Standards are obtained from a variety of efforts, cover different domains of clinical
             and nonclinical content relevant to the EHR, and serve various purposes. Currently, no
-            <?oxy_comment_start author="steph" timestamp="20190402T131701-0600" comment="Recommend revising to &quot;single&quot; for readability purposes."?>one<?oxy_comment_end?>
+            <?oxy_comment_start author="steph" timestamp="20190402T131701-0600" comment="Recommend revising to &quot;single&quot; for readability purposes." flag="done"?>single<?oxy_comment_end?>
             terminology or classification system contains everything that is needed for the medical
             record. </para>
         <para>The scope of content covered in terminologies varies from focusing on a very specific
@@ -41,10 +40,10 @@
             and pharmaceutical and biological products. SNOMED CT concepts exist at multiple levels
             of granularity, and mechanisms exist to add missing content to ensure that information
             is coded at the most granular level possible. SNOMED CT concepts are identified with a
-            <?oxy_comment_start author="steph" timestamp="20190402T132125-0600" comment="Does this go against the desiderata of a meaningless identifer, as mentioned in the terminology-intro.xml section?  If yes, should it be acknowledged?"?>6-
+            <?oxy_comment_start author="steph" timestamp="20190402T132125-0600" comment="Does this go against the desiderata of a meaningless identifer, as mentioned in the terminology-intro.xml section?  If yes, should it be acknowledged?" id="wvs_slw_lhb" flag="done"?><?oxy_comment_start author="rcholan" timestamp="20190418T125555-0400" comment="terminology-intro.xml is not rendered in the SIA pdf any longer so I do not think we need to address this. " parentID="wvs_slw_lhb" flag="done" mid="3"?>6-
             to 18-digit integer that has some structure that describes where the identifier
             originated (the original creator of the identifier) and what type of identifier it is.
-            <?oxy_comment_end?></para>
+            <?oxy_comment_end mid="3"?><?oxy_comment_end?></para>
     </section>
     <section>
         <title>LOINC Codes</title>
@@ -113,16 +112,17 @@
                     provide lists of values, codes, and names (i.e., value sets) from standard
                     clinical terminologies to represent clinical concepts. </para>
                 <para>These tools, while helpful, have gaps.
-            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph."?>Raje
-            et al. <?oxy_comment_end?>highlighted issues with completeness, correctness, and
-            redundancy when they found gaps in the UMLS Metathesaurus’ coverage of disease concepts.
-            Similarly, Winnenburg et al. highlighted duplicate value sets in the VSAC, and showed
-            that 19% of value sets in 2011 contained invalid codes. In subsequent work, they
-            highlighted issues related to granularity by evaluating over 1,000 value sets and found
-            that value sets varied vastly in size with some only containing one code, while other
-            value sets included over 20,000 codes. Similarly, Bahr et al. showed issues with concept
-            orientation by analyzing medication value sets and found extraneous and missing
-            ingredients in both the value sets and drug classes. </para>
+            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph." id="syq_1mw_lhb"?><?oxy_comment_start author="rcholan" timestamp="20190418T125814-0400" comment="Proper documentation of references needs to be an overarching task that is done for the entire SIA book. " parentID="syq_1mw_lhb" mid="5"?>Raje
+            et al. <?oxy_comment_end mid="5"?><?oxy_comment_end?>highlighted issues with
+            completeness, correctness, and redundancy when they found gaps in the UMLS
+            Metathesaurus’ coverage of disease concepts. Similarly, Winnenburg et al. highlighted
+            duplicate value sets in the VSAC, and showed that 19% of value sets in 2011 contained
+            invalid codes. In subsequent work, they highlighted issues related to granularity by
+            evaluating over 1,000 value sets and found that value sets varied vastly in size with
+            some only containing one code, while other value sets included over 20,000 codes.
+            Similarly, Bahr et al. showed issues with concept orientation by analyzing medication
+            value sets and found extraneous and missing ingredients in both the value sets and drug
+            classes. </para>
                 <para>These issues related to integrating clinical content have a direct impact on
             patient safety and point to the need to be able to consistently represent and encode
             clinical data and observations. Therefore, quality assurance is an indispensable part of

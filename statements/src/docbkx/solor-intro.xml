@@ -175,10 +175,11 @@
         
         <para>Starting from the bottom to the top of the Separation of Concerns diagram, the layers
             of the informatics architectural separation of concerns are described as: </para>
-        <para><?oxy_comment_start author="steph" timestamp="20190403T104727-0600" comment="I think this needs to be revised to &quot;Solor Architectural Foundation&quot; since that is how it&apos;s now shown in the diagram. This may require other references to it throughout the document to be changed."?>Architecture<?oxy_comment_end?>
-            – Provides an interoperable, integrated common terminology model which concerns (a) the
-            foundation and building blocks of the common model; (b) how the repeatable
-            transformation process of disparate standards into the common model promotes
+        <para>Solor
+            <?oxy_comment_start author="steph" timestamp="20190403T104727-0600" comment="I think this needs to be revised to &quot;Solor Architectural Foundation&quot; since that is how it&apos;s now shown in the diagram. This may require other references to it throughout the document to be changed."?>Architectur<?oxy_comment_end?>al
+            Foundation – Provides an interoperable, integrated common terminology model which
+            concerns (a) the foundation and building blocks of the common model; (b) how the
+            repeatable transformation process of disparate standards into the common model promotes
             interoperability with other environments; and, (c) how the modules of the architecture
             are tightly version controlled over time. </para>
         <para>Terminology Knowledge – Structured sets of medical terms and codes that define
@@ -208,18 +209,19 @@
             define the hypertension concept. For example, the concept “essential hypertension” is
             defined by the ICD-10 CM code I10 and 59621000 in SNOMED CT. Ideally, these overlapping
             codes and terms would be oriented to the same parent concept during the transformation
-            and integration process at the Architecture layer. Furthermore, any updates over time to
-            code sets or value sets that define hypertension (in the NLM’s Value Set Authority
-            Center for instance) would be maintained by continuous integration at the Architecture
-            layer. Moving to the statement layer, blood pressure measurement values may be packaged
-            as a numerical measurement (e.g., systolic BP = 140 mmHg) or the categorial data (e.g.,
-            pregnancy induced hypertension vs. renal hypertension) within a standard data structure
-            to facilitate information exchange or retrieval, such as within a FHIR Observation
-            Resource. At the Assertional layer, guidelines such as the recommendation to control
-            hypertension to under 140/90 mmHg might be translated into a clinical workflow
-            facilitated by Health Information Technology (HIT). If HIT is involved with programmed
-            Clinical Decision Support, there may be additional rules to suggest hypertension
-            medications (e.g., beta-blockers, ACE inhibitors) while also including rules to
+            and integration process at the Solor Architectural Foundation layer. Furthermore, any
+            updates over time to code sets or value sets that define hypertension (in the NLM’s
+            Value Set Authority Center for instance) would be maintained by continuous integration
+            at the Solor Architectural Foundation layer. Moving to the statement layer, blood
+            pressure measurement values may be packaged as a numerical measurement (e.g., systolic
+            BP = 140 mmHg) or the categorial data (e.g., pregnancy induced hypertension vs. renal
+            hypertension) within a standard data structure to facilitate information exchange or
+            retrieval, such as within a FHIR Observation Resource. At the Assertional layer,
+            guidelines such as the recommendation to control hypertension to under 140/90 mmHg might
+            be translated into a clinical workflow facilitated by Health Information Technology
+            (HIT). If HIT is involved with programmed Clinical Decision Support, there may be
+            additional rules to suggest hypertension medications (e.g., beta-blockers, ACE
+            inhibitors) while also including rules to
             <?oxy_comment_start author="steph" timestamp="20190305T101503-0700" comment="&quot;to&quot; should be inserted here." flag="done"?>avoid<?oxy_comment_end?>
             medication
             <?oxy_comment_start author="steph" timestamp="20190305T101538-0700" comment="I don&apos;t think this should be hyphenated." flag="done"?>contra<?oxy_comment_end?>indications.

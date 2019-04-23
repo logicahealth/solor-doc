@@ -9,8 +9,6 @@
     xmlns:xi="http://www.w3.org/2001/XInclude">
      <title><?oxy_comment_start author="steph" timestamp="20190319T163504-0600" comment="See my question in the Examples section re: Joey Coyle&apos;s recommendation to rename CIF."?>Clinical
         Input Form Statements<?oxy_comment_end?></title>
-     
-     <section>
 
       <para>
           Ideally, clinical information is represented in a manner that is most efficient for use.  The problem is that users have many different requirements for clinical information, thus no single representation can be the most efficient representation for all the various use cases.  Thus, maximum efficiency for each use case necessitates that any particular clinical information be available in multiple representations.  Although different in form, each of these different representations semantically model the same information. These are known as isosemantic models.
@@ -50,13 +48,14 @@
         
 
 
-        <para><?oxy_comment_start author="steph" timestamp="20190319T161925-0600" comment="I think this paragraph is missing this:  &quot;Ideally, the way the information is presented to clinicians is in a manner that is most efficient for the clinicians to use.  However, what&quot;.  This is how it was worded in the Examples section previously. "?><?oxy_comment_end?>is
-            an efficient way for clinicians to select and enter data may not be the most efficient
-            way for data analysts to use when they are querying data once it has been normalized and
-            stored in a database, such as when creating a new CDS rule or compiling prevalence
-            statistics. For this, the data is normalized using the analysis normal form (ANF) and
-            stored in a database. Again, the ANF is not necessarily a physical structure, but is how
-            a data analyst might see the data when they are looking at it in a database, and not as
+        <para><?oxy_comment_start author="steph" timestamp="20190319T161925-0600" comment="I think this paragraph is missing this:  &quot;Ideally, the way the information is presented to clinicians is in a manner that is most efficient for the clinicians to use.  However, what&quot;.  This is how it was worded in the Examples section previously. " flag="done"?><?oxy_comment_end?>Ideally,
+            the way the information is presented to clinicians is in a manner that is most efficient
+            for clinicians to select and enter data may not be the most efficient way for data
+            analysts to use when they are querying data once it has been normalized and stored in a
+            database, such as when creating a new CDS rule or compiling prevalence statistics. For
+            this, the data is normalized using the analysis normal form (ANF) and stored in a
+            database. Again, the ANF is not necessarily a physical structure, but is how a data
+            analyst might see the data when they are looking at it in a database, and not as
             clinicians would see it in the user interface (i.e., CIF). </para>
 
        
@@ -66,7 +65,7 @@
      	</para>
 
 
- 	</section>
+ 	
 
      <section>
 
@@ -77,7 +76,7 @@
 	    </para>
 
 	    <para>
-	        The CIMI CIF Reference Model layer is authored using Unified Modeling Language (UML).  These class definitions may be viewed at <ulink url="http://models.opencimi.org/cimi_doc/"><citetitle>http://models.opencimi.org/cimi_doc/</citetitle></ulink>.  
+	        The CIMI CIF Reference Model layer is authored using Unified Modeling Language (UML).  These class definitions may be viewed at <link xlink:href="http://models.opencimi.org/cimi_doc/"><citetitle>http://models.opencimi.org/cimi_doc/</citetitle></link>.  
 	    </para>
 
 	    <figure xml:id="cif_msg_layers_0135">
@@ -90,22 +89,22 @@
 	    </figure>
 
 	    <para>
-	        The constraint layer is described using Archetype Definition Language (ADL). ADL is a formal language with a textual syntax for describing constraints on the classes described in the reference layer. A re-usable formal constraint model defined in ADL is called an Archetype. The full collection of CIMI CIF Archetypes may be viewed at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink>.
+	        The constraint layer is described using Archetype Definition Language (ADL). ADL is a formal language with a textual syntax for describing constraints on the classes described in the reference layer. A re-usable formal constraint model defined in ADL is called an Archetype. The full collection of CIMI CIF Archetypes may be viewed at <link xlink:href="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></link>.
 	    </para>
 
 	    <para> One complexity that needs to be addressed here is that ADL can only be used to constrain
             reference classes defined in a lightweight proprietary
-            <?oxy_comment_start author="steph" timestamp="20190319T163610-0600" comment="Should these two words be hyphenated (i.e., UML-like)?  Without it, it could be confusing."?>UML
-            like<?oxy_comment_end?> specification called Basic Meta-Model (BMM). For this reason,
-            CIMI has developed tooling that transforms the CIMI UML models into the BMM
-            specification. Although this complexity does exist, to ease understanding, the reader
-            can simply imagine that ADL is directly constraining the UML classes. </para>
+            <?oxy_comment_start author="steph" timestamp="20190319T163610-0600" comment="Should these two words be hyphenated (i.e., UML-like)?  Without it, it could be confusing." flag="done"?>UML-like<?oxy_comment_end?>
+            specification called Basic Meta-Model (BMM). For this reason, CIMI has developed tooling
+            that transforms the CIMI UML models into the BMM specification. Although this complexity
+            does exist, to ease understanding, the reader can simply imagine that ADL is directly
+            constraining the UML classes. </para>
 
 	    <para>
 	        The UML/BMM classes are more abstract and the archetypes are where specific semantics such as 'blood glucose' or 'diabetes present,' are asserted.
 	    </para>
 
-	    <sect2>
+	    <section>
 	        <title>Structures</title>
 
 	        <para>
@@ -115,11 +114,14 @@
 	        <para> Most clinical specifications will be based on the Clinical Statement pattern defined
                 in the Clinical model layer. But this pattern does employ structures built out of
                 Foundation and Core classes, so familiarity with these layers will be helpful. For
-                more information consult the
-                <?oxy_comment_start author="steph" timestamp="20190320T100440-0600" comment="Should a link to this be provided?"?>CIMI
-                Architecture Guide<?oxy_comment_end?>. </para>
+                more information consult the <link
+                    xlink:href="http://wiki.hl7.org/images/e/e6/2007-01_CIMI_Modeling%2C_Architecture_Methodology_and_Style_Guide_.pdf"
+                    ><?oxy_comment_start author="steph" timestamp="20190320T100440-0600" comment="Should a link to this be provided?" flag="done"?>CIMI
+                    Architecture Guide<?oxy_comment_end?></link><footnote>
+                    <para>http://wiki.hl7.org/images/e/e6/2007-01_CIMI_Modeling%2C_Architecture_Methodology_and_Style_Guide_.pdf</para>
+                </footnote>. </para>
 
-	    </sect2>
+	    </section>
 	</section>
 
 	<section>
@@ -247,7 +249,7 @@
         </variablelist>
 
 
-  <sect2>
+  <section>
     <title>Examples Using Topic and Context</title>
     <para> Earlier, descriptive examples of Clinical Statements were given. Here we will represent a
                 few of these examples using the Clinical Statement ‘topic - context’ paradigm. In
@@ -294,9 +296,7 @@
         <para>They represent groupings of attributes aligned with the SNOMED Clinical Terms (SNOMED
                         CT) Concept Model. For instance, ProcedureTopic is aligned with the SNOMED
                         CT Procedure Concept Model. PerformanceContext aligns with the Situation
-                        with Explicit Context
-                        <?oxy_comment_start author="steph" timestamp="20190320T104119-0600" comment="Should this be deleted?"?>Concept<?oxy_comment_end?>
-                        (SWEC) Concept Model. </para>
+                        with Explicit Context (SWEC) Concept Model. </para>
       </listitem>
       <listitem>
         <para>They provide for a mechanism to state presence or absence of a finding as well as performance or non-performance of an action. For instance, the pairing of ProcedureTopic with NonPerformanceContext allows for the expression of a procedure that was not performed.
@@ -304,7 +304,7 @@
       </listitem>
     </orderedlist>
 
-  </sect2>
+  </section>
   
 
 </section>
@@ -314,7 +314,7 @@
 	<title>Topic Patterns</title>
 
     <para>
-        Topic Patterns include all the attributes required to fully describe a clinical entity. The main topic pattern categories CIMI has developed to date include FindingTopic and ProcedureTopic, with FindingTopic having children of AssertionTopic and EvaluationResultTopic. They are shown in <xref linkend="cif_msg_topic_hierarchy_0135"/> and are described in the following sections.  Each of these topic subtypes contain a collection of attributes that describe the given pattern.  These patterns provide the foundational structure for detailed clinical model (DCM) archetype instances that can be visualized at <ulink url="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></ulink> 
+        Topic Patterns include all the attributes required to fully describe a clinical entity. The main topic pattern categories CIMI has developed to date include FindingTopic and ProcedureTopic, with FindingTopic having children of AssertionTopic and EvaluationResultTopic. They are shown in <xref linkend="cif_msg_topic_hierarchy_0135"/> and are described in the following sections.  Each of these topic subtypes contain a collection of attributes that describe the given pattern.  These patterns provide the foundational structure for detailed clinical model (DCM) archetype instances that can be visualized at <link xlink:href="http://models.opencimi.org"><citetitle>http://models.opencimi.org</citetitle></link> 
     </para>
 
     <para>
@@ -330,7 +330,7 @@
         </mediaobject>
     </figure>
 
-    <sect2>
+    <section>
         <title>AssertionTopic</title>
 
         <para> The first topic type we will describe is the AssertionTopic pattern with its included
@@ -403,7 +403,7 @@
             </listitem>
         </itemizedlist>
 
-        <sect3>
+        <section>
             <title>Assertion Hierarchy</title>
 
             <para> The full hierarchy for AssertionTopic is shown in <xref
@@ -438,9 +438,9 @@
                 </mediaobject>
             </figure>
 
-        </sect3>
+        </section>
 
-        <sect3>
+        <section>
             <title>Assertions</title>
 
             <para>
@@ -483,9 +483,9 @@
             </para>
 
         
-        </sect3>
+        </section>
 
-        <sect3>
+        <section>
             <title>Finding Site Assertions</title>
 
             <para>
@@ -516,11 +516,11 @@
                 </programlisting>
             </example>
 
-        </sect3>
+        </section>
 
-    </sect2>
+    </section>
 
-    <sect2>
+    <section>
         <title>Evaluation Result</title>
 
         <para>
@@ -549,7 +549,7 @@
             The following is an isosemantic comparison of the evaluation result pattern to the previously described assertion pattern.  In the previous section, we illustrated assertion models using rash, auto accident, and hypertrophy.  Below we show what these assertion examples would look like if we hypothetically modeled them using the Evaluation Result pattern.  Note, CIMI avoids creating models where the ‘result’ specifies “presence/absence” or “yes/no”, so this is a clear indicator that the assertion pattern is preferred in these cases.
         </para>
 
-        <variablelist mark='bullet' spacing='compact'>
+        <variablelist role='bullet' spacing='compact'>
             <varlistentry>
                 <term><emphasis role='bold'>Assertion</emphasis></term>
                 <listitem>
@@ -594,7 +594,7 @@
         
 
 
-        <sect3>
+        <section>
             <title>Evaluation Result Hierarchy</title>
 
             <para>
@@ -611,9 +611,9 @@
             </figure>
 
 
-        </sect3>
+        </section>
 
-         <sect3>
+         <section>
             <title>Modeling in the Constraint Layer</title>
 
             <para> This section will use LaboratoryTestResultTopic, which exists in the Reference
@@ -631,9 +631,9 @@
                     NominalLaboratoryTestResult. </para>
        
 
-        </sect3>
+        </section>
 
-        <sect3>
+        <section>
             <title>Evaluation Result Subtypes</title>
 
             <variablelist>
@@ -680,11 +680,11 @@
             </example>
 
             
-        </sect3>
+        </section>
             
 
 
-        <sect3>
+        <section>
             <title>Guideline: Assertion versus Evaluation</title>
 
             <para>
@@ -717,12 +717,12 @@
                 It should be noted the Assertion vs. Evaluation topic is solely concerned with the structure and schema pattern used to capture clinical information. Choosing Assertion vs. Evaluation patterns has nothing to do with whether the information being captured is subjective vs. objective. 
             </para>
 
-        </sect3>
+        </section>
 
 
-    </sect2>
+    </section>
 
-    <sect2>
+    <section>
         <title>ProcedureTopic</title>
 
         <para>
@@ -739,7 +739,7 @@
                 </mediaobject>
             </figure>
 
-    </sect2>
+    </section>
 
 </section>
 
@@ -761,8 +761,9 @@
             </figure>
 
     <para> The StatementContext abstract class has the following
-            <?oxy_comment_start author="steph" timestamp="20190320T113056-0600" comment="Why isn&apos;t there a third bullet for Performance Context and why isn&apos;t it shown in the prior figure?"?>three
-            specializations: <?oxy_comment_end?></para>
+            <?oxy_comment_start author="steph" timestamp="20190320T113056-0600" comment="Why isn&apos;t there a third bullet for Performance Context and why isn&apos;t it shown in the prior figure?" id="m1d_kg1_nhb" mid="6"?><?oxy_comment_start author="timowilliams" timestamp="20190422T141600-0500" comment="I believe it should actually be EventContext as it looks like PerformanceContext is a subclass of ActionContext.  I added EventContext however it isn&apos;t currently defined so is not too useful.
+" parentID="m1d_kg1_nhb"?>three
+            specializations: <?oxy_comment_end?><?oxy_comment_end mid="6"?></para>
 
     <variablelist>
             <varlistentry>
@@ -780,19 +781,28 @@
                         The ActionContext class aligns with the SNOMED Situation with Explicit Context for procedures and provides the context for the Act topic of a clinical statement. For instance, a statement about a procedure may specify the procedure has been proposed, ordered, planned, performed, or not performed. Each action context, in turn, has its own lifecycle. An example of the PerformanceContext class is shown in <xref linkend="cif_msg_performance_0135"/>.
  
                     </para>
+                    <figure xml:id="cif_msg_performance_0135">
+                        <title>PerformanceContext</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/cif_performance.jpg" align="center" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
                 </listitem>
             </varlistentry>
+        <varlistentry>
+            <term><emphasis role='bold'>EventContext</emphasis></term>
+            <listitem>
+                <para>
+                    Specializations for EventContext have not been defined.
+                </para>
+            </listitem>
+        </varlistentry>
             
         </variablelist>
 
-        <figure xml:id="cif_msg_performance_0135">
-                <title>PerformanceContext</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/cif_performance.jpg" align="center" format="jpg" scalefit="1" width="100%" contentdepth="100%"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
+        
 
 
 </section>
@@ -807,7 +817,7 @@
   </para>
 
            
-  <sect2>
+  <section>
     <title>The CIMI Attribution/Provenance patterns</title>
 
     <para>
@@ -840,7 +850,7 @@
     </orderedlist>
 
 
- </sect2>
+ </section>
 
 </section>
 
@@ -848,7 +858,7 @@
 
 	<!--  This should probably be a new chapter -->
 
-	<title><?oxy_comment_start author="steph" timestamp="20190320T124236-0600" comment="I agree with the comment above that this should be a new chapter because you have ANF in a different chapter from CIF."?>Differences<?oxy_comment_end?>
+	<title><?oxy_comment_start author="steph" timestamp="20190320T124236-0600" comment="I agree with the comment above that this should be a new chapter because you have ANF in a different chapter from CIF." id="tx2_cd3_nhb"?><?oxy_comment_start author="timowilliams" timestamp="20190423T161501-0500" comment="Once structure and content of ANF ballot is solidified we will move this Section based on that." parentID="tx2_cd3_nhb" mid="8"?>Differences<?oxy_comment_end mid="8"?><?oxy_comment_end?>
             between ANF and CIF</title>
 
 	<para>
@@ -930,8 +940,9 @@
 
 
     	<itemizedlist spacing='compact'>
+    	    <title>Example of Breath Sounds Valueset</title>
             <listitem>
-                    <?oxy_comment_start author="steph" timestamp="20190320T125008-0600" comment="I think it would be good to either make this is a figure or at least add a heading of &quot;Example of Breath Sounds Valueset&quot; to it."?>
+                    <?oxy_comment_start author="steph" timestamp="20190320T125008-0600" comment="I think it would be good to either make this is a figure or at least add a heading of &quot;Example of Breath Sounds Valueset&quot; to it." flag="done"?>
                     <para>Absent<?oxy_comment_end?></para>
                 </listitem>
             <listitem>
@@ -1074,8 +1085,9 @@
           <entry>A formal specification used for describing constraints on an Underlying Reference Model. The Constraint Model is used to express clinical information models (i.e. archetypes)</entry>
         </row>
         <row>
-                        <?oxy_comment_start author="steph" timestamp="20190320T125453-0600" comment="As I read this, I wonder if it would be good to include a column indicating to which the term applies, such as ANF, CIF, or both?  But then you also have terms such as governance - would you put both?  Or, maybe if it&apos;s a term that only applies to CIF or ANF, you could state that in the description, such as for Key."?>
-                        <entry>Context</entry><?oxy_comment_end?>
+                        <?oxy_comment_start author="steph" timestamp="20190320T125453-0600" comment="As I read this, I wonder if it would be good to include a column indicating to which the term applies, such as ANF, CIF, or both?  But then you also have terms such as governance - would you put both?  Or, maybe if it&apos;s a term that only applies to CIF or ANF, you could state that in the description, such as for Key." id="q55_zc3_nhb"?>
+                        <?oxy_comment_start author="timowilliams" timestamp="20190423T161419-0500" comment="Glossaries will be moved to the end of the document." parentID="q55_zc3_nhb" mid="11"?>
+                        <entry>Context</entry><?oxy_comment_end?><?oxy_comment_end mid="11"?>
                         <entry/>
                         <entry>The circumstances that form the setting in which the ‘topic’ should
                             be evaluated</entry>
@@ -1132,4 +1144,3 @@
 
 
 </chapter>
-

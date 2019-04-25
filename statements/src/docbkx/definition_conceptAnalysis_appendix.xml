@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<appendix xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Content Requiring Special Handling Appendix</title>
+    <section>
+        <?oxy_comment_start author="timowilliams" timestamp="20190218T164257-0600" comment="I would move this section to the appendix so it could be left out if needed."?>
+        <title>Reliability of Rule Sets<?oxy_comment_end?></title>
+        <para>In order to determine reliability of the identified keywords and rule sets for each
+            Assemblage, metrics of agreement/disagreement for the initial review were used.</para>
+        <para>After the first two Terminologists reviewed the 50,000 SNOMED CT concepts
+            individually, applying the initial set of rules for each Assemblage. After this first
+            review, disagreements between the two Terminologists were extracted from the concept
+            files and re-assigned for discussion and reconciliation. </para>
+        <section>
+            <title>Initial Metrics for Inter-Rater Reliability</title>
+            <para>In the course of the reconciliation discussion, the initial rules were
+                re-evaluated and either confirmed, adjusted, clarified or eliminated to achieve a
+                set of rules that is sufficiently expressive and reproducible.</para>
+            <para>The Assemblage membership status of all reconciled concepts was updated in the
+                Assemblages.</para>
+            <para>The following metrics for agreement/disagreement percentages between the first two
+                reviewers were calculated:</para>
+            <para>
+                <table frame="border" border="1">
+                    <caption><?oxy_comment_start author="steph" timestamp="20190312T152352-0600" comment="Symmetry isn&apos;t included here.  I know it wasn&apos;t part of the whitepaper that was done for the other refsets but it was a refset that was created.  Should it be included here as well?  If not, should we note why it&apos;s not included?  Or, perhaps show this before the symmetry refset section?  "?>Agreement
+                        #1<?oxy_comment_end?></caption>
+                    <thead>
+                        <tr>
+                            <th>Concepts</th>
+                            <th>Agreement (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Absence</td>
+                            <td>95.89</td>
+                        </tr>
+                        <tr>
+                            <td>Ambiguous</td>
+                            <td>99.72</td>
+                        </tr>
+                        <tr>
+                            <td>Compound Observation</td>
+                            <td>94.75</td>
+                        </tr>
+                        <tr>
+                            <td>Patient is not Subject of Record</td>
+                            <td>99.13</td>
+                        </tr>
+                        <tr>
+                            <td>Laterality</td>
+                            <td>84.12%</td>
+                        </tr>
+                        <tr>
+                            <td>Inverse</td>
+                            <td>98.81%</td>
+                        </tr>
+                        <tr>
+                            <td>Primitive</td>
+                            <td>82.84%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+        </section>
+        <section>
+            <title>Second Review for Inter-Rater Reliability</title>
+            <para>After producing the “baseline” Assemblages on which the two Terminologists agreed,
+                another team of two reviewers reviewed a random 10% of the concepts in the baseline
+                Assemblages, applying the rules for Inclusion/Exclusion. Inter-rater reliability was
+                calculated again between the two new reviewers. </para>
+            <para>
+                <table frame="border" border="1">
+                    <caption>Agreement #2</caption>
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th>Compound</th>
+                            <th>Absence</th>
+                            <th>Patient Not Subject</th>
+                            <th>Laterality</th>
+                            <th>Inverse</th>
+                            <th>Primitive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Review Count</td>
+                            <td>4321</td>
+                            <td>1273</td>
+                            <td>71</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td># of disagree</td>
+                            <td>251</td>
+                            <td>140</td>
+                            <td>17</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>% agreement</td>
+                            <td>94%</td>
+                            <td>89%</td>
+                            <td>76%</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>The results of this exercise show that the rules for the “Compound Observation”
+                Assemblage appear to be the most reproducible. The numbers for “Absence” and
+                “Patient not subject of information” are lower.</para>
+            <para>However, considering that the second team of reviewers have not been part of the
+                previous discussions around the inclusion/exclusion criteria and were only given the
+                rule sets to follow, the results were perceived as positive.</para>
+            <para>The results of these metrics informed the final decision on the
+                Inclusion/Exclusion criteria for each final Assemblage.</para>
+        </section>
+    </section>
+
+    <section>
+        <title>Final Set of Keywords and Rules</title>
+        <para>Based on the metrics and findings above, the set of keywords for <emphasis role="bold"
+                >automatic queries</emphasis> remained unchanged for all Assemblages. The rules for
+            manual reviews was adjusted. This final set represents the criteria with the highest
+            reproducibility.</para>
+
+        <section>
+            <title>Final Keywords and Rules for “Absence”</title>
+            <para>A number of keywords, which had initially been used to manually identify “absence”
+                concepts were excluded after reconciliation of disagreements between the first team
+                of reviewers. Those pertained mostly to implied absence.</para>
+            <para>Examples for
+                <?oxy_comment_start author="steph" timestamp="20190312T160918-0600" comment="In the prior sections when the keywords to identify absence concepts that were shown, in one of the sections, &quot;rejected&quot; was included but I had noted that it was not included in the prior section.  Should all of the keywords listed below have been listed since it sounds like they were used initially in the analysis but then later determined not to be used, as stated here?" id="cyt_yzx_jhb"?><?oxy_comment_start author="timowilliams" timestamp="20190411T132509-0500" comment="Rejected was erroneously included in this list and has been removed.  The others were not keywords we used in the original search criteria so they do not belong in the section detailing the queries we used to identify candidate concepts. They are keywords we identified from the set of data for evaluation that were potential keywords we then ruled out." parentID="cyt_yzx_jhb" mid="24"?>excluded
+                keywords<?oxy_comment_end mid="24"?><?oxy_comment_end?> during manual review:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Unchanged</para>
+                    </listitem>
+                    <listitem>
+                        <para>Declined</para>
+                    </listitem>
+                    <listitem>
+                        <para>Diminished</para>
+                    </listitem>
+                    <listitem>
+                        <para>Unsatisfactory</para>
+                    </listitem>
+                    <listitem>
+                        <para>Impairment</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>After examining the actual concepts containing these keywords, it appeared that,
+                although there seems to be a “flavor” of something “absent”, they do not satisfy the
+                rule of “something absent about the patient (or the procedure)”.</para>
+        </section>
+
+        <section>
+            <title>Final Keywords and Rules for “Patient not Subject of Information”</title>
+            <para>During the initial discussion and reviews of candidate concepts for this
+                Assemblage, the following rules had been stated:</para>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para>Concept is about samples, even if the "sample" originates from the
+                            patient, e.g.</para>
+                        <para><emphasis>Sample contaminated (finding)</emphasis></para>
+                    </listitem>
+                
+                    <listitem>
+                        <para>Concept is about objects or devices, e.g.</para>
+                        <para><emphasis>Dialysis catheter in situ usable (finding)</emphasis></para>
+                    </listitem>
+                
+                    <listitem>
+                        <para>Concept is about patient’s family, family members, friends or other
+                            social contacts, even if it is the patient’s family members, friends or
+                            other social contacts, e.g.</para>
+                        <para><emphasis>Finding of relatives surviving (finding)</emphasis></para>
+                    </listitem>
+                </orderedlist>
+            </para>
+            <para>Discussions about the kinds of concepts in
+                <?oxy_comment_start author="steph" timestamp="20190312T161516-0600" comment="Recommend using numbered vs bulleted list for easy identification of what you are referring to." flag="done"?>1
+                and 2 (above)<?oxy_comment_end?> resulted in excluding them. A concept pertaining to
+                a “sample” was agreed as still being about the patient, because the sample is
+                sourced from the patient. The same reasoning was applied to the pattern of concepts
+                about objects or devices because, e.g. the “catheter” is seen in the patient’s
+                body.</para>
+            <para>This reasoning lead to leaving a single rule for inclusion in this Assemblage:
+                        <emphasis><emphasis role="bold">Concept is about patient’s family, family
+                        members, friends or other social contacts, even if it is the patient’s
+                        family members, friends or other social
+                contacts.</emphasis></emphasis></para>
+        </section>
+
+        <section>
+            <title>Final Keywords and Rules for “Compound Observation”</title>
+            <para>A number of keywords which had initially been used to manually identify “Compound”
+                concepts were excluded after reconciliation of disagreements between the first team
+                of reviewers. </para>
+            <para>Examples for excluded keywords during manual review (excerpt):</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Finding related to X, e.g. “Finding related to provision of home help
+                            (finding)”</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Closer examination of this concept pattern revealed that these
+                                    concepts appear to be grouper
+                                    concepts<?oxy_comment_start author="steph" timestamp="20190312T161855-0600" comment="What does this mean WRT the concept?" id="nhy_12y_jhb"?><?oxy_comment_start author="timowilliams" timestamp="20190411T135615-0500" comment="It is what we call a grouper concept, meaning it has no clinical usefullness other than to collect other Findings in the hierarchy.  I have changed the navigational to grouping concept" parentID="nhy_12y_jhb" mid="27"?>
+                                    in their
+                                    intent<?oxy_comment_end mid="27"?><?oxy_comment_end?></para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Procedure X using Y, e.g. “External fixation using unilateral bar
+                            (procedure)”</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>The “using” pattern simply specifies the way the procedure is
+                                    performed, rather than constituting a separate procedure</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Procedure X by technique Y, e.g. “Microbial identification by nucleic
+                            acid probe, with amplification (polymerase chain reaction)
+                            (procedure)”</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>The “technique” patterns, too, simply specifies the way the
+                                    procedure is performed, rather than constituting a separate
+                                    procedure</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+
+        <section>
+            <title>Final Keywords and Rules for “Laterality”</title>
+            <para>Keywords of "Left", "Right", and "Bilateral" were used to identifed
+                concepts.</para>
+        </section>
+
+        <section>
+            <title>Final Keywords and Rules for "Inverse"</title>
+            <para>As listed in the "Approach" section for "Inverse Concepts"</para>
+        </section>
+
+        <section>
+            <title>Final Keywords and Rules for "Primitive"</title>
+            <para>Not applicable for Primitive Concept.</para>
+        </section>
+    </section>
+
+    <section>
+        <?oxy_comment_start author="timowilliams" timestamp="20190218T163410-0600" comment="I would move this section to the appendix so it could be left out if needed."?>
+        <title>Sensitivity and Specificity<?oxy_comment_end?></title>
+        <para>Using the defined set of keywords the sensitivity and specificity of the initial
+            automated queries was tested against the final Assemblages. By running the queries
+            against the original 50,000 concepts the following metrics were applied to the results: <itemizedlist>
+                <listitem>
+                    <para>Percentage of concepts from the final Assemblages returned by the query
+                        (Sensitivity)</para>
+                </listitem>
+                <listitem>
+                    <para>Percentage of concepts returned by the query that were false
+                        positives/false negatives (Specificity)</para>
+                </listitem>
+            </itemizedlist></para>
+        <section>
+            <title>Sensitivity and Specificity of Keywords for “Absence”</title>
+            <para>Sensitivity of 73% and Specificity of 95%</para>
+        </section>
+        <section>
+            <title>Sensitivity and Specificity of Keywords for “Patient not Subject of
+                Information”</title>
+            <para>Sensitivity of 75% and Specificity of 99%</para>
+        </section>
+        <section>
+            <title>Sensitivity and Specificity of Keywords for “Compound Observation”</title>
+            <para>Sensitivity of 93% and Specificity of 94%</para>
+        </section>
+        <section>
+            <title>Sensitivity and Specificity of keywords for "Laterality"</title>
+            <para>
+                <table frame="border" border="1">
+                    <caption>Sensitivity and Specificity of Laterality Search Criteria.</caption>
+                    <thead>
+                        <tr>
+                            <th>Laterality Results</th>
+                            <th>Query Total</th>
+                            <th>Doesn't Include Laterality</th>
+                            <th>Incorrect Laterality</th>
+                            <th>Correct Laterality</th>
+                            <th>Ambiguous</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No Term, Attribute =side</td>
+                            <td align="center">9317</td>
+                            <td align="center">9225 (true negative)</td>
+                            <td align="center">81 (false negative)</td>
+                            <td align="center">0 (false negative)</td>
+                            <td align="center">11</td>
+                        </tr>
+                        <tr>
+                            <td>No Term, Attribute = RLB</td>
+                            <td align="center">94</td>
+                            <td align="center">9 (false positive)</td>
+                            <td align="center">11 (true positive)</td>
+                            <td align="center">74 (true positive)</td>
+                            <td align="center">0</td>
+                        </tr>
+                        <tr>
+                            <td>Term, Attribute = RLB</td>
+                            <td align="center">3899</td>
+                            <td align="center">11 (false positive)</td>
+                            <td align="center">661 (true positive)</td>
+                            <td align="center">3227 (true positive)</td>
+                            <td align="center">0</td>
+                        </tr>
+                        <tr>
+                            <td>Term, No Attribute</td>
+                            <td align="center">2545</td>
+                            <td align="center">1530 (true negative)</td>
+                            <td align="center">960 (false negative)</td>
+                            <td align="center">55 (false negative)</td>
+                            <td align="center">0</td>
+                        </tr>
+                        <tr>
+                            <td>Totals</td>
+                            <td align="center">15855</td>
+                            <td align="center">10775</td>
+                            <td align="center">1713</td>
+                            <td align="center">3356</td>
+                            <td align="center">11</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>Before creating assignments, concepts were considered as either those that have a
+                term that included right, left, or bilateral and those that have an attribute that
+                uses a concept with a laterality of right, left or
+                <?oxy_comment_start author="steph" timestamp="20190312T162622-0600" comment="I would insert &quot;(RLB)&quot; here so that user knows what that means in the table above." flag="done"?>bilateral<?oxy_comment_end?>
+                (RLB). If the concept had a term with right, left or bilateral and no attribute or
+                if the attribute had a laterality where the value was the parent (side) of right and
+                left, those concepts were considered to be within the set that probably did not
+                include laterality. If the concept was associated with a laterality attribute that
+                was either right or left, it was considered as a probable concept that includes
+                laterality whether it was correctly modelled or not.</para>
+            <para>Sensitivity of 78.38% and Specificity of 99.81% </para>
+        </section>
+        <section>
+            <title>Sensitivity and Specificity of Keywords for “Inverse”</title>
+            <table frame="border" border="1">
+                <caption>Sensitivity and Specificity of keywords for &quot;Inverse&quot;.</caption>
+                <thead>
+                    <tr>
+                        <th>Inverse Results</th>
+                        <th>Query Total</th>
+                        <th>Is Inverse</th>
+                        <th>Is Not Inverse</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Removed Keywords </td>
+                        <td align="center">5875</td>
+                        <td align="center">1773 (false negative)</td>
+                        <td align="center">4102 (true negative)</td>
+                    </tr>
+                    <tr>
+                        <td>Original Keywords</td>
+                        <td align="center">18416</td>
+                        <td align="center">12155 (true positive)</td>
+                        <td align="center">6261 (false positive)</td>
+                    </tr>
+                    <tr>
+                        <td>Totals</td>
+                        <td align="center">24291</td>
+                        <td align="center">13928</td>
+                        <td align="center">10363</td>
+                    </tr>
+                </tbody>
+            </table>
+            <para>After conducting a pilot, certain keywords were identified as less likely to be
+                inverse. These concepts
+                <?oxy_comment_start author="steph" timestamp="20190312T162803-0600" comment="Is there a word missing here, maybe &quot;put&quot;?" flag="done"?>were
+                put into<?oxy_comment_end?> separate assignments. After further review, 30% of these
+                concepts contained other keywords that made them inverse. </para>
+            <para>Sensitivity of 82.27% and Specificity of 39.58%</para>
+        </section>
+        <section>
+            <title>Sensitivity and Specificity of Search Criteria for “Can Be Fully Defined”</title>
+            <table frame="border" border="1">
+                <caption>Sensitivity and Specificity of Search Criteria for &quot;Can Be Fully
+                    Defined&quot;.</caption>
+                <thead>
+                    <tr>
+                        <th>Primitive Results</th>
+                        <th>Query Total</th>
+                        <th>Can Be Fully Defined</th>
+                        <th>Cannot Be Fully Defined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Leaf Nodes</td>
+                        <td align="center">28394</td>
+                        <td align="center">7458 (true positive)</td>
+                        <td align="center">20936 (false negative)</td>
+                    </tr>
+                    <tr>
+                        <td>Intermediate Primitives</td>
+                        <td align="center">2133</td>
+                        <td align="center">677 (true positive)</td>
+                        <td align="center">1456 (false negative)</td>
+                    </tr>
+                    <tr>
+                        <td>Other</td>
+                        <td align="center">2154</td>
+                        <td align="center">573 (false positive)</td>
+                        <td align="center">1581 (true negative)</td>
+                    </tr>
+                    <tr>
+                        <td>Totals</td>
+                        <td align="center">32681</td>
+                        <td align="center">8708</td>
+                        <td align="center">23973</td>
+                    </tr>
+                </tbody>
+            </table>
+            <para>Leaf Nodes and Intermediate Primitives were concepts that were likely to be
+                concepts that should be Fully Defined. However, in many cases that highly depended
+                upon whether new Concept Model attributes could be added to SNOMED CT. The other
+                Primitive concepts reviewed were non Leaf Nodes and Intermediate Primitive concepts,
+                and not many of these expected to be fully defined. </para>
+            <para>Sensitivity of 26.65% and Specificity of 73.40%</para>
+        </section>
+    </section>
+
+
+    <!-- May need to supplement this section with "Absence", "patient not subject", and "compound" if this section is needed -->
+    <!--
+    <section>
+        <title>Resulting Assemblage</title>
+        <annotation><para>need Assemblage descriptions for negation, subj not of record, compound</para></annotation>
+        <para>This review resulted in eight additional Assemblages that identify the concepts that meet
+            and those that do not meet the criteria above.
+            
+            <itemizedlist>
+                <listitem>
+                    <para>Laterality Correct: Clinical Findings, Observable Entities, Specimens and
+                        Procedures where the Finding and Procedure Site attributes use the correct
+                        body structure concept that involves laterality.</para>
+                </listitem>
+                <listitem>
+                    <para>Laterality Incorrect: Clinical Findings, Observable Entities, Specimens
+                        and Procedures where the Finding and Procedure Site attributes do not use
+                        the correct body structure concept that involves laterality.</para>
+                </listitem>
+                <listitem>
+                    <para>Doesn’t Include Laterality: Clinical Findings, Observable Entities,
+                        Specimens and Procedures where the Fully Specified Name (FSN) doesn’t
+                        involve laterality.</para>
+                </listitem>
+                <listitem>
+                    <para>Is Inverse: Concepts that currently have or could have an inverse or
+                        opposite concept in SNOMED CT. </para>
+                </listitem>
+                <listitem>
+                    <para>Is Not Inverse: Concepts that were not considered as inverse or opposite
+                        concepts.</para>
+                </listitem>
+                <listitem>
+                    <para>Can Be Fully Defined: Concepts that can be fully defined now but are not
+                        being fully modeled and/or specified as fully defined.</para>
+                </listitem>
+                <listitem>
+                    <para>Cannot Be Fully Defined: Concepts that will always remain primitive or
+                        would require major changes to the concept model to be fully defined.</para>
+                </listitem>
+                
+                <listitem>
+                    <annotation><para>Revise wording to make it generic</para></annotation>
+                    <para>Ambiguous: Any of the 50,000 concepts where the FSN was ambiguous as to
+                        whether it contained laterality.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+    -->
+
+    <section>
+        <title>Conclusion</title>
+        
+        <para>The reproducibility of the rules stated and applied during the two manual review
+            cycles was perceived positive. </para>
+
+        <para>For "Absence",
+            "<?oxy_comment_start author="steph" timestamp="20190312T163219-0600" comment="Should this be revised to &quot;Patient not subject of information&quot;?" flag="done"?>Patient
+            not subject<?oxy_comment_end?> of information" and "Compound Observation" Assemblages,
+            the set of keywords for automated queries returned results with a high rate of
+            Specificity. The Sensitivity for the “Compound Observation” Assemblage was also high.
+            However, the Sensitivity of the queries for “Absence” and “Patient not Subject of
+            Information” was lower. Identifying additional keywords may be useful to elevate the
+            Sensitivity in those categories.</para>
+        
+        <para>The Inverse Assemblages had good inter-rater agreement but the Fully Defined and
+            Laterality Assemblages had lower inter-rater agreement rates. The Fully Defined and
+            Laterality Assemblages both required the evaluation of the modeling of the defining
+            relationships and judging their correctness. The experience of the clinical reviewing
+            team with the SNOMED CT Concept Model is critical to getting a high inter-rater
+            agreement rate when creating Assemblages that depend on reviewing modelling. As the
+            SNOMED CT Concept Model increases in complexity, the education and experience with
+            modelling of SNOMED CT concepts will become even more critical in reviewing and
+            maintaining these Assemblages. </para>
+        <para>For the 5,069 concepts that were identified as having laterality, 33.79% were deemed
+            to be incorrectly modeled. While this is a rather large number, SNOMED International is
+            currently modeling a large number of laterality concepts and this number should be
+            decreasing with each release. </para>
+        <para>The sensitivity for the Primitive Assemblages is relatively low because reviewers
+            needed to decide if the addition of some qualifier value or a new parent concept would
+            make these concepts definable. In many cases there needed to be the addition of a new
+            concept model attribute to fully define concepts. The queries used to identify these
+            concepts for review were not able to tell which primitive concepts could be fully
+            defined with and without Concept Model changes. Overall, the exercise of reviewing
+            primitives is very useful to identify more concepts that could be fully defined. </para>
+                
+        <para>Overall, this approach to identify SNOMED CT concepts that require special handling
+            shows that automated queries can be very useful as a first “screening” step, but manual
+            review and reconciliation still has to be performed to arrive at evaluated Assemblages
+            that adhere to reliable inclusion/exclusion criteria. Creating Assemblages that identify
+            modeling issues can present problems when the review of concepts spans multiple release
+            dates and the tooling used to do the review is updated while the review is still taking
+            place. This requires additional work at the end of the project to ensure that the review
+            of the concepts for errors does not identify concepts that were correctly placed when
+            they were initially reviewed, but are now incorrectly placed due to corrections or
+            changes made to the latest release.</para>
+    </section>
+
+</appendix>

@@ -8,11 +8,82 @@
         <title>Language Layer Concerns</title>
         <section xml:id="section_ed272173-6351-49e9-8503-abffd8bc18bb">
             <title>Language</title>
-            <para>SNOMED CT, LOINC, and RxNorm as well as other coding systems have various ways of representing language.  </para>
-            <para>SNOMED CT uses a combination of tables to represent language.  The Description table in SNOMED CT includes one Fully Specified Name and at least one synonym for each language.  The Preferred and Acceptable Synonyms per language are then specified in a Language Reference Set.  Any additional synonyms, other than the preferred, would be identifed as acceptable.</para>
-            <para>RxNorm identifies language in the RXNCONSO file in the STR field.  The language of the name is specified in the LAT field and the source the name comes from is represented in the STT field.  The names in the RXNCONSO are not unique as the same name can come from multiple sources.</para>
-            <para>LOINC has names spread across multiple fields with the Fully Specified Name constructed as a concatenation of the six parts.  It also contains a Long Common Name and a Short Name.</para>
-            <para>Descriptions within a coding system can span multiple languages.  For example, &quot;deja vu&quot; exists in both the French and English languages as it is the description used to describe the memory finding.</para>
+            <para>SNOMED CT, LOINC, and RxNorm as well as other coding systems have various ways of
+                representing language. </para>
+            <para>SNOMED CT uses a combination of tables to represent language. The Description
+                table in SNOMED CT includes one Fully Specified Name and at least one synonym for
+                each language. The Preferred and Acceptable Synonyms per language are then specified
+                in a Language Reference Set. Any additional synonyms, other than the preferred,
+                would be identifed as acceptable.</para>
+            <table>
+                <title>Description and RefSet Table Values for Myocardial infarction</title>
+                <tgroup cols="4">
+                    <thead>
+                        <row>
+                            <entry>Description.term</entry>
+                            <entry>Description.type</entry>
+                            <entry>Refset(s)</entry>
+                            <entry>Refset.acceptability</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>Myocardial infarction (disorder)</entry>
+                            <entry>Fully Specified Name</entry>
+                            <entry>US and GB Dialects</entry>
+                            <entry>Preferred</entry>
+                        </row>
+                        <row>
+                            <entry>Myocardial infarction</entry>
+                            <entry>Synonym</entry>
+                            <entry>US and GB Dialects</entry>
+                            <entry>Preferred</entry>
+                        </row>
+                        <row>
+                            <entry>Infarction of heart</entry>
+                            <entry>Synonym</entry>
+                            <entry>US and GB Dialects</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>Cardiac infarction</entry>
+                            <entry>Synonym</entry>
+                            <entry>US and GB Dialects</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>Heart attack</entry>
+                            <entry>Synonym</entry>
+                            <entry>US and GB Dialects</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>MI - myocardial infarction</entry>
+                            <entry>Synonym</entry>
+                            <entry>US and GB Dialects</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>Myocardial infarct</entry>
+                            <entry>Synonym</entry>
+                            <entry>US and GB Dialects</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <?oxy_comment_start author="timowilliams" timestamp="20190501T101744-0500" comment="Add RxNorm example"?>
+            <para>RxNorm identifies language in the RXNCONSO file in the STR field. The language of
+                the name is specified in the LAT field and the source the name comes from is
+                represented in the STT field. The names in the RXNCONSO are not unique as the same
+                name can come from multiple sources.</para><?oxy_comment_end?>
+            <?oxy_comment_start author="timowilliams" timestamp="20190501T101754-0500" comment="Add LOINC Example, include all the different name fields in LOINC.   Maybe include a Lab and Clinical example."?>
+            <para>LOINC has names spread across multiple fields with the Fully Specified Name
+                constructed as a concatenation of the six parts. It also contains a Long Common Name
+                and a Short Name.<?oxy_comment_end?></para>
+            <para>Descriptions within a coding system can span multiple languages. For example,
+                &quot;deja vu&quot; exists in both the French and English languages as it is the
+                description used to describe the memory finding.</para>
         </section>
         <section xml:id="section_2f530c57-07b6-4abf-9399-db11515f1977">
             <title>Dialect</title>
@@ -27,9 +98,91 @@
                 <?oxy_comment_start author="steph" timestamp="20190305T153845-0700" comment="Is there a reason that quotes weren&apos;t used with this, like they were in the prior example?" flag="done"?>&quot;napkin&quot;<?oxy_comment_end?>
                 in the US is used to describe a piece of cloth or paper used to wipe the hands and
                 mouth at a table while in the UK it is used to describe a diaper. </para>
+            <table>
+                <title>Description and RefSet Table Values for Epidural anesthesia</title>
+                <tgroup cols="4">
+                    <thead>
+                        <row>
+                            <entry>Description.term</entry>
+                            <entry>Description.type</entry>
+                            <entry>Refset(s)</entry>
+                            <entry>Refset.acceptability</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>Epidural anesthesia (procedure)</entry>
+                            <entry>Fully Specified Name</entry>
+                            <entry>US and GB Dialects</entry>
+                            <entry>Preferred</entry>
+                        </row>
+                        <row>
+                            <entry>Epidural anesthesia</entry>
+                            <entry>Synonym</entry>
+                            <entry>US Dialect</entry>
+                            <entry>Preferred</entry>
+                        </row>
+                        <row>
+                            <entry>Peridural anesthesia</entry>
+                            <entry>Synonym</entry>
+                            <entry>US Dialect</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>Local anesthetic epidural block</entry>
+                            <entry>Synonym</entry>
+                            <entry>US Dialect</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>LA - Local anesthetic epidural block</entry>
+                            <entry>Synonym</entry>
+                            <entry>US Dialect</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>Epidural anaesthesia</entry>
+                            <entry>Synonym</entry>
+                            <entry>GB Dialect</entry>
+                            <entry>Preferred</entry>
+                        </row>
+                        <row>
+                            <entry>Peridural anaesthesia</entry>
+                            <entry>Synonym</entry>
+                            <entry>GB Dialect</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>Local anaesthetic epidural block</entry>
+                            <entry>Synonym</entry>
+                            <entry>GB Dialect</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>LA - Local anaesthetic epidural block</entry>
+                            <entry>Synonym</entry>
+                            <entry>GB Dialect</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>Epidural block</entry>
+                            <entry>Synonym</entry>
+                            <entry>US and GB Dialect</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                        <row>
+                            <entry>Extradural block</entry>
+                            <entry>Synonym</entry>
+                            <entry>US and GB Dialect</entry>
+                            <entry>Acceptable</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
         </section>
         <section>
-        	<title>Interface Terminology</title>
+        	<title><?oxy_comment_start author="timowilliams" timestamp="20190501T104321-0500" comment="Need more content.  Add examples."?>Interface
+                Terminology<?oxy_comment_end?></title>
         	<para>Structured, standardized terms that uniquely identify a concept need to be associated with more natural common phrases preferred by end-users.</para>
         </section>
     </section>

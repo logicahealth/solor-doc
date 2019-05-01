@@ -15,8 +15,11 @@
                     and adding content is required. SNOMED CT, LOINC and RxNorm all have formal
                     processes in place for requesting changes to the terminologies either through
                     the organization that maintains them or through a national release center in the
-                    case of SNOMED CT. In addition, SNOMED CT includes formal mechanisms for users
-                    to extend the terminology and add missing content locally.</para>
+                    case of SNOMED CT. While content can be added using these formal processes,
+                    there is usually a delay before a formal addition is available for use.  In
+                    addition to the formal processes available through the standards development
+                    organizations (SDOs), SNOMED CT includes formal mechanisms for users to extend
+                    the terminology and add missing content locally.</para>
             </listitem>
             <listitem>
                 <para>Concept orientation</para>
@@ -52,7 +55,9 @@
                         <title>Ogden and Richards semiotic triangle</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="images/terminology_semiotictriangle.jpg"/>
+                                <?oxy_comment_start author="timowilliams" timestamp="20190430T200411-0500" comment="Convert image to svg"?>
+                                <imagedata fileref="images/terminology_semiotictriangle.jpg"
+                                /><?oxy_comment_end?>
                             </imageobject>
                         </mediaobject>
                     </figure>
@@ -63,7 +68,9 @@
                 <para>A concept's meaning cannot change, and concepts cannot be deleted after they
                     have been released. Once added to a terminology, concepts and their identifiers
                     should persist. However, a mechanism to make concepts inactive when they are
-                    deemed to be duplicate or erroneous should be available.</para>
+                    deemed to be duplicate or erroneous should be available.  Terminologies like
+                    SNOMED CT and LOINC both have mechanisms for inactivating concepts after they
+                    have been deemed to be in error.</para>
             </listitem>
             <listitem>
                 <para>Meaningless concept identifiers</para>
@@ -75,11 +82,15 @@
             <listitem>
                 <para>Polyhierarchy</para>
                 <para>Concepts should be allowed to exist in multiple hierarchies if appropriate.
-                    For example, Bacterial meningitis is both a subtype of Meningitis and Bacterial
-                    infection and should exist in both hierarchies.</para>
+                    For example,
+                    <?oxy_comment_start author="timowilliams" timestamp="20190430T201423-0500" comment="Add image representing the polyhierarchy"?>Bacterial
+                    meningitis is both a subtype of Meningitis and Bacterial infection and should
+                    exist in both hierarchies.<?oxy_comment_end?></para>
             </listitem>
             <listitem>
-                <para>Formal definitions</para>
+                <para><?oxy_comment_start author="timowilliams" timestamp="20190430T201919-0500" comment="Should we add a comparison of stated vs inferred definitions here?
+"?>Formal
+                    definitions<?oxy_comment_end?></para>
                 <para>While hierarchical information is paramount, the inclusion of additional
                     definitional knowledge can help maintain and correctly place concepts within the
                     appropriate hierarchy. Allowing computers to use this additional information can
@@ -92,7 +103,8 @@
                     the concept orientation desiderata and begin to create or use concepts as
                     grouper categories for missing content. Doing so introduces a "semantic drift"
                     that will cause problems with properly identifying historical data. By assigning
-                    meaning to a category, information is lost.</para>
+                    meaning to a category, information is lost.  Rejecting these categories requires
+                    the capability to extend content as described in the first desiderata.</para>
             </listitem>
             <listitem>
                 <para>Multiple granularities</para>
@@ -103,10 +115,12 @@
             </listitem>
             <listitem>
                 <para>Multiple consistent views</para>
+                <?oxy_comment_start author="timowilliams" timestamp="20190430T202611-0500" comment="Insert Cranial Nerve example here"?>
                 <para>In addition to representing meaning at various levels, the display of the
                     concepts that are relevant to certain users should be able to be customized.
                     Allowing users to view concepts in a way that is intuitive will support the
-                    adoption of terminologies by making the terminology more usable.</para>
+                    adoption of terminologies by making the terminology more
+                    usable.<?oxy_comment_end?></para>
             </listitem>
             <listitem>
                 <para>Representing context</para>
@@ -128,7 +142,17 @@
                     in place to both prevent and detect them. With large terminologies, it is
                     inevitable that duplicate and erroneous concepts are added. Robust terminologies
                     need processes and procedures in place to identify and retire duplicate and
-                    erroneous concepts.</para>
+                    erroneous concepts.  Multiple processes can be utilized to ensure redunant
+                    concepts are not added to terminologies.  For example:<itemizedlist>
+                        <listitem>
+                            <para>Standardized naming conventions should be in place to eliminate
+                                the possibility of creating redundant concepts</para>
+                        </listitem>
+                        <listitem>
+                            <para>Description Logic classifiers that utilize formal concept
+                                definitions to detect equivalent concepts</para>
+                        </listitem>
+                    </itemizedlist></para>
             </listitem>
         </itemizedlist></para>
     

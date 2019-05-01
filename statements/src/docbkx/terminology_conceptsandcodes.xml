@@ -46,17 +46,19 @@
             <?oxy_comment_end mid="3"?><?oxy_comment_end?></para>
     </section>
     <section>
-        <title>LOINC Codes</title>
+        <title><?oxy_comment_start author="timowilliams" timestamp="20190430T204727-0500" comment="Can we legally add examples here to the documentation?
+"?>LOINC
+            Codes</title><?oxy_comment_end?>
         <para>Logical Observation Identifiers, Names, and Codes (LOINC®) is a terminology
             representing about 50,000 clinical and laboratory observations, health measurements, and
             documents, developed and maintained by the Regenstrief Institute.</para>
         <para>LOINC codes are used to identify laboratory and clinical measurements, observations
-            and documents.  Each named concept in LOINC is given a LOINC code which has no structure
-            other than a check digit appended to the end.  In addition, all of the components that
+            and documents. Each named concept in LOINC is given a LOINC code which has no structure
+            other than a check digit appended to the end. In addition, all of the components that
             make up the LOINC name are assigned LOINC Part Codes (LP) to them in the LOINC Database.
             LOINC Parts do not follow the same policies and maintenance practices as LOINC terms and
-            are not intended to be used as a standalone terminology.  Some LOINC codes are also
-            associated with answers (LA) and answer lists (LL) in the LOINC Database.  </para>
+            are not intended to be used as a standalone terminology. Some LOINC codes are also
+            associated with answers (LA) and answer lists (LL) in the LOINC Database. </para>
     </section>
     <section>
         <title>RxNorm</title>
@@ -155,9 +157,10 @@
             identified using a Univerally Unique Identifier (UUID).</para>
     </section>
     <section>
+        <?oxy_comment_start author="timowilliams" timestamp="20190430T211931-0500" comment="How does this relate to the SNOMED CT Integration efforts?
+"?>
         <title>Solor Integration - Integrating LOINC Method Attributes and SNOMED CT
-            Concepts</title>
-        <para/>
+            Concepts<?oxy_comment_end?></title>
         <para>The collaborative agreement between LOINC and SNOMED CT developers has enabled
             informaticists to leverage SNOMED CT for the representation of the building blocks of
             LOINC (e.g., method) and for a more consistent representation of clinical and laboratory
@@ -227,11 +230,11 @@
             test”.</para>
         <figure>
             <title><emphasis role="bold">Solor Editor: Representation of LOINC and SNOMED CT in a
-                common model</emphasis></title>
+                    common model</emphasis></title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="images/Komet_LOINC_Int.png" scalefit="1"
-                        width="100%" contentdepth="100%"/>
+                    <imagedata fileref="images/Komet_LOINC_Int.png" scalefit="1" width="100%"
+                        contentdepth="100%"/>
                 </imageobject>
             </mediaobject>
         </figure>
@@ -258,7 +261,6 @@
             accepted. Solor’s integration of disparate medical terminology content may help
             implementers and authors of medical terminologies with orienting concepts and traversing
             relationships between disparate standards. </para>
-        
     </section>
     <section>
         <title>Evaluating the impact of implementing Solor</title>
@@ -349,7 +351,9 @@
                <para>
             <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="images/NNT.png" scale="50"/>
+                    <?oxy_comment_start author="timowilliams" timestamp="20190430T212054-0500" comment="Convert to SVG?
+"?>
+                    <imagedata fileref="images/NNT.png" scale="50"/><?oxy_comment_end?>
                 </imageobject>
             </inlinemediaobject>
         </para>

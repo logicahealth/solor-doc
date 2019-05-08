@@ -79,8 +79,10 @@
                 name can come from multiple sources.</para><?oxy_comment_end?>
             <?oxy_comment_start author="timowilliams" timestamp="20190501T101754-0500" comment="Add LOINC Example, include all the different name fields in LOINC.   Maybe include a Lab and Clinical example."?>
             <para>LOINC has names spread across multiple fields with the Fully Specified Name
-                constructed as a concatenation of the six parts. It also contains a Long Common Name
-                and a Short Name.<?oxy_comment_end?></para>
+                constructed as a concatenation
+                <?oxy_comment_start author="steph" timestamp="20190508T110117-0600" comment="You may want to specify what the six parts are."?>of
+                the six parts<?oxy_comment_end?>. It also contains a Long Common Name and a Short
+                Name.<?oxy_comment_end?></para>
             <para>Descriptions within a coding system can span multiple languages. For example,
                 &quot;deja vu&quot; exists in both the French and English languages as it is the
                 description used to describe the memory finding.</para>
@@ -189,7 +191,7 @@
                     xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC116201/pdf/0010218.pdf"
                     >https://www.ncbi.nlm.nih.gov/pmc/articles/PMC116201/pdf/0010218.pdf</link></para>
             <para>Typical medical terminologies, such as SNOMED CT and the International
-                Classification of Diseases (ICD10-CM) use a hierarchical structure that organizes
+                Classification of Diseases (ICD10-CM), use a hierarchical structure that organizes
                 the concepts into type hierarchies. These type hierarchies provide a mechanism for
                 indexing terminology within the system; however, such hierarchies have significant
                 shortcomings. For example, this simple categorization neither defines sufficiently
@@ -200,14 +202,18 @@
                 in which only terminology that is unambiguously interpreted by anyone using the type
                 hierarchy is used, and, finally, in which minimal automated processing of the terms
                 in the type hierarchy is required. In other cases, this mechanism has serious
-                limitations. In other cases, this mechanism has serious limitations. These
+                limitations.
+                <?oxy_comment_start author="steph" timestamp="20190508T111807-0600" comment="This is a duplicate sentence.  Was it supposed to say something else or does it just need to be deleted?"?>In
+                other cases, this mechanism has serious limitations. <?oxy_comment_end?>These
                 limitations may contribute to the significant random errors in ICD-9-CM
                 classification of hospital discharge diagnoses. Error rates between 20% and 29% have
-                been reported in the literature.15-17 If a terminology lent itself to automated
-                consistency checking, perhaps these errors could be reduced. The most serious
-                limitation of vocabularies that use only type hierarchies is their lack of a formal
-                definition for each term. If each term in the terminology were defined formally, it
-                could be used in a more consistent manner.</para>
+                been reported in the
+                literature.<?oxy_comment_start author="steph" timestamp="20190508T111915-0600" comment="Will this be made into a footnote when this is edited?"?>15-17<?oxy_comment_end?>
+                If a terminology lent itself to automated consistency checking, perhaps these errors
+                could be reduced. The most serious limitation of vocabularies that use only type
+                hierarchies is their lack of a formal definition for each term. If each term in the
+                terminology were defined formally, it could be used in a more consistent
+                manner.</para>
             <para>Aristotle developed a method for defining new types within the type hierarchy by
                 genus (the category of classification for a term) and differentia (the elements,
                 features, or factors that distinguish one term from another); and for using
@@ -230,9 +236,10 @@
                 Modern computing power makes it possible to implement concept-representation systems
                 that define terms by genus and differentia, which in turn will allow the development
                 of automated methodologies to process the terminology. Comprehensive-logic-based
-                approached have not yet affected our common medical naming systems. If we adopt
-                Solor as a common foundation for representation of medical concepts, all
-                applications will benefit.</para>
+                <?oxy_comment_start author="steph" timestamp="20190508T112527-0600" comment="Should this be &quot;approaches&quot; instead?"?>approached<?oxy_comment_end?>
+                have not yet affected our common medical naming systems. If we adopt Solor as a
+                common foundation for representation of medical concepts, all applications will
+                benefit.</para>
             <para><emphasis role="bold"><emphasis role="underline">Placeholder text: Excerpts copied
                         and pasted from Rosenbloom manuscript:</emphasis></emphasis> A Model for
                 Evaluating Interface Terminologies <link
@@ -286,58 +293,60 @@
                 Requirements</title>
             <para>For a search engine to retrieve meaningful results, it must be able to understand
                 common usages of everyday jargon, similar to how synonyms are used to help broaden
-                the way to express the same word. This section will describe several strategies used
-                to help with a query.</para>
+                the way to express the same word. This section describes several strategies used to
+                help with a query.</para>
             <para><emphasis role="bold">Word variants</emphasis> – Similar to synonyms, word
-                variants are used to express the same word. While synonyms are explicitely created
-                as a term to describe a concept (for example, SNOMED's "Heart attack" and
-                "Myocardial infarction"), word variants are utilized during searching to assist in
-                finding the correct concept, rather than explicitely creating the term. Hypothetical
-                example - if "kidney failure" is a term created for a concept, a word variant of
-                'renal' could be created for 'kidney'. Instead of explicitely creating a separate
-                term of "renal failure", this word variant could be utilized during searching to
-                find all concepts that has the explicit term of "kidney failre" when a user enters
-                "renal failure" by replacing "renal" with "kidney". This would create the burden of
-                creating all possible variant termss for a given word.</para>
+                variants are used to express the same word. While synonyms are explicitly created as
+                a term to describe a concept (for example, SNOMED's "Heart attack" and "Myocardial
+                infarction"), word variants are utilized during searching to assist in finding the
+                correct concept, rather than explicitly creating the term. Hypothetical example - if
+                "kidney failure" is a term created for a concept, a word variant of 'renal' could be
+                created for 'kidney'. Instead of explicitly creating a separate term of "renal
+                failure", this word variant could be utilized during searching to find all concepts
+                that have the explicit term of "kidney failure" when a user enters "renal failure"
+                by replacing "renal" with "kidney". This would create the burden of creating all
+                possible variant terms for a given word.</para>
             <para><emphasis role="bold">Misspellings</emphasis> – Certain terms are more commonly
                 misspelled when searching over healthcare descriptions. The ability for a search
                 mechanism to recognize them and to search over both the correct and incorrect
                 spellings will help to identify the correct concept. For example, perineal vs
-                peroneal, aphagia vs aphasia </para>
-        	<para><emphasis role="bold">Word order</emphasis> – terms can be combined in different ways
+                peroneal and aphagia vs aphasia. </para>
+        	<para><emphasis role="bold">Word order</emphasis> – Terms can be combined in different ways
                 to mean the same synonym. The ability to search over a term in varying order of
                 phrases is important. For example, Disorder of the eye vs Eye disorder.</para>
-        	<para><emphasis role="bold">Components query</emphasis> – importance of this searching
+        	<para><emphasis role="bold">Components query</emphasis> – The importance of this searching
                 strategy comes into play when a certain focus is desired for the search result. For
                 example, in LOINC, there may be circumstances where a certain axis is desired for
-                the search. Simlarly, certain hierarchy may be desired when searching in SNOMED. For
-                example, "cold" is a synonym of common cold (a disorder) in SNOMED, and also exists
-                as "cold sensation quality" (a qualifier value). By allowing users to limit the
-                search criteria (disorder vs. qualifier), the most appropriate query result will be
-                returned to the user.</para>
-        	<para><emphasis role="bold">Active and inactive</emphasis> – concepts and terms will come
+                the search. Simlarly, a certain hierarchy may be desired when searching in SNOMED.
+                For example, "cold" is a synonym of common cold (a disorder) in SNOMED, and also
+                exists as "cold sensation quality" (a qualifier value). By allowing users to limit
+                the search criteria (disorder vs. qualifier), the most appropriate query result will
+                be returned to the user.</para>
+        	<para><emphasis role="bold">Active and inactive</emphasis> – Concepts and terms will come
                 in and out of use over time. This is often indicated by an active/inactive
                 designation. In order to properly return concepts/terms that are active, query
-                parameter must contain a parameter to designate if the query result should/shot not
-                return active and inactive concepts or terms.</para>
+                parameters must contain a parameter to designate if the query result should/should
+                not return active and inactive concepts or terms.</para>
         	<para><emphasis role="bold">Regular
                     <?oxy_comment_start author="steph" timestamp="20190305T154320-0700" comment="It looks like definitions or explanations of this and the one below still need to be provided." flag="done"?>Expressions<?oxy_comment_end?></emphasis>
-                - regular express or regex is a sequence of characters that defines a search
-                pattern. This pattern would allow a user to retrieve results based on a certain
-                pattern. For example "a|b*" would return all "a", "b" and other b's that fits the
-                pattern such as "bb", "bbb", "bab", etc. Since the depth and breadth of regular
-                expression is beyond the scope of this document, various syntaxes, usage and
-                explanation can be found in many resources such as <link
-                    xlink:href="https://regexr.com/"/>.</para>
-        	<para><emphasis role="bold">Grouping Results by hierarchy</emphasis> - this search
+                - Regular express
+                <?oxy_comment_start author="steph" timestamp="20190508T114704-0600" comment="Should the first part of the sentence say &quot;Regular expression&quot; vs. &quot;Regular express&quot;?"?>or
+                regex <?oxy_comment_end?>is a sequence of characters that defines a search pattern.
+                This pattern would allow a user to retrieve results based on a certain pattern. For
+                example "a|b*" would return all "a", "b" and other b's that fits the pattern such as
+                "bb", "bbb", "bab", etc. Since the depth and breadth of regular expression is beyond
+                the scope of this document, various syntaxes, usage and explanation can be found in
+                many resources such as <link xlink:href="https://regexr.com/"/>.</para>
+        	<para><emphasis role="bold">Grouping Results by hierarchy</emphasis> - This search
                 requirement can be thought of as a complement to "components query". After casting a
-                wide net, results could be a bag of various terms (common cold vs feeling cold) that
-                may be cumbersome for users to sift through if it is not organized in an orderly
-                fashion. Therefore, if results are placed together in a logical grouping, it would
-                assist the user in finding the appropriate query result. For example, in SNOMED, it
-                may be worthwhile to group results by hierarchy (disorder vs. procedures) to allow
-                an user to look for a result in a desired domain or in RxNorm where all Ingredient
-                results are grouped separately from Semantic Clincal Drug results.</para>
+                wide net, results could be a bag of various terms (common cold vs. feeling cold)
+                that may be cumbersome for users to sift through if it is not organized in an
+                orderly fashion. Therefore, if results are placed together in a logical grouping, it
+                would assist the user in finding the appropriate query result. For example, in
+                SNOMED, it may be worthwhile to group results by hierarchy (disorder vs. procedures)
+                to allow a user to look for a result in a desired domain or in RxNorm where all
+                Ingredient results are grouped separately from Semantic Clinical Drug
+                results.</para>
         </section>
     </section>
     

@@ -6,11 +6,11 @@
      <title>Assertions</title>
     <section>
         <title>Introduction</title>
-        <para>There are two types of patterns, which can be used to represent clinical observations.
-            The assertional pattern and the evaluation result pattern. The general difference
-            between those patterns is that the evaluation result pattern is best used, where a topic
+        <para>There are two types of patterns which can be used to represent clinical observations:
+            the assertional pattern and the evaluation result pattern. The general difference
+            between those patterns is that the evaluation result pattern is best used where a topic
             is evaluated with multiple different evaluation results. These evaluation results would
-            be represented in a value set. The application of an assertional pattern is more useful,
+            be represented in a value set. The application of an assertional pattern is more useful
             where assertions about the patient, e.g. an observation of a diagnosis, are made and the
             result of the observation is either “present” or “absent”. In those cases, the topic of
             the observation is represented as pre-coordinated concepts rather than value sets. </para>
@@ -19,7 +19,8 @@
         <title>Assertional Pattern</title>
     </section>
     <section>
-        <title>Evaluational Result Pattern</title>
+        <title><?oxy_comment_start author="steph" timestamp="20190507T125641-0600" comment="Recommend being consistent in your naming of this.  Is it Evaluational Result Pattern or Evaluation Result Pattern.  You used the latter in the Intro paragraph."?>Evaluational<?oxy_comment_end?>
+            Result Pattern</title>
     </section>
     <section>
         <title>Examples</title>
@@ -33,6 +34,7 @@
             </listitem>
         </itemizedlist>
         <para>Examples of Evaluation Results Patterns:</para>
+<<<<<<< Updated upstream
         <itemizedlist>
             <listitem>
                 <para>“Ethnicity” – with a value set of all ethnicities</para>
@@ -66,6 +68,13 @@
                 <para>Contraindications</para>
             </listitem>
         </itemizedlist>
+=======
+        <para>•
+            <?oxy_comment_start author="steph" timestamp="20190507T125746-0600" comment="This is off-subject but since Solor doesn&apos;t handle coded results, why are we talking about value sets?"?>“Ethnicity”
+            – with a value set of all ethnicities<?oxy_comment_end?></para>
+        <para>• “Pain” – with a value set of pain qualities, e.g. “aching”, “burning”, “stabbing”
+            etc.</para>
+>>>>>>> Stashed changes
     </section>
 </chapter>
 

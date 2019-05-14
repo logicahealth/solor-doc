@@ -1,5 +1,8 @@
 package plugin.client;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import schemas.docbook.*;
 import schemas.mendeley.Person;
 import schemas.mendeley.UserDocument;
@@ -11,8 +14,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class BibliographyUtility {
+
+    protected static final Logger LOG = LogManager.getLogger();
 
     private final MendeleyClient mendeleyClient;
     private final String bibliographyFilePath;
@@ -74,43 +80,64 @@ public class BibliographyUtility {
         bibliodiv.getTitlesAndTitleabbrevsAndSubtitles().add(bibliodivTitle);
 
         userDocuments.stream()
-                .forEach(userDocument -> bibliodiv.getBiblioentriesAndBibliomixeds()
-                        .add(createBiblioentry(userDocument)));
+                .forEach(userDocument -> {
+                    Optional<Biblioentry> optionalBiblioentry = createBiblioentry(userDocument);
+                    if (optionalBiblioentry.isPresent()) {
+                        bibliodiv.getBiblioentriesAndBibliomixeds()
+                                .add(optionalBiblioentry.get());
+                    } else {
+                        LOG.warn("No Biblioentry created for: " + userDocument);
+
+                    }
+
+                });
 
 
         bibliography.getBibliodivs().add(bibliodiv);
         return bibliography;
     }
 
-    private String getTagUUID(UserDocument userDocument) {
-        return userDocument.getTags().stream().filter(s -> s.toString().startsWith(tagName)).findFirst().get().replace(tagName + "=", "");
+    private Optional<String> getTagUUID(UserDocument userDocument) {
+
+
+        Optional<String> firstTag = userDocument.getTags().stream().filter(s ->
+                s.toString().startsWith(tagName)).findFirst();
+        if (firstTag.isPresent()) {
+            return Optional.of(firstTag.get().replace(tagName + "=", ""));
+        }
+        return Optional.empty();
+
     }
 
-    private Biblioentry createBiblioentry(UserDocument userDocument){
+    private Optional<Biblioentry> createBiblioentry(UserDocument userDocument){
         final Biblioentry biblioentry = new Biblioentry();
         final Title biblioentryTitle = new Title();
+        Optional<String> optionalTag = getTagUUID(userDocument);
+        if (optionalTag.isPresent()) {
+            biblioentry.getAbstractsAndAddressesAndArtpagenums()
+                    .add(createAbbrev(optionalTag.get()));
 
-        biblioentry.getAbstractsAndAddressesAndArtpagenums()
-                .add(createAbbrev(getTagUUID(userDocument)));
+            biblioentry.setId(optionalTag.get());
 
-        biblioentry.setId(getTagUUID(userDocument));
+            biblioentry.getAbstractsAndAddressesAndArtpagenums()
+                    .add(createAuthorgroup(userDocument.getAuthors()));
 
-        biblioentry.getAbstractsAndAddressesAndArtpagenums()
-                .add(createAuthorgroup(userDocument.getAuthors()));
+            biblioentry.getAbstractsAndAddressesAndArtpagenums()
+                    .add(createCopyright(String.valueOf(userDocument.getYear())));
 
-        biblioentry.getAbstractsAndAddressesAndArtpagenums()
-                .add(createCopyright(String.valueOf(userDocument.getYear())));
+            createBiblioids(userDocument.getIdentifiers()).stream()
+                    .forEach(biblioid -> biblioentry.getAbstractsAndAddressesAndArtpagenums().add(biblioid));
 
-        createBiblioids(userDocument.getIdentifiers()).stream()
-                .forEach(biblioid -> biblioentry.getAbstractsAndAddressesAndArtpagenums().add(biblioid));
+            biblioentry.getAbstractsAndAddressesAndArtpagenums()
+                    .add(createPublisher(userDocument.getSource()));
 
-        biblioentry.getAbstractsAndAddressesAndArtpagenums()
-                .add(createPublisher(userDocument.getSource()));
+            biblioentryTitle.getContent().add(userDocument.getTitle());
+            biblioentry.getAbstractsAndAddressesAndArtpagenums().add(biblioentryTitle);
 
-        biblioentryTitle.getContent().add(userDocument.getTitle());
-        biblioentry.getAbstractsAndAddressesAndArtpagenums().add(biblioentryTitle);
+            return Optional.of(biblioentry);
+        }
+        return Optional.empty();
 
-        return biblioentry;
     }
 
     private Authorgroup createAuthorgroup(List<Person> authors){

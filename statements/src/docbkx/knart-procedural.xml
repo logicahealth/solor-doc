@@ -5,7 +5,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Procedural Knowledge Representation</title>
     <section>
-        <title>Procedural Representation</title>
+        <title>Procedural Knowledge</title>
         <para>As with Assertional Knowledge, the representation of Procedural Knowledge reaches
             beyond the documentation of procedures requested or performed on the subject of record.
             Procedural Knowledge can pertain to, e.g. </para>
@@ -21,11 +21,39 @@
             situations.</para>
     </section>
     <section>
-        <title>Examples</title>
-        <para>KNARTs</para>
-        <para>Third party vendor products</para>
-        <para>Treatment Protocols - Million Hearts</para>
+        <title>Procedure Guideline</title>
+        <para>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3056180/</para>
         <para>Procedure Guidelines - SNMMI.org</para>
+        <para>https://www.ahrq.gov/gam/index.html, No defunct National Guideline Clearinghouse</para>
+        <para>https://www.aafp.org/patient-care/clinical-recommendations/cpg-manual.html</para>
+    </section>
+    <section>
+        <title>Treatement Protocols</title>
+        <para>Standardized treatement protocols decreases variability and improves the quality of clinical care by simplify the treatment options, particularly in primary health care. Standard treatment protocols can be developed by preparing new treatment guidelines or by adapting or adopting existing national or international guidelines. </para>
+        <para>Treatment Protocols - Million Hearts</para>
+        <para><link
+                xlink:href="https://apps.who.int/iris/bitstream/handle/10665/260421/WHO-NMH-NVI-18.2-eng.pdf;jsessionid=88B76DD9ED1F46846D8E2434E1C9DB15?sequence=1"
+            /></para>
+    </section>
+    <section>
+        <title>Order Sets</title>
+        <para>Order sets are a group of related orders which a user can issue that apply to a
+            specified diagnosis or a particular period of time. Order sets reduce both time spent
+            entering orders and terminal usage, helping to improve user acceptance of computer-based
+            physician order entry.</para>
+        <para>https://www.clinfowiki.org/wiki/index.php/Order_set</para>
+        <para><link xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3956384/"/></para>
+        <?oxy_comment_start author="timowilliams" timestamp="20190513T164136-0500" comment="Should this be it&apos;s own section?"?>
+        <para>KNARTs<?oxy_comment_end?></para>
+        <para>KNART is a Clinical Decision Support Knowledge Artifact and it's a structured way of
+            documenting the content/knowledge for 3 different types of CDS interventions: 1) event
+            condition action (ECA) rule (e.g., clinical reminder), 2) order sets, and 3)
+            documentation templates (VA has called them SMARTForms or PNCS forms in the past). </para>
+        <para>KNARTs are a standard HL7 format. While they are not the actual executable CDS
+            interventions, they provide the information that a developer can take and then implement
+            within an EHR. The main benefit to KNARTs is that you can share them with other
+            healthcare organizations in a standardized manner that they can take and implement
+            within their own EHR, if they choose.</para>
     </section>
    
 </chapter>

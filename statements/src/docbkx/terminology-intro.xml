@@ -4,11 +4,12 @@
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Terminology Intro</title>
-    <para>The desiderata for the design of a controlled healthcare vocabulary was first published in
-        1989 with seven items and was expanded in 1998 to a list of twelve desiderata in the paper
-        by JJ Cimino <citation>Desiderata for Controlled Medical Vocabularies in the Twenty-First
-            Century</citation>. These desiderata are used to describe desirable characteristics of
-        controlled medical terminologies. They are:<itemizedlist>
+    <para>The desiderata for the design of a controlled healthcare <?oxy_comment_start author="kec" timestamp="20190516T104634-0700" comment="We need to be consistent in our use of language. Interchanging Terminology and Vocabulary can be confusing to those that are not used to blocking out the distinctions. I recommend we stick with terminology, and not include the title of Jim&apos;s paper in the text. Just say someting like Cimino published criterion upon which terminologies should be evaluated in 1989."?>vocabulary<?oxy_comment_end?>
+        <?oxy_comment_start author="kec" timestamp="20190516T104401-0700" comment="I&apos;d be very cautious about the phrasing of &quot;first published&quot; implying that no one else published anything prior.  "?>was
+        first published in 1989<?oxy_comment_end?> with seven items and was expanded in 1998 to a
+        list of twelve desiderata in the paper by JJ Cimino <citation>Desiderata for Controlled
+            Medical Vocabularies in the Twenty-First Century</citation>. These desiderata are used
+        to describe desirable characteristics of controlled medical terminologies. They are:<itemizedlist>
             <listitem>
                 <para>Content</para>
                 <para>While missing content is expected, formally stated processes for requesting
@@ -16,7 +17,7 @@
                     processes in place for requesting changes to the terminologies either through
                     the organization that maintains them or through a national release center in the
                     case of SNOMED CT. While content can be added using these formal processes,
-                    there is usually a delay before a formal addition is available for use.  In
+                    there is usually a delay before a formal addition is available for use. In
                     addition to the formal processes available through the standards development
                     organizations (SDOs), SNOMED CT includes formal mechanisms for users to extend
                     the terminology and add missing content locally.</para>
@@ -68,7 +69,7 @@
                 <para>A concept's meaning cannot change, and concepts cannot be deleted after they
                     have been released. Once added to a terminology, concepts and their identifiers
                     should persist. However, a mechanism to make concepts inactive when they are
-                    deemed to be duplicate or erroneous should be available.  Terminologies like
+                    deemed to be duplicate or erroneous should be available. Terminologies like
                     SNOMED CT and LOINC both have mechanisms for inactivating concepts after they
                     have been deemed to be in error.</para>
             </listitem>
@@ -89,8 +90,8 @@
             </listitem>
             <listitem>
                 <para><?oxy_comment_start author="timowilliams" timestamp="20190430T201919-0500" comment="Should we add a comparison of stated vs inferred definitions here?
-"?><?oxy_comment_start author="steph" timestamp="20190507T163331-0600" comment="I think that would be helpful." mid="3"?>Formal
-                    definitions<?oxy_comment_end?><?oxy_comment_end mid="3"?></para>
+"?><?oxy_comment_start author="steph" timestamp="20190507T163331-0600" comment="I think that would be helpful." mid="5"?>Formal
+                    definitions<?oxy_comment_end?><?oxy_comment_end mid="5"?></para>
                 <para>While hierarchical information is paramount, the inclusion of additional
                     definitional knowledge can help maintain and correctly place concepts within the
                     appropriate hierarchy. Allowing computers to use this additional information can
@@ -103,7 +104,7 @@
                     the concept orientation desiderata and begin to create or use concepts as
                     grouper categories for missing content. Doing so introduces a "semantic drift"
                     that will cause problems with properly identifying historical data. By assigning
-                    meaning to a category, information is lost.  Rejecting these categories requires
+                    meaning to a category, information is lost. Rejecting these categories requires
                     the capability to extend content as described in the first desiderata.</para>
             </listitem>
             <listitem>
@@ -133,8 +134,8 @@
                 <para>Graceful evolution</para>
                 <para><?oxy_comment_start author="steph" timestamp="20190402T125215-0600" comment="This sentence reads awkwardly to me, specifically re: the last part about testing.  Recommend revising it." flag="done"?>Change
                     in terminologies is inevitable but should not be done radically or without clear
-                    documented reasons for the change.  Changes should be carefully tested and
-                    vetted by end-users. <?oxy_comment_end?></para>
+                    documented reasons for the change. Changes should be carefully tested and vetted
+                    by end-users. <?oxy_comment_end?></para>
             </listitem>
             <listitem>
                 <para>Recognize redundancy</para>
@@ -142,8 +143,8 @@
                     in place to both prevent and detect them. With large terminologies, it is
                     inevitable that duplicate and erroneous concepts are added. Robust terminologies
                     need processes and procedures in place to identify and retire duplicate and
-                    erroneous concepts.  Multiple processes can be utilized to ensure redunant
-                    concepts are not added to terminologies.  For example:<itemizedlist>
+                    erroneous concepts. Multiple processes can be utilized to ensure redunant
+                    concepts are not added to terminologies. For example:<itemizedlist>
                         <listitem>
                             <para>Standardized naming conventions should be in place to eliminate
                                 the possibility of creating redundant concepts</para>

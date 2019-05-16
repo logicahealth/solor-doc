@@ -10,11 +10,13 @@
             <title>Language</title>
             <para>SNOMED CT, LOINC, and RxNorm as well as other coding systems have various ways of
                 representing language. </para>
-            <para>SNOMED CT uses a combination of tables to represent language. The Description
-                table in SNOMED CT includes one Fully Specified Name and at least one synonym for
-                each language. The Preferred and Acceptable Synonyms per language are then specified
-                in a Language Reference Set. Any additional synonyms, other than the preferred,
-                would be identifed as acceptable.</para>
+            <para>SNOMED CT uses a
+                <?oxy_comment_start author="kec" timestamp="20190516T103626-0700" comment="Tables are a physical representation, here we want to talk about logical representation, as different implmentations may have different physical representations. (KOMET does not have tables for example, but still supports language and dialect). So here I think saying that SNOMED associates a langauge code, description type, and dialect acceptability with text descriptions gets across the idea without talking about physical structures. "?>combination
+                of tables<?oxy_comment_end?> to represent language. The Description table in SNOMED
+                CT includes one Fully Specified Name and at least one synonym for each language. The
+                Preferred and Acceptable Synonyms per language are then specified in a Language
+                Reference Set. Any additional synonyms, other than the preferred, would be identifed
+                as acceptable.</para>
             <table>
                 <title>Description and RefSet Table Values for Myocardial infarction</title>
                 <tgroup cols="4">
@@ -183,8 +185,10 @@
             </table>
         </section>
         <section>
-        	<title><?oxy_comment_start author="timowilliams" timestamp="20190501T104321-0500" comment="Need more content.  Add examples."?>Interface
-                Terminology<?oxy_comment_end?></title>
+        	<title><?oxy_comment_start author="timowilliams" timestamp="20190501T104321-0500" comment="Need more content.  Add examples."?><?oxy_comment_start author="kec" timestamp="20190516T103116-0700" comment="Maybe we should frame this more in terms of &quot;Interface Support&quot;... Interface terminology perhaps implies that we need to create something distinct, rather than just a configurtation of one or more dialects. Other terms maybe better. 
+
+Having the use case here up front that describes the need we are trying to fill can be good. So that&apos;s consistent with Tim&apos;s need more content/examples. " mid="6"?>Interface
+                Terminology<?oxy_comment_end?><?oxy_comment_end mid="6"?></title>
         	<para>Structured, standardized terms that uniquely identify a concept need to be associated with more natural common phrases preferred by end-users.</para>
             <para><emphasis role="bold"><emphasis role="underline">Placeholder text: Excerpts copied
                         and pasted from Campbell manuscript: </emphasis></emphasis><link

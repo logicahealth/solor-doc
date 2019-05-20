@@ -3,21 +3,16 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
          xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Concrete Domains</title>
+    <para>All examples in this section are as of the April 2017 SNOMED CT US Edition Release.  Many
+        of the examples below have since been corrected in subsequent releases.</para>
 
     <section>
         <title>Introduction</title>
         <para>Concrete domains are used to model concrete properties such as numbers, time
-            intervals, and spatial regions<footnote>
-                <para> Lutz, C. (1999). IJCAI'99 Proceedings of the 16th international joint
-                    conference on Artifical intelligence - Volume 1. Retrieved from
-                    https://www.ijcai.org/Proceedings/99-1/Papers/014.pdf</para>
-            </footnote>. However, a limitation of description logic is the ability to fully
-            represent concrete values. For example, "male husband is younger than a female spouce"
-            could only be represented by an abstract mean and does not fully capture the semantics <footnote>
-                <para> Lutz, Carsten. (2019). The Complexity of Description Logics with Concrete
-                    Domains. Retrieved from
-                    http://www.cs.man.ac.uk/~ezolin/dl/bib/Complexity_of_Description_Logics_with_concrete_domains_(Lutz_PhD_2002).pdf</para>
-            </footnote>. </para>
+            intervals, and spatial regions.<citation>reasonConcreteDomain</citation> However, a
+            limitation of description logic is the ability to fully represent concrete values. For
+            example, "male husband is younger than a female spouce" could only be represented by an
+            abstract mean and does not fully capture the semantics.<citation>complexity_DL_concreteDomain</citation> </para>
         <para>In patient records, there is no shortage of a need to represent these values (weight,
             temperature, dosages, etc), and SNOMED CT has already begun work on addressing concrete
             domain. In order to "stand on the
@@ -41,7 +36,7 @@
             introduction of the new Drug Concept Model in the
             <?oxy_comment_start author="steph" timestamp="20190313T103809-0600" comment="If this was in fact released at that time, this sentence should be revised accordingly." flag="done"?>July
             2017<?oxy_comment_end?> International Release the representation of product strength and
-            units has begun to be modelled. However, this new Drug Concept Model currently does not
+            units has begun to be modeled. However, this new Drug Concept Model currently does not
             utilize concrete domains but instead creates the strength numbers as concepts themselves
             to be used as values for the product strength attributes. </para>
     </section>
@@ -62,7 +57,7 @@
             terminology editor, further manual review was conducted to verify the relationships and
             add any missing information.</para>
         <para>Using the findings from the drug
-            <?oxy_comment_start author="steph" timestamp="20190313T104448-0600" comment="Throughout the document thus far, I&apos;ve seen this word spelled with two L&apos;s and also with one L.  It should be consistent throughout and I think one L is correct." id="zgw_zhl_hhb" mid="4"?><?oxy_comment_start author="timowilliams" timestamp="20190402T155454-0500" comment="Made them all modeling instead of modelling." parentID="zgw_zhl_hhb"?><?oxy_comment_start author="steph" timestamp="20190507T132343-0600" comment="I just noticed there is the same issue with &quot;modelled&quot; vs. &quot;modeled&quot;, as shown in the last paragraph of Section 1.1 above and perhaps other instances." mid="3"?>modeling<?oxy_comment_end mid="3"?><?oxy_comment_end?><?oxy_comment_end mid="4"?>,
+            <?oxy_comment_start author="steph" timestamp="20190313T104448-0600" comment="Throughout the document thus far, I&apos;ve seen this word spelled with two L&apos;s and also with one L.  It should be consistent throughout and I think one L is correct." id="zgw_zhl_hhb" flag="done" mid="3"?><?oxy_comment_start author="timowilliams" timestamp="20190402T155454-0500" comment="Made them all modeling instead of modelling." parentID="zgw_zhl_hhb" flag="done" mid="4"?><?oxy_comment_start author="steph" timestamp="20190507T132343-0600" comment="I just noticed there is the same issue with &quot;modelled&quot; vs. &quot;modeled&quot;, as shown in the last paragraph of Section 1.1 above and perhaps other instances." flag="done"?>modeling<?oxy_comment_end?><?oxy_comment_end mid="4"?><?oxy_comment_end mid="3"?>,
             the team evaluated other hierarchies that were identified as having potential for
             modeling concrete domains.</para>
     </section>
@@ -143,9 +138,9 @@
             modeling the medication attributes was that the Fully Specified Names (FSN) were not
             completely fully specified or that the values needed to fully define a concept were not
             available. For example, the common issues seen around FSN’s were due to the
-            <?oxy_comment_start author="steph" timestamp="20190313T105058-0600" comment="Is this correcct?  " id="dtd_hvr_hhb"?><?oxy_comment_start author="timowilliams" timestamp="20190403T132411-0500" comment="yes
-" parentID="dtd_hvr_hhb" mid="7"?>salt<?oxy_comment_end mid="7"?><?oxy_comment_end?>
-            or dose form not present or not fully defined in the FSN, but modelled with the more
+            <?oxy_comment_start author="steph" timestamp="20190313T105058-0600" comment="Is this correcct?  " id="dtd_hvr_hhb" flag="done" mid="8"?><?oxy_comment_start author="timowilliams" timestamp="20190403T132411-0500" comment="yes
+" parentID="dtd_hvr_hhb" flag="done"?>salt<?oxy_comment_end?><?oxy_comment_end mid="8"?>
+            or dose form not present or not fully defined in the FSN, but modeled with the more
             specific value in the current Has active ingredient and Has dose form attributes. With
             the SNOMED CT International review and application of the new modeling guidelines, these
             FSN’s should be corrected and fix the issues found with FSN’s.</para>
@@ -154,7 +149,7 @@
                 <listitem>
                     <para><emphasis>Example:</emphasis></para>
                     <para>(FSN does not explicitly state that it is an Oral suspension):</para>
-                    <para><?oxy_comment_start author="steph" timestamp="20190313T105314-0600" comment="Looking in the IHTSDO browser, this is now inactive.  Should a different example be displayed?  Same for the sugar free example below." id="nwv_xtm_hhb" mid="11"?><?oxy_comment_start author="timowilliams" timestamp="20190402T204344-0500" comment="I think this is going to be an issue for any problem concept we find.  Eventually (hopefully) the problem will get fixed.  Should I just put a disclaimer like &quot;As of the April 2017 Release&quot;?" parentID="nwv_xtm_hhb"?><?oxy_comment_start author="steph" timestamp="20190507T132624-0600" comment="Whichever is easier for you.  Maybe just include a disclaimer at the beginning of the document and just cite the version and date you used." mid="10"?>370762006<?oxy_comment_end mid="10"?><?oxy_comment_end?><?oxy_comment_end mid="11"?>
+                    <para><?oxy_comment_start author="steph" timestamp="20190313T105314-0600" comment="Looking in the IHTSDO browser, this is now inactive.  Should a different example be displayed?  Same for the sugar free example below." id="nwv_xtm_hhb" flag="done" mid="10"?><?oxy_comment_start author="timowilliams" timestamp="20190402T204344-0500" comment="I think this is going to be an issue for any problem concept we find.  Eventually (hopefully) the problem will get fixed.  Should I just put a disclaimer like &quot;As of the April 2017 Release&quot;?" parentID="nwv_xtm_hhb" flag="done" mid="11"?><?oxy_comment_start author="steph" timestamp="20190507T132624-0600" comment="Whichever is easier for you.  Maybe just include a disclaimer at the beginning of the document and just cite the version and date you used." flag="done"?>370762006<?oxy_comment_end?><?oxy_comment_end mid="11"?><?oxy_comment_end mid="10"?>
                         |Azithromycin 1g/packet oral (product)| </para>
                     <para>&lt;&lt;&lt; 392327001 |Oral form azithromycin (product)| :</para>
                     <para>127489000 |Has active ingredient (attribute)| = 391805000 |Azithromycin

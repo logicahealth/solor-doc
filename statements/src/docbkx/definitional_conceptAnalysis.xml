@@ -66,7 +66,7 @@
                     <title>Effect of Is A on absence</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/definitional_conceptAnalysis_negation_00.png"
+                            <imagedata fileref="images/definitional_conceptAnalysis_negation_00.svg"
                                 scalefit="1" width="100%" contentdepth="100%"/>
                         </imageobject>
                     </mediaobject>
@@ -582,7 +582,10 @@
                                 matching:</para>
                             <itemizedlist>
                                 <listitem>
-                                    <para><?oxy_comment_start author="steph" timestamp="20190312T115156-0600" comment="Why isn&apos;t the &quot;or&quot; condition listed here as well?  It&apos;s listed above, independent of the &quot;and/or&quot; condition.  Also, you have &quot;associated with&quot; shown above but you don&apos;t have it listed here but do have &quot;resulting&quot; and a couple of others." id="yg4_kpk_hhb" mid="10"?><?oxy_comment_start author="timowilliams" timestamp="20190402T133320-0500" comment="&quot;or&quot; wasn&apos;t included in the query except for through the AND/OR criteria." parentID="yg4_kpk_hhb"?><?oxy_comment_start author="steph" timestamp="20190507T113151-0600" comment="5/7/19:  My point is in the section immediately above, you DO include the &quot;or&quot; condition.  If it was only included as and/or, then shouldn&apos;t the above section that reads &quot;Concept is about X or Y, e.g., Mass in head or neck (finding)&quot; be deleted?" mid="9"?>and<?oxy_comment_end mid="9"?><?oxy_comment_end?><?oxy_comment_end mid="10"?></para>
+                                    <para><?oxy_comment_start author="steph" timestamp="20190312T115156-0600" comment="Why isn&apos;t the &quot;or&quot; condition listed here as well?  It&apos;s listed above, independent of the &quot;and/or&quot; condition.  Also, you have &quot;associated with&quot; shown above but you don&apos;t have it listed here but do have &quot;resulting&quot; and a couple of others." id="yg4_kpk_hhb" flag="done" mid="9"?><?oxy_comment_start author="timowilliams" timestamp="20190402T133320-0500" comment="&quot;or&quot; wasn&apos;t included in the query except for through the AND/OR criteria." parentID="yg4_kpk_hhb" flag="done" mid="10"?><?oxy_comment_start author="steph" timestamp="20190507T113151-0600" comment="5/7/19:  My point is in the section immediately above, you DO include the &quot;or&quot; condition.  If it was only included as and/or, then shouldn&apos;t the above section that reads &quot;Concept is about X or Y, e.g., Mass in head or neck (finding)&quot; be deleted?" flag="done"?>and<?oxy_comment_end?><?oxy_comment_end mid="10"?><?oxy_comment_end mid="9"?></para>
+                                </listitem>
+                                <listitem>
+                                    <para>or</para>
                                 </listitem>
                                 <listitem>
                                     <para>with</para>
@@ -662,8 +665,8 @@
         </section>
 
         <section>
-            <title><?oxy_comment_start author="steph" timestamp="20190312T120351-0600" comment="I know the verbiage in this section was pulled from the whitepaper that Tim produced for this deliverable.  However, to me it would make more sense if the format followed that was used in the prior sections, where you have a list of keywords used to identify the concepts, followed by tables of examples of those keywords and concept included.  Same comment for the inverse and primitive sections and any others that Tim pulled the text from the whitepapers.  For the reader, at least for me, it was an abrupt change in how the information is being displayed." id="spw_yww_jhb" mid="13"?><?oxy_comment_start author="timowilliams" timestamp="20190411T094418-0500" comment="The sections above were predominately based on keyword searches over descriptions whereas the laterality and primitive sections were more focused on searching over relationships." parentID="spw_yww_jhb"?><?oxy_comment_start author="steph" timestamp="20190507T113328-0600" comment="5/7/19:  Okay" mid="12"?>Laterality
-                Concepts<?oxy_comment_end mid="12"?><?oxy_comment_end?><?oxy_comment_end mid="13"?></title>
+            <title><?oxy_comment_start author="steph" timestamp="20190312T120351-0600" comment="I know the verbiage in this section was pulled from the whitepaper that Tim produced for this deliverable.  However, to me it would make more sense if the format followed that was used in the prior sections, where you have a list of keywords used to identify the concepts, followed by tables of examples of those keywords and concept included.  Same comment for the inverse and primitive sections and any others that Tim pulled the text from the whitepapers.  For the reader, at least for me, it was an abrupt change in how the information is being displayed." id="spw_yww_jhb" flag="done" mid="12"?><?oxy_comment_start author="timowilliams" timestamp="20190411T094418-0500" comment="The sections above were predominately based on keyword searches over descriptions whereas the laterality and primitive sections were more focused on searching over relationships." parentID="spw_yww_jhb" flag="done" mid="13"?><?oxy_comment_start author="steph" timestamp="20190507T113328-0600" comment="5/7/19:  Okay" flag="done"?>Laterality
+                Concepts<?oxy_comment_end?><?oxy_comment_end mid="13"?><?oxy_comment_end mid="12"?></title>
             <para>The purpose of the Laterality Assemblages is to identify concepts that are not
                 currently modelled with the correct body structure that utilizes laterality. This
                 only pertains to laterality as currently represented in SNOMED CT, which is used to
@@ -724,13 +727,19 @@
                                 16730001000004104 |Thrombosis of left peroneal vein (disorder)|
                                 should be defined with Structure of left peroneal vein, which does
                                 not currently exist in SNOMED CT.</para>
-                            <para><inlinemediaobject>
+                            <para>
+                                <figure>
+                                    <title>Thrombosis of left peroneal vein (disorder) Laterality
+                                        Example</title>
+                                <mediaobject>
                                     <imageobject>
                                         <imagedata
-                                            fileref="images/definitional_identifySolorContentRequiringSpecialHandling_00.png" scalefit="1" width="100%" contentdepth="100%"
+                                            fileref="images/definitional_identifySolorContentRequiringSpecialHandling_00.svg" scalefit="1" width="100%" contentdepth="100%"
                                         />
                                     </imageobject>
-                                </inlinemediaobject></para>
+                                </mediaobject>
+                                </figure>
+                            </para>
                         </listitem>
                         <listitem>
                             <para>All bilateral concepts were evaluated against the current SNOMED
@@ -744,13 +753,19 @@
                                 groups, one with 721947001 |Structure of macula lutea of left eye
                                 (body structure)| and the other with 721945009 |Structure of macula
                                 lutea of right eye (body structure)|.</para>
-                            <para><inlinemediaobject>
+                            <para>
+                                <figure>
+                                    <title>Bilateral degeneration of macula (disorder) Laterality
+                                        Example</title>
+                                <mediaobject>
                                     <imageobject>
                                         <imagedata
-                                            fileref="images/definitional_identifySolorContentRequiringSpecialHandling_01.png" scalefit="1" width="100%" contentdepth="100%"
+                                            fileref="images/definitional_identifySolorContentRequiringSpecialHandling_01.svg" scalefit="1" width="100%" contentdepth="100%"
                                         />
                                     </imageobject>
-                                </inlinemediaobject></para>
+                                </mediaobject>
+                                </figure>
+                            </para>
                         </listitem>
                         <listitem>
                             <para>If the concept being evaluated included a plural form of a
@@ -1196,13 +1211,17 @@
                                 an Associated Morphology concept doesn’t currently exist to
                                 represent a Wedge Fracture. By adding that single concept, the
                                 concept will then be able to be fully defined.</para>
-                            <para><inlinemediaobject>
+                            <para>
+                                <figure><title>Closed fracture lumbar vertebra, wedge (disorder) Primitive Example</title>
+                                <mediaobject>
                                     <imageobject>
                                         <imagedata
-                                            fileref="images/definitional_identifySolorContentRequiringSpecialHandling_02.png" scalefit="1" width="100%" contentdepth="100%"
+                                            fileref="images/definitional_identifySolorContentRequiringSpecialHandling_02.svg" scalefit="1" width="100%" contentdepth="100%"
                                         />
                                     </imageobject>
-                                </inlinemediaobject></para>
+                                </mediaobject>
+                                </figure>
+                            </para>
                         </listitem>
                         <listitem>
                             <para>If the evaluated concept requires a change to the Concept Model,
@@ -1435,7 +1454,7 @@
                                             <title>Concept with multiple Clinical Course attributes that have different values</title>
                                             <mediaobject>
                                                 <imageobject>
-                                                    <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig1.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                                    <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig1.svg" scalefit="1" width="100%" contentdepth="100%"/>
                                                 </imageobject>
                                             </mediaobject>
                                         </figure>
@@ -1447,7 +1466,7 @@
                                             <title>Concept with multiple Associated morphology attributes and the same values</title>
                                             <mediaobject>
                                                 <imageobject>
-                                                    <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig2.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                                    <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig2.svg" scalefit="1" width="100%" contentdepth="100%"/>
                                                 </imageobject>
                                             </mediaobject>
                                         </figure>
@@ -1481,7 +1500,7 @@
                                             <para>The Open subcapital facture of left femur concept is incorrectly modeled with multiple role groups while the Closed subcapital fracture of left femur is correctly modeled with a single role group</para>
                                             <mediaobject>
                                                 <imageobject>
-                                                    <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig3.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                                    <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig3.svg" scalefit="1" width="100%" contentdepth="100%"/>
                                                 </imageobject>
                                             </mediaobject>
                                         </figure>
@@ -1610,7 +1629,7 @@
                                 Acute<?oxy_comment_end?></title>
                                 <mediaobject>
                                     <imageobject>
-                                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig4.png" scalefit="1" width="100%" contentdepth="100%"/>
+                                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig4.svg" scalefit="1" width="100%" contentdepth="100%"/>
                                     </imageobject>
                                 </mediaobject>
                             </figure>
@@ -2092,7 +2111,7 @@
                 <title>Grade concept with an Interprets = Procedure</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig5.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig5.svg" scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -2101,7 +2120,7 @@
                 <title>Grade concept with an Interprets = Observable Entity</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig6.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig6.svg" scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -2112,7 +2131,7 @@
                     Attribute<?oxy_comment_end?></title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig7.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig7.svg" scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -2121,7 +2140,7 @@
                 <title>Grade with no Interprets Attribute</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig8.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig8.svg" scalefit="1" width="100%" contentdepth="100%"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -2140,7 +2159,7 @@
                     <title>Proposed Model for Grades, Scales, Stages, and Scores Concepts</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig9.png" scalefit="1" width="100%" contentdepth="100%"/>
+                            <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig9.svg" scalefit="1" width="100%" contentdepth="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
@@ -2158,7 +2177,7 @@
                     <title>Example of Systolic heart failure stage modeled with the new concept model</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig10.png" scalefit="1" width="100%" contentdepth="100%"/>
+                            <imagedata fileref="images/definitional_conceptAnalysis_symmetry_fig10.svg" scalefit="1" width="100%" contentdepth="100%"/>
                         </imageobject>
                     </mediaobject>
                 </figure>

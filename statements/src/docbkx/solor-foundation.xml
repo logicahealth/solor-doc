@@ -29,7 +29,7 @@
             <title>Versioning; Modules and Extensions</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="images/PASTF.png" scale="50"/>
+                    <imagedata fileref="images/PASTF.svg" scale="50"/>
                 </imageobject>
             </mediaobject>
         </figure>
@@ -72,14 +72,15 @@
                 semantics that reference a component and provide additional data to that member for
                 some purpose. Solor also has ‘description semantics’ with additional metadata
                 specifying details including but not limited to ‘language’ and ‘description
-                type’.
-            <inlinemediaobject>
+                type’.</para>
+                <figure><title>Common Model</title>
+            <mediaobject>
                 <imageobject>
-                    <imagedata fileref="images/Common_model.jpg"
-                        scale="50"/>
+                    <imagedata fileref="images/Common_model.svg" scalefit="1"
+                        width="100%" contentdepth="100%"/>
                 </imageobject>
-            </inlinemediaobject>
-        </para><para><emphasis role="bold">Concept:</emphasis> represents any idea,
+            </mediaobject></figure>
+        <para><emphasis role="bold">Concept:</emphasis> represents any idea,
                 whether that is medically related (e.g., heart attack) or metadata (e.g.,
                 author)</para> <para>•Fields: Universally Unique ID </para> <para><emphasis role="bold">String
                     Semantic:</emphasis> provides identifier to the concept in a standardized
@@ -89,10 +90,8 @@
                     role="bold">Logic Graph Semantic</emphasis>: provides description logic for
                 traversing hierarchies and for specifiying the view of the relationships between and
                 amongst data elements </para><para>•<?oxy_comment_start author="steph" timestamp="20190305T102225-0700" comment="For some reason in the PDF version of this document, there is a blank line shown between &quot;Logic Graphic Semantic&quot; and &quot;Fields&quot; and the same for &quot;Assemblage&quot; and &quot;Fields&quot; below.  Do you know why?" flag="done" id="p4x_glw_lhb"?><?oxy_comment_end?><?oxy_comment_start author="rcholan" timestamp="20190418T125227-0400" comment="I think this is resolved. The spacing looks equivalent for all of the definitions. " parentID="p4x_glw_lhb" flag="done" mid="3"?>:<?oxy_comment_end mid="3"?>Fields:
-                Parent-child-sibling relationship </para><para><emphasis role="bold">Assemblage</emphasis>: Grouping set
-                <?oxy_comment_start author="steph" timestamp="20190508T120550-0600" comment="I think this is redundant and should be deleted."?>(i.e.,
-                “assemblage”) <?oxy_comment_end?>specifically created to store all of the data
-                elements, data types, and metadata for a particular use case</para> <para>•Fields: Variable to accommodate a variety of use cases. For
+                Parent-child-sibling relationship </para><para><emphasis role="bold">Assemblage</emphasis>: Grouping set specifically created to store all of
+                the data elements, data types, and metadata for a particular use case</para> <para>•Fields: Variable to accommodate a variety of use cases. For
                 instance,
                 [<?oxy_comment_start author="steph" timestamp="20190305T084629-0700" comment=" Would it be better to revise this to StringA, StringB, StringC, StringD)?" flag="done"?>String<?oxy_comment_end?>A,
                     StringB, StringC, StringD], [ID, String, Integer, Concept ]</para>
@@ -128,10 +127,8 @@
         <section>
             <title>Identifiable Components</title>
             <para>A universally unique identifier (UUID) is a 128-bit number used to identify
-                information in computer
-                systems.<?oxy_comment_start author="steph" timestamp="20190508T120736-0600" comment="Should this be deleted?"?>(ref]
-                ) <?oxy_comment_end?>The identifiable component layer of Solor manages the
-                reproducible assignment of UUIDs to all imported components as well as the
+                information in computer systems. The identifiable component layer of Solor manages
+                the reproducible assignment of UUIDs to all imported components as well as the
                 assignment of primordial UUIDs to all internally generated components. If imported
                 components already provide UUIDs to identify components, those UUIDs will be used.
                 The identifiable component layer must allow components to have more than one UUID
@@ -165,7 +162,7 @@
                     <title>Chronology and STAMP</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/stamp_chronology_2.png" scalefit="1"
+                            <imagedata fileref="images/stamp_chronology_2.svg" scalefit="1"
                                 width="100%" contentdepth="100%"/>
                         </imageobject>
                     </mediaobject>

@@ -114,18 +114,20 @@
                     provide lists of values, codes, and names (i.e., value sets) from standard
                     clinical terminologies to represent clinical concepts. </para>
                 <para>These tools, while helpful, have gaps.
-            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph." id="syq_1mw_lhb" mid="6"?><?oxy_comment_start author="rcholan" timestamp="20190418T125814-0400" comment="Proper documentation of references needs to be an overarching task that is done for the entire SIA book. " parentID="syq_1mw_lhb"?><?oxy_comment_start author="steph" timestamp="20190508T124300-0600" comment="Okay, thanks." mid="7"?>Raje
+            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph." id="syq_1mw_lhb" flag="done" mid="6"?><?oxy_comment_start author="rcholan" timestamp="20190418T125814-0400" comment="Proper documentation of references needs to be an overarching task that is done for the entire SIA book. " parentID="syq_1mw_lhb" flag="done" mid="7"?><?oxy_comment_start author="steph" timestamp="20190508T124300-0600" comment="Okay, thanks." flag="done"?>Raje
             et al.
-            <?oxy_comment_end mid="7"?><?oxy_comment_end?><?oxy_comment_end mid="6"?>highlighted
+            <?oxy_comment_end?><?oxy_comment_end mid="7"?><?oxy_comment_end mid="6"?>highlighted
             issues with completeness, correctness, and redundancy when they found gaps in the UMLS
-            Metathesaurus’ coverage of disease concepts. Similarly, Winnenburg et al. highlighted
-            duplicate value sets in the VSAC, and showed that 19% of value sets in 2011 contained
-            invalid codes. In subsequent work, they highlighted issues related to granularity by
-            evaluating over 1,000 value sets and found that value sets varied vastly in size with
-            some only containing one code, while other value sets included over 20,000 codes.
-            Similarly, Bahr et al. showed issues with concept orientation by analyzing medication
-            value sets and found extraneous and missing ingredients in both the value sets and drug
-            classes. </para>
+            Metathesaurus’ coverage of disease concepts. <citation>Raje</citation> Similarly,
+            Winnenburg et al. highlighted duplicate value sets in the VSAC, and showed that 19% of
+            value sets in 2011 contained invalid codes. <citation>Winnenburg</citation> In
+            subsequent work, they highlighted issues related to granularity by evaluating over 1,000
+            value sets and found that value sets varied vastly in size with some only containing one
+            code, while other value sets included over 20,000 codes.
+                <citation>Winnenburg2</citation> Similarly, Bahr et al. showed issues with concept
+            orientation by analyzing medication value sets and found extraneous and missing
+            ingredients in both the value sets and drug classes.<citation>Bahr</citation>
+        </para>
                 <para>These issues related to integrating clinical content have a direct impact on
             patient safety and point to the need to be able to consistently represent and encode
             clinical data and observations. Therefore, quality assurance is an indispensable part of
@@ -185,14 +187,14 @@
             to a concept unique identifier (CUI) from the UMLS (using the UMLS API). For CUIs
             representing a LOINC method attribute, we retrieved associated atoms from SNOMED CT in
             the
-            <?oxy_comment_start author="steph" timestamp="20190508T125835-0600" comment="Is this correct?  What is UMLS.2?  Is it supposed to be a reference?"?>UMLS.2
-            <?oxy_comment_end?>Next, we imported each LOINC identifier and attached description
-            logic defining whether there was equivalency of the method attribute to SNOMED CT
-            concepts. When there was an overlap, a Solor-navigation concept was created which
-            facilitated an inferred taxonomy representation with semantic context from SNOMED CT
-            attached to the right LOINC method attribute. Finally, we evaluated the alignments
-            obtained between LOINC method attributes and SNOMED CT concepts to determine what method
-            attributes in LOINC were not covered by concepts in SNOMED CT. </para>
+            <?oxy_comment_start author="steph" timestamp="20190508T125835-0600" comment="Is this correct?  What is UMLS.2?  Is it supposed to be a reference?" flag="done"?>UMLS.
+                <citation>Cholan_NLM</citation><?oxy_comment_end?>Next, we imported each LOINC
+            identifier and attached description logic defining whether there was equivalency of the
+            method attribute to SNOMED CT concepts. When there was an overlap, a Solor-navigation
+            concept was created which facilitated an inferred taxonomy representation with semantic
+            context from SNOMED CT attached to the right LOINC method attribute. Finally, we
+            evaluated the alignments obtained between LOINC method attributes and SNOMED CT concepts
+            to determine what method attributes in LOINC were not covered by concepts in SNOMED CT. </para>
         <para><emphasis role="bold">Results: </emphasis><emphasis role="italic"><emphasis
                     role="underline">Semantic profile of LOINC method
                 attributes</emphasis></emphasis><emphasis role="italic"> –</emphasis> The method
@@ -201,8 +203,8 @@
             method attributes include procedures (58%), concepts/ideas (14%), living beings (13%),
             occupations (8%), and disorders (2%). Whereas, SNOMED CT concepts represent disorders
             (22%), procedures (17%), body structures (11%), clinical findings other than disorders
-            (10%), and organisms
-            (10%).<?oxy_comment_start author="steph" timestamp="20190508T130256-0600" comment="Is this supposed to be a reference?"?>1<?oxy_comment_end?></para>
+            (10%), and organisms (10%).<citation>Bodenreider_Solor</citation>
+            <?oxy_comment_start author="steph" timestamp="20190508T130256-0600" comment="Is this supposed to be a reference?" flag="done"?><?oxy_comment_end?></para> 
         <para><emphasis role="italic"><emphasis role="underline">Coverage of LOINC method attributes
                     by the UMLS and SNOMED CT</emphasis></emphasis><emphasis role="italic"> –
             </emphasis>Of the 1702 LOINC methods, 1688 (99%) were mapped to a UMLS CUI. Sampling the
@@ -229,10 +231,11 @@
             original LOINC identifier for this concept is properly represented, as are the other
             data elements required by the LOINC license. These Solor concepts integrate SNOMED CT
             and LOINC semantics; the LOINC Method semantic and SNOMED CT semantic are grouped under
-            the same Solor concept.
-            <?oxy_comment_start author="steph" timestamp="20190508T131130-0600" comment="In the PDF, it&apos;s actually Figure 3.1.  Also, in the figure, while the SNOMED CT name is displayed, there isn&apos;t anything that states that.  Should there be?"?>Figure
-            1<?oxy_comment_end?> exemplifies the integration: the LOINC method attribute is “AUDIT”,
-            and the SNOMED CT concept is “Alcohol use disorders identification test”.</para>
+            the same Solor concept. The
+            f<?oxy_comment_start author="steph" timestamp="20190508T131130-0600" comment="In the PDF, it&apos;s actually Figure 3.1.  Also, in the figure, while the SNOMED CT name is displayed, there isn&apos;t anything that states that.  Should there be?" flag="done"?>igure
+            <?oxy_comment_end?>below exemplifies the integration: the LOINC method attribute is
+            “AUDIT”, and the SNOMED CT concept is displayed as “Alcohol use disorders identification
+            test”.</para>
         <figure>
             <title><emphasis role="bold">Solor Editor: Representation of LOINC and SNOMED CT in a
                     common model</emphasis></title>
@@ -277,7 +280,7 @@
             implementations of underlying terminology standards may impact the ability of clinicians
             to assess care and improve quality. Jean-Jacques et al. showed that health information
             technology-supported quality improvement (QI) initiatives can decrease disparities for
-            some chronic disease management and preventive measures;(ref12_ms). Data-driven QI
+            some chronic disease management and preventive measures <citation>QI</citation>. Data-driven QI
             efforts rely heavily on patient-level data generated by eCQM reports or CDS alerts,
             which are dependent upon standards-based encoded EHR data. If clinicians rely on
             inaccurate implementations of eCQMs and CDS, then they may have lists/alerts with
@@ -285,17 +288,17 @@
             inappropriate patients for therapies, such as recommending aspirin use for someone at
             high-risk for a fatal bleeding event. Furthermore, their lists/alerts will not include
             the
-            <?oxy_comment_start author="steph" timestamp="20190508T135639-0600" comment="I didn&apos;t make the connection of how newly added patients can lead to inaccurate results or recommendations."?>newly
-            added patients <?oxy_comment_end?>who may need certain therapies to improve outcomes.
-            Having accurate eCQMs/CDS may translate into potential lives saved, and avoidable harms.
-            Furthermore, the comparability of clinical quality performance scores between healthcare
-            organizations is negatively impacted by the vast variation in standards-based
-            terminology implementations. Value-based payment programs rely on standardized
-            implementations of standards-based data that generate eCQM data to be able to benchmark
-            scores effectively, and administer value-based payments accordingly. In the current
-            ecosystem, eCQM data and their underlying standards-based encoded clinical data may not
-            be implemented in a standardized way, and therefore the ability to increase value, and
-            enhance population health, may be hindered. </para>
+            <?oxy_comment_start author="steph" timestamp="20190508T135639-0600" comment="I didn&apos;t make the connection of how newly added patients can lead to inaccurate results or recommendations." id="bsj_b4d_vhb"?><?oxy_comment_start author="rcholan" timestamp="20190521T163713-0400" comment="This is explained below in the paragraph with Number-needed-to-treat statistics. If this needs additional clarification I can add text here. " parentID="bsj_b4d_vhb" mid="13"?>newly
+            added patients <?oxy_comment_end mid="13"?><?oxy_comment_end?>who may need certain
+            therapies to improve outcomes. Having accurate eCQMs/CDS may translate into potential
+            lives saved, and avoidable harms. Furthermore, the comparability of clinical quality
+            performance scores between healthcare organizations is negatively impacted by the vast
+            variation in standards-based terminology implementations. Value-based payment programs
+            rely on standardized implementations of standards-based data that generate eCQM data to
+            be able to benchmark scores effectively, and administer value-based payments
+            accordingly. In the current ecosystem, eCQM data and their underlying standards-based
+            encoded clinical data may not be implemented in a standardized way, and therefore the
+            ability to increase value, and enhance population health, may be hindered. </para>
         <para>For official eCQMs endorsed by CMS, regular updates occur at least annually, and
             sometimes two to three times per year. These updates to eCQM definitions may result in
             changes to measure logic or to the official sets of included and excluded codes in the
@@ -304,11 +307,11 @@
             of official eCQM as outlined by value set specifications. When older and newer versions
             of eCQMs were implemented against the same clinical data, we found changes in
             measurement of quality of up to 5% difference in overall performance score, and up to
-            28% difference in the number of patients included in a measure’s denominator. (ref_ms10)
+            28% difference in the number of patients included in a measure’s denominator. <citation>Cholan_shift</citation>
             Similarly, in other work, we showed that implementations of the same eCQM using distinct
             value set specifications also led to variations in the calculated prevalence of patients
             at risk for key conditions, and in some cases led to variations in CQM performance
-            percentages.(ref_ms11)</para>
+            percentages.<citation>concepts</citation> </para>
         <para><emphasis role="bold"><emphasis role="underline">Proposed Study to Evaluate the Impact
                     of Solor</emphasis></emphasis></para>
         <para><emphasis role="underline">Purpose</emphasis></para>
@@ -372,24 +375,16 @@
             the promoted therapy. For aspirin use, Number-Needed-to- Treat (NNT) statistics show
             that of patients with known cardiovascular risk who took aspirin, 1.3% were helped by
             preventing a non-fatal heart attack, and 0.25% were harmed by a major bleeding
-                event.<link
-                xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5977609/#r26-2730131"
-                xml:id="__tag_704405666">26</link>, <link
-                xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5977609/#r27-2730131"
-                xml:id="__tag_704405665">27</link> In xxx study, 121 (92%) of the patients dropped
+                event.<citation>Aspirin</citation>, <citation>antiplatelet</citation> In the Cholan et al study <citation>Cholan_shift</citation>, 121 (92%) of the patients dropped
             in the Solor version of the Aspirin measure were also taking an anticoagulant
             medication, so the Number-Needed-to-Harm (NNH) statistic for this subset of patients is
             likely much higher, and for these clinics, 1 to 2 people may have been harmed if the
             pre-Solor definition persisted, as Hansen et. al showed that patients with combinations
             of aspirin, warfarin, and clopidogrel are associated with up to a three-fold higher risk
-            of bleeding for patients on dual therapy and triple therapy.<link
-                xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5977609/#r28-2730131"
-                xml:id="__tag_703754501">28</link>With another measure for statin therapy, 1 in 21
+            of bleeding for patients on dual therapy and triple therapy.<citation>Hansen</citation> With another measure for statin therapy, 1 in 21
             people have a repeat heart attack, stroke or death avoided, so even 10 missed people
             have significant risk of events. Similarly, 10% are harmed by muscle damage or pain, or
-            ~1 of the 14 inappropriately included.<link
-                xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5977609/#r29-2730131"
-                xml:id="__tag_704405667">29</link> Even in this small study, failure to include or
+            ~1 of the 14 inappropriately included.<citation>efficacy</citation> Even in this small study, failure to include or
             exclude patients could have led to real harm. With eCQM implementation and QI
             infrastructure increasing, the problem of having, and using, antiquated CQM versions of
             value sets could have significant potential negative impact on population health by not

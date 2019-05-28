@@ -16,9 +16,9 @@
             used to treat pain, but it can also be used to treat fevers, prevent blood clots, reduce
             the risk of stroke and heart attack an many other things. The two major goals of
             including assertional knowledge are (1) to enhance usability (2) improve documentation
-            quality when using a terminology. These additional facts provide additional reasoning
-            capabilities that can be the basis for automated quality monitoring and clinical
-            decision support.<citation>Elkin_Terminology</citation></para>
+            quality when using a terminology. Additional facts about clinical concepts can also be
+            provided to support reasoning for automated quality monitoring and clinical decision
+                support.<citation>Elkin_Terminology</citation></para>
         <para>Assertional knowledge is key to supporting interface implementation of terminologies.
             Assertional knowledge can support interface implementations of terminology by:</para>
         <para>
@@ -35,7 +35,6 @@
                 </listitem>
             </orderedlist>
         </para>
-        <para/>
         <para><link xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1513664/"/></para>
         <para>Qualifying relationships</para>
     </section>
@@ -45,42 +44,81 @@
             subject of record and observations and evaluation results about the patient. It
             represents knowledge that can be applied
             <?oxy_comment_start author="steph" timestamp="20190507T124918-0600" comment="Recommend adding &quot;the patient&apos;s care&quot;" flag="done"?>to
-            the patient's care, <?oxy_comment_end?>e.g. the patient's treatment or diagnostics.  </para>
-    </section>
-    <section>
-        <title>Examples of Assertional Knowledge</title>
-        <para>• “Aspirin treats pain”</para>
-        <para>• “Penicillin treats bacterial infections”</para>
-        <para>• “Myocardial infarction is associated with chest pain”</para>
+            the patient's care, <?oxy_comment_end?>e.g. the patient's treatment or diagnostics. </para>
         <para>The Solor capability of associating statements enables the use of Assertional
             Knowledge to clinical decision support applications, clinical pathways and general
             information (“info button”) that can be made available to users of EMR systems. </para>
-        <para/>
-        <para>NDF-RT has assertional knowledge contained in relationships like:</para>
-        <itemizedlist>
-            <listitem>
-                <para>may_treat {}  DISEASE_KIND – therapeutic use or indication of a generic
-                    ingredient preparation or drug</para>
-            </listitem>
-            <listitem>
-                <para>may_prevent {}  DISEASE_KIND – preventative use or indication of a generic
-                    ingredient preparation or drug</para>
-            </listitem>
-            <listitem>
-                <para>may_diagnose {}  DISEASE_KIND – diagnostic use or indication of a generic
-                    ingredient preparation or drug</para>
-            </listitem>
-        </itemizedlist>
-        <para>Structure Product Labeling has assertional knowledge contained in sections such
-            as:</para>
-        <itemizedlist>
-            <listitem>
-                <para>Indications</para>
-            </listitem>
-            <listitem>
-                <para>Contraindications</para>
-            </listitem>
-        </itemizedlist>
     </section>
+    <section>
+        <title>Examples of Assertional Knowledge</title>
+        <section>
+            <title>Facts Supporting Reasoning</title>
+            <para>Attributes like the ones below are common in proprietary interface terminologies
+                and represent assertional knowledge that can then be mapped to standard reference
+                terminologies like SNOMED CT or RxNorm</para>
+            <itemizedlist>
+                <listitem>
+                    <para>“Aspirin treats pain”</para>
+                </listitem>
+                <listitem>
+                    <para>“Penicillin treats bacterial infections”</para>
+                </listitem>
+                <listitem>
+                    <para>“Myocardial infarction is associated with chest pain”</para>
+                </listitem>
+            </itemizedlist>
+            <para>The VA's National Drug File - Reference Terminology (NDF-RT) has assertional
+                knowledge contained in relationships like:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>may_treat {}  DISEASE_KIND – therapeutic use or indication of a generic
+                        ingredient preparation or drug</para>
+                </listitem>
+                <listitem>
+                    <para>may_prevent {}  DISEASE_KIND – preventative use or indication of a
+                        generic ingredient preparation or drug</para>
+                </listitem>
+                <listitem>
+                    <para>may_diagnose {}  DISEASE_KIND – diagnostic use or indication of a generic
+                        ingredient preparation or drug</para>
+                    
+                </listitem>
+            </itemizedlist>
+            <para>Structure Product Labeling has assertional knowledge contained in sections
+                such as:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Indications</para>
+                </listitem>
+                <listitem>
+                    <para>Contraindications</para>
+                </listitem>
+            </itemizedlist>
+        </section>
+        <section>
+            <title>Adding Clinical Modifiers</title>
+            <para>Prior to 2012, SNOMED CT included qualifying relationships that could be used for
+                creating a user interface that would post-coordinate concepts using pre-approved
+                attribute value pairs.  With the introduction of the RF2, qualifying relationships
+                were no longer released in favor of the Machine Readable Concept Model (MRCM).  The
+                MRCM is a more comprehensive and flexible format for representing relationships and
+                values that can be used to refine concepts.</para>
+        </section>
+        
+        <section>
+            <title>Relationships Between Clinical Concepts and Patient Populations</title>
+            <para>Pregnancy is not present in men or women who have had a hysterectomy or who are
+                post-menopausal.</para>
+        </section>
+        <section>
+            <title>Clarifying synonymy</title>
+            <para>Assertional knowledge relationships can be used to clarify whether synonyms are
+                accurate representations of the same concept.  For example, thorax pain and chest
+                pain could be defined in a similar way, but throax pain may imply to a healthcare
+                provider that the pain is in the chest wall rather than internally as the term chest
+                pain may imply.</para>
+        </section>
+    </section>
+    
     
 </chapter>

@@ -80,25 +80,23 @@
             important early work in pseudocode logic expression. McDonald realized that the number
             of CDS reminders and alerts would quickly increase, so rather than hand-crafting each
             rule into computer code with programmers, he created one of the first CDS rule languages
-            called CARE (McCallie DP. Healthcare information management systems: cases, strategies,
-            and solutions. Cham: Springer; 2016.). The CARE language allowed clinical experts and
-            those without programming expertise to structure if-then logic of alerts using a
-            flexible scripting language that could be interpreted by programmers to implement
-            against the patient record system. As computerized EHRs continued to spread to other
-            academic medical centers in the years that followed, it became clear that a standard way
-            to replicate the expression logic of CARE-style if-then decision rules would be needed.
-            In the late 1980s, informaticists at Columbia led an important initiative to standardize
-            CDS scripting language and created the Arden Syntax or Medical Logic Modules, the goal
-            of which was to encode if-then-else rules in a standard format that could be computed
-            against different EHR systems, regardless of the location or specific vendor. Arden
-            Syntax logic modules were novel in that they consisted of standard sections called
-            ‘categories’, and each category contained several ‘slots’. For instance, the ‘logic’
-            slot contained the actual clinical logic of a rule, and the ‘action’ slot defined the
-            message that the rule would display to the clinician-user. Modern EHRs often still use
-            this framework even if the full Arden Syntax is not used: when a clinician’s workflow
-            reaches a trigger point, then a rule in the system is fired, and evaluates the clinical
-            logic attached to the trigger point. (McCallie DP. Healthcare information management
-            systems: cases, strategies, and solutions. Cham: Springer; 2016.)</para>
+            called CARE. <citation>McCallie</citation> The CARE language allowed clinical experts and those without programming
+            expertise to structure if-then logic of alerts using a flexible scripting language that
+            could be interpreted by programmers to implement against the patient record system. As
+            computerized EHRs continued to spread to other academic medical centers in the years
+            that followed, it became clear that a standard way to replicate the expression logic of
+            CARE-style if-then decision rules would be needed. In the late 1980s, informaticists at
+            Columbia led an important initiative to standardize CDS scripting language and created
+            the Arden Syntax or Medical Logic Modules, the goal of which was to encode if-then-else
+            rules in a standard format that could be computed against different EHR systems,
+            regardless of the location or specific vendor. Arden Syntax logic modules were novel in
+            that they consisted of standard sections called ‘categories’, and each category
+            contained several ‘slots’. For instance, the ‘logic’ slot contained the actual clinical
+            logic of a rule, and the ‘action’ slot defined the message that the rule would display
+            to the clinician-user. Modern EHRs often still use this framework even if the full Arden
+            Syntax is not used: when a clinician’s workflow reaches a trigger point, then a rule in
+            the system is fired, and evaluates the clinical logic attached to the trigger point.
+            <citation>McCallie</citation></para>
         <para>By the mid 1990’s, CDS rules using the Arden Syntax began to spread to numerous
             commercial systems, however dissemination was limited in that rules written in one
             facility would not run against any other system. While the ‘logic’ slot contained
@@ -106,8 +104,7 @@
             that only contained a human-readable textual description of the database process and
             actions necessary for the rule to access clinical data in the EHR. This required
             human-interpretation and hand-crafting at each specific site and this challenge was
-            referred to as the “curly brace problem”. (McCallie DP. Healthcare information
-            management systems: cases, strategies, and solutions. Cham: Springer; 2016.) This
+            referred to as the “curly brace problem”. <citation>McCallie</citation> This
             challenge to achieve portability across environments has persisted throughout the 1990s
             to 2000s to the current day. These challenges were only worsened when guideline-based
             techniques were introduced attempting to separate clinical problems into a series of
@@ -115,13 +112,10 @@
             Format (GLIF), PROforma, SAGE, and GEM, which aimed to incorporate a guideline’s logic
             into the executable part of decision logic, however these languages suffered due to a
             lack of maturity of standards to integrate the guideline engines into EHRs
-            directly.(McCallie DP. Healthcare information management systems: cases, strategies, and
-            solutions. Cham: Springer; 2016.)</para>
+            directly.<citation>McCallie</citation></para>
         <para>In 1998, HL7 found the “curly brace” problem to be unsolvable by the Arden approach
             and began efforts to create expression logic standards based on HL7 Version 3 Reference
-            Information Model (RIM).(HL7 Version 3: Reference Information Model (RIM) [Internet].
-            Introduction to HL7 Standards. [cited 2018Aug28]. Available from:
-            http://www.hl7.org/implement/standards/product_brief.cfm?product_id=77.) One attempt was
+            Information Model (RIM).<citation>RIM</citation> One attempt was
             the GELLO Expression Language, which in theory was supposed to access and manipulate
             clinical data by common clinical entities; however RIM was not proven to be a very
             practical representation of the complexity of real-world data. Only a small number of
@@ -132,8 +126,7 @@
             realized the benefit in aligning CDS logic expression with those of eCQMs as the goals
             of CDS rules are often used to prompt clinicians to achieve improved clinical quality
             outcomes, and therefore HL7 defined QUICK – the Quality Improvement and Clinical
-            Knowledge model. (QUICK Data Model [Internet]. QUICK Data Model. HL7; [cited 2018Aug28].
-            Available from: https://www.hl7.org/FHIR/2015May/quick/help.html.) QUICK and ECA have
+            Knowledge model. <citation>quick</citation> QUICK and ECA have
             now been wrapped up into Clinical Quality Language (CQL) which attempts to capture
             lessons learned from Arden, GELLO, and ECA. </para>
         <para>An emerging Health Level Seven (HL7) International standard that might help with
@@ -149,12 +142,7 @@
         <para>CMS is rapidly rolling out the CQL standard in its eCQMs for the 2019 reporting year.
             The goal of CQL moving forward is to use emerging Application Programming Interfaces
             like the Fast Healthcare Interoperability Resource (FHIR) as way to allow for more
-            direct access to clinical data that does not require the overhead of RIM mapping. (
-            Jiang G, Prud’Hommeax E, Solbrig H. Developing A Semantic Web-based Framework for
-            Executing the Clinical Quality Language Using FHIR. Proceedings of SWAT4LS Workshop.
-            Avalailable from: <link
-                xlink:href="file:///C:/Users/dorrd/AppData/Local/Microsoft/Windows/Temporary%20Internet%20Files/Content.Outlook/RNPDTQSM/www.swat4ls.org/wp-content/uploads/2017/11/SWAT4LS-2017_paper_40.pdf"
-                >www.swat4ls.org/wp-content/uploads/2017/11/SWAT4LS-2017_paper_40.pdf</link>.) The
+            direct access to clinical data that does not require the overhead of RIM mapping. <citation>Jiang</citation> The
             potential for FHIR and CQL in CDS and eCQM implementations remains to be seen, however,
             the community is optimistic. </para>
         <para> </para>

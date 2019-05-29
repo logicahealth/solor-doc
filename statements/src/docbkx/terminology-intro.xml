@@ -85,19 +85,29 @@
                 <para>Polyhierarchy</para>
                 <para>Concepts should be allowed to exist in multiple hierarchies if appropriate.
                     For example,
-                    <?oxy_comment_start author="timowilliams" timestamp="20190430T201423-0500" comment="Add image representing the polyhierarchy"?>Bacterial
+                    <?oxy_comment_start author="timowilliams" timestamp="20190430T201423-0500" comment="Add image representing the polyhierarchy" id="m3l_gb2_xhb"?><?oxy_comment_start author="rcholan" timestamp="20190528T215454-0400" comment="Adding initial image." parentID="m3l_gb2_xhb" mid="4"?>Bacterial
                     meningitis is both a subtype of Meningitis and Bacterial infection and should
-                    exist in both hierarchies.<?oxy_comment_end?></para>
+                    exist in both hierarchies.<?oxy_comment_end mid="4"?><?oxy_comment_end?><inlinemediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/meningitis.png"/>
+                        </imageobject>
+                    </inlinemediaobject></para>
             </listitem>
             <listitem>
                 <para><?oxy_comment_start author="timowilliams" timestamp="20190430T201919-0500" comment="Should we add a comparison of stated vs inferred definitions here?
-"?><?oxy_comment_start author="steph" timestamp="20190507T163331-0600" comment="I think that would be helpful." mid="5"?>Formal
-                    definitions<?oxy_comment_end?><?oxy_comment_end mid="5"?></para>
+"?><?oxy_comment_start author="steph" timestamp="20190507T163331-0600" comment="I think that would be helpful." id="p3x_b22_xhb" mid="7"?><?oxy_comment_start author="rcholan" timestamp="20190528T221625-0400" comment="Added some draft explanation. 
+
+DL ontologies can be classified (i.e., some relationships between concepts are inferred from the asserted class descriptions). Solor provides both views, and allow users to compare the differences. Solor has blocks of necessary &amp; sufficient, necessary, and inherited (i.e., inferred) relationships." parentID="p3x_b22_xhb" mid="6"?>Formal
+                    definitions<?oxy_comment_end mid="6"?><?oxy_comment_end mid="7"?><?oxy_comment_end?></para>
                 <para>While hierarchical information is paramount, the inclusion of additional
                     definitional knowledge can help maintain and correctly place concepts within the
                     appropriate hierarchy. Allowing computers to use this additional information can
                     aid in properly placing concepts in hierarchies that developers did not
                     originally add to a concept.</para>
+                <para>DL ontologies can be classified (i.e., some relationships between concepts are
+                    inferred from the asserted class descriptions). Solor provides both views, and
+                    allow users to compare the differences. Solor has blocks of necessary &amp;
+                    sufficient, necessary, and inherited (i.e., inferred) relationships.</para>
             </listitem>
             <listitem>
                 <para>No residual categories (Reject "Not Elsewhere Classified")</para>
@@ -117,12 +127,16 @@
             </listitem>
             <listitem>
                 <para>Multiple consistent views</para>
-                <?oxy_comment_start author="timowilliams" timestamp="20190430T202611-0500" comment="Insert Cranial Nerve example here"?>
+                <?oxy_comment_start author="timowilliams" timestamp="20190430T202611-0500" comment="Insert Cranial Nerve example here" id="bwk_122_xhb"?>
+                <?oxy_comment_start author="rcholan" timestamp="20190528T221559-0400" comment="Inserting initial image" parentID="bwk_122_xhb" mid="9"?>
                 <para>In addition to representing meaning at various levels, the display of the
                     concepts that are relevant to certain users should be able to be customized.
                     Allowing users to view concepts in a way that is intuitive will support the
-                    adoption of terminologies by making the terminology more
-                    usable.<?oxy_comment_end?></para>
+                    adoption of terminologies by making the terminology more usable.<?oxy_comment_end mid="9"?><?oxy_comment_end?><inlinemediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/CranialNerves.png"/>
+                        </imageobject>
+                    </inlinemediaobject></para>
             </listitem>
             <listitem>
                 <para>Representing context</para>

@@ -1,42 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<article xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0">
     <info>
         <title>Logging In</title>
 
     </info>
-    <sect1>
+    <section>
         <title>Accessing Knowledge for the First Time</title>
         <para>To access Knowledge Editor, you need a username and temporary password assigned to you
             by an administrator who has permissions to manage the application. You should receive
             the login information and url in your e-mail.</para>
         <para>Once you log in, you may see one of two screens:<itemizedlist>
                 <listitem>
-                    <para>Generic Welcome Screen</para>
+                    <para><emphasis role="bold">Generic Welcome Screen</emphasis></para>
                     <para>If the administrator has not assigned projects to your account, you can
                         only edit your user profile, e-mail, and password. Contact your
                         administrator for project assignment.</para>
                 </listitem>
                 <listitem>
-                    <para>Project-specific Welcome Screen</para>
+                    <para><emphasis role="bold">Project-specific Welcome Screen</emphasis></para>
                     <para>If a project has been assigned to you, Knowledge Editor will load,
                         providing you a view of the taxonomy and announcements panels.</para>
+                    <para>
+                        <inlinemediaobject>
+                            <alt>Image of the Editor screen after login displays a taxonomy list,
+                                announcements, and assigned projects.</alt>
+                            <imageobject>
+                                <imagedata fileref="editorlogin.jpg" width="500px"/>
+                            </imageobject>
+                        </inlinemediaobject>
+                    </para>
                 </listitem>
             </itemizedlist></para>
-        
-        <simplesect><title>What happens if I forget my username/login?</title>
-            <para>
-                There are links to request your username or a password reset on the login page of the application. Select the information you need and fill out the information to receive next steps.
-            </para>
-        </simplesect>
-        
-        <simplesect><title>What are my account permissions?</title>
-            <para>
-                You can review your account permissions under Account Preferences. To access this page, select your username in the top navigation menu, then select "Account Preferences". The table will display the projects assigned to you and the permissions you have under each project.
-            </para>
-        </simplesect>
-    </sect1>
+    </section>
 
-</article>
+    <section>
+        <title>Related Questions</title>
+        <simplesect>
+            <title>What happens if I forget my username/login?</title>
+            <para> There are links to request your username or a password reset on the login page of
+                the application. Select the information you need and fill out the information to
+                receive next steps. </para>
+        </simplesect>
+        
+        <simplesect>
+            <title>What are my account permissions?</title>
+            <para> You can review your account permissions under Account Preferences. To access this
+                page, select your username in the top navigation menu, then select "Account
+                Preferences". The table will display the projects assigned to you and the
+                permissions you have under each project. </para>
+        </simplesect>
+    </section>
+</section>

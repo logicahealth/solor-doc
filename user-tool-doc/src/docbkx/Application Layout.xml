@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<section xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <info>
+        <title>Application Layout</title>
+    </info>
+    <section>
+        <title>Knowledge Editor</title>
+        <para>The Knowledge application is organized into 2 areas: Editor and Manager. The manager
+            is only available to administrators, so we will lay out the Editor functionalities in
+            this article.</para>
+        <para>The Editor is an interactive application that allows you to search, view, edit, and
+            create terminologies, reference sets, and search criteria. By default, it is divided
+            into 2 sections: the <emphasis role="bold">task</emphasis> pane and the <emphasis
+                role="bold">concept viewer</emphasis> pane. When you select a concept on the left
+            task pane, its details can be viewed in the right details pane. <informalfigure>
+                <mediaobject>
+                    <alt>Figure of the Knowledge Editor layout as described above.</alt>
+                    <imageobject>
+                        <imagedata fileref="editor-layout.jpg" width="600px"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>You can optionally open another <emphasis role="bold">concept
+                viewer</emphasis> pane that will display on the far right side of the window. There
+            are three ways to do so: <itemizedlist>
+                <listitem>
+                    <para>Right-click the concept you wish to review and select "<emphasis
+                            role="bold">open in new concept viewer</emphasis>". </para>
+                </listitem>
+                <listitem>
+                    <para>Highlight the concept you want to see in a new viewer and press "
+                            <emphasis role="bold">keyboard shortcut tbd, e.g. ctrl+alt+n</emphasis>
+                        " to open a new concept viewer. </para>
+                </listitem>
+                <listitem>
+                    <para>In the top navigation pane, select <emphasis role="bold"
+                            >"Authoring"</emphasis>, then <emphasis role="bold">"Launch Third
+                            View"</emphasis>.</para>
+                </listitem>
+            </itemizedlist></para>
+    </section>
+    <section>
+        <title>What can I do in the Editor?</title>
+        <para>The Editor has tasks divided under 2 interfaces: Authoring and Export Management. You
+            can access either of these interfaces in the top navigation anytime you are logged into
+            the Editor.</para>
+        <para><inlinemediaobject>
+                <alt>Figure of the Knowledge Editor navigation with the interfaces highlighted</alt>
+                <imageobject>
+                    <imagedata fileref="nav-editor-layout.jpg" width="750px"/>
+                </imageobject>
+            </inlinemediaobject></para>
+        <para>The application indicates which area and interface you are working with on the upper
+            left corner.</para>
+        <section>
+            <title>Authoring</title>
+            <para>The Authoring interface provides information on concepts and
+                terminologies, lists reference sets, queries, mapsets, enables user to run the
+                classifier, and allows user to search for items in the database. Depending on your
+                account permissions, there is also the ability to edit many of the previously mentioned
+                items.</para>
+        </section>
+        <section>
+            <title>Export Management</title>
+            <para>The Export Management interface is viewable by users who have Editing permissions.
+                Tasks such as QA runs, content releases, metric reports, and conflict resolutions is
+                done under this interface, but the Content Manager has permissions to create a
+                release version in this area.</para>
+
+        </section>
+    </section>
+    
+    </section>

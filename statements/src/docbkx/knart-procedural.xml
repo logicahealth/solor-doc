@@ -21,15 +21,18 @@
             situations.</para>
     </section>
     <section>
-        <title>Procedure Guideline</title>
+        <title>Procedure Guidelines</title>
         <para>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3056180/</para>
         <para>Procedure Guidelines - SNMMI.org</para>
         <para>https://www.ahrq.gov/gam/index.html, No defunct National Guideline Clearinghouse</para>
         <para>https://www.aafp.org/patient-care/clinical-recommendations/cpg-manual.html</para>
     </section>
     <section>
-        <title>Treatement Protocols</title>
-        <para>Standardized treatement protocols decreases variability and improves the quality of clinical care by simplify the treatment options, particularly in primary health care. Standard treatment protocols can be developed by preparing new treatment guidelines or by adapting or adopting existing national or international guidelines. </para>
+        <title>Treatment Protocols</title>
+        <para>Standardized treatment protocols decrease variability and improve the quality of
+            clinical care by simplifying the treatment options, particularly in primary health care.
+            Standard treatment protocols can be developed by preparing new treatment guidelines or
+            by adapting or adopting existing national or international guidelines. </para>
         <para>Treatment Protocols - Million Hearts</para>
         <para><link
                 xlink:href="https://apps.who.int/iris/bitstream/handle/10665/260421/WHO-NMH-NVI-18.2-eng.pdf;jsessionid=88B76DD9ED1F46846D8E2434E1C9DB15?sequence=1"
@@ -44,10 +47,11 @@
         <para>https://www.clinfowiki.org/wiki/index.php/Order_set</para>
         <para><link xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3956384/"/></para>
         <?oxy_comment_start author="timowilliams" timestamp="20190513T164136-0500" comment="Should this be it&apos;s own section?"?>
-        <para>KNARTs<?oxy_comment_end?></para>
+        <?oxy_comment_start author="steph" timestamp="20190610T094315-0600" comment="I think it should." mid="3"?>
+        <para>KNARTs<?oxy_comment_end?><?oxy_comment_end mid="3"?></para>
         <para>KNART is a Clinical Decision Support Knowledge Artifact and it's a structured way of
-            documenting the content/knowledge for 3 different types of CDS interventions: 1) event
-            condition action (ECA) rule (e.g., clinical reminder), 2) order sets, and 3)
+            documenting the content/knowledge for three different types of CDS interventions: 1)
+            event condition action (ECA) rule (e.g., clinical reminder), 2) order sets, and 3)
             documentation templates (VA has called them SMARTForms or PNCS forms in the past). </para>
         <para>KNARTs are a standard HL7 format. While they are not the actual executable CDS
             interventions, they provide the information that a developer can take and then implement
@@ -64,13 +68,13 @@
             implementations across sites. Different health care institutions may increasingly have
             their clinical data encoded according to standards-based terminologies, but each site
             will still require human intervention and hand-crafted implementations of eCQMs and
-            computerized CDS including patient safety alerts, and health maintenance reminders
+            computerized CDS including patient safety alerts and health maintenance reminders
             intended to improve eCQM performance scores and population health. One implementation of
             an eCQM at the Veterans Health Administration, for instance, is not completely
             transferrable to another institution; analysts at each organization will have to modify
             the underlying query which might be in Structured Query Language (SQL) for instance so
             that it is computable against their respective clinical database structure. Furthermore,
-            all eCQM concepts are not recorded in the same way in different EHR implementations;
+            not all eCQM concepts are recorded in the same way in different EHR implementations;
             what may be structured in one system may be free text in another. While HQMF, QDM, and
             CQL are the more recent efforts to improve standard representations of eCQM and CDS
             expression logic, the efforts date back to the mid 1970’s when early implementers of
@@ -134,17 +138,19 @@
             new specification that focuses on a common model for representing expression logic for
             CQMs and Clinical Decision Support. According to CMS’ eCQI Resource Center, CQL will be
             used in all quality measure specifications in the future, will replace the Quality Data
-            Model, and is intended to reduce the burden on implementers for consuming measure
+            Model (QDM), and is intended to reduce the burden on implementers for consuming measure
             artifacts. CQL representations of eCQMs will replace the QDM pseudocode historically
             published in HQMF files; it aims to provide a human-readable, conceptual-level language
             to define eCQMs and clinical decision support independent of specific data models, such
             as the QDM or FHIR (Fast Healthcare Interoperability Resource). </para>
         <para>CMS is rapidly rolling out the CQL standard in its eCQMs for the 2019 reporting year.
             The goal of CQL moving forward is to use emerging Application Programming Interfaces
-            like the Fast Healthcare Interoperability Resource (FHIR) as way to allow for more
-            direct access to clinical data that does not require the overhead of RIM mapping. <citation>Jiang</citation> The
-            potential for FHIR and CQL in CDS and eCQM implementations remains to be seen, however,
-            the community is optimistic. </para>
+            like
+            t<?oxy_comment_start author="steph" timestamp="20190610T095537-0600" comment="I don&apos;t think yoy need to spell this out again as you already did that in the preceding paragraph."?>he
+            Fast Healthcare Interoperability Resource<?oxy_comment_end?> (FHIR) as a way to allow
+            for more direct access to clinical data that does not require the overhead of RIM
+            mapping. <citation>Jiang</citation> The potential for FHIR and CQL in CDS and eCQM
+            implementations remains to be seen, however, the community is optimistic. </para>
         <para> </para>
     </section>
    

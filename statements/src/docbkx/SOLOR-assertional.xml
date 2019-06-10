@@ -7,36 +7,37 @@
     <section>
         <title>Introduction</title>
         <para>Previously we discussed definitional knowledge which defines purely structural
-            relationships amongs concepts. Definitional knowledge relationships do not represent how
+            relationships among concepts. Definitional knowledge relationships do not represent how
             concepts influence or relate to each other in a clinical setting. This type of
-            information is represented by assertional knowledge.  For example, shortness of breath
+            information is represented by assertional knowledge. For example, shortness of breath
             may be caused by myocardial infarction.</para>
         <para>Assertional knowledge represents facts related to a domain of study and is used to
             provide nuance and context to a concept, but does not define it. For example, Aspirin is
             used to treat pain, but it can also be used to treat fevers, prevent blood clots, reduce
-            the risk of stroke and heart attack an many other things. The two major goals of
-            including assertional knowledge are (1) to enhance usability (2) improve documentation
-            quality when using a terminology. Additional facts about clinical concepts can also be
-            provided to support reasoning for automated quality monitoring and clinical decision
-                support.<citation>Elkin_Terminology</citation></para>
+            the risk of stroke and heart attack and many other things. The two major goals of
+            including assertional knowledge are (1) to enhance usability and (2) improve
+            documentation quality when using a terminology. Additional facts about clinical concepts
+            can also be provided to support reasoning for automated quality monitoring and clinical
+            decision support.<citation>Elkin_Terminology</citation></para>
         <para>Assertional knowledge is key to supporting interface implementation of terminologies.
             Assertional knowledge can support interface implementations of terminology by:</para>
         <para>
             <orderedlist>
                 <listitem>
-                    <para>assist end users in adding clinical modifiers to concepts</para>
+                    <para>Assisting end users in adding clinical modifiers to concepts</para>
                 </listitem>
                 <listitem>
-                    <para>representing relationships between clinical concepts and patient
+                    <para>Representing relationships between clinical concepts and patient
                         populations</para>
                 </listitem>
                 <listitem>
-                    <para>clarifying whether synonyms have the same meaning</para>
+                    <para>Clarifying whether synonyms have the same meaning</para>
                 </listitem>
             </orderedlist>
         </para>
         <para><link xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1513664/"/></para>
-        <para>Qualifying relationships</para>
+        <para><?oxy_comment_start author="steph" timestamp="20190610T085715-0600" comment="Is this supposed to be here?"?>Qualifying
+            relationships<?oxy_comment_end?></para>
     </section>
     <section>
         <title>Solor Representation</title>
@@ -55,7 +56,7 @@
             <title>Facts Supporting Reasoning</title>
             <para>Attributes like the ones below are common in proprietary interface terminologies
                 and represent assertional knowledge that can then be mapped to standard reference
-                terminologies like SNOMED CT or RxNorm</para>
+                terminologies like SNOMED CT or RxNorm.</para>
             <itemizedlist>
                 <listitem>
                     <para>“Aspirin treats pain”</para>
@@ -107,14 +108,15 @@
         
         <section>
             <title>Relationships Between Clinical Concepts and Patient Populations</title>
-            <para>Pregnancy is not present in men or women who have had a hysterectomy or who are
+            <para><?oxy_comment_start author="steph" timestamp="20190610T092429-0600" comment="Recommend insert before this &quot;An examples of a relationship between a clinical concept and patient population is&quot;."?>Pregnancy<?oxy_comment_end?>
+                is not present in men or women who have had a hysterectomy or who are
                 post-menopausal.</para>
         </section>
         <section>
             <title>Clarifying synonymy</title>
             <para>Assertional knowledge relationships can be used to clarify whether synonyms are
-                accurate representations of the same concept.  For example, thorax pain and chest
-                pain could be defined in a similar way, but throax pain may imply to a healthcare
+                accurate representations of the same concept. For example, thorax pain and chest
+                pain could be defined in a similar way, but thorax pain may imply to a healthcare
                 provider that the pain is in the chest wall rather than internally as the term chest
                 pain may imply.</para>
         </section>

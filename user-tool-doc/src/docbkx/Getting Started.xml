@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Getting Started</title>
+    <para>Whether you are brand new to universal terminology tools or are using one regularly today,
+        MindComputing's Knowledge is a quick and easy web application to use. This article will show
+        you the fastest way to get the most value out of Knowledge by using the key feature:
+        searching and reviewing terminologies, and the rest of our guide will get you using the
+        application the right away.</para>
+    
+    <section>
+        <title>Logging In</title>
+
+        <section>
+            <title>Accessing Knowledge for the First Time</title>
+            <para>To access Knowledge Editor, you need a username and temporary password assigned to you
+                by an administrator who has permissions to manage the application. You should receive
+                the login information and url in your e-mail.</para>
+            <para>Once you log in, you may see one of two screens:<itemizedlist>
+                    <listitem>
+                        <para><emphasis role="bold">Generic Welcome Screen</emphasis></para>
+                        <para>If the administrator has not assigned projects to your account, you can
+                            only edit your user profile, e-mail, and password. Contact your
+                            administrator for project assignment.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Project-specific Welcome Screen</emphasis></para>
+                        <para>If a project has been assigned to you, Knowledge Editor will load,
+                            providing you a view of the taxonomy and announcements panels.</para>
+                        <para>
+                            <inlinemediaobject>
+                                <alt>Image of the Editor screen after login displays a taxonomy
+                                    list, announcements, and assigned projects.</alt>
+                                <imageobject>
+                                    <imagedata fileref="\images\editorlogin.png" width="800px"/>
+                                </imageobject>
+                            </inlinemediaobject>
+                        </para>
+                    </listitem>
+                </itemizedlist></para>
+        </section>
+    
+        <section>
+            <title>Related Questions</title>
+            <simplesect>
+                <title>What happens if I forget my username/login?</title>
+                <para> There are links to request your username or a password reset on the login page of
+                    the application. Select the information you need and fill out the information to
+                    receive next steps. </para>
+            </simplesect>
+            
+            <simplesect>
+                <title>What are my account permissions?</title>
+                <para> You can review your account permissions under Account Preferences. To access this
+                    page, select your username in the top navigation menu, then select "Account
+                    Preferences". The table will display the projects assigned to you and the
+                    permissions you have under each project. </para>
+            </simplesect>
+        </section>
+    </section>
+    <!-- Part 2-->
+    <section>
+        <info>
+            <title>Application Layout</title>
+        </info>
+        <section>
+            <title>Knowledge Editor</title>
+            <para>The Knowledge application is organized into 2 areas: Editor and Manager. The manager
+                is only available to administrators, so we will lay out the Editor functionalities in
+                this article.</para>
+            <para>The Editor is an interactive application that allows you to search, view, edit, and
+                create terminologies, reference sets, and search criteria. By default, it is divided
+                into 2 sections: the <emphasis role="bold">task</emphasis> pane and the <emphasis
+                    role="bold">concept viewer</emphasis> pane. When you select a concept on the left
+                task pane, its details can be viewed in the right details pane. <informalfigure>
+                    <mediaobject>
+                        <alt>Figure of the Knowledge Editor layout as described above.</alt>
+                        <imageobject>
+                            <imagedata fileref="\images\editor-layout.png" width="600px"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>You can optionally open another <emphasis role="bold">concept
+                    viewer</emphasis> pane that will display on the far right side of the window. There
+                are three ways to do so: <itemizedlist>
+                    <listitem>
+                        <para>Right-click the concept you wish to review and select "<emphasis
+                            role="bold">open in new concept viewer</emphasis>". </para>
+                    </listitem>
+                    <listitem>
+                        <para>Highlight the concept you want to see in a new viewer and press "
+                            <emphasis role="bold">keyboard shortcut tbd, e.g. ctrl+alt+n</emphasis>
+                            " to open a new concept viewer. </para>
+                    </listitem>
+                    <listitem>
+                        <para>In the top navigation pane, select <emphasis role="bold"
+                            >"Authoring"</emphasis>, then <emphasis role="bold">"Launch Third
+                                View"</emphasis>.</para>
+                    </listitem>
+                </itemizedlist></para>
+        </section>
+        <section>
+            <title>What can I do in the Editor?</title>
+            <para>The Editor has tasks divided under 2 interfaces: Authoring and Export Management. You
+                can access either of these interfaces in the top navigation anytime you are logged into
+                the Editor.</para>
+            <para><inlinemediaobject>
+                <alt>Figure of the Knowledge Editor navigation with the interfaces highlighted</alt>
+                <imageobject>
+                    <imagedata fileref="\images\nav-editor-layout.png" width="750px"/>
+                </imageobject>
+            </inlinemediaobject></para>
+            <para>The application indicates which area and interface you are working with on the upper
+                left corner.</para>
+            <section>
+                <title>Authoring</title>
+                <para>The Authoring interface provides information on concepts and
+                    terminologies, lists reference sets, queries, mapsets, enables user to run the
+                    classifier, and allows user to search for items in the database. Depending on your
+                    account permissions, there is also the ability to edit many of the previously mentioned
+                    items.</para>
+            </section>
+            <section>
+                <title>Export Management</title>
+                <para>The Export Management interface is viewable by users who have Editing permissions.
+                    Tasks such as QA runs, content releases, metric reports, and conflict resolutions
+                    are done under this interface, but the Content Manager has permissions to create a
+                    release version in this area.</para>
+            </section>
+        </section>
+    </section>
+    <!-- Part 3-->
+    <section>
+        <info>
+            <title>Searching and Viewing Terminologies</title>
+        </info>
+        <section>
+            <title>How do I find terminologies?</title>
+            <para>You can search for terminologies under the Authoring interface. On the left pane,
+                there are options to find the concepts directly in its taxonomy tree or to search for
+                keywords.</para>
+            <section>
+                <title>Taxonomy Tree</title>
+                <para>One of the ways to view terminologies or concepts is to locate the item in the
+                    taxonomy tree in the left pane. Simply select the terminology you want to view
+                    in its relationship tree. To expand a concept module, select the caret symbol on
+                    the left of the tree to expand its children terminologies.</para>
+                <section>
+                    <title>What do the icons represent?</title>
+                    <para>[Need list of icons and definitions for tree]</para>
+                </section>
+            </section>
+            <section>
+                <title>Search</title>
+                <para>Terminologies can be searched by keywords under the Search tab in the left pane.
+                    After the keywords are entered, select the button "Search" to retrieve results.
+                    Knowledge supports Lucene search and FLWOR queries in this area as well, for more
+                    information select the info icon next to the search field. </para>
+                <section><title>Advanced Search</title>
+                    <para>There are several ways to narrow down the search criteria under the "Advanced
+                        Search" and "SNOMED Filters" sections of the Search tab. Select the button
+                        "Search" to retrieve results after any search criteria changes. Selecting the
+                        "Reset" button will clear all fields in the Search tab. A figure of the
+                        available filter criteria is shown below.</para>
+                    <para><inlinemediaobject>
+                        <alt>Figure of the Search tab with additional filter criteria such as
+                            Status, Path, STAMP date range, Author, Modules, and Description
+                            type.</alt>
+                        <imageobject>
+                            <imagedata fileref="\images\advanced-search.png"/>
+                        </imageobject>
+                    </inlinemediaobject></para>
+                </section>
+                <section><title>Saved Searches</title>
+                    <para>Search criteria can be saved for later user under the Search tab. To do so,
+                        enter the search criteria and select the "Search" button. A results section
+                        should appear below the search fields along with options to save the search and
+                        to export the results to a CSV file. Select the "Save Search" link in order to
+                        name and save the search.</para>
+                    <para>Saved searches are retrieved under the "saved searches" section of the search
+                        tab. This section is only visible if there are previously saved searches. Select
+                        the desired search from a dropdown list and press the "Search" button to pull
+                        results.</para>
+                </section>
+            </section>
+        </section>
+        
+        <section>
+            <title>Viewing Terminologies/Concepts</title>
+            <para>Once a concept is selected, its details is displayed on one of the Concept Viewer
+                panes. The pane lists the general concept information such as STAMP (define STAMP), its
+                descriptions which include additional names it may be known by in other languages and
+                dialects, and the axiom history which illustrates its taxonomy relationship. Details
+                such as the inferred information or inactive items can be toggled on by selecting
+                "Display options" in the upper right corner, and its refset relationships and history
+                can be found in tabs within the same panel.</para>
+            <para><inlinemediaobject>
+                <alt>Figure of the Display Options modal from the concept viewer. Displays options
+                    such as "Show authors, language, modules, filter STAMP date," and more.</alt>
+                <imageobject>
+                    <imagedata fileref="\images\display-options.png" width="750px"/>
+                </imageobject>
+            </inlinemediaobject></para>
+        </section>    
+    </section>
+    <!-- Part 4 -->
+    <section>
+        <title>Using the Briefcase</title>
+        <para>A briefcase is where you can temporarily hold concepts so that you can review them
+            later. For example, if you run the classifier and it identifies multiple duplicates, you
+            may want to add them to your briefcase so that you can access the list of concepts
+            quickly to compare. Or if you're reviewing the concept's associated members, the table
+            may have an option to add them to your briefcase.</para>
+        <para>To add a terminology to your briefase from some lists such as classifier page, select
+            the briefacse icon (not all tables have this feature). Simply click on the briefcase
+            icon to add or remove it from your list. Your briefcase is viewable in the left pane
+            navigation.</para>
+    </section>
+    <!-- Part 5 -->
+    <section>
+        <title>Selecting a Project Area</title>
+        <para>The name of the project area you are currently working on is indicated on the top left
+            corner of the application. If you are assigned to multiple projects, you may switch to a
+            different area by selecting "Projects" in the top navigation menu.</para>
+    </section>
+    
+</chapter>

@@ -10,10 +10,10 @@
         <para>• Standard ways of performing a procedure</para>
         <para>• Treatment protocols for diseases</para>
         <para>• Standard evidence-based Order Sets</para>
-        <para>Applied Procedural Knowledge can enable the use of
+        <para>Applied Procedural Knowledge can enable the use of Clinical Decision Support,
             <?oxy_comment_start author="steph" timestamp="20190507T125958-0600" comment="I don&apos;t think these need to be capitalized." id="vnl_sx2_c3b" mid="1"?><?oxy_comment_start author="rcholan" timestamp="20190615T214857-0400" comment="Stylistically, these are often captalized in Informatics Literature. I personally like capitalizing to make it clear that these are distinct concepts in the list. This can be re-visited in the proofing stage, or Stephanie we can discuss this more if you feel strongly. " parentID="vnl_sx2_c3b"?>Clinical
-            Pathways, Clinical Decision Support, and Knowledge
-            Artifacts<?oxy_comment_end?><?oxy_comment_end mid="1"?> (KNARTs) that
+            Pathways, and Knowledge Artifacts<?oxy_comment_end?><?oxy_comment_end mid="1"?> (KNARTs)
+            that
             <?oxy_comment_start author="steph" timestamp="20190507T130127-0600" comment="It&apos;s not clear to me if this is referring only to KNART or clinical pathways, CDS, and KNARTs.  If all of them, then don&apos;t they standardize more than just documentation?" flag="done"?>standardize
             patient documentation<?oxy_comment_end?>, quality improvement interventions, and
             protocols focused on specific clinical domains and patient situations.</para>
@@ -23,9 +23,13 @@
         <para>As defined by Osheroff et al <emphasis role="bold">Clinical decision
                 support</emphasis> (CDS) “provides clinicians, staff, patients, or other individuals
             with knowledge and person-specific information, intelligently filtered or presented at
-            appropriate times, to enhance health and health care.”<citation>Osheroff</citation> CDS
-            encompasses a variety of tools to enhance decision-making in the clinical workflow.
-            Examples of CDS tools include but are not limited to: </para>
+            appropriate times, to enhance health and health care.”<citation>Osheroff</citation> The
+            available evidence shows that CDS —when implemented properly with formal management—can
+            reduce errors, improve the quality of care, reduce cost, and ease the cognitive burden
+            on health care providers. As a result, the impetus for achieving standardized,
+            widespread adoption of CDS across health systems is clear. </para>
+        <para>CDS encompasses a variety of tools to enhance decision-making in the clinical
+            workflow. Examples of CDS tools include but are not limited to: </para>
         <itemizedlist>
             <listitem>
                 <para>order sets created for particular conditions or types of patients</para>
@@ -128,32 +132,33 @@
             </itemizedlist></para>
         <para><inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="images/CDS%20Connect%20Lifestyle.svg"/>
+                    <imagedata fileref="images/CDS%20Connect%20Lifestyle.svg" scale="65"/>
                 </imageobject>
             </inlinemediaobject></para>
     </section>
     <section>
         <title>Lack of Standardized Encoded Clinical Data - Impact on CDS</title>
         <para>In this section, we will explore an important question regarding appropriate and
-            highly-reliable CDS: <emphasis role="bold">how can we provide patient safe clinical
-                decision support given the lack of standardization relating to how we encode
-                data?</emphasis> We will discuss the challenges faced by authors, implementers and
-            evaluators of CDS implementations by considering the following example CDS intervention
-            by Adam Wright et al in the NIH-funded “IQ-MAPLE” study (i.e., Improving Quality by
-            Making an Accurate Problem List in the EHR). <citation>IQMAPLE</citation> In IQ-MAPLE,
-            the investigators designed CDS interventions in the EHRs of four study sites to alert
-            physicians when a candidate problem (i.e., 1 of 13 prioritized study diagnoses such as
-            Asthma, COPD, Hypertension, and Hyperlipidemia) was detected that was missing from the
-            patient's problem list (i.e., absence of structured input of diagnosis codes/terms to
-            specify the 13 key conditions). The clinician would then be able to accept the alert and
-            add the problem, override the alert, or ignore it entirely. The investigators conducted
-            a randomized trial and evaluated the effect of the problem list alert on three
-            endpoints: alert acceptance, problem list addition rate and clinical quality. </para>
+            highly-reliable CDS: <emphasis><emphasis role="bold">how can we provide patient safe
+                    clinical decision support given the lack of standardization relating to how we
+                    encode data?</emphasis></emphasis> We will discuss the challenges faced by
+            authors, implementers and evaluators of CDS implementations by considering the following
+            example CDS intervention by Adam Wright et al in the NIH-funded “IQ-MAPLE” study (i.e.,
+            Improving Quality by Making an Accurate Problem List in the EHR).
+                <citation>IQMAPLE</citation> In IQ-MAPLE, the investigators designed CDS
+            interventions in the EHRs of four study sites to alert physicians when a candidate
+            problem (e.g., Asthma, COPD, Hypertension, Hyperlipidemia) was detected that was missing
+            from the patient's problem list (i.e., absence of structured input of diagnosis
+            codes/terms to specify the key condition of interest). The clinician would then be able
+            to accept the alert and add the problem, override the alert, or ignore it entirely. The
+            investigators conducted a randomized trial and evaluated the effect of the problem list
+            alert on three endpoints: alert acceptance, problem list addition rate and clinical
+            quality. </para>
         <para>In IQ-MAPLE, a team of clinical experts and informaticians designed and validated a
             series of problem inference algorithms, using rules-based techniques on structured data
             in the electronic health record (EHR) and natural language processing on unstructured
             data. Then, they created CDS rules for suggesting conditions to add to a patient’s
-            problem list that may have included the following exemplary criteria:<itemizedlist>
+            problem list that may have included the following example criteria:<itemizedlist>
                 <listitem>
                     <para>queries for the presence or absence of a diagnosis code (e.g., ICD-10CM,
                         SNOMED CT value sets by key condition) included in a patient’s problem list
@@ -173,60 +178,114 @@
                 </listitem>
             </itemizedlist></para>
         <para>Even though the CDS rules and value sets in the IQ-MAPLE study were created centrally,
-            there was likely variation in the value set and terminology implementations and usage at
-            the four study organizations, and therefore there may have been discrepancies in how the
-            CDS rules were triggered when they were deployed. For example, perhaps physicians at one
-            of the study sites have been trained to only use diagnosis codes that align with
-            Hierarchical Condition Category (HCC) codes in CMS’ risk-adjustment model. These
-            physicians would not have used any other diagnosis codes that may have existed in the
-            IQ-MAPLE authored value sets for the CDS alerts. The other three study sites may not
-            have operationalized such specific workflows thereby reducing the standard
-            representation of the IQ-MAPLE CDS alert implementations between the different medical
-            centers. Furthermore, there were likely vast variations in the EHR user interfaces for
-            how clinical data was entered in problem lists, representation of lab results, status
-            and recording of currently active medications, and other miscellaneous clinical data
-            inputs in patients’ encounter notes. (see ‘Clinical Input form’ in the Statement
-            Representation Chapter) </para>
-        <para>One of the overarching challenges of standards that aim to make CDS shareable and
-            interoperable is that there is currently not a robust way to associate rules in
-            knowledge-based systems with other dependencies that ensure proper operation. Current
-            CDS standards are silent on the notion of identifying a safe configuration of
-            dependencies between (a) the expression-logic for rules-based CDS techniques, (b) the
-            value sets with codes and terms to define clinical concepts of interest contained in the
-            CDS rules, and (c) the variability of how clinical data within the value sets and rules
-            are inputted, modeled, and stored in data repositories. </para>
+            there would have inevitably been variation in the implemenations of the rules against
+            clinical data at the 4 study sites. A report produced out of the collaboration between
+            the ONC and the National Academy of Medicine (NAM) stated that there are at least four
+            important technical challenges to sharing and therefore standardizing implementations of
+            CDS content: (1) insufficient standardization of patient data representation; (2)
+            insufficient standardization of CDS knowledge representation; (3) insufficient
+            standardization of CDS integration mechanisms; and (4) a need to align with broader
+            standardization initiatives. <citation>CDSOptimize</citation>
+        </para>
+        <para>Fundamentally, the representation and usage of clinical data and CDS knowledge across
+            the 4 IQ-MAPLE study sites would have varied. One of the reasons that CDS interventions
+            are difficult to implement between health care systems is because different EHR systems
+            and health care systems utilize different underlying patient data models and CDS
+            integration mechanisms. Even different instantiations of use of the same EHR systems,
+            differ in how they represent patient data. The ONC and NAM report stated that "[b]ecause
+            CDS relies on inferencing using patient data, this heterogeneity in patient data
+            representation poses an immense obstacle to sharing CDS."
+                <citation>CDSOptimize</citation> In IQ-MAPLE,  there were likely vast variations in
+            the EHR user interfaces for how clinical data was entered in problem lists,
+            representation of lab results, status and recording of currently active medications, and
+            other miscellaneous clinical data inputs in patients’ encounter notes. (see ‘Clinical
+            Input form’ in the Statement Representation Chapter) </para>
+        <para>In addition, there were likely variations in the usage of the value set and
+            terminology content at the 4 study organizations. Therefore, there may have been
+            discrepancies in how the CDS rules were triggered when they were deployed. For example,
+            perhaps physicians at one of the study sites had been trained to only use diagnosis
+            codes that align with Hierarchical Condition Category (HCC) codes in CMS’
+            risk-adjustment model. These physicians would not have used any other diagnosis codes
+            that may have existed in the IQ-MAPLE authored value sets for the CDS alerts. The other
+            three study sites may not have operationalized such specific workflows thereby reducing
+            the standard representation of the IQ-MAPLE CDS alert implementations between the
+            different medical centers. </para>
+        <para>The following challenges plaguing CDS implementations were described in a report
+            produced out of the collaboration between the ONC and the National Academy of
+                Medicine.<citation>CDSOptimize</citation>
+        </para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>Various pathways for implementation of CDS within different health care
+                        organizations</para>
+                </listitem>
+                <listitem>
+                    <para>Lack of standards and incentives to use and improve CDS</para>
+                </listitem>
+                <listitem>
+                    <para>Poor data quality</para>
+                </listitem>
+                <listitem>
+                    <para>Gaps in the evidence. </para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para>These challenges are due in part – according to the summary of Kawamoto's commentary
+            in the ONC and NAM report – to a lack of clear standards for CDS content representation:
+            "standards are not always defined clearly enough, so a developer will make a decision
+            that enables content to work within [test] systems...but are not scalable
+                nationally."<citation>CDSOptimize</citation> Consequently, there are vendor-specific
+            solutions and organization-specific solutions that exist with "either a laborious
+            configuration of external licensed content or a laborious reinvention of the wheel as
+            the organization creates its own content." <citation>CDSOptimize</citation> Instead of
+            creating a knowledge represention based on a standardized clinical data representation,
+            current efforts are focused on creating and re-creating one-off "solutions". Even the
+            latest CDS content standards, including Clinical Quality Language (CQL), CDS Hooks, and
+            OpenCDS have yet to achieve "the necessary level of detail in the standards and how they
+            are applied to clinical decisions."<citation>CDSOptimize</citation></para>
+        <para>Therefore, one of the overarching challenges of standards that aim to make CDS
+            shareable and interoperable is that there is currently not a robust way to associate
+            rules in knowledge-based systems with other dependencies in clinical data represetnation
+            system to ensure proper operation. Current CDS standards are silent on the notion of
+            identifying a safe configuration of dependencies between (a) the expression-logic for
+            rules-based CDS techniques, (b) the value sets with codes and terms to define clinical
+            concepts of interest contained in the CDS rules, and (c) the variability of how clinical
+            data within the value sets and rules are inputted, modeled, and stored in data
+            repositories. </para>
         <para>These challenges have been explored by Wright et al when they studied CDS
             functionality at Brigham and Women’s Hospital and illustrated ways in which clinical
             decision support systems malfunction and identify patterns of such malfunctions.
                 <citation>CDSMalfunction</citation> As a part of this study, a survey of 29 Chief
             Medical Information Officers (CMIOs) showed that 93% of CMIOs experience CDS system
-            malfunctions, and two-thirds experienced the malfunctions at least annually. </para>
-        <itemizedlist>
-            <listitem>
-                <para>One such malfunction was described as involving <emphasis role="bold"
-                            ><emphasis role="underline"> inappropriate dependencies between and
-                            amongst the electronic health record system, clinical decision support
-                            system, and other external systems</emphasis></emphasis> (e.g., lab
-                    information systems) . For example, “an alert for monitoring thyroid function in
-                    patients receiving amiodarone stopped working when an internal identifier for
-                    amiodarone was changed in another system.” <citation>CDSMalfunction</citation>
-                </para>
-            </listitem>
-            <listitem>
-                <para>Wright et al also found that <emphasis role="bold"><emphasis role="underline"
-                            >inappropriate configuration of dependencies perpetuated mistakes in
-                            underlying databases and value set management</emphasis></emphasis>: “a
-                    malfunction in an external drug classification system caused an alert to
-                    inappropriately suggest antiplatelet drugs, such as aspirin, for patients
-                    already taking one”. <citation>CDSMalfunction</citation></para>
-            </listitem>
-            <listitem>
-                <para>Thirdly, Wright et al wrote about how <emphasis role="bold"><emphasis
-                            role="underline">inappropriate dependencies on EHR software caused
-                            numerous spurious alerts to fire</emphasis></emphasis>.
-                        <citation>CDSMalfunction</citation></para>
-            </listitem>
-        </itemizedlist>
+            malfunctions, and two-thirds experienced the malfunctions at least annually. <itemizedlist>
+                <listitem>
+                    <para>One such malfunction was described as involving <emphasis role="bold"
+                                ><emphasis role="underline"> inappropriate dependencies between and
+                                amongst the electronic health record system, clinical decision
+                                support system, and other external systems</emphasis></emphasis>
+                        (e.g., lab information systems) . For example, “an alert for monitoring
+                        thyroid function in patients receiving amiodarone stopped working when an
+                        internal identifier for amiodarone was changed in another system.”
+                            <citation>CDSMalfunction</citation>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>Wright et al also found that <emphasis role="bold"><emphasis
+                                role="underline">inappropriate configuration of dependencies
+                                perpetuated mistakes in underlying databases and value set
+                                management</emphasis></emphasis>: “a malfunction in an external drug
+                        classification system caused an alert to inappropriately suggest
+                        antiplatelet drugs, such as aspirin, for patients already taking one”.
+                            <citation>CDSMalfunction</citation></para>
+                </listitem>
+                <listitem>
+                    <para>Thirdly, Wright et al wrote about how <emphasis role="bold"><emphasis
+                                role="underline">inappropriate dependencies on EHR software caused
+                                numerous spurious alerts to fire</emphasis></emphasis>.
+                            <citation>CDSMalfunction</citation></para>
+                </listitem>
+            </itemizedlist></para>
     </section>
     <section>
         <title><emphasis role="bold">Monitoring CDS -  Design &amp; Testing
@@ -269,200 +328,401 @@
             updates to standard clinical terminologies over time. It could also be used to detect
             changes to CDS expression-logic or rule changes and study the impact on the clinical
             data prior to deployment to better understand the impact of proposed updates. </para>
-    </section>
-    <section>
-        <title>Best Practices for CDS Knowledge Management and Deployment</title>
-        <para>As aforementioned in the section “Introduction to CDS”, the AMIA CDS Roadmap
-            Development Steering Committee describes three pillars for realizing the promise of CDS
-            (Osheroff): (1) Best Knowledge Available When Needed, (2) High Adoption and Effective
-            Use,  and (3) Continuous Improvement of Knowledge and CDS Methods.</para>
-        <para>Given our discussions of challenges that plague CDS implementations, we propose a 4th
-            pillar to be explicitly added to this framework: </para>
-        <itemizedlist>
-            <listitem>
-                <para><emphasis role="bold">Standardization Related to how we Encode and Represent
-                        Clinical Data</emphasis></para>
-                <para>The underlying clinical data that feeds into CDS tools, interventions, and
-                    deployments must be represented, version-controlled, and encoded in a
-                    consistent, comprehensive, and systematic way. </para>
-            </listitem>
-        </itemizedlist>
         <section>
-            <title>Best Practices for CDS Knowledge Management</title>
-            <para>Below are some suggestions for <emphasis role="underline">Best Practices for CDS
-                    Knowledge Management</emphasis>: <citation>WrightWebinar</citation></para>
-            <itemizedlist>
-                <listitem>
-                    <para>Implement a clear, standard process for submission, review, evaluation,
-                        prioritization, and creation of all new CDS</para>
-                </listitem>
-                <listitem>
-                    <para>Maintain an up-to-date inventory of all CDS, including type (e.g., alert,
-                        order set), owner(s), dates of creation, dates of review, sources of
-                        evidence, clinical areas affected, and short description</para>
-                </listitem>
-                <listitem>
-                    <para>Manage terminologies and value sets using formal processes (e.g.,
-                        Solor)</para>
-                </listitem>
-                <listitem>
-                    <para>Periodically review the clinical evidence and assertional knowledge
-                        underlying CDS rules and update as needed</para>
-                </listitem>
-                <listitem>
-                    <para>Use a formal software change control process for all CDS updates</para>
-                </listitem>
-                <listitem>
-                    <para>Enable review of the logic for CDS rules in human-readable format by
-                        clinical end-users (e.g., in a portal or repository)</para>
-                </listitem>
-            </itemizedlist>
+            <title>Metrics for Monitoring CDS Implementations before and after Go-Live
+                Deployment</title>
+            <para>This section will describe quality metrics for monitoring CDS performance. The ONC
+                and NAM report highlighted the impetus for measuring whether CDS interventions are
+                working: “ To optimize CDS and increase adoption and acceptance, it will be critical
+                to determine which interventions are firing at the appropriate times and are then
+                accepted by the clinical care team and patients and changing care for the better.
+                This capability will be important at both the local and national scale if the goal
+                is to reduce the burden on providers and health systems to each identify important
+                lessons on their own." <citation>CDSOptimize</citation> The following table shows
+                examples of measures to determine the impact of CDS interventions.s
+                    <citation>refine</citation><table frame="all">
+                    <title>Examples of measures commonly captured to measure the effects of CDS
+                        interventions </title>
+                    <tgroup cols="2">
+                        <colspec colname="c1" colnum="1" colwidth="1*"/>
+                        <colspec colname="c2" colnum="2" colwidth="1*"/>
+                        <thead>
+                            <row>
+                                <entry>Measure</entry>
+                                <entry>Examples</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>CDS satisfaction, usage, usability </entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>usability assessments from end-users, end-user
+                                                feedback, use of CDS from logs</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Workflow impact, efficiency</entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>time to complete work tasks before and after CDS,
+                                                e.g., direct order entry, medication turn-around
+                                                time</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>CDS use by clinicians</entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>alert use, rate of alerts firing  alert
+                                                overrides</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>number of times CDS alerts happen: (e.g.,
+                                                  absolute counts, central tendency, percent change
+                                                  over time)</para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Clinical objectives addressed with CDS </entry>
+                                <entry/>
+                            </row>
+                            <row>
+                                <entry>       Care processes, adherence to
+                                    guidelines</entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>adherence to clinical guidelines; time to ordering
+                                                of important medications</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>       Patient safety </entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>error reports, adverse events, transfers to ICU,
+                                                death, medication prescribing errors</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>      Patient Outcomes</entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>disease management related to adoption of
+                                                guidelines (e.g., blood pressure control, lipid
+                                                levels, H1ac levels), hospital lengths of stay,
+                                                rehospitalizations     </para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Healthcare services utilization and efficiencies</entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>reductions in unnecessary or inappropriate
+                                                laboratory test orders</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Costs</entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>resource management, provider medication (number,
+                                                type, class) and laboratory test costs</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>Unintended consequences (includes all measure types
+                                    above)</entry>
+                                <entry>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>alert fatigue, overrides of serious alerts,
+                                                adverse events due to CDS</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table></para>
+            <section>
+                <title>Signs of an Effective CDS Roll-Out </title>
+                <para>Health IT.gov published a how-to manual for healthcare organizations to
+                    monitor CDS rollout plans and included the following criteria:
+                        <citation>rollout</citation></para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>All end-users were adequately trained for using the intervention
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>End-users felt the trainings were well-timed in relation to the
+                                roll-out </para>
+                        </listitem>
+                        <listitem>
+                            <para>End-users did not feel overwhelmed by the introduction of
+                                CDS</para>
+                        </listitem>
+                        <listitem>
+                            <para>End-users know how to provide feedback and get support if
+                                needed</para>
+                        </listitem>
+                        <listitem>
+                            <para>Changes in workflow were smooth and improved care processes</para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </section>
+            <section>
+                <title>Statistical Process Methods for CDS Anomaly Detection</title>
+                <para>A CDS malfunction (aka true positive anomaly) occurs when the CDS rule does
+                    not function as it was designed or expected to. The question that an evaluator
+                    of CDS interventions may ask is: <emphasis><emphasis role="bold">over time,
+                            given an expected number of events will happen, how many events will
+                            happen</emphasis></emphasis>? When monitoring CDS count data over time,
+                    the underlying denominator likely will vary insignificantly. Therefore,
+                    statistical process control (SPC) charts can be created and the following tests
+                    can be performed: <citation>kassakian</citation></para>
+                <para>Test #1 the presence of a single point outside the control limits using
+                    3*standard deviation.</para>
+                <para>Test #2 two of three consecutive points are more than 2 standard deviations
+                    from the average line and both on the same side of the average line.</para>
+                <para>Test #3 eight or more consecutive points on the same side of the average
+                    line.</para>
+                <para>Test #4 consisted of 6 or more values steadily increasing or
+                    decreasing.</para>
+                <para>SPC anomaly detection can be attempted on time points for various time scales
+                    (e.g., weekly and monthly scale). To determine the characteristics and
+                    performance of SPC detection methods sensitivity, specific, precision and the F
+                    measure can be determined.</para>
+            </section>
         </section>
         <section>
-            <title>Best Practices for CDS Deployment</title>
-            <para>Below are some suggestions for Best Practices for CDS Deployment:
+            <title>Best Practices for CDS Knowledge Management and Deployment</title>
+            <para>As aforementioned in the section “Introduction to CDS”, the AMIA CDS Roadmap
+                Development Steering Committee describes three pillars for realizing the promise of
+                CDS <citation>Osheroff</citation>: (1) Best Knowledge Available When Needed, (2)
+                High Adoption and Effective Use, and (3) Continuous Improvement of Knowledge and CDS
+                Methods.</para>
+            <para>Given our discussion of challenges that plague CDS implementations, we propose a
+                4th pillar to be explicitly added to this framework: </para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Standardization Related to how we Encode and
+                            Represent Clinical Data</emphasis></para>
+                    <para>The underlying clinical data that feeds into CDS tools, interventions, and
+                        deployments must be represented, version-controlled, and encoded in a
+                        consistent, comprehensive, and systematic way. </para>
+                </listitem>
+            </itemizedlist>
+            <section>
+                <title>Best Practices for CDS Knowledge Management</title>
+                <para>Below are some suggestions for <emphasis role="underline">Best Practices for
+                        CDS Knowledge Management</emphasis>:
                     <citation>WrightWebinar</citation></para>
-            <itemizedlist>
-                <listitem>
-                    <para>Use a process where changes to value set terminology codes made by SDOs,
-                        value set developers, or by ancillary department internal systems are
-                        communicated and pushed to CDS authors, implementers, and evaluators to be
-                        analyzed for impact before the changes are made</para>
-                </listitem>
-                <listitem>
-                    <para>Employ a process where changes to attribute values (e.g., units of
-                        measurement) are communicated and pushed to CDS authors, implementers, and
-                        evaluators to be analyzed for impact before the changes are made</para>
-                </listitem>
-                <listitem>
-                    <para>Test and deploy EHR vendor patches and upgrades in a timely manner</para>
-                </listitem>
-                <listitem>
-                    <para>Inform users of significant CDS changes</para>
-                </listitem>
-                <listitem>
-                    <para>Require IT staff to use automated tools to migrate CDS rules between EHR
-                        system environments (e.g., test and production)</para>
-                </listitem>
-            </itemizedlist>
-        </section>
-        <section>
-            <title>Ten Commandments for Effective CDS</title>
-            <para>Bates et al published the<emphasis role="italic"> Ten Commandments for Effective
-                    Clinical Decision Support: Making the Practice of Evidence-based Medicine a
-                    Reality</emphasis> with “the goal…to present generic lessons from [their CDS]
-                experiences that may be useful to others, including informaticians, systems
-                developers, and health care organizations.” <citation>CDS10</citation> The paper
-                includes the follow Ten Commandments for Effective CDS
-                <citation>CDS10</citation>:</para>
-            <orderedlist>
-                <listitem>
-                    <para><emphasis role="bold">Speed is Everything</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>“[T]he speed of an information system is the parameter that users
-                                value most. If the decision support is wonderful, but takes too long
-                                to appear, it will be useless.” </para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Anticipate Needs and Deliver in Real
-                        Time</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>“[A]pplications must anticipate clinician needs and bring
-                                information to clinicians at the time they need it” </para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Fit into the User’s Workflow</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>“Understanding clinician workflow, particularly when designing
-                                applications for the outpatient setting, is critical.”</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Little Things Can Make a Big
-                        Difference</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>Usability matters a lot. CDS must be understandable, useful and
-                                encompass the needed functionality. Furthermore, CDS should be easy
-                                to learn, efficient to use, easy to remember, subjectively pleasing,
-                                and contain few (or no) errors. </para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Recognize that Physicians Will Strongly Resist
-                            Stopping</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>Bates et al “found that physicians strongly resist suggestions not
-                                to carry out an action when [they did] not offer an alternative,
-                                even if the action they are about to carry out is virtually always
-                                counterproductive.”</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Changing Direction Is Easier than
-                            Stopping</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>CDS can be a powerful tool for changing physician behavior. Bates
-                                et al were “especially effective when the issue at hand is one
-                                attribute of an order the physician probably does not have strong
-                                feelings about, such as the dose, route, or frequency of a
-                                medication or the views in a radiographic study.”</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Simple Interventions Work Best</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>“If you cannot fit a guideline on a single screen, clinicians will
-                                not be happy about using it.”</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Ask for Additional Information Only When You Really
-                            Need It</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>“[The likelihood of success in implementing a computerized
-                                guideline is inversely proportional to the number of extra data
-                                elements needed.”</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Monitor Impact, Get Feedback, and
-                        Respond</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>“Carefully evaluate and prune the CDS knowledge base.”</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">Manage and Maintain Your Knowledge-based
-                            Systems</emphasis></para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>Maintaining the knowledge within the system and managing the
-                                individual pieces of the system are critical to successful delivery
-                                of decision support. </para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-            </orderedlist>
+                <itemizedlist>
+                    <listitem>
+                        <para>Implement a clear, standard process for submission, review,
+                            evaluation, prioritization, and creation of all new CDS</para>
+                    </listitem>
+                    <listitem>
+                        <para>Maintain an up-to-date inventory of all CDS, including type (e.g.,
+                            alert, order set), owner(s), dates of creation, dates of review, sources
+                            of evidence, clinical areas affected, and short description</para>
+                    </listitem>
+                    <listitem>
+                        <para>Manage terminologies and value sets using formal processes (e.g.,
+                            Solor)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Periodically review the clinical evidence and assertional knowledge
+                            underlying CDS rules and update as needed</para>
+                    </listitem>
+                    <listitem>
+                        <para>Use a formal software change control process for all CDS
+                            updates</para>
+                    </listitem>
+                    <listitem>
+                        <para>Enable review of the logic for CDS rules in human-readable format by
+                            clinical end-users (e.g., in a portal or repository)</para>
+                    </listitem>
+                </itemizedlist>
+            </section>
+            <section>
+                <title>Best Practices for CDS Deployment</title>
+                <para>Below are some suggestions for Best Practices for CDS Deployment:
+                        <citation>WrightWebinar</citation></para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Use a process where changes to value set terminology codes made by
+                            SDOs, value set developers, or by ancillary department internal systems
+                            are communicated and pushed to CDS authors, implementers, and evaluators
+                            to be analyzed for impact before the changes are made</para>
+                    </listitem>
+                    <listitem>
+                        <para>Employ a process where changes to attribute values (e.g., units of
+                            measurement) are communicated and pushed to CDS authors, implementers,
+                            and evaluators to be analyzed for impact before the changes are
+                            made</para>
+                    </listitem>
+                    <listitem>
+                        <para>Test and deploy EHR vendor patches and upgrades in a timely
+                            manner</para>
+                    </listitem>
+                    <listitem>
+                        <para>Inform users of significant CDS changes</para>
+                    </listitem>
+                    <listitem>
+                        <para>Require IT staff to use automated tools to migrate CDS rules between
+                            EHR system environments (e.g., test and production)</para>
+                    </listitem>
+                </itemizedlist>
+            </section>
+            <section>
+                <title>Ten Commandments for Effective CDS</title>
+                <para>Bates et al published the<emphasis role="italic"> Ten Commandments for
+                        Effective Clinical Decision Support: Making the Practice of Evidence-based
+                        Medicine a Reality</emphasis> with “the goal…to present generic lessons from
+                    [their CDS] experiences that may be useful to others, including informaticians,
+                    systems developers, and health care organizations.” <citation>CDS10</citation>
+                    The paper includes the follow Ten Commandments for Effective CDS
+                        <citation>CDS10</citation>:</para>
+                <orderedlist>
+                    <listitem>
+                        <para><emphasis role="bold">Speed is Everything</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>“[T]he speed of an information system is the parameter that
+                                    users value most. If the decision support is wonderful, but
+                                    takes too long to appear, it will be useless.” </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Anticipate Needs and Deliver in Real
+                                Time</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>“[A]pplications must anticipate clinician needs and bring
+                                    information to clinicians at the time they need it” </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Fit into the User’s Workflow</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>“Understanding clinician workflow, particularly when designing
+                                    applications for the outpatient setting, is critical.”</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Little Things Can Make a Big
+                                Difference</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Usability matters a lot. CDS must be understandable, useful
+                                    and encompass the needed functionality. Furthermore, CDS should
+                                    be easy to learn, efficient to use, easy to remember,
+                                    subjectively pleasing, and contain few (or no) errors. </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Recognize that Physicians Will Strongly Resist
+                                Stopping</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Bates et al “found that physicians strongly resist suggestions
+                                    not to carry out an action when [they did] not offer an
+                                    alternative, even if the action they are about to carry out is
+                                    virtually always counterproductive.”</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Changing Direction Is Easier than
+                                Stopping</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>CDS can be a powerful tool for changing physician behavior.
+                                    Bates et al were “especially effective when the issue at hand is
+                                    one attribute of an order the physician probably does not have
+                                    strong feelings about, such as the dose, route, or frequency of
+                                    a medication or the views in a radiographic study.”</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Simple Interventions Work Best</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>“If you cannot fit a guideline on a single screen, clinicians
+                                    will not be happy about using it.”</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Ask for Additional Information Only When You
+                                Really Need It</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>“[The likelihood of success in implementing a computerized
+                                    guideline is inversely proportional to the number of extra data
+                                    elements needed.”</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Monitor Impact, Get Feedback, and
+                                Respond</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>“Carefully evaluate and prune the CDS knowledge base.”</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Manage and Maintain Your Knowledge-based
+                                Systems</emphasis></para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Maintaining the knowledge within the system and managing the
+                                    individual pieces of the system are critical to successful
+                                    delivery of decision support. </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </orderedlist>
+            </section>
         </section>
     </section>
     <section>
@@ -717,7 +977,7 @@
                     entry.<citation>orderset</citation><citation>ordersets2</citation></para>
         </section>
         <section>
-            <title>KNARTs</title>
+            <title>Knowledge Artifacts (KNARTs)</title>
             <?oxy_comment_start author="timowilliams" timestamp="20190513T164136-0500" comment="Should this be it&apos;s own section?" flag="done"?>
             <?oxy_comment_start author="steph" timestamp="20190610T094315-0600" comment="I think it should." flag="done" mid="5"?>
             <para><?oxy_comment_end?><?oxy_comment_end mid="5"?>KNART is a Clinical Decision Support

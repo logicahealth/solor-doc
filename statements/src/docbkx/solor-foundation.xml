@@ -5,8 +5,7 @@
     version="5.1">
     <title>Solor Architecture</title>
     <section>
-        <title>Versioning Overview</title>
-        <para/>
+        <title>Modularity and Versioning Overview</title>
         <para><?oxy_comment_start author="steph" timestamp="20190305T101717-0700" comment="Does this mean within the architecture layer, there are various layers or are you referring to the PASTA layers?  Again, it&apos;s confusing to me to refer to all of it as the architecture and then within it, have an architecture layer." flag="done"?><?oxy_comment_end?>When
             dealing with the complexities of the various architectural layers of the informatics
             architectural separation of concerns, one of the most important things to note is that
@@ -16,7 +15,6 @@
             establish as a foundation for Solor a versioning and modularity architecture that allows
             changes and subchanges to be referenced uniquely so that all parties can be on the same
             page as to a particular version.</para>
-        <para/>
         <para>For example, the following diagram shows how each module could be given a unique
             version number and contain all layers of the architectural stack. In the instance that a
             particular versioned module needs to be extended, an extension module could be added to
@@ -24,7 +22,23 @@
             version. This arrangement accounts for the constant change in the healthcare
             interoperability space while still allowing two organizations to baseline on the same
             version for testing or exchange purposes (i.e. Module M13, Extension E25)</para>
-        <para/>
+        <para>In software engineering, modularity refers to the extent to which software may be
+            divided into smaller modules. Modularity emphasizes separating the functionality of a
+            program into independent, interchangeable modules, such that each contains everything
+            necessary to execute only one aspect of the desired functionality. A module interface
+            expresses the elements that are provided and required by the module, and the elements
+            defined in the interface are detectable by other modules. Modular programming is closely
+            related to object-oriented programming, having the same goal of facilitating
+            construction of large software programs and systems by decomposition into smaller
+            pieces, or polymorphism by encapsulation, or composition over inheritence. With modular
+            programming, concerns are separated such that modules perform logically discrete
+            functions, interacting through well-defined interfaces. Often modules form a directed
+            acyclic graph (DAG); in this case a cyclic dependency between modules is seen as
+            indicating that these should be a single module. In the case where modules do form a DAG
+            they can be arranged as a hierarchy, where the lowest-level modules are independent,
+            depending on no other modules, and higher-level modules depend on lower-level ones. A
+            particular program or library is a top-level module of its own hierarchy, but can in
+            turn be seen as a lower-level module of a higher-level program, library, or system. <citation>module</citation></para>
         <figure>
             <title>Versioning; Modules and Extensions</title>
             <mediaobject>

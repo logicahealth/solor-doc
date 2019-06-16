@@ -40,10 +40,10 @@
             and pharmaceutical and biological products. SNOMED CT concepts exist at multiple levels
             of granularity, and mechanisms exist to add missing content to ensure that information
             is coded at the most granular level possible. SNOMED CT concepts are identified with a
-            <?oxy_comment_start author="steph" timestamp="20190402T132125-0600" comment="Does this go against the desiderata of a meaningless identifer, as mentioned in the terminology-intro.xml section?  If yes, should it be acknowledged?" id="wvs_slw_lhb" flag="done" mid="3"?><?oxy_comment_start author="rcholan" timestamp="20190418T125555-0400" comment="terminology-intro.xml is not rendered in the SIA pdf any longer so I do not think we need to address this. " parentID="wvs_slw_lhb" flag="done"?><?oxy_comment_start author="steph" timestamp="20190610T132602-0600" comment="It&apos;s still in the current version of the SIA book." mid="4"?>6-
+            <?oxy_comment_start author="steph" timestamp="20190610T132602-0600" comment="It&apos;s still in the current version of the SIA book." flag="done"?><?oxy_comment_start author="steph" timestamp="20190402T132125-0600" comment="Does this go against the desiderata of a meaningless identifer, as mentioned in the terminology-intro.xml section?  If yes, should it be acknowledged?" id="wvs_slw_lhb" mid="3"?>6-
             to 18-digit integer that has some structure that describes where the identifier
             originated (the original creator of the identifier) and what type of identifier it is.
-            <?oxy_comment_end mid="4"?><?oxy_comment_end?><?oxy_comment_end mid="3"?></para>
+            <?oxy_comment_end?><?oxy_comment_end mid="3"?></para>
     </section>
     <section>
         <title><?oxy_comment_start author="timowilliams" timestamp="20190430T204727-0500" comment="Can we legally add examples here to the documentation?
@@ -169,6 +169,242 @@
             this concept that is devoid of any source information and will not need to know if this
             is the SNOMED/LOINC/RxNorm Gentamycin that needs to be selected.  Solor concepts are
             identified using a Univerally Unique Identifier (UUID).</para>
+    </section>
+    <section>
+        <title>Interoperability by Mapping</title>
+        <para>Today's health care terminology standards encompass methods, terminologies, and
+            specifications for the exchange, storage, and retrieval of information associated with
+            health care systems. These standards contain terminologies and concepts that are used in
+            medical records to describe patient symptoms, lab results, prescription medication, etc.
+            In today's health care industry, the standard approach to integrating multiple disparate
+            health data sources is to conduct mapping, a manual process attempts to associate data
+            to different systems for exchanging patient information and other data. Mapping, while
+            pragmatically actionable, is prone to information loss and errors.</para>
+        <para>Preserving the meaning of information when exchanging electronic health record data
+            (i.e., semantic interoperability) is critical for delivering safe patient care and
+            leveraging standards-based clinical decision support. Given that individuals often
+            receive health care from more than one health system, integration of data from multiple
+            sources is needed to ‘view’ a patient’s complete health record and avoid erroneous
+            clinical decisions based on incomplete or inaccurate information, such as decisions that
+            lead to performing unnecessary tests or giving a patient a drug to which they are known
+            to be allergic. To date, the strategy for achieving semantic interoperability between
+            the clinical systems of the Department of Defense (DoD) and the Veteran’s Administration
+            (VA) has been to ‘map’ millions of data elements used in the respective EHRs to standard
+            terminologies (e.g., SNOMED CT, LOINC, and RxNorm). ‘Round trip testing’ of the mapped
+            concepts has identified problems with the quality of the mappings for bidirectional use.
+            New strategies are required to achieve semantic interoperability to support safe patient
+            care, both before and after the two organizations start using of a single vendor for
+            their electronic health record systems. The use of logical definitions and terminology
+            system extensions to manage concepts used in the delivery of care can overcome key
+            challenges with the mapping strategy.</para>
+        <section>
+            <title>Mapping is Operational, but Incomplete</title>
+            <para>Despite the fact that mapping is plagued by challenges (e.g., being out of date,
+                not scalable, inconsistent, overly complex, incoherent, unstandardized), it still
+                serves an operational need. Current data standards hinder true interoperability, so
+                mapping allows disparate organizations to share and use at least some of their
+                clinical data across health systems. In this section, we will highlight some of the
+                immediate benefits that mapping provides from an operational perspective.
+                Subsequently, we will discuss the challenges associated with mapping. These
+                challenges may ultimately compromise patient safety and clinical decisions. </para>
+            <para>Here’s how terminology mapping accomplishes partial interoperability at the
+                semantic level <citation>HL</citation>:<orderedlist>
+                    <listitem>
+                        <para><emphasis role="bold">Makes Data Exchange Possible</emphasis>:
+                            Terminology mapping enables semantic interoperability, helping the
+                            healthcare sector reach the objective of fluent machine-to-machine
+                            communication. This function lets IT systems, such as EHRs, map
+                            different terms to a shared semantics, or meaning.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Provides a Trusted Source</emphasis>: Adopting a
+                            unified approach for managing terminology so that a single source of
+                            terminology can be leveraged across health systems. Mapping can help
+                            achieve a partially normalized data set that allows departmental systems
+                            to operate.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Incorporates Terminology into
+                                Applications</emphasis>: Terminology mapping also provides a method
+                            for incorporating standard clinical terminology within healthcare apps,
+                            thereby promoting semantic interoperability among organizations.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Manage a Range of Terminology Value
+                                Sets</emphasis>: A structured approach to mapping terminology can
+                            help an organization keep tabs on the multitude of groupers and value
+                            sets that are required for use for different purposes. </para>
+                    </listitem>
+                </orderedlist></para>
+        </section>
+        <section>
+            <title>Challenges with Mapping</title>
+            <para>The current lack of highly reliable, consistent, and complete semantic
+                interoperability limits healthcare organizations’ ability to exchange information
+                and pursue collaborative care. The standard approach to integrating multiple
+                disparate health data sources is to conduct mapping, a manual process that
+                is:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Out of date</para>
+                </listitem>
+                <listitem>
+                    <para>Not scalable using local terminology</para>
+                </listitem>
+                <listitem>
+                    <para>Inconsistent and losing information at each transformation</para>
+                </listitem>
+                <listitem>
+                    <para>Unnecessarily complex and incoherent</para>
+                </listitem>
+                <listitem>
+                    <para>Lacking a standard approach and structure</para>
+                </listitem>
+            </itemizedlist>
+            <section>
+                <title>Summary of Solor white paper - "From retrospective mapping to prospective
+                    standardization" </title>
+                <para>Methods: To describe the current mapping approach, we reviewed reports
+                    submitted by a consulting terminology expert who evaluated the process and
+                    outcomes from the multi-year mapping efforts, summarized key features of the
+                    mapping methods that threaten quality, and identified examples to illustrate
+                    mapping challenges. To describe the new approach, we explain the strategy for
+                    representing concepts required for interoperability, internal use, or
+                    integration of historical data, and we present basic models for representing
+                    concepts and managing requests for new concepts. Finally, we applied the new
+                    approach to the problems identified from the mapping strategy and discuss
+                    strengths and limitations.<citation>MappingPaper</citation>
+                </para>
+                <para>Results: A major threat to quality concerned the requirement that local source
+                    terms be mapped to a single standardized terminology element; no creation of
+                    logical expressions was allowed to represent target concepts. The quality of the
+                    mappings were also impacted by incomplete and different mapping rules used by
+                    the two organizations. Ongoing resources are required to assess and maintain
+                    mappings over time. <citation>MappingPaper</citation>
+                </para>
+            </section>
+            <section>
+                <title>Example of Challenges due to Mapping</title>
+                <para>Mapping is an approach to share data; unfortunately, mapping at each step in
+                    the data exchange process creates additional opportunities for error and for
+                    loss of information that may lead to a patient’s harm. SNOMED CT and other
+                    meaningful use standards are frequently used as targets of this mapping, and
+                    their use is mandated as part of the Meaningful Use regulations. Tables 1 and 2
+                    below show how equivalent concepts in two different care settings leads to
+                    information loss when they are mapped to SNOMED CT because SNOMED CT does not
+                    represent the equivalent meaning. In Table 1 and 2, the Local Concept column
+                    represents the concept created by Hospital A during the care of a patient, the
+                    Map Type column specifies broader than or narrower than or equivalent, and the
+                    SNOMED CT Concept column represents the concept to which the local concept has
+                    been mapped. The Meaning Lost column describes the information lost due to
+                    mapping because an equivalent match of the local concept is not found in SNOMED
+                    CT. In the first Table below, the SNOMED CT Concept is broader than the local
+                    concept causing important tumor morphology information to be lost during
+                    mapping. In Table 2, the SNOMED CT Concept is also a broader than the local
+                    concept causing important tumor location information to be lost in the mapping
+                    process.</para>
+                <para><inlinemediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/Mapping.png" scale="50"/>
+                        </imageobject>
+                    </inlinemediaobject></para>
+            </section>
+        </section>
+        <section>
+            <title>The Solor Solution</title>
+            <para>What’s needed is a semantically normalized information model (i.e., Solor) with an
+                appropriate separation of concerns in regard to the informatics architectural
+                layers. Such a model is critical for the success of a number of forward-thinking
+                healthcare initiatives. Solor does not map one terminology system to another. Solor
+                integrates specific terminologies such as – but not limited to – SNOMED CT, LOINC,
+                RXNorm. These three terminologies form the foundation of Solor because they are
+                meaningful use standards, where when integrated together, they represent the breadth
+                of information necessary for clinical data representation.</para>
+            <para>The new approach to data integration involves the use of description logic to
+                model and manage concepts from standard terminologies to support clinical care.
+                Instead of mapping an existing local code or term to a standard code with the goal
+                of creating semantic equivalence, challenges created by mapping were avoided by
+                directly representing concepts using standard codes or logical expressions that
+                conform to a description logic model. We described the strategy for representing
+                ‘things’ (i.e. meanings) about patient care using existing single SNOMED, LOINC, and
+                RxNorm concepts, computable logical expressions based on SNOMED CT, LOINC, or RxNorm
+                that are added to extensions managed by an organization, organization specific
+                identifers to support specific local needs, and by adding ‘names’ (i.e., new
+                dialect-specific synonyms) to already-existing ‘things’. Finally, ‘alternate
+                identifiers’ for SNOMED, LOINC or RxNorm concepts are useful for integrating
+                historical data so source terms (linked to alternative identifiers) are accurately
+                represented using standard concepts defined using description logic.</para>
+            <section>
+                <title>Design Features - Understandabile, Reproducibile and Useful</title>
+                <para>Content in Solor aims to adhere to design features for concept
+                    validity:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Understandable: The meaning of a concept can be understood, without
+                            reference to private or inaccessible information.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Reproducible: Multiple users can apply the concept to the same
+                            situations.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Useful: The concept has a practical value to users that is
+                            self-evident or can be readily explained.</para>
+                    </listitem>
+                </itemizedlist>
+            </section>
+            <section>
+                <title>Licensing and Solor</title>
+                <para>Solor is not intended to compete with existing standards and processes, and
+                    does not redistribute content. It enables the community of Solor to integrate
+                    terminologies – their own terminology and others’ terminology. Those who are
+                    distributing terminology must have a license to distribute these terminologies.
+                    For example: If organization A is distributing SNOMED CT, LOINC and its curated
+                    terminology then organization A needs to ensure they have a license to
+                    redistribute SNOMED CT and LOINC. Solor’s transformation processes and
+                    architectural foundation are available under the Apache 2 Open Source License. </para>
+                <para>Solor is not competing with other terminology standards.  SNOMED CT, LOINC and
+                    RXNorm are foundational terminologies in Solor. Solor fully supports and relies
+                    on these standards and their organizations. Solor’s intent is to complement
+                    these standards. Organizations are free to integrate Solor content into their
+                    standards.</para>
+                <section>
+                    <title>LOINC License</title>
+                    <para>The LOINC database can be obtained from the Regenstrief LOINC website
+                            (<link xlink:href="http://www.regenstrief.org/loinc/"
+                            >http://www.regenstrief.org/loinc/</link>), as a PDF report sorted
+                        alphabetically by class, as a tab-delimited ASCII text file, and/or as an
+                        Access database. The LOINC database and associated documents and programs
+                        are copyrighted, but the copyright permits all commercial and noncommercial
+                        uses in perpetuity at no cost. If the LOINC database or its contents are
+                        distributed as a database, such distributions must include all parts of the
+                        formal LOINC term, the LOINC short name, the LOINC code, the deprecated
+                        flag, and the copyright. The copyright notice is needed to prevent variants,
+                        which would defeat the purpose of this standard. No such notice is required
+                        when LOINC codes are used in messages to report test results.</para>
+                </section>
+                <section>
+                    <title>SNOMED CT License</title>
+                    <para>Use of SNOMED CT is subject to the International Health Terminology
+                        Standards Development Organisation (IHTSDO) Affiliate license provisions and
+                        is free in IHTSDO Member territories including the United States, in low
+                        income countries, and for Qualifying Research Projects in any country. To
+                        learn more, please see the IHTSDO SNOMED CT and Licensing page. Users should
+                        carefully read the license agreement before re-distributing any content in
+                        any type of application as there may be additional restrictions, permissions
+                        or copyright considerations imposed by the content providers. Users must
+                        contact the vocabulary content providers regarding any use that is not
+                        covered by the license. The content providers may charge fees for these
+                        additional uses of their content. Appendix 1 of the license agreement lists
+                        contact information for each content provider. The SNOMED CT® Affiliate
+                        License Agreement is included as Appendix 2 of the UMLS Metathesaurus
+                        License and outlines possible costs. NLM is a member of IHTSDO and there is
+                        no charge for SNOMED CT use in the United States and other Member
+                        territories. For information about fees in non-member countries, see the
+                        IHTSDO website.</para>
+                </section>
+            </section>
+        </section>
     </section>
     <section>
         <?oxy_comment_start author="timowilliams" timestamp="20190430T211931-0500" comment="How does this relate to the SNOMED CT Integration efforts?

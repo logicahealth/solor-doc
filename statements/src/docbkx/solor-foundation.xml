@@ -29,8 +29,8 @@
             expresses the elements that are provided and required by the module, and the elements
             defined in the interface are detectable by other modules. Modular programming is closely
             related to object-oriented programming, having the same goal of facilitating
-            construction of large software programs and systems by decomposition into smaller
-            pieces, or polymorphism by encapsulation, or composition over inheritence. With modular
+            construction of large software programs and systems by decomposition into smaller pieces
+            (i.e., 'polymorphism by encapsulation' or 'composition over inheritance'). With modular
             programming, concerns are separated such that modules perform logically discrete
             functions, interacting through well-defined interfaces. Often modules form a directed
             acyclic graph (DAG); in this case a cyclic dependency between modules is seen as
@@ -38,7 +38,8 @@
             they can be arranged as a hierarchy, where the lowest-level modules are independent,
             depending on no other modules, and higher-level modules depend on lower-level ones. A
             particular program or library is a top-level module of its own hierarchy, but can in
-            turn be seen as a lower-level module of a higher-level program, library, or system. <citation>module</citation></para>
+            turn be seen as a lower-level module of a higher-level program, library, or system.
+                <citation>module</citation></para>
         <figure>
             <title>Versioning; Modules and Extensions</title>
             <mediaobject>
@@ -62,13 +63,12 @@
         <para>2. Enablement of semantic operability within the foundational architecture through
             normalization of representation and achieving coherence within and among the primary
             building blocks of the architecture.</para>
-        <para/>
         <para>Solor is an ecosystem that allows users to import, transform, and view content from
             disparate medical terminologies, all in one common model. Users can navigate and search
             Solor content, view details of the data elements, and select specific concepts to view
             more information. As Solor is open-source, developers are encouraged to build on top of
             existing functionalities.</para>
-        <para>We adopted contemporary software principles to create a multilayered architecture for
+        <para>We adopted contemporary software principles to create a multi-layered architecture for
             integrating standard medical terminologies. We sought to adhere to three main principles
             in our architectural design: (a) to store concepts from medical terminologies so that
             one could apply classifiers and identifiers; (b) to allow for versioning and updates
@@ -100,9 +100,8 @@
                     Semantic:</emphasis> provides identifier to the concept in a standardized
                     way</para> <para>•Fields: Source Terminology Code</para>  <para><emphasis role="bold">Description
                         Semantic</emphasis>: provides a human-readable description</para><para> •Fields:
-                            Fully-Specified Name, Long Common Name, Short Name, and Display Name </para><para><emphasis
-                    role="bold">Logic Graph Semantic</emphasis>: provides description logic for
-                traversing hierarchies and for specifiying the view of the relationships between and
+                            Fully-Specified Name, Long Common Name, Short Name, and Display Name </para><para><emphasis role="bold">Logic Graph Semantic</emphasis>: provides description logic for
+                traversing hierarchies and for specifying the view of the relationships between and
                 amongst data elements </para><para>•<?oxy_comment_start author="steph" timestamp="20190305T102225-0700" comment="For some reason in the PDF version of this document, there is a blank line shown between &quot;Logic Graphic Semantic&quot; and &quot;Fields&quot; and the same for &quot;Assemblage&quot; and &quot;Fields&quot; below.  Do you know why?" flag="done" id="p4x_glw_lhb"?><?oxy_comment_end?><?oxy_comment_start author="rcholan" timestamp="20190418T125227-0400" comment="I think this is resolved. The spacing looks equivalent for all of the definitions. " parentID="p4x_glw_lhb" flag="done" mid="3"?>:<?oxy_comment_end mid="3"?>Fields:
                 Parent-child-sibling relationship </para><para><emphasis role="bold">Assemblage</emphasis>: Grouping set specifically created to store all of
                 the data elements, data types, and metadata for a particular use case</para> <para>•Fields: Variable to accommodate a variety of use cases. For
@@ -229,9 +228,10 @@
             <section>
                 <title>FLWOR </title>
                 <para>FLWOR is an acronym for "For, Let, Where, Order by, Return". The programming
-                    language XQuery defines FLWOR as an expression that supports iteration and binding of variables
-                    to intermediate results. FLWOR is loosely analogous to SQLs SELECT-FROM-WHERE and can be used to provide join-like functionality
-                    to navigating content.</para>
+                    language XQuery defines FLWOR as an expression that supports iteration and
+                    binding of variables to intermediate results. FLWOR is loosely analogous to
+                    SQL's SELECT-FROM-WHERE and can be used to provide join-like functionality to
+                    navigating content.</para>
                 <itemizedlist>
                     <listitem>
                         <para>For</para>

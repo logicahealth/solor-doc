@@ -8,7 +8,7 @@
     <section>
         <title>Creating and Editing Concepts</title>
         <para/>
-       <!-- Part 2 -->
+        <!-- Part 2 -->
         <section>
             <title>How to Edit a Concept</title>
             <para>If your account has editor permissions, you can edit a concept by viewing its
@@ -70,8 +70,11 @@
             <para>In Clone Concept mode, everything in the concept is copied over to an editable
                 form where the concept name, descriptions, and axioms may be modified. In order to
                 save any changes, select the "Create" button at the bottom of the viewer.</para>
-            <?oxy_comment_start author="mnham" timestamp="20190614T151248-0700" comment="What are the consequences of cloning a concept if certain things are similar?"?>
-        </section><?oxy_comment_end?>
+            <?oxy_comment_start author="mnham" timestamp="20190614T151248-0700" comment="What are the consequences of cloning a concept if certain things are similar?" id="zlv_hwz_c3b"?>
+            <?oxy_comment_start author="susancastillo" timestamp="20190618T155642-0700" comment="The editor/user needs to make sure that the FQN is unique and the NAMs are unique as duplicates are not allowed. The definition or axiom also needs to be different or the classifier could flag it as an equivalent concept. 
+
+Editors/Users basically create a close because the concept they are cloning is similar to what they want to create but different. Usually a similar axiom i.e. definition" parentID="zlv_hwz_c3b" mid="1"?>
+        </section><?oxy_comment_end?><?oxy_comment_end mid="1"?>
     </section>
     <!-- Section 2 -->
     <section>
@@ -92,8 +95,10 @@
     </section>
     <!-- Section 3 -->
     <section>
-        <title>Creating Reference Sets</title>
-        <para><?oxy_comment_start author="mnham" timestamp="20190618T102147-0700" comment="Need to define refsets"?>There<?oxy_comment_end?>
+        <title>Creating
+            <?oxy_comment_start author="susancastillo" timestamp="20190618T164621-0700" comment="maybe we just create a referenced component refset so the section title would be Creating a Referenced Component Assemblage"?>Reference<?oxy_comment_end?>
+            Sets</title>
+        <para><?oxy_comment_start author="mnham" timestamp="20190618T102147-0700" comment="Need to define refsets" id="jvk_k11_d3b"?><?oxy_comment_start author="susancastillo" timestamp="20190618T162756-0700" comment="There are several different types of refsets but we&apos;re going to use Assemblages. Assemblages are useful for including, excluding concepts.  Assemblages can also be used to &quot;collect&quot; certain content for a particular use case. e.g. values used to record the site of a measurement of a patients heart rate. in this case the values could be finger, ear lobe. This is a simple Assemblage and the most common Assemblage created by users of  Knowledge. A simple Assemblage has a referenced component field and no other fields. The referenced component is the concept that is referenced in the Assemblage component field." parentID="jvk_k11_d3b" mid="4"?>There<?oxy_comment_end mid="4"?><?oxy_comment_end?>
             are two ways to create a new reference set, also referred to as a refset in the
             application: by selecting "Create Refset" under the Authoring navigation menu, and by
             selecting "New…" under the Sets tab in the Authoring viewing pane.</para>
@@ -132,7 +137,7 @@
         <para>Refset queries can be created by selecting the "New…" button under the Sets tab in the
             left panel of the Authoring interface. Click on "Create" after filling out the form, and
             the new query's details page will
-            load.<?oxy_comment_start author="mnham" timestamp="20190618T100459-0700" comment="Need to define refset queries"?></para><?oxy_comment_end?>
+            load.<?oxy_comment_start author="mnham" timestamp="20190618T100459-0700" comment="Need to define refset queries" id="xcp_4c1_d3b"?><?oxy_comment_start author="susancastillo" timestamp="20190618T164423-0700" comment="A query Assemblage --- lets leave out for now...there isn&apos;t a UI implemented for it." parentID="xcp_4c1_d3b" mid="6"?></para><?oxy_comment_end?><?oxy_comment_end mid="6"?>
         <para>To add conditions to the new query, select "Options…" > "Edit Conditions", and the
             Edit Mode will load. In Edit mode, you can create conditions and search for specific
             concepts to drag-drop into the "Add Conditions" area.</para>

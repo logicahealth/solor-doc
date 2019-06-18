@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+     <title>Creating and Editing Assets</title>
+    <para>Description</para>
+    <section>
+        <title>Creating and Editing Concepts</title>
+        <para/>
+       <!-- Part 2 -->
+        <section>
+            <title>How to Edit a Concept</title>
+            <para>If your account has editor permissions, you can edit a concept by viewing its
+                concept details, then selecting "Edit" in the upper right corner of the
+                viewer.</para>
+            <para>In Edit Concept mode, the concept can be activated or inactivated and the
+                descriptions and axioms may be modified. In order to save any changes, select the
+                "Save" button at the bottom of the viewer.</para>
+            <simplesect>
+                <title>How do I inactivate a Concept?</title>
+                <para>You need to be in Edit Concept mode in order to inactivate or activate any
+                    concepts or descriptions. There is a dropdown menu on the page to select the
+                    proper status for the terminology. Select the Save button to confirm your
+                    changes.</para>
+                <para><inlinemediaobject>
+                        <alt>The Edit Concept page displaying Save and Reset buttons, Concept name,
+                            SCTID, publication status, and a dropdown for Active or Inactive
+                            states.</alt>
+                        <imageobject>
+                            <imagedata fileref="images/inactive-concept.png"/>
+                        </imageobject>
+                    </inlinemediaobject></para>
+            </simplesect>
+        </section>
+        <!-- Part 3 -->
+        <section>
+            <title>How to Create a Concept</title>
+            <para>Follow the steps below to create a new concept:</para>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para>Select "New Concept" from the Authoring menu in the top
+                            navigation.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Once you open the New Concept page, select the terminology's parent
+                            (you may add additional parents as needed in this form as well). </para>
+                    </listitem>
+                    <listitem>
+                        <para>Type in the name of the new concept and verify that it does not have
+                            any duplicates.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Select "Create" to confirm the new addition. This will create the
+                            concept and take you to the Edit Concept page to add additional
+                            information such as multiple descriptions and link reference sets.
+                        </para>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </section>
+        <!-- Part 4 -->
+        <section>
+            <title>How to Clone a Concept</title>
+            <para>A terminology can be cloned and modified as needed by users with editing
+                permissions. </para>
+            <para>Clone a concept by viewing its concept details, then select "Clone" in the upper
+                right corner of the viewer.</para>
+            <para>In Clone Concept mode, everything in the concept is copied over to an editable
+                form where the concept name, descriptions, and axioms may be modified. In order to
+                save any changes, select the "Create" button at the bottom of the viewer.</para>
+            <?oxy_comment_start author="mnham" timestamp="20190614T151248-0700" comment="What are the consequences of cloning a concept if certain things are similar?"?>
+        </section><?oxy_comment_end?>
+    </section>
+    <!-- Section 2 -->
+    <section>
+        <title>Axioms</title>
+        <para>Define Axiom TBD<orderedlist>
+                <orderedlist>
+                    <listitem>
+                        <para>What is an Axiom</para>
+                    </listitem>
+                    <listitem>
+                        <para>Creating an Axiom</para>
+                    </listitem>
+                    <listitem>
+                        <para>Modifying an Axiom</para>
+                    </listitem>
+                </orderedlist>
+            </orderedlist></para>
+    </section>
+    <!-- Section 3 -->
+    <section>
+        <title>Creating Reference Sets</title>
+        <para><?oxy_comment_start author="mnham" timestamp="20190618T102147-0700" comment="Need to define refsets"?>There<?oxy_comment_end?>
+            are two ways to create a new reference set, also referred to as a refset in the
+            application: by selecting "Create Refset" under the Authoring navigation menu, and by
+            selecting "New…" under the Sets tab in the Authoring viewing pane.</para>
+        <para>On the Create New Refset page, fill out the information needed and select "Create".
+            Once the refset is created, you will see the ability to add concept members on the left
+            pane.</para>
+        <section>
+                <title>Adding Members to a Refset</title>
+        <para>To add members to a refset, select the "Edit Members" button when viewing the refset
+                details. This will take you into an edit view where you can find concepts by
+                taxonomy, search, or import. Once you have found the concept(s) you want to add,
+                select the plus icon next to it and the item will be added to the table on the left
+                pane. </para>
+        <para>When you are ready to save the members list, select "Compare &amp; Sync" to review
+            your changes. If there are any conflicts, the table will display the information to help
+            you decide how to sync the new data into the refset.</para>
+        <para>On the Compare &amp; Sync page, the "Save Changes" button means that you wish to save
+                the changes you just made (as displayed under the <emphasis role="bold"
+                    >Draft</emphasis> column in the table). The "Cancel Changes" button means that
+                you wish to discard the changes you made (save the changes under the <emphasis
+                    role="bold">Published</emphasis> column in the table).</para>
+        </section>
+        <section>
+                <title>Removing Refset Members</title>
+        <para>To remove members from a refset, select the "Edit Members" button when viewing the
+            refset details. This will take you to Edit Mode, where you can remove members from the
+            table by selecting the "X" icon. You must select "Compare &amp; Sync" to review and
+            confirm your changes. </para>
+            <para>Refer to the "Adding Members to a Refset" section for additional information on
+                what the "Save Changes" and "Cancel Changes" buttons do.</para>
+        </section>
+    </section>
+    <!-- Section 4 -->
+    <section>
+        <title>Creating Refset Queries</title>
+        <para>Refset queries can be created by selecting the "New…" button under the Sets tab in the
+            left panel of the Authoring interface. Click on "Create" after filling out the form, and
+            the new query's details page will
+            load.<?oxy_comment_start author="mnham" timestamp="20190618T100459-0700" comment="Need to define refset queries"?></para><?oxy_comment_end?>
+        <para>To add conditions to the new query, select "Options…" > "Edit Conditions", and the
+            Edit Mode will load. In Edit mode, you can create conditions and search for specific
+            concepts to drag-drop into the "Add Conditions" area.</para>
+        <para>After filling out the "Add Condtion" area, select "Add This Condition" button to add
+            it to the query list.</para>
+        <para>To test your conditions, select the "Run Query" option.</para>
+        <para>To save your changes, you must select "Compare &amp; Sync" to review the changes and
+            save.</para>
+        <para>The "Save Changes" button means that you wish to save the changes you just made (the
+            changes are displayed under the <emphasis role="bold">Draft</emphasis> column in the
+            table). The "Cancel Changes" button means that you wish to discard the changes you made
+            (the items under the <emphasis role="bold">Published</emphasis> column in the table will
+            stay as is).</para>
+    </section>
+    <!-- Section 5 -->
+    <section>
+        <title>Creating Mapsets</title>
+        <para><?oxy_comment_start author="mnham" timestamp="20190618T102214-0700" comment="Need to define mapsets"?>There<?oxy_comment_end?>
+            are two ways to create a new mapset: by selecting "Create Mapset" under the Authoring
+            navigation menu or by selecting "New…" under the Sets tab in the Authoring viewing
+            pane.</para>
+        <para>On the new mapset form, fill out the required information and select "Save" to create
+            the
+            mapset.<?oxy_comment_start author="mnham" timestamp="20190618T102431-0700" comment="The &quot;Creating Mapsets&quot; workflow needs to be confirmed later"?></para><?oxy_comment_end?>
+    </section>
+    <!-- Section 6 -->
+    <section>
+        <title>Creating, Modifying, and Viewing Assemblages</title>
+        <para>Create an Assemblage Specification -- TBD</para>
+    </section>
+</chapter>

@@ -167,12 +167,23 @@
                     retrieve results. Knowledge supports Lucene search and FLWOR queries in this
                     area as well, for more information select the info icon next to the search
                     field. </para>
+                <para>Knowledge has implemented Lucene as one of it's search engines. Lucene is an 
+                    open-source full-text search library. Both Simple Search and Advanced Search described 
+                    in the subsequent sections use Lucene. With the Lucene syntax you can easily perform
+                    searchs for more details on the Lucene search syntax refer to the Lucene tutorial
+                    <link xlink:href="http://www.lucenetutorial.com"> Lucene tutorial </link>
+                </para>
+                <section><title>Simple Search</title>
+                <para>Simple search allows you to search for the keyword that you typed in the
+                        search box without selecting and advanced search or SNOMED CT options.
+                        Selecting the search button will return all descriptions that matches. </para>
+                </section>
                 <section><title>Advanced
-                        <?oxy_comment_start author="susancastillo" timestamp="20190620T084126-0700" comment="FLWOR -- should have it&apos;s own section"?><?oxy_comment_start author="susancastillo" timestamp="20190620T093204-0700" comment="Stopped here...will continue in a bit..." mid="7"?>Search<?oxy_comment_end?><?oxy_comment_end mid="7"?></title>
-                    <para>There are several ways to narrow down the search criteria under the "Advanced
+                        <?oxy_comment_start author="susancastillo" timestamp="20190620T084126-0700" comment="FLWOR -- should have it&apos;s own section"?>Search<?oxy_comment_end?></title>
+                    <para>There are several ways to refine the search criteria under  "Advanced
                         Search" and "SNOMED Filters" sections of the Search tab. Select the button
-                        "Search" to retrieve results after any search criteria changes. Selecting the
-                        "Reset" button will clear all fields in the Search tab. A figure of the
+                        "Search" to retrieve results after any search criteria changes. Selecting
+                        the "Reset" button will clear all fields in the Search tab. A figure of the
                         available filter criteria is shown below.</para>
                     <para><inlinemediaobject>
                         <alt>Figure of the Search tab with additional filter criteria such as
@@ -194,13 +205,7 @@
                         the desired search from a dropdown list and press the "Search" button to pull
                         results.</para>
                 </section>
-                <section>
-                    <title>How do I link Taxonomy and Search to Concept Viewer?</title>
-                    <para>The concept viewer panel can be linked to the Taxonomy and Search
-                        functions. Once linked the concept selected in the taxonomy hierarchy and
-                        search results will display in the concept viewer
-                        panel.<?oxy_comment_start author="susancastillo" timestamp="20190620T081706-0700" comment="need to add screen shot"?></para><?oxy_comment_end?>
-                </section>
+                
             </section>
             
         </section>
@@ -243,5 +248,21 @@
             corner of the application. If you are assigned to multiple projects, you may switch to a
             different area by selecting "Projects" in the top navigation menu.</para>
     </section>
-    
+    <!-- Part 6 --> 
+    <section>
+        <title>How do I link Taxonomy and Search to Concept Viewer?</title>
+        <para>In the Knowledge Authoring application you can connect th concept selected in the
+            search results and in the taxonomy to the Concept Viewer Panel. By default in connection
+            or linkage is set. This means when you select a concept in the taxonomy the Concept
+            Viewer will display the details of that concept. The same is true if select a result
+            from a search. You can modify the linkage by toggling the linkage icon in the upper
+            lefthand corner of the concept details panel.
+        </para>
+        <para><inlinemediaobject>
+                <alt>Linkage icon</alt>
+                <imageobject>
+                    <imagedata fileref="images/linkage-icon.png" width="250px" />
+                </imageobject>
+            </inlinemediaobject></para>
+    </section>
 </chapter>

@@ -5,9 +5,16 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
      <title>Creating and Editing Assets</title>
     <para>Description</para>
+    <para>Assets include: Concepts, Axioms, Assemblages, and Mapsets</para>
+    <para>Note: Assets created in your local environment do not immediately affect the master
+        version. The content needs to be exported as a release version, which will upload your
+        changes to the repository.</para>
     <section>
         <title>Creating and Editing Concepts</title>
-        <para/>
+        <para>Concepts, or terminologies, are the defining content of existing terminology systems.
+            In order to view, modify, and create new ones, Knowledge provides a simple workflow for
+            your local concept needs. This section will provide information on how to edit, create,
+            and clone a concept.</para>
         <!-- Part 2 -->
         <section>
             <title>How to Edit a Concept</title>
@@ -70,11 +77,10 @@
             <para>In Clone Concept mode, everything in the concept is copied over to an editable
                 form where the concept name, descriptions, and axioms may be modified. In order to
                 save any changes, select the "Create" button at the bottom of the viewer.</para>
-            <?oxy_comment_start author="mnham" timestamp="20190614T151248-0700" comment="What are the consequences of cloning a concept if certain things are similar?" id="zlv_hwz_c3b"?>
-            <?oxy_comment_start author="susancastillo" timestamp="20190618T155642-0700" comment="The editor/user needs to make sure that the FQN is unique and the NAMs are unique as duplicates are not allowed. The definition or axiom also needs to be different or the classifier could flag it as an equivalent concept. 
-
-Editors/Users basically create a close because the concept they are cloning is similar to what they want to create but different. Usually a similar axiom i.e. definition" parentID="zlv_hwz_c3b" mid="1"?>
-        </section><?oxy_comment_end?><?oxy_comment_end mid="1"?>
+            <para><emphasis>Note: The Fully Qualified Name (FQN) and Names (NAM) must be unique as
+                    duplicates are not allowed. The definition or axiom also needs to be different
+                    or the classifier could flag it as an equivalent concept. </emphasis></para>
+        </section>
     </section>
     <!-- Section 2 -->
     <section>
@@ -98,6 +104,11 @@ Editors/Users basically create a close because the concept they are cloning is s
         <title>Creating
             <?oxy_comment_start author="susancastillo" timestamp="20190618T164621-0700" comment="maybe we just create a referenced component refset so the section title would be Creating a Referenced Component Assemblage"?>Reference<?oxy_comment_end?>
             Sets</title>
+        <para>There are several different types of Assemblages but currently Knowledge has
+            implemented Simple Assemblages. A Simple Assemblage is a set of concepts. The set of
+            concepts are defined by the user creating the Simple Assemblage. For example, a simple
+            Assemblage may be created for values used to record the measurement site of a patients
+            heart rate, where the values could be finger, ear lobe, and wrist.</para>
         <para><?oxy_comment_start author="mnham" timestamp="20190618T102147-0700" comment="Need to define refsets" id="jvk_k11_d3b" mid="4"?><?oxy_comment_start author="susancastillo" timestamp="20190618T162756-0700" comment="There are several different types of refsets but we&apos;re going to use the word Assemblage since refsets/reference sets is very snomed specific. Assemblages are useful for including, excluding concepts.  Assemblages can also be used to &quot;collect&quot; certain content for a particular use case. e.g. values used to record the site of a measurement of a patients heart rate. in this case the values could be finger, ear lobe. This is a simple Assemblage and the most common Assemblage created by users of  Knowledge. A simple Assemblage is a set of concepts. The set of concepts are defined by the user creating the Simple Assemblage. For example, a simple Assemblage maybe created for values used to record the measurement site of a patients heart rate, where the set could be finger, ear lob, and wrist." parentID="jvk_k11_d3b"?>There<?oxy_comment_end?><?oxy_comment_end mid="4"?>
             are two ways to create a new reference set, also referred to as a refset in the
             application: by selecting "Create Refset" under the Authoring navigation menu, and by

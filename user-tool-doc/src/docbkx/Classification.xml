@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-     <title>Classification</title>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink"> 
+
+<info>
+     <title>Axioms and Classifier</title>
+        <orgname>Mind Computing</orgname>
+        <address><email>knowledge-info@mindcomputing.com</email></address>
+</info> 
+    <section><title>Axioms</title>
+        <para></para>
+    </section>
+    <section><title>Classifier</title>
     <para>The Knowledge Editor integrates a high performance Classifier--SnoRocket <link
             xlink:href="https://aehrc.com/snorocket/">https://aehrc.com/snorocket/</link>--which
         supports OWL EL++ and Concrete Domains. The classifier evaluates the stated relationships
@@ -13,8 +22,8 @@
             <emphasis role="italic">concept viewer pane </emphasis>and the Taxonomy displays
             <emphasis role="italic">stated and inferred </emphasis>is-a relationships based on the
         Taxonomy display options.</para>
-    <section>
-        <title>Using the Classifier</title>
+    <simplesect>
+        <title>How Do I Run the Classifier?</title>
         <para>There are 2 places in the Knowledge Editor interface to run the classifier: at the
             main navigation menu under "Authoring" and in the "Classifier" tab on the left pane. </para>
         <para>The initial run of the classifier after the start of the system will result in all
@@ -22,17 +31,18 @@
             concepts, also known as incremental classification. Incremental classification will
             continue so long as the classifier status cache is maintained. This number is only a
             measure of how much work the classifier did. </para>
-    </section>
-    <section>
-        <title>Viewing Previous Results of Classification</title>
+    </simplesect>
+    <simplesect>
+        <title>How Do I View Previous Classifier Results?</title>
         <para>When you open the Classifier tab under the Authoring interface, there is a table of
-            previously run classifications. You may view classifications from other paths by
-            selecting a different one from the dropdown "Classifier runs".</para>
+            previously run classifications. You may view classifications  results selecting a
+            different classification run from the dropdown "Classifier runs".</para>
         <para>To view any of these runs, select one and it will display in a concept viewer on the
             right.</para>
         <para>Here, a summary of attributes and types are displayed including:<itemizedlist>
                 <listitem>
                     <para>Added "Is a" Types</para>
+                    <para>This indications that an is-a </para>
                 </listitem>
                 <listitem>
                     <para>Inactived "Is a" Types</para>
@@ -56,5 +66,8 @@
             be made directly at the concept level. Refer to "How to Edit a Concept" for information
             on modifying
             terminologies.<?oxy_comment_start author="mnham" timestamp="20190620T144233-0700" comment="Link to Create-Edit section"?></para><?oxy_comment_end?>
-    </section>
-</chapter>
+    </simplesect>
+   </section>
+  
+</article> 
+

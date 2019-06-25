@@ -15,7 +15,7 @@
                 <para>Concept conflicts</para>
             </listitem>
             <listitem>
-                <para>Classification content metrics</para>
+                <para>Release statistics</para>
             </listitem>
             <listitem>
                 <para>QA test results</para>
@@ -23,7 +23,7 @@
         </itemizedlist></para>
     <para>Knowledge users with Content Manager permissions have access to these information. The
         primary purpose of Export Management is to run QA checks, export files and releases, and
-        review content metrics.</para>
+        review release statistics.</para>
     <section>
         <title>Creating an Export</title>
         <para>There are two types of exports that can be created: a local downloadable file, and a
@@ -67,10 +67,10 @@
     </section>
     <section>
         <title>QA Tests</title>
-        <para>QA Tests flag a wide range of potential errors in the release/export specified,
-            including domain attribute errors and description duplicates. This check can be run
-            individually or as part of an export request. To do so, select the desired action from
-            the "Create…" dropdown on the Export Management interface.</para>
+        <para>QA Tests flag terminologies that have broken concept rules in the requested
+            release/export, including domain attribute errors and description duplicates. This check
+            can be run individually or as part of an export request. To do so, select the desired
+            action from the "Create…" dropdown on the Export Management interface.</para>
         <para>Once the QA test has completed its analysis, select the run you just requested from
             the Exports and QA table on the left to review the results on the right pane. There is a
             relationship tree categorizing the results for you to select from. When you select a
@@ -85,16 +85,28 @@
     </section>
     <section>
         <title>Conflict Detection</title>
-        <para></para>
+        <para>Conflict detection finds concepts that have conficting information due to updates made
+            by two or more users. These results are found under the "Conflicts" tab with a link to
+            the terminology.</para>
     </section>
     <section>
         <title>Downloading files</title>
-        <para>Conent releases and their metrics can be downloaded under the details panel. Select
+        <para>Conent releases and their statistics can be downloaded under the details panel. Select
             the release you are interested in and there will be a button on the right panel named
             "Download Release". Content releases download in a [format].</para>
         <simplesect>
-            <title>What are content metrics?</title>
-            <para></para>
+            <title>What are release statistics?</title>
+            <para>Release statistics are a set of descriptive measures and statistics obtained
+                through automated queries with the objective of providing information on content
+                changes and temporal trends as a measurement of progress. You can download this
+                information by selecting "Download Statistics" under the export or release details
+                page.</para>
+            <para><inlinemediaobject>
+                <alt>Screenshot of the Content Export page titled, "Content Export 01/02/2019 12:09:05" with two buttons underneath "Download Export" and "Download Statistics".</alt>
+                    <imageobject>
+                        <imagedata fileref="images/download-statistics.png"/>
+                    </imageobject>
+                </inlinemediaobject></para>
         </simplesect>
     </section>
 </chapter>

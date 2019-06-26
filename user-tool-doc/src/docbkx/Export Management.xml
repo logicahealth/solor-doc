@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+     <title>Export Management</title>
+     <para>The Export Management interface contains information such as:<itemizedlist>
+            <listitem>
+                <para>Recent exports</para>
+            </listitem>
+            <listitem>
+                <para>Export file types</para>
+            </listitem>
+            <listitem>
+                <para>Concept conflicts</para>
+            </listitem>
+            <listitem>
+                <para>Release statistics</para>
+            </listitem>
+            <listitem>
+                <para>QA test results</para>
+            </listitem>
+        </itemizedlist></para>
+    <para>Knowledge users with Content Manager permissions have access to these information. The
+        primary purpose of Export Management is to run QA checks, export files and releases, and
+        review release statistics.</para>
+    <section>
+        <title>Creating an Export</title>
+        <para>There are two types of exports that can be created: a local downloadable file, and a
+            release version that is uploaded to the repository. Exports and releases created are
+            specific to the module you are working on. Once a release is created, you have the
+            option of downloading it onto your system.</para>
+        <para>When an export is initiated, several steps happen in the background: the classifier is
+            run, a QA check is performed, and then a file is packaged for download.</para>
+        <para>To create an export, go to the Export Management interface and on the left pane there
+            is a table of Exports and QA, filtered by Path. Select the "Actions…" dropdown and
+            "Create an Export".</para>
+        <para>A modal appears asking which path the release should be created under, the file type
+            for export, and a few additional details. Select "Create" to confirm and execute the
+            task.</para>
+        
+        <para><inlinemediaobject>
+            <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed."?>
+            <alt>Create an Export Modal displays a form with the following information:
+                    Exporting Module, Path, Type of Export, Namespace, Create Release Version,
+                    Version number, and buttons Create and Cancel.</alt><?oxy_comment_end?>
+                <imageobject>
+                                        <imagedata fileref="images/create-export-modal.png"/>
+                </imageobject>
+            </inlinemediaobject></para>
+        <para>The content release will appear in the Content Releases table on the left pane. There
+            is the ability to cancel the release creation if it has not been complete yet, located
+            under the table's Status column. </para>
+        <section>
+            <title>Creating a Release Version</title>
+            <para>When a module is ready for a release, the content manager must go through the
+                Export Management workflow in order to upload content to the repository.</para>
+            <para>To create a version release, go to the Export Management interface and on the left
+                pane there is a table of Exports and QA, filtered by Path. Select the "Actions…"
+                dropdown and "Create an Export". </para>
+            <para>A modal appears asking which path the release should be created under, the file
+                type for export, and a dialogue for release version. Check the box for release
+                version, modify the version number if needed, then select "Create" to confirm and
+                execute the task. The version number is automatically set to your current date in
+                year-month-date format.</para>
+        </section>
+    </section>
+    <section>
+        <title>QA Tests</title>
+        <para>QA Tests flag terminologies that have broken concept rules in the requested
+            release/export, including domain attribute errors and description duplicates. This check
+            can be run individually or as part of an export request. To do so, select the desired
+            action from the "Create…" dropdown on the Export Management interface.</para>
+        <para>Once the QA test has completed its analysis, select the run you just requested from
+            the Exports and QA table on the left to review the results on the right pane. There is a
+            relationship tree categorizing the results for you to select from. When you select a
+            category, its details will appear in the bottom half of the pane with the options to
+            review the concept described and to whitelist the concept.</para>
+        <simplesect>
+            <title>What is whitelisting?</title>
+            <para>Whitelisting a concept in the QA Test Results pane means that the error the system
+                found is acceptable and no action needs to be done. You can choose to whitelist a
+                concept by clicking the "Whitelist" link in the table results.</para>
+        </simplesect>
+    </section>
+    <section>
+        <title>Conflict Detection</title>
+        <para>Conflict detection finds concepts that have conficting information due to updates made
+            by two or more users. These results are found under the "Conflicts" tab with a link to
+            the terminology.</para>
+    </section>
+    <section>
+        <title>Downloading files</title>
+        <para>Conent releases and their statistics can be downloaded under the details panel. Select
+            the release you are interested in and there will be a button on the right panel named
+            "Download Release". Content releases download in a [format].</para>
+        <simplesect>
+            <title>What are release statistics?</title>
+            <para>Release statistics are a set of descriptive measures and statistics obtained
+                through automated queries with the objective of providing information on content
+                changes and temporal trends as a measurement of progress. You can download this
+                information by selecting "Download Statistics" under the export or release details
+                page.</para>
+            <para><inlinemediaobject>
+                <alt>Screenshot of the Content Export page titled, "Content Export 01/02/2019 12:09:05" with two buttons underneath "Download Export" and "Download Statistics".</alt>
+                    <imageobject>
+                        <imagedata fileref="images/download-statistics.png"/>
+                    </imageobject>
+                </inlinemediaobject></para>
+        </simplesect>
+    </section>
+</chapter>

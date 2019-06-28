@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink"> 
+
+<info>
+     <title>About the Classifier</title>
+    <abstract><para>The Article will focus on the Classifier capabilities in the 
+        Mind Computing Knowledge Authoring functions. Specifically, this article will describe how to 
+        run the classifier, view the results of the classifier, resolve equivalency and 
+        cycle errorsin the terminology.</para></abstract>
+</info> 
+   
+    
+   <para>The Knowledge Editor integrates a high performance Classifier--SnoRocket <link
+        xlink:href="https://aehrc.com/snorocket/">https://aehrc.com/snorocket/</link>--which
+        supports OWL EL++ and Concrete Domains. The classifier evaluates the stated relationships
+        based on <emphasis role="italic">Description Logics </emphasis>upon which the terminology is
+        defined and generates the inferred relationships for each concept. The Knowledge Editor
+        displays <emphasis role="italic">stated and inferred </emphasis>views of the concept in the
+        <emphasis role="italic">concept viewer pane </emphasis>and the Taxonomy displays
+        <emphasis role="italic">stated and inferred </emphasis>is-a relationships based on the
+        Taxonomy display options.</para>
+    <para>This article provides general information on what a classifier is, how to run the classifier, 
+        view the results of the classifier, and resolve any issues the classification uncovers.</para>
+ 
+      <!--  <bridgehead renderas="sect1">Classifier Questions</bridgehead> -->
+        <qandaset defaultlabel='qanda'>
+            <qandaentry>
+                <question><para>How Do I Run the Classifier?</para></question>
+                <answer>
+                    <para>There are 2 places in the Knowledge Editor interface to run the classifier: at the
+                        main navigation menu under "Authoring" and in the "Classifier" tab on the left pane.                    
+                        The initial run of the classifier after the start of the system will result in all
+                        concepts being evaluated. Subsequent classifications will only evaluate modified
+                        concepts, also known as incremental classification. Incremental classification will
+                        continue so long as the classifier status cache is maintained. This number is only a
+                        measure of how much work the classifier did. 
+                    </para>
+                </answer>
+            </qandaentry>
+            <qandaentry>
+                <question><para>How Do I View Previous Classifier Results?</para></question>
+                <answer>
+                    <para>
+                        When you open the Classifier tab under the Authoring interface, there is a table of
+                        previously run classifications. You may view classifications  results selecting a
+                        different classification run from the dropdown "Classifier runs". 
+                    </para>
+                    <para>To view the results of these runs, select one and it will display in a concept viewer on the
+                        right.</para>
+                    <para>A summary of the attributes and types are displayed including:
+                        <itemizedlist>
+                            <listitem>
+                                <para>Added "Is a" Types</para>
+                            </listitem>
+                            <listitem>
+                                <para>Inactived "Is a" Types</para>
+                            </listitem>
+                            <listitem>
+                                <para>New Attributes</para>
+                            </listitem>
+                            <listitem>
+                                <para>Inactivated Attributes</para>
+                            </listitem>
+                            <listitem>
+                                <para>Cycles Detected</para>
+                            </listitem>
+                            <listitem>
+                                <para>Equivalents Detected</para>
+                            </listitem>
+                        </itemizedlist>To review the concepts under each of these summaries, select the row. A
+                        table listing the identificed concepts will display below the summary list. You also
+                        have the option of adding concepts to your briefcase.</para>
+                    <important><para>If cycles or equivalencies are detected, you must edit the concept in question
+                        to resolve the equivalence or cycle. Refer to "How to Edit a Concept" for information
+                        on modifying terminologies.</para></important>
+                </answer>
+            </qandaentry>
+            <qandaentry><question><para>What is an Equivalency Error?</para></question>
+                        <answer>
+                            <para>The Classifier will detect an equivalency error when the definition 
+                                  of multiple concepts is the same or perceived the same by the Classifier.</para></answer>
+            </qandaentry>
+            <qandaentry><question><para>How Do I Resolve an Equivalency Error?</para></question>
+                        <answer>
+                            <para>The definition (axiom) of one of the concept(s) should be modified to remove the equivalency error 
+                                or one or more of the concepts should be inactivated by the user.   
+                            </para>
+                </answer>
+            </qandaentry>
+            <qandaentry><question><para>How Do I Resolve a Cycle?</para></question>
+                <answer>
+                    <para> A cycle is an error in the axiom (definition) of a concept. It is essentially a 
+                        circular definition. Something in the concepts definition points back to the concept being defined. 
+                        e.g. Concept A -> Concept B -> Concept C -> Concept D -> Concept A.
+                    </para>
+                </answer>
+            </qandaentry>
+        </qandaset>
+</article> 

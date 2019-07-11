@@ -50,6 +50,7 @@ class MendeleyClient {
                     .setPath("/documents")
                     .setParameter("view", "all")
                     .setParameter("group_id", groupId)
+                    .setParameter("limit", "500")
                     .build();
             HttpGet httpGet = new HttpGet(uri);
             httpGet.setHeader("Authorization", "Bearer " + this.mendeleyOAuth2.getAccess_token());

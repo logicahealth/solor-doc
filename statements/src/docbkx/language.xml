@@ -10,22 +10,19 @@
             <title>Language</title>
             <para>SNOMED CT, LOINC, and RxNorm as well as other coding systems have various ways of
                 representing language. </para>
-            <para>SNOMED CT uses a
-                <?oxy_comment_start author="kec" timestamp="20190516T103626-0700" comment="Tables are a physical representation, here we want to talk about logical representation, as different implmentations may have different physical representations. (KOMET does not have tables for example, but still supports language and dialect). So here I think saying that SNOMED associates a langauge code, description type, and dialect acceptability with text descriptions gets across the idea without talking about physical structures. "?>combination
-                of tables<?oxy_comment_end?> to represent language. The Description table in SNOMED
-                CT includes one Fully Specified Name and at least one synonym for each language. The
-                Preferred and Acceptable Synonyms per language are then specified in a Language
-                Reference Set. Any additional synonyms, other than the preferred, would be identifed
-                as acceptable.</para>
+            <para>Descriptions in SNOMED CT include one Fully Specified Name and at least one
+                synonym for each language. The Preferred and Acceptable Synonyms per language are
+                then specified in a Language Reference Set. Any additional synonyms, other than the
+                preferred, that are relevant for a language would be identifed as acceptable.</para>
             <table>
-                <title>Description and RefSet Table Values for Myocardial infarction</title>
+                <title>Description and RefSet Values for Myocardial infarction</title>
                 <tgroup cols="4">
                     <thead>
                         <row>
-                            <entry>Description.term</entry>
-                            <entry>Description.type</entry>
+                            <entry>Description Term</entry>
+                            <entry>Description Type</entry>
                             <entry>Refset(s)</entry>
-                            <entry>Refset.acceptability</entry>
+                            <entry>Refset Acceptability</entry>
                         </row>
                     </thead>
                     <tbody>
@@ -74,20 +71,74 @@
                     </tbody>
                 </tgroup>
             </table>
-            <?oxy_comment_start author="timowilliams" timestamp="20190501T101744-0500" comment="Add RxNorm example"?>
             <para>RxNorm identifies language in the RXNCONSO file in the STR field. The language of
                 the name is specified in the LAT field and the source the name comes from is
                 represented in the STT field. The names in the RXNCONSO are not unique as the same
-                name can come from multiple sources.</para><?oxy_comment_end?>
-            <?oxy_comment_start author="timowilliams" timestamp="20190501T101754-0500" comment="Add LOINC Example, include all the different name fields in LOINC.   Maybe include a Lab and Clinical example." id="kyh_3ld_xhb"?>
-            <?oxy_comment_start author="rcholan" timestamp="20190528T195335-0400" comment="Adding initial LOINC example." parentID="kyh_3ld_xhb" mid="3"?>
+                name can come from multiple sources.</para>
+            <para>
+                <table>
+                    <title>RxNorm Strings Associated With "100 ML Acetaminophen 10 MG/ML
+                        Injection"</title>
+                    <tgroup cols="2">
+                        <thead>
+                            <row>
+                                <entry>Property</entry>
+                                <entry>STR</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>Prescribable Synonym</entry>
+                                <entry>acetaminophen 1000 MG in 100 ML Injection</entry>
+                            </row>
+                            <row>
+                                <entry>RxNorm Name</entry>
+                                <entry>100 ML Acetaminophen 10 MG/ML Injection</entry>
+                            </row>
+                            <row>
+                                <entry>RxNorm Synonym</entry>
+                                <entry>acetaminophen 1000 MG per 100 ML Injection</entry>
+                            </row>
+                            <row>
+                                <entry>RxNorm Synonym</entry>
+                                <entry>100 ML APAP 10 MG/ML Injection</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
             <para>LOINC has names spread across multiple fields with the Fully Specified Name
-                constructed as a concatenation
-                <?oxy_comment_start author="steph" timestamp="20190508T110117-0600" comment="You may want to specify what the six parts are."?>of
-                the six parts<?oxy_comment_end?>. It also contains a Long Common Name and a Short
-                Name.<?oxy_comment_end mid="3"?><?oxy_comment_end?> The screenshot from Komet below
-                exemplifies the 6 LOINC parts: Component, Method, Property, Scale, System, and
-                Timing. </para>
+                constructed as a concatenation of the six parts. It also contains a Long Common Name
+                and a Short Name. The screenshot from Komet below exemplifies the 6 LOINC parts:
+                Component, Method, Property, Scale, System, and Timing. </para>
+            <para>
+                <table>
+                    <title>LOINC Representation of "Glucose [Presence] in Urine by Test strip --4.5
+                        hours post 75 g glucose PO"</title>
+                    <tgroup cols="6">
+                        <thead>
+                            <row>
+                                <entry>COMPONENT</entry>
+                                <entry>PROPERTY</entry>
+                                <entry>TIME_ASPCT</entry>
+                                <entry>SYSTEM</entry>
+                                <entry>SCALE_TYP</entry>
+                                <entry>METHOD_TYP</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>Glucose^4.5H post 75 g glucose PO</entry>
+                                <entry>PrThr</entry>
+                                <entry>Pt</entry>
+                                <entry>Urine</entry>
+                                <entry>Ord</entry>
+                                <entry>Test strip</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
             <para><inlinemediaobject>
                     <imageobject>
                         <?oxy_comment_start author="steph" timestamp="20190610T132017-0600" comment="In the PDF, this example is cutoff and you can&apos;t see the full middle panel section and you can only see the first letter of each of the 6 components.  Needs fixing."?>
@@ -112,14 +163,14 @@
                 in the US is used to describe a piece of cloth or paper used to wipe the hands and
                 mouth at a table while in the UK it is used to describe a diaper. </para>
             <table>
-                <title>Description and RefSet Table Values for Epidural anesthesia</title>
+                <title>Description and RefSet Values for Epidural anesthesia</title>
                 <tgroup cols="4">
                     <thead>
                         <row>
-                            <entry>Description.term</entry>
-                            <entry>Description.type</entry>
+                            <entry>Description Term</entry>
+                            <entry>Description Type</entry>
                             <entry>Refset(s)</entry>
-                            <entry>Refset.acceptability</entry>
+                            <entry>Refset Acceptability</entry>
                         </row>
                     </thead>
                     <tbody>
@@ -342,10 +393,8 @@ Having the use case here up front that describes the need we are trying to fill 
             <para>Consistent naming is also important to support effective retrieval.  For example, the SNOMED CT concept 386560004 |Glasgow coma score finding (finding)| has 13 children all with the string Glasgow coma scale instead of Glasgow coma score.  </para>
             <para>Another common issue is to add a synonym to a concept that is more specific than
                 the concept itself. A concept should only have synonyms that accurately represent a
-                concept and not any of
-                <?oxy_comment_start author="steph" timestamp="20190305T153943-0700" comment="Should be revised to &quot;its&quot;." flag="done"?>its<?oxy_comment_end?>
-                children. If a synonym has a more specific meaning, a new concept should be
-                created.</para>
+                concept and not any of its children. If a synonym has a more specific meaning, a new
+                concept should be created.</para>
         </section>
         <section xml:id="section_c3d7371d-1785-4e89-b280-9b4a53cd3665">
             <title>Language
@@ -387,16 +436,13 @@ Having the use case here up front that describes the need we are trying to fill 
                 designation. In order to properly return concepts/terms that are active, query
                 parameters must contain a parameter to designate if the query result should/should
                 not return active and inactive concepts or terms.</para>
-        	<para><emphasis role="bold">Regular
-                    <?oxy_comment_start author="steph" timestamp="20190305T154320-0700" comment="It looks like definitions or explanations of this and the one below still need to be provided." flag="done"?>Expressions<?oxy_comment_end?></emphasis>
-                - Regular expression
-                <?oxy_comment_start author="steph" timestamp="20190508T114704-0600" comment="Should the first part of the sentence say &quot;Regular expression&quot; vs. &quot;Regular express&quot;?" flag="done"?>or
-                regex <?oxy_comment_end?>is a sequence of characters that defines a search pattern.
-                This pattern would allow a user to retrieve results based on a certain pattern. For
-                example "a|b*" would return all "a", "b" and other b's that fits the pattern such as
-                "bb", "bbb", "bab", etc. Since the depth and breadth of regular expression is beyond
-                the scope of this document, various syntaxes, usage and explanation can be found in
-                many resources such as <link xlink:href="https://regexr.com/"/>.</para>
+        	<para><emphasis role="bold">Regular Expressions</emphasis> - Regular expression or regex is
+                a sequence of characters that defines a search pattern. This pattern would allow a
+                user to retrieve results based on a certain pattern. For example "a|b*" would return
+                all "a", "b" and other b's that fits the pattern such as "bb", "bbb", "bab", etc.
+                Since the depth and breadth of regular expression is beyond the scope of this
+                document, various syntaxes, usage and explanation can be found in many resources
+                such as <link xlink:href="https://regexr.com/"/>.</para>
         	<para><emphasis role="bold">Grouping Results by hierarchy</emphasis> - This search
                 requirement can be thought of as a complement to "components query". After casting a
                 wide net, results could be a bag of various terms (common cold vs. feeling cold)

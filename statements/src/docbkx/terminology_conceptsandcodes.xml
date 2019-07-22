@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.1">
     <title>Concepts and Codes</title>
     <section>
         <title>Introduction</title>
@@ -58,10 +58,12 @@
             LOINC Parts do not follow the same policies and maintenance practices as LOINC terms and
             are not intended to be used as a standalone terminology. Some LOINC codes are also
             associated with answers (LA) and answer lists (LL) in the LOINC Database. </para>
-        <para>The screenshot from Komet below exemplifies the 6 LOINC parts: Component, Method,
-            Property, Scale, System, and Timing. <inlinemediaobject>
+        <para><?oxy_comment_start author="steph" timestamp="20190717T161420-0600" comment="The line formatting for this in the PDF is strange. The justification type is putting a lot of white space between each word.  I think maybe a hard return needs to be inserted before the graphic?  You&apos;ll have to view in the PDF probably to see what I mean."?>The
+            screenshot from Komet below exemplifies the 6 LOINC parts: Component, Method, Property,
+            Scale, System, and Timing.<?oxy_comment_end?>
+            <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="images/LOINC_komet.png"  scale="20"/>
+                    <imagedata fileref="images/LOINC_komet.png" scale="20"/>
                 </imageobject>
             </inlinemediaobject></para>
     </section>
@@ -73,8 +75,8 @@
             (UMLS).</para>
         <para>RxNorm provides normalized clinical drug names and relationships between those names
             and common drug vocabularies for the purpose of easing the exchange of clinical drug
-            information between systems that use different drug vocabularies.  Every concept in
-            RxNorm is given a unique RXCUI.  The names and codes from the common drug vocabularies
+            information between systems that use different drug vocabularies. Every concept in
+            RxNorm is given a unique RXCUI. The names and codes from the common drug vocabularies
             are then linked to that RXCUI.</para>
         <para><inlinemediaobject>
                 <imageobject>
@@ -105,28 +107,26 @@
                     categories useful in decision-support logic.</para>
             </listitem>
         </itemizedlist>
-                <para>New applications and new medical knowledge constantly call for expansion and
-                    enhancement of existing terminologies. However, since terminology systems are
-                    often non-static, incomplete and under specified, inconsistencies may be
-                    introduced. </para>
-                <para>While many of these challenges are related to terminology evolution, others
-                    may be related to the design of the standard clinical terminologies themselves.
-                    Cimino notably described the challenges of concept orientation, completeness,
-                    correctness, currency, granularity, and redundancy when designing re-usable
-                    medical terminologies. Today, 20 years later, a menagerie of inconsistent and
-                    overlapping terminology models hinders efforts that try to store and analyze
-                    encoded clinical data. Several efforts aim to assist. The National Library of
-                    Medicine (NLM) integrates terms and codes from over 150 source vocabularies by
-                    concept, attribute, and meaning in the Unified Medical Language System ® (UMLS)
-                    Metathesaurus. The NLM, also, in collaboration with the Office of the National
-                    Coordinator for Health Information Technology and Centers for Medicare &amp;
-                    Medicaid Services, hosts the Value Set Authority Center (VSAC). The VSAC aims to
-                    provide lists of values, codes, and names (i.e., value sets) from standard
-                    clinical terminologies to represent clinical concepts. </para>
-                <para>These tools, while helpful, have gaps.
-            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph." id="syq_1mw_lhb" flag="done" mid="6"?><?oxy_comment_start author="rcholan" timestamp="20190418T125814-0400" comment="Proper documentation of references needs to be an overarching task that is done for the entire SIA book. " parentID="syq_1mw_lhb" flag="done" mid="7"?><?oxy_comment_start author="steph" timestamp="20190508T124300-0600" comment="Okay, thanks." flag="done"?>Raje
+        <para>New applications and new medical knowledge constantly call for expansion and
+            enhancement of existing terminologies. However, since terminology systems are often
+            non-static, incomplete and under specified, inconsistencies may be introduced. </para>
+        <para>While many of these challenges are related to terminology evolution, others may be
+            related to the design of the standard clinical terminologies themselves. Cimino notably
+            described the challenges of concept orientation, completeness, correctness, currency,
+            granularity, and redundancy when designing re-usable medical terminologies. Today, 20
+            years later, a menagerie of inconsistent and overlapping terminology models hinders
+            efforts that try to store and analyze encoded clinical data. Several efforts aim to
+            assist. The National Library of Medicine (NLM) integrates terms and codes from over 150
+            source vocabularies by concept, attribute, and meaning in the Unified Medical Language
+            System ® (UMLS) Metathesaurus. The NLM, also, in collaboration with the Office of the
+            National Coordinator for Health Information Technology and Centers for Medicare &amp;
+            Medicaid Services, hosts the Value Set Authority Center (VSAC). The VSAC aims to provide
+            lists of values, codes, and names (i.e., value sets) from standard clinical
+            terminologies to represent clinical concepts. </para>
+        <para>These tools, while helpful, have gaps.
+            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph." id="syq_1mw_lhb" flag="done" mid="7"?><?oxy_comment_start author="rcholan" timestamp="20190418T125814-0400" comment="Proper documentation of references needs to be an overarching task that is done for the entire SIA book. " parentID="syq_1mw_lhb" flag="done" mid="8"?><?oxy_comment_start author="steph" timestamp="20190508T124300-0600" comment="Okay, thanks." flag="done"?>Raje
             et al.
-            <?oxy_comment_end?><?oxy_comment_end mid="7"?><?oxy_comment_end mid="6"?>highlighted
+            <?oxy_comment_end?><?oxy_comment_end mid="8"?><?oxy_comment_end mid="7"?>highlighted
             issues with completeness, correctness, and redundancy when they found gaps in the UMLS
             Metathesaurus’ coverage of disease concepts. <citation>Raje</citation> Similarly,
             Winnenburg et al. highlighted duplicate value sets in the VSAC, and showed that 19% of
@@ -138,23 +138,22 @@
             orientation by analyzing medication value sets and found extraneous and missing
             ingredients in both the value sets and drug classes.<citation>Bahr</citation>
         </para>
-                <para>These issues related to integrating clinical content have a direct impact on
-            patient safety and point to the need to be able to consistently represent and encode
-            clinical data and observations. Therefore, quality assurance is an indispensable part of
-            the terminology management lifecycle. A central limitation of integrating controlled
-            medical terminologies is that they often lack any formal model to denote the
-            relationships among constituent data elements. </para>
-                <para>Recently, however, development teams for SNOMED CT, LOINC, and RxNorm have
-                    partnered to promote interoperability. Developers can now leverage SNOMED CT’s
-                    representation model for the building blocks of LOINC, and a new drug model in
-                    SNOMED CT facilitates extensions and consistency to RxNorm. Bodenreider et al.
-                    wrote about the recent collaboration: “while this evolution leads to greater
-                    compatibility and interoperability, integration of SNOMED CT, LOINC, and RxNorm
-                    still requires mappings among the three terminologies. Moreover, these three
-                    terminologies use different formalisms and tools for their representation, have
-                    their own release cycles and versioning mechanisms, which makes their seamless
-                    integration non trivial, if at all possible.” </para>
-          
+        <para>These issues related to integrating clinical content have a direct impact on patient
+            safety and point to the need to be able to consistently represent and encode clinical
+            data and observations. Therefore, quality assurance is an indispensable part of the
+            terminology management lifecycle. A central limitation of integrating controlled medical
+            terminologies is that they often lack any formal model to denote the relationships among
+            constituent data elements. </para>
+        <para>Recently, however, development teams for SNOMED CT, LOINC, and RxNorm have partnered
+            to promote interoperability. Developers can now leverage SNOMED CT’s representation
+            model for the building blocks of LOINC, and a new drug model in SNOMED CT facilitates
+            extensions and consistency to RxNorm. Bodenreider et al. wrote about the recent
+            collaboration: “while this evolution leads to greater compatibility and
+            interoperability, integration of SNOMED CT, LOINC, and RxNorm still requires mappings
+            among the three terminologies. Moreover, these three terminologies use different
+            formalisms and tools for their representation, have their own release cycles and
+            versioning mechanisms, which makes their seamless integration non trivial, if at all
+            possible.” </para>
     </section>
     <section>
         <title>Solor</title>
@@ -174,11 +173,11 @@
         <para>Today's health care terminology standards encompass methods, terminologies, and
             specifications for the exchange, storage, and retrieval of information associated with
             health care systems. These standards contain terminologies and concepts that are used in
-            medical records to describe patient symptoms, lab results, prescription medication, etc.
-            In today's health care industry, the standard approach to integrating multiple disparate
-            health data sources is to conduct mapping, a manual process attempts to associate data
-            to different systems for exchanging patient information and other data. Mapping, while
-            pragmatically actionable, is prone to information loss and errors.</para>
+            medical records to describe patient symptoms, lab results, prescription medications,
+            etc. In today's health care industry, the standard approach to integrating multiple
+            disparate health data sources is to conduct mapping, a manual process that attempts to
+            associate data to different systems for exchanging patient information and other data.
+            Mapping, while pragmatically actionable, is prone to information loss and errors.</para>
         <para>Preserving the meaning of information when exchanging electronic health record data
             (i.e., semantic interoperability) is critical for delivering safe patient care and
             leveraging standards-based clinical decision support. Given that individuals often
@@ -187,15 +186,15 @@
             clinical decisions based on incomplete or inaccurate information, such as decisions that
             lead to performing unnecessary tests or giving a patient a drug to which they are known
             to be allergic. To date, the strategy for achieving semantic interoperability between
-            the clinical systems of the Department of Defense (DoD) and the Veteran’s Administration
+            the clinical systems of the Department of Defense (DoD) and the Veterans Administration
             (VA) has been to ‘map’ millions of data elements used in the respective EHRs to standard
-            terminologies (e.g., SNOMED CT, LOINC, and RxNorm). ‘Round trip testing’ of the mapped
-            concepts has identified problems with the quality of the mappings for bidirectional use.
-            New strategies are required to achieve semantic interoperability to support safe patient
-            care, both before and after the two organizations start using of a single vendor for
-            their electronic health record systems. The use of logical definitions and terminology
-            system extensions to manage concepts used in the delivery of care can overcome key
-            challenges with the mapping strategy.</para>
+            terminologies (e.g., SNOMED CT, LOINC, and RxNorm). However, ‘round trip testing’ of the
+            mapped concepts has identified problems with the quality of the mappings for
+            bidirectional use. New strategies are required to achieve semantic interoperability to
+            support safe patient care, both before and after the two organizations start using a
+            single vendor for their electronic health record systems. The use of logical definitions
+            and terminology system extensions to manage concepts used in the delivery of care can
+            overcome key challenges with the mapping strategy.</para>
         <section>
             <title>Mapping is Operational, but Incomplete</title>
             <para>Despite the fact that mapping is plagued by challenges (e.g., being out of date,
@@ -216,7 +215,7 @@
                             different terms to a shared semantics, or meaning.</para>
                     </listitem>
                     <listitem>
-                        <para><emphasis role="bold">Provides a Trusted Source</emphasis>: Adopting a
+                        <para><emphasis role="bold">Provides a Trusted Source</emphasis>: Adopts a
                             unified approach for managing terminology so that a single source of
                             terminology can be leveraged across health systems. Mapping can help
                             achieve a partially normalized data set that allows departmental systems
@@ -229,10 +228,12 @@
                             thereby promoting semantic interoperability among organizations.</para>
                     </listitem>
                     <listitem>
-                        <para><emphasis role="bold">Manage a Range of Terminology Value
+                        <para><emphasis role="bold">Manages a Range of Terminology Value
                                 Sets</emphasis>: A structured approach to mapping terminology can
-                            help an organization keep tabs on the multitude of groupers and value
-                            sets that are required for use for different purposes. </para>
+                            help an organization
+                            <?oxy_comment_start author="steph" timestamp="20190722T131304-0600" comment="Recommend replacing with &quot;monitor&quot;."?>keep
+                            tabs on<?oxy_comment_end?> the multitude of groupers and value sets that
+                            are required for use for different purposes. </para>
                     </listitem>
                 </orderedlist></para>
         </section>
@@ -251,7 +252,7 @@
                     <para>Not scalable using local terminology</para>
                 </listitem>
                 <listitem>
-                    <para>Inconsistent and losing information at each transformation</para>
+                    <para>Inconsistent and loses information at each transformation</para>
                 </listitem>
                 <listitem>
                     <para>Unnecessarily complex and incoherent</para>
@@ -271,7 +272,7 @@
                     representing concepts required for interoperability, internal use, or
                     integration of historical data, and we present basic models for representing
                     concepts and managing requests for new concepts. Finally, we applied the new
-                    approach to the problems identified from the mapping strategy and discuss
+                    approach to the problems identified from the mapping strategy and discussed
                     strengths and limitations.<citation>MappingPaper</citation>
                 </para>
                 <para>Results: A major threat to quality concerned the requirement that local source
@@ -291,17 +292,16 @@
                     their use is mandated as part of the Meaningful Use regulations. Tables 1 and 2
                     below show how equivalent concepts in two different care settings leads to
                     information loss when they are mapped to SNOMED CT because SNOMED CT does not
-                    represent the equivalent meaning. In Table 1 and 2, the Local Concept column
+                    represent the equivalent meaning. In Tables 1 and 2, the Local Concept column
                     represents the concept created by Hospital A during the care of a patient, the
                     Map Type column specifies broader than or narrower than or equivalent, and the
                     SNOMED CT Concept column represents the concept to which the local concept has
                     been mapped. The Meaning Lost column describes the information lost due to
                     mapping because an equivalent match of the local concept is not found in SNOMED
-                    CT. In the first Table below, the SNOMED CT Concept is broader than the local
-                    concept causing important tumor morphology information to be lost during
-                    mapping. In Table 2, the SNOMED CT Concept is also a broader than the local
-                    concept causing important tumor location information to be lost in the mapping
-                    process.</para>
+                    CT. In Table 1 below, the SNOMED CT Concept is broader than the local concept,
+                    causing important tumor morphology information to be lost during mapping. In
+                    Table 2, the SNOMED CT Concept is also broader than the local concept, causing
+                    important tumor location information to be lost in the mapping process.</para>
                 <para><inlinemediaobject>
                         <imageobject>
                             <imagedata fileref="images/Mapping.png" scale="50"/>
@@ -314,11 +314,12 @@
             <para>What’s needed is a semantically normalized information model (i.e., Solor) with an
                 appropriate separation of concerns in regard to the informatics architectural
                 layers. Such a model is critical for the success of a number of forward-thinking
-                healthcare initiatives. Solor does not map one terminology system to another. Solor
-                integrates specific terminologies such as – but not limited to – SNOMED CT, LOINC,
-                RXNorm. These three terminologies form the foundation of Solor because they are
-                meaningful use standards, where when integrated together, they represent the breadth
-                of information necessary for clinical data representation.</para>
+                healthcare initiatives. Solor does not map one terminology system to another.
+                Rather, Solor integrates specific terminologies such as – but not limited to –
+                SNOMED CT, LOINC, RxNorm. These three terminologies form the foundation of Solor
+                because they are meaningful use standards, where when integrated together, they
+                represent the breadth of information necessary for clinical data
+                representation.</para>
             <para>The new approach to data integration involves the use of description logic to
                 model and manage concepts from standard terminologies to support clinical care.
                 Instead of mapping an existing local code or term to a standard code with the goal
@@ -359,14 +360,15 @@
                     terminologies – their own terminology and others’ terminology. Those who are
                     distributing terminology must have a license to distribute these terminologies.
                     For example: If organization A is distributing SNOMED CT, LOINC and its curated
-                    terminology then organization A needs to ensure they have a license to
+                    terminology, then organization A needs to ensure it has a license to
                     redistribute SNOMED CT and LOINC. Solor’s transformation processes and
                     architectural foundation are available under the Apache 2 Open Source License. </para>
-                <para>Solor is not competing with other terminology standards.  SNOMED CT, LOINC and
-                    RXNorm are foundational terminologies in Solor. Solor fully supports and relies
-                    on these standards and their organizations. Solor’s intent is to complement
-                    these standards. Organizations are free to integrate Solor content into their
-                    standards.</para>
+                <para><?oxy_comment_start author="steph" timestamp="20190722T144911-0600" comment="This was already stated in the preceding paragraph.  Does it need to be stated again here?  Seems redundant to me."?>Solor
+                    is not competing with other terminology standards.<?oxy_comment_end?> SNOMED CT,
+                    LOINC and RXNorm are foundational terminologies in Solor. Solor fully supports
+                    and relies on these standards and their organizations. Solor’s intent is to
+                    complement these standards. Organizations are free to integrate Solor content
+                    into their standards.</para>
                 <section>
                     <title>LOINC License</title>
                     <para>The LOINC database can be obtained from the Regenstrief LOINC website
@@ -449,7 +451,7 @@
             occupations (8%), and disorders (2%). Whereas, SNOMED CT concepts represent disorders
             (22%), procedures (17%), body structures (11%), clinical findings other than disorders
             (10%), and organisms (10%).<citation>Bodenreider_Solor</citation>
-            <?oxy_comment_start author="steph" timestamp="20190508T130256-0600" comment="Is this supposed to be a reference?" flag="done"?><?oxy_comment_end?></para> 
+            <?oxy_comment_start author="steph" timestamp="20190508T130256-0600" comment="Is this supposed to be a reference?" flag="done"?><?oxy_comment_end?></para>
         <para><emphasis role="italic"><emphasis role="underline">Coverage of LOINC method attributes
                     by the UMLS and SNOMED CT</emphasis></emphasis><emphasis role="italic"> –
             </emphasis>Of the 1702 LOINC methods, 1688 (99%) were mapped to a UMLS CUI. Sampling the
@@ -517,7 +519,6 @@
     </section>
     <section>
         <title>Evaluating the impact of implementing Solor</title>
-       
         <para>Electronic clinical quality measures (eCQMs) and clinical decision support (CDS)
             alerts are triggered by clinical data that is encoded by standards based clinical
             terminologies. Because these measures and alerts intend to promote evidence-based
@@ -533,9 +534,9 @@
             inappropriate patients for therapies, such as recommending aspirin use for someone at
             high-risk for a fatal bleeding event. Furthermore, their lists/alerts will not include
             the
-            <?oxy_comment_start author="steph" timestamp="20190508T135639-0600" comment="I didn&apos;t make the connection of how newly added patients can lead to inaccurate results or recommendations." id="bsj_b4d_vhb" flag="done" mid="14"?><?oxy_comment_start author="rcholan" timestamp="20190521T163713-0400" comment="This is explained below in the paragraph with Number-needed-to-treat statistics. If this needs additional clarification I can add text here. " parentID="bsj_b4d_vhb" flag="done" mid="15"?><?oxy_comment_start author="steph" timestamp="20190610T133425-0600" comment="Okay." flag="done"?>newly
+            <?oxy_comment_start author="steph" timestamp="20190508T135639-0600" comment="I didn&apos;t make the connection of how newly added patients can lead to inaccurate results or recommendations." id="bsj_b4d_vhb" flag="done" mid="16"?><?oxy_comment_start author="rcholan" timestamp="20190521T163713-0400" comment="This is explained below in the paragraph with Number-needed-to-treat statistics. If this needs additional clarification I can add text here. " parentID="bsj_b4d_vhb" flag="done" mid="17"?><?oxy_comment_start author="steph" timestamp="20190610T133425-0600" comment="Okay." flag="done"?>newly
             added patients
-            <?oxy_comment_end?><?oxy_comment_end mid="15"?><?oxy_comment_end mid="14"?>who may need
+            <?oxy_comment_end?><?oxy_comment_end mid="17"?><?oxy_comment_end mid="16"?>who may need
             certain therapies to improve outcomes. Having accurate eCQMs/CDS may translate into
             potential lives saved, and avoidable harms. Furthermore, the comparability of clinical
             quality performance scores between healthcare organizations is negatively impacted by
@@ -553,11 +554,13 @@
             of official eCQM as outlined by value set specifications. When older and newer versions
             of eCQMs were implemented against the same clinical data, we found changes in
             measurement of quality of up to 5% difference in overall performance score, and up to
-            28% difference in the number of patients included in a measure’s denominator. <citation>Cholan_shift</citation>
-            Similarly, in other work, we showed that implementations of the same eCQM using distinct
-            value set specifications also led to variations in the calculated prevalence of patients
-            at risk for key conditions, and in some cases led to variations in CQM performance
-            percentages.<citation>concepts</citation> </para>
+            28% difference in the number of patients included in a measure’s denominator.
+                <citation>Cholan_shift</citation> Similarly, in other work, we showed that
+            implementations of the same eCQM using distinct value set specifications also led to
+            variations in the calculated prevalence of patients at risk for key conditions, and in
+            some cases led to variations in CQM performance
+                percentages.<citation>concepts</citation>
+        </para>
         <para><emphasis role="bold"><emphasis role="underline">Proposed Study to Evaluate the Impact
                     of Solor</emphasis></emphasis></para>
         <para><emphasis role="underline">Purpose</emphasis></para>
@@ -604,7 +607,7 @@
         <para>
             <emphasis role="underline">Example Results</emphasis><emphasis role="bold"><emphasis
                     role="underline">s</emphasis></emphasis></para>
-               <para>
+        <para>
             <inlinemediaobject>
                 <imageobject>
                     <?oxy_comment_start author="timowilliams" timestamp="20190430T212054-0500" comment="Convert to SVG?
@@ -621,17 +624,19 @@
             the promoted therapy. For aspirin use, Number-Needed-to- Treat (NNT) statistics show
             that of patients with known cardiovascular risk who took aspirin, 1.3% were helped by
             preventing a non-fatal heart attack, and 0.25% were harmed by a major bleeding
-                event.<citation>Aspirin</citation>, <citation>antiplatelet</citation> In the Cholan et al study <citation>Cholan_shift</citation>, 121 (92%) of the patients dropped
-            in the Solor version of the Aspirin measure were also taking an anticoagulant
-            medication, so the Number-Needed-to-Harm (NNH) statistic for this subset of patients is
-            likely much higher, and for these clinics, 1 to 2 people may have been harmed if the
-            pre-Solor definition persisted, as Hansen et. al showed that patients with combinations
-            of aspirin, warfarin, and clopidogrel are associated with up to a three-fold higher risk
-            of bleeding for patients on dual therapy and triple therapy.<citation>Hansen</citation> With another measure for statin therapy, 1 in 21
-            people have a repeat heart attack, stroke or death avoided, so even 10 missed people
-            have significant risk of events. Similarly, 10% are harmed by muscle damage or pain, or
-            ~1 of the 14 inappropriately included.<citation>efficacy</citation> Even in this small study, failure to include or
-            exclude patients could have led to real harm. With eCQM implementation and QI
+                event.<citation>Aspirin</citation>, <citation>antiplatelet</citation> In the Cholan
+            et al study <citation>Cholan_shift</citation>, 121 (92%) of the patients dropped in the
+            Solor version of the Aspirin measure were also taking an anticoagulant medication, so
+            the Number-Needed-to-Harm (NNH) statistic for this subset of patients is likely much
+            higher, and for these clinics, 1 to 2 people may have been harmed if the pre-Solor
+            definition persisted, as Hansen et. al showed that patients with combinations of
+            aspirin, warfarin, and clopidogrel are associated with up to a three-fold higher risk of
+            bleeding for patients on dual therapy and triple therapy.<citation>Hansen</citation>
+            With another measure for statin therapy, 1 in 21 people have a repeat heart attack,
+            stroke or death avoided, so even 10 missed people have significant risk of events.
+            Similarly, 10% are harmed by muscle damage or pain, or ~1 of the 14 inappropriately
+                included.<citation>efficacy</citation> Even in this small study, failure to include
+            or exclude patients could have led to real harm. With eCQM implementation and QI
             infrastructure increasing, the problem of having, and using, antiquated CQM versions of
             value sets could have significant potential negative impact on population health by not
             avoiding events, and avoiding harms for patients.</para>

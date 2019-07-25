@@ -2,7 +2,92 @@
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-    <title>From Data Information to Knowledge</title>
+    <title>From Information to Knowledge</title>
+    <para>In this chapter we aim to walk through a "round trip" use case that illustrates how
+        information flows from structured clincal input (using clinical concepts from the
+        terminology and foundational layers) to a logical representation modeled in analysis normal
+        form to storage in a data repository, and then to a query for decision support. </para>
+    <para>The example that we will illustrate is hypertension disability benefits for Veterans. If a
+        Veteran's hypertension is related to his/her tim in service, then he/she may be eligible for
+        VA disability benefits. </para>
+    <para>The Department of Veterans affairs utilizes a hypertension VA disability benefits
+        questionnaire for clinicians to complete. The questionnaire states that “for the VA
+        disability rating purpose, the term hypertension means that the diastolic pressure is
+        predominantly 90mm or greater, and isolated systolic hypertension means that the systolic
+        blood pressure is predominantly 160mm or greater with a diastolic blood pressure of less
+        than 90 mm.”</para>
+    <para><link xlink:href="https://www.vba.va.gov/pubs/forms/VBA-21-0960A-3-ARE.pdf">See
+            questionnaire by clicking here.</link></para>
+    <para>For VA purposes, the initial diagnosis of hypertension or isolated systolic hypertension
+        must be confirmed by readings taken two or more times on at least three different days.
+        Blood pressure results may be obtained from existing medical records or through scheduled
+        visits for blood pressure measurements.</para>
+    <para>
+        <orderedlist>
+            <listitem>
+                <para>The first question of the hypertension VA disability benefits questionnaire,
+                    question 1A asks “does the veteran now have or has he or she ever been diagnosed
+                    with hypertension or isolated systolic hypertension?”</para>
+            </listitem>
+            <listitem>
+                <para>Question 2A relates to the veteran’s history with hypertension. Here the VA
+                    asks the clinician to “describe the history including the onset and course of
+                    the veteran’s hypertension condition.”</para>
+            </listitem>
+            <listitem>
+                <para>Section 3 relates to other pertinent physical findings, complications, and
+                    conditions of the veteran’s hypertension.</para>
+            </listitem>
+            <listitem>
+                <para>Section 4 of the hypertension VA disability benefits questionnaire is about
+                    the functional impact of hypertension on the veteran. Here the VA asks, “does
+                    the veteran’s hypertension or isolated systolic hypertension impact his or her
+                    ability to work?” </para>
+                <para>Clinicians at VA will then enter these data from the questionnaires and
+                    represent them as "clinical statements" into VA’s EHR. This data entry (i.e.,
+                    structured clinical input) will depend on the manner in which the information is
+                    presented to the clinicians and how they enter the data, such as by constraining
+                    the information to allow only certain values to be entered, e.g. through a
+                    drop-down list, radio buttons, or breaking up large chunks of related
+                    information into smaller parts. Therefore, clinicians at different VA Medical
+                    Centers may enter the same data from the hypertension disability questionnaire
+                    in different formats.  Furthermore, there may be further variation based on
+                    whether clinicians choose to use ICD-10-CM to represent a hypertension diagnosis
+                    or whether they choose to use a code from SNOMED CT. </para>
+                <para>To help reduce this variation, informaticists and terminologists may model
+                    these clinical statements using a logical model, such as the latest models from
+                    CIMI, or perhaps by using Analysis Normal Form (ANF). [insert hyperlink to ANF
+                    example for hypertension in statement chapter]</para>
+                <para>From an aggregated data standpoint, the VA will want to enable processes that
+                    normalize every representational format that confers the same meaning as being
+                    equivalent. These equivalent representations of the information coming from the
+                    hypertension questionnaire will then be stored in VA's data repository and made
+                    available for information exchange, retrieval, and querying for clinical
+                    decision support (CDS). The goal at a large integrated health system like the VA
+                    is to normalize the data in the data repository so that queries and clincal
+                    decision support expression logic can be shareable and re-usable across every
+                    medical center, clinic, provider, and patient. </para>
+                <para>One of the overarching challenges of standards that aim to make CDS shareable
+                    and interoperable is that there is currently not a robust way to associate rules
+                    in knowledge-based systems with other dependencies in clinical data
+                    representation systems to ensure proper operation. For example in the
+                    hypertension disability questionnaire, a CDS alert may be configured to fire if
+                    a patient's BP is greater than or equal to 140/90 at a recent encounter. The
+                    same alert may also fire based on the presence of a SNOMED CT or ICD-10-CM code
+                    in a patient's encounter diagnosis or problem list. The same alert may also fire
+                    based on the presence of 1 or more anti-hypertensive medications present in the
+                    patient's record. All of the underlying expression-logic behind this alert, and
+                    the terminologies utilized to represent the labs, diagnoses, and medications
+                    need to be configured in a controlled manner. </para>
+                <para>Current CDS standards are silent on the notion of identifying a safe
+                    configuration of dependencies between (a) the expression-logic for rules-based
+                    CDS techniques, (b) the value sets with codes and terms to define clinical
+                    concepts of interest contained in the CDS rules, and (c) the variability of how
+                    clinical data within the value sets and rules are inputted, modeled, and stored
+                    in data repositories. </para>
+                <para> </para>
+            </listitem>
+        </orderedlist>
+    </para>
 </chapter>
-
 

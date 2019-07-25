@@ -118,6 +118,143 @@
                 pain may imply.</para>
         </section>
     </section>
+    <section>
+        <title><?oxy_comment_start author="kec" timestamp="20190516T103116-0700" comment="Maybe we should frame this more in terms of &quot;Interface Support&quot;... Interface terminology perhaps implies that we need to create something distinct, rather than just a configurtation of one or more dialects. Other terms maybe better. 
+
+Having the use case here up front that describes the need we are trying to fill can be good. So that&apos;s consistent with Tim&apos;s need more content/examples. "?><?oxy_comment_start author="timowilliams" timestamp="20190501T104321-0500" comment="Need more content.  Add examples." flag="done" mid="7"?>Interface
+            Terminology<?oxy_comment_end?><?oxy_comment_end mid="7"?></title>
+        <para>An interface terminology can be defined as a "systematic collection of clinically
+            oriented phrases (terms) whose purpose is to support clinicians' entry of patient
+            information into computer programs, such as clinical note capture and decision
+            support tools". <citation>Elkin_Terminology</citation></para>
+        <para>"Healthcare providers generally use interface terminologies to accomplish one of
+            two tasks: 1) encoding clinical narrative into a structured form, or, 2) reviewing
+            structured clinical information that has previously been encoded using a different
+            terminology. In supporting such uses, interface terminologies must enable correct
+            and rapid interaction between clinicians and structured clinical data, support
+            facile use by healthcare providers through easy understandability, and integrate
+            well with other clinical computerized systems in the environment." <citation>Rosenbloom_model</citation></para>
+        <section>
+            <title><abbrev>Desiderata for Supporting Interface Terminology Usability
+            </abbrev></title>
+            <para>The fundamental metric for evaluating an interface terminology is how well it
+                performs in supporting correct, complete, and efficient data encoding or review
+                by humans. <citation>Rosenbloom_model</citation> There are six desiderata
+                relevant to interface terminology usability.
+                <citation>Elkin_Terminology</citation></para>
+            <section>
+                <title>Completeness of Synonym Coverage</title>
+                <para>An adequate representation of synoynms in an interface terminology can
+                    increase the teriminology's usability. Interface terminologies should
+                    represent the richness present in colloquial phrases of medical discource
+                    and represent the variety of different types of synoynms that exist: </para>
+                <para><emphasis role="underline"><emphasis role="bold">Alternate
+                    Terms</emphasis></emphasis>:  "Myocardial Infarction" for  "Heart
+                    Attack"</para>
+                <para><emphasis role="underline"><emphasis role="bold"
+                    >Acronyms</emphasis>:</emphasis> "MI" for "Myocardial Infarction"</para>
+                <para><emphasis role="underline"><emphasis role="bold">Definitional
+                    phrases</emphasis>:</emphasis> "Ischemic injury" for "necrosis of
+                    heart muscle cells resulting from absent or diminished blood flow in a
+                    coronary artery"</para>
+                <para><emphasis role="underline"><emphasis role="bold"
+                    >Eponyms</emphasis>:</emphasis> "Levine sign" for "a clenched fist held
+                    over the chest indicating ischemic cardiac chest pain"</para>
+                <para>However, rich synonymy may increase the chances that a given term may be
+                    used to represent more than one concept (e.g., "cold" for "low temperature"
+                    and for "upper repiratory tract viral infection". Parameters for metrics for
+                    evaluating the completeness of synonym coverage in clinical interface
+                    terminologies include:</para>
+                <para>
+                    <emphasis role="underline"><emphasis role="bold">Concept
+                        Accuracy</emphasis>:</emphasis> how closely a term's meaning cooresponds
+                    with the underlying concept it represents; and,</para>
+                <para>
+                    <emphasis role="underline"><emphasis role="bold">Synonym
+                        Expressivity</emphasis>:</emphasis> how well a term's semantic
+                    character matches the words in the phrase it is meant to represent rather
+                    than the underlying meaning. </para>
+                <para>For example a patient describes having a "feathery discomfort occurring
+                    across the chest". Within a clinical terminology there is a concept for
+                    "chest discomfort" and modifiers like "soft" and "anterior chest wall". The
+                    end-user selects "noncrushing" to represent "feathery". The concept accuracy
+                    of "noncrushing" for "feathery" is adequate beause the two have the same
+                    meaning. However, "noncrushing" does not fully express the character of
+                    "feathery". </para>
+            </section>
+            <section>
+                <title>Balance between Precoordination and Postcoordination</title>
+                <para>There are one of two general approaches to representing knowledge domains
+                    by clinical terminology.</para>
+                <para>In one approach, developers <emphasis role="bold"><emphasis
+                    role="underline">precoordinate</emphasis></emphasis> (or enumerate)
+                    all possible complex concepts apriori and essentially create a list of all
+                    the complex concepts that can be expressed. A strength of this approach is
+                    increasing the chances a user will find a desired concept. Disadvantages
+                    include making a terminology so large that search becomes burdensome, and
+                    reduced flexibility in situations where the terminology does not contain
+                    concepts that a user may need. </para>
+                <para>An alternative is <emphasis role="bold"><emphasis role="underline"
+                    >postcoordination</emphasis></emphasis> in which users compose
+                    complex concepts by assembling general concepts and modifiers as needed. An
+                    advantage is increased flexibility for representing a wide range of
+                    concepts. Disadvanatges include increased variation and inconsistent
+                    application of terminologies against clinical data, increased ability to
+                    create nonsensical complex concepts from modifiers and concepts, and
+                    inefficiency since postcoordination processes can be time-consuming. </para>
+                <para>Bringing these two approaches together can optimize a terminology's
+                    flexibility, ease of use, and overall coverage. "Compositional balance"
+                    makes concept selection tasks efficient by reducing the effort to assemble
+                    complex concetps from general concepts, and reducing the time needed to
+                    search through long lists of precoordinated concepts. </para>
+            </section>
+            <section>
+                <title>Inclusion of Adequate and Relevant Assertional Medical Knowledge</title>
+                <para>Assertional knowledge is information that provides nuance and context to a
+                    concept but does not specifically define it. The two major goals of
+                    including assertional knowledge in an interface terminology are to enahance
+                    usability and to improve documenation quality when using terminology. For
+                    instance, assertional knowledge may help bring together clinically related
+                    concepts and modifiers a user is likely to consider and document together.
+                </para>
+            </section>
+            <section>
+                <title>Formal Concept Representation</title>
+                <para>Ideally, a terminology is represented in a formal way to promote easy use
+                    for automated data storage, management, and analysis. Description logics can
+                    formally model and specify the relationships that exist among concepts and
+                    modifiers and provide a structured representation of the knowledge domain.
+                    For instance, in the following
+                    <?oxy_comment_start author="rcholan" timestamp="20190528T234635-0400" comment="Need to re-create the following image."?>screenshot<?oxy_comment_end?>,
+                    when "Diabetes mellitus type 1" is selected, the options for "type 2" are
+                    hidden and de-emphasized to the user.</para>
+                <para><inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/InterfaceTerm_DL.png" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </inlinemediaobject></para>
+            </section>
+            <section>
+                <title>Support for Human-Readability</title>
+                <para>The goal of interface terminologies is to optimize the user experience.
+                    Increasing efficiency and clarity of data review are key considerations for
+                    helping clinicians access, read, and understand encoded clinical data. A
+                    simple approach is to use relatively colloquial terms and display common
+                    phrases and words. More complex approaches include "auto-complete" features
+                    - when a user selects a concept (e.g., "chest pain") and modifiers (e.g.,
+                    "anterior", "dull" "present"), the system may leverage tagged terminologies
+                    to generate the natural language sentence (e.g., anterior dull chest pain is
+                    present"). </para>
+            </section>
+            <section>
+                <title>Application Independence</title>
+                <para>Ideally, interface terminologies should exist as separate application
+                    components that share a common data model with EHRs or other computer-based
+                    systems. With this approach, terminology content development and evolution
+                    can be distinct from software iteration cycles and queues. </para>
+            </section>
+        </section>
+    </section>
     
     
 </chapter>

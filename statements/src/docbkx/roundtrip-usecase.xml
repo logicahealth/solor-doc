@@ -4,13 +4,13 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>From Information to Knowledge</title>
     <para>In this chapter we aim to walk through a "round trip" use case that illustrates how
-        information flows from structured clincal input (using clinical concepts from the
-        terminology and foundational layers) to a logical representation modeled in analysis normal
-        form to storage in a data repository, and then to a query for decision support. </para>
+        information flows from structured clinical input (using clinical concepts from the
+        terminology and foundational layers), to a logical representation modeled in analysis normal
+        form, to storage in a data repository, and then to a query for decision support. </para>
     <para>The example that we will illustrate is hypertension disability benefits for Veterans. If a
-        Veteran's hypertension is related to his/her tim in service, then he/she may be eligible for
-        VA disability benefits. </para>
-    <para>The Department of Veterans affairs utilizes a hypertension VA disability benefits
+        Veteran's hypertension is related to his/her time in service, then he/she may be eligible
+        for VA disability benefits. </para>
+    <para>The Department of Veterans Affairs utilizes a hypertension VA disability benefits
         questionnaire for clinicians to complete. The questionnaire states that “for the VA
         disability rating purpose, the term hypertension means that the diastolic pressure is
         predominantly 90mm or greater, and isolated systolic hypertension means that the systolic
@@ -26,12 +26,14 @@
         <orderedlist>
             <listitem>
                 <para>The first question of the hypertension VA disability benefits questionnaire,
-                    question 1A asks “does the veteran now have or has he or she ever been diagnosed
-                    with hypertension or isolated systolic hypertension?”</para>
+                    question 1A asks “does the
+                    <?oxy_comment_start author="steph" timestamp="20190806T091219-0600" comment="Previously in this section, &quot;Veteran&quot; was capitalized.  Recommend being consistent.  "?>veteran<?oxy_comment_end?>
+                    now have or has he or she ever been diagnosed with hypertension or isolated
+                    systolic hypertension?”</para>
             </listitem>
             <listitem>
                 <para>Question 2A relates to the veteran’s history with hypertension. Here the VA
-                    asks the clinician to “describe the history including the onset and course of
+                    asks the clinician to “describe the history, including the onset and course, of
                     the veteran’s hypertension condition.”</para>
             </listitem>
             <listitem>
@@ -51,9 +53,10 @@
                     drop-down list, radio buttons, or breaking up large chunks of related
                     information into smaller parts. Therefore, clinicians at different VA Medical
                     Centers may enter the same data from the hypertension disability questionnaire
-                    in different formats.  Furthermore, there may be further variation based on
-                    whether clinicians choose to use ICD-10-CM to represent a hypertension diagnosis
-                    or whether they choose to use a code from SNOMED CT. </para>
+                    in different formats. Furthermore, there may be
+                    <?oxy_comment_start author="steph" timestamp="20190806T091437-0600" comment="Recommend changing to &quot;additional&quot; since you just used &quot;furthermore&quot;."?>further<?oxy_comment_end?>
+                    variation based on whether clinicians choose to use ICD-10-CM to represent a
+                    hypertension diagnosis or whether they choose to use a code from SNOMED CT. </para>
                 <para>To help reduce this variation, informaticists and terminologists may model
                     these clinical statements using a logical model, such as the latest models from
                     CIMI, or perhaps by using Analysis Normal Form (ANF). [insert hyperlink to ANF

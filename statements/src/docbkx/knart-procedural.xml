@@ -142,10 +142,11 @@
             systematic, and comprehensive. There have been a number of historical efforts that have
             aimed to achieve interoperable and robust CDS tools and artifacts that appropriately
             translate guidelines into care
-            (<?oxy_comment_start author="steph" timestamp="20190717T105119-0600" comment="Where is this section?  I couldn&apos;t find it."?>see
-            subsequent section about the History of CDS Expression Logic<?oxy_comment_end?>). The
-            Agency for Healthcare Research and Quality depicts the following image representing the
-            “CDS lifecycle” for the following areas<citation>CDSConnect</citation>:<itemizedlist>
+            (<?oxy_comment_start author="steph" timestamp="20190717T105119-0600" comment="Where is this section?  I couldn&apos;t find it." id="aqv_sdt_q3b"?><?oxy_comment_start author="timowilliams" timestamp="20190806T210726-0500" comment="Is this supposed to be Historical Context for Representing the Expression Logic of Clinical Decision Support?" parentID="aqv_sdt_q3b" mid="4"?>see
+            subsequent section about the History of CDS Expression
+            Logic<?oxy_comment_end mid="4"?><?oxy_comment_end?>). The Agency for Healthcare Research
+            and Quality depicts the following image representing the “CDS lifecycle” for the
+            following areas<citation>CDSConnect</citation>:<itemizedlist>
                 <listitem>
                     <para>authoring CDS tools and artifacts that leverage knowledge sources such as
                         clinical practice guidelines, quality measure specifications, and
@@ -171,21 +172,21 @@
         <title>Lack of Standardized Encoded Clinical Data - Impact on CDS</title>
         <para>In this section, we will explore an important question regarding appropriate and
             highly-reliable CDS: <emphasis><emphasis role="bold">how can we provide
-                    <?oxy_comment_start author="steph" timestamp="20190717T105415-0600" comment="Should this be hyphenated?"?>patient
-                    safe<?oxy_comment_end?> clinical decision support given the lack of
-                    standardization relating to how we encode data?</emphasis></emphasis> We will
-            discuss the challenges faced by authors, implementers and evaluators of CDS
-            implementations by considering the following example of a CDS intervention by Adam
-            Wright et al in the NIH-funded “IQ-MAPLE” study (i.e., Improving Quality by Making an
-            Accurate Problem List in the EHR). <citation>IQMAPLE</citation> In IQ-MAPLE, the
-            investigators designed CDS interventions in the EHRs of four study sites to alert
-            physicians when a candidate problem (e.g., Asthma, COPD, Hypertension, Hyperlipidemia)
-            was detected that was missing from the patient's problem list (i.e., absence of
-            structured input of diagnosis codes/terms to specify the key condition of interest). The
-            clinician would then be able to accept the alert and add the problem, override the
-            alert, or ignore it entirely. The investigators conducted a randomized trial and
-            evaluated the effect of the problem list alert on three endpoints: alert acceptance,
-            problem list addition rate and clinical quality. </para>
+                    <?oxy_comment_start author="steph" timestamp="20190717T105415-0600" comment="Should this be hyphenated?" flag="done"?>patient-safe<?oxy_comment_end?>
+                    clinical decision support given the lack of standardization relating to how we
+                    encode data?</emphasis></emphasis> We will discuss the challenges faced by
+            authors, implementers and evaluators of CDS implementations by considering the following
+            example of a CDS intervention by Adam Wright et al in the NIH-funded “IQ-MAPLE” study
+            (i.e., Improving Quality by Making an Accurate Problem List in the EHR).
+                <citation>IQMAPLE</citation> In IQ-MAPLE, the investigators designed CDS
+            interventions in the EHRs of four study sites to alert physicians when a candidate
+            problem (e.g., Asthma, COPD, Hypertension, Hyperlipidemia) was detected that was missing
+            from the patient's problem list (i.e., absence of structured input of diagnosis
+            codes/terms to specify the key condition of interest). The clinician would then be able
+            to accept the alert and add the problem, override the alert, or ignore it entirely. The
+            investigators conducted a randomized trial and evaluated the effect of the problem list
+            alert on three endpoints: alert acceptance, problem list addition rate and clinical
+            quality. </para>
         <para>In IQ-MAPLE, a team of clinical experts and informaticians designed and validated a
             series of problem inference algorithms, using rules-based techniques on structured data
             in the electronic health record (EHR) and natural language processing on unstructured
@@ -333,8 +334,8 @@
         <para>To test the validity of their IQ-MAPLE CDS alert implementations, each study site
             organization might have built a testing environment to implement the CDS rules to detect
             whether each suggestion of a condition to add to a patient’s problem list was
-            “appropriate” or not. Such a testing environment
-            <?oxy_comment_start author="steph" timestamp="20190717T112906-0600" comment="The first sentence says &quot;might have built a testing environment.&quot;  Thus, should this say &quot;might allow&quot; or &quot;would allow&quot; instead?  Need to ensure the tense agrees in the paragraphs in this section."?>allowed<?oxy_comment_end?>
+            “appropriate” or not. Such a testing environment would
+            <?oxy_comment_start author="steph" timestamp="20190717T112906-0600" comment="The first sentence says &quot;might have built a testing environment.&quot;  Thus, should this say &quot;might allow&quot; or &quot;would allow&quot; instead?  Need to ensure the tense agrees in the paragraphs in this section." flag="done"?>allow<?oxy_comment_end?>
             the CDS alerts to “silently” fire after they were built. In other words, the alerts were
             built and set to fire on patients in the back-end of the systems. End-users would NOT
             receive alerts at this stage. The alerts would “silently” fire for two weeks or some
@@ -388,7 +389,7 @@
                         </thead>
                         <tbody>
                             <row>
-                                <entry>CDS satisfaction, usage, usability </entry>
+                                <entry>CDS satisfaction, usage, usability</entry>
                                 <entry>
                                     <itemizedlist>
                                         <listitem>
@@ -465,12 +466,12 @@
                                 </entry>
                             </row>
                             <row>
-                                <entry>Clinical objectives addressed with CDS </entry>
+                                <entry>Clinical objectives addressed with CDS</entry>
                                 <?oxy_comment_start author="steph" timestamp="20190717T114117-0600" comment="Shouldn&apos;t this have something here?  Otherwise, why include it?"?>
                                 <entry/><?oxy_comment_end?>
                             </row>
                             <row>
-                                <entry> Care processes, adherence to guidelines</entry>
+                                <entry>Care processes, adherence to guidelines</entry>
                                 <entry>
                                     <itemizedlist>
                                         <listitem>
@@ -481,7 +482,7 @@
                                 </entry>
                             </row>
                             <row>
-                                <entry> Patient safety </entry>
+                                <entry>Patient safety</entry>
                                 <entry>
                                     <itemizedlist>
                                         <listitem>
@@ -492,14 +493,14 @@
                                 </entry>
                             </row>
                             <row>
-                                <entry> Patient Outcomes</entry>
+                                <entry>Patient Outcomes</entry>
                                 <entry>
                                     <itemizedlist>
                                         <listitem>
                                             <para>disease management related to adoption of
                                                 guidelines (e.g., blood pressure control, lipid
                                                 levels,
-                                                <?oxy_comment_start author="steph" timestamp="20190717T114254-0600" comment="Should this be A1c or HgbA1c instead?"?>H1ac<?oxy_comment_end?>
+                                                <?oxy_comment_start author="steph" timestamp="20190717T114254-0600" comment="Should this be A1c or HgbA1c instead?" id="ydk_3lr_q3b" flag="done"?><?oxy_comment_start author="timowilliams" timestamp="20190806T152916-0500" comment="Changed to HBA1c" parentID="ydk_3lr_q3b" flag="done" mid="10"?>HBA1c<?oxy_comment_end mid="10"?><?oxy_comment_end?>
                                                 levels), hospital lengths of stay,
                                                 rehospitalizations </para>
                                         </listitem>
@@ -548,16 +549,27 @@
                     time, the underlying denominator likely will vary insignificantly. Therefore,
                     statistical process control (SPC) charts can be created and the following tests
                     can be performed: <citation>kassakian</citation></para>
-                <para><?oxy_comment_start author="steph" timestamp="20190717T120506-0600" comment="I think the tests should be bulleted."?>Test
-                    #1 the presence of a single point outside the control limits using the threshold
-                    3<?oxy_comment_start author="steph" timestamp="20190717T120833-0600" comment="Is this symbol correct?"?>*<?oxy_comment_end?>standard
-                    deviation.</para>
-                <para>Test #2 two of three consecutive points are more than 2 standard deviations
-                    from the average line and both on the same side of the average line.</para>
-                <para>Test #3 eight or more consecutive points on the same side of the average
-                    line.</para>
-                <para>Test #4 consisted of 6 or more values steadily increasing or
-                    decreasing.<?oxy_comment_end?></para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Test #1 the presence of a single point outside the control limits
+                            using the threshold
+                            3<?oxy_comment_start author="steph" timestamp="20190717T120833-0600" comment="Is this symbol correct?"?>*<?oxy_comment_end?>standard
+                            deviation.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Test #2 two of three consecutive points are more than 2 standard
+                            deviations from the average line and both on the same side of the
+                            average line.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Test #3 eight or more consecutive points on the same side of the
+                            average line.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Test #4 consisted of 6 or more values steadily increasing or
+                            decreasing.</para>
+                    </listitem>
+                </itemizedlist>
                 <para>SPC anomaly detection can be attempted on time points for various time scales
                     (e.g., weekly and monthly scale). To determine the characteristics and
                     performance of SPC detection methods sensitivity, specificity, precision and the
@@ -621,7 +633,8 @@
             <itemizedlist>
                 <listitem>
                     <para>Use a process where changes to value set terminology codes made by
-                        <?oxy_comment_start author="steph" timestamp="20190717T121740-0600" comment="Does this need to be spelled out?"?>SDOs<?oxy_comment_end?>,
+                        Standards Development Organizations
+                        (<?oxy_comment_start author="steph" timestamp="20190717T121740-0600" comment="Does this need to be spelled out?" flag="done"?>SDOs<?oxy_comment_end?>),
                         value set developers, or by ancillary department internal systems are
                         communicated and pushed to CDS authors, implementers, and evaluators to be
                         analyzed for impact before the changes are made</para>
@@ -733,7 +746,7 @@
                             Need It</emphasis></para>
                     <itemizedlist>
                         <listitem>
-                            <para>“<?oxy_comment_start author="steph" timestamp="20190717T122242-0600" comment="Is the right bracket missing or is the left included by mistake?"?>[T<?oxy_comment_end?>he
+                            <para>“<?oxy_comment_start author="steph" timestamp="20190717T122242-0600" comment="Is the right bracket missing or is the left included by mistake?" id="cgt_4lr_q3b" flag="done"?><?oxy_comment_start author="timowilliams" timestamp="20190806T153107-0500" comment="Removed the bracket" parentID="cgt_4lr_q3b" flag="done" mid="14"?>T<?oxy_comment_end mid="14"?><?oxy_comment_end?>he
                                 likelihood of success in implementing a computerized guideline is
                                 inversely proportional to the number of extra data elements
                                 needed.”</para>
@@ -878,7 +891,7 @@
                     care."<citation>SOP</citation></para>
         </section>
         <section>
-            <title>C<?oxy_comment_start author="steph" timestamp="20190717T152102-0600" comment="I added &quot;Clinical Practice&quot; since that is how it was referred to in section12.6 above."?>linical
+            <title>C<?oxy_comment_start author="steph" timestamp="20190717T152102-0600" comment="I added &quot;Clinical Practice&quot; since that is how it was referred to in section12.6 above." flag="done"?>linical
                 Practice <?oxy_comment_end?>Guidelines</title>
             <para>Clinical Practice Guidelines are systematically developed statements on medical
                 practices that assist a clinician in making decisions about appropriate diagnostic
@@ -1016,10 +1029,10 @@ Clinical pathways appeared as a result of the adaptation of the documents used i
         <section>
             <title>Order Sets</title>
             <para>Order sets are a group of related orders which a user
-                <?oxy_comment_start author="steph" timestamp="20190717T154618-0600" comment="Suggest revising to &quot;can apply&quot; vs. &quot;can issue that apply&quot; as it&apos;s a little confusing."?>can
-                issue that apply<?oxy_comment_end?> to a specified diagnosis or a particular period
-                of time. Order sets reduce both time spent entering orders and terminal usage,
-                helping to improve user acceptance of computer-based physician order
+                <?oxy_comment_start author="steph" timestamp="20190717T154618-0600" comment="Suggest revising to &quot;can apply&quot; vs. &quot;can issue that apply&quot; as it&apos;s a little confusing." flag="done"?>can
+                apply<?oxy_comment_end?> to a specified diagnosis or a particular period of time.
+                Order sets reduce both time spent entering orders and terminal usage, helping to
+                improve user acceptance of computer-based physician order
                     entry.<citation>orderset</citation><citation>ordersets2</citation></para>
         </section>
         <section>

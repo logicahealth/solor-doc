@@ -142,11 +142,12 @@
             systematic, and comprehensive. There have been a number of historical efforts that have
             aimed to achieve interoperable and robust CDS tools and artifacts that appropriately
             translate guidelines into care
-            (<?oxy_comment_start author="steph" timestamp="20190717T105119-0600" comment="Where is this section?  I couldn&apos;t find it." id="aqv_sdt_q3b"?><?oxy_comment_start author="timowilliams" timestamp="20190806T210726-0500" comment="Is this supposed to be Historical Context for Representing the Expression Logic of Clinical Decision Support?" parentID="aqv_sdt_q3b" mid="4"?>see
-            subsequent section about the History of CDS Expression
-            Logic<?oxy_comment_end mid="4"?><?oxy_comment_end?>). The Agency for Healthcare Research
-            and Quality depicts the following image representing the “CDS lifecycle” for the
-            following areas<citation>CDSConnect</citation>:<itemizedlist>
+            (<?oxy_comment_start author="steph" timestamp="20190717T105119-0600" comment="Where is this section?  I couldn&apos;t find it." id="aqv_sdt_q3b" flag="done" mid="5"?><?oxy_comment_start author="timowilliams" timestamp="20190806T210726-0500" comment="Is this supposed to be Historical Context for Representing the Expression Logic of Clinical Decision Support?" parentID="aqv_sdt_q3b" flag="done"?><?oxy_comment_start author="rcholan" timestamp="20190808T094544-0400" comment="I added a link and fixed the title" parentID="aqv_sdt_q3b" flag="done" mid="4"?>see
+            subsequent <link linkend="CDSHistory">section</link> about the Historical Context for
+            Representing the Expression
+            Logic<?oxy_comment_end mid="4"?><?oxy_comment_end?><?oxy_comment_end mid="5"?> of CDS).
+            The Agency for Healthcare Research and Quality depicts the following image representing
+            the “CDS lifecycle” for the following areas<citation>CDSConnect</citation>:<itemizedlist>
                 <listitem>
                     <para>authoring CDS tools and artifacts that leverage knowledge sources such as
                         clinical practice guidelines, quality measure specifications, and
@@ -445,10 +446,10 @@
                                 <entry>
                                     <itemizedlist>
                                         <listitem>
-                                            <para>resource management,
-                                                <?oxy_comment_start author="steph" timestamp="20190717T114026-0600" comment="What is provider medication cost?  Should it just be medication cost?"?>provider
-                                                <?oxy_comment_end?>medication (number, type, class)
-                                                and laboratory test costs</para>
+                                            <para>resource
+                                                management,<?oxy_comment_start author="steph" timestamp="20190717T114026-0600" comment="What is provider medication cost?  Should it just be medication cost?" flag="done"?><?oxy_comment_end?>medication
+                                                (number, type, class) and laboratory test
+                                                costs</para>
                                         </listitem>
                                     </itemizedlist>
                                 </entry>
@@ -464,11 +465,6 @@
                                         </listitem>
                                     </itemizedlist>
                                 </entry>
-                            </row>
-                            <row>
-                                <entry>Clinical objectives addressed with CDS</entry>
-                                <?oxy_comment_start author="steph" timestamp="20190717T114117-0600" comment="Shouldn&apos;t this have something here?  Otherwise, why include it?"?>
-                                <entry/><?oxy_comment_end?>
                             </row>
                             <row>
                                 <entry>Care processes, adherence to guidelines</entry>
@@ -553,7 +549,7 @@
                     <listitem>
                         <para>Test #1 the presence of a single point outside the control limits
                             using the threshold
-                            3<?oxy_comment_start author="steph" timestamp="20190717T120833-0600" comment="Is this symbol correct?"?>*<?oxy_comment_end?>standard
+                            3<?oxy_comment_start author="steph" timestamp="20190717T120833-0600" comment="Is this symbol correct?" id="iln_ksd_r3b"?><?oxy_comment_start author="rcholan" timestamp="20190808T085928-0400" comment="* denotes multiplication" parentID="iln_ksd_r3b" mid="11"?>*<?oxy_comment_end mid="11"?><?oxy_comment_end?>standard
                             deviation.</para>
                     </listitem>
                     <listitem>
@@ -746,7 +742,7 @@
                             Need It</emphasis></para>
                     <itemizedlist>
                         <listitem>
-                            <para>“<?oxy_comment_start author="steph" timestamp="20190717T122242-0600" comment="Is the right bracket missing or is the left included by mistake?" id="cgt_4lr_q3b" flag="done"?><?oxy_comment_start author="timowilliams" timestamp="20190806T153107-0500" comment="Removed the bracket" parentID="cgt_4lr_q3b" flag="done" mid="14"?>T<?oxy_comment_end mid="14"?><?oxy_comment_end?>he
+                            <para>“[<?oxy_comment_start author="steph" timestamp="20190717T122242-0600" comment="Is the right bracket missing or is the left included by mistake?" id="cgt_4lr_q3b" flag="done" mid="16"?><?oxy_comment_start author="timowilliams" timestamp="20190806T153107-0500" comment="Removed the bracket" parentID="cgt_4lr_q3b" flag="done"?><?oxy_comment_start author="rcholan" timestamp="20190808T094757-0400" comment="Fixed the bracket" parentID="cgt_4lr_q3b" flag="done" mid="15"?>T<?oxy_comment_end mid="15"?><?oxy_comment_end?><?oxy_comment_end mid="16"?>]he
                                 likelihood of success in implementing a computerized guideline is
                                 inversely proportional to the number of extra data elements
                                 needed.”</para>
@@ -776,7 +772,7 @@
             </orderedlist>
         </section>
     </section>
-    <section>
+    <section xml:id="CDSHistory">
         <title>Historical Context for Representing the Expression Logic of Clinical Decision
             Support</title>
         <para>While there have been advancements over the past few decades in implementing clinical
@@ -905,10 +901,7 @@
                 the individual provider or establish a standard of care. They are meant to be
                 flexible and are only considered as recommendations. Where Guidelines are meant to
                 be flexible, standards are a rigid set of criteria, meant to be followed under any
-                circumstances.
-                <?oxy_comment_start author="steph" timestamp="20190717T152409-0600" comment="It&apos;s not clear to me what &quot;These&quot; is referring to - guidelines or standards?  Suggest revising to make it clear."?>These<?oxy_comment_end?>
-                are practices that are medically necessary for the management of a clinical
-                    condition.<citation>Guidelines</citation></para>
+                circumstances. <citation>Guidelines</citation></para>
             <section>
                 <title>Examples of Guidelines</title>
                 <para>The Society of Nuclear Medicine &amp; Molecular Imaging in collaboration with
@@ -948,8 +941,8 @@
                 appeared as a result of the adaptation of the documents used in industrial quality
                 management,<?oxy_comment_start author="steph" timestamp="20190717T153223-0600" comment="Should this be hyphenated instead so it&apos;s clearer that you&apos;re referring to SOPs as the &quot;documents&quot;?  And I would make SOPs plural since you referred to them as plural previously (documents).  It would read:
 
-Clinical pathways appeared as a result of the adaptation of the documents used in industrial quality management - standard operating procedures - whose goals..."?>
-                the Standard Operating Procedure,<?oxy_comment_end?> whose goals are to improve
+Clinical pathways appeared as a result of the adaptation of the documents used in industrial quality management - standard operating procedures - whose goals..." flag="done"?>
+                the Standard-Operating-Procedures,<?oxy_comment_end?> whose goals are to improve
                 efficiency in the use of resources and to finish work in a set time. </para>
             <para>Clinical pathways incorporate evidence-based guidelines and protocols for common
                 diagnoses, conditions and procedures into algorithms. These algorithms are used by
@@ -996,11 +989,11 @@ Clinical pathways appeared as a result of the adaptation of the documents used i
             <section>
                 <title>Pathways vs SOPs vs Guidelines</title>
                 <para>Rao et al provide definitions to help compare/contrast SOPs, guidelines, and
-                    <?oxy_comment_start author="steph" timestamp="20190717T154404-0600" comment="I didn&apos;t see clinical pathways discussed in the two paragraphs below."?>clinical
-                    pathways: </para><?oxy_comment_end?>
-                <para xml:id="__p7">"The terms SOPs, guidelines and pathways are defined by
-                    different medical bodies. Furthermore, whereas clinical practice guidelines are
-                    systematically developed statements that assist decisions about appropriate
+                    <?oxy_comment_start author="steph" timestamp="20190717T154404-0600" comment="I didn&apos;t see clinical pathways discussed in the two paragraphs below." id="sms_5sd_r3b"?><?oxy_comment_start author="rcholan" timestamp="20190808T090227-0400" comment="It is mentioned in the first sentence and last sentence. Perhaps we need a new quote" parentID="sms_5sd_r3b" mid="21"?>clinical
+                    pathways: </para><?oxy_comment_end?><?oxy_comment_end mid="21"?>
+                <para xml:id="__p7">"The terms SOPs, guidelines and [clinical] pathways are defined
+                    by different medical bodies. Furthermore, whereas clinical practice guidelines
+                    are systematically developed statements that assist decisions about appropriate
                     health care for specific circumstances, SOPs are more specific than guidelines
                     and are defined in greater detail. They provide a comprehensive set of rigid
                     criteria outlining the management steps for a single clinical condition or

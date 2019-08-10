@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<section xmlns="http://docbook.org/ns/docbook" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Application of Terminology Layer</title>
+    <para>Terminology is used throughout the architectural layers.  In this section we will give
+        examples of how terminology should best be used in the various architectural layers.</para>
+    <section>
+        <title>Analysis Normal Form Terminology Usage</title>
+        <para>The Statement Layer requires that the Terminology Expression fields in a statement are
+            disjoint: There should be no confusion—or creation of false dichotomies. There should be
+            one, and only one, place to put each type of information in a terminology expression.
+            For example, the Statement Layer defines a particular place to represent the subject of
+            information. Therefore, the terminology layer must not allow the subject of information
+            to be redundantly—and possibly contradictory—represented in a topic expression (such as
+            would be the case if "maternal history of diabetes" where an allowed topic
+            expression).</para>
+        <para><emphasis role="bold">topic:</emphasis> The particulars of how topics—and other
+            statement fields—are modeled as a Terminology Knowledge layer concern, not a Statement
+            Layer concern.  The Statement Layer requires that the topic represent an Action as a
+            code or expression according to the rules of the terminology layer, and that the rules
+            of the terminology layer enforce a disjointness of between different types of
+            terminology expressions. Here we present a starting point for what the Terminology Layer
+            editorial rules may look like, based on current SNOMED CT practice.</para>
+        <itemizedlist>
+            <listitem>
+                <para>SNOMED CT can accommodate this requirement for simple observations by using
+                    Observation procedure to represent the topic (or other types of procedures when
+                    appropriate, such as the administration of a medication). In SNOMED CT examples,
+                    the Observation procedure specifies a Has focus attribute linking it to the
+                    Clinical Finding or Disorder that it is being observed. The observation
+                    procedure can also be further refined by adding attributes in the terminology
+                    model, including Method, Procedure site - Direct, (if appropriate) Laterality,
+                    and Using device.</para>
+            </listitem>
+            <listitem>
+                <para>Medication administrations will use an Administration of substance concept to
+                    represent the topic. All Administration of substance concepts will be refined
+                    with the substance and dose form and strength being requested. If Route of
+                    administration exists, then it will also be added.</para>
+            </listitem>
+            <listitem>
+                <para>Laboratory tests will use a Laboratory Procedure concept to represent the
+                    topic. These concepts can be further refined.</para>
+            </listitem>
+            <listitem>
+                <para>Imaging Procedures with use an Imaging Procedure concept to represent the
+                    topic. These concepts will be further refined with a Method, Procedure site and
+                    (if appropriate) a laterality for those sites that are lateralizable.</para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">purpose:</emphasis> The purpose is why an action was requested.
+            The purpose of the topic is typically some type of therapeutic intent, diagnostic
+            intent, or both. There can be more than one therapeutic intent and diagnostic
+            intent.</para>
+    </section>
+</section>
+

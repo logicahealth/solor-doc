@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Terminology Intro</title>
     <para>The desiderata for the design of a controlled
         healthcare<?oxy_comment_start author="kec" timestamp="20190516T104634-0700" comment="We need to be consistent in our use of language. Interchanging Terminology and Vocabulary can be confusing to those that are not used to blocking out the distinctions. I recommend we stick with terminology, and not include the title of Jim&apos;s paper in the text. Just say someting like Cimino published criterion upon which terminologies should be evaluated in 1989." flag="done"?><?oxy_comment_end?>
@@ -58,8 +57,7 @@
                         <mediaobject>
                             <imageobject>
                                 <?oxy_comment_start author="timowilliams" timestamp="20190430T200411-0500" comment="Convert image to svg"?>
-                                <imagedata fileref="images/terminology_semiotictriangle.jpg"
-                                /><?oxy_comment_end?>
+                                <imagedata fileref="images/terminology_semiotictriangle.jpg"/><?oxy_comment_end?>
                             </imageobject>
                         </mediaobject>
                     </figure>
@@ -83,34 +81,72 @@
             </listitem>
             <listitem>
                 <para>Polyhierarchy</para>
-                <para>Concepts should be allowed to exist in multiple hierarchies if appropriate.
-                    For example,
+                <para>In traditional classification systems, categories are only allowed to exist in
+                    a single monohierarchical representation. For example, in ICD-10 A39.0
+                    Meningococcal meningitis only exists as a subtype of A39 Meningococcal
+                    infection.  In this representation you can easily find all meningococcal
+                    infections, but if you need to find all types of meningitis you are required to
+                    know all the various codes that represent the different classifications of meningitis.<figure>
+                        <title>Monohierarchy Example</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/meningitis_monohierarchy.svg"
+                                    scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
+                <para>In a well designed terminology, concepts should be allowed to exist in
+                    multiple hierarchies if multiple parent concepts are appropriate. For example,
                     <?oxy_comment_start author="timowilliams" timestamp="20190430T201423-0500" comment="Add image representing the polyhierarchy" id="m3l_gb2_xhb" flag="done" mid="4"?><?oxy_comment_start author="rcholan" timestamp="20190528T215454-0400" comment="Adding initial image. Will re-create." parentID="m3l_gb2_xhb" flag="done" mid="5"?><?oxy_comment_start author="steph" timestamp="20190806T085004-0600" comment="Recommend removing most of the white space around the image that isn&apos;t needed and is forcing &quot;hierarchies&quot; to be hyphenated and shown before and after the image." flag="done"?>Bacterial
-                    meningitis is both a subtype of Meningitis and Bacterial infection and should
-                    exist in both hierarchies.<?oxy_comment_end?><?oxy_comment_end mid="5"?><?oxy_comment_end mid="4"?>
+                    meningitis is both a subtype of Bacterial Meningitis and Meningococcal
+                    infectious disease and should exist in both hierarchies.<?oxy_comment_end?><?oxy_comment_end mid="5"?><?oxy_comment_end mid="4"?>
                     <figure>
                         <title>Polyhierarchy Example</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="images/meningitis.png" scalefit="1" width="100%"
-                                    contentdepth="100%"/>
+                                <imagedata fileref="images/meningitis_polyhierarchy.svg"
+                                    scalefit="1" width="100%" contentdepth="100%"/>
                             </imageobject>
                         </mediaobject>
                     </figure></para>
             </listitem>
             <listitem>
                 <para><?oxy_comment_start author="timowilliams" timestamp="20190430T201919-0500" comment="Should we add a comparison of stated vs inferred definitions here?
-" mid="8"?><?oxy_comment_start author="steph" timestamp="20190507T163331-0600" comment="I think that would be helpful." id="p3x_b22_xhb" mid="9"?><?oxy_comment_start author="rcholan" timestamp="20190528T221625-0400" comment="Added some draft explanation. Need example to help." parentID="p3x_b22_xhb"?><?oxy_comment_start author="steph" timestamp="20190812T161629-0600" comment="I think it needs to be more &quot;in your face,&quot; where you have the each term of stated and inferred, followed by their own definitions." mid="7"?>Formal
-                    definitions<?oxy_comment_end mid="7"?><?oxy_comment_end?><?oxy_comment_end mid="9"?><?oxy_comment_end mid="8"?></para>
+" flag="done" mid="7"?><?oxy_comment_start author="steph" timestamp="20190507T163331-0600" comment="I think that would be helpful." id="p3x_b22_xhb" flag="done" mid="8"?><?oxy_comment_start author="rcholan" timestamp="20190528T221625-0400" comment="Added some draft explanation. Need example to help." parentID="p3x_b22_xhb" flag="done" mid="9"?><?oxy_comment_start author="steph" timestamp="20190812T161629-0600" comment="I think it needs to be more &quot;in your face,&quot; where you have the each term of stated and inferred, followed by their own definitions." flag="done"?>Formal
+                    definitions<?oxy_comment_end?><?oxy_comment_end mid="9"?><?oxy_comment_end mid="8"?><?oxy_comment_end mid="7"?></para>
                 <para>While hierarchical information is paramount, the inclusion of additional
                     definitional knowledge can help maintain and correctly place concepts within the
                     appropriate hierarchy. Allowing computers to use this additional information can
                     aid in properly placing concepts in hierarchies that developers did not
                     originally add to a concept.</para>
+                <para>When content modelers add new content to a terminology, the relationships they
+                    create are sometimes called stated relationships.   These stated relationships
+                    help to give concepts a formal definition and can be used to correctly place a
+                    concept in new hierarchies the content modeler did not originally assign.  In
+                    large terminologies, correctly adding all the possible valid hierarchical
+                    relationships can be difficult as it requires the content modeler to think of
+                    all the possible parents.  By adding the additional information, like Finding
+                    Site in the example below, additional hierarchical relationships can be inferred.<figure>
+                        <title>Relationships Stated by a Content Modeler</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/stated_relationships.svg" scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
                 <para>DL ontologies can be classified (i.e., some relationships between concepts are
-                    inferred from the asserted class descriptions). Solor provides both views, and
-                    allow users to compare the differences. Solor has blocks of necessary &amp;
-                    sufficient, necessary, and inherited (i.e., inferred) relationships.</para>
+                    inferred from the asserted class descriptions) using a DL classifier and a new
+                    set of inferred relationships are created for concepts. Solor provides both
+                    views of stated and inferred relationships, and allow users to compare the
+                    differences. Solor has blocks of necessary &amp; sufficient, necessary, and
+                    inherited (i.e., inferred) relationships. <figure>
+                        <title>Inferred Relationships by DL Classifier</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/inferred_relationships.svg" scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
             </listitem>
             <listitem>
                 <para>No residual categories (Reject "Not Elsewhere Classified")</para>
@@ -118,8 +154,9 @@
                     the concept orientation desiderata and begin to create or use concepts as
                     grouper categories for missing content. Doing so introduces a "semantic drift"
                     that will cause problems with properly identifying historical data. By assigning
-                    meaning to a category, information is lost. Rejecting these categories requires
-                    the capability to extend content as described in the first desiderata.</para>
+                    meaning to a category or using a less specific concept to represent your
+                    intended meaning, information is lost. Rejecting these categories requires the
+                    capability to extend content as described in the first desiderata.</para>
             </listitem>
             <listitem>
                 <para>Multiple granularities</para>
@@ -142,8 +179,8 @@
                         <mediaobject>
                             <imageobject>
                                 <?oxy_comment_start author="steph" timestamp="20190610T132412-0600" comment="In the PDF, the &quot;After&quot; image is not shown, only the before image.  Either need to resize or move the &quot;After&quot; image below the &quot;Before&quot; image." flag="done"?>
-                                <imagedata fileref="images/CranialNerves.png" scalefit="1"
-                                    width="100%" contentdepth="100%"><?oxy_comment_end?></imagedata>
+                                <?oxy_comment_start author="timowilliams" timestamp="20190814T134943-0500" comment="convert to SVG" mid="14"?>
+                                <imagedata fileref="images/CranialNerves.png" scalefit="1" width="100%" contentdepth="100%"><?oxy_comment_end?></imagedata><?oxy_comment_end mid="14"?>
                             </imageobject>
                         </mediaobject>
                     </figure>
@@ -169,7 +206,7 @@
                     in place to both prevent and detect them. With large terminologies, it is
                     inevitable that duplicate and erroneous concepts are added. Robust terminologies
                     need processes and procedures in place to identify and retire duplicate and
-                    erroneous concepts. Multiple processes can be utilized to ensure redunant
+                    erroneous concepts. Multiple processes can be utilized to ensure redundant
                     concepts are not added to terminologies. For example:<itemizedlist>
                         <listitem>
                             <para>Standardized naming conventions should be in place to eliminate

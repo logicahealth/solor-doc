@@ -27,28 +27,27 @@
                     <para>Assisting end users in adding clinical modifiers to concepts</para>
                 </listitem>
                 <listitem>
-                    <para>Representing relationships between clinical concepts and patient
-                        populations</para>
+                    <para>Representing non-defintional relationships for clinical concepts</para>
                 </listitem>
                 <listitem>
-                    <para>Clarifying whether synonyms have the same meaning</para>
+                    <para>Support for synonymy</para>
                 </listitem>
             </orderedlist>
         </para>
         <para><link xlink:href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1513664/"/></para>
     </section>
     <section>
-        <title>Solor Representation</title>
-        <para>The Solor representation of Assertional Knowledge reaches beyond the patient as the
-            subject of record and observations and evaluation results about the patient. It
-            represents knowledge that can be applied to the patient's care, e.g. the patient's
-            treatment or diagnostics. </para>
-        <para>The Solor capability of associating statements enables the use of Assertional
-            Knowledge to clinical decision support applications, clinical pathways and general
-            information (“info button”) that can be made available to users of EMR systems. </para>
+        <title>Adding Clinical Modifiers to Concepts</title>
+        <para>Prior to 2012, SNOMED CT included qualifying relationships that could be used for
+            creating a user interface that would post-coordinate concepts using pre-approved
+            attribute value pairs. With the introduction of the RF2, qualifying relationships were
+            no longer released in favor of the Machine Readable Concept Model (MRCM). The MRCM is a
+            more comprehensive and flexible format for representing relationships and values that
+            can be used to refine concepts.</para>
     </section>
     <section>
-        <title>Examples of Assertional Knowledge</title>
+        <title>Representing Non-definitional Relationships for Clinical Concepts</title>
+        <para/>
         <section>
             <title>Facts Supporting Reasoning</title>
             <para>Attributes like the ones below are common in proprietary interface terminologies
@@ -94,20 +93,24 @@
             </itemizedlist>
         </section>
         <section>
-            <title>Adding Clinical Modifiers</title>
-            <para>Prior to 2012, SNOMED CT included qualifying relationships that could be used for
-                creating a user interface that would post-coordinate concepts using pre-approved
-                attribute value pairs.  With the introduction of the RF2, qualifying relationships
-                were no longer released in favor of the Machine Readable Concept Model (MRCM).  The
-                MRCM is a more comprehensive and flexible format for representing relationships and
-                values that can be used to refine concepts.</para>
-        </section>
-        
-        <section>
             <title>Relationships Between Clinical Concepts and Patient Populations</title>
             <para>An example of a relationship between a clinical concept and patient population is
                 pregnancy is not present in men or women who have had a hysterectomy or who are
                 post-menopausal.</para>
+        </section>
+    </section>
+    <section>
+        <title>Support for Synonymy</title>
+        <section>
+            <title>Support for Human-Readability</title>
+            <para>The goal of interface terminologies is to optimize the user experience. Increasing
+                efficiency and clarity of data review are key considerations for helping clinicians
+                access, read, and understand encoded clinical data. A simple approach is to use
+                relatively colloquial terms and display common phrases and words. More complex
+                approaches include "auto-complete" features - when a user selects a concept (e.g.,
+                "chest pain") and modifiers (e.g., "anterior", "dull" "present"), the system may
+                leverage tagged terminologies to generate the natural language sentence (e.g.,
+                anterior dull chest pain is present"). </para>
         </section>
         <section>
             <title>Clarifying synonymy</title>
@@ -117,16 +120,56 @@
                 provider that the pain is in the chest wall rather than internally as the term chest
                 pain may imply.</para>
         </section>
+        <section>
+            <title>Completeness of Synonym Coverage</title>
+            <para>An adequate representation of synoynms in a terminology can increase the
+                teriminology's usability. Terminologies should represent the richness present in
+                colloquial phrases of medical discource and represent the variety of different types
+                of synoynms that exist: </para>
+            <para><emphasis role="underline"><emphasis role="bold">Alternate
+                    Terms</emphasis></emphasis>: "Myocardial Infarction" for "Heart Attack"</para>
+            <para><emphasis role="underline"><emphasis role="bold">Acronyms</emphasis>:</emphasis>
+                "MI" for "Myocardial Infarction"</para>
+            <para><emphasis role="underline"><emphasis role="bold">Definitional
+                    phrases</emphasis>:</emphasis> "Ischemic injury" for "necrosis of heart muscle
+                cells resulting from absent or diminished blood flow in a coronary artery"</para>
+            <para><emphasis role="underline"><emphasis role="bold">Eponyms</emphasis>:</emphasis>
+                "Levine sign" for "a clenched fist held over the chest indicating ischemic cardiac
+                chest pain"</para>
+            <para>However, rich synonymy may increase the chances that a given term may be used to
+                represent more than one concept (e.g., "cold" for "low temperature" and for "upper
+                repiratory tract viral infection". Parameters for metrics for evaluating the
+                completeness of synonym coverage in clinical interface terminologies include:</para>
+            <para>
+                <emphasis role="underline"><emphasis role="bold">Concept
+                    Accuracy</emphasis>:</emphasis> how closely a term's meaning cooresponds with
+                the underlying concept it represents; and,</para>
+            <para>
+                <emphasis role="underline"><emphasis role="bold">Synonym
+                    Expressivity</emphasis>:</emphasis> how well a term's semantic character matches
+                the words in the phrase it is meant to represent rather than the underlying meaning. </para>
+            <para>For example a patient describes having a "feathery discomfort occurring across the
+                chest". Within a clinical terminology there is a concept for "chest discomfort" and
+                modifiers like "soft" and "anterior chest wall". The end-user selects "noncrushing"
+                to represent "feathery". The concept accuracy of "noncrushing" for "feathery" is
+                adequate beause the two have the same meaning. However, "noncrushing" does not fully
+                express the character of "feathery". </para>
+        </section>
+    </section>
+    
+    <section>
+        <title>Examples of Assertional Knowledge</title>
+        <section/>
     </section>
     <section>
         <title><?oxy_comment_start author="kec" timestamp="20190516T103116-0700" comment="Maybe we should frame this more in terms of &quot;Interface Support&quot;... Interface terminology perhaps implies that we need to create something distinct, rather than just a configurtation of one or more dialects. Other terms maybe better. 
 
-Having the use case here up front that describes the need we are trying to fill can be good. So that&apos;s consistent with Tim&apos;s need more content/examples. "?><?oxy_comment_start author="timowilliams" timestamp="20190501T104321-0500" comment="Need more content.  Add examples." flag="done" mid="7"?>Interface
-            Terminology<?oxy_comment_end?><?oxy_comment_end mid="7"?></title>
-        <para>An interface terminology can be defined as a "systematic collection of clinically
+Having the use case here up front that describes the need we are trying to fill can be good. So that&apos;s consistent with Tim&apos;s need more content/examples. "?><?oxy_comment_start author="timowilliams" timestamp="20190501T104321-0500" comment="Need more content.  Add examples." flag="done" mid="1"?>Interface
+            <?oxy_comment_end?><?oxy_comment_end mid="1"?>Support Features of Terminologies</title>
+        <para>Interface terminology can be defined as a "systematic collection of clinically
             oriented phrases (terms) whose purpose is to support clinicians' entry of patient
-            information into computer programs, such as clinical note capture and decision
-            support tools". <citation>Elkin_Terminology</citation></para>
+            information into computer programs, such as clinical note capture and decision support
+            tools". <citation>Elkin_Terminology</citation></para>
         <para>"Healthcare providers generally use interface terminologies to accomplish one of
             two tasks: 1) encoding clinical narrative into a structured form, or, 2) reviewing
             structured clinical information that has previously been encoded using a different
@@ -135,53 +178,13 @@ Having the use case here up front that describes the need we are trying to fill 
             facile use by healthcare providers through easy understandability, and integrate
             well with other clinical computerized systems in the environment." <citation>Rosenbloom_model</citation></para>
         <section>
-            <title><abbrev>Desiderata for Supporting Interface Terminology Usability
-            </abbrev></title>
+            <title><abbrev>Desiderata for Supporting Usability of Terminology  </abbrev></title>
             <para>The fundamental metric for evaluating an interface terminology is how well it
                 performs in supporting correct, complete, and efficient data encoding or review
                 by humans. <citation>Rosenbloom_model</citation> There are six desiderata
                 relevant to interface terminology usability.
                 <citation>Elkin_Terminology</citation></para>
-            <section>
-                <title>Completeness of Synonym Coverage</title>
-                <para>An adequate representation of synoynms in an interface terminology can
-                    increase the teriminology's usability. Interface terminologies should
-                    represent the richness present in colloquial phrases of medical discource
-                    and represent the variety of different types of synoynms that exist: </para>
-                <para><emphasis role="underline"><emphasis role="bold">Alternate
-                    Terms</emphasis></emphasis>:  "Myocardial Infarction" for  "Heart
-                    Attack"</para>
-                <para><emphasis role="underline"><emphasis role="bold"
-                    >Acronyms</emphasis>:</emphasis> "MI" for "Myocardial Infarction"</para>
-                <para><emphasis role="underline"><emphasis role="bold">Definitional
-                    phrases</emphasis>:</emphasis> "Ischemic injury" for "necrosis of
-                    heart muscle cells resulting from absent or diminished blood flow in a
-                    coronary artery"</para>
-                <para><emphasis role="underline"><emphasis role="bold"
-                    >Eponyms</emphasis>:</emphasis> "Levine sign" for "a clenched fist held
-                    over the chest indicating ischemic cardiac chest pain"</para>
-                <para>However, rich synonymy may increase the chances that a given term may be
-                    used to represent more than one concept (e.g., "cold" for "low temperature"
-                    and for "upper repiratory tract viral infection". Parameters for metrics for
-                    evaluating the completeness of synonym coverage in clinical interface
-                    terminologies include:</para>
-                <para>
-                    <emphasis role="underline"><emphasis role="bold">Concept
-                        Accuracy</emphasis>:</emphasis> how closely a term's meaning cooresponds
-                    with the underlying concept it represents; and,</para>
-                <para>
-                    <emphasis role="underline"><emphasis role="bold">Synonym
-                        Expressivity</emphasis>:</emphasis> how well a term's semantic
-                    character matches the words in the phrase it is meant to represent rather
-                    than the underlying meaning. </para>
-                <para>For example a patient describes having a "feathery discomfort occurring
-                    across the chest". Within a clinical terminology there is a concept for
-                    "chest discomfort" and modifiers like "soft" and "anterior chest wall". The
-                    end-user selects "noncrushing" to represent "feathery". The concept accuracy
-                    of "noncrushing" for "feathery" is adequate beause the two have the same
-                    meaning. However, "noncrushing" does not fully express the character of
-                    "feathery". </para>
-            </section>
+            <section/>
             <section>
                 <title>Balance between Precoordination and Postcoordination</title>
                 <para>There are one of two general approaches to representing knowledge domains
@@ -234,26 +237,18 @@ Having the use case here up front that describes the need we are trying to fill 
                     </imageobject>
                 </inlinemediaobject></para>
             </section>
-            <section>
-                <title>Support for Human-Readability</title>
-                <para>The goal of interface terminologies is to optimize the user experience.
-                    Increasing efficiency and clarity of data review are key considerations for
-                    helping clinicians access, read, and understand encoded clinical data. A
-                    simple approach is to use relatively colloquial terms and display common
-                    phrases and words. More complex approaches include "auto-complete" features
-                    - when a user selects a concept (e.g., "chest pain") and modifiers (e.g.,
-                    "anterior", "dull" "present"), the system may leverage tagged terminologies
-                    to generate the natural language sentence (e.g., anterior dull chest pain is
-                    present"). </para>
-            </section>
-            <section>
-                <title>Application Independence</title>
-                <para>Ideally, interface terminologies should exist as separate application
-                    components that share a common data model with EHRs or other computer-based
-                    systems. With this approach, terminology content development and evolution
-                    can be distinct from software iteration cycles and queues. </para>
-            </section>
+            <section/>
         </section>
+    </section>
+    <section>
+        <title>Solor Representation of Assertional Knowledge</title>
+        <para>The Solor representation of Assertional Knowledge reaches beyond the patient as the
+            subject of record and observations and evaluation results about the patient. It
+            represents knowledge that can be applied to the patient's care, e.g. the patient's
+            treatment or diagnostics. </para>
+        <para>The Solor capability of associating statements enables the use of Assertional
+            Knowledge to clinical decision support applications, clinical pathways and general
+            information (“info button”) that can be made available to users of EMR systems. </para>
     </section>
     
     

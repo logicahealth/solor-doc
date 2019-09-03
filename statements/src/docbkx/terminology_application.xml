@@ -13,15 +13,23 @@
             For example, the Statement Layer defines a particular place to represent the subject of
             information. Therefore, the terminology layer must not allow the subject of information
             to be redundantly—and possibly contradictory—represented in a topic expression (such as
-            would be the case if "maternal history of diabetes" where an allowed topic
+            would be the case if "maternal history of diabetes" were an allowed topic
             expression).</para>
         <para><emphasis role="bold">topic:</emphasis> The particulars of how topics—and other
             statement fields—are modeled as a Terminology Knowledge layer concern, not a Statement
-            Layer concern.  The Statement Layer requires that the topic represent an Action as a
-            code or expression according to the rules of the terminology layer, and that the rules
-            of the terminology layer enforce a disjointness of between different types of
-            terminology expressions. Here we present a starting point for what the Terminology Layer
-            editorial rules may look like, based on current SNOMED CT practice.</para>
+            Layer concern. The Statement Layer requires that the topic represent an Action as a code
+            or expression according to the rules of the
+            <?oxy_comment_start author="steph" timestamp="20190903T121300-0600" comment="Recommend being consistent with capitalization and the terms you are using when referring to the various layers..  In this one paragraph for this layer, you have:
+
+ - Terminology Knowledge layer
+ - Terminology Layer
+ - terminology layer"?>terminology
+            layer<?oxy_comment_end?>, and that the rules of the terminology layer enforce a
+            disjointness
+            <?oxy_comment_start author="steph" timestamp="20190903T121358-0600" comment="Should this be deleted?  It reads awkwardly."?>of
+            <?oxy_comment_end?>between different types of terminology expressions. Here we present a
+            starting point for what the Terminology Layer editorial rules may look like, based on
+            current SNOMED CT practice.</para>
         <itemizedlist>
             <listitem>
                 <para>SNOMED CT can accommodate this requirement for simple observations by using
@@ -30,8 +38,9 @@
                     the Observation procedure specifies a Has focus attribute linking it to the
                     Clinical Finding or Disorder that it is being observed. The Observation
                     procedure can also be further refined by adding attributes in the terminology
-                    model, including Method, Procedure site - Direct, (if appropriate) Laterality,
-                    and Using device.  For example:<itemizedlist>
+                    model, including Method, Procedure site - Direct,
+                    <?oxy_comment_start author="steph" timestamp="20190903T121959-0600" comment="If this is referring to Laterality, recommend putting it aftward, not before."?>(if
+                    appropriate) <?oxy_comment_end?>Laterality, and Using device. For example:<itemizedlist>
                         <listitem>
                             <para>Diabetes Mellitus Type 2 Present = [Observation procedure]-(Has
                                 focus) [Diabetes mellitus type 2]</para>
@@ -73,9 +82,11 @@
                     </itemizedlist></para>
             </listitem>
             <listitem>
-                <para>Imaging Procedures with use an Imaging Procedure concept to represent the
+                <para>Imaging Procedures will use an Imaging Procedure concept to represent the
                     topic. These concepts will be further refined with a Method, Procedure site and
-                    (if appropriate) a laterality for those sites that are lateralizable.  For example:<itemizedlist>
+                    <?oxy_comment_start author="steph" timestamp="20190903T122608-0600" comment="In this example, I don&apos;t think (if appropriate) is needed since you&apos;ve stated here (and didn&apos;t in the prior one) &quot;for those sites that are lateralizable.&quot;"?>(if
+                    appropriate) <?oxy_comment_end?>a laterality for those sites that are
+                    lateralizable. For example:<itemizedlist>
                         <listitem>
                             <para>X-ray Chest to Evaluate for Heart Failure = Plain chest
                                 X-ray</para>
@@ -134,7 +145,7 @@
             used to flag a result with coded values such as 'low', 'normal', high', and
             'critical'.</para>
         <para><emphasis role="bold">participantRole:</emphasis> Participants can be specified or
-            requested</para>
+            requested.</para>
         <itemizedlist>
             <listitem>
                 <para>A Performance of action can specify participants using participant in

@@ -70,17 +70,19 @@
                     decision support expression logic can be shareable and re-usable across every
                     medical center, clinic, provider, and patient. </para>
                 <para>One of the overarching challenges of standards that aim to make CDS shareable
-                    and interoperable is that there is currently not a robust way to associate rules
+                    and interoperable is that there currently is not a robust way to associate rules
                     in knowledge-based systems with other dependencies in clinical data
                     representation systems to ensure proper operation. For example in the
                     hypertension disability questionnaire, a CDS alert may be configured to fire if
-                    a patient's BP is greater than or equal to 140/90 at a recent encounter. The
-                    same alert may also fire based on the presence of a SNOMED CT or ICD-10-CM code
-                    in a patient's encounter diagnosis or problem list. The same alert may also fire
-                    based on the presence of 1 or more anti-hypertensive medications present in the
-                    patient's record. All of the underlying expression-logic behind this alert, and
-                    the terminologies utilized to represent the labs, diagnoses, and medications
-                    need to be configured in a controlled manner. </para>
+                    a patient's BP is greater than or equal to
+                    <?oxy_comment_start author="steph" timestamp="20190903T153104-0600" comment="Is this correct?  Should it be 160/90? I didn&apos;t see the questionnaire reference 140 at all."?>140/90<?oxy_comment_end?>
+                    at a recent encounter. The same alert may also fire based on the presence of a
+                    SNOMED CT or ICD-10-CM code in a patient's encounter diagnosis or problem list.
+                    The same alert may also fire based on the presence of 1 or more
+                    anti-hypertensive medications present in the patient's record. All of the
+                    underlying expression-logic behind this alert, and the terminologies utilized to
+                    represent the labs, diagnoses, and medications need to be configured in a
+                    controlled manner. </para>
                 <para>Current CDS standards are silent on the notion of identifying a safe
                     configuration of dependencies between (a) the expression-logic for rules-based
                     CDS techniques, (b) the value sets with codes and terms to define clinical

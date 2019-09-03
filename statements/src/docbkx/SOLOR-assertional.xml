@@ -19,8 +19,8 @@
             facts about clinical concepts can also be provided to support reasoning for automated
             quality monitoring and clinical decision
             support.<citation>Elkin_Terminology</citation></para>
-        <para>Additionally assertional knowledge support interface implementation by providing
-            increased synonymy that is specific as to the context in which it should be used.  What
+        <para>Additionally, assertional knowledge supports interface implementation by providing
+            increased synonymy that is specific as to the context in which it should be used. What
             has been previously called interface terminology can be defined as a "systematic
             collection of clinically oriented phrases (terms) whose purpose is to support
             clinicians' entry of patient information into computer programs, such as clinical note
@@ -28,10 +28,10 @@
         <para>This interface support is used to accomplish one of two tasks:</para>
         <orderedlist>
             <listitem>
-                <para>encoding clinical narrative into a structured form, or</para>
+                <para>Encoding clinical narrative into a structured form, or</para>
             </listitem>
             <listitem>
-                <para>reviewing structured clinical information that has previously been encoded
+                <para>Reviewing structured clinical information that has previously been encoded
                     using a different terminology. </para>
             </listitem>
         </orderedlist>
@@ -51,7 +51,7 @@
                     <para>Representing additional relationships for clinical concepts</para>
                 </listitem>
                 <listitem>
-                    <para>Support for synonymy</para>
+                    <para>Providing support for synonymy</para>
                 </listitem>
             </orderedlist>
         </para>
@@ -71,13 +71,13 @@
         <para>An alternative is <emphasis role="bold"><emphasis role="underline"
                     >postcoordination</emphasis></emphasis> in which users compose complex concepts
             by assembling general concepts and modifiers as needed. An advantage is increased
-            flexibility for representing a wide range of concepts. Disadvanatges include increased
+            flexibility for representing a wide range of concepts. Disadvantages include increased
             variation and inconsistent application of terminologies against clinical data, increased
             ability to create nonsensical complex concepts from modifiers and concepts, and
             inefficiency since postcoordination processes can be time-consuming. </para>
         <para>Bringing these two approaches together can optimize a terminology's flexibility, ease
             of use, and overall coverage. "Compositional balance" makes concept selection tasks
-            efficient by reducing the effort to assemble complex concetps from general concepts, and
+            efficient by reducing the effort to assemble complex concepts from general concepts, and
             reducing the time needed to search through long lists of precoordinated concepts. </para>
         <para>Prior to 2012, SNOMED CT included qualifying relationships that could be used for
             creating a user interface that would post-coordinate concepts using pre-approved
@@ -168,7 +168,7 @@
                 approaches include "auto-complete" features - when a user selects a concept (e.g.,
                 "chest pain") and modifiers (e.g., "anterior", "dull" "present"), the system may
                 leverage tagged terminologies to generate the natural language sentence (e.g.,
-                anterior dull chest pain is present"). </para>
+                "anterior dull chest pain is present"). </para>
         </section>
         <section>
             <title>Clarifying synonymy</title>
@@ -181,8 +181,8 @@
         <section>
             <title>Completeness of Synonym Coverage</title>
             <para>An adequate representation of synoynms in a terminology can increase the
-                teriminology's usability. Terminologies should represent the richness present in
-                colloquial phrases of medical discource and represent the variety of different types
+                terminology's usability. Terminologies should represent the richness present in
+                colloquial phrases of medical discourse and represent the variety of different types
                 of synoynms that exist: </para>
             <para><emphasis role="underline"><emphasis role="bold">Alternate
                     Terms</emphasis></emphasis>: "Myocardial Infarction" for "Heart Attack"</para>
@@ -196,22 +196,22 @@
                 chest pain"</para>
             <para>However, rich synonymy may increase the chances that a given term may be used to
                 represent more than one concept (e.g., "cold" for "low temperature" and for "upper
-                repiratory tract viral infection". Parameters for metrics for evaluating the
+                respiratory tract viral infection". Parameters for metrics for evaluating the
                 completeness of synonym coverage in clinical interface terminologies include:</para>
             <para>
                 <emphasis role="underline"><emphasis role="bold">Concept
-                    Accuracy</emphasis>:</emphasis> how closely a term's meaning cooresponds with
+                    Accuracy</emphasis>:</emphasis> how closely a term's meaning corresponds with
                 the underlying concept it represents; and,</para>
             <para>
                 <emphasis role="underline"><emphasis role="bold">Synonym
                     Expressivity</emphasis>:</emphasis> how well a term's semantic character matches
                 the words in the phrase it is meant to represent rather than the underlying meaning. </para>
             <para>For example a patient describes having a "feathery discomfort occurring across the
-                chest". Within a clinical terminology there is a concept for "chest discomfort" and
+                chest". Within a clinical terminology, there is a concept for "chest discomfort" and
                 modifiers like "soft" and "anterior chest wall". The end-user selects "noncrushing"
                 to represent "feathery". The concept accuracy of "noncrushing" for "feathery" is
-                adequate beause the two have the same meaning. However, "noncrushing" does not fully
-                express the character of "feathery". </para>
+                adequate because the two have the same meaning. However, "noncrushing" does not
+                fully express the character of "feathery". </para>
         </section>
     </section>
     <section>

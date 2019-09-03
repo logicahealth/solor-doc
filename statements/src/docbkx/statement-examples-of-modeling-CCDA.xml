@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Examples of Modeling C-CDA Entries Based on ANF</title>
+    <section>
+        <title><anchor xml:id="_Toc5884799"/>Summary of Care</title>
+        <table>
+            <title>Summary of Care</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry><emphasis role="bold">C-CDA Category/Entry</emphasis></entry>
+                        <entry><emphasis role="bold">Modeling</emphasis></entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Reason for referral</para>
+                            <para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Pulmonary Function Tests</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Request]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic:</emphasis><emphasis role="italic"
+                                    >[23426006 |Measurement of respiratory
+                                function]-</emphasis></para>
+                            <para><emphasis role="italic">(260686004 |Method) [129266000
+                                    |Measurement – action]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="1">
+                            <para>Allergies, Adverse Reactions and Alerts</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Allergen: Penicillin G</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Reaction: Hives</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Reaction severity: Severe</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                    
+                                </listitem>
+                            </itemizedlist>
+                            <para> </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [294499007 |Allergy
+                                    to benzylpenicillin]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row><entry>
+                            <para><emphasis role="bold"><emphasis role="italic">Associated
+                                        statement:</emphasis></emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [247472004
+                                    |Weal]-</emphasis></para>
+                            <para><emphasis role="italic">(42752001 |Due to) [294499007 |Allergy to
+                                    benzylpenicillin]-</emphasis></para>
+                            <para><emphasis role="italic">(246112005 |Severity) [24484000 |Severe
+                                    (severity modifier)]</emphasis></para>
+                        </entry></row>
+                    <row>
+                        <entry morerows="1">
+                            <para>Problem list</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Costal Chondritis</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Asthma</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para> </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [64109004 |Costal
+                                    chondritis]</emphasis></para>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                                <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [195967001
+                                |Asthma]</emphasis></para></entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Social History</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Never smoked</para>
+                                </listitem>
+                            </itemizedlist>
+                            
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [266919005 |Never
+                                    smoked tobacco]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Immunizations</para>
+                            <para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Influenza virus vaccine: completed</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >86198006 |Influenza vaccination]-</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result status:</emphasis><emphasis
+                                    role="italic"> [255594003 |Complete]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Medications</para>
+                            <para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Albuterol 0.09 mg ACTUAT</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                            <para> </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >416118004 |Administration]-</emphasis></para>
+                            <para><emphasis role="italic">(260686004 |Method) [129445006
+                                    |Administration – action]-</emphasis></para>
+                            <para><emphasis role="italic">(363701004 |Direct substance) [Rx; 329498
+                                    Albuterol 0.09 MG/ACTUAT]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="1">
+                            <para>Functional and Cognitive Status</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Functional status: No impairment</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Cognitive status: No impairment</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic:</emphasis><emphasis role="italic"
+                                >[5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus)
+                                [</emphasis><emphasis role="italic">118228005 |Functional
+                                    finding]-</emphasis></para>
+                            <para><emphasis role="italic">(363714003 |Interprets) [246464006
+                                |Function]-</emphasis></para>
+                            <para><emphasis role="italic">(363713009 |Has interpretation) [17621005
+                                |Normal];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic:</emphasis><emphasis role="italic"
+                                >[5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus)
+                                [</emphasis><emphasis role="italic">373930000 |Cognitive
+                                    function]-</emphasis></para>
+                            <para><emphasis role="italic">(363714003 |Interprets) [311465003
+                                |Cognitive functions]-</emphasis></para>
+                            <para><emphasis role="italic">(363713009 |Has interpretation) [17621005
+                                |Normal];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="4">
+                            <para>Vital signs</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Height: 70 in</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Weight: 195 lb.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Body Mass Index (calculated): 28</para>
+                                </listitem>
+                                <listitem>
+                                    <para>BP systolic: 155 mmHg</para>
+                                </listitem>
+                                <listitem>
+                                    <para>BP diastolic: 92 mmHg</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para> </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                >14456009 |Measuring height of patient]-</emphasis></para>
+                            <para><emphasis role="italic">(260686004 |Method) [129266000
+                                |Measurement - action]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result:</emphasis><emphasis role="italic">
+                                70 [258677007 |Inch]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                >39857003 |Weighing patient]-</emphasis></para>
+                            <para><emphasis role="italic">(260686004 |Method) [129266000
+                                |Measurement - action]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result:</emphasis><emphasis role="italic">
+                                195 [258693003 |pounds]</emphasis></para>
+                        </entry>
+                    </row>
+                    
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                >698094009 |Measurement of body mass index]-</emphasis></para>
+                            <para><emphasis role="italic">(260686004 |Method) [129266000
+                                |Measurement - action]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result:</emphasis><emphasis role="italic">
+                                28</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic:</emphasis><emphasis role="italic">
+                                [5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(260686004|Method) [302199004|Examination
+                                - action]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [163030003 |On
+                                examination - Systolic blood pressure
+                                reading];</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result:</emphasis><emphasis role="italic">
+                                155 [259018001 |Millimeter of mercury]</emphasis></para>
+                        </entry>
+                    </row>
+                    
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic:</emphasis><emphasis role="italic">
+                                [5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(260686004|Method) [302199004|Examination
+                                - action]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [163031004 |On
+                                examination - Diastolic blood pressure
+                                reading]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Circumstance:</emphasis></para>
+                            <para><emphasis role="bold">Result:</emphasis><emphasis role="italic">
+                                92 [259018001 |Millimeter of mercury]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Results</para>
+                            <para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>CO2 27 mmol/L</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                            <para> </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                >38007001 |Carbon dioxide measurement]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Circumstance:</emphasis></para>
+                            <para><emphasis role="bold">Result:</emphasis><emphasis role="italic">
+                                27 [258813002 |Millimole/liter]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="1">
+                            <para>Plan of Care</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Goal: Weight loss: Patient education: Diet counseling
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Asthma management: Patient education: Resources and
+                                        instructions</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para> </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic:</emphasis><emphasis role="italic">
+                                [266724001 |Weight-reducing diet education]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis>
+                                <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic:</emphasis><emphasis role="italic">
+                                [698605001 |Education about asthma self
+                                management]</emphasis></para></entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+    <section>
+        <title><anchor xml:id="_Toc5884800"/>Patient Chart Summary (Excerpt)</title>
+        <table>
+            <title>Patient Chart Summary</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry><emphasis role="bold">C-CDA Category/Entry</emphasis></entry>
+                        <entry><emphasis role="bold">Modeling</emphasis></entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Advance Directives</para>
+                            <para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Do not resuscitate</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [304253006 |Not for
+                                    resuscitation]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="1">
+                            <para>Allergies, Adverse Reactions and Alerts</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Allergen: Penicillin</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Reaction: Nausea</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                            
+                            <para> </para>
+                        </entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [91936005 |Allergy
+                                    to penicillin]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold"><emphasis role="italic">Associated
+                                        statement:</emphasis></emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [422587007
+                                    |Nausea]-</emphasis></para>
+                            <para><emphasis role="italic">(42752001 |Due to) [91936005 |Allergy to
+                                    penicillin];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="1">
+                            <para>Problem list</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Chest pain</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Angina</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para> </para>
+                        </entry>
+                        <entry>
+                                    <para><emphasis role="bold">Statement type:</emphasis>
+                                        <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [29857009 |Chest
+                                    pain]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                                    <para><emphasis role="bold">Statement type:</emphasis>
+                                        <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [194828000
+                                    |Angina]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="1">
+                            <para>Social History</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Former smoker</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Consumes 12 alcoholic drinks/day</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                        <entry>
+                                    <para><emphasis role="bold">Statement type:</emphasis>
+                                        <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [8517006
+                                    |Ex-smoker]</emphasis></para>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                                    <para><emphasis role="bold">Statement type:</emphasis>
+                                        <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [228319007 |Drinks
+                                alcohol daily]-</emphasis></para>
+                            <para><emphasis role="italic">(363714003 |Interprets) [160573003
+                                |Alcohol intake];</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result: </emphasis>12 [258950000
+                                |Unit/day]</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="1">
+                            <para>Results</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Hemoglobin 13.2 g/dl</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Hematocrit 33.5%</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                        <entry>
+                                    <para><emphasis role="bold">Statement type:</emphasis>
+                                        <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >104718002 |Hemoglobin, free measurement]-</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result: </emphasis>13.2<emphasis
+                                    role="italic"> [258795003 |Gram/deciliter]</emphasis></para>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                                    <para><emphasis role="bold">Statement type:</emphasis>
+                                        <emphasis role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                >28317006 |Hematocrit determination]-</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result: </emphasis>33.5<emphasis
+                                role="italic"> [118582008 |Percent (property]</emphasis>
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para> </para>
+    </section>
+</section>

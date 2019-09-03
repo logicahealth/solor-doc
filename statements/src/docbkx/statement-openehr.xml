@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xml:id="OpenEHR" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+
+            <title>OpenEHR: An Example Framework for Clinical Statements</title>
+
+            <para>In considering the appropriate design of statement models, it’s useful to review how such
+                models will be used in practice within a Model Driven Development architecture.
+                    OpenEHR<footnote xml:id="__FN3__">
+                    <para>Demski H, Garde S, Hildebrand C. Open data models for smart health
+                        interconnected applications: the example of openEHR. BMC Med Inform Decis
+                        Mak. 2016 Oct 22;16(1):137. (available at <link xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/27770769">https://www.ncbi.nlm.nih.gov/pubmed/27770769</link>).</para>
+                </footnote><superscript>,</superscript><footnote xml:id="__FN4__">
+                    <para><link xlink:href="http://www.openehr.org/what_is_openehr">http://www.openehr.org/what_is_openehr</link>.</para>
+                </footnote> offers one such architecture that is relatively complete and mature, so
+                it serves as a good example. <xref linkend="_Ref474334719" xrefstyle="select:label"/> illustrates the components of the OpenEHR architecture, which are further
+                described below.</para>
+
+            <figure xml:id="_Ref474334719">
+                <title>OpenEHR architecture</title>
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image4com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+            <section xml:id="_Ref474420488">
+                <title>OpenEHR Reference Model</title>
+
+                <para>The foundation of the OpenEHR architecture is a reference model that contains
+                    only the most generic set of objects and data types needed to define the
+                    contents of an EHR. These objects include organizing structures such as
+                    “Folders”, “Compositions”, and “Sections”, as well as generic clinical data
+                    objects such as “Entries”, “Clusters” of entries, and “Elements” that comprise
+                    the entries. The reference model also includes several dozen data types that may
+                    be used to populate the values of Elements, such as “Quantity”, “Text”, and
+                    “Timed Event”. Collectively, these constructs define the general building blocks
+                    available to construct more detailed models for representing clinical
+                    observations, actions, and other data in EHRs. <xref linkend="_Ref474335678" xrefstyle="select:label"/> shows the constructs of the OpenEHR reference
+                    model and how they are hierarchically organized to create the “scaffolding” for
+                    patient records.</para>
+
+                <figure xml:id="_Ref474335678">
+                    <title>OpenEHR Reference Model</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image5com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+
+                <para>Within the reference model, the “Observation” class is a specific sub-type of
+                    the “Entry” object, and it is used to record information from a direct
+                    observation or measurement on a patient or to record the perspective of the
+                    patient, such as in history taking. The Observation class includes only a small
+                    number of data elements that are inherited by all clinical observation models,
+                    such as “Subject” (the person to whom the observation applies) and “Information
+                    Provider” (the person or agent who generated the observation). Otherwise, all
+                    Entries and Elements used to record actual observations are specified within
+                    sub-types of the Observation class, which OpenEHR calls “Archetypes.”</para>
+            </section>
+
+            <section>
+                <title>OpenEHR Archetypes</title>
+
+                <para>Archetypes are clinical object models that specify:</para>
+
+                <orderedlist spacing="compact">
+                    <listitem>
+                        <para>The set of Elements that may be used to represent various kinds of
+                            observations</para>
+                    </listitem>
+
+                    <listitem>
+                        <para>The datatypes used to populate those Elements</para>
+                    </listitem>
+
+                    <listitem>
+                        <para>Which Elements must be populated versus being optional, and</para>
+                    </listitem>
+
+                    <listitem>
+                        <para>Whether Elements can have only one or may have multiple values.</para>
+                    </listitem>
+                </orderedlist>
+
+                <para>The values of Elements, themselves, may be collections of other Elements
+                    (“Clusters”) or instances of other Archetypes (effectively, nested Archetypes).
+                        <xref linkend="_Ref474337532" xrefstyle="select:label"/> shows the graphical
+                    representation of an OpenEHR archetype.</para>
+
+                <para>For primitive Elements, the Archetype may define further constraints that
+                    define how the Element may be populated, as shown in the callouts of <xref linkend="_Ref474337532" xrefstyle="select:label"/>. For example, the value
+                    of the “Systolic” Element in the Blood Pressure Artifact is specified to be a
+                    “Quantity” datatype, to represent the property of “Pressure”, and to be recorded
+                    using the units of measure “mm[Hg]”. Similarly, the “Position” Element is
+                    specified to be a “Coded Text” datatype and to be populated by one of several
+                    enumerated code values, with the code for “Sitting” being the default if no
+                    other value is specified.</para>
+
+                <figure xml:id="_Ref474337532">
+                    <title>Example of an OpenEHR Archetype</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image6com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+
+                <para>OpenEHR Archetypes must be defined using only the constructs of the underlying
+                    Reference Model, as shown in <xref linkend="_Ref474334719" xrefstyle="select:label"/>. This constraint ensures that the Archetypes may
+                    be stored and processed by the underlying database and application
+                    implementations, which are otherwise loosely bound to the specific structures of
+                    the Archetypes themselves.</para>
+
+                <para>The OpenEHR framework uses a specific structured language to define
+                    Archetypes, the Archetype Definition Language (ADL). <xref linkend="_Ref474337532" xrefstyle="select:label"/> shows the graphical
+                    rendering of an Archetype, although the actual definition is specified using a
+                    text-based ADL expression (not shown). Other Model-Driven Development
+                    frameworks, of course, may use different languages for defining statement models and
+                    different graphical rendering methods.</para>
+
+                <para>Like structured data types and object classes in programming languages,
+                    Archetypes specify and constrain in detail how instances of actual data
+                    (clinical observations, in this case) may be represented within the information
+                    system. These specifications govern how software modules must create instances
+                    of those observations (i.e., modules such as graphical user interfaces or EDI
+                    interface engines) and how software modules may retrieve and process instances
+                    of those observations (i.e., modules such as user displays or decision-support
+                    rule engines). Using conceptual-level Archetypes rather than low-level data
+                    structures for these purposes allows domain experts to formally specify
+                    Archetypes, and (in theory, at least) de-couples Archetype specifications from
+                    low-level implementation dependencies.</para>
+
+                <para>OpenEHR currently includes several hundred Archetypes<footnote xml:id="__FN5__">
+                        <para>See <link xlink:href="http://www.openehr.org/ckm/">http://www.openehr.org/ckm/</link> for an online listing.</para>
+                    </footnote>, including many for clinical observations. The framework, however,
+                    remains very much a work in progress, and many Archetypes remain in draft
+                    form.</para>
+            </section>
+
+            <section>
+                <title>OpenEHR Templates</title>
+
+                <para>To support specific use cases and system functions, OpenEHR allows Archetypes
+                    to be combined and/or further constrained to create purpose-specific data
+                    structures called “Templates”. Templates may then drive the automated generation
+                    of computing artifacts used to collect, retrieve, or export clinical
+                    observations (see <xref linkend="_Ref474334719" xrefstyle="select:label"/>).</para>
+
+                <para><xref linkend="_Ref474415737" xrefstyle="select:label"/> shows an example
+                    <?oxy_comment_start author="steph" timestamp="20190313T152535-0600" comment="Why are some items in the template below numbered while others are not?" id="z4q_w3l_fhb" flag="done" mid="2"?><?oxy_comment_start author="timowilliams" timestamp="20190326T122423-0500" comment="The numbering you notice in the image below comes directly from the OpenEHR template.  See https://www.openehr.org/ckm/#" parentID="z4q_w3l_fhb" flag="done"?>OpenEHR<?oxy_comment_end?><?oxy_comment_end mid="2"?>
+                    Template that represents the information captured during an initial visit to a
+                    heart failure clinic. Note that the template combines a number of Archetypes,
+                    such as Blood Pressure, Pulse, and Full Blood Count, as well as adds
+                    navigational and organizational nodes such as “Physical Exam.” The latter nodes
+                    are also Archetypes, specifically sub-classes of the Section object specified in
+                    the Reference Model.</para>
+
+                <figure xml:id="_Ref474415737">
+                    <title>Example of an OpenEHR Template</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image7com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+
+                <para>Although not shown in <xref linkend="_Ref474415737" xrefstyle="select:label"/>, Templates may also include additional constraints applied to their
+                    constituent Archetypes. Such constraints may entail the inclusion of only a
+                    subset of the Archetype’s Elements, the allowance of only a subset of the coded
+                    values specified for an Element, the designation of default values for Elements,
+                    etc. The purpose of these constraints is to customize an Archetype for use in a
+                    specific context, while ensuring that any data collected or retrieved using
+                    Templates that contain the Archetype conform to the Archetype’s underlying
+                    constraints.</para>
+
+                <para>For example, <xref linkend="_Ref474416536" xrefstyle="select:label"/> shows a
+                    graphical user interface (“Screen Form”) for data entry generated from the
+                    heart-failure Template in <xref linkend="_Ref474415737" xrefstyle="select:label"/>. Because the Template design constrained the Blood Pressure Archetype to
+                    include only the “Systolic” and “Diastolic” Elements (as opposed to the full set
+                    of Elements shown in <xref linkend="_Ref474337532" xrefstyle="select:label"/>),
+                    the Screen Form displays only those two Elements. Note that the display includes
+                    the units of measure and allowed value ranges specified for the “Systolic” and
+                    “Diastolic” Elements, as derived from the complete Archetype. In this manner,
+                    all data collected via Screen Forms generated from the Template in <xref linkend="_Ref474415737" xrefstyle="select:label"/> will conform to the
+                    constraints specified within the Archetypes that the Template includes. This
+                    aspect of Model Driven Development allows the observation modeling features and
+                    constraints that are formally specified in Archetypes to be uniformly and
+                    automatically applied across various uses of the Archetypes (through Templates)
+                    within and across information systems.</para>
+
+                <figure xml:id="_Ref474416536">
+                    <title><?oxy_comment_start author="steph" timestamp="20190313T152917-0600" comment="In the example, why does Pulse appear to be under Weight and BP under Height?" id="iyc_rjl_fhb" flag="done" mid="4"?><?oxy_comment_start author="timowilliams" timestamp="20190326T123023-0500" comment="They are not under Pulse and Height, but are different data types.  Weight and Height can only have one value whereas Pulse and BP can have multiple values as they can be taken multiple times during an encounter.  If you look closely you can see that Weight and Height have the constraint (1..1) and Pulse and BP have (0..*)" parentID="iyc_rjl_fhb" flag="done" mid="5"?><?oxy_comment_start author="steph" timestamp="20190403T114103-0600" comment="Okay, thanks.  To my untrained eyes, and particularly because of the indenting under Weight and Height, it looked as though they were included under them." flag="done"?>Example<?oxy_comment_end?><?oxy_comment_end mid="5"?><?oxy_comment_end mid="4"?>
+                        of a Screen Form generated from an OpenEHR Template</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image8com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+
+            <section>
+                <title>Querying OpenEHR Data</title>
+
+                <para>Although OpenEHR Templates may combine and further constrain Archetypes to
+                    enable purpose-specific data collection and data processing, the querying of
+                    OpenEHR data need not consider the structure of any individual Templates that
+                    were used to instantiate clinical observations. Rather, querying requires
+                    knowledge of only the Archetypes, the underlying Reference Model, and any
+                    controlled terminologies used in the definition of Archetypes (See
+                        <?oxy_comment_start author="steph" timestamp="20190318T113916-0600" comment="In the figure, unless this is a reference to a source other than VA, recommend revising spelling of &quot;artefacts&quot; to &quot;artifacts.&quot;  Also, the oval for Terminology Bindings probably should be brought to the front so it&apos;s not cutoff by the rectangle currently in front of it." id="wtk_gpl_fhb" flag="done"?><?oxy_comment_start author="timowilliams" timestamp="20190326T131257-0500" comment="This is how it is spelled in the OpenEHR documentation and this image is taken directly from there." parentID="wtk_gpl_fhb" flag="done" mid="7"?><xref linkend="_Ref474421318" xrefstyle="select:label"/><?oxy_comment_end?><?oxy_comment_end mid="7"?> for a graphical representation
+                    of these dependencies).</para>
+
+                <figure xml:id="_Ref474421318">
+                    <title>Architectural components used in querying of OpenEHR data.</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image9com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+
+                <para>As discussed above, all persisted observation data must conform to the
+                    constraints of the Archetypes used to collect them (even if those Archetypes are
+                    combined and further constrained in Templates). Further, none of the
+                    navigational elements of Templates (such as the grouping of Archetypes into a
+                    “Physical Exam” category, as shown in <xref linkend="_Ref474415737" xrefstyle="select:label"/>) influence the semantics of the Archetype data
+                    collected via Templates. Specifically, the semantics of a clinical observation
+                    represented by an Archetype should exist independently of any encompassing
+                    navigational or organizational category in which that Archetype may appear
+                    within a Template (Archetypes must be carefully designed to confer this
+                    property).</para>
+
+                <para>At the same time, queries may reference sub-parts of an OpenEHR medical record
+                    in which the Archetype instances were recorded. These named sub-parts of a
+                    record, such as “Problem List” and “Medication Order List,” are also Archetypes
+                    defined to specialize the “Section” class of the Reference Model (see <xref linkend="_Ref474420488" xrefstyle="select:label"/>).</para>
+
+                <para>Finally, queries may also reference the terminology model from which specific
+                    codes were drawn when defining clinical observation Archetypes. For example, a
+                    query could seek to retrieve any patient with a diagnosis subsumed by the coded
+                    concept “Cardiovascular Disease,” although no Archetype specifically references
+                    that very general disease concept. Such a query would rely upon the hierarchical
+                    subsumption relationships represented in the terminology model to associate the
+                    general “Cardiovascular Disease” concept with the specific disease concepts
+                    (such as “Atherosclerosis”) that are actually referenced in defined
+                    Archetypes.</para>
+            </section>
+        
+
+        
+</section>

@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <?oxy_comment_start author="jcoyle" timestamp="20190622T100303-0400" comment="I think this chapter should be restructured with the Editorial rules or groups of editorial rules forming a section, and then the examples used within. Currently there is an old itemizedList that stretches throughout the entire chapter that is being used to separate things. Thus, you end up with a bullet item that seems like it is floating in space." flag="done"?><?oxy_comment_end?>
+    <title>How ANF Works: ANF Clinical Statements</title>
+    <para>In the context of the ANF Model, a <glossterm baseform="Clinical Statement">clinical
+            statement</glossterm> represents an entry in the patient record that documents, in a
+        structured/computable manner, clinical information related to the patient that is asserted
+        by a particular source, recorded, and potentially verified.</para>
+    <para>As seen in the <glossterm baseform="CIMI Clinical Statement">CIMI Clinical
+            Statements</glossterm> section, clinical information related to the patient can be
+        entered and stored in an EHR in multiple different ways. ANF strives to standardize the
+        structure of clinical statements to eliminate the disparity of clinical information by
+        limiting the design choices a clinical modeler must make. ANF can then act as a consistent
+        transformation target for the multiple differing clinical information representations that
+        currently exist, making this clinical information more easily computable and eliminating the
+        need to create multiple ways to analyze the same data.</para>
+    <section>
+        <title><anchor xml:id="_Toc1824812"/>Types of <glossterm baseform="ANF Statement">ANF
+                Statements</glossterm></title>
+        <para>There are two types of ANF Statements:</para>
+        <para><emphasis role="bold"
+                    ><?oxy_comment_start author="kec" timestamp="20190721T191842-0700" comment="Rules should have an IF and THEN component, even if the exact IF and THEN words are not use. Please review and update all rules. " flag="done"?><glossterm
+                    baseform="ANF Performance">Performance of
+                Action</glossterm><?oxy_comment_end?></emphasis></para>
+        <?oxy_comment_start author="jcoyle" timestamp="20190721T100827-0400" comment="Suggest the removal of the words &apos;passive&apos; &amp; &apos;active&apos;. I don&apos;t think it adds any extra information and this will keep people from argueing whether observations are really passive or active." flag="done"?><?oxy_comment_end?>
+        <para>A Performance may include the observation of a phenomenon related to patients and
+            their health status or family history, and may also include interventions, such as
+            providing education or administering medications or documenting that a patient is
+            participating in exercise to improve their overall health status.</para>
+        <para><emphasis role="bold"><glossterm baseform="ANF Request">Request for
+                Action</glossterm></emphasis></para>
+        <para>Requests for clinical testing, active interventions, future goals, or consultation
+            with other providers.</para>
+        <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                linkend="anf-editorialrule-performanceRequest"/></para>
+        <xi:include href="../analysis-normal-form/editorial-rules.xml"
+            xpointer="element(anf-editorialrule-performanceRequest-content)">
+            <xi:fallback/>
+        </xi:include>
+        <section>
+            <title><anchor xml:id="_Toc1824813"/>Performance of Action Statements</title>
+            <para><?oxy_comment_start author="kmaulden" timestamp="20190418T110315-0400" comment="Comment from WC:
+As expected, it goes already wrong here: surely requesting something is an action that is performed, and the result might be that the request is accepted or denied.
+" id="xfp_jyf_nhb" mid="4"?><?oxy_comment_start author="kmaulden" timestamp="20190423T100303-0400" comment="Joey Coyle:
+As expected?  Maybe just change this to performance of a topic and request of a topic and leave the word action out of it.
+" parentID="xfp_jyf_nhb"?>A
+                Performance of Action statement describes a topic that has previously been
+                performed, and—if applicable—the result that corresponds to the
+                topic.<?oxy_comment_end?><?oxy_comment_end mid="4"?> As shown in the examples below,
+                this can range from documenting that a subject of information:</para>
+            <?oxy_comment_start author="jcoyle" timestamp="20190622T100303-0400" comment="The insertion of editorial rule here broke up the flow from the previous sentence which ended with a colon and depended on the list, now it doesn&apos;t seem to make sense when reading." flag="done"?><?oxy_comment_end?>
+            <?oxy_comment_start author="jcoyle" timestamp="20190615T100303-0400" comment="Change all diagrams peach colored box to say ANF Statement rather than ANF Performane or Request Clinical Statement" flag="done" mid="6"?><?oxy_comment_end mid="6"?>
+            <?oxy_comment_start author="jcoyle" timestamp="20190615T100303-0400" comment="in regard to the &apos;if possible&apos;, I believe the result will always exist." flag="done" mid="7"?><?oxy_comment_end mid="7"?>
+            <?oxy_comment_start author="jcoyle" timestamp="20190615T100303-0400" comment="in regard to the &apos;subject of record&apos;, maybe say subject of information, because it could be the father, uncle, donor that is being described." flag="done" mid="8"?><?oxy_comment_end mid="8"?>
+            <?oxy_comment_start author="jcoyle" timestamp="20190721T100827-0400" comment="I screwed up here, because the last example - Family history of breast cancer, can&apos;t be stated about the subject of information. As subject of information is built into the narrative. All of the others can be stated about the subject of information." mid="9"?><?oxy_comment_end mid="9"?>
+            <itemizedlist>
+                <listitem>
+                    <para>The presence or absence of a clinical phenomenon</para>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Diabetes mellitus is present</para>
+                        </listitem>
+                        <listitem>
+                            <para>Diabetes mellitus is not present</para>
+                        </listitem>
+                        <listitem>
+                            <para>Dot blot hemorrhage is present</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>The results of specific test/screening or procedure</para>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Pulse Rate 68 bpm, taken by pulse oximeter</para>
+                        </listitem>
+                        <listitem>
+                            <para>Systolic blood pressure 120 mmHg, taken on right brachial artery,
+                                using BP cuff adult size, patient in sitting position for at least 5
+                                minutes,
+                                <?oxy_comment_start author="kec" timestamp="20190804T092911-0700" comment="Sometimes we use micturation (or micturation context in the figures), sometimes we use urination. Should probably work to be consistent. "?>urinated<?oxy_comment_end?>
+                                not more than 30 minutes prior to measurement</para>
+                        </listitem>
+                        <listitem>
+                            <para>Three dot blot hemorrhages</para>
+                        </listitem>
+                        <listitem>
+                            <para>Positive screen for fall risk</para>
+                        </listitem>
+                        <listitem>
+                            <para>Negative screen for PTSD and depression</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Administered a medication or other substance</para>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Patient took one Acetaminophen 500 mg tablet by mouth for
+                                pain</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Provision of educational materials</para>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Patient was provided with educational materials on diabetes</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para><?oxy_comment_start author="kmaulden" timestamp="20190418T110327-0400" comment="Comment from WC:
+For instance that a test is ordered?
+"?>Has
+                        any other state or specific characteristic that is clinically
+                        relevant<?oxy_comment_end?></para>
+                    <para>
+                        <itemizedlist spacing="compact">
+                            <listitem>
+                                <para><?oxy_comment_start author="kmaulden" timestamp="20190418T110351-0400" comment="Comment from WC:
+Such family history is clinically relevant but is not a characteristic of the patient. I suggest to make this a 3rd type of clinical statement. If you insist on classifying statements based on what they are about, then you would have (1) statements which describe the patient as a whole, any part of him, or any entities that depend on him or his parts (qualities, realizables, processes in which he or his parts participate); (2) statements about requests for actions that once executed will results in statements of type 1 or type 3, and (3) statements about clinically relevant phenomena that occurred or have occurred in his environment but are not about the patient himself.
+" id="ppm_nyf_nhb" mid="12"?><?oxy_comment_start author="kmaulden" timestamp="20190423T100412-0400" comment="Joey Coyle:
+Doing family history, donor statements using subject of information is now the norm. Another statement type is not.
+" parentID="ppm_nyf_nhb"?>Family
+                                    history of breast
+                                    cancer<?oxy_comment_end?><?oxy_comment_end mid="12"?></para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </listitem>
+            </itemizedlist>
+            <section>
+                <title>Presence or Absence of a Clinical Phenomenon</title>
+                <!--                  <para>Timing - Performance of Action</para>
+                    
+                
+                <editorial-rule>
+                    <?oxy_comment_start author="jcoyle" timestamp="20190721T100827-0400" comment="title is a bit confusing... maybe Topic describing an observation."?><?oxy_comment_end?>
+                    <title>Observation Topic</title>
+                    <mathphrase>Any performance of an action that is an observation would begin with
+                        an Observation procedure. The Observation procedure will also specify a Has
+                        focus attribute linking it to the Clinical Finding or Disorder that it is
+                        being observed. The observation procedure can also be further refined by
+                        adding attributes in the terminology model, including Method, Procedure site
+                        - Direct, (if appropriate) Laterality, and Using device</mathphrase>
+                </editorial-rule>
+                <editorial-rule>
+                    <title>Statement of Presence of a Topic</title>
+                    <mathphrase>Any statement that represents the Presence or implies Presence of a
+                        Topic will have a Result with an upperBound of infinite (inf), lowerBound of
+                        1, and measureSemantic of "Countable quantity".</mathphrase>
+                </editorial-rule>
+                -->
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-timing"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-timing-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-topicsAreActions"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-topicsAreActions-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-presenceAbsence"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-presenceAbsence-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <?oxy_comment_start author="jcoyle" timestamp="20190622T100303-0400" comment="IMPORTANT:discuss with Keith. This unit of time thing leads to two ways to model the presence. I can do a unit of count for dot blot hemorrhages or this time unit. This doesn&apos;t seem any better than other&apos;s using two models, one with a coded presence, and one with a count." flag="done"?><?oxy_comment_end?>
+                <figure>
+                    <title>Diabetes Mellitus Present ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <?oxy_comment_start author="kec" timestamp="20190722T172538-0700" comment="For topics where more than 1 is nonsensical, such as diabetes, maybe have the interval [1,1], and reserve the [1, inf) for situations where it is possible there is more than one, but we don&apos;t know how many there are... Dot, blot hemorrhage comes to mind: [1,inf), there is at least one dot blot hemorrhage. "?>
+                            <imagedata fileref="images/dm_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/><?oxy_comment_end?>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Diabetes Mellitus Type 2
+                            Present.</emphasis></para>
+                    </caption>
+                </figure>
+                <?oxy_comment_start author="jcoyle" timestamp="20190615T100303-0400" comment="in regard to the diagrams - 2 questions:  Are we always using observation procedure for stating patient has diabetes?, but more importantly why is the measure semantic = unit of time, shouldn&apos;t this be a count of 1,1 ? - Previous duplicate probem" id="arz_nrb_l3b" flag="done" mid="16"?><?oxy_comment_end mid="16"?>
+                <?oxy_comment_start author="timowilliams" timestamp="20190717T142515-0500" comment="Yes. It would be an observation that the patient has diabetes. We currently state that representing present would be with [1,inf). Absent would be [0,0]" parentID="arz_nrb_l3b" flag="done"?>
+                <para><?oxy_comment_end?>In the Diabetes Mellitus type 2 example above, the Topic is
+                    an Observation procedure with a Has focus of Diabetes mellitus type 2. To
+                    represent that it is present, the Result is a lowerBound of 1, an upperBound of
+                    infinite (inf), and a measureSemantic of "Countable quantity". To see a more
+                    detailed representation see the tabular form here: <xref
+                        linkend="table_perform_dmpresent"/></para>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-presenceAbsence"/></para>
+                <!--<editorial-rule>
+                    <title>Statement of absence of a Topic</title>
+                    <mathphrase>Any statement that represents absence of a Topic will have a Result
+                        with an upperBound of 0, lowerBound of 0, and measureSemantic of "Countable
+                        quantity".</mathphrase>
+                </editorial-rule>-->
+                <?oxy_comment_start author="jcoyle" timestamp="20190622T100303-0400" comment="As above, the topic stating absence issue." flag="done"?><?oxy_comment_end?>
+                <figure>
+                    <title>Diabetes Mellitus Type 2 Absent ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/dm_absent_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Diabetes Mellitus Type 2
+                            Absent.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>In the Diabetes Mellitus Type 2 Absent example, the topic is the same as
+                    Diabetes Mellitus Type 2 Present example. The difference is in the Result which
+                    is represented as an upperBound and lowerBound of zero with the same
+                    measureSemantic. To see a more detailed representation see the tabular form
+                    here: <xref linkend="table_perform_dmabsent"/></para>
+                <figure>
+                    <title>Dot Blot Hemorrhage Present ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <?oxy_comment_start author="timowilliams" timestamp="20190625T161253-0500" comment="How do the measureSemantic for this example match up with the 3 dot blot example below?" flag="done"?>
+                            <imagedata fileref="images/dbh_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/><?oxy_comment_end?>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Dot Blot Hemorrhage
+                            Present.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>To see a more detailed representation see the tabular form here: <xref
+                    linkend="table_perform_dbhpresent"/></para>
+            </section>
+            <section>
+                <title>Test/Screening or Procedure and Resultant Value</title>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-resultsRangedQuantity"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-resultsRangedQuantity-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-techniques"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-techniques-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <!--<editorial-rule>
+                    <title>Statement with a Result Value</title>
+                    <?oxy_comment_start author="jcoyle" timestamp="20190721T100827-0400" comment="could use better wording below, because a topic doesn&apos;t &apos;state&apos; a result."?><?oxy_comment_end?>
+                    <mathphrase>Any Topic that states a Result that has a value will be specified
+                        with the correct upperBound, lowerBound, and measureSemantic. If the Result
+                        is a single value, the upperBound and lowerBound will be the same value. If
+                        the Result is a range, the upperBound and lowerBound will be specified as
+                        such.</mathphrase>
+                    <para><xref linkend="anf-editorialrule-techniques"/></para>
+                </editorial-rule>-->
+                <!--<editorial-rule>
+                    <title><glossterm baseform="Technique">Technique</glossterm></title>
+                    <mathphrase>A device used, a method applied, or a temporary state in which the
+                        patient was <emphasis role="bold">actively</emphasis> placed <emphasis
+                            role="bold">during</emphasis> performance of the action. <itemizedlist>
+                            <listitem>
+                                <para>Actions can be performed by various techniques. As opposed to
+                                    the action itself, which is <emphasis role="italic"><emphasis
+                                            role="underline">what</emphasis></emphasis> is carried
+                                    out, the technique defines <emphasis role="italic"><emphasis
+                                            role="underline">how</emphasis></emphasis> the action is
+                                    done in general or in a particular instance.</para>
+                            </listitem>
+                            <listitem>
+                                <para>The use of the device or the method that is applied must start
+                                    during the performance of the action.</para>
+                            </listitem>
+                            <listitem>
+                                <?oxy_comment_start author="jcoyle" timestamp="20190721T100827-0400" comment="This below seems like the editorial rule, and could go first, right below the title. And then everything else explains what a technique is."?><?oxy_comment_end?>
+                                <para>A technique is inseparable from the topic and cannot be
+                                    expressed as a stand-alone clinical statement and will be
+                                    represented as a part of the topic.</para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para><emphasis role="underline">Example: Systolic blood
+                                                pressure 120 mmHg, taken on right brachial
+                                                artery</emphasis>. <emphasis role="italic">“Taken on
+                                                right brachial artery”</emphasis> is inseparable
+                                            from the topic and cannot be expressed as a stand-alone
+                                            clinical statement. It therefore constitutes a technique
+                                            and will be modeled as part of the topic.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para><emphasis role="underline">Example: Seated systolic
+                                                blood pressure 120 mmHg</emphasis>. Seated relates
+                                            to how the action was done and is an inseparable part of
+                                            the topic. For the narrative "Systolic Blood Pressure
+                                            120 mmHg, taken on right brachial artery, using BP cuff
+                                            adult size, patient in sitting position for at least 5
+                                            minutes, urinated not more than 30 minutes prior to
+                                            measurement" while seated is not explicitly stated as
+                                            the technique it is implied that the blood pressure was
+                                            taken in the seated position and therefore would be
+                                            represented in the topic in addition to a separate
+                                            statement representing that the patient was in the
+                                            seated position for at least 5 minutes.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para><emphasis role="underline">Example: Pulse Rate 68 bpm,
+                                                taken by pulse oximeter</emphasis>. <emphasis
+                                                role="italic">“Taken by pulse oximeter”</emphasis>
+                                            is inseparable from the topic and cannot be expressed as
+                                            a stand-alone clinical statement. It therefore
+                                            constitutes a technique and will be modeled as part of
+                                            the topic.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                        </itemizedlist></mathphrase>
+                </editorial-rule>-->
+                <figure>
+                    <title>Pulse Rate ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <?oxy_comment_start author="kec" timestamp="20190722T172330-0700" comment="For a few of these, maybe have the range actually indicate an interval of certainty. Maybe [68,70], just because we can :-)"?>
+                            <imagedata fileref="images/pulse_rate_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/><?oxy_comment_end?>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Pulse Rate 68 bpm, Taken by Pulse
+                                Oximeter.</emphasis></para>
+                    </caption>
+                </figure>
+                <?oxy_comment_start author="kec" timestamp="20190722T172654-0700" comment="Put in the narrative a discussion of the utility of being able to represent intervals of certainty. "?>
+                <para>The Pulse Rate example above utilizes a technique, the pulse oximeter device,
+                    and contains a resultant value of 68 beats/minute. Since a Result is represented
+                    with an upperBound and lowerBound they are both represented as 68 in this
+                    case.<?oxy_comment_end?> To see a more detailed representation see the tabular
+                    form here: <xref linkend="table_perform_pulse"/></para>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-prerequisites"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-prerequisites-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <!--<editorial-rule>
+                    <title><glossterm>Prerequisite</glossterm></title>
+                    <mathphrase> A prerequisite is a <emphasis role="bold">state</emphasis> that
+                            <emphasis role="bold">must</emphasis> exist before something else can
+                        happen or be done. Prerequisites are part of the details under which a
+                        procedure is being performed. The state must exist prior to the performance
+                        of the action. <itemizedlist>
+                            <listitem>
+                                <para>The state that must exist pertains to:</para>
+                                <itemizedlist spacing="compact">
+                                    <listitem>
+                                        <para>the subject of record (e.g. patient)</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>the environment (e.g. necessary room temperature,
+                                            required time of day)</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                            <listitem>
+                                <?oxy_comment_start author="jcoyle" timestamp="20190721T100827-0400" comment="Again, I think this could go first. And instead of the wording &apos;can be expressed&apos;, maybe stronger as &apos;should be expressed&apos;."?><?oxy_comment_end?>
+                                <para>A prerequisite is separable from the topic and can be
+                                    expressed as a stand-alone clinical statement</para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para><emphasis role="underline">Example</emphasis>:
+                                            Systolic blood pressure 120 mmHg, taken with patient in
+                                            sitting position for at least 5 minutes. <emphasis
+                                                role="italic">“Patient in sitting position for at
+                                                least 5 minutes”</emphasis> is separable from the
+                                            topic and exists prior to the performance of the action
+                                            and therefore constitutes a prerequisite. The "sitting
+                                            position" portion of the prerequisite also specifies a
+                                            technique for performing the blood pressure measurement
+                                            and therefore would be included in the topic.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                        </itemizedlist></mathphrase>
+                </editorial-rule>-->
+                <figure>
+                    <title>Systolic Blood Pressure with Associated Statements ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <?oxy_comment_start author="kec" timestamp="20190722T172755-0700" comment="Maybe make result [120,122] to indicate a resolution/precision of 2 millimeter of mercury? "?>
+                            <imagedata fileref="images/bp_complex_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/><?oxy_comment_end?>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Systolic Blood Pressure 120 mmHg, Taken on
+                                Right Brachial Artery, Using BP Cuff Adult Size, Patient in Sitting
+                                Position for at Least 5 Minutes, Urinated Not More Than 30 Minutes
+                                Prior to Measurement.</emphasis></para>
+                    </caption>
+                </figure>
+                <?oxy_comment_start author="jcoyle" timestamp="20190615T100303-0400" comment="On main systolic diagram, add blue box for statementAssociations and off that, add 2 peach colored boxes for associated statements 1 and 2" flag="done"?><?oxy_comment_end?>
+                <figure>
+                    <title>Systolic Blood Pressure Sitting Position Associated ANF Statement
+                        Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/bp_complex2_anf.svg" format="SVG"
+                                scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics"> Patient in Sitting Position for at Least 5
+                                Minutes.</emphasis></para>
+                    </caption>
+                </figure>
+                <figure>
+                    <title>Systolic Blood Pressure
+                        <?oxy_comment_start author="kec" timestamp="20190804T101229-0700" comment="Urination or Micturation? "?>Urination
+                        Associated<?oxy_comment_end?> ANF Statement Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <?oxy_comment_start author="timowilliams" timestamp="20190618T143741-0500" comment="From Joey, not sure how we should capture the “prior to measurement” here? We used “timing” in the TSRs with “ISO 8601 prior to statement time”, but that is not quite right, either…" id="eys_3pz_23b"?>
+                            <?oxy_comment_start author="timowilliams" timestamp="20190625T204051-0500" comment="Should I add a timing here?" parentID="eys_3pz_23b" mid="24"?>
+                            <imagedata fileref="images/bp_complex3_anf.svg" format="SVG"
+                                scalefit="1" width="100%" contentdepth="100%"
+                            /><?oxy_comment_end?><?oxy_comment_end mid="24"?>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Urinated Not More Than 30 Minutes Prior to
+                                Measurement.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>The systolic blood pressure example above not only includes a technique of
+                    using an adult sized cuff, but also includes two prerequisites that are
+                    represented as separate associated ANF Statements. In the Associated Statements
+                    we see examples of Results having a range of values using the upperBound and
+                    lowerBound. To see a more detailed representation see the tabular form here:
+                        <xref linkend="table_perform_bpm"/></para>
+                <figure>
+                    <title>Three Dot Blot Hemorrhages ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/three_dbh_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Three Dot Blot Hemorrhages.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>To see a more detailed representation see the tabular form here: <xref
+                        linkend="table_perform_3dbh"/></para>
+                <figure>
+                    <title>Positive Screen for Fall Risk ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/pos_scree_fall_anf.svg" format="SVG"
+                                scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Positive Screen for Fall
+                            Risk.</emphasis></para>
+                    </caption>
+                </figure>
+                <para><!--<editorial-rule>
+                        <title><?oxy_comment_start author="timowilliams" timestamp="20190711T092429-0500" comment="How do we handle multiple topics in a single narrative? When do you allow a topic that uses a combination SNOMED CT concept vs and ANF statement with one or more associated ANF statement vs multiple unrelated ANF statements?" flag="done"?>Multiple
+                            Topics<?oxy_comment_end?></title>
+                        <?oxy_comment_start author="jcoyle" timestamp="20190721T100827-0400" comment="I find this title confusing, as you can&apos;t have Mulitple Topics. Maybe something like Separation of Compound Topic??"?><?oxy_comment_end?>
+                        <mathphrase>For the purposes of ANF, a statement is a request or performance
+                            of an action that has to be able to exist on its own. Therefore a
+                            narrative would be separated into multiple clinical statements if it
+                            contains multiple requests or performance of actions that could exist
+                            independently of each other. For the narrative "Negative screen for PTSD
+                            and depression", two separate ANF Statements would need to be created
+                            and associated to each other. However, if the narrative represents two
+                            or more actions that are performed as a single activity at the same time
+                            without the need for stopping the action then a single topic would be
+                            used. For example, "Lumbar/Thoracic Spine CT" would be represented with
+                            a single topic as it represents a single activity that is performed at
+                            the same time even though a Lumbar CT and a Thoracic CT could be done
+                            separately.</mathphrase>
+                    </editorial-rule><editorial-rule>
+                        <title>Associated Statements</title>
+                        <mathphrase>Use an associated statement when it is important for the
+                            interpretation of one statement that the others were observed,
+                            performed, or requested. Also, if there is some implicitness that the
+                            two statements are related (pleural empyema with fistula) or that they
+                            are unrelated (Akinetic seizure without atonia) then the two statements
+                            should be associated. </mathphrase>
+                    </editorial-rule>--></para>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-separateCompoundTopics"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-separateCompoundTopics-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-associatedStatement"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-associatedStatement-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <?oxy_comment_start author="jcoyle" timestamp="20190721T100827-0400" comment="
+                        At risk of possible firing squad, I wonder...
+                        Should we make the blue bubble text more consistent with capitalization
+                            1.) Use real attribute names
+
+                            2.) Use lowercase for first letter like attributes.
+
+                            3.) Retain capitilized as we do now, for Performance Circumstance, Request Circumestance, and Narrative Circumstance, as these are classes used in composition. 
+
+                            4.) In this figure, should be associatedStatement with properties of id and semantic. The green value bubble of Negative screen for depression, could be pink, the same color of ANF Statement, indicating we are binding to another instance, and not a value within this model.
+
+                    "?><?oxy_comment_end?>
+                <figure>
+                    <title>Negative Screen for PTSD ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/ptsd_neg_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Negative Screen for PTSD.</emphasis></para>
+                    </caption>
+                </figure>
+                <figure>
+                    <title>Negative Screen for Depression ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/depress_neg_anf.svg" format="SVG"
+                                scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Negative Screen for
+                            Depression.</emphasis></para>
+                    </caption>
+                </figure>
+            </section>
+            <section>
+                <title>Administering a Medication or Other Substance</title>
+                <!--<editorial-rule>
+                    <title>Purpose</title>
+                    <mathphrase>The purpose is why an action was requested. The purpose of the topic
+                        is represented with either an Evaluation procedure or Therapeutic procedure
+                        with a hasFocus attribute describing the purpose.</mathphrase>
+                </editorial-rule>-->
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-purpose"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-purpose-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-topicsAreActions"/></para>
+                <!--<editorial-rule>
+                    <title>Administration of Medication Topic - Performance of Action</title>
+                    <mathphrase>To represent the performance of an administration of medication, the
+                        Topic will be built using the Administration of substance concept. All
+                        Administration of substance concepts will be refined with the substance and
+                        dose form and strength being requested. If Route of administration exists,
+                        then it will also be added.</mathphrase>
+                </editorial-rule>-->
+                <figure>
+                    <title>Administration of Medication ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/meds_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Patient Took One Acetaminophen 500 mg Tablet
+                                by Mouth for Pain.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>In the medication example above a purpose is specified using Pain control
+                    which has a focus of pain. The Topic is built using Administration of substance
+                    with a Direct substance specifying the pharmaceutical product and a Route of
+                    Administration specifying Oral.</para>
+            </section>
+            <section>
+                <title>Provision of Educational Materials</title>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-topicsAreActions"/></para>
+                <!--<editorial-rule>
+                    <title>Topic for All Other Procedures</title>
+                    <mathphrase>Any other action that was performed would be represented by a
+                        Procedure concept with any of the approved terminology procedure attributes
+                        applied.</mathphrase>
+                </editorial-rule>-->
+                <figure>
+                    <title>Provision of Educational Material ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/educ_perf_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Patient was Provided with Educational
+                                Material on Diabetes.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>In this example, the concept Provision of educational material is used with a
+                    Has focus of Diabetes mellitus.</para>
+            </section>
+            <section>
+                <title>Other States or Specific Characteristics That Are Clinically Relevant</title>
+                <!--<editorial-rule>
+                    <title>subjectOfInformation</title>
+                    <mathphrase>The subjectOfInformation is used to represent who the statement is
+                        about. This is normally the patient (Subject of record) unless explicitly
+                        stated otherwise, for example Mother, Sibling, Donor, etc.</mathphrase>
+                </editorial-rule>-->
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-subjectOfInformation"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-subjectOfInformation-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <figure>
+                    <title>Family History ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/fh_ca_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Family History of Breast
+                            Cancer.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>In the Family history of breast cancer example we see that the Family history
+                    is represented by the Subject of information with a value of Person in the
+                    family.</para>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-normalRange"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-normalRange-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-healthRisk"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-healthRisk-content)">
+                    <xi:fallback/>
+                </xi:include>
+            </section>
+            <section>
+                <title>Normal Range Information or Health Risk Specified</title>
+                <figure>
+                    <title>Systolic Blood Pressure with Normal Range and Health Risk ANF
+                        Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/bp_nr_hr_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Systolic Blood Pressure 180 mmHg, Normal
+                                Range (90-120), Health Risk Critical.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>Systolic Blood Pressure for adults has a normal range of 90-120 and is
+                    represented in the normalRange. Systolic Blood pressure above 180 would
+                    represent a critical health risk and is represented in the healthRisk.</para>
+            </section>
+        </section>
+        <section>
+            <title><anchor xml:id="_Toc1824814"/>Request Clinical Statements</title>
+            <para>A Request for Action clinical statement describes a request made by a clinician.
+                Most of the times, but not always, the object of the request (e.g., lab test,
+                medication order) will be fulfilled by someone other than the clinician (e.g., lab
+                technician, pharmacist) making the request. All information about the request will
+                be documented in this clinical statement, including information about details
+                relating to the request, such as patient must fast for 12 hours before having a
+                lipids blood test.</para>
+            <para>Examples of Request clinical statements:</para>
+            <itemizedlist spacing="compact">
+                <listitem>
+                    <para>Request for Rheumatoid factor 1 time routine</para>
+                </listitem>
+                <listitem>
+                    <para>Request for X-ray chest to evaluate for heart failure</para>
+                </listitem>
+                <listitem>
+                    <para>Cardiology referral</para>
+                </listitem>
+                <listitem>
+                    <para>Ribavirin 200 mg capsule oral, take 2 capsules every morning</para>
+                </listitem>
+                <listitem>
+                    <?oxy_comment_start author="kmaulden" timestamp="20190418T110448-0400" comment="Comment from WC:
+The distinction with a performance clinical statement concerning giving him educational materials is tiny.
+"?>
+                    <para>Advised to participate in tobacco cessation counseling once a week.</para>
+                </listitem><?oxy_comment_end?>
+            </itemizedlist>
+            <section>
+                <title>Request Examples</title>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-timing"/></para>
+                <!--<editorial-rule>
+                    <title>Timing - Request for Action</title>
+                    <mathphrase>The Timing will always represent a future time in a Request for
+                        Action ANF Statement. Therefore, the Measure used in the Timing will be for
+                        a future time. </mathphrase>
+                </editorial-rule>-->
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-topicsAreActions"/></para>
+                <!--<editorial-rule>
+                    <title>Laboratory Procedure Topic</title>
+                    <mathphrase>For Laboratory procedures, the Topic will be built using a
+                        Laboratory Procedure concept. These concepts can be further
+                        refined.</mathphrase>
+                </editorial-rule>-->
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-priority"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-priority-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <!--<editorial-rule>
+                    <title>Priority</title>
+                    <mathphrase>Priority is used to represent the priority for which the request is
+                        to be carried out. By default a Request will be considered "routine" unless
+                        otherwise specified.</mathphrase>
+                </editorial-rule>-->
+                <?oxy_comment_start author="jcoyle" timestamp="20190615T100303-0400" comment="Again, not sure Unit of time correct to say 1 Time" flag="done"?><?oxy_comment_end?>
+                <figure>
+                    <title>Laboratory Request ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/lab_request_anf.svg" format="SVG"
+                                scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Rheumatoid Factor 1 Time
+                            Routine.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>The Laboratory Request example above shows how the topic is built using a
+                    laboratory procedure concept, with no refinements in this case. It also has a
+                    Priority of Routine as stated in the narrative description.</para>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-topicsAreActions"/></para>
+                <!--<editorial-rule>
+                    <title>Imaging Procedure Topic</title>
+                    <mathphrase>For Imaging procedures, the Topic will be built using an Imaging
+                        Procedure concept. These concepts will be further refined with a Method,
+                        Procedure site - Direct and (if appropriate) a laterality for those sites
+                        that are lateralizable.</mathphrase>
+                </editorial-rule>-->
+                <figure>
+                    <title>Imaging Request ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/xray_request_anf.svg" format="SVG"
+                                scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">X-ray Chest to Evaluate for Heart
+                                Failure.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>The Imaging Request example above is built using a subtype of image procedure
+                    concept and includes a Purpose to record why the procedure is being done.</para>
+                <figure>
+                    <title>Referral Request ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/referral_anf.svg" format="SVG" scalefit="1"
+                                width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Cardiology Referral.</emphasis></para>
+                    </caption>
+                </figure>
+                <para/>
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-topicsAreActions"/></para>
+                <!--<editorial-rule>
+                    <title>Administration of Medication Topic - Request for Action</title>
+                    <mathphrase>For requesting the administration of medication, the Topic will be
+                        built using the Administration of substance concept. If the narrative
+                        includes information about a refill, that information is currently
+                        represented as an Narrative Circumstance. All Administration of substance
+                        concepts will be refined with the substance and dose form and strength being
+                        requested. If Route of administration exists, then it will also be
+                        added.</mathphrase>
+                </editorial-rule>-->
+                <para><emphasis role="bold">See Editorial Rule</emphasis>: <xref
+                        linkend="anf-editorialrule-repetition"/></para>
+                <xi:include href="../analysis-normal-form/editorial-rules.xml"
+                    xpointer="element(anf-editorialrule-repetition-content)">
+                    <xi:fallback/>
+                </xi:include>
+                <!--<editorial-rule>
+                    <title>Repetition</title>
+                    <mathphrase>Repetition is used to represent when an action is requested for more
+                        than a single occurrence. Repetition is an optional component for a
+                        RequestCircumstance. A Request Component contains five Measures that are
+                        used to further define the parameters of the Repetition: <itemizedlist>
+                            <listitem>
+                                <para><emphasis>periodDuration:</emphasis>This required field is
+                                    used to represent how long a repetition should persist. If it is
+                                    not specified, a default value of [0,inf) will be used. An
+                                    example of periodDuration would be "Take for 3 weeks".</para>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis>periodStart:</emphasis> This required field is used
+                                    to represent when a repeated action should begin. If it is not
+                                    specified, a default value of [0,inf) will be used. An example
+                                    of periodStart would be "NOW".</para>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis>eventSeparation:</emphasis>This required field is
+                                    used to represent how long between actions. If it is not
+                                    specified, a default value of [0,inf) will be used. An example
+                                    of eventSeparation would be "Every 2 weeks".</para>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis>eventFrequency:</emphasis>This required field is
+                                    used to represent how often the action should occur. If it is
+                                    not specified, a default value of [0,inf) will be used. An
+                                    example of eventFrequency would be "Use 3 times per
+                                    week".</para>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis>eventDuration:</emphasis>This is an optional field
+                                    that is used to represent how long every action should last "Use
+                                    for 2 weeks".</para>
+                            </listitem>
+                        </itemizedlist>
+                    </mathphrase>
+                </editorial-rule>-->
+                <figure>
+                    <title>Medication Request ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <?oxy_comment_start author="timowilliams" timestamp="20190618T164552-0500" comment="Verify Repetition"?>
+                            <imagedata fileref="images/meds_request_anf.svg" format="SVG"
+                                scalefit="1" width="100%" contentdepth="100%"/><?oxy_comment_end?>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Ribavirin 200 mg Capsule Oral, Take 2
+                                Capsules Every Morning.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>The Medication request example represents one of the more complicated ANF
+                    Statements that includes not only the Topic, but also the Repetition information
+                    for completing the request.</para>
+                <figure>
+                    <title>Counseling Request ANF Example</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/counseling_request_anf.svg" format="SVG"
+                                scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para><emphasis role="italics">Advised to Participate in Tobacco Cessation
+                                Counseling Once a Week.</emphasis></para>
+                    </caption>
+                </figure>
+                <para>In this example we see Repetition used only to define the eventFrequency while
+                    the other Repetition information is defaulted to [0,inf) Unit of time.</para>
+            </section>
+        </section>
+    </section>
+</section>

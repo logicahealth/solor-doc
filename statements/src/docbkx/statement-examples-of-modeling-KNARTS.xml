@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Examples of Modeling KNARTs Based on ANF</title>
+    <section>
+        <title><anchor xml:id="_Toc5884802"/>Atrial Fibrillation / Atrial Flutter Order Set
+            (Excerpt)</title>
+        <table>
+            <title>Atrial Fibrillation</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry><emphasis role="bold">Orderable
+                            Procedure/Narrative</emphasis></entry>
+                        <entry><emphasis role="bold">Modeling</emphasis></entry>
+                    </row>
+                    <row>
+                        <entry>Referral to cardiology to evaluate atrial fibrillation/atrial
+                            flutter</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Request]</emphasis></para>
+                            <para> </para>
+                            <para><emphasis role="bold">Topic:</emphasis> [183519002 |Referral to
+                                cardiology service]</para>
+                            <para/>
+                            <para><emphasis role="bold">Purpose: </emphasis><emphasis role="italic"
+                                    >[386053000 |Evaluation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [195080001 |Atrial
+                                    fibrillation and flutter]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Resting 12-lead electrocardiogram to evaluate arrhythmia</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Request]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >447113005 |12 lead electrocardiogram at rest]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Purpose: </emphasis><emphasis role="italic"
+                                    >[386053000 |Evaluation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [698247007 |Cardiac
+                                    arrhythmia]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Echocardiogram to evaluate left ventricular function</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Request]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >40701008 |Echocardiography]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Purpose: </emphasis><emphasis role="italic"
+                                    >[386053000 |Evaluation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [366188009 |Finding
+                                    of left ventricular function]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>X-ray chest to evaluate heart failure STAT</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Request]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >399208008 |Plain chest X-ray]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Purpose: </emphasis><emphasis role="italic"
+                                    >[386053000 |Evaluation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [84114007 |Heart
+                                    failure]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Priority: </emphasis><emphasis role="italic"
+                                    >[49499008 |Stat]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Basic metabolic panel</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Request]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >1421000205106 |Basic metabolic panel]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Complete blood count ROUTINE</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Request]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >26604007 |Complete blood count]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Priority: </emphasis><emphasis role="italic"
+                                    >[50811001 |Routine]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Metoprolol tartrate 50 mg tablet oral daily 2 times</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                role="italic">[Request]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis><emphasis role="italic"
+                                >[416118004 |Administration]-</emphasis></para>
+                            <para><emphasis role="italic">(260686004 |Method) [[129445006
+                                |Administration – action]-</emphasis></para>
+                            <para><emphasis role="italic">(363701004 |Direct substance) [318475005
+                                |Product containing precisely metoprolol tartrate 50 milligram/1
+                                each conventional release oral tablet]-</emphasis></para>
+                            <para><emphasis role="italic">(410675002 |Route of administration)
+                                [[260548002 |Oral];</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Requested Result: 1 </emphasis><emphasis
+                                role="italic">[421026006 |Oral tablet]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Frequency: 2 </emphasis><emphasis
+                                role="italic">[258703001 |day]</emphasis></para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+    <section>
+        <title><anchor xml:id="_Toc5884803"/>Diagnostic Breast Imaging Documentation Template
+            (Excerpt)</title>
+        <table>
+            <title>Diagnostic Breast Imaging Documentation Template</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry><emphasis role="bold">Observation/Narrative</emphasis></entry>
+                        <entry><emphasis role="bold">Modeling</emphasis></entry>
+                    </row>
+                    <row>
+                        <entry>Screening Mammogram</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para> </para>
+                            <para><emphasis role="bold">Topic:</emphasis> [24623002 |Screening
+                                mammography]</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Mammogram Interpretation Normal</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >370851004 |Evaluation of diagnostic study
+                                results]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [71651007
+                                    |Mammography]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Result Status:</emphasis><emphasis
+                                    role="italic"> [17621005 |Normal]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Nipple discharge</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [54302000
+                                    |Discharge from nipple]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Nipple discharge is normal lactation</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [54302000
+                                    |Discharge from nipple]</emphasis></para>
+                            <para><emphasis role="italic">(42752001 |Due to) [82374005 |Lactation
+                                    normal]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Breast Skin Changes</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [115951000119105
+                                    |Breast symptom of change in skin]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>First degree relative is a BRCA mutation carrier</entry>
+                        <entry>
+                            <para><emphasis role="bold">Statement type:</emphasis><emphasis
+                                    role="italic">[Performance]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Subject of Information:</emphasis><emphasis
+                                    role="italic"> [125678001 |First degree blood
+                                    relative]</emphasis></para>
+                            <para/>
+                            <para><emphasis role="bold">Topic: </emphasis>[<emphasis role="italic"
+                                    >5751000205109|Observation procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(363702006 |Has focus) [445333001 |Breast
+                                    cancer genetic marker of susceptibility
+                                positive]</emphasis></para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+</section>

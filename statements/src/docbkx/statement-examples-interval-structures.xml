@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.1">
+    <title>Interval Truth Table</title>
+    <informaltable>
+        <tgroup cols="7">
+            <colspec colnum="1" colname="col1" colwidth="1.45*" align="left"/>
+            <colspec colnum="2" colname="col2" colwidth="1.42*"/>
+            <colspec colnum="3" colname="col3" colwidth="1*" align="center"/>
+            <colspec colnum="4" colname="col4" colwidth="1.4*" align="center"/>
+            <colspec colnum="5" colname="col5" colwidth="1.4*" align="center"/>
+            <colspec colnum="6" colname="col6" colwidth="1.4*" align="center"/>
+            <colspec colnum="7" colname="col7" colwidth="1.4*" align="center"/>
+            <tbody>
+                <row>
+                    <entry/>
+                    <entry/>
+                    <entry/>
+                    <entry namest="col4" nameend="col7"><emphasis role="bold">Interval</emphasis></entry>
+                </row>
+                <row>
+                    <entry/>
+                    <entry>Algebraic expression</entry>
+                    <entry>ANF interval </entry>
+                    <entry><emphasis role="bold">lowerBound</emphasis></entry>
+                    <entry><emphasis role="bold">lowerBound-Present</emphasis></entry>
+                    <entry><emphasis role="bold">upperBound</emphasis></entry>
+                    <entry><emphasis role="bold">upportBound-Present</emphasis></entry>
+                </row>
+                <row>
+                    <entry>The interval is the value 5.1</entry>
+                    <entry><emphasis role="bold"><code>n=5.1</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>[5.1,5.1]</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>5.1</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>true</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>5.1</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>true</code></emphasis></entry>
+                </row>
+                <row>
+                    <entry>The interval contains values greater than or equal to 0.5 and
+                        less than 10.1</entry>
+                    <entry><emphasis role="bold"><code>0.5 &lt;= n &lt;
+                        10.1</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>[0.5,
+                        10.1)</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>0.5</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>true</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>10.1</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>false</code></emphasis></entry>
+                </row>
+                <row>
+                    <entry>The interval contains values greater than 0</entry>
+                    <entry><emphasis role="bold"><code>n > 0</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>(0,
+                        INF)</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>0</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>false</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>INF</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>false</code></emphasis></entry>
+                </row>
+                <row>
+                    <entry>The interval contains values greater than equal to 10 and
+                        less than or equal to 19</entry>
+                    <entry><emphasis role="bold"><code>10 &lt;= n &lt;=
+                        19</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>[10,
+                        19]</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>10</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>true</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>19</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>true</code></emphasis></entry>
+                </row>
+                <row>
+                    <entry>The interval is greater than equal to 4.1 and less than or
+                        equal to 5.5</entry>
+                    <entry><emphasis role="bold"><code>4.1 &lt; n &lt;
+                        5.5</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>(4.1,
+                        5.5)</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>4.1</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>false</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>5.5</code></emphasis></entry>
+                    <entry><emphasis role="bold"><code>false</code></emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    
+</section>

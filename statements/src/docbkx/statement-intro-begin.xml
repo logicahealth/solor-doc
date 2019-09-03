@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Representing Statements</title>
+    <blockquote>
+        <attribution>Isaac Newton</attribution>
+        <para>My Design in this Book is not to explain the Properties of Light by Hypotheses, but to
+            propose and prove them by Reason and Experiments.</para>
+    </blockquote>
+
+    <para>The purpose of this part is: </para>
+    <orderedlist>
+        <listitem spacing="compact">
+            <para>To define a <emphasis>statement</emphasis> for the purpose of data
+                representation.</para>
+        </listitem>
+        <listitem>
+            <para>To define the types of <emphasis>statements</emphasis> and their
+                    <emphasis>attributes</emphasis>.</para>
+        </listitem>
+        <listitem>
+            <para>To provide a set of guidelines to model <emphasis>statements</emphasis>.</para>
+        </listitem>
+    </orderedlist>
+    <para>A statement is an expression of facts or plans. We will use two common—and misleadingly
+        simple—statement topics: <emphasis>Pulse Rate</emphasis> and <emphasis>Blood
+            Pressure</emphasis> as expository statements. If a patient told a clinician that their
+        pulse rate was 120 and their BP was 160/95, or a clinician told a patient that they should
+        keep their resting <emphasis>pulse rate</emphasis> below 70, and their <emphasis>Blood
+            Pressure</emphasis> below 120/70, they would be mutually understood. The ability for the
+        creator of the statement and the interpretor of the statement to each believe that they
+            <emphasis>understand</emphasis> the statement is the first requirement. </para>
+    <section>
+        <info>
+            <title><?oxy_comment_start author="steph" timestamp="20190313T143945-0600" comment="Why is the heading repeated here, both with same section number and this one with additional info?" flag="done"?>Clinical<?oxy_comment_end?>
+                Observation Modeling</title>
+            <subtitle>Supporting Domain Semantics, Flexibility, and Interoperability</subtitle>
+
+            <author>
+                <personname>Walter Sujansky</personname>
+            </author>
+
+            <date>2017-02-14</date>
+        </info>
+
+        <section xml:id="Intro">
+            <title>Introduction</title>
+
+            <para>This white paper emerged from discussions among informaticists, computer
+                scientists, and medical doctors about the appropriate modeling of clinical
+                observations in information systems. The participants included representatives of
+                the VHA-DoD, CIMI, HL7-FHIR, FHIM, SNOMED-CT, and OpenEHR initiatives<footnote xml:id="__FN1__">
+                    <para>VHA = Veterans Health Administration; CIMI = Clinical Information Modeling
+                        Initiative; HL7-FHIR = HL7 Fast Healthcare Interoperability Resources
+                        working group; FHIM = Federal Health Information Modeling.</para>
+                </footnote>. The paper does not necessarily represent a consensus among the
+                discussants or the viewpoint of any particular discussant. Its purpose is to provide
+                background on the topic, to summarize a number of the viewpoints expressed, and to
+                provide preliminary recommendations for further consideration. The contents are
+                subject to further modification as the discussion evolves.</para>
+        </section>
+
+        <section xml:id="ClinObsModels">
+            <title>Statement Models</title>
+
+            <para>Statement models (<footnote xml:id="__FN2__">
+                    <para>Statement models are also referred to as “Clinical Observation Models,”
+                        “Archetypes,” “Clinical Event Models,” and “Clinical Models” in the
+                        informatics literature and vernacular.</para>
+                </footnote>) are conceptual-level data models of the discrete statements about
+                patients that can be stored in, processed by, and retrieved from a clinical
+                information system. Statement models are defined for discrete types of clinical
+                statements such as blood pressure measurements, lab test results, physical exam
+                findings, patient-reported symptoms, clinical diagnoses, and other
+                observations.</para>
+
+            <para>Statement models define the structure and semantics of discrete clinical
+                observations as formal “types” that are later instantiated to represent specific
+                recorded observations that apply to particular patients. Like object types in
+                programming languages, these type definitions include enumerations of the specific
+                data elements that may make up the observation, the datatypes used to populate those
+                elements, and which elements must be populated in every instantiated object versus
+                optionally populated. <xref linkend="_Ref474327938" xrefstyle="select:label"/> shows
+                the graphical depiction of an example statement model for a blood pressure
+                measurement.</para>
+
+            <figure xml:id="_Ref474327938">
+                <title>Example clinical object model for a blood pressure measurement</title>
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/image2com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+            <section>
+                <title>The Role of Clinical Observation Models</title>
+
+                <para>In general, clinical observation models serve at least two purposes:</para>
+
+                <orderedlist>
+                    <listitem>
+                        <para>Statement models <emphasis role="underline"><emphasis>standardize</emphasis></emphasis> the capture,
+                            retrieval, and exchange of clinical observations within and between
+                            information systems. As seen in <xref linkend="_Ref474327938" xrefstyle="select:label"/>, even relatively basic observations can
+                            comprise numerous sub-components. Different implementers of clinical
+                            information systems may model these sub-components and their
+                            relationships in arbitrarily different ways, which can prevent different
+                            software modules from managing and processing the same observations
+                            consistently and correctly. Formal and agreed-upon statement models
+                            provide a shared model of each type of observation that enables software
+                            modules created by different implementers to handle the same
+                            observations uniformly. Note that such software modules may comprise
+                            different parts of the same information system (such as the user
+                            interface and the rules engine of a single EHR) or entirely different
+                            information systems (such as distinct EHRs from different commercial
+                            vendors).</para>
+                    </listitem>
+
+                    <listitem>
+                        <para>Statement models <emphasis role="underline"><emphasis>de-couple</emphasis></emphasis> the creation and
+                            maintenance of domain-specific objects in clinical medicine (such as
+                            observations) from their technical implementation in software code and
+                            database structures. The types of clinical observations that may be
+                            recorded in software systems are numerous, diverse, and subject to
+                            relatively frequent modification over time, as well as customizations
+                            across clinical sub-domains. Meanwhile, the technical implementation of
+                            software applications and clinical databases is an arduous process that
+                            requires the careful design, detailed writing, and extensive testing of
+                            software code. Whenever changes are required to an application or
+                            database, a time-consuming and costly implementation process must be
+                            applied. Clinical applications and databases, however, that are
+                            implemented at a more abstract level can process <emphasis>any
+                            </emphasis>statement models that conform to a certain high-level
+                            reference model. Such implementations may not need to change as
+                            statement models are added or updated. Statement models can therefore
+                            serve as conceptual-level objects that represent domain-specific data
+                            and drive domain-specific functionality without being tightly coupled,
+                            at least in theory, to the underling implementation of the information
+                            system.</para>
+                    </listitem>
+                </orderedlist>
+
+                <para><xref linkend="_Ref474505861" xrefstyle="select:label"/> shows how statement models serve
+                    both of these purposes in an information system. Note how the set of clinical
+                    information models serves as a “view” or “interface” to all clinical data that
+                    may be stored by and retrieved from the information system. The design of the
+                    statement models is flexible and must conform only to a “reference model” of basic data
+                    structures. These basic structures are, in fact, the only objects tightly
+                    coupled with the underlying application and database implementations. In this
+                    manner, the statement models provide a standard conceptual model against which all
+                    data-input, data-query, and data-exchange functions operate, and that can be
+                    readily extended without (again, in theory) costly modifications to the
+                    underlying application and database. The approach for creating and maintaining
+                    information systems in this way is called <emphasis>Model Driven
+                        Development</emphasis>.</para>
+
+                <figure xml:id="_Ref474505861">
+                    <title>The role of clinical observation models in electronic health record
+                        systems</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image3com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+        </section>
+
+  </section>      
+</section>

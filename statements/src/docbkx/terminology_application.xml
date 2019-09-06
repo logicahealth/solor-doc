@@ -2,7 +2,7 @@
 <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-    <title>Application of Terminology Layer</title>
+    <title>Application of Terminology Knowledge Layer</title>
     <para>Terminology is used throughout the architectural layers.  In this section we will give
         examples of how terminology should best be used in the various architectural layers.</para>
     <section>
@@ -16,20 +16,18 @@
             would be the case if "maternal history of diabetes" were an allowed topic
             expression).</para>
         <para><emphasis role="bold">topic:</emphasis> The particulars of how topics—and other
-            statement fields—are modeled as a Terminology Knowledge layer concern, not a Statement
+            statement fields—are modeled as a Terminology Knowledge Layer concern, not a Statement
             Layer concern. The Statement Layer requires that the topic represent an Action as a code
             or expression according to the rules of the
-            <?oxy_comment_start author="steph" timestamp="20190903T121300-0600" comment="Recommend being consistent with capitalization and the terms you are using when referring to the various layers..  In this one paragraph for this layer, you have:
+            T<?oxy_comment_start author="steph" timestamp="20190903T121300-0600" comment="Recommend being consistent with capitalization and the terms you are using when referring to the various layers..  In this one paragraph for this layer, you have:
 
  - Terminology Knowledge layer
  - Terminology Layer
- - terminology layer"?>terminology
-            layer<?oxy_comment_end?>, and that the rules of the terminology layer enforce a
-            disjointness
-            <?oxy_comment_start author="steph" timestamp="20190903T121358-0600" comment="Should this be deleted?  It reads awkwardly."?>of
-            <?oxy_comment_end?>between different types of terminology expressions. Here we present a
-            starting point for what the Terminology Layer editorial rules may look like, based on
-            current SNOMED CT practice.</para>
+ - terminology layer" flag="done"?>erminology
+            Knowledge Layer<?oxy_comment_end?>, and that the rules of the Terminology Knowledge
+            Layer enforce a disjointness between different types of terminology expressions. Here we
+            present a starting point for what the Terminology Knowledge Layer editorial rules may
+            look like, based on current SNOMED CT practice.</para>
         <itemizedlist>
             <listitem>
                 <para>SNOMED CT can accommodate this requirement for simple observations by using
@@ -38,9 +36,10 @@
                     the Observation procedure specifies a Has focus attribute linking it to the
                     Clinical Finding or Disorder that it is being observed. The Observation
                     procedure can also be further refined by adding attributes in the terminology
-                    model, including Method, Procedure site - Direct,
-                    <?oxy_comment_start author="steph" timestamp="20190903T121959-0600" comment="If this is referring to Laterality, recommend putting it aftward, not before."?>(if
-                    appropriate) <?oxy_comment_end?>Laterality, and Using device. For example:<itemizedlist>
+                    model, including Method, Procedure site - Direct, and
+                    <?oxy_comment_start author="steph" timestamp="20190903T121959-0600" comment="If this is referring to Laterality, recommend putting it aftward, not before." id="ads_f3d_z3b"?><?oxy_comment_start author="timowilliams" timestamp="20190905T211040-0500" comment="Does this new wording work?" parentID="ads_f3d_z3b" mid="2"?>if
+                    appropriate <?oxy_comment_end mid="2"?><?oxy_comment_end?>Laterality and Using
+                    device. For example:<itemizedlist>
                         <listitem>
                             <para>Diabetes Mellitus Type 2 Present = [Observation procedure]-(Has
                                 focus) [Diabetes mellitus type 2]</para>
@@ -83,10 +82,8 @@
             </listitem>
             <listitem>
                 <para>Imaging Procedures will use an Imaging Procedure concept to represent the
-                    topic. These concepts will be further refined with a Method, Procedure site and
-                    <?oxy_comment_start author="steph" timestamp="20190903T122608-0600" comment="In this example, I don&apos;t think (if appropriate) is needed since you&apos;ve stated here (and didn&apos;t in the prior one) &quot;for those sites that are lateralizable.&quot;"?>(if
-                    appropriate) <?oxy_comment_end?>a laterality for those sites that are
-                    lateralizable. For example:<itemizedlist>
+                    topic. These concepts will be further refined with a Method, Procedure site, and
+                    a laterality for those sites that are lateralizable. For example:<itemizedlist>
                         <listitem>
                             <para>X-ray Chest to Evaluate for Heart Failure = Plain chest
                                 X-ray</para>

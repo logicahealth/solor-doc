@@ -6,33 +6,32 @@
             <para>Model-Driven Development provides a useful framework to build EHR systems that
                 include standardized representations of medical data and that are flexible and
                 extensible. However, the ultimate effectiveness of these EHR systems depends to a
-                great extent on the specific design of the clinical observation models they include.
-                As discussed, the same types of observations may be modeled in many different ways,
-                and the design choices made will
-                <?oxy_comment_start author="steph" timestamp="20190318T114421-0600" comment="I think &quot;will&quot; should be added between &quot;made&quot; and &quot;influence.&quot;" flag="done"?>influence<?oxy_comment_end?>
-                the ease and consistency with which the clinical observation models can be used.
+                great extent on the specific design of the clinical statement models they include.
+                As discussed, the same types of statements may be modeled in many different ways,
+                and the design choices made will influence
+                the ease and consistency with which the clinical statements models can be used.
                 This section discusses some of those choices and the design criteria that should
                 govern them.</para>
 
             <section>
-                <title>Clinical Observations in the Abstract</title>
+                <title>Clinical Statements in the Abstract</title>
 
-                <para>It’s useful to consider what clinical observations essentially are. In the
+                <para>It’s useful to consider what clinical statements essentially are. In the
                     abstract, they are discrete patient descriptors that document information
                     gathering, diagnostic testing, and decision making about patients. Such
                     descriptors may include, for example, a diagnosis, an LDL cholesterol level, a
                     systolic blood pressure measurement, an Apgar score, a patient-reported symptom,
                     or a family history.</para>
 
-                <para>Each clinical observation pertaining to a patient consists in the abstract of
+                <para>Each clinical statement pertaining to a patient consists in the abstract of
                     two general components:</para>
 
                 <itemizedlist>
                     <listitem>
-                        <para>The <emphasis role="underline">Aspect</emphasis> of the patient that
+                        <para>The <emphasis role="underline">Aspect or Topic</emphasis> of the patient that
                             is being described, either implicitly or explicitly. For example, the
-                            observation “The patient’s systolic BP is 130 mmHg” explicitly describes
-                            the Aspect “Systolic Blood Pressure,” whereas the observation “The
+                            statement “The patient’s systolic BP is 130 mmHg” explicitly describes
+                            the Aspect “Systolic Blood Pressure,” whereas the statement “The
                             patient has asthma” implicitly describes the aspect “Diagnosis”. If the
                             general form of a patient descriptor is “The patient has X of Y”, the
                             aspect denotes “X”.</para>
@@ -40,35 +39,35 @@
 
                     <listitem>
                         <para>The <emphasis role="underline">Value or Magnitude</emphasis> of the
-                            descriptor. For example, the observation “The patient’s systolic BP is
-                            130 mmHg” specifies the magnitude “130” whereas the observation “The
+                            descriptor. For example, the statement “The patient’s systolic BP is
+                            130 mmHg” specifies the magnitude “130” whereas the statement “The
                             patient has asthma” specifies the value “Asthma”. If the general form of
                             a patient descriptor is “The patient has X of Y”, the value or magnitude
                             denotes “Y”.</para>
                     </listitem>
                 </itemizedlist>
 
-                <para>The aspect and the value/magnitude of an observation may, themselves, be
+                <para>The aspect/topic and the value/magnitude of a statement may, themselves, be
                     further modified or qualified to denote the complete semantics of the
-                    observation. For example, the aspect “Systolic Blood Pressure” in the example
+                    statement. For example, the aspect “Systolic Blood Pressure” in the example
                     above could be further qualified by the date/time that the measurement was taken
                     or the position of the patient at the time it was taken. Likewise, the magnitude
                     “130” in the example above could be further qualified to specify that the units
                     of measure that apply are “mmHg”.</para>
 
-                <para>Sometimes, a third component of a clinical observation is specified:</para>
+                <para>Sometimes, a third component of a clinical statement is specified:</para>
 
                 <itemizedlist>
                     <listitem>
                         <para>The <emphasis role="underline">Context</emphasis> in which the
-                            clinical observation occurred or was recorded. This component typically
+                            clinical statement occurred or was recorded. This component typically
                             denotes information that is important to record but does not directly
                             modify the Aspect or the Value/Magnitude. Examples may include who
-                            specifically reported the observation (e.g., the patient versus the
+                            specifically reported the statement (e.g., the patient versus the
                             patient’s mother) or what instrument or technique was used to collect
-                            the observation (e.g., by rhythm strip versus 12-lead EKG). Notably,
+                            the statement (e.g., by rhythm strip versus 12-lead EKG). Notably,
                             there is sometimes a fuzzy distinction between information that modifies
-                            the Aspect of a clinical observation and information that denotes its
+                            the Aspect of a clinical statement and information that denotes its
                             Context. For example, the fasting state of a patient at the time a serum
                             LDL cholesterol measurement was taken could be considered to denote the
                             Context of the measurement (with the Aspect being simply “Serum LDL
@@ -78,13 +77,13 @@
                     </listitem>
                 </itemizedlist>
 
-                <para>Based on these abstract components of a clinical observation, the same
-                    observation can be modeled in different ways. The examples in <xref linkend="_Ref474687508" xrefstyle="select:label"/> show reasonable
+                <para>Based on these abstract components of a clinical statement, the same
+                    statement can be modeled in different ways. The examples in <xref linkend="_Ref474687508" xrefstyle="select:label"/> show reasonable
                     variations in the use of aspect, value, and context to represent the same
-                    observation semantics.</para>
+                    statement semantics.</para>
 
                 <figure xml:id="_Ref474687508">
-                    <title>Example variations in modeling of clinical observations</title>
+                    <title>Example variations in modeling of clinical statements</title>
 
                     <para><inlinemediaobject>
                             <imageobject>
@@ -103,10 +102,10 @@
             </section>
 
             <section xml:id="_Ref474506814">
-                <title>General Design Patterns for Clinical Observations</title>
+                <title>General Design Patterns for Clinical Statements</title>
 
                 <para>At least three general structural patterns may be considered for the design of
-                    clinical observation models:  Assertion, Evaluation, and Belief:</para>
+                    clinical statement models:  Assertion, Evaluation, and Belief:</para>
 
                 <itemizedlist>
                     <listitem>
@@ -136,7 +135,7 @@
                     </listitem>
 
                     <listitem>
-                        <para><emphasis role="underline">Evaluation</emphasis> pattern. An Aspect is
+                        <para><emphasis role="underline">Evaluation</emphasis> pattern. An Aspect/Topic is
                             always specified; a Value, with possible qualifiers is always specified;
                             a Context is optionally specified. Example:</para>
 
@@ -154,16 +153,16 @@
                         </itemizedlist>
 
                         <para>This pattern explicitly specifies the Aspect and considers it the
-                            “question” that the observation is addressing. The Value constitutes the
+                            “question” that the statement is addressing. The Value constitutes the
                             “answer” to the question. The pattern is most naturally suited to
-                            observations represented as “attribute/value” pairs, such as simple
+                            statements represented as “attribute/value” pairs, such as simple
                             testing results (blood glucose, FEV1), scoring instruments (Apgar,
                             Braden scores), and patient characteristics with quantitative or ordinal
                             values (pulse, pain intensity).</para>
                     </listitem>
 
                     <listitem>
-                        <para><emphasis role="underline">Belief</emphasis> pattern. An Aspect, with
+                        <para><emphasis role="underline">Belief</emphasis> pattern. An Aspect/Topic, with
                             possible qualifiers, is always specified; a Value, with possible
                             qualifiers is always specified; a Context is optionally(but rarely)
                             specified. Examples:</para>
@@ -188,27 +187,35 @@
 
                         <para>This pattern is the most general and can be applied equally to
                             symptoms, findings, diagnoses, test results, scoring instruments, and
-                            quantitative characteristics. It does require, however, that an Aspect
-                            is explicitly specified in all cases as part of the observation model
+                            quantitative characteristics. It does require, however, that an Aspect/Topic
+                            is explicitly specified in all cases as part of the statement model
                             (although this constraint does not necessarily require that the Aspect
-                            be specified by users at the time the observation is instantiated, since
+                            be specified by users at the time the statement is instantiated, since
                             user-interface functionality may populate the Aspect automatically and
-                            “behind the scenes” for observations where it is implied and
+                            “behind the scenes” for statements where it is implied and
                             unambiguous).</para>
                     </listitem>
                 </itemizedlist>
             </section>
 
             <section>
-                <title>Desiderata for Clinical Observation Model Design Patterns</title>
+                <title>Desiderata for Clinical Statement Model Design Patterns</title>
 
-                <para>Given that multiple design patterns exist for clinical observations, it’s
+                <para>Given that multiple design patterns exist for clinical statements, it’s
                     useful to consider design criteria that can guide modeling choice. Among the
                     best known criteria for designing clinical concepts are the properties of
-                    Understandability, Reproducibility, and Usability (URU)<footnote xml:id="__FN6__">
+                    Understandability, Reproducibility, and Usability (URU),
+
+                    <!-- reference 
+                    <footnote xml:id="__FN6__">
                         <para>Walker D. GP Vocabulary Project—Stage 2 Report: SNOMED Clinical Terms
                             (SNOMED CT); November, 2004. Available from: <link xlink:href="https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd">https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd</link>.</para>
-                    </footnote>, defined as follows:</para>
+                    </footnote>, 
+
+                -->
+                    defined as follows:
+
+                </para>
 
                 <itemizedlist>
                     <listitem>
@@ -219,47 +226,43 @@
                     </listitem>
 
                     <listitem>
-                        <para><emphasis role="underline"><?oxy_comment_start author="steph" timestamp="20190318T121945-0600" comment="For readability and consistency purposes, I think it would be better if the Reproducibility and Usability were put in the positive vs. negative aspects, as Understandability is.  Possible revised wording is shown below.
-Reproducibility:  The retrieval and representation of the same concept should be consistent regardless of the nature of the interface, user preferences, or time of entry.
-Usability:  One should model concepts, concept properties, and distinction among concepts only for which there is current use in healthcare." flag="done"?>Reproducibility<?oxy_comment_end?></emphasis>:
+                        <para><emphasis role="underline">Reproducibility</emphasis>:
                             The retrieval and representation of the same concept should be
                             consistent regardless of the nature of the interface, user preferences,
                             or time of entry.</para>
                     </listitem>
 
                     <listitem>
-                        <para><emphasis role="underline">Usefullness</emphasis>: One should model
-                            concepts, concept properties, and distinction among concepts only for
-                            which there is current use in healthcare.</para>
+                        <para><emphasis role="underline">Usefullness</emphasis>: Concepts, concept properties, and distinction among concepts should only be modeled when there is current use in healthcare.</para>
                     </listitem>
                 </itemizedlist>
 
                 <para>Among these criteria, reproducibility is arguably the most important in
-                    selecting an optimal design pattern for clinical observations, because the
-                    property of reproducibility most influences the value of clinical observations
+                    selecting an optimal design pattern for clinical statements, because the
+                    property of reproducibility most influences the value of clinical statements
                     as <emphasis>standardized</emphasis> representations of clinical information
                     that can be shared by different software modules and information systems. As
                     illustrated in <xref linkend="_Ref474505861" xrefstyle="select:label"/>,
-                    multiple software modules may use the same clinical observation models to
+                    multiple software modules may use the same clinical statement models to
                     implement distinct functions. To ensure that the creation, use, and exchange of
-                    clinical data is done uniformly, the clinical object models must not vary
+                    clinical data is done uniformly, the clinical statement models must not vary
                     according to the contexts in which they are created or processed, i.e., they
                     must be reproducible.</para>
 
                 <para>To help ensure reproducibility, modelers should follow at least two guidelines
-                    when creating clinical observation models: Avoid arbitrary variation and
+                    when creating clinical statement models: Avoid arbitrary variation and
                     explicitly represent clinically relevant distinctions. <xref linkend="_Ref474506327" xrefstyle="select:label"/> illustrates relevant
                     examples and counterexamples of these guidelines. Note that the first example
-                    shows three different modeling patterns for the same type of observation. In
-                    this case, it would be preferable to model all observations of this type using
+                    shows three different modeling patterns for the same type of statement. In
+                    this case, it would be preferable to model all statements of this type using
                     only one of the patterns (applying any one of the patterns to all three
-                    observations is left as an exercise for the reader). The second example shows an
-                    observation for which the complete clinical meaning of the finding (“Weakness in
+                    statements is left as an exercise for the reader). The second example shows a
+                    statement for which the complete clinical meaning of the finding (“Weakness in
                     Right Arm”) depends on whether it was objectively discerned by the physician
                     through examination, or just subjectively reported by the patient.</para>
 
                 <figure xml:id="_Ref474506327">
-                    <title>Guidelines for designing clinical observation models</title>
+                    <title>Guidelines for designing clinical statement models</title>
 
                     <mediaobject>
                         <imageobject>
@@ -269,18 +272,20 @@ Usability:  One should model concepts, concept properties, and distinction among
                 </figure>
 
                 <para><xref linkend="_Ref474689633" xrefstyle="select:label"/> shows a
-                    <?oxy_comment_start author="steph" timestamp="20190318T123151-0600" comment="I think it would be helpful if this were followed by an example that showed the proper way to model this."?>poorly<?oxy_comment_end?>
-                    designed clinical observation model that violates the reproducibility criterion.
+                    poorly
+                    designed clinical statement model that violates the reproducibility criterion.
                     Using this model, the family history of a particular problem or diagnosis could
                     be represented in two different ways, depending on the user’s preference. Such
-                    variation in the representation of the same observation entered by one user or
+                    variation in the representation of the same statement entered by one user or
                     another will necessarily complicate subsequent data querying and analysis. For
                     example, a data analyst seeking all patients with a family history of coronary
                     artery disease would have to search both the “Per problem” and the “Per family
-                    member” paths of each “Family History” observation stored in the EHR.</para>
+                    member” paths of each “Family History” statement stored in the EHR.</para>
+
+                    <?oxy_comment_start author="steph" timestamp="20190318T123151-0600" comment="I think it would be helpful if this were followed by an example that showed the proper way to model this."?><?oxy_comment_end?>
 
                 <figure xml:id="_Ref474689633">
-                    <title>A poorly designed clinical observation model</title>
+                    <title>A poorly designed clinical statement model</title>
 
                     <mediaobject>
                         <imageobject>
@@ -291,19 +296,19 @@ Usability:  One should model concepts, concept properties, and distinction among
             </section>
 
             <section>
-                <title>Recommendations</title>
+                <title>Approach Options</title>
 
                 <para>Given the Model-Driven Development approach and the design considerations
-                    described above, two general options exist for specifying clinical observation
+                    described above, two general options exist for specifying clinical statements
                     models:</para>
 
                 <orderedlist>
                     <listitem>
                         <para><emphasis role="underline">Standardize on a single design
-                                pattern</emphasis> for all clinical observation models (i.e., either
+                                pattern</emphasis> for all clinical statements models (i.e., either
                             the Assertion, Evaluation, or Belief pattern described in <xref linkend="_Ref474506814" xrefstyle="select:label"/>). This approach
                             may facilitate the tasks of data analysts and software developers, who
-                            will need to learn many clinical observation models to use them
+                            will need to learn many clinical statements models to use them
                             effectively in application development, CDS rule design, clinical
                             measure specifications, etc.</para>
 
@@ -314,33 +319,32 @@ Usability:  One should model concepts, concept properties, and distinction among
 
                     <listitem>
                         <para><emphasis role="underline">Allow multiple design patterns</emphasis>,
-                            specific to individual types of observations models (e.g., all lab
+                            specific to individual types of statement models (e.g., all lab
                             results, all symptoms, all physical exam findings), or even to specific
-                            observation models (e.g., distinct models for skin turgor versus knee
+                            statement models (e.g., distinct models for skin turgor versus knee
                             reflex). This approach offers maximum flexibility in modeling specific
-                            clinical observations in the most natural manner. Because individual
-                            clinical observation models will often be quite complex and extensive in
+                            clinical statements in the most natural manner. Because individual
+                            clinical statement models will often be quite complex and extensive in
                             any case (as seen from the examples in this report), the basic pattern
                             they follow (i.e., Assertion vs. Evaluation vs. Belief) may be the least
                             of the variations among them that data analysts and software developers
                             will need to be concerned with. Hence, it may not practically matter
-                            whether clinical observation models conform to a single pattern or to
+                            whether clinical statement models conform to a single pattern or to
                             multiple patterns, as long as the models are clearly documented.</para>
                     </listitem>
                 </orderedlist>
 
-                <para><?oxy_comment_start author="steph" timestamp="20190318T123808-0600" comment="What does this mean...in summary?"?><?oxy_comment_start author="steph" timestamp="20190403T115123-0600" comment="Starting here, a lot of my comments and questions were not addressed.  I think they should be or at least let me know why they were not." mid="12"?>In
-                    net<?oxy_comment_end?><?oxy_comment_end mid="12"?>,
-                    <?oxy_comment_start author="steph" timestamp="20190318T123734-0600" comment="I have to admit that given the ANF model and how simple it is, option 2 being the preferred option surprised me.  It may be due to my lack of understanding of all of this and how they relate to each other."?>option
-                    2 may be the preferred approach<?oxy_comment_end?>. Modelers should allow for
-                    multiple design patterns, as needed, but strive for maximum standardization for
-                    any specific type of observation (i.e., lab result versus symptom versus
-                    diagnosis, etc.). Such an approach will enable maximum flexibility for modeling
-                    different observations in an optimal fashion, while minimizing arbitrary
-                    variations among clinical observation model designs.</para>
             </section>
 
+
+
+
+
+
+<!--   
+
     <section>
+
         <title>Examples</title>
 
         <para>A <emphasis> statement</emphasis> represents an entry in a record that documents in a
@@ -2730,4 +2734,6 @@ I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to s
 
         
     </section>
+
+-->
 </section>

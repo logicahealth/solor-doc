@@ -23,6 +23,36 @@
             <?oxy_comment_start author="steph" timestamp="20190402T131701-0600" comment="Recommend revising to &quot;single&quot; for readability purposes." flag="done"?>single<?oxy_comment_end?>
             terminology or classification system contains everything that is needed for the medical
             record. </para>
+        <para>Terminology systems typically consist of the following elements: </para>
+        <itemizedlist>
+            <listitem>
+                <para>Coded Concepts – the discrete units of knowledge managed within the
+                    terminology. They typically consist of numeric codes and textual preferred
+                    names, synonyms, and descriptions. </para>
+            </listitem>
+            <listitem>
+                <para>Concept Hierarchies – the logical organization of concepts into parent-child
+                    and ancestor-descendant relationships that express the semantics of
+                    generalization and specialization. The hierarchical organization of a
+                    terminology may be explicitly expressed through stored parent-child and
+                    ancestor-descendant links, or it may be implicitly expressed through the logical
+                    definitions of individual concepts that a computer can use to infer parent-child
+                    and ancestor-descendant relationships. </para>
+            </listitem>
+            <listitem>
+                <para>Value Sets – named lists of individual concepts that represent more abstract
+                    categories useful in decision-support logic.</para>
+            </listitem>
+        </itemizedlist>
+        <para>New applications and new medical knowledge constantly call for expansion and
+            enhancement of existing terminologies. However, since terminology systems are often
+            non-static, incomplete and under specified, inconsistencies may be introduced. </para>
+        <para>While many of these challenges are related to terminology evolution, others may be
+            related to the design of the standard clinical terminologies themselves. Cimino notably
+            described the challenges of concept orientation, completeness, correctness, currency,
+            granularity, and redundancy when designing re-usable medical terminologies. Today a
+            menagerie of inconsistent and overlapping terminology models hinders efforts that try to
+            store and analyze encoded clinical data.</para>
         <para>The scope of content covered in terminologies varies from focusing on a very specific
             domain to covering multiple domains. The main terminologies supported in Solor (i.e.,
             SNOMED CT, LOINC, and RxNorm) all follow very structured and persistent code practices.
@@ -90,58 +120,69 @@
     </section>
     <section>
         <title>UMLS</title>
-        <para>Terminology systems typically consist of the following elements: </para>
+        <para>The National Library of Medicine (NLM) integrates terms and codes from over 150 source
+            vocabularies by concept, attribute, and meaning in a set of files and software called
+            the Unified Medical Language System ® (UMLS). The UMLS brings together many health and
+            biomedical vocabularies and standards to enable interoperability between computer
+            systems.</para>
+        <para>The UMLS is used to enhance or develop applications such as electronic health records,
+            classification tools, dictionaries and language translators. The UMLS has been used to
+            link health information, medical terms, drug names, and billing codes across different
+            computer systems. Additionally, the UMLS has been used to aid in search engine
+            retrieval, data mining, public health statistics reporting, and terminology
+            research</para>
+        <para>The UMLS has three tools:</para>
         <itemizedlist>
             <listitem>
-                <para>Coded Concepts – the discrete units of knowledge managed within the
-                    terminology. They typically consist of numeric codes and textual preferred
-                    names, synonyms, and descriptions. </para>
+                <para><emphasis role="bold">Metathesaurus</emphasis>: Terms and codes from many
+                    vocabularies, including CPT®, ICD-10-CM, LOINC®, MeSH®, RxNorm, and SNOMED
+                    CT®</para>
             </listitem>
             <listitem>
-                <para>Concept Hierarchies – the logical organization of concepts into parent-child
-                    and ancestor-descendant relationships that express the semantics of
-                    generalization and specialization. The hierarchical organization of a
-                    terminology may be explicitly expressed through stored parent-child and
-                    ancestor-descendant links, or it may be implicitly expressed through the logical
-                    definitions of individual concepts that a computer can use to infer parent-child
-                    and ancestor-descendant relationships. </para>
+                <para><emphasis role="bold">Semantic Network</emphasis>: Broad categories (semantic
+                    types) and their relationships (semantic relations)</para>
             </listitem>
             <listitem>
-                <para>Value Sets – named lists of individual concepts that represent more abstract
-                    categories useful in decision-support logic.</para>
+                <para><emphasis role="bold">SPECIALIST Lexicon and Lexical Tools</emphasis>: Natural
+                    language processing tools</para>
             </listitem>
         </itemizedlist>
-        <para>New applications and new medical knowledge constantly call for expansion and
-            enhancement of existing terminologies. However, since terminology systems are often
-            non-static, incomplete and under specified, inconsistencies may be introduced. </para>
-        <para>While many of these challenges are related to terminology evolution, others may be
-            related to the design of the standard clinical terminologies themselves. Cimino notably
-            described the challenges of concept orientation, completeness, correctness, currency,
-            granularity, and redundancy when designing re-usable medical terminologies. Today, 20
-            years later, a menagerie of inconsistent and overlapping terminology models hinders
-            efforts that try to store and analyze encoded clinical data. Several efforts aim to
-            assist. The National Library of Medicine (NLM) integrates terms and codes from over 150
-            source vocabularies by concept, attribute, and meaning in the Unified Medical Language
-            System ® (UMLS) Metathesaurus. The NLM, also, in collaboration with the Office of the
-            National Coordinator for Health Information Technology and Centers for Medicare &amp;
-            Medicaid Services, hosts the Value Set Authority Center (VSAC). The VSAC aims to provide
-            lists of values, codes, and names (i.e., value sets) from standard clinical
-            terminologies to represent clinical concepts. </para>
+        <para>The Semantic Network and Lexical Tools are used to produce the Metathesaurus. The
+            steps to produce the Metathesaurus involve:</para>
+        <itemizedlist>
+            <listitem>
+                <para>Processing the terms and codes from source terminologies using the Lexical
+                    Tools</para>
+            </listitem>
+            <listitem>
+                <para>Grouping synonymous terms into UMLS concepts</para>
+            </listitem>
+            <listitem>
+                <para>Categorizing concepts by semantic types using the Semantic Network</para>
+            </listitem>
+            <listitem>
+                <para>Incorporating relationships and attributes provided by source
+                    terminologies</para>
+            </listitem>
+            <listitem>
+                <para>Releasing the data in a common format called the Rich Release Format
+                    (RRF)</para>
+            </listitem>
+        </itemizedlist>
         <para>These tools, while helpful, have gaps.
-            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph." id="syq_1mw_lhb" flag="done" mid="7"?><?oxy_comment_start author="rcholan" timestamp="20190418T125814-0400" comment="Proper documentation of references needs to be an overarching task that is done for the entire SIA book. " parentID="syq_1mw_lhb" flag="done" mid="8"?><?oxy_comment_start author="steph" timestamp="20190508T124300-0600" comment="Okay, thanks." flag="done"?>Raje
+            <?oxy_comment_start author="steph" timestamp="20190402T141242-0600" comment="Did you want to include a link to this reference?  Same for all citations in this paragraph." id="syq_1mw_lhb" flag="done" mid="9"?><?oxy_comment_start author="rcholan" timestamp="20190418T125814-0400" comment="Proper documentation of references needs to be an overarching task that is done for the entire SIA book. " parentID="syq_1mw_lhb" flag="done" mid="10"?><?oxy_comment_start author="steph" timestamp="20190508T124300-0600" comment="Okay, thanks." flag="done"?>Raje
             et al.
-            <?oxy_comment_end?><?oxy_comment_end mid="8"?><?oxy_comment_end mid="7"?>highlighted
+            <?oxy_comment_end?><?oxy_comment_end mid="10"?><?oxy_comment_end mid="9"?>highlighted
             issues with completeness, correctness, and redundancy when they found gaps in the UMLS
-            Metathesaurus’ coverage of disease concepts. <citation>Raje</citation> Similarly,
-            Winnenburg et al. highlighted duplicate value sets in the VSAC, and showed that 19% of
-            value sets in 2011 contained invalid codes. <citation>Winnenburg</citation> In
-            subsequent work, they highlighted issues related to granularity by evaluating over 1,000
-            value sets and found that value sets varied vastly in size with some only containing one
-            code, while other value sets included over 20,000 codes.
-                <citation>Winnenburg2</citation> Similarly, Bahr et al. showed issues with concept
-            orientation by analyzing medication value sets and found extraneous and missing
-            ingredients in both the value sets and drug classes.<citation>Bahr</citation>
-        </para>
+            Metathesaurus’ coverage of disease concepts. <citation>Raje</citation>  The UMLS does
+            not necessarily look at semantic equivalence of concepts across or within terminologies,
+            rather focuses on lexical equivalence.  A good example of this is how the UMLS has
+            represented content from SNOMED CT in the pharmaceutical product and substance
+            hierarchies.  SNOMED CT has separate concepts to represent the substance that makes up a
+            pharmaceutical product, for example acetaminophen, and a higher level concept in the
+            pharmaceutical product hierarchy that is used to group products together (all products
+            that contain acetaminophen).  In the UMLS these concepts are grouped together under a
+            single UMLS Concept Unique Identifier (CUI).</para>
         <para>These issues related to integrating clinical content have a direct impact on patient
             safety and point to the need to be able to consistently represent and encode clinical
             data and observations. Therefore, quality assurance is an indispensable part of the
@@ -158,19 +199,47 @@
             formalisms and tools for their representation, have their own release cycles and
             versioning mechanisms, which makes their seamless integration non trivial, if at all
             possible.” </para>
+        <para><?oxy_comment_start author="timowilliams" timestamp="20190924T211850-0500" comment="Should we move this somewhere else, maybe create a separate section?"?>The
+            NLM, also, in collaboration with the Office of the National Coordinator for Health
+            Information Technology and Centers for Medicare &amp; Medicaid Services, hosts the Value
+            Set Authority Center (VSAC). The VSAC aims to provide lists of values, codes, and names
+            (i.e., value sets) from standard clinical terminologies to represent clinical concepts.
+            Similarly, Winnenburg et al. highlighted duplicate value sets in the VSAC, and showed
+            that 19% of value sets in 2011 contained invalid codes. <citation>Winnenburg</citation>
+            In subsequent work, they highlighted issues related to granularity by evaluating over
+            1,000 value sets and found that value sets varied vastly in size with some only
+            containing one code, while other value sets included over 20,000 codes.
+                <citation>Winnenburg2</citation> Similarly, Bahr et al. showed issues with concept
+            orientation by analyzing medication value sets and found extraneous and missing
+            ingredients in both the value sets and drug
+            classes.<citation>Bahr</citation><?oxy_comment_end?>
+        </para>
+    </section>
+    <section>
+        <title>Observational Medical Outcomes Partnership (OMOP)</title>
+        <para><?oxy_comment_start author="timowilliams" timestamp="20190925T150527-0500" comment="Placeholder.  Content needs to be expanded."?>Observational
+            Health Data Sciences and Informatics (OHDSI) created OMOP Common Data Model to inform
+            the appropriate use of observational healthcare databases for studying the effects of
+            medical products.   ATHENA is used to harmonize disparate coding systems—with minimal
+            information loss—to a standardized vocabulary. The Standard Vocabulary is a foundational
+            tool that enables transparent and consistent content across disparate observational
+            databases, and serves to support the OHDSI research community in conducting efficient
+            and reproducible observational research.</para>
+        <para>Problems: mapping, no description logic<?oxy_comment_end?></para>
     </section>
     <section>
         <title>Solor</title>
-        <para>Solor integrates the content from its native format into a common Solor format. Once
-            the content is in Solor, there is a step where equivalency is determined through various
-            methods where concepts of the same idea are aggregated. For example, Gentamycin from
-            SNOMED is the same as Gentamycin from LOINC, and is also the same Gentamycin from
-            RxNorm. The end result from this process is the creation of a Solor concept that is
-            devoid of any source information (but will have traceability). This end result is what
-            will be exposed to the user to view and use. In the Gentamycin example, a user will find
-            this concept that is devoid of any source information and will not need to know if this
-            is the SNOMED/LOINC/RxNorm Gentamycin that needs to be selected. Solor concepts are
-            identified using a Universally Unique Identifier (UUID).</para>
+        <para>Solor integrates terminology content (SNOMED, LOINC, RxNorm, etc.) from its native
+            format into a common Solor format. Once the content is in Solor, there is a step where
+            equivalency is determined through various methods where concepts of the same idea are
+            aggregated. For example, Gentamycin from SNOMED is the same as Gentamycin from LOINC,
+            and is also the same Gentamycin from RxNorm. The end result from this process is the
+            creation of a Solor concept that is devoid of any source information (but will have
+            traceability). This end result is what will be exposed to the user to view, use, and
+            extend. In the Gentamycin example, a user will find a concept that is devoid of any
+            source information and will not need to know if this is the SNOMED/LOINC/RxNorm
+            Gentamycin that needs to be selected. Solor concepts are identified using a Universally
+            Unique Identifier (UUID).</para>
     </section>
     <section>
         <title>Interoperability by Mapping</title>

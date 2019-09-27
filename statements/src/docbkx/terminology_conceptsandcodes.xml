@@ -217,15 +217,31 @@
     </section>
     <section>
         <title>Observational Medical Outcomes Partnership (OMOP)</title>
-        <para><?oxy_comment_start author="timowilliams" timestamp="20190925T150527-0500" comment="Placeholder.  Content needs to be expanded."?>Observational
-            Health Data Sciences and Informatics (OHDSI) created OMOP Common Data Model to inform
-            the appropriate use of observational healthcare databases for studying the effects of
-            medical products.   ATHENA is used to harmonize disparate coding systems—with minimal
-            information loss—to a standardized vocabulary. The Standard Vocabulary is a foundational
-            tool that enables transparent and consistent content across disparate observational
-            databases, and serves to support the OHDSI research community in conducting efficient
-            and reproducible observational research.</para>
-        <para>Problems: mapping, no description logic<?oxy_comment_end?></para>
+        <para>Observational Health Data Sciences and Informatics (OHDSI) created OMOP Common Data
+            Model to inform the appropriate use of observational healthcare databases for studying
+            the effects of medical products. ATHENA is used to harmonize disparate coding
+            systems—with minimal information loss—to a standardized vocabulary. The Standard
+            Vocabulary is a foundational tool that enables transparent and consistent content across
+            disparate observational databases, and serves to support the OHDSI research community in
+            conducting efficient and reproducible observational research.</para>
+        <para>OHDSI categorizes source terminology concepts in three ways:<itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Standard Concept:</emphasis> "official" concepts
+                        used to represent unique clinical entities in the CDM.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Classification Concept:</emphasis> have a
+                        hierarchical relationship to Standard Concepts and can be used to query for
+                        Standard Concepts using the records of the CONCEPT_ANCESTOR table. However,
+                        they cannot appear in the Data Tables.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Source Concept:</emphasis> all remaining Concepts
+                        that are not Standard or Classification Concepts </para>
+                </listitem>
+            </itemizedlist></para>
+        <para>OHDSI's Standard Vocabulary relies heavily on mapping non-standard concepts to the
+            Standard Concepts.  </para>
     </section>
     <section>
         <title>Solor</title>

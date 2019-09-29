@@ -238,6 +238,150 @@
         </mediaobject>
     </figure>
 
+
+    <para>
+        Generic reference models such as OpenEHR, 13606, CEM, and CIMI v1 allow the modeler to build any tree structure imaginable by 'slicing' arrays and then defining the meaning of each node in the tree. The benefit of this design is that it gives flexibility to build any model the modeler wishes, without having to change the underlying sofware code base for functions such as data storage, query, and retrieval.
+    </para>
+
+    <para>
+        Ironically, the downside is that a generic reference model allows the modeler to build any tree structure imaginable.  This requires the organization to govern the endless modeling possibilites in something like a modeling style guide.  Thus, although a generic reference model frees the modeler from the machinery, it doesn't free them from the concerns of modeling.
+    </para>
+
+    <para>
+        It should be noted that the extension mechanism in FHIR behaves in this same generic fashion by 'slicing' a particular named array called 'extension' which acts as a generic reference model.  The Profile constraint model slices the 'extension' array, and applies meaning to the slices. Thus FHIR is unique in that it has both a reference model with named properties, but also supplies an escape hatch of a generic reference model.
+    </para>
+
+    <para>
+        We have examined scenarios from reference models with statically named properties to generic reference models that dynamically acquire their meaning in the constraint models. In both cases, a properties ultimate meaning should be free of terminology concerns.  A property can house terminology values, but the meaning of the property is what should be free of terminology concerns.
+    </para>
+
+    <para>
+        Here we propose that the meaning of a property should not be dynamically assigned in a constraint model, but rather be statically set in the Statement Model layer.  This allows a formal static model that is free of terminology concerns, and doesn't leave the design open for mistakes by modelers.
+    </para>
+
+    
+
+    </section>
+
+    <section>
+        <title>Principles of the Statement Model Layer</title>
+
+
+        <itemizedlist>
+            
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should be comprehensive and be able to fully describe any clinical statement instance</emphasis>
+                </para>               
+                <para>
+                    This includes support for quantitative, coded, and narrative statements. This includes support for temporal statements such as past history and future goals.
+                </para>
+            </listitem> 
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should aim to be stable (non-changing)</emphasis>
+                </para>
+            </listitem> 
+            
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should allow only one representation for any given clinical statement</emphasis>
+                </para>
+                <para>
+                    If this principle is strictly observed, then iso-semantic clinical statements can not occur.
+                </para>
+            </listitem>    
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should be defined by formal specification</emphasis>
+                </para>
+            </listitem>       
+            <listitem>
+                <para>
+                    <emphasis role="strong">Meaning of reference model properties should be statically defined in the Statement Layer</emphasis>
+                </para>
+                <para>
+                    The reference model should not use generic properties with no meaning, where their clinical meaning will dynamically be defined in the Assertional Knowledge layer (constraint layer).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Meaning of reference model properties should be free of terminology concerns</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model properties with coded values should use values from the terminology layer</emphasis>
+                </para>
+                <para>
+                    This means that no local Statement Model terminology is allowed.  If terminology is required, it should be added to the terminology layer.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">The reference model should define meaning of absence for optional properties</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should handle collections of clinical statements</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should handle semantic links between clinical statement instances</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should handle negation</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should handle subject of information</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should support clinical statement instance identity</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should be fully documented</emphasis>
+                </para>
+            </listitem> 
+            
+
+
+            
+
+
+
+        </itemizedlist>
+
+        <para>
+            The following are questions to be resolved as to whether they should be principles of the Statement Model layer.
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <para>
+                    Should the Statement Model be responsible to handle exceptions for missing, incomplete and errant data?  If not, what layer handles this concern?
+                </para>
+
+            </listitem>
+            <listitem>
+                <para>
+                    Should the Statement Model be responsible to record how a user entered the data?  Such as original text?
+                </para>
+
+            </listitem>
+
+        </itemizedlist>
+
+
     </section>
 
     

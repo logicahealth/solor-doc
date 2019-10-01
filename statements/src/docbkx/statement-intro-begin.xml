@@ -264,31 +264,28 @@
     </section>
 
     <section>
-        <title>Principles of the Statement Model Layer</title>
+        <title>Principles of the ANF Statement Model Layer</title>
 
 
         <itemizedlist>
             
             <listitem>
                 <para>
-                    <emphasis role="strong">Reference model should be comprehensive and be able to fully describe any clinical statement instance</emphasis>
+                    <emphasis role="strong">Reference model should be comprehensive and be able to fully describe any clinically relevant clinical statement instance</emphasis>
                 </para>               
                 <para>
-                    This includes support for quantitative, coded, and narrative statements. This includes support for temporal statements such as past history and future goals.
+                    This includes support for quantitative and coded data. This includes support for temporal statements such as past history and future goals.  Note that support for narrative and binary data are still in question as a concern for the Statement Model layer.
                 </para>
             </listitem> 
             <listitem>
                 <para>
-                    <emphasis role="strong">Reference model should aim to be stable (non-changing)</emphasis>
+                    <emphasis role="strong">The design of the reference model should aim to be stable (non-changing)</emphasis>
                 </para>
             </listitem> 
             
             <listitem>
                 <para>
-                    <emphasis role="strong">Reference model should allow only one representation for any given clinical statement</emphasis>
-                </para>
-                <para>
-                    If this principle is strictly observed, then iso-semantic clinical statements can not occur.
+                    <emphasis role="strong">Reference model should allow only one normalized representation for any given clinical statement</emphasis>
                 </para>
             </listitem>    
             <listitem>
@@ -298,7 +295,7 @@
             </listitem>       
             <listitem>
                 <para>
-                    <emphasis role="strong">Meaning of reference model properties should be statically defined in the Statement Layer</emphasis>
+                    <emphasis role="strong">The meaning of reference model properties, as defined by terminology, should be statically defined in the Statement Layer, and not left for binding in the Assertional Knowledge layer</emphasis>
                 </para>
                 <para>
                     The reference model should not use generic properties with no meaning, where their clinical meaning will dynamically be defined in the Assertional Knowledge layer (constraint layer).
@@ -306,7 +303,10 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="strong">Meaning of reference model properties should be free of terminology concerns</emphasis>
+                    <emphasis role="strong">Meaning of reference model properties should maintain a clean separation of concerns with terminology model concerns</emphasis>
+                </para>
+                <para>
+                	For example, you must unambigously assign a property like subject of information to either the statement model or the terminology model, but not both.
                 </para>
             </listitem>
             <listitem>
@@ -315,11 +315,6 @@
                 </para>
                 <para>
                     This means that no local Statement Model terminology is allowed.  If terminology is required, it should be added to the terminology layer.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <emphasis role="strong">The reference model should define meaning of absence for optional properties</emphasis>
                 </para>
             </listitem>
             <listitem>
@@ -334,7 +329,10 @@
             </listitem>
             <listitem>
                 <para>
-                    <emphasis role="strong">Reference model should handle negation</emphasis>
+                    <emphasis role="strong">Reference model should handle presence, absence, and indeterminate</emphasis>
+                </para>
+                <para>
+                	We do note that when representing actions that were not performed, the term absence is not semantically perfect.
                 </para>
             </listitem>
             <listitem>
@@ -358,31 +356,6 @@
                 </para>
             </listitem> 
             
-
-
-            
-
-
-
-        </itemizedlist>
-
-        <para>
-            The following are questions to be resolved as to whether they should be principles of the Statement Model layer.
-        </para>
-
-        <itemizedlist>
-            <listitem>
-                <para>
-                    Should the Statement Model be responsible to handle exceptions for missing, incomplete and errant data?  If not, what layer handles this concern?
-                </para>
-
-            </listitem>
-            <listitem>
-                <para>
-                    Should the Statement Model be responsible to record how a user entered the data?  Such as original text?
-                </para>
-
-            </listitem>
 
         </itemizedlist>
 

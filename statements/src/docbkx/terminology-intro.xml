@@ -18,10 +18,11 @@
                     processes in place for requesting changes to the terminologies either through
                     the organization that maintains them or through a national release center in the
                     case of SNOMED CT. While content can be added using these formal processes,
-                    there is usually a delay before a formal addition is available for use. In
-                    addition to the formal processes available through the standards development
-                    organizations (SDOs), SNOMED CT includes formal mechanisms for users to extend
-                    the terminology and add missing content locally.</para>
+                    there is usually a delay before a formal
+                    <?oxy_comment_start author="steph" timestamp="20191016T103843-0600" comment="Should this be &quot;edition&quot; instead?"?>addition<?oxy_comment_end?>
+                    is available for use. In addition to the formal processes available through the
+                    standards development organizations (SDOs), SNOMED CT includes formal mechanisms
+                    for users to extend the terminology and add missing content locally.</para>
             </listitem>
             <listitem>
                 <para>Concept orientation</para>
@@ -29,7 +30,7 @@
                     coherent meaning. Terms associated with a code should represent a single
                     concept.</para>
                 <para>In the 1998 paper <citation>Representing Thoughts, Words, and Things in the
-                        UMLS</citation> the authors describe that the Ogden Richards semiotic
+                        UMLS</citation> the authors describe that the Ogden Richards' semiotic
                         triangle<quote> shows that, although written or spoken symbols (words)
                         cannot completely capture the essence of a reference (thought) or of a
                         referent (thing), there is a correspondence among them. Either a word or an
@@ -88,8 +89,8 @@
                     infection.  In this representation you can easily find all meningococcal
                     infections, but if you need to find all types of meningitis you are required to
                     know all the various codes that represent the different classifications of meningitis.<figure>
-                        <title><?oxy_comment_start author="steph" timestamp="20190903T155353-0600" comment="Can you center the text in the boxes below and fix the first box where the text is cutoff?" flag="done"?>Monohierarchy
-                            Example<?oxy_comment_end?></title>
+                        <title><?oxy_comment_start author="steph" timestamp="20190903T155353-0600" comment="Can you center the text in the boxes below and fix the first box where the text is cutoff?" flag="done"?><?oxy_comment_start author="steph" timestamp="20191016T113247-0600" comment="This is still a problem - the text is cutoff." mid="6"?>Monohierarchy
+                            Example<?oxy_comment_end?><?oxy_comment_end mid="6"?></title>
                         <mediaobject>
                             <imageobject>
                                 <imagedata fileref="images/meningitis_monohierarchy.svg"
@@ -130,7 +131,9 @@
                     all the possible parents. By adding the additional information, like Finding
                     Site in the example below, additional hierarchical relationships can be inferred.<figure>
                         <?oxy_comment_start author="steph" timestamp="20190903T164307-0600" comment="Need to fix the text in circles to make it fit fully and not be cutoff, as it currently is.  With the text being white on a white background, the cutoff text cannot be read outside of the circles.  Same for the second diagram for inferred below." flag="done"?>
-                        <title>Relationships Stated by a Content Modeler<?oxy_comment_end?></title>
+                        <?oxy_comment_start author="steph" timestamp="20191016T113507-0600" comment="Still not fixed.  I think it needs to be fixed; otherwise, it appears as sloppy work." mid="15"?>
+                        <title>Relationships Stated by a Content
+                            Modeler<?oxy_comment_end?><?oxy_comment_end mid="15"?></title>
                         <mediaobject>
                             <imageobject>
                                 <imagedata fileref="images/stated_relationships.svg" scalefit="1"
@@ -140,14 +143,15 @@
                     </figure></para>
                 <para>DL ontologies can be classified (i.e., some relationships between concepts are
                     inferred from the asserted class descriptions) using a DL classifier and a new
-                    set of inferred relationships are created for concepts. Solor provides both
-                    views of stated and inferred relationships, and allow users to compare the
+                    set of inferred relationships is created for concepts. Solor provides both views
+                    of stated and inferred relationships, and allow users to compare the
                     differences. Solor has blocks of necessary &amp; sufficient, necessary, and
                     inherited (i.e., inferred) relationships. <figure>
                         <title>Inferred Relationships by DL Classifier</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="images/inferred_relationships.svg" scalefit="1" width="100%" contentdepth="100%"/>
+                                <imagedata fileref="images/inferred_relationships.svg" scalefit="1"
+                                    width="100%" contentdepth="100%"/>
                             </imageobject>
                         </mediaobject>
                     </figure></para>

@@ -118,10 +118,11 @@ The problem with this approach is that expressions of this sort are restricted t
                     <row>
                         <entry namest="col1" nameend="col2">
                             <para><emphasis role="bold">Narrative</emphasis>: <emphasis role="bold"
-                                ><emphasis role="italic">Request for administration of
-                                    nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as
-                                    needed for chest pain; maximum 3 tablets
-                                    (routine).</emphasis></emphasis></para>
+                                        ><?oxy_comment_start author="steph" timestamp="20191015T173555-0600" comment="I believe I had previously reported this but it wasn&apos;t fixed.  The narrative here does not include ibuprofen but it IS included below and I think it needs to be deleted."?><emphasis
+                                        role="italic">Request for administration of nitroglycerin
+                                        0.4 mg tablet sub-lingual every 5 minutes as needed for
+                                        chest pain; maximum 3 tablets
+                                    (routine).</emphasis><?oxy_comment_end?></emphasis></para>
                             <para/>
                             <para>Statement type:<emphasis role="underline"><emphasis role="italic"
                                 >[Request]</emphasis></emphasis></para>
@@ -168,7 +169,9 @@ The problem with this approach is that expressions of this sort are restricted t
                             </itemizedlist>
                             <para><emphasis role="bold"><emphasis role="italic"
                                 >Frequency</emphasis></emphasis></para>
-                            <para>eventFrequency: <emphasis>[5,15] min</emphasis></para>
+                            <para>eventFrequency:
+                                    <emphasis><?oxy_comment_start author="steph" timestamp="20191015T171343-0600" comment="Could this be misunderstood as patient is to take 1 pill every 5-15 minutes vs. take 1 pill and if patient needs to take more than 1, then wait 5 minutes to take the next?"?>[5,15]
+                                    min</emphasis><?oxy_comment_end?></para>
                             <para>
                                 <itemizedlist>
                                     <listitem>

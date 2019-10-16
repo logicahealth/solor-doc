@@ -124,14 +124,13 @@
                         </itemizedlist>
 
                         <para>This pattern assumes that, for every Value, the Aspect of the patient
-                            that is being described is implicit and unambiguous, and therefore need
-                            not be explicitly specified. The pattern is most naturally suited for
-                            symptoms, exam findings, past medical history findings, and diagnoses,
-                            where the assumption usually holds. However, exceptions exist. For
-                            example, the Assertion pattern cannot distinguish between a
-                            patient-reported symptom of “arm weakness,” and a physical exam finding
-                            of “arm weakness” (unless “patient-reported” or “physical-exam” are
-                            denoted as Contexts). .</para>
+                    that is being described is implicit and unambiguous, and therefore need not be
+                    explicitly specified. The pattern is most naturally suited for symptoms, exam
+                    findings, past medical history findings, and diagnoses, where the assumption
+                    usually holds. However, exceptions exist. For example, the Assertion pattern
+                    cannot distinguish between a patient-reported symptom of “arm weakness,” and a
+                    physical exam finding of “arm weakness” (unless “patient-reported” or
+                    “physical-exam” are denoted as Contexts).</para>
                     </listitem>
 
                     <listitem>
@@ -233,7 +232,9 @@
                     </listitem>
 
                     <listitem>
-                        <para><emphasis role="underline">Usefullness</emphasis>: Concepts, concept properties, and distinction among concepts should only be modeled when there is current use in healthcare.</para>
+                        <para><emphasis role="underline">Usefulness</emphasis>: Concepts, concept
+                    properties, and distinction among concepts should only be modeled when there is
+                    current use in healthcare.</para>
                     </listitem>
                 </itemizedlist>
 
@@ -305,12 +306,12 @@
                 <orderedlist>
                     <listitem>
                         <para><emphasis role="underline">Standardize on a single design
-                                pattern</emphasis> for all clinical statements models (i.e., either
-                            the Assertion, Evaluation, or Belief pattern described in <xref linkend="_Ref474506814" xrefstyle="select:label"/>). This approach
-                            may facilitate the tasks of data analysts and software developers, who
-                            will need to learn many clinical statements models to use them
-                            effectively in application development, CDS rule design, clinical
-                            measure specifications, etc.</para>
+                        pattern</emphasis> for all clinical statement models (i.e., either the
+                    Assertion, Evaluation, or Belief pattern described in <xref
+                        linkend="_Ref474506814" xrefstyle="select:label"/>). This approach may
+                    facilitate the tasks of data analysts and software developers, who will need to
+                    learn many clinical statements models to use them effectively in application
+                    development, CDS rule design, clinical measure specifications, etc.</para>
 
                         <para>With this option, the “Belief” pattern is likely preferred, as it is
                             the most generic and supports all manner of clinical observations, as

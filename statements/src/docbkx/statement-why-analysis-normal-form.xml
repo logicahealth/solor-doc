@@ -249,15 +249,18 @@
         statement using standard terminology expressions. ANF defines responsibility for different
         representational aspects of input data along well-defined compositional layers (see <link
           linkend="SoC_Section">Separation of Concerns</link>). In practice, information systems may
-        create normal data natively or transform other representations of clinical statements (e.g.
-        C-CDA templates, FHIR profiles) to normal form (i.e., ANF).</para>
+        create
+        <?oxy_comment_start author="steph" timestamp="20191016T095716-0600" comment="What is normal data?  Should it be normalized data instead?"?>normal
+        data<?oxy_comment_end?> natively or transform other representations of clinical statements
+        (e.g. C-CDA templates, FHIR profiles) to normal form (i.e., ANF).</para>
       <para>Overall, ANF allows healthcare enterprises to normalize information aggregated across
         multiple sources to better support a set of analysis. ANF enhances the ability to analyze
         and compare clinical statements aggregated across systems and organizations and provide a
         logical model to:<itemizedlist spacing="compact">
           <listitem>
-            <para>Specify a common form for clinical statements extracted from EHR systems and
-              FHIR.</para>
+            <para>Specify a common form for clinical statements extracted from EHR systems
+              <?oxy_comment_start author="steph" timestamp="20191016T101103-0600" comment="This is probably my ignorance of FHIR but can you really extract data from FHIR?  Is it a database system?  I thought it was a data exchange mechanism. Doesn&apos;t it take data from a system and exchange it?"?>and
+              FHIR<?oxy_comment_end?>.</para>
           </listitem>
         </itemizedlist><itemizedlist>
           <listitem>
@@ -266,10 +269,12 @@
           </listitem>
         </itemizedlist><itemizedlist spacing="compact">
           <listitem>
-            <para><?oxy_comment_start author="kec" timestamp="20190721T122226-0700" comment="Don&apos;t put bulleted lists inside of bullited lists. Maybe put in a transition paragraph, then a new bullited list. " flag="done"?>Enhance
+            <?oxy_comment_start author="steph" timestamp="20191016T101244-0600" comment="I don&apos;t think you need to capitalize the things referenced here, such as Systems, Clinical Quality Measures, etc."?>
+            <para><?oxy_comment_start author="kec" timestamp="20190721T122226-0700" comment="Don&apos;t put bulleted lists inside of bullited lists. Maybe put in a transition paragraph, then a new bullited list. " flag="done" mid="23"?>Enhance
               clinical data for use in <glossterm>Clinical Decision Support</glossterm> Systems,
               Clinical Quality Measures and National Registries, Healthcare Guidelines and
-              Protocols, and Epidemiological Research.</para><?oxy_comment_end?>
+              Protocols, and Epidemiological
+            Research.<?oxy_comment_end?></para><?oxy_comment_end mid="23"?>
           </listitem>
         </itemizedlist></para>
     </section>
@@ -280,7 +285,8 @@
         Technology (HIT) systems. ANF does not define the terminology specification but relies on
           <glossterm baseform="Terminology Knowledge">terminology knowledge </glossterm> to specify
         the meaning of clinical statements. ANF coded data may use single codes, as well as any
-        legal terminology expression defined within the terminology layer of the <link
+        <?oxy_comment_start author="steph" timestamp="20191016T101448-0600" comment="Recommend using &quot;allowed&quot; vs &quot;legal&quot; since the latter is regarding the law."?>legal
+        <?oxy_comment_end?>terminology expression defined within the terminology layer of the <link
           linkend="SoC_Section">architecture</link>.</para>
       <para>ANF
         supports<?oxy_comment_start author="kec" timestamp="20190721T123126-0700" comment="supports—but does not require—postcoordinated compositional terminologies" flag="done"?>

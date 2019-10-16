@@ -12,9 +12,8 @@
     <para>The purpose of this part is: </para>
     <orderedlist spacing="compact">
         <listitem>
-            <para>
-                To define the <emphasis>Statement Model</emphasis> layer for the purpose of Clinical Statment data representation.  
-            </para>
+            <para>To define the <emphasis>Statement Model</emphasis> layer for the purpose of
+                Clinical Statement data representation. </para>
         </listitem>
         <listitem>
             <para>To provide a set of guidelines to model <emphasis>statements</emphasis>.</para>
@@ -31,7 +30,7 @@
         </listitem>
         
         <listitem>
-            <para>To present the Analaysis Normal Form Reference Model.</para>
+            <para>To present the Analaysis Normal Form (ANF) Reference Model.</para>
         </listitem>
 
     </orderedlist>
@@ -152,9 +151,23 @@
     <section>
         <title>History of Statement Modeling</title>
 
-    <para>
-        There is a long history of modeling efforts to represent Clinical Statements, and from all these efforts, a common design pattern has emerged which is to separate clinical statement modeling into two separate modeling concerns.   The first is a structural model which is designed to house an instance of a clinical statement.  This structural model has been called an Information Model, a Reference Model, a Logical Model, an Instance Model, and probably others, but here we will use the term Reference Model. The second modeling concern is a Constraint Model intended to ensure the validity of the various clinical statement instances that can be represented by the Reference Model.  This relationship is diagramed in <xref linkend="Ref_Statement_2LayerModelingPattern_3535" xrefstyle="select:label"/> with the Reference Model on the left and the Constraint Model to the right. We propose that the Reference Model does belong in the Statement Model Architectural Layer.  However, we propose that Constraint Model does not belong in the Statement Model layer, but instead lives in the Assertional Knowledge layer above the Statement Model layer as shown in <xref linkend="Ref_Architectural-LayersWithConstraintModel_3535" xrefstyle="select:label"/>.  Constraint Models in the Assertional Knowledge layer are dicussed in Chapter/Section AAA (link).
-    </para>
+    <para> There is a long history of modeling efforts to represent Clinical Statements, and from
+            all these efforts, a common design pattern has emerged which is to separate clinical
+            statement modeling into two separate modeling concerns. The first is a structural model
+            which is designed to house an instance of a clinical statement. This structural model
+            has been called an Information Model, a Reference Model, a Logical Model, an Instance
+            Model, and probably others, but here we will use the term Reference Model. The second
+            modeling concern is a Constraint Model intended to ensure the validity of the various
+            clinical statement instances that can be represented by the Reference Model. This
+            relationship is diagramed in <xref linkend="Ref_Statement_2LayerModelingPattern_3535"
+                xrefstyle="select:label"/> with the Reference Model on the left and the Constraint
+            Model to the right. We propose that the Reference Model does belong in the Statement
+            Model Architectural Layer. However, we propose that the Constraint Model does not belong
+            in the Statement Model layer, but instead lives in the Assertional Knowledge layer above
+            the Statement Model layer as shown in <xref
+                linkend="Ref_Architectural-LayersWithConstraintModel_3535" xrefstyle="select:label"
+            />. Constraint Models in the Assertional Knowledge layer are discussed in
+            Chapter/Section AAA (link). </para>
 
     <figure xml:id="Ref_Statement_2LayerModelingPattern_3535">
         <title>Two-Layer Design Pattern for Clinical Statements</title>
@@ -192,9 +205,18 @@
     </figure>
 
 
-    <para>
-        In <xref linkend="Ref_Architectural-LayersWithConstraintModel_3535" xrefstyle="select:label"/>, the Referece Models of both CIMI v2 and FHIR are shaded grey, which is intended to illustrate that these Reference Models mix clinical terminology concerns into the properties of their Reference Model.  Remember, it is a tenant of the Architectural Separation of Concerns that layers should not mix concerns. What does this mean in terms of the Statement Model layer?  <xref linkend="Ref_FHIR_ObservationResource_3535" xrefstyle="select:label"/> shows the FHIR Observation resource which names properties for specimen and method. The problem is that the code property for this resource already represents some of this information.  Thus the named properties optionally duplicate the coded information, resulting in inconsistant instances of this resource.
-    </para>
+    <para> In <xref linkend="Ref_Architectural-LayersWithConstraintModel_3535"
+                xrefstyle="select:label"/>, the Reference Models of both CIMI v2 and FHIR are shaded
+            grey, which is intended to illustrate that these Reference Models mix clinical
+            terminology concerns into the properties of their Reference Model. Remember, it is a
+            <?oxy_comment_start author="steph" timestamp="20191008T124333-0600" comment="Should this be &quot;tenet&quot; instead?"?>tenant<?oxy_comment_end?>
+            of the Architectural Separation of Concerns that layers should not mix concerns. What
+            does this mean in terms of the Statement Model layer? <xref
+                linkend="Ref_FHIR_ObservationResource_3535" xrefstyle="select:label"/> shows the
+            FHIR Observation resource which names properties for specimen and method. The problem is
+            that the code property for this resource already represents some of this information.
+            Thus the named properties optionally duplicate the coded information, resulting in
+            inconsistent instances of this resource. </para>
 
     <figure xml:id="Ref_FHIR_ObservationResource_3535">
         <title>FHIR Observation Resource</title>
@@ -206,9 +228,13 @@
         </mediaobject>
     </figure>
 
-    <para>
-        On the other end of the spectrum, OpenEHR has a very simple generic Reference Model showm in <xref linkend="Ref_OpenEHR_ReferenceModel_3535" xrefstyle="select:label"/>.  This reference model obviously does not encroach on the concerns of the Terminoly Layer, and thus in regard to the Statement Model layer and the Terminology Layer, conforms to the principles of the Architectural Separation of Concerns.  The advantage of these types of generic reference models is that all data instances are uniform, which makes it easy to create data stores and consistant tooling to process these instances.
-    </para>
+    <para> On the other end of the spectrum, OpenEHR has a very simple generic Reference Model showm
+            in <xref linkend="Ref_OpenEHR_ReferenceModel_3535" xrefstyle="select:label"/>. This
+            reference model obviously does not encroach on the concerns of the Terminology Layer,
+            and thus in regard to the Statement Model layer and the Terminology Layer, conforms to
+            the principles of the Architectural Separation of Concerns. The advantage of these types
+            of generic reference models is that all data instances are uniform, which makes it easy
+            to create data stores and consistent tooling to process these instances. </para>
 
     <figure xml:id="Ref_OpenEHR_ReferenceModel_3535">
         <title>OpenEHR Reference Model</title>
@@ -220,13 +246,20 @@
         </mediaobject>
     </figure>
 
-    <para>
-        The question still remains as to whether a simple generic reference model, such as OpenEHR, ultimately conforms to  the Architectural Sepration of Concerns for all Layers.  The truth is, models with a generic reference model, which also includes 13606 and the Clinical Element Model, push the complexity into the Constraint Models which live in the Assertional Knowledge Layer.  It is here that the generic arrays are sliced to conform to a clinically meaningful data structure, but it is also here, where a modeler can once again encroach on the concerns of the Terminology Layer.  
-    </para>
+    <para> The question still remains as to whether a simple generic reference model, such as
+            OpenEHR, ultimately conforms to the Architectural Separation of Concerns for all Layers.
+            The truth is, models with a generic reference model, which also includes 13606 and the
+            Clinical Element Model, push the complexity into the Constraint Models which live in the
+            Assertional Knowledge Layer. It is here that the generic arrays are sliced to conform to
+            a clinically meaningful data structure, but it is also here where a modeler can once
+            again encroach on the concerns of the Terminology Layer. </para>
 
-    <para>
-        As an example, <xref linkend="Ref_OpenEHR_ReferenceModelSlicing_3535" xrefstyle="select:label"/> demonstrates a hypothetical ADL constraint model where the reference model is sliced to represent a Laboratory result with a specimen.  Just as FHIR did in the Statement Model layer for the Observation Resource, this ADL Constraint Model in the Assertional Knowledge Layer, encroaches on the conern of the Terminology Layer in regard to Specimen Type.
-    </para>
+    <para> As an example, <xref linkend="Ref_OpenEHR_ReferenceModelSlicing_3535"
+                xrefstyle="select:label"/> demonstrates a hypothetical ADL constraint model where
+            the reference model is sliced to represent a Laboratory result with a specimen. Just as
+            FHIR did in the Statement Model layer for the Observation Resource, this ADL Constraint
+            Model in the Assertional Knowledge Layer encroaches on the concern of the Terminology
+            Layer in regard to Specimen Type. </para>
 
     <figure xml:id="Ref_OpenEHR_ReferenceModelSlicing_3535">
         <title>Using ADL to slice the OpenEHR Reference Model</title>
@@ -243,21 +276,26 @@
         Generic reference models such as OpenEHR, 13606, CEM, and CIMI v1 allow the modeler to build any tree structure imaginable by 'slicing' arrays and then defining the meaning of each node in the tree. The benefit of this design is that it gives flexibility to build any model the modeler wishes, without having to change the underlying sofware code base for functions such as data storage, query, and retrieval.
     </para>
 
-    <para>
-        Ironically, the downside is that a generic reference model allows the modeler to build any tree structure imaginable.  This requires the organization to govern the endless modeling possibilites in something like a modeling style guide.  Thus, although a generic reference model frees the modeler from the machinery, it doesn't free them from the concerns of modeling.
-    </para>
+    <para> Ironically, the downside is that a generic reference model allows the modeler to build
+            any tree structure imaginable. This requires the organization to govern the endless
+            modeling possibilities in something like a modeling style guide. Thus, although a
+            generic reference model frees the modeler from the machinery, it doesn't free them from
+            the concerns of modeling. </para>
 
     <para>
         It should be noted that the extension mechanism in FHIR behaves in this same generic fashion by 'slicing' a particular named array called 'extension' which acts as a generic reference model.  The Profile constraint model slices the 'extension' array, and applies meaning to the slices. Thus FHIR is unique in that it has both a reference model with named properties, but also supplies an escape hatch of a generic reference model.
     </para>
 
-    <para>
-        We have examined scenarios from reference models with statically named properties to generic reference models that dynamically acquire their meaning in the constraint models. In both cases, a properties ultimate meaning should be free of terminology concerns.  A property can house terminology values, but the meaning of the property is what should be free of terminology concerns.
-    </para>
+    <para> We have examined scenarios from reference models with statically named properties to
+            generic reference models that dynamically acquire their meaning in the constraint
+            models. In both cases, a property's ultimate meaning should be free of terminology
+            concerns. A property can house terminology values, but the meaning of the property is
+            what should be free of terminology concerns. </para>
 
-    <para>
-        Here we propose that the meaning of a property should not be dynamically assigned in a constraint model, but rather be statically set in the Statement Model layer.  This allows a formal static model that is free of terminology concerns, and doesn't leave the design open for mistakes by modelers.
-    </para>
+    <para> Here we propose that the meaning of a property should not be dynamically assigned in a
+            constraint model, but rather be statically set in the Statement Model layer. This allows
+            a formal static model that is free of terminology concerns and doesn't leave the design
+            open for mistakes by modelers. </para>
 
     
 

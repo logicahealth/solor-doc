@@ -133,12 +133,13 @@
             from the bottom to the top of the Separation of Concerns diagram, the layers of the
             informatics architectural separation of concerns are described as:
                 </para><para><emphasis role="bold">Architectural Foundation</emphasis> – The
-                <glossterm>Architectural Foundation</glossterm> of the Knowledge Architecture
-            provides the common elements of interoperability such as object identity, versioning,
-            modularity, and knowledge representation. It includes a) the foundation and building
-            blocks of the common model; (b) how the repeatable transformation process of disparate
-            standards into the common model promotes interoperability with other environments; and
-            (c) how the modules of the architecture are tightly version controlled over time.
+                <glossterm><?oxy_comment_start author="steph" timestamp="20191008T161320-0600" comment="I think I&apos;ve commented before that I think this should be referred to the same way as it&apos;s shown in the diagram above, i.e., Foundational Architecture."?>Architectural
+                Foundation<?oxy_comment_end?></glossterm> of the Knowledge Architecture provides the
+            common elements of interoperability such as object identity, versioning, modularity, and
+            knowledge representation. It includes a) the foundation and building blocks of the
+            common model; (b) how the repeatable transformation process of disparate standards into
+            the common model promotes interoperability with other environments; and (c) how the
+            modules of the architecture are tightly version controlled over time.
                 </para><para><emphasis role="bold"><glossterm baseform="Terminology Knowledge"
                     >Terminology Knowledge</glossterm></emphasis> – The Terminology Knowledge layer
             is responsible for structured sets of medical terms and codes that
@@ -160,7 +161,7 @@
                     >Procedural Knowledge</glossterm></emphasis> – Procedural knowledge, also known
             as imperative knowledge, is the knowledge exercised in the performance of some task,
             such as determining a hypertension treatment plan by analyzing a combination of a
-            patients ANF statements, and the available assertional knowledge. The procedural
+            patient's ANF statements, and the available assertional knowledge. The procedural
             knowledge is responsible for information about standard ways to carry out specific
             procedures as well as other procedural guidelines, e.g. treatment protocols for diseases
             and order sets focused on particular patient situations. Procedural knowledge, together
@@ -170,7 +171,10 @@
             the assertional knowledge. Procedural knowledge artifacts may include clinical alert
             rules, reminders, etc. that trigger actions or recommend
             interventions.</para><para>Examining a clinical procedure for controlling hypertension
-            illustrates each of the layers of the informatics architectural separation of concerns. <itemizedlist>
+            illustrates
+            <?oxy_comment_start author="steph" timestamp="20191008T161734-0600" comment="I don&apos;t see the foundational architecture layer described below.  Should it be?"?>each
+            of the layers <?oxy_comment_end?>of the informatics architectural separation of
+            concerns. <itemizedlist>
                 <listitem>
                     <para>At the Terminology Knowledge layer, there may be various codes and terms
                         from disparate source terminologies to define a concept (e.g. hypertension).
@@ -186,7 +190,7 @@
                         (e.g., pregnancy induced hypertension vs. renal hypertension) within a
                         standard data structure to facilitate information exchange or retrieval,
                         such as within a standards-based clinical statement (i.e. CIMI, CDA, FHIR,
-                        ANF, etc.).  </para>
+                        ANF, etc.). </para>
                 </listitem>
                 <listitem>
                     <para>The Assertional Knowledge layer represents non-procedural statements, or

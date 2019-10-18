@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+        <info>
+            <title>Knowledge Guide</title>
+            <subtitle>
+                <inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/logos_Logo-Idea-8-Light.png" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </inlinemediaobject>
+            </subtitle>
+        </info>
+  
+        <part><title>Introduction to Knowledge</title>
+            <xi:include href="knowledge-introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </part>
+        <part><title>Logging In</title>           
+            <xi:include href="knowledge-logging-in.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </part>
+    
+        <part><title>Authoring in Knowledge</title>           
+            <xi:include href="knowledge-editor.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </part>
+    
+        <part><title>Knowledge Manager</title>
+            <xi:include href="knowledge-manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+         </part>
+
+        <part><title>Knowledge Terminology Server</title>
+            <xi:include href="knowledge-terminology-server.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>            
+        </part>
+</book>

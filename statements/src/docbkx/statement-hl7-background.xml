@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+
+    <title>Background: HL7 Clinical Statement Standards</title>
+    <para>Clinical statement standardization has been a long-standing concern for HL7 and reuse of
+      these content models across paradigms (e.g. messages, documents, services). Standardization
+      has relied on model-driven approaches requiring a separation of concerns along with
+      conceptual, logical, and implementation perspectives.</para>
+    <para>HL7 Service-Aware Interoperability Framework (SAIF) organizes HL7 standards along three
+      perspectives (i.e. conceptual, logical, and implementable). </para>
+    <section>
+      <title>HL7 Service-Aware Interoperability Framework (SAIF)</title>
+      <para>To augment the HL7 Version 2 and Version 3 representations, HL7 introduced an
+        architecture to allow for a clear separation of concerns among interoperability models and
+        specifications from the abstract or conceptual to the most precise, implementable, and
+        testable that ensures semantic interoperability. This architecture is the HL7 Service-Aware
+        Interoperability Framework Canonical Definition (SAIF-CD).<link linkend="bib6"
+        >[9]</link></para>
+      <para>The SAIF-CD specification <link linkend="bib6">[9]</link> defines three SAIF
+        Perspectives: Conceptual, Logical, and Implementable. These perspectives are not formally
+        equivalent with <glossterm baseform="Object Management Group">Object Management Group’s
+          (OMG)</glossterm> levels-of-abstraction in
+          <?oxy_comment_start author="rcholan" timestamp="20190730T120946-0400" comment="glossary" flag="done"?><glossterm
+          baseform="Model Driven Architecture">Model-Driven Architecture
+        (MDA)</glossterm><?oxy_comment_end?> even though it reuses the same derivation. Therefore,
+        the Implementable Perspective is derived from the Logical Perspective and the Logical
+        Perspective is derived from the Conceptual Perspective. This approach ensures that any
+        implementable artifacts (i.e. service specifications, implementation guides) are traceable
+        to business/clinical requirements and logical models of knowledge.</para>
+      <figure xml:id="SAIF-CD-diagram">
+        <title>Model Derivation based on SAIF-CD</title>
+        <mediaobject role="bordered">
+          <imageobject>
+            <imagedata fileref="images/Perspectives.svg" format="SVG" scale="60" align="center"/>
+          </imageobject>
+        </mediaobject>
+        <caption>
+          <para><emphasis>Like other CIMI models, ANF is a Logical Model that may be used to create
+              implementation specifications. </emphasis></para>
+        </caption>
+      </figure>
+      <para>However, the SAIF Conceptual Perspective is not completely equivalent to the MDA concept
+        of <glossterm baseform="Computationally Independent Model">Computationally Independent Model
+          (CIM)</glossterm>, the Logical Perspective is not equivalent to the MDA <glossterm
+          baseform="Platform Independent Model">Platform Independent Model (PIM)</glossterm>, nor is
+        the Implementable Perspective equivalent to the MDA <glossterm
+          baseform="Platform Specific Model">Platform Specific Model</glossterm> although this
+        Perspective is the SAIF Perspective that most closely aligns with an MDA analogue.</para>
+      <section>
+        <title>Conceptual Perspective</title>
+        <para>These artifacts are most commonly focused on the “Problem-Space” rather than the
+          “Solution-Space,” and contain explicit, unambiguous descriptions of the various dimensions
+          of the component (e.g. clinical statement) or system being specified. </para>
+        <para>A fully-specified Conceptual Perspective thus should be both readable and traceable by
+          Domain Experts and Subject Matter Experts and rigorous enough to serve as input into the
+          development in the Logical Perspective.</para>
+        <para>In HL7, the Conceptual Perspective is represented by
+            <?oxy_comment_start author="rcholan" timestamp="20190730T121224-0400" comment="glossary" flag="done"?><glossterm
+            baseform="Domain Analysis Model">Domain Analysis Models
+          (DAMs)</glossterm><?oxy_comment_end?> and business models that represent stakeholder
+          requirements analyzed by subject matter and domain experts. This perspective precedes the
+          development of either logical or implementable artifacts and it is key to successful
+          testing of implementations. </para>
+      </section>
+      <section>
+        <title>Logical Perspective</title>
+        <para>Artifacts in the Logical Perspective represent traceable translations of
+          Conceptual-level artifacts into a form and format, usable by and useful to architects and
+          “inward-facing analysts.” Also included are additional specification materials required by
+          architects preparing artifacts for consumption by developers. The Logical Perspective
+          contains platform-independent artifacts.</para>
+        <para>There are no definite boundaries between the Logical and Implementable Perspectives.
+          Therefore, it is important for organizations such as HL7 to standardize logical models
+          used to generate/create implementable artifacts (i.e. implementation guides, profiles, and
+          templates). <glossterm baseform="CIMI Clinical Statement">CIMI Clinical
+            Statements</glossterm>, <link xlink:href="https://www.iso.org/standard/62416.html"
+            >ISO/TS 13972</link> Detailed Clinical Models, and ANF statements all belong in this
+          perspective.</para>
+      </section>
+      <section>
+        <title>Implementable Perspective</title>
+        <para>Artifacts in the Implementable Perspective are typically defined by developers or
+          standards implementers, often through discussion with software designers, architects, or
+          system integrators. Note that the artifacts in the Implementable Perspective are not
+          actual implementations, but rather implementable in a number of implementation instances.
+          Thus, all the necessary technical bindings, including data types, value sets, class
+          libraries, and interface specifications are part of the Implementable Perspective. FHIR
+          implementation requires a combination of profiles and test cases to ensure that
+          implementations meet the requirements used to derive the conceptual and logical
+          models.</para>
+      </section>
+    </section>
+    <section>
+      <?oxy_comment_start author="kec" timestamp="20190721T172441-0700" comment="Can we point to examples of where the HL7 V3 Clinical Statement does not exhibit a clean separation of concerns? " flag="done"?>
+      <title>HL7 Version 3 Clinical Statement<?oxy_comment_end?>
+      </title>
+      <para>Starting with HL7 Version 3 <link linkend="bib7">[10]</link> the minimum requirements
+        for the interoperable clinical statement are:</para>
+      <table>
+        <info>
+          <title>HL7 V3 Clinical Statement Definition</title>
+        </info>
+        <tgroup cols="1">
+          <tbody>
+            <row>
+              <entry>
+                <para><emphasis>“Clinical Statement for the care of patients (persons, animals and
+                    other entities) is:</emphasis></para>
+                <para><emphasis>An expression of a discrete item of clinical, clinically-related or
+                    public health information that is recorded because of its relevance to the care
+                    of a patient or other entities. Clinical or public health information can be
+                    expressed with different levels of granularity and therefore the extent and
+                    detail conveyed in a single statement may vary. To be regarded as a Clinical
+                    Statement, a concept must be associated with a patient or other entity in a
+                    manner which makes clear:</emphasis></para>
+                <itemizedlist spacing="compact">
+                  <listitem>
+                    <para><emphasis>Its temporal context</emphasis></para>
+                  </listitem>
+                  <listitem>
+                    <para><emphasis>Its relationship to the entity or entities</emphasis></para>
+                  </listitem>
+                </itemizedlist>
+                <para><emphasis>In the case of an observation, its
+                    <?oxy_comment_start author="Ioana" timestamp="20190716T011135-0400" comment="&quot;mood&quot; is a modifier in HL7 V3 -- this is a direct quote of the V3 Clinical Statement." flag="done"?><?oxy_comment_start author="kec" timestamp="20190708T104220-0700" comment="If we *must* use mood here, we need to give a definition of mood... Maybe a glossary entry. Do we have an abbreviated glossary and a glossary? Or?" flag="done" mid="55"?>mood<?oxy_comment_end?><?oxy_comment_end mid="55"?>
+                    and presence, absence or value</emphasis></para>
+                <para><emphasis>In the case of a procedure, its mood and status</emphasis></para>
+                <para><emphasis>This clarity may be achieved by:</emphasis></para>
+                <itemizedlist spacing="compact">
+                  <listitem>
+                    <para><emphasis>Explicit representation; or,</emphasis></para>
+                  </listitem>
+                  <listitem>
+                    <para><emphasis>Implicit application of defaults ONLY where explicitly modeled
+                        rules state the appropriate defaults." </emphasis></para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>The V3 Clinical Statement Model is applied across CDA implementation guides including
+        the US-Realm Consolidated CDA (C-CDA) to represent CDA document entries. A V3 Clinical
+        Statement Model is a <glossterm baseform="Polymorphic model">polymorphic model</glossterm>:
+        it can represent observations, procedures, encounters, public health reports, supply,
+        medications, exposure, and derivations of clinical acts. The V3 Clinical Statement model
+        provides a Statement Model with partial Terminology constraints. For example, Clinical
+        Statements in a CDA document section need to be constrained to add the precision needed to
+        support the Terminology Knowledge layer. CDA entry and sub-entry templates can be used to
+        create precise implementations of the V3 Clinical Statement model for a specific type of
+        clinical statement (e.g. Procedure Activity, Problem Observation) sharing a common statement
+        model but different terminology and usage constraints. The US-Realm C-CDA specification
+        consists of a set of templates that constrain the document, sections, and entries used in
+        each section. </para>
+    </section>
+    <section>
+      <title xml:id="CIMIStatement">CIMI Statements</title>
+      <para>The <glossterm baseform="Clinical Information Modeling Initiative">Clinical Information
+        Modeling Initiative (CIMI)</glossterm> is defining a library of logical <glossterm
+        baseform="Clinical Information Model">clinical information models</glossterm> using a common
+      modeling formalism. CIMI intends to improve the interoperability of healthcare information
+      systems through shared detailed clinical information models that can be used to generate
+      platform-specific model specifications such as FHIR profiles, CDA templates, OpenEHR
+      Archetypes, <link xlink:href="https://www.iso.org/standard/40784.html">ISO 13606</link>
+      Archetypes, <link xlink:href="https://www.iso.org/standard/62416.html">ISO/TS 13972</link>
+      DCMs,
+      <?oxy_comment_start author="kec" timestamp="20190721T172632-0700" comment="Is there an example of this grouping that relates to HTN? Or is CIMI more trying to define a normal form, and the isosemantic aspects are yet to be worked out? " id="kv2_dp5_43b" mid="6"?><?oxy_comment_start author="Ioana" timestamp="20190730T231505-0400" comment="I believe CIMI is working on a library of detailed clinical models - CIMI models. " parentID="kv2_dp5_43b"?>CIMI
+      models are grouped into semantically equivalent (or ‘isosemantic’) families of detailed
+      clinical models<?oxy_comment_end?><?oxy_comment_end mid="6"?>, which capture the same clinical
+      meaning using different combinations of pre- and <glossterm
+        baseform="Post-coordinated concept">post-coordinated concepts</glossterm> and corresponding
+      information model structure. The central focus of the CIMI Reference Model is the CIMI
+      Clinical Statement. A CIMI Clinical Statement represents structured electronic communication
+      made about a patient typically documented as an 'entry' in the patient record. </para>
+      <para>Unlike the V3 Clinical Statement Model applied in C-CDA, CIMI models are designed with
+        Terminology Knowledge and provides a separate model for each type of statements, organized
+        into a comprehensive library.</para>
+      <para>For reader convenience,
+        <?oxy_comment_start author="Ioana" timestamp="20190724T005719-0400" comment="Reference the chapter" id="drn_chr_43b"?><?oxy_comment_start author="rcholan" timestamp="20190730T121953-0400" comment="Kyle, can you please hyperlink this to clinical-input-form.xml" parentID="drn_chr_43b" mid="55"?>CIMI
+        clinical statements are further explained in an appendix of this document <link
+          linkend="clinical-input-form">(See Current CIMI Modeling
+        Efforts).</link><?oxy_comment_end?><?oxy_comment_end mid="55"?><!--For example, CIMI Clinical
+        Statement can be used to represent the following statements made about a patient. This can
+        be the statement of a condition being present, a request for a procedure to be done, the
+        results of lab tests or the patient’s family history of cancer.-->
+      </para>
+    </section>
+
+    <!--
+
+  <section>
+    <title>About this Document</title>
+    <para>This document describes how information systems can improve patient safety and outcomes by
+      increasing the precision of clinical information using a normal form to enhance and support
+      quality data and analysis. In the subsequent chapter we will provide a deep dive into the
+      building blocks and constructs for ANF, in a chapter containing the ANF Reference Model and
+      illustrative examples of ANF modeling. </para>
+    <para>Subsequently, we will outline how the various building blocks and attributes work together
+      to create ANF Clinical Statements. We then provide the ANF Modeling Methodology, including a
+      list of modeling principles and rules. Next, we discuss how clinical statements can be
+      transformed and normalized into ANF Clinical Statements. Finally, we discuss the implications
+      of ANF on data quality, clinical decision support, and ultimately, patient safety and
+      outcomes. In the appendices, we explore current CIMI modeling efforts including illustrative
+      examples for modeling CIMI clinical statements. We also compare and contrast ANF Clinical
+      Statements and CIMI Clinical Statements in an appendix. </para>
+    <note>
+      <para>SNOMED CT is used as a representative example of a terminology system for the coded data
+        elements in the ANF Reference Model. This ballot is focused on defining a Statement Model,
+        not the underlying Terminology Knowledge layer described in the Knowledge Architecture.
+        While the SNOMED CT examples are based on actual SNOMED CT definitions that are part of the
+        SNOMED CT distribution, we recognize that there are inconsistencies within SNOMED CT that
+        allow redundant representations. A first step in addressing the potential for redundant
+        representation in the Terminology Layer is to define a separation of concerns between the
+        Terminology and Statement layers, so that redundancies created by a poor separation of
+        concerns between knowledge layers are eliminated. Subsequent efforts to improve the quality
+        of the Terminology Layer can then be done independent of the Statement layer.</para>
+    </note>
+  </section>
+
+-->
+
+
+</section>

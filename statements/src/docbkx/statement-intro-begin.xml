@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Representing Statement Instances</title>
+    <blockquote>
+        <attribution>Isaac Newton</attribution>
+        <para>
+            My Design in this Book is not to explain the Properties of Light by Hypotheses, but to propose and prove them by Reason and Experiments.
+        </para>
+    </blockquote>
+
+    <para>The purpose of this part is: </para>
+    <orderedlist spacing="compact">
+        <listitem>
+            <para>To define the <emphasis>Statement Model</emphasis> layer for the purpose of
+                Clinical Statement data representation. </para>
+        </listitem>
+        <listitem>
+            <para>To provide a set of guidelines to model <emphasis>statements</emphasis>.</para>
+        </listitem>
+        <listitem>
+            <para>
+                To discuss previous <emphasis>statement</emphasis> modeling efforts and the strategies used.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                To define the types of <emphasis>statements</emphasis> and their <emphasis>attributes</emphasis>.
+            </para>
+        </listitem>
+        
+        <listitem>
+            <para>To present the Analaysis Normal Form (ANF) Reference Model.</para>
+        </listitem>
+
+    </orderedlist>
+
+
+
+
+     <para>
+        What is a Clinical Statement?  Simply stated, it is a clinically relevant statement made about a patient at a particular time as part of the longitudinal record of the patient.  Although this definition  is rather vague, the definition is made clearer with the following narrative examples of various clinical statements.
+    </para>
+
+        <itemizedlist mark="bullet">
+            <listitem>
+                    <para>Was observed to have the presence or absence of a clinical
+                        phenomenon</para>
+                    <itemizedlist spacing="compact" mark="dash">
+                        <listitem>
+                            <para>Diabetes mellitus is present</para>
+                        </listitem>
+                        <listitem>
+                            <para>Diabetes mellitus is not present</para>
+                        </listitem>
+                        <listitem>
+                            <para>Dot blot hemorrhage is present</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Underwent a specific test/screening or procedure, and its resultant value,
+                        if any</para>
+                    <itemizedlist spacing="compact" mark="dash">
+                        <listitem>
+                            <para>Pulse Rate 68 bpm, taken by pulse oximeter</para>
+                        </listitem>
+                        <listitem>
+                            <para>Systolic blood pressure 120 mmHg, taken on right brachial artery,
+                                using BP cuff adult size, patient in sitting position for at least 5
+                                minutes, urinated not more than 30 minutes prior to
+                                measurement</para>
+                        </listitem>
+                        <listitem>
+                            <para>Three dot blot hemorrhages</para>
+                        </listitem>
+                        <listitem>
+                            <para>Positive screen for fall risk</para>
+                        </listitem>
+                        <listitem>
+                            <para>Negative screen for PTSD and depression</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Was administered a medication or other substance</para>
+                    <itemizedlist spacing="compact" mark="dash">
+                        <listitem>
+                            <para>Patient took one Acetaminophen 500 mg tablet by mouth for
+                                pain</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Was provided educational materials</para>
+                    <itemizedlist spacing="compact" mark="dash">
+                        <listitem>
+                            <para>Patient was provided with educational materials on diabetes</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Clinical History</para>
+                    <itemizedlist spacing="compact" mark="dash">
+                        <listitem>
+                            <para>History of breast cancer</para>
+                        </listitem>
+                        <listitem>
+                            <para>Family history of breast cancer</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+        </itemizedlist>
+
+
+
+    <para>
+        Although these examples are in the narrative, their meaning is the target in our attempt to model this information in a computable and reproducible manner.  The purpose of the Statement Model layer in the previously described Architectural Layers, is to define a structural model which can represent an instance of any Clinical Statement.
+    </para>    
+
+    <para>
+            Statement Models are conceptual-level data models describing these discrete statements about
+                patients that can be stored in, processed by, and retrieved from a clinical
+                information system. Statement Models are defined for discrete types of clinical
+                statements such as blood pressure measurements, lab test results, physical exam
+                findings, patient-reported symptoms, clinical diagnoses, and other
+                observations.
+    </para>
+
+    <para>Statement Models define the structure and semantics of discrete clinical
+                observations as formal “types” that are later instantiated to represent specific
+                recorded observations that apply to particular patients. Like object types in
+                programming languages, these type definitions include enumerations of the specific
+                data elements that may make up the observation, the datatypes used to populate those
+                elements, and which elements must be populated in every instantiated object versus
+                optionally populated. <xref linkend="_Ref474327938" xrefstyle="select:label"/> shows
+                the graphical depiction of an example statement model for a blood pressure
+                measurement.
+    </para>
+
+    <figure xml:id="_Ref474327938">
+        <title>Example clinical statement model for a blood pressure measurement</title>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/image2com.png" scalefit="1" width="100%" contentdepth="100%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <section>
+        <title>History of Statement Modeling</title>
+
+    <para> There is a long history of modeling efforts to represent Clinical Statements, and from
+            all these efforts, a common design pattern has emerged which is to separate clinical
+            statement modeling into two separate modeling concerns. The first is a structural model
+            which is designed to house an instance of a clinical statement. This structural model
+            has been called an Information Model, a Reference Model, a Logical Model, an Instance
+            Model, and probably others, but here we will use the term Reference Model. The second
+            modeling concern is a Constraint Model intended to ensure the validity of the various
+            clinical statement instances that can be represented by the Reference Model. This
+            relationship is diagramed in <xref linkend="Ref_Statement_2LayerModelingPattern_3535"
+                xrefstyle="select:label"/> with the Reference Model on the left and the Constraint
+            Model to the right. We propose that the Reference Model does belong in the Statement
+            Model Architectural Layer. However, we propose that the Constraint Model does not belong
+            in the Statement Model layer, but instead lives in the Assertional Knowledge layer above
+            the Statement Model layer as shown in <xref
+                linkend="Ref_Architectural-LayersWithConstraintModel_3535" xrefstyle="select:label"
+            />. Constraint Models in the Assertional Knowledge layer are discussed in
+            Chapter/Section AAA (link). </para>
+
+    <figure xml:id="Ref_Statement_2LayerModelingPattern_3535">
+        <title>Two-Layer Design Pattern for Clinical Statements</title>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/statements_2LevelModel.png" align="center" format="png" width="70%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <figure xml:id="Ref_Architectural-LayersWithConstraintModel_3535">
+        <title>Architectural placement of Reference and Constraint Models</title>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/statements_sepConcernsWconstraints.png" align="center" format="png" width="100%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <para>
+        Although the separation of the Reference Model and Constraint Model has become common practice, there obviously still exists differences as to how the Reference Model and Constraint Models should be designed.
+        <xref linkend="Ref_Architectural-LayersWithConstraintModel_3535" xrefstyle="select:label"/> shows the modeling efforts of OpenEHR, 13606, Clinical Element Model, CIMI, FHIR, and ANF.  Since we are discussing the Architectural Statement Model layer, we will be focusing on the Reference Model Side of this figure. 
+    </para>
+
+    <figure xml:id="Ref_ModelingEffortsTwoLayers_3535">
+        <title>Design of existing modeling efforts</title>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/statements_refcon_comparison_anf.png" align="center" format="png" width="70%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+
+    <para> In <xref linkend="Ref_Architectural-LayersWithConstraintModel_3535"
+                xrefstyle="select:label"/>, the Reference Models of both CIMI v2 and FHIR are shaded
+            grey, which is intended to illustrate that these Reference Models mix clinical
+            terminology concerns into the properties of their Reference Model. Remember, it is a
+            <?oxy_comment_start author="steph" timestamp="20191008T124333-0600" comment="Should this be &quot;tenet&quot; instead?"?>tenant<?oxy_comment_end?>
+            of the Architectural Separation of Concerns that layers should not mix concerns. What
+            does this mean in terms of the Statement Model layer? <xref
+                linkend="Ref_FHIR_ObservationResource_3535" xrefstyle="select:label"/> shows the
+            FHIR Observation resource which names properties for specimen and method. The problem is
+            that the code property for this resource already represents some of this information.
+            Thus the named properties optionally duplicate the coded information, resulting in
+            inconsistent instances of this resource. </para>
+
+    <figure xml:id="Ref_FHIR_ObservationResource_3535">
+        <title>FHIR Observation Resource</title>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/statements_fhir_observation.png" align="center" format="png" width="50%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <para> On the other end of the spectrum, OpenEHR has a very simple generic Reference Model showm
+            in <xref linkend="Ref_OpenEHR_ReferenceModel_3535" xrefstyle="select:label"/>. This
+            reference model obviously does not encroach on the concerns of the Terminology Layer,
+            and thus in regard to the Statement Model layer and the Terminology Layer, conforms to
+            the principles of the Architectural Separation of Concerns. The advantage of these types
+            of generic reference models is that all data instances are uniform, which makes it easy
+            to create data stores and consistent tooling to process these instances. </para>
+
+    <figure xml:id="Ref_OpenEHR_ReferenceModel_3535">
+        <title>OpenEHR Reference Model</title>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/statements_openehr_ref.png" align="center" format="png" width="100%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+    <para> The question still remains as to whether a simple generic reference model, such as
+            OpenEHR, ultimately conforms to the Architectural Separation of Concerns for all Layers.
+            The truth is, models with a generic reference model, which also includes 13606 and the
+            Clinical Element Model, push the complexity into the Constraint Models which live in the
+            Assertional Knowledge Layer. It is here that the generic arrays are sliced to conform to
+            a clinically meaningful data structure, but it is also here where a modeler can once
+            again encroach on the concerns of the Terminology Layer. </para>
+
+    <para> As an example, <xref linkend="Ref_OpenEHR_ReferenceModelSlicing_3535"
+                xrefstyle="select:label"/> demonstrates a hypothetical ADL constraint model where
+            the reference model is sliced to represent a Laboratory result with a specimen. Just as
+            FHIR did in the Statement Model layer for the Observation Resource, this ADL Constraint
+            Model in the Assertional Knowledge Layer encroaches on the concern of the Terminology
+            Layer in regard to Specimen Type. </para>
+
+    <figure xml:id="Ref_OpenEHR_ReferenceModelSlicing_3535">
+        <title>Using ADL to slice the OpenEHR Reference Model</title>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/statements_openehr_tree_adl_id_exp.png" align="center" format="png" width="100%"/>
+            </imageobject>
+        </mediaobject>
+    </figure>
+
+
+    <para>
+        Generic reference models such as OpenEHR, 13606, CEM, and CIMI v1 allow the modeler to build any tree structure imaginable by 'slicing' arrays and then defining the meaning of each node in the tree. The benefit of this design is that it gives flexibility to build any model the modeler wishes, without having to change the underlying sofware code base for functions such as data storage, query, and retrieval.
+    </para>
+
+    <para> Ironically, the downside is that a generic reference model allows the modeler to build
+            any tree structure imaginable. This requires the organization to govern the endless
+            modeling possibilities in something like a modeling style guide. Thus, although a
+            generic reference model frees the modeler from the machinery, it doesn't free them from
+            the concerns of modeling. </para>
+
+    <para>
+        It should be noted that the extension mechanism in FHIR behaves in this same generic fashion by 'slicing' a particular named array called 'extension' which acts as a generic reference model.  The Profile constraint model slices the 'extension' array, and applies meaning to the slices. Thus FHIR is unique in that it has both a reference model with named properties, but also supplies an escape hatch of a generic reference model.
+    </para>
+
+    <para> We have examined scenarios from reference models with statically named properties to
+            generic reference models that dynamically acquire their meaning in the constraint
+            models. In both cases, a property's ultimate meaning should be free of terminology
+            concerns. A property can house terminology values, but the meaning of the property is
+            what should be free of terminology concerns. </para>
+
+    <para> Here we propose that the meaning of a property should not be dynamically assigned in a
+            constraint model, but rather be statically set in the Statement Model layer. This allows
+            a formal static model that is free of terminology concerns and doesn't leave the design
+            open for mistakes by modelers. </para>
+
+    
+
+    </section>
+
+    <section>
+        <title>Principles of the ANF Statement Model Layer</title>
+
+
+        <itemizedlist>
+            
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should be comprehensive and be able to fully describe any clinically relevant clinical statement instance</emphasis>
+                </para>               
+                <para>
+                    This includes support for quantitative and coded data. This includes support for temporal statements such as past history and future goals.  Note that support for narrative and binary data are still in question as a concern for the Statement Model layer.
+                </para>
+            </listitem> 
+            <listitem>
+                <para>
+                    <emphasis role="strong">The design of the reference model should aim to be stable (non-changing)</emphasis>
+                </para>
+            </listitem> 
+            
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should allow only one normalized representation for any given clinical statement</emphasis>
+                </para>
+            </listitem>    
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should be defined by formal specification</emphasis>
+                </para>
+            </listitem>       
+            <listitem>
+                <para>
+                    <emphasis role="strong">The meaning of reference model properties, as defined by terminology, should be statically defined in the Statement Model layer, and not left for binding in the Assertional Knowledge layer</emphasis>
+                </para>
+                <para>
+                    The reference model should not use generic properties with no meaning, where their clinical meaning will dynamically be defined in the Assertional Knowledge layer (constraint layer).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Meaning of reference model properties should maintain a clean separation of concerns with terminology model concerns</emphasis>
+                </para>
+                <para>
+                	For example, you must unambigously assign a property like subject of information to either the statement model or the terminology model, but not both.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model properties with coded values should use values from the terminology layer</emphasis>
+                </para>
+                <para>
+                    This means that no local Statement Model terminology is allowed.  If terminology is required, it should be added to the terminology layer.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should handle collections of clinical statements</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should handle semantic links between clinical statement instances</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should handle presence, absence, and indeterminate</emphasis>
+                </para>
+                <para>
+                	We do note that when representing actions that were not performed, the term absence is not semantically perfect.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should handle subject of information</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should support clinical statement instance identity</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should support participant attribution information</emphasis>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis role="strong">Reference model should be fully documented</emphasis>
+                </para>
+            </listitem> 
+            
+
+        </itemizedlist>
+
+
+    </section>
+
+    
+
+<!--
+
+
+    <para>
+        A statement is an expression of facts or plans. We will use two common—and misleadingly
+        simple—statement topics: <emphasis>Pulse Rate</emphasis> and <emphasis>Blood
+            Pressure</emphasis> as expository statements. If a patient told a clinician that their
+        pulse rate was 120 and their BP was 160/95, or a clinician told a patient that they should
+        keep their resting <emphasis>pulse rate</emphasis> below 70, and their <emphasis>Blood
+            Pressure</emphasis> below 120/70, they would be mutually understood. The ability for the
+        creator of the statement and the interpretor of the statement to each believe that they
+            <emphasis>understand</emphasis> the statement is the first requirement. 
+    </para>
+
+-->
+
+
+
+
+
+        <!-- 
+        <info>
+            <title><?oxy_comment_start author="steph" timestamp="20190313T143945-0600" comment="Why is the heading repeated here, both with same section number and this one with additional info?" flag="done"?>Clinical<?oxy_comment_end?>
+                Observation Modeling</title>
+            <subtitle>Supporting Domain Semantics, Flexibility, and Interoperability</subtitle>
+
+            <author>
+                <personname>Walter Sujansky</personname>
+            </author>
+
+            <date>2017-02-14</date>
+        </info>
+
+        <section xml:id="Intro">
+            <title>Introduction</title>
+
+            <para>This white paper emerged from discussions among informaticists, computer
+                scientists, and medical doctors about the appropriate modeling of clinical
+                observations in information systems. The participants included representatives of
+                the VHA-DoD, CIMI, HL7-FHIR, FHIM, SNOMED-CT, and OpenEHR initiatives<footnote xml:id="__FN1__">
+                    <para>VHA = Veterans Health Administration; CIMI = Clinical Information Modeling
+                        Initiative; HL7-FHIR = HL7 Fast Healthcare Interoperability Resources
+                        working group; FHIM = Federal Health Information Modeling.</para>
+                </footnote>. The paper does not necessarily represent a consensus among the
+                discussants or the viewpoint of any particular discussant. Its purpose is to provide
+                background on the topic, to summarize a number of the viewpoints expressed, and to
+                provide preliminary recommendations for further consideration. The contents are
+                subject to further modification as the discussion evolves.</para>
+        </section>
+
+    -->
+
+
+          
+
+            <section xml:id="ClinObsModels">
+                <title>The Role of Statement Models</title>
+
+                <para>In general, Statement Models serve at least two purposes:</para>
+
+                <orderedlist>
+                    <listitem>
+                        <para>Statement models <emphasis role="underline"><emphasis>standardize</emphasis></emphasis> the capture,
+                            retrieval, and exchange of clinical observations within and between
+                            information systems. As seen in <xref linkend="_Ref474327938" xrefstyle="select:label"/>, even relatively basic observations can
+                            comprise numerous sub-components. Different implementers of clinical
+                            information systems may model these sub-components and their
+                            relationships in arbitrarily different ways, which can prevent different
+                            software modules from managing and processing the same observations
+                            consistently and correctly. Formal and agreed-upon statement models
+                            provide a shared model of each type of observation that enables software
+                            modules created by different implementers to handle the same
+                            observations uniformly. Note that such software modules may comprise
+                            different parts of the same information system (such as the user
+                            interface and the rules engine of a single EHR) or entirely different
+                            information systems (such as distinct EHRs from different commercial
+                            vendors).</para>
+                    </listitem>
+
+                    <listitem>
+                        <para>Statement models <emphasis role="underline"><emphasis>de-couple</emphasis></emphasis> the creation and
+                            maintenance of domain-specific objects in clinical medicine (such as
+                            observations) from their technical implementation in software code and
+                            database structures. The types of clinical observations that may be
+                            recorded in software systems are numerous, diverse, and subject to
+                            relatively frequent modification over time, as well as customizations
+                            across clinical sub-domains. Meanwhile, the technical implementation of
+                            software applications and clinical databases is an arduous process that
+                            requires the careful design, detailed writing, and extensive testing of
+                            software code. Whenever changes are required to an application or
+                            database, a time-consuming and costly implementation process must be
+                            applied. Clinical applications and databases, however, that are
+                            implemented at a more abstract level can process <emphasis>any
+                            </emphasis>statement models that conform to a certain high-level
+                            reference model. Such implementations may not need to change as
+                            statement models are added or updated. Statement models can therefore
+                            serve as conceptual-level objects that represent domain-specific data
+                            and drive domain-specific functionality without being tightly coupled,
+                            at least in theory, to the underling implementation of the information
+                            system.</para>
+                    </listitem>
+                </orderedlist>
+
+                <para><xref linkend="_Ref474505861" xrefstyle="select:label"/> shows how statement models serve
+                    both of these purposes in an information system. Note how the set of clinical
+                    information models serves as a “view” or “interface” to all clinical data that
+                    may be stored by and retrieved from the information system. The design of the
+                    statement models is flexible and must conform only to a “reference model” of basic data
+                    structures. These basic structures are, in fact, the only objects tightly
+                    coupled with the underlying application and database implementations. In this
+                    manner, the statement models provide a standard conceptual model against which all
+                    data-input, data-query, and data-exchange functions operate, and that can be
+                    readily extended without (again, in theory) costly modifications to the
+                    underlying application and database. The approach for creating and maintaining
+                    information systems in this way is called <emphasis>Model Driven
+                        Development</emphasis>.</para>
+
+                <figure xml:id="_Ref474505861">
+                    <title>The role of statement models in electronic health record
+                        systems</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image3com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+
+  
+</section>

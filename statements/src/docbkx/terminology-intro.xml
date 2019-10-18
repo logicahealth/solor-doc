@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-    <title>Terminology Intro</title>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title><?oxy_comment_start author="timowilliams" timestamp="20190823T110530-0500" comment="Add ISO 1087, and Chute et al requirements as well."?>Terminology
+        Intro<?oxy_comment_end?></title>
     <para>The desiderata for the design of a controlled
         healthcare<?oxy_comment_start author="kec" timestamp="20190516T104634-0700" comment="We need to be consistent in our use of language. Interchanging Terminology and Vocabulary can be confusing to those that are not used to blocking out the distinctions. I recommend we stick with terminology, and not include the title of Jim&apos;s paper in the text. Just say someting like Cimino published criterion upon which terminologies should be evaluated in 1989." flag="done"?><?oxy_comment_end?>
         terminology
@@ -18,10 +18,11 @@
                     processes in place for requesting changes to the terminologies either through
                     the organization that maintains them or through a national release center in the
                     case of SNOMED CT. While content can be added using these formal processes,
-                    there is usually a delay before a formal addition is available for use. In
-                    addition to the formal processes available through the standards development
-                    organizations (SDOs), SNOMED CT includes formal mechanisms for users to extend
-                    the terminology and add missing content locally.</para>
+                    there is usually a delay before a formal
+                    <?oxy_comment_start author="steph" timestamp="20191016T103843-0600" comment="Should this be &quot;edition&quot; instead?"?>addition<?oxy_comment_end?>
+                    is available for use. In addition to the formal processes available through the
+                    standards development organizations (SDOs), SNOMED CT includes formal mechanisms
+                    for users to extend the terminology and add missing content locally.</para>
             </listitem>
             <listitem>
                 <para>Concept orientation</para>
@@ -29,7 +30,7 @@
                     coherent meaning. Terms associated with a code should represent a single
                     concept.</para>
                 <para>In the 1998 paper <citation>Representing Thoughts, Words, and Things in the
-                        UMLS</citation> the authors describe that the Ogden Richards semiotic
+                        UMLS</citation> the authors describe that the Ogden Richards' semiotic
                         triangle<quote> shows that, although written or spoken symbols (words)
                         cannot completely capture the essence of a reference (thought) or of a
                         referent (thing), there is a correspondence among them. Either a word or an
@@ -58,8 +59,7 @@
                         <mediaobject>
                             <imageobject>
                                 <?oxy_comment_start author="timowilliams" timestamp="20190430T200411-0500" comment="Convert image to svg"?>
-                                <imagedata fileref="images/terminology_semiotictriangle.jpg"
-                                /><?oxy_comment_end?>
+                                <imagedata fileref="images/terminology_semiotictriangle.jpg"/><?oxy_comment_end?>
                             </imageobject>
                         </mediaobject>
                     </figure>
@@ -83,29 +83,78 @@
             </listitem>
             <listitem>
                 <para>Polyhierarchy</para>
-                <para>Concepts should be allowed to exist in multiple hierarchies if appropriate.
-                    For example,
-                    <?oxy_comment_start author="timowilliams" timestamp="20190430T201423-0500" comment="Add image representing the polyhierarchy" id="m3l_gb2_xhb"?><?oxy_comment_start author="rcholan" timestamp="20190528T215454-0400" comment="Adding initial image. Will re-create." parentID="m3l_gb2_xhb" mid="4"?>Bacterial
-                    meningitis is both a subtype of Meningitis and Bacterial infection and should
-                    exist in both hierarchies.<?oxy_comment_end mid="4"?><?oxy_comment_end?><inlinemediaobject>
-                        <imageobject>
-                            <imagedata fileref="images/meningitis.png"/>
-                        </imageobject>
-                    </inlinemediaobject></para>
+                <para>In traditional classification systems, categories are only allowed to exist in
+                    a single monohierarchical representation. For example, in ICD-10 A39.0
+                    Meningococcal meningitis only exists as a subtype of A39 Meningococcal
+                    infection.  In this representation you can easily find all meningococcal
+                    infections, but if you need to find all types of meningitis you are required to
+                    know all the various codes that represent the different classifications of meningitis.<figure>
+                        <title><?oxy_comment_start author="steph" timestamp="20190903T155353-0600" comment="Can you center the text in the boxes below and fix the first box where the text is cutoff?" flag="done"?><?oxy_comment_start author="steph" timestamp="20191016T113247-0600" comment="This is still a problem - the text is cutoff." mid="6"?>Monohierarchy
+                            Example<?oxy_comment_end?><?oxy_comment_end mid="6"?></title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/meningitis_monohierarchy.svg"
+                                    scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
+                <para>In a well designed terminology, concepts should be allowed to exist in
+                    multiple hierarchies if multiple parent concepts are appropriate. For example,
+                    <?oxy_comment_start author="timowilliams" timestamp="20190430T201423-0500" comment="Add image representing the polyhierarchy" id="m3l_gb2_xhb" flag="done" mid="4"?><?oxy_comment_start author="rcholan" timestamp="20190528T215454-0400" comment="Adding initial image. Will re-create." parentID="m3l_gb2_xhb" flag="done" mid="5"?><?oxy_comment_start author="steph" timestamp="20190806T085004-0600" comment="Recommend removing most of the white space around the image that isn&apos;t needed and is forcing &quot;hierarchies&quot; to be hyphenated and shown before and after the image." flag="done"?>Bacterial
+                    meningitis is both a subtype of Bacterial Meningitis and Meningococcal
+                    infectious disease and should exist in both hierarchies.<?oxy_comment_end?><?oxy_comment_end mid="5"?><?oxy_comment_end mid="4"?>
+                    <figure>
+                        <title>Polyhierarchy Example</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/meningitis_polyhierarchy.svg"
+                                    scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
             </listitem>
             <listitem>
                 <para><?oxy_comment_start author="timowilliams" timestamp="20190430T201919-0500" comment="Should we add a comparison of stated vs inferred definitions here?
-"?><?oxy_comment_start author="steph" timestamp="20190507T163331-0600" comment="I think that would be helpful." id="p3x_b22_xhb" mid="7"?><?oxy_comment_start author="rcholan" timestamp="20190528T221625-0400" comment="Added some draft explanation. Need example to help." parentID="p3x_b22_xhb" mid="6"?>Formal
-                    definitions<?oxy_comment_end mid="6"?><?oxy_comment_end mid="7"?><?oxy_comment_end?></para>
+" flag="done" mid="7"?><?oxy_comment_start author="steph" timestamp="20190507T163331-0600" comment="I think that would be helpful." id="p3x_b22_xhb" flag="done" mid="8"?><?oxy_comment_start author="rcholan" timestamp="20190528T221625-0400" comment="Added some draft explanation. Need example to help." parentID="p3x_b22_xhb" flag="done" mid="9"?><?oxy_comment_start author="steph" timestamp="20190812T161629-0600" comment="I think it needs to be more &quot;in your face,&quot; where you have the each term of stated and inferred, followed by their own definitions." flag="done"?>Formal
+                    definitions<?oxy_comment_end?><?oxy_comment_end mid="9"?><?oxy_comment_end mid="8"?><?oxy_comment_end mid="7"?></para>
                 <para>While hierarchical information is paramount, the inclusion of additional
                     definitional knowledge can help maintain and correctly place concepts within the
                     appropriate hierarchy. Allowing computers to use this additional information can
                     aid in properly placing concepts in hierarchies that developers did not
                     originally add to a concept.</para>
+                <para>When content modelers add new content to a terminology, the relationships they
+                    create are sometimes called stated relationships. These stated relationships
+                    help to give concepts a formal definition and can be used to correctly place a
+                    concept in new hierarchies the content modeler did not originally assign. In
+                    large terminologies, correctly adding all the possible valid hierarchical
+                    relationships can be difficult as it requires the content modeler to think of
+                    all the possible parents. By adding the additional information, like Finding
+                    Site in the example below, additional hierarchical relationships can be inferred.<figure>
+                        <?oxy_comment_start author="steph" timestamp="20190903T164307-0600" comment="Need to fix the text in circles to make it fit fully and not be cutoff, as it currently is.  With the text being white on a white background, the cutoff text cannot be read outside of the circles.  Same for the second diagram for inferred below." flag="done"?>
+                        <?oxy_comment_start author="steph" timestamp="20191016T113507-0600" comment="Still not fixed.  I think it needs to be fixed; otherwise, it appears as sloppy work." mid="15"?>
+                        <title>Relationships Stated by a Content
+                            Modeler<?oxy_comment_end?><?oxy_comment_end mid="15"?></title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/stated_relationships.svg" scalefit="1"
+                                    width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
                 <para>DL ontologies can be classified (i.e., some relationships between concepts are
-                    inferred from the asserted class descriptions). Solor provides both views, and
-                    allow users to compare the differences. Solor has blocks of necessary &amp;
-                    sufficient, necessary, and inherited (i.e., inferred) relationships.</para>
+                    inferred from the asserted class descriptions) using a DL classifier and a new
+                    set of inferred relationships is created for concepts. Solor provides both views
+                    of stated and inferred relationships, and allow users to compare the
+                    differences. Solor has blocks of necessary &amp; sufficient, necessary, and
+                    inherited (i.e., inferred) relationships. <figure>
+                        <title>Inferred Relationships by DL Classifier</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/inferred_relationships.svg" scalefit="1"
+                                    width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
             </listitem>
             <listitem>
                 <para>No residual categories (Reject "Not Elsewhere Classified")</para>
@@ -113,8 +162,9 @@
                     the concept orientation desiderata and begin to create or use concepts as
                     grouper categories for missing content. Doing so introduces a "semantic drift"
                     that will cause problems with properly identifying historical data. By assigning
-                    meaning to a category, information is lost. Rejecting these categories requires
-                    the capability to extend content as described in the first desiderata.</para>
+                    meaning to a category or using a less specific concept to represent your
+                    intended meaning, information is lost. Rejecting these categories requires the
+                    capability to extend content as described in the first desiderata.</para>
             </listitem>
             <listitem>
                 <para>Multiple granularities</para>
@@ -125,18 +175,27 @@
             </listitem>
             <listitem>
                 <para>Multiple consistent views</para>
-                <?oxy_comment_start author="timowilliams" timestamp="20190430T202611-0500" comment="Insert Cranial Nerve example here" id="bwk_122_xhb"?>
-                <?oxy_comment_start author="rcholan" timestamp="20190528T221559-0400" comment="Inserting initial image. Will re-create." parentID="bwk_122_xhb" mid="9"?>
+                <?oxy_comment_start author="timowilliams" timestamp="20190430T202611-0500" comment="Insert Cranial Nerve example here" id="bwk_122_xhb" flag="done" mid="14"?>
+                <?oxy_comment_start author="rcholan" timestamp="20190528T221559-0400" comment="Inserting initial image. Will re-create." parentID="bwk_122_xhb" flag="done" mid="16"?>
+                <?oxy_comment_start author="steph" timestamp="20190806T085156-0600" comment="Recommend removing most of the white space around the image that isn&apos;t needed and is forcing &quot;usable&quot; to be hyphenated and shown before and after the image." flag="done"?>
+                <?oxy_comment_start author="steph" timestamp="20190903T164556-0600" comment="There is still a lot of unnecessary white space above/below the diagram that should be deleted." mid="15"?>
                 <para>In addition to representing meaning at various levels, the display of the
                     concepts that are relevant to certain users should be able to be customized.
                     Allowing users to view concepts in a way that is intuitive will support the
-                    adoption of terminologies by making the terminology more usable.<?oxy_comment_end?><?oxy_comment_end mid="9"?><inlinemediaobject>
-                        <imageobject>
-                            <?oxy_comment_start author="steph" timestamp="20190610T132412-0600" comment="In the PDF, the &quot;After&quot; image is not shown, only the before image.  Either need to resize or move the &quot;After&quot; image below the &quot;Before&quot; image."?>
-                            <imagedata fileref="images/CranialNerves.png" scale="50"
-                                ><?oxy_comment_end?></imagedata>
-                        </imageobject>
-                    </inlinemediaobject></para>
+                    adoption of terminologies by making the terminology more usable.<?oxy_comment_end mid="15"?><?oxy_comment_end?><?oxy_comment_end mid="16"?><?oxy_comment_end mid="14"?>
+                    <figure>
+                        <title>Multiple Consistent Views</title>
+                        <mediaobject>
+                            <imageobject>
+                                <?oxy_comment_start author="steph" timestamp="20190610T132412-0600" comment="In the PDF, the &quot;After&quot; image is not shown, only the before image.  Either need to resize or move the &quot;After&quot; image below the &quot;Before&quot; image." flag="done"?>
+                                <?oxy_comment_start author="timowilliams" timestamp="20190814T134943-0500" comment="convert to SVG" mid="18"?>
+                                <imagedata fileref="images/CranialNerves.svg" scalefit="1"
+                                    width="100%" contentdepth="100%"
+                                ><?oxy_comment_end?></imagedata><?oxy_comment_end mid="18"?>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
             </listitem>
             <listitem>
                 <para>Representing context</para>
@@ -158,7 +217,7 @@
                     in place to both prevent and detect them. With large terminologies, it is
                     inevitable that duplicate and erroneous concepts are added. Robust terminologies
                     need processes and procedures in place to identify and retire duplicate and
-                    erroneous concepts. Multiple processes can be utilized to ensure redunant
+                    erroneous concepts. Multiple processes can be utilized to ensure redundant
                     concepts are not added to terminologies. For example:<itemizedlist>
                         <listitem>
                             <para>Standardized naming conventions should be in place to eliminate

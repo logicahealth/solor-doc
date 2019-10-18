@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" 
+    type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+        <title>ANF UML Model</title>
+        <para>The <emphasis role="bold"><emphasis role="italic">ANF Reference Model
+            </emphasis></emphasis>is a logical model described herein using the <glossterm
+            baseform="Object Management Group">Object Management Group (OMG)</glossterm>
+        <glossterm baseform="Unified Modeling Language">Unified Modeling Language (UML)</glossterm>
+        2.0 notation to describe the structure of normalized <glossterm
+            baseform="Clinical Statement">clinical statements</glossterm> for computational
+        analysis. This <glossterm baseform="Logical Model">logical model</glossterm> may be
+        implemented using any programming language, database technology, or interoperability
+        specification (e.g. FHIR) suitable for analysis. ANF is intended to normalize approaches and
+        methodologies in use across the industry and provide a uniform representation of data to
+        enable analysis. </para>
+        <para>The following diagram describes the logical structure of a clinical statement that
+        conforms to the Analysis Normal Form specification. At a high-level an <glossterm
+            baseform="ANF Statement">ANF statement</glossterm> defines the topic (<emphasis
+            role="bold">WHAT </emphasis>happened, was observed, requested, measured, asserted, etc.)
+        and under what circumstances-(<emphasis role="bold">HOW</emphasis>, <emphasis role="bold"
+            >WHY, WHEN, and with what RESULT</emphasis>).</para>
+        <figure>
+            <title>ANFStatement Structure</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/clinical_statement.png" format="PNG" scalefit="1" width="100%" contentdepth="100%" align="center"/>
+                </imageobject>
+            </mediaobject>
+        </figure>       
+        <section xml:id="ANFStatement">
+            <title>ANFStatement </title>
+            <para>This is the main class which describes a clinical statement. Most importantly it
+                contains the <emphasis role="bold">'topic' </emphasis>which describes what this
+                statement is about, and the <emphasis role="bold">'circumstance' </emphasis>which
+                will contain either request or result information regarding the <emphasis role="bold">'topic'</emphasis>.</para>
+            <informaltable>
+                <tgroup cols="3">
+                <colspec colnum="1" colname="col1" colwidth="1.93*"/>
+                <colspec colnum="2" colname="col2" colwidth="1*"/>
+                <colspec colnum="3" colname="col3" colwidth="4.14*"/>
+                <thead>
+                    <row>
+                        <entry>Attribute</entry>
+                        <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                        <entry><emphasis role="bold">Notes</emphasis></entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">id</emphasis> Identifier</para>
+                        </entry>
+                        <entry>
+                            <para>[1...1]</para>
+                        </entry>
+                        <entry>
+                            <para>Unique Identifier of the statement.</para>
+                            <para/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">time</emphasis> Measure</para>
+                        </entry>
+                        <entry>
+                            <para>[1...1]</para>
+                        </entry>
+                        <entry>
+                            <para>This data element describes when the statement was documented. Is
+                                its expressed as a <emphasis role="bold"><emphasis role="underline">
+                                        <link linkend="measureClass"
+                                    >Measure</link></emphasis></emphasis>.</para>
+                            <para>For example the date of <emphasis role="bold"
+                                    >2019-07-09T00:12:31+00:00</emphasis> would be represented as
+                                Unix Epoch time as <emphasis role="bold">1562631151</emphasis>
+                                seconds:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>interval.lowerBound = 1562631151</para>
+                                </listitem>
+                                <listitem>
+                                    <para>interval.includeLowerBound = true</para>
+                                </listitem>
+                                <listitem>
+                                    <para>interval.upperBound = 1562631151</para>
+                                </listitem>
+                                <listitem>
+                                    <para>interval.includeLowerBound = true</para>
+                                </listitem>
+                                <listitem>
+                                    <para>semantic = Seconds | 257997001</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para>The ANFStatement separates the timing related to documenting a
+                                statement vs, the timing of the phenomenon that the statement is
+                                describing. This data element specifies when the statement was
+                                recorded/asserted.</para>
+                            <para/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold"> subjectOfRecord</emphasis>
+                                Participant</para>
+                        </entry>
+                        <entry>
+                            <para>[1...1]</para>
+                        </entry>
+                        <entry>
+                            <para>A patient's clinical record will contain many statements. The
+                                subjectOfRecord is a reference to the patient clinical record in
+                                which this statement is contained.</para>
+                            <para/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">author</emphasis> Practitioner</para>
+                        </entry>
+                        <entry>
+                            <para>[0...*]</para>
+                        </entry>
+                        <entry>
+                            <para>Optional reference(s) list of identified authoring
+                                practitioners.</para>
+                            <para/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold"
+                                >subjectOfInformation</emphasis> LogicalExpression</para>
+                        </entry>
+                        <entry>
+                            <para>[1...1]</para>
+                        </entry>
+                        <entry>
+                            <para>A logical expression describing the subject of the statement; it's
+                                used to express <emphasis role="bold">WHO </emphasis>the clinical
+                                statement is about. A patient's clinical record may contain
+                                statements not only about the patient, but also statements about
+                                children, relatives and donors. Thus, some possible values for
+                                subjectOfInformation, would include codes for 'subject of record'
+                                (the patient), 'family member', or 'donor'. The majority of
+                                statements will have a subjectOfInformation with a value of 'subject
+                                of record', since most statements in a patient record will be about
+                                the patient.</para>
+                            <para>The subjectOfInformation is used to represent who the statement is
+                                about. This is normally the patient unless explicitly stated
+                                otherwise.</para>
+                            <para/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold"
+                                >associatedStatement</emphasis> AssociatedStatement</para>
+                        </entry>
+                        <entry>
+                            <para>[0...*]</para>
+                        </entry>
+                        <entry>
+                            <para>An ANF statement to the performance of an action. If the topic is
+                                a laboratory result panel, each association would point to another
+                                statement which is a laboratory result.</para>
+                            <para>It may include:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>a precondition</para>
+                                </listitem>
+                                <listitem>
+                                    <para>an interpretation</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">topic</emphasis> LogicalExpression</para>
+                        </entry>
+                        <entry>
+                            <para>[1...1]</para>
+                        </entry>
+                        <entry>
+                            <para>This data element is an expression of <emphasis role="bold">WHAT
+                                </emphasis>is being requested or what was performed. For both
+                                ANFStatement types (request or performance) a <glossterm
+                                    baseform="Pre-coordinated concept">pre-coordinated</glossterm>
+                                or <glossterm baseform="Post-coordinated concept"
+                                    >post-coordinated</glossterm> “procedure” concept as a logical
+                                expression is required to sufficiently capture the action, which is
+                                either requested or performed.</para>
+                            <para>The topic is the central component of clinical statements. The
+                                following are proposed principles for the topic of an
+                                ANFStatement.</para>
+                            <para><emphasis role="bold" xml:id="topicPrinciple1">Principle
+                                    1:</emphasis> The topic defines the action (being performed or
+                                requested) or what is being requested, measured or observed.</para>
+                            <para><emphasis role="bold" xml:id="topicPrinciple2">Principle
+                                    2:</emphasis> The topic has to be able to exist on its own and
+                                still retain original intent and clarity of meaning.</para>
+                            <para><emphasis role="bold" xml:id="topicPrinciple3">Principle 3:
+                                </emphasis>Each clinical statement may only have one topic [but the
+                                topic is comprehensive expression].</para>
+                            <para/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">type</emphasis> LogicalExpression</para>
+                        </entry>
+                        <entry>
+                            <para>[1...1]</para>
+                        </entry>
+                        <entry>
+                            <para>This data element distinguishes between a performance (<emphasis
+                                    role="bold">'performed'</emphasis>) and a request (<emphasis
+                                    role="bold">'requested'</emphasis>). Performances may be
+                                observational performances, e.g. the observation of a clinical
+                                finding or disorder being present or absent. They can also be a
+                                procedure or intervention which has been performed on the subject of
+                                record in the past, e.g. “a procedure using a 12-lead
+                                electrocardiogram”. Performances can – but do not have to – include
+                                quantitative or qualitative results, e.g. “3 dot blot hemorrhages”
+                                or “Hepatitis A antibody positive”.</para>
+                            <para/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para><emphasis role="bold">circumstance</emphasis>
+                                CircumstanceChoice</para>
+                        </entry>
+                        <entry>
+                            <para>[1...1]</para>
+                        </entry>
+                        <entry>
+                            <para>A choice of circumstance appropriate to the type of clinical
+                                statement.</para>
+                            <para/>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+            </informaltable>
+        </section>
+        <section>
+            <title> Circumstance </title>
+
+            <para><?oxy_comment_start author="Ioana" timestamp="20190729T164649-0400" comment="Reworded" flag="done"?>Circumstances
+            can describe <emphasis role="bold">HOW</emphasis>, <emphasis role="bold">WHY, WHEN, and
+                with what RESULT </emphasis>a requested or performed action will be or was carried
+            out. ANF promotes a normalized representation of observation or intervention results
+            where all results are reduced to a "measure".<?oxy_comment_end?> This approach reduces
+            data retrieval difficulties by eliminating the potential for multiple differing
+            representations of the same clinical statement. For example, with coded results there
+            are multiple potential methods to represent eye color that complicate data retrieval.
+            The Topic could be a Finding refined by an Observable (Iris finding->Interprets = Color
+            of iris) or a Finding with no refinement (Finding of color of iris). In both of these
+            cases the Result would be a qualifier of Blue color. The ANF Statement would represent
+            Eye color using the Blue iris Finding as the Topic and the Result would be Present,
+            represented as interval.lowerBound =1, interval.upperBound=INF.</para>
+            <figure>
+                <title>Circumstance</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/circumstance_hierarchy.png" format="PNG" scalefit="1"  width="100%" contentdepth="100%" align="center"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <section>
+                <title>CircumstanceChoice </title>
+                <para>This class provides an exclusive choice of circumstances that may be chosen
+                when an ANFStatement is instantiated:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para role="underline"><link linkend="performanceClass">PerformanceCircumstance</link></para>
+                    </listitem>
+                    <listitem>
+                        
+                        <para role="underline"><link linkend="requestClass">RequestCircumstance</link></para>
+                    </listitem>
+                    <listitem>
+                        <para role="underline"><link linkend="narrativeClass">NarrativeCircumstance</link></para>
+                    </listitem>
+                </itemizedlist>
+
+            </section>
+            <section>
+                <title>Circumstance </title>
+                <para>This abstract class is used to describe the default data needed describe any
+                    circumstances associated with a clinical statement.</para>
+                <informaltable>
+                    <tgroup cols="3">
+                    <colspec colnum="1" colname="col1" colwidth="1.09*"/>
+                    <colspec colnum="2" colname="col2" colwidth="1*"/>
+                    <colspec colnum="3" colname="col3" colwidth="3.16*"/>
+                    <thead>
+                        <row>
+                            <entry>Attribute</entry>
+                            <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                            <entry><emphasis role="bold">Notes</emphasis></entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">timing</emphasis> Measure</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para><emphasis role="bold">WHEN </emphasis>a requested action
+                                    should be performed or <emphasis role="bold">WHEN </emphasis>an
+                                    observed finding or disorder was present or absent. Timing is
+                                    used to capture a time or time range for:</para>
+                                <para>• Requests for action at a future time</para>
+                                <para>• Performance of action, which has taken place in the past
+                                    (including “History of X….)</para>
+                                <para>• Performance of action that hasn't taken place</para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">purpose</emphasis> LogicalExpression</para>
+                            </entry>
+                            <entry>
+                                <para>[0...*]</para>
+                            </entry>
+                            <entry>
+                                <para>This data element describes WHY a procedure was requested or
+                                    performed in a post-coordinated expression, based on two
+                                    possible procedures:</para>
+                                <para>
+                                    <itemizedlist>
+                                    <listitem>
+                                    <para>386053000 |Evaluation procedure (procedure)|</para>
+                                </listitem>
+                                <listitem>
+                                    <para> 277132007 |Therapeutic procedure (procedure)|</para>
+                                </listitem>
+                                </itemizedlist></para>
+                                <para>The procedure is then refined by post-coordinating with a “363702006 |Has focus
+                                    (attribute)|” attribute and identifying a finding/disorder or procedure concept as
+                                    the value for the attribute.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+                </informaltable>
+            </section>
+            <section xml:id="requestClass">                
+                <title>RequestCircumstance </title>
+                <para>This class further specifies <emphasis role="bold">HOW </emphasis>a requested
+                action is to be performed, e.g. how often or how long.</para>
+                <para>A Request for Action clinical statement describes a request made by a
+                    clinician. Most of the times, but not always, the object of the request (e.g.,
+                    lab test, medication order) will be fulfilled by someone other than the
+                    clinician (e.g., lab technician, pharmacist) making the request. All information
+                    about the request will be documented in this clinical statement, including
+                    information about details relating to the request, such as patient must fast for
+                    12 hours before having a lipids blood test.</para>
+                <para><emphasis role="bold"><emphasis role="italic">Examples</emphasis></emphasis>:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Request for Rheumatoid factor 1 time routine</para>
+                    </listitem>
+                    <listitem>
+                        <para>Request for X-ray chest to evaluate for heart failure</para>
+                    </listitem>
+                    <listitem>
+                        <para>Cardiology referral</para>
+                    </listitem>
+                    <listitem>
+                        <para>Ribavirin 200 mg capsule oral, take 2 capsules every morning</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to participate in tobacco cessation counseling once a
+                            week.</para>
+                    </listitem>
+                </itemizedlist>
+                <informaltable>
+                    <tgroup cols="3">
+                    <colspec colnum="1" colname="col1" colwidth="1.33*"/>
+                    <colspec colnum="2" colname="col2" colwidth="1*"/>
+                    <colspec colnum="3" colname="col3" colwidth="3.8*"/>
+                    <thead>
+                        <row>
+                            <entry>Attribute</entry>
+                            <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                            <entry><emphasis role="bold">Notes</emphasis></entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">conditionalTrigger</emphasis>
+                                    AssociatedStatement</para>
+                            </entry>
+                            <entry>
+                                <para>[0...*]</para>
+                            </entry>
+                            <entry>
+                                <para>This data element is used to represent a condition, or set of
+                                    conditions that must exist in order for Request to be executed. For example, Ibuprofen 400 mg tablet
+                                    oral every 6 hours as needed for pain, the use of Ibuprofen is conditional on the presence of
+                                    back pain.</para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">requestedParticipant</emphasis>
+                                    Reference</para>
+                            </entry>
+                            <entry>
+                                <para>[0...*]</para>
+                            </entry>
+                            <entry>
+                                <para>This data element is an optional list of either specific
+                                    persons or roles who perform an action, assist in performing an
+                                    action or are targets of an action.</para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">priority</emphasis> LogicalExpression</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>This data element species the priority with which a requested
+                                    action has to be carried out, e.g. “routine” or “stat”. By
+                                    default a Request will be considered "routine" unless otherwise
+                                    specified.</para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">requestedResult</emphasis>
+                                    Measure</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>This data element specifies the measurable result. </para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">repetition</emphasis> Repetition</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>This data element describes when an action is requested for
+                                    more than a single occurrence using the <emphasis
+                                        role="underline"><link linkend="measureClass"
+                                        >Measure</link></emphasis> data structure:</para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>When the repeated action should begin (periodStart),
+                                            e.g. NOW</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>How long the repetitions should persist
+                                            (periodDuration), e.g. for 3 weeks</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>How often the action should occur (eventFrequency),
+                                            e.g. 3 times per week</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>How long between actions (eventSeparation), e.g. for 2
+                                            weeks</para>
+                                    </listitem>
+                                </itemizedlist>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>How long every action should last (eventDuration),
+                                            e.g. for 5 minutes</para>
+                                    </listitem>
+                                </itemizedlist>
+                                <para/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+                </informaltable>
+            </section>
+            <section xml:id="performanceClass">
+                <title>PerformanceCircumstance </title>
+                <para><?oxy_comment_start author="Ioana" timestamp="20190729T165730-0400" comment="Reworded" flag="done"?>This
+                class describes the circumstances associated with a statement. It is used when an
+                action or observation are performed and specifies the result of intervention using
+                both as a measure and a coded status.<?oxy_comment_end?></para>
+                <para>For example, "<emphasis role="italic">Insulin placed on hold 24 hours prior to
+                        catheterization</emphasis>" would have a status of "<emphasis role="italic">On hold</emphasis>". A typical, successfully completed procedure would have
+                    a status of "<emphasis role="italic">Completed</emphasis>".</para>
+                <informaltable>
+                    <tgroup cols="3">
+                        <colspec colnum="1" colname="col1" colwidth="1.14*"/>
+                        <colspec colnum="2" colname="col2" colwidth="1*"/>
+                        <colspec colnum="3" colname="col3" colwidth="3.78*"/>
+                        <thead>
+                            <row>
+                                <entry>Attribute</entry>
+                                <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                                <entry><emphasis role="bold">Notes</emphasis></entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>
+                                    <para><emphasis role="bold">status</emphasis> LogicalExpression</para>
+                                </entry>
+                                <entry>
+                                    <para>[1...1]</para>
+                                </entry>
+                                <entry>This is a coded value representing the current status of the
+                                intervention (e.g. "completed"). This data element is not intended
+                                as a substitute for workflow specification.</entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para><emphasis role="bold">result</emphasis> Measure</para>
+                                </entry>
+                                <entry>
+                                    <para>[1...1]</para>
+                                </entry>
+                                <entry>
+                                    <para>Intervention result as a <link linkend="measureClass"
+                                        >measure</link>. </para>
+                                    
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para><emphasis role="bold">healthRisk</emphasis> LogicalExpression</para>
+                                </entry>
+                                <entry>
+
+                                    <para>[0...1]</para>
+                                </entry>
+                                <entry>This optional data element is used to flag a result with
+                                coded values such as 'low', 'normal', high', and 'critical'.
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para><emphasis role="bold">normalRange</emphasis> Measure</para>
+                                </entry>
+                                <entry>
+
+                                    <para>[0...1]</para>
+                                </entry>
+                                 <entry>This optional data element is the interval of values that are
+                                normal for the observation/finding described by the "topic" for this
+                                "subject". It refers to "normal" for the patient/subject with these
+                                conditions.</entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para><emphasis role="bold">participant</emphasis> Participant</para>
+                                </entry>
+                                <entry>
+                                    <para>[0...*]</para>
+                                </entry>
+                                <entry>
+                                    <para>This optional data element identifies the practitioner(s)
+                                    responsible for the results reported.</para>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </informaltable>
+            </section>
+            <section xml:id="narrativeClass">
+                <title>NarrativeCircumstance </title>
+                <para>This class is used to describe the circumstances of a clinical statement using
+                    natural language/text rather than a structure.</para>
+                <para>This class may be used to specify either a performance or request
+                    circumstance.</para>
+                <informaltable>
+                    <tgroup cols="3">
+                        <colspec colnum="1" colname="col1" colwidth="1*"/>
+                        <colspec colnum="2" colname="col2" colwidth="1.04*"/>
+                        <colspec colnum="3" colname="col3" colwidth="2.19*"/>
+                        <thead>
+                            <row>
+                                <entry/>
+                                <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                                <entry><emphasis role="bold">Notes</emphasis></entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>
+                                    <para><emphasis role="bold">text</emphasis>
+                                        string-primitive</para>
+                                </entry>
+                                <entry>
+                                    <para>[1...1]</para>
+                                </entry>
+                                <entry>
+                                    <para>Text description of circumstances.</para>
+                                    <para/>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </informaltable>
+            </section>
+        </section>
+        <section>
+            <title> Data Structures </title>
+            <para>The following are data structures used to represent an <emphasis role="underline"
+                    ><link linkend="ANFStatement">ANFStatement</link></emphasis>. This section
+            describes the data structures specific to ANF. This model references a set of logical
+            structures to represent unique identifiers (i.e. Identifier, Expression) and primitive
+            types (boolean, float). </para>
+            <figure>
+                <title>Data Structures</title>
+                <mediaobject>
+                    <imageobject>
+                    <?oxy_comment_start author="Ioana" timestamp="20190804T133814-0400" comment="updated invariants"?>
+                    <imagedata fileref="images/data_structures.png" format="PNG" scalefit="1"  width="100%" contentdepth="100%"
+                        align="center"/><?oxy_comment_end?>
+                </imageobject>
+                </mediaobject>
+            </figure>
+            <section xml:id="measureClass">
+            <title>Measure </title>
+            <para>This class captures measurable elements of clinical statements, e.g. the results
+                of test procedures, time periods, frequencies of repetitions for procedures or
+                medication administrations. The measure formally represents a numeric interval
+                between two non-negative real numbers with a semantic and precision/resolution. The
+                interval can be open or closed depending on whether the upper and lower bounds are
+                included in the measure interval.</para>
+            <para>The measure provides a single way to represent both "presence" or "absence" values
+                and numeric values for a phenomenon. In general, the interval value represents the
+                numeric range within which the observed value of a phenomenon occurs. Note that this
+                formalism allows both exact values and ranges of values to be expressed. In case
+                that the beginning and end point of an interval are the same value, the meaning is
+                that the value of the phenomenon is exactly that value.</para>
+            <para><?oxy_comment_start author="Ioana" timestamp="20190804T133858-0400" comment="updated to provide an example that uses &quot;n&quot; - a generic numeric value"?>In
+                the case that the lower and upper bound of an measure are the same number, <emphasis
+                    role="bold"><emphasis role="italic">n</emphasis></emphasis>, the meaning is that
+                the value of the phenomenon is exactly <emphasis role="bold"><emphasis role="italic"
+                        >n</emphasis></emphasis>.</para>
+            <itemizedlist>
+                <listitem>
+                    <para role="italic">[10, 10]<emphasis role="bold"> </emphasis>: means the value
+                        is exactly <emphasis role="bold">10</emphasis> because the
+                            <emphasis>lowerBound</emphasis> and <emphasis>upperBound</emphasis> are
+                        both <emphasis role="bold">10</emphasis>; <?oxy_comment_end?></para>
+                </listitem>
+            </itemizedlist>
+            <para>In the special case that the beginning of the interval is a number, <emphasis
+                    role="bold">n</emphasis>, and the end point is <emphasis role="bold"
+                    >INF</emphasis> (infinity), the meaning is that the value of the phenomenon is >
+                    <emphasis role="bold">n</emphasis> or <emphasis role="bold">>=</emphasis>
+                <emphasis role="bold">n</emphasis>, depending on whether the interval is open or
+                closed.</para>
+            <itemizedlist>
+                <listitem>
+                    <para role="italic">(0,INF) : > 0 ; (greater than 0)</para>
+                </listitem>
+                <listitem>
+                    <para role="italic">[10,INF) : >= 10 (greater than or equal to 10)</para>
+                </listitem>
+                <listitem>
+                    <para>(-INF, 10): &lt;10 (less than 10)</para>
+                </listitem>
+            </itemizedlist>
+            <para>The interval value also represents whether a phenomenon is "present", "absent", or
+                "indeterminate". Specifically, any interval value that includes only numbers that
+                are > 0 also denotes the value "present".</para>
+            <para>Any interval value that includes only the number 0, itself, denotes the value
+                "absent". Any interval value that includes both the number 0 and at least one number
+                > 0 denotes the values "indeterminate". Lastly, there are two interval values that
+                explicitly denote "present" and "absent", respectively. These value may be assigned
+                to phenomena that would not otherwise take on a numeric value (such as
+                "nausea"):</para>
+            <itemizedlist>
+                <listitem>
+                    <para role="italic"
+                        ><?oxy_comment_start author="Ioana" timestamp="20190804T133639-0400" comment="added"?>Nausea
+                        value = (0,INF) : <emphasis role="bold">present</emphasis> (greater than
+                        0)</para>
+                </listitem>
+                <listitem>
+                    <para>Nausea value = [0, INF): <emphasis role="bold">indeterminate</emphasis>
+                        (greater than or equal to 0)</para>
+                </listitem>
+            </itemizedlist>
+            <itemizedlist>
+                <listitem>
+                    <para role="italic">Nausea value = [0,0] : <emphasis role="bold"
+                            >absent</emphasis> (exactly zero)</para>
+                    <para>The numeric attributes of this class are of type "<emphasis role="bold"
+                            >float</emphasis>" to support both positive and negative values that
+                        conform to<link
+                            xlink:href="https://standards.ieee.org/standard/754-2019.html"> IEEE 754
+                            standard for Floating Point Numbers</link>. </para>
+                    <note>
+                        <para>A Java <emphasis role="bold">float</emphasis> number  uses 32 bits to
+                            represent the sign, exponent, and mantissa consistent with  <link
+                                xlink:href="https://standards.ieee.org/standard/754-2019.html">IEEE
+                                754:1985</link>. The values <emphasis role="bold">+infinity
+                            </emphasis>and -<emphasis role="bold">infinity</emphasis> are denoted
+                            with an exponent of all ones and a mantissa of all zeros. The sign bit
+                            distinguishes between negative infinity and positive
+                            infinity.<?oxy_comment_end?></para>
+                    </note>
+                </listitem>
+            </itemizedlist>
+            <informaltable>
+                <tgroup cols="3">
+                    <colspec colnum="1" colname="col1" colwidth="1.59*"/>
+                    <colspec colnum="2" colname="col2" colwidth="1*"/>
+                    <colspec colnum="3" colname="col3" colwidth="4.14*"/>
+                    <thead>
+                        <row>
+                            <entry>Attribute</entry>
+                            <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                            <entry><emphasis role="bold">Notes</emphasis></entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">lowerBound</emphasis>
+                                </para>
+                                <para>float</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>It specifies the lower bound of a measurable element. This can
+                                    be the lower bound of a range:</para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>For the “Tumor greater than 1 cm but less than 4 cm”
+                                            the lower bound is 1.</para>
+                                    </listitem>
+                                </itemizedlist>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>For a test result, which is not a range, lower and
+                                            upper bound are the same. Example: systolic blood
+                                            pressure 110 mmHg. The lower and upper bound are both
+                                            110 mmHg.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <?oxy_comment_start author="Ioana" timestamp="20190804T134308-0400" comment="added"?>
+                                        <para>For an unbound measure, the lowerBound is
+                                            -INF(negative infinity) and
+                                                <emphasis>includeLowerBound</emphasis> is "false"
+                                            <?oxy_comment_end?>
+                                        </para>
+                                    </listitem>
+                                </itemizedlist>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">includeLowerBound</emphasis>
+                                    boolean</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>It states whether the lower bound in the interval is included
+                                    in the interval. In the tumor size example above, the lower
+                                    bound would not be included. The lower range size of 1cm is not
+                                    included. The inclusion or exclusion of lower bound is needed to
+                                    express measurable elements which include relative properties,
+                                    such as “greater than”, “less than” and others. </para>
+                                <para>Example: “Persistent cough for more than 10 days”. If a lower
+                                    bound of “10” is chosen, it would not be included, because the
+                                    example states: more than 10 days. Choosing “11” would require
+                                    it to include the lower bound If "true" the lower bound is part
+                                    of the interval.</para>
+                                <para><?oxy_comment_start author="Ioana" timestamp="20190804T133656-0400" comment="updated"?><emphasis
+                                        role="bold">Invariant</emphasis><?oxy_comment_end?>: if
+                                        (<emphasis>lowerBound</emphasis> == - INF) {
+                                        <emphasis>includeLowerBound</emphasis> = false }.</para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">semantic</emphasis>
+                                    LogicalExpression</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>Measure semantic represents a unit of measure or scale
+                                    specified by the interval values. It is described using a
+                                    logical expression using standard-based terminology (i.e. SNOMED
+                                    CT). </para>
+                                <para>For systolic blood pressure, the unit of measure is
+                                    millimeters of mercury, and thus the measure semantic is a
+                                    SNOMED CT concept: 259018001 |Millimeter of mercury (qualifier
+                                    value).</para>
+                                <para>For blood glucose measurement daily for 2 weeks, the measure
+                                    semantic would be “258705008 |week (qualifier value)”.</para>
+                                <para>For quantity/count measure values, the measure semantic to
+                                    express a number of findings or phenomena described in the
+                                    ANFStatement.topic "3 dot-and-blot hemorrhages " would be
+                                    "30766002 | Quantitative (qualifier value)".</para>
+                                <para>If Measure is used to represent date or time:</para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Date/time using Unix Epoch time: [762636008] Duration,
+                                            [257997001] Seconds</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Duration using Unix Epoch time start time and end
+                                            time: [762636008] Duration, [257997001] Seconds</para>
+                                    </listitem>
+                                </itemizedlist>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">resolution</emphasis>
+                                </para>
+                                <para>decimal-primitive</para>
+                            </entry>
+                            <entry>
+                                <para>[0...1]</para>
+                            </entry>
+                            <entry>
+                                <para>It defines the possible or allowed increments in which the
+                                    measured “thing” can be counted. In the example of the systolic
+                                    blood pressure of 120 mmHg, the resolution is “1”, because the
+                                    blood pressure measurement result can be counted in 1 mmHg
+                                    increments. The Resolution is not always defined or known.
+                                    Example: a clinical statement like “History of breast cancer”
+                                    implies an undefined amount of time in the past and it is not
+                                    stated, if it is years, months, etc.</para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">upperBound</emphasis></para>
+                                <para> float</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>It represents the upper bound of a measurable element. This
+                                    can be the upper boundary of a range: For the “Tumor greater
+                                    than 1 cm but less than 4 cm” the upper bound is 4. In cases,
+                                    where the measurable element does not represent a range, upper
+                                    and lower bound have the same value.</para>
+                                <?oxy_comment_start author="Ioana" timestamp="20190804T133725-0400" comment="updated"?>
+                                <para><emphasis role="bold">Invariant</emphasis>:
+                                        <emphasis>upperBound</emphasis> >=
+                                        <emphasis>lowerBound</emphasis>.<?oxy_comment_end?></para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">includeUpperBound</emphasis>
+                                    boolean</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>It states whether the upper bound in the interval is included
+                                    in the interval. Similar to lower bound, where the measurable
+                                    element has relative properties, the same rules apply. If the
+                                    upper bound of a measure is not defined, e.g. “blood glucose
+                                    measurement daily for at least 2 weeks”, the upper bound will be
+                                    captured as “INF” (infinite). Infinite as an upper bound is
+                                    never included. If "true" the upper bound is part of the
+                                    interval.</para>
+                                <para><emphasis role="bold"
+                                        ><?oxy_comment_start author="Ioana" timestamp="20190804T133749-0400" comment="updated"?>Invariant</emphasis>:
+                                    if (<emphasis>upperBound</emphasis> == INF) {
+                                        <emphasis>includeUpperBound</emphasis> = false
+                                    }.<?oxy_comment_end?></para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </informaltable>
+        </section>
+            <section>
+                <title xlink:href="repetitionClass">Repetition </title>
+                <para>This class builds on <emphasis role="underline"><link linkend="measureClass">Measure</link></emphasis> and it is used to represent when an action
+                    is requested for more than a single occurrence. Repetition is an optional
+                    component for a RequestCircumstance.</para>
+                <informaltable>
+                    <tgroup cols="3">
+                    <colspec colnum="1" colname="col1" colwidth="1*"/>
+                    <colspec colnum="2" colname="col2" colwidth="1.03*"/>
+                    <colspec colnum="3" colname="col3" colwidth="3.14*"/>
+                    <thead>
+                        <row>
+                            <entry>Attribute</entry>
+                            <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                            <entry><emphasis role="bold">Notes</emphasis></entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">periodStart</emphasis> Measure</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>This required field is used to represent when a repeated
+                                    action should begin (e.g. NOW). If it is not specified, a
+                                    default value of [0,INF) will be used. </para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">periodDuration</emphasis> Measure</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>This required field is used to represent how long a repeated
+                                    action should persist (e.g. for a year). If it is not specified,
+                                    a default value of [0,INF) will be used.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">eventSeparation</emphasis> Measure</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>This required field is used to represent how long between
+                                    actions (e.g. 1 week). If it is not specified, a default value
+                                    of [0,INF) will be used. </para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">eventDuration</emphasis> Measure</para>
+                            </entry>
+                            <entry>
+                                <para>[0...1]</para>
+                            </entry>
+                            <entry>
+                                <para>This optional field is used to represent how long a repetition
+                                    should persist (e.g. for 2 hours). If it is not specified, a
+                                    default value of [0,INF) will be used.</para>
+                                <para/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">eventFrequency</emphasis> Measure</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>This required field is used to represent how often the action
+                                    should occur (e.g. 4 times per month). If it is not specified, a
+                                    default value of [0, INF) will be used. </para>
+                                <para/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+                </informaltable>
+            </section>
+            <section xml:id="logicalExpressionClass">
+                <title>LogicalExpression </title>
+                <para>This class represents is a wrapper for logical expression.</para>
+                <informaltable>
+                    <tgroup cols="3">
+                    <colspec colnum="1" colname="col1" colwidth="1*"/>
+                    <colspec colnum="2" colname="col2" colwidth="1.05*"/>
+                    <colspec colnum="3" colname="col3" colwidth="3.04*"/>
+                    <thead>
+                        <row>
+                            <entry>Attribute</entry>
+                            <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                            <entry><emphasis role="bold">Notes</emphasis></entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">expression</emphasis> Expression</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>Logical expression could be represented using <emphasis
+                                        role="underline"><link
+                                            xlink:href="http://build.fhir.org/metadatatypes.html#Expression"
+                                            >FHIR </link><link
+                                            xlink:href="http://build.fhir.org/metadatatypes.html#Expression"
+                                            >Expression</link></emphasis> structure or a similar
+                                    standard-based syntax (e.g.
+                                        <?oxy_comment_start author="timowilliams" timestamp="20190730T093741-0500" comment="Glossary?  Or Reference?" id="str_n4t_43b" flag="done"?><?oxy_comment_start author="rcholan" timestamp="20190730T195231-0400" comment="The SNOMED CT Expression Constraint Language is a formal language for defining bounded sets of clinical meanings represented by either precoordinated or postcoordinated expressions." parentID="str_n4t_43b" flag="done" mid="3"?><glossterm
+                                        baseform="SNOMED CT Expression Constrain Language">SNOMED CT
+                                        Expression Constrain Language -
+                                    ECL</glossterm><?oxy_comment_end?><?oxy_comment_end mid="3"?>). </para>
+                                <para>The expression must use valid, standard-based
+                                    terminology.</para>
+                                <para/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+                </informaltable>
+            </section>
+        </section>
+        <section>
+            <title> References </title>
+            <para>A clinical statement references other information managed by a system:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>references to patient/records</para>
+                </listitem>
+                <listitem>
+                    <para>references to health practitioners</para>
+                </listitem>
+            </itemizedlist>
+            <para>ANF statements may also reference other related statements</para>
+            <figure>
+                <title>References</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/reference_classes.png" format="PNG" scalefit="1" width="100%" contentdepth="100%" align="center"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        <section>
+            <title>AssociatedStatement </title>
+            <para>This class specifies how a statement may be associated with another
+                statement.</para>
+            <informaltable>
+                <tgroup cols="3">
+                    <colspec colnum="1" colname="col1" colwidth="1.88*"/>
+                    <colspec colnum="2" colname="col2" colwidth="1*"/>
+                    <colspec colnum="3" colname="col3" colwidth="3.96*"/>
+                    <thead>
+                        <row>
+                            <entry>Attribute</entry>
+                            <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                            <entry><emphasis role="bold">Notes</emphasis></entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">id</emphasis> Reference</para>
+                            </entry>
+                            <entry>
+                                <para> [1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>A reference to the associated statement.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">semantic</emphasis>
+                                    LogicalExpression</para>
+                            </entry>
+                            <entry>
+                                <para> [1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>A logical expression to capture how the target statement is
+                                    associated (e.g. a precondition, an interpretation, a
+                                    component).</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </informaltable>
+        </section>
+            
+            <section>
+                <title>Participant </title>
+                <para>This class specifies the role/specialties/services that a practitioner may
+                    perform relative to the ANFStatement:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>the author</para>
+                    </listitem>
+                    <listitem>
+                        <para>requested participant</para>
+                    </listitem>
+                    <listitem>
+                        <para>performance participant</para>
+                    </listitem>
+                </itemizedlist>
+                <informaltable>
+                    <tgroup cols="3">
+                    <colspec colnum="1" colname="col1" colwidth="1.66*"/>
+                    <colspec colnum="2" colname="col2" colwidth="1*"/>
+                    <colspec colnum="3" colname="col3" colwidth="4.06*"/>
+                    <thead>
+                        <row>
+                            <entry>Attribute</entry>
+                            <entry><emphasis role="bold">Multiplicity</emphasis></entry>
+                            <entry><emphasis role="bold">Notes</emphasis></entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">id</emphasis> Identifier</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>Unique identifier (e.g. National Provider Identifier).</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">practitioner</emphasis> Reference</para>
+                            </entry>
+                            <entry>
+                                <para>[1...1]</para>
+                            </entry>
+                            <entry>
+                                <para>Reference to the participating practitioner.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para><emphasis role="bold">code</emphasis> LogicalExpression</para>
+                            </entry>
+                            <entry>
+                                <para>[0...1]</para>
+                            </entry>
+                            <entry>
+                                <para>Role(s) which this practitioner is authorized to perform for
+                                    the organization.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+                </informaltable>
+            </section>
+        </section>
+    </section>

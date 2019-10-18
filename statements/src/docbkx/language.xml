@@ -10,22 +10,19 @@
             <title>Language</title>
             <para>SNOMED CT, LOINC, and RxNorm as well as other coding systems have various ways of
                 representing language. </para>
-            <para>SNOMED CT uses a
-                <?oxy_comment_start author="kec" timestamp="20190516T103626-0700" comment="Tables are a physical representation, here we want to talk about logical representation, as different implmentations may have different physical representations. (KOMET does not have tables for example, but still supports language and dialect). So here I think saying that SNOMED associates a langauge code, description type, and dialect acceptability with text descriptions gets across the idea without talking about physical structures. "?>combination
-                of tables<?oxy_comment_end?> to represent language. The Description table in SNOMED
-                CT includes one Fully Specified Name and at least one synonym for each language. The
-                Preferred and Acceptable Synonyms per language are then specified in a Language
-                Reference Set. Any additional synonyms, other than the preferred, would be identifed
-                as acceptable.</para>
+            <para>Descriptions in SNOMED CT include one Fully Specified Name and at least one
+                synonym for each language. The Preferred and Acceptable Synonyms per language are
+                then specified in a Language Reference Set. Any additional synonyms, other than the
+                preferred, that are relevant for a language would be identifed as acceptable.</para>
             <table>
-                <title>Description and RefSet Table Values for Myocardial infarction</title>
+                <title>Description and RefSet Values for Myocardial infarction</title>
                 <tgroup cols="4">
                     <thead>
                         <row>
-                            <entry>Description.term</entry>
-                            <entry>Description.type</entry>
+                            <entry>Description Term</entry>
+                            <entry>Description Type</entry>
                             <entry>Refset(s)</entry>
-                            <entry>Refset.acceptability</entry>
+                            <entry>Refset Acceptability</entry>
                         </row>
                     </thead>
                     <tbody>
@@ -74,20 +71,74 @@
                     </tbody>
                 </tgroup>
             </table>
-            <?oxy_comment_start author="timowilliams" timestamp="20190501T101744-0500" comment="Add RxNorm example"?>
             <para>RxNorm identifies language in the RXNCONSO file in the STR field. The language of
                 the name is specified in the LAT field and the source the name comes from is
                 represented in the STT field. The names in the RXNCONSO are not unique as the same
-                name can come from multiple sources.</para><?oxy_comment_end?>
-            <?oxy_comment_start author="timowilliams" timestamp="20190501T101754-0500" comment="Add LOINC Example, include all the different name fields in LOINC.   Maybe include a Lab and Clinical example." id="kyh_3ld_xhb"?>
-            <?oxy_comment_start author="rcholan" timestamp="20190528T195335-0400" comment="Adding initial LOINC example." parentID="kyh_3ld_xhb" mid="3"?>
+                name can come from multiple sources.</para>
+            <para>
+                <table>
+                    <title>RxNorm Strings Associated With "100 ML Acetaminophen 10 MG/ML
+                        Injection"</title>
+                    <tgroup cols="2">
+                        <thead>
+                            <row>
+                                <entry>Property</entry>
+                                <entry>STR</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>Prescribable Synonym</entry>
+                                <entry>acetaminophen 1000 MG in 100 ML Injection</entry>
+                            </row>
+                            <row>
+                                <entry>RxNorm Name</entry>
+                                <entry>100 ML Acetaminophen 10 MG/ML Injection</entry>
+                            </row>
+                            <row>
+                                <entry>RxNorm Synonym</entry>
+                                <entry>acetaminophen 1000 MG per 100 ML Injection</entry>
+                            </row>
+                            <row>
+                                <entry>RxNorm Synonym</entry>
+                                <entry>100 ML APAP 10 MG/ML Injection</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
             <para>LOINC has names spread across multiple fields with the Fully Specified Name
-                constructed as a concatenation
-                <?oxy_comment_start author="steph" timestamp="20190508T110117-0600" comment="You may want to specify what the six parts are."?>of
-                the six parts<?oxy_comment_end?>. It also contains a Long Common Name and a Short
-                Name.<?oxy_comment_end mid="3"?><?oxy_comment_end?> The screenshot from Komet below
-                exemplifies the 6 LOINC parts: Component, Method, Property, Scale, System, and
-                Timing. </para>
+                constructed as a concatenation of the six parts. It also contains a Long Common Name
+                and a Short Name. The screenshot from Komet below exemplifies the 6 LOINC parts:
+                Component, Method, Property, Scale, System, and Timing. </para>
+            <para>
+                <table>
+                    <title>LOINC Representation of "Glucose [Presence] in Urine by Test strip --4.5
+                        hours post 75 g glucose PO"</title>
+                    <tgroup cols="6">
+                        <thead>
+                            <row>
+                                <entry>COMPONENT</entry>
+                                <entry>PROPERTY</entry>
+                                <entry>TIME_ASPCT</entry>
+                                <entry>SYSTEM</entry>
+                                <entry>SCALE_TYP</entry>
+                                <entry>METHOD_TYP</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>Glucose^4.5H post 75 g glucose PO</entry>
+                                <entry>PrThr</entry>
+                                <entry>Pt</entry>
+                                <entry>Urine</entry>
+                                <entry>Ord</entry>
+                                <entry>Test strip</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
             <para><inlinemediaobject>
                     <imageobject>
                         <?oxy_comment_start author="steph" timestamp="20190610T132017-0600" comment="In the PDF, this example is cutoff and you can&apos;t see the full middle panel section and you can only see the first letter of each of the 6 components.  Needs fixing."?>
@@ -112,14 +163,14 @@
                 in the US is used to describe a piece of cloth or paper used to wipe the hands and
                 mouth at a table while in the UK it is used to describe a diaper. </para>
             <table>
-                <title>Description and RefSet Table Values for Epidural anesthesia</title>
+                <title>Description and RefSet Values for Epidural anesthesia</title>
                 <tgroup cols="4">
                     <thead>
                         <row>
-                            <entry>Description.term</entry>
-                            <entry>Description.type</entry>
+                            <entry>Description Term</entry>
+                            <entry>Description Type</entry>
                             <entry>Refset(s)</entry>
-                            <entry>Refset.acceptability</entry>
+                            <entry>Refset Acceptability</entry>
                         </row>
                     </thead>
                     <tbody>
@@ -193,143 +244,6 @@
                 </tgroup>
             </table>
         </section>
-        <section>
-            <title><?oxy_comment_start author="kec" timestamp="20190516T103116-0700" comment="Maybe we should frame this more in terms of &quot;Interface Support&quot;... Interface terminology perhaps implies that we need to create something distinct, rather than just a configurtation of one or more dialects. Other terms maybe better. 
-
-Having the use case here up front that describes the need we are trying to fill can be good. So that&apos;s consistent with Tim&apos;s need more content/examples. "?><?oxy_comment_start author="timowilliams" timestamp="20190501T104321-0500" comment="Need more content.  Add examples." flag="done" mid="7"?>Interface
-                Terminology<?oxy_comment_end?><?oxy_comment_end mid="7"?></title>
-            <para>An interface terminology can be defined as a "systematic collection of clinically
-                oriented phrases (terms) whose purpose is to support clinicians' entry of patient
-                information into computer programs, such as clinical note capture and decision
-                support tools". <citation>Elkin_Terminology</citation></para>
-            <para>"Healthcare providers generally use interface terminologies to accomplish one of
-                two tasks: 1) encoding clinical narrative into a structured form, or, 2) reviewing
-                structured clinical information that has previously been encoded using a different
-                terminology. In supporting such uses, interface terminologies must enable correct
-                and rapid interaction between clinicians and structured clinical data, support
-                facile use by healthcare providers through easy understandability, and integrate
-                well with other clinical computerized systems in the environment." <citation>Rosenbloom_model</citation></para>
-            <section>
-                <title><abbrev>Desiderata for Supporting Interface Terminology Usability
-                    </abbrev></title>
-                <para>The fundamental metric for evaluating an interface terminology is how well it
-                    performs in supporting correct, complete, and efficient data encoding or review
-                    by humans. <citation>Rosenbloom_model</citation> There are six desiderata
-                    relevant to interface terminology usability.
-                        <citation>Elkin_Terminology</citation></para>
-                <section>
-                    <title>Completeness of Synonym Coverage</title>
-                    <para>An adequate representation of synoynms in an interface terminology can
-                        increase the teriminology's usability. Interface terminologies should
-                        represent the richness present in colloquial phrases of medical discource
-                        and represent the variety of different types of synoynms that exist: </para>
-                    <para><emphasis role="underline"><emphasis role="bold">Alternate
-                                Terms</emphasis></emphasis>:  "Myocardial Infarction" for  "Heart
-                        Attack"</para>
-                    <para><emphasis role="underline"><emphasis role="bold"
-                            >Acronyms</emphasis>:</emphasis> "MI" for "Myocardial Infarction"</para>
-                    <para><emphasis role="underline"><emphasis role="bold">Definitional
-                                phrases</emphasis>:</emphasis> "Ischemic injury" for "necrosis of
-                        heart muscle cells resulting from absent or diminished blood flow in a
-                        coronary artery"</para>
-                    <para><emphasis role="underline"><emphasis role="bold"
-                            >Eponyms</emphasis>:</emphasis> "Levine sign" for "a clenched fist held
-                        over the chest indicating ischemic cardiac chest pain"</para>
-                    <para>However, rich synonymy may increase the chances that a given term may be
-                        used to represent more than one concept (e.g., "cold" for "low temperature"
-                        and for "upper repiratory tract viral infection". Parameters for metrics for
-                        evaluating the completeness of synonym coverage in clinical interface
-                        terminologies include:</para>
-                    <para>
-                        <emphasis role="underline"><emphasis role="bold">Concept
-                            Accuracy</emphasis>:</emphasis> how closely a term's meaning cooresponds
-                        with the underlying concept it represents; and,</para>
-                    <para>
-                        <emphasis role="underline"><emphasis role="bold">Synonym
-                                Expressivity</emphasis>:</emphasis> how well a term's semantic
-                        character matches the words in the phrase it is meant to represent rather
-                        than the underlying meaning. </para>
-                    <para>For example a patient describes having a "feathery discomfort occurring
-                        across the chest". Within a clinical terminology there is a concept for
-                        "chest discomfort" and modifiers like "soft" and "anterior chest wall". The
-                        end-user selects "noncrushing" to represent "feathery". The concept accuracy
-                        of "noncrushing" for "feathery" is adequate beause the two have the same
-                        meaning. However, "noncrushing" does not fully express the character of
-                        "feathery". </para>
-                </section>
-                <section>
-                    <title>Balance between Precoordination and Postcoordination</title>
-                    <para>There are one of two general approaches to representing knowledge domains
-                        by clinical terminology.</para>
-                    <para>In one approach, developers <emphasis role="bold"><emphasis
-                                role="underline">precoordinate</emphasis></emphasis> (or enumerate)
-                        all possible complex concepts apriori and essentially create a list of all
-                        the complex concepts that can be expressed. A strength of this approach is
-                        increasing the chances a user will find a desired concept. Disadvantages
-                        include making a terminology so large that search becomes burdensome, and
-                        reduced flexibility in situations where the terminology does not contain
-                        concepts that a user may need. </para>
-                    <para>An alternative is <emphasis role="bold"><emphasis role="underline"
-                                >postcoordination</emphasis></emphasis> in which users compose
-                        complex concepts by assembling general concepts and modifiers as needed. An
-                        advantage is increased flexibility for representing a wide range of
-                        concepts. Disadvanatges include increased variation and inconsistent
-                        application of terminologies against clinical data, increased ability to
-                        create nonsensical complex concepts from modifiers and concepts, and
-                        inefficiency since postcoordination processes can be time-consuming. </para>
-                    <para>Bringing these two approaches together can optimize a terminology's
-                        flexibility, ease of use, and overall coverage. "Compositional balance"
-                        makes concept selection tasks efficient by reducing the effort to assemble
-                        complex concetps from general concepts, and reducing the time needed to
-                        search through long lists of precoordinated concepts. </para>
-                </section>
-                <section>
-                    <title>Inclusion of Adequate and Relevant Assertional Medical Knowledge</title>
-                    <para>Assertional knowledge is information that provides nuance and context to a
-                        concept but does not specifically define it. The two major goals of
-                        including assertional knowledge in an interface terminology are to enahance
-                        usability and to improve documenation quality when using terminology. For
-                        instance, assertional knowledge may help bring together clinically related
-                        concepts and modifiers a user is likely to consider and document together.
-                    </para>
-                </section>
-                <section>
-                    <title>Formal Concept Representation</title>
-                    <para>Ideally, a terminology is represented in a formal way to promote easy use
-                        for automated data storage, management, and analysis. Description logics can
-                        formally model and specify the relationships that exist among concepts and
-                        modifiers and provide a structured representation of the knowledge domain.
-                        For instance, in the following
-                        <?oxy_comment_start author="rcholan" timestamp="20190528T234635-0400" comment="Need to re-create the following image."?>screenshot<?oxy_comment_end?>,
-                        when "Diabetes mellitus type 1" is selected, the options for "type 2" are
-                        hidden and de-emphasized to the user.</para>
-                    <para><inlinemediaobject>
-                            <imageobject>
-                                <imagedata fileref="images/InterfaceTerm_DL.png"/>
-                            </imageobject>
-                        </inlinemediaobject></para>
-                </section>
-                <section>
-                    <title>Support for Human-Readability</title>
-                    <para>The goal of interface terminologies is to optimize the user experience.
-                        Increasing efficiency and clarity of data review are key considerations for
-                        helping clinicians access, read, and understand encoded clinical data. A
-                        simple approach is to use relatively colloquial terms and display common
-                        phrases and words. More complex approaches include "auto-complete" features
-                        - when a user selects a concept (e.g., "chest pain") and modifiers (e.g.,
-                        "anterior", "dull" "present"), the system may leverage tagged terminologies
-                        to generate the natural language sentence (e.g., anterior dull chest pain is
-                        present"). </para>
-                </section>
-                <section>
-                    <title>Application Independence</title>
-                    <para>Ideally, interface terminologies should exist as separate application
-                        components that share a common data model with EHRs or other computer-based
-                        systems. With this approach, terminology content development and evolution
-                        can be distinct from software iteration cycles and queues. </para>
-                </section>
-            </section>
-        </section>
     </section>
     <section xml:id="section_7a5f5087-2a21-4b5e-8993-53fd045b53ff">
         <title>Cross Cutting Concerns</title>
@@ -342,10 +256,8 @@ Having the use case here up front that describes the need we are trying to fill 
             <para>Consistent naming is also important to support effective retrieval.  For example, the SNOMED CT concept 386560004 |Glasgow coma score finding (finding)| has 13 children all with the string Glasgow coma scale instead of Glasgow coma score.  </para>
             <para>Another common issue is to add a synonym to a concept that is more specific than
                 the concept itself. A concept should only have synonyms that accurately represent a
-                concept and not any of
-                <?oxy_comment_start author="steph" timestamp="20190305T153943-0700" comment="Should be revised to &quot;its&quot;." flag="done"?>its<?oxy_comment_end?>
-                children. If a synonym has a more specific meaning, a new concept should be
-                created.</para>
+                concept and not any of its children. If a synonym has a more specific meaning, a new
+                concept should be created.</para>
         </section>
         <section xml:id="section_c3d7371d-1785-4e89-b280-9b4a53cd3665">
             <title>Language
@@ -387,16 +299,13 @@ Having the use case here up front that describes the need we are trying to fill 
                 designation. In order to properly return concepts/terms that are active, query
                 parameters must contain a parameter to designate if the query result should/should
                 not return active and inactive concepts or terms.</para>
-        	<para><emphasis role="bold">Regular
-                    <?oxy_comment_start author="steph" timestamp="20190305T154320-0700" comment="It looks like definitions or explanations of this and the one below still need to be provided." flag="done"?>Expressions<?oxy_comment_end?></emphasis>
-                - Regular expression
-                <?oxy_comment_start author="steph" timestamp="20190508T114704-0600" comment="Should the first part of the sentence say &quot;Regular expression&quot; vs. &quot;Regular express&quot;?" flag="done"?>or
-                regex <?oxy_comment_end?>is a sequence of characters that defines a search pattern.
-                This pattern would allow a user to retrieve results based on a certain pattern. For
-                example "a|b*" would return all "a", "b" and other b's that fits the pattern such as
-                "bb", "bbb", "bab", etc. Since the depth and breadth of regular expression is beyond
-                the scope of this document, various syntaxes, usage and explanation can be found in
-                many resources such as <link xlink:href="https://regexr.com/"/>.</para>
+        	<para><emphasis role="bold">Regular Expressions</emphasis> - Regular expression or regex is
+                a sequence of characters that defines a search pattern. This pattern would allow a
+                user to retrieve results based on a certain pattern. For example "a|b*" would return
+                all "a", "b" and other b's that fits the pattern such as "bb", "bbb", "bab", etc.
+                Since the depth and breadth of regular expression is beyond the scope of this
+                document, various syntaxes, usage and explanation can be found in many resources
+                such as <link xlink:href="https://regexr.com/"/>.</para>
         	<para><emphasis role="bold">Grouping Results by hierarchy</emphasis> - This search
                 requirement can be thought of as a complement to "components query". After casting a
                 wide net, results could be a bag of various terms (common cold vs. feeling cold)

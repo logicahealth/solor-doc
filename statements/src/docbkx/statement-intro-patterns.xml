@@ -1,0 +1,2740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xml:id="PatternsForModeling" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+            <title>Patterns for Statement Modeling</title>
+
+            <para>Model-Driven Development provides a useful framework to build EHR systems that
+                include standardized representations of medical data and that are flexible and
+                extensible. However, the ultimate effectiveness of these EHR systems depends to a
+                great extent on the specific design of the clinical statement models they include.
+                As discussed, the same types of statements may be modeled in many different ways,
+                and the design choices made will influence
+                the ease and consistency with which the clinical statements models can be used.
+                This section discusses some of those choices and the design criteria that should
+                govern them.</para>
+
+            <section>
+                <title>Clinical Statements in the Abstract</title>
+
+                <para>It’s useful to consider what clinical statements essentially are. In the
+                    abstract, they are discrete patient descriptors that document information
+                    gathering, diagnostic testing, and decision making about patients. Such
+                    descriptors may include, for example, a diagnosis, an LDL cholesterol level, a
+                    systolic blood pressure measurement, an Apgar score, a patient-reported symptom,
+                    or a family history.</para>
+
+                <para>Each clinical statement pertaining to a patient consists in the abstract of
+                    two general components:</para>
+
+                <itemizedlist>
+                    <listitem>
+                        <para>The <emphasis role="underline">Aspect or Topic</emphasis> of the patient that
+                            is being described, either implicitly or explicitly. For example, the
+                            statement “The patient’s systolic BP is 130 mmHg” explicitly describes
+                            the Aspect “Systolic Blood Pressure,” whereas the statement “The
+                            patient has asthma” implicitly describes the aspect “Diagnosis”. If the
+                            general form of a patient descriptor is “The patient has X of Y”, the
+                            aspect denotes “X”.</para>
+                    </listitem>
+
+                    <listitem>
+                        <para>The <emphasis role="underline">Value or Magnitude</emphasis> of the
+                            descriptor. For example, the statement “The patient’s systolic BP is
+                            130 mmHg” specifies the magnitude “130” whereas the statement “The
+                            patient has asthma” specifies the value “Asthma”. If the general form of
+                            a patient descriptor is “The patient has X of Y”, the value or magnitude
+                            denotes “Y”.</para>
+                    </listitem>
+                </itemizedlist>
+
+                <para>The aspect/topic and the value/magnitude of a statement may, themselves, be
+                    further modified or qualified to denote the complete semantics of the
+                    statement. For example, the aspect “Systolic Blood Pressure” in the example
+                    above could be further qualified by the date/time that the measurement was taken
+                    or the position of the patient at the time it was taken. Likewise, the magnitude
+                    “130” in the example above could be further qualified to specify that the units
+                    of measure that apply are “mmHg”.</para>
+
+                <para>Sometimes, a third component of a clinical statement is specified:</para>
+
+                <itemizedlist>
+                    <listitem>
+                        <para>The <emphasis role="underline">Context</emphasis> in which the
+                            clinical statement occurred or was recorded. This component typically
+                            denotes information that is important to record but does not directly
+                            modify the Aspect or the Value/Magnitude. Examples may include who
+                            specifically reported the statement (e.g., the patient versus the
+                            patient’s mother) or what instrument or technique was used to collect
+                            the statement (e.g., by rhythm strip versus 12-lead EKG). Notably,
+                            there is sometimes a fuzzy distinction between information that modifies
+                            the Aspect of a clinical statement and information that denotes its
+                            Context. For example, the fasting state of a patient at the time a serum
+                            LDL cholesterol measurement was taken could be considered to denote the
+                            Context of the measurement (with the Aspect being simply “Serum LDL
+                            Cholesterol”) or the fasting state could denote a qualifier of the
+                            Aspect (with the Aspect being “Serum LDL Cholesterol, with FastingState
+                            = True”).</para>
+                    </listitem>
+                </itemizedlist>
+
+                <para>Based on these abstract components of a clinical statement, the same
+                    statement can be modeled in different ways. The examples in <xref linkend="_Ref474687508" xrefstyle="select:label"/> show reasonable
+                    variations in the use of aspect, value, and context to represent the same
+                    statement semantics.</para>
+
+                <figure xml:id="_Ref474687508">
+                    <title>Example variations in modeling of clinical statements</title>
+
+                    <para><inlinemediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/image10com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </inlinemediaobject>
+                    </para>
+                    <para>
+                        <inlinemediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/image11com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </inlinemediaobject>
+                    </para>
+                </figure>
+            </section>
+
+            <section xml:id="_Ref474506814">
+                <title>General Design Patterns for Clinical Statements</title>
+
+                <para>At least three general structural patterns may be considered for the design of
+                    clinical statement models:  Assertion, Evaluation, and Belief:</para>
+
+                <itemizedlist>
+                    <listitem>
+                        <para><emphasis role="underline">Assertion</emphasis> pattern. No Aspect is
+                            explicitly specified; a Value, with possible qualifiers is always
+                            specified; a Context is optionally specified. Example:</para>
+
+                        <itemizedlist spacing="compact">
+                            <listitem>
+                                <para>Aspect = NULL </para>
+                            </listitem>
+                            <listitem>
+                                <para>Value = (Asthma, with type = intrinsic, with severity = mild,
+                                    with status = active)</para>
+                            </listitem>
+                        </itemizedlist>
+
+                        <para>This pattern assumes that, for every Value, the Aspect of the patient
+                    that is being described is implicit and unambiguous, and therefore need not be
+                    explicitly specified. The pattern is most naturally suited for symptoms, exam
+                    findings, past medical history findings, and diagnoses, where the assumption
+                    usually holds. However, exceptions exist. For example, the Assertion pattern
+                    cannot distinguish between a patient-reported symptom of “arm weakness,” and a
+                    physical exam finding of “arm weakness” (unless “patient-reported” or
+                    “physical-exam” are denoted as Contexts).</para>
+                    </listitem>
+
+                    <listitem>
+                        <para><emphasis role="underline">Evaluation</emphasis> pattern. An Aspect/Topic is
+                            always specified; a Value, with possible qualifiers is always specified;
+                            a Context is optionally specified. Example:</para>
+
+                        <itemizedlist spacing="compact">
+                            <listitem>
+                                <para>Aspect = Serum LDL Cholesterol </para>
+                            </listitem>
+                            <listitem>
+                                <para>Value = (185, with units-of-measure = mmHg)</para>
+                            </listitem>
+                            <listitem>
+                                <para>Context = Fasting</para>
+                            </listitem>
+
+                        </itemizedlist>
+
+                        <para>This pattern explicitly specifies the Aspect and considers it the
+                            “question” that the statement is addressing. The Value constitutes the
+                            “answer” to the question. The pattern is most naturally suited to
+                            statements represented as “attribute/value” pairs, such as simple
+                            testing results (blood glucose, FEV1), scoring instruments (Apgar,
+                            Braden scores), and patient characteristics with quantitative or ordinal
+                            values (pulse, pain intensity).</para>
+                    </listitem>
+
+                    <listitem>
+                        <para><emphasis role="underline">Belief</emphasis> pattern. An Aspect/Topic, with
+                            possible qualifiers, is always specified; a Value, with possible
+                            qualifiers is always specified; a Context is optionally(but rarely)
+                            specified. Examples:</para>
+                        <itemizedlist spacing="compact">
+                            <listitem>
+                                <para>Aspect = Diagnosis </para>
+                            </listitem>
+                            <listitem>
+                                <para>Value = (Asthma, with type = intrinsic, with severity = mild,
+                                    with status = active)</para>
+                            </listitem>
+                        </itemizedlist>
+
+                        <itemizedlist spacing="compact">
+                            <listitem>
+                                <para>Aspect = Serum LDL Cholesterol, with Fasting-State = True </para>
+                            </listitem>
+                            <listitem>
+                                <para>Value = (185, with units-of-measure = mg/dL)</para>
+                            </listitem>
+                        </itemizedlist>
+
+                        <para>This pattern is the most general and can be applied equally to
+                            symptoms, findings, diagnoses, test results, scoring instruments, and
+                            quantitative characteristics. It does require, however, that an Aspect/Topic
+                            is explicitly specified in all cases as part of the statement model
+                            (although this constraint does not necessarily require that the Aspect
+                            be specified by users at the time the statement is instantiated, since
+                            user-interface functionality may populate the Aspect automatically and
+                            “behind the scenes” for statements where it is implied and
+                            unambiguous).</para>
+                    </listitem>
+                </itemizedlist>
+            </section>
+
+            <section>
+                <title>Desiderata for Clinical Statement Model Design Patterns</title>
+
+                <para>Given that multiple design patterns exist for clinical statements, it’s
+                    useful to consider design criteria that can guide modeling choice. Among the
+                    best known criteria for designing clinical concepts are the properties of
+                    Understandability, Reproducibility, and Usability (URU),
+
+                    <!-- reference 
+                    <footnote xml:id="__FN6__">
+                        <para>Walker D. GP Vocabulary Project—Stage 2 Report: SNOMED Clinical Terms
+                            (SNOMED CT); November, 2004. Available from: <link xlink:href="https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd">https://www.semanticscholar.org/paper/Gp-Vocabulary-Project-Stage-2-Snomed-Clinical-Walker/4353b85e1afbeb93b81b38398f94882c6d5119cd</link>.</para>
+                    </footnote>, 
+
+                -->
+                    defined as follows:
+
+                </para>
+
+                <itemizedlist>
+                    <listitem>
+                        <para><emphasis role="underline">Understandability</emphasis>: Concept
+                            definitions should be understandable by average clinicians and others
+                            who use the definitions (such as data analysts), given brief
+                            explanations.</para>
+                    </listitem>
+
+                    <listitem>
+                        <para><emphasis role="underline">Reproducibility</emphasis>:
+                            The retrieval and representation of the same concept should be
+                            consistent regardless of the nature of the interface, user preferences,
+                            or time of entry.</para>
+                    </listitem>
+
+                    <listitem>
+                        <para><emphasis role="underline">Usefulness</emphasis>: Concepts, concept
+                    properties, and distinction among concepts should only be modeled when there is
+                    current use in healthcare.</para>
+                    </listitem>
+                </itemizedlist>
+
+                <para>Among these criteria, reproducibility is arguably the most important in
+                    selecting an optimal design pattern for clinical statements, because the
+                    property of reproducibility most influences the value of clinical statements
+                    as <emphasis>standardized</emphasis> representations of clinical information
+                    that can be shared by different software modules and information systems. As
+                    illustrated in <xref linkend="_Ref474505861" xrefstyle="select:label"/>,
+                    multiple software modules may use the same clinical statement models to
+                    implement distinct functions. To ensure that the creation, use, and exchange of
+                    clinical data is done uniformly, the clinical statement models must not vary
+                    according to the contexts in which they are created or processed, i.e., they
+                    must be reproducible.</para>
+
+                <para>To help ensure reproducibility, modelers should follow at least two guidelines
+                    when creating clinical statement models: Avoid arbitrary variation and
+                    explicitly represent clinically relevant distinctions. <xref linkend="_Ref474506327" xrefstyle="select:label"/> illustrates relevant
+                    examples and counterexamples of these guidelines. Note that the first example
+                    shows three different modeling patterns for the same type of statement. In
+                    this case, it would be preferable to model all statements of this type using
+                    only one of the patterns (applying any one of the patterns to all three
+                    statements is left as an exercise for the reader). The second example shows a
+                    statement for which the complete clinical meaning of the finding (“Weakness in
+                    Right Arm”) depends on whether it was objectively discerned by the physician
+                    through examination, or just subjectively reported by the patient.</para>
+
+                <figure xml:id="_Ref474506327">
+                    <title>Guidelines for designing clinical statement models</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image12com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+
+                <para><xref linkend="_Ref474689633" xrefstyle="select:label"/> shows a
+                    poorly
+                    designed clinical statement model that violates the reproducibility criterion.
+                    Using this model, the family history of a particular problem or diagnosis could
+                    be represented in two different ways, depending on the user’s preference. Such
+                    variation in the representation of the same statement entered by one user or
+                    another will necessarily complicate subsequent data querying and analysis. For
+                    example, a data analyst seeking all patients with a family history of coronary
+                    artery disease would have to search both the “Per problem” and the “Per family
+                    member” paths of each “Family History” statement stored in the EHR.</para>
+
+                    <?oxy_comment_start author="steph" timestamp="20190318T123151-0600" comment="I think it would be helpful if this were followed by an example that showed the proper way to model this."?><?oxy_comment_end?>
+
+                <figure xml:id="_Ref474689633">
+                    <title>A poorly designed clinical statement model</title>
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/image13com.png" scalefit="1" width="100%" contentdepth="100%"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </section>
+
+            <section>
+                <title>Approach Options</title>
+
+                <para>Given the Model-Driven Development approach and the design considerations
+                    described above, two general options exist for specifying clinical statements
+                    models:</para>
+
+                <orderedlist>
+                    <listitem>
+                        <para><emphasis role="underline">Standardize on a single design
+                        pattern</emphasis> for all clinical statement models (i.e., either the
+                    Assertion, Evaluation, or Belief pattern described in <xref
+                        linkend="_Ref474506814" xrefstyle="select:label"/>). This approach may
+                    facilitate the tasks of data analysts and software developers, who will need to
+                    learn many clinical statements models to use them effectively in application
+                    development, CDS rule design, clinical measure specifications, etc.</para>
+
+                        <para>With this option, the “Belief” pattern is likely preferred, as it is
+                            the most generic and supports all manner of clinical observations, as
+                            described in <xref linkend="_Ref474506814" xrefstyle="select:label"/>.</para>
+                    </listitem>
+
+                    <listitem>
+                        <para><emphasis role="underline">Allow multiple design patterns</emphasis>,
+                            specific to individual types of statement models (e.g., all lab
+                            results, all symptoms, all physical exam findings), or even to specific
+                            statement models (e.g., distinct models for skin turgor versus knee
+                            reflex). This approach offers maximum flexibility in modeling specific
+                            clinical statements in the most natural manner. Because individual
+                            clinical statement models will often be quite complex and extensive in
+                            any case (as seen from the examples in this report), the basic pattern
+                            they follow (i.e., Assertion vs. Evaluation vs. Belief) may be the least
+                            of the variations among them that data analysts and software developers
+                            will need to be concerned with. Hence, it may not practically matter
+                            whether clinical statement models conform to a single pattern or to
+                            multiple patterns, as long as the models are clearly documented.</para>
+                    </listitem>
+                </orderedlist>
+
+            </section>
+
+
+
+
+
+
+<!--   
+
+    <section>
+
+        <title>Examples</title>
+
+        <para>A <emphasis> statement</emphasis> represents an entry in a record that documents in a
+            structured/computable manner information about a subject of information, such as a
+            patient or a relative of the patient, and that is asserted by a particular source,
+            recorded, and potentially verified.</para>
+        <para>Clinicians author clinical statements and enter them into their organization’s
+            electronic health record (EHR). Clinicians typically input the information via a manner
+            that we call here the
+                <emphasis><?oxy_comment_start author="steph" timestamp="20190319T163411-0600" comment="On 1/6/19, Joey Coyle sent an email to me and Keith recommended renaming CIF to something else.  He said &quot;In writing this I&apos;ve realized that current CIMI and all the models we do at Intermountain are not about clinical input.  In fact, we have found that these models are usually too post-coordinated for clinical input screens, and user facing applications have to use more pre-coordinated valuesets for the job at hand.  The application then deconstructs these codes into our more post-coordinated models.  The post-coordination is actually more for storage and consistent querying than it is for data input.&quot;
+
+I don&apos;t recall seeing a reply from Keith but wanted to raise the issue to see if changes should be made as needed in this document based on Joey&apos;s recommendation."?>clinical
+                input form (CIF)<?oxy_comment_end?></emphasis>. However, the CIF is not a literal
+            form that clinicians select and enter data in. Rather, it refers to the manner in which
+            information is presented to the clinicians and how they input the data, such as by
+            constraining the information to allow only certain values to be entered, such as through
+            a drop-down list or radio button, or breaking up large chunks of related information
+            into smaller parts. For example, when a clinician orders a medication, rather than
+            selecting this information all at once with a single item, they will choose the various
+            parts of the medication order, such as:</para>
+        <itemizedlist>
+            <listitem>
+                <para>Kind of drug and strength (e.g., Acetaminophen 150 mg)</para>
+            </listitem>
+            <listitem>
+                <para>Amount and how often the patient should take the medication (e.g., 1 tablet
+                    twice daily)</para>
+            </listitem>
+            <listitem>
+                <para>Duration (e.g., 2 days)</para>
+            </listitem>
+            <listitem>
+                <para>Any constraints (e.g., do not exceed a total daily dosage of 600 mg)</para>
+            </listitem>
+        </itemizedlist>
+        <para>Ideally, the way the information is presented to clinicians is in a manner that is
+            most efficient for the clinicians to use. However, what is an efficient way for
+            clinicians to select and input data may not be the most efficient way for data analysts
+            to use when they are querying data once it has been normalized and stored in a database,
+            such as when creating a new CDS rule or compiling prevalence statistics. For this, the
+            data is normalized using the <emphasis>analysis normal form (ANF)</emphasis> and stored
+            in a database. Again, the ANF is not necessarily a physical structure, but is how a data
+            analyst might see the data when they are looking at it in a database, and not as
+            clinicians would see it in the user interface (i.e., CIF).</para>
+        <itemizedlist>
+            <listitem>
+                <para>Clinician collects data via Clinical Input Form.</para>
+            </listitem>
+            <listitem>
+                <para>Data is normalized via Transformation process from CIF to ANF à
+                    Representable/storable in multiple types of databases, which <emphasis role="underline">could</emphasis> include VistA but a separate process would
+                    need to be performed to make that happen.</para>
+            </listitem>
+            <listitem>
+                <para>Data analyst who is using or querying the data (e.g., creating a CDS rule or
+                    working on prevalence statistics) via ANF (it is how the data is represented or
+                    stored in the database; must know enough about the data to know what is stored
+                    in the topic vs. what is stored as a result or detail).</para>
+            </listitem>
+        </itemizedlist>
+        <table frame="topbot" rowsep="0" colsep="0" xml:id="table_f39f17ff-b1f9-4701-85db-324fb78b9f2b">
+            <title>General Statement Model</title>
+            <tgroup cols="2" align="left">
+                <colspec colname="c1" colnum="1" colwidth="102.37pt"/>
+                <colspec colname="c2" colnum="2" colwidth="292.9pt"/>
+                <thead>
+                    <row rowsep="1">
+                        <entry namest="c1" nameend="c2">Statement</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>Narrative:</entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>Topic:</entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>Subject of information:</entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>Statement time:</entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>Act:</entry>
+                        <entrytbl cols="3">
+                            <colspec colnum="1" colname="c1" colwidth="1.86*"/>
+                            <colspec colnum="2" colname="c2" colwidth="1*"/>
+                            <colspec colnum="3" colname="c3" colwidth="6.48*"/>
+                            <tbody>
+                                <row rowsep="0">
+                                    <entry colsep="0" rowsep="0"/>
+                                    <entry colsep="0" rowsep="0"/>
+                                    <entry colsep="0" rowsep="0"/>
+                                </row>
+                                <row rowsep="0">
+                                    <entry colsep="0" rowsep="0"/>
+                                    <entry colsep="0" rowsep="0" namest="c2" nameend="c3"/>
+                                </row>
+                            </tbody>
+                        </entrytbl>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+
+
+        <para> </para>
+        <editorial-rule>
+            <title>Topic</title>
+            <mathphrase>The <emphasis>topic</emphasis> is the center of interest or activity
+                represented by the statement. A few examples of topics include <link
+                    xlink:href="#ge_solor_Insulin_dependent_diabetes_mellitus_type_1A_cc0759c3-623e-3417-badb-8dbad681e0f5"><inlinemediaobject>
+                        <imageobject>
+                            <imagedata>
+                                <?oxy_comment_start author="steph" timestamp="20190318T130906-0600" comment="The examples of topics shown here have a lot of white space shown after them in the PDF and it&apos;s distracting.  Recommend you just type the examples instead in a bulleted list." id="eyq_p4g_3hb"?>
+                                <?oxy_comment_start author="timowilliams" timestamp="20190405T140343-0500" comment="This is the result of copying concepts out of KOMET and inserting them into the document.  We will research what is wrong with why they are displaying this way.  " parentID="eyq_p4g_3hb" mid="16"?>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="242px" height="14px">
+                                    <text x="1" y="7"
+                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
+                                            >[<tspan dy="1.5"
+                                            style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; "
+                                            >&#xF2D8; </tspan>
+                                        <tspan dy="-1.5"/>Insulin dependent diabetes mellitus type 1
+                                        A</text>
+                                </svg><?oxy_comment_end?><?oxy_comment_end mid="16"?>
+                            </imagedata>
+                        </imageobject>
+                    </inlinemediaobject></link>, <link
+                    xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
+                        <imageobject>
+                            <imagedata>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="75px" height="14px">
+                                    <text x="1" y="7"
+                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
+                                            >[<tspan dy="1.5"
+                                            style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; "
+                                            >&#xF060; </tspan>
+                                        <tspan dy="-1.5"/>Pulse rate]</text>
+                                </svg>
+                            </imagedata>
+                        </imageobject>
+                    </inlinemediaobject></link>, <link
+                    xlink:href="#ge_solor_Administration_of_medication_8a39a4e6-97c8-3ab1-b589-71edfe1f32ce"><inlinemediaobject>
+                        <imageobject>
+                            <imagedata>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="165px" height="14px">
+                                    <text x="1" y="7"
+                                        style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"
+                                            >[<tspan dy="1.5"
+                                            style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; "
+                                            >&#xF12F; </tspan>
+                                        <tspan dy="-1.5"/>Administration of medication]</text>
+                                </svg>
+                            </imagedata>
+                        </imageobject>
+                    </inlinemediaobject></link> . For each of these topics, the information that
+                must be described is quite different, so CIMI describes topic types that contain the
+                appropriate properties to describe the required information for the given topic. The
+                number of topic types will change as CIMI progresses, but currently the allowable
+                topic types are EvaluationResult, Assertion, and Procedure.</mathphrase>
+        </editorial-rule>
+
+        <editorial-rule>
+            <title>Subject of information</title>
+            <mathphrase>The <emphasis>Subject of Information</emphasis> represents who or what the
+                statement refers to. In most cases, the <emphasis>Subject of Information</emphasis>
+                refers to who or what the record within which this statement is embedded is about.
+                In such cases, the <emphasis>Subject of Information</emphasis> may be referred to as
+                the <emphasis>Subject of Record</emphasis>. In other cases, the <emphasis>Subject of
+                    Information</emphasis> may refer to a relative of the <emphasis>Subject of
+                    Record</emphasis> (mother, father, uncle...), and would be recorded
+                appropriately in such circumstance. </mathphrase>
+            <para/>
+        </editorial-rule>
+
+        <editorial-rule>
+            <title>Statement time</title>
+            <mathphrase>The Statement time is the time the statement is made. The statement time is
+                independent of the period of time that a statement refers to, which may be past,
+                present, or future, and is represented separately as part of the act. </mathphrase>
+        </editorial-rule>
+
+        <editorial-rule>
+            <title>Act</title>
+            <mathphrase>The Act is information that details the act related to the topic, either a
+                request act, or a performance act.</mathphrase>
+        </editorial-rule>
+        <section xml:id="section_c7e8075d-6b35-41ba-897d-4ff54af45576">
+            <title>Statement Layer Concerns</title>
+            <para/>
+            <para>The statement layer is primarily concerned with representation of instance data. </para>
+            <section xml:id="section_fbd977ae-5780-48a3-87e2-0106a3c8dc80">
+                <title>Measurement</title>
+            </section>
+            <section xml:id="section_29e5b4bb-bb99-42f0-bf5f-0456f4963bb1">
+                <title>Reporter</title>
+            </section>
+            <section xml:id="section_5e801113-26fb-4edb-99d0-681bad2b9aa1">
+                <title>Performer</title>
+            </section>
+            <section xml:id="section_d9921384-af14-4701-91d3-9f7b781afac8">
+                <title>Subject of information</title>
+            </section>
+        </section>
+        <section xml:id="section_084eb260-3f85-44fc-a55e-447e2b404a81">
+            <title>Crosscutting Concerns</title>
+            <section xml:id="section_90257289-0292-45bc-b014-52fcdf1be4c0">
+                <title>Query</title>
+                <para/>
+            </section>
+        </section>
+
+        <section xml:id="section_12d7f603-3acd-4e35-b9b8-3f4994aa2d70">
+            <title>Understandable, Reproducible, and
+                <?oxy_comment_start author="steph" timestamp="20190318T131224-0600" comment="Should this be Usable, to be consistent with prior section on URU, where it says it&apos;s:  Understandability, Reproducibility, and Usability?  Same where &quot;Useful&quot; is shown below." id="dhf_f3m_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190326T153718-0500" comment="should be Useful instead of Usability
+" parentID="dhf_f3m_fhb" mid="15"?>Useful<?oxy_comment_end mid="15"?><?oxy_comment_end?></title>
+            <para>Given a narrative, fill out the form. </para>
+            <example xml:id="example_dc87fd7a-561e-4335-ae79-9bde3fb1fc05">
+                <title>Pulse observed to be 110</title>
+                <para>A patient tells their health-care provider that they had a <link xlink:href="#ge_solor_Pulse_rate_1f621ed0-b2b9-37bf-ba99-cdcdc1a6e24a"><inlinemediaobject>
+                            <imageobject>
+                                <imagedata>
+                                    <?oxy_comment_start author="steph" timestamp="20190318T131339-0600" comment="1) Same a prior comment:  in the PDF there is a lot of white space in this and it&apos;s distracting and recommend just typing it.
+2) THere isn&apos;t anything in the narrative that states the pulse rate was 110 - shouldn&apos;t there be?"?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px" height="14px">
+                                        <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #5ec200; stroke: #5ec200; ">&#xF060; </tspan>
+                                            <tspan dy="-1.5"/>Pulse rate]</text>
+                                    </svg><?oxy_comment_end?>
+                                </imagedata>
+                            </imageobject>
+                        </inlinemediaobject></link> on Monday, April 23rd at 9:15 am Pacific
+                    Standard Time. </para>
+            </example>
+            <example xml:id="example_7b0c38f2-acf3-48a8-a2d7-c06cf0e007cc">
+                <title>Resting pulse requested to be less than 70</title>
+                <para>A health-care provider tells a patient that they would like their resting
+                    pulse to be less than 70. </para>
+            </example>
+            <para>In the case of a human
+                <?oxy_comment_start author="steph" timestamp="20190318T132121-0600" comment="Should this be spelled as &quot;interpreter&quot; instead?" flag="done"?>interpreter<?oxy_comment_end?>,
+                they can often believe that they understand a statement, even when there is a great
+                deal of information missing from the statement. In the above example, it was
+                probably assumed that the units used to measure the blood pressure was mm/Hg, that
+                the patient was at rest and seated, and that the pressure was measured from a
+                brachial artery, either the brachial artery in the right arm, or the brachial artery
+                in the left arm. </para>
+            <para>In a face-to-face interaction, statements can often be clarified to
+                <?oxy_comment_start author="steph" timestamp="20190318T132219-0600" comment="What if assumed content isn&apos;t always correct?  Could it also deny it?"?>confirm<?oxy_comment_end?>
+                assumed content, and to ensure effective communication of information from the
+                creator to the interpretor. When recording statements for future interpretation,
+                such verification of assumed content cannot be performed. This inability to clarify
+                statements after the fact requires that statements sufficiently record the
+                circumstances necessary to reproducibly interpret the statement.</para>
+            <editorial-rule>
+                <title>Understandable</title>
+                <mathphrase>Editorial rules must be understandable to an editor or user simply by
+                    reading the definition or rule. A statement must be understandable to the
+                    creator and the interpreter.</mathphrase>
+            </editorial-rule>
+            <editorial-rule>
+                <title>Reproducible</title>
+                <mathphrase>Independent observers encountering a topic and equivalent circumstances
+                    will record equivalent statements.</mathphrase>
+            </editorial-rule>
+            <editorial-rule>
+                <title>Useful</title>
+                <mathphrase>The representation must be useful for the purposes that the modeling is
+                    intended to support. </mathphrase>
+            </editorial-rule>
+        </section>
+        <section xml:id="section_f73a5fd3-af2d-4e34-8a4b-3854a63e7ffd">
+            <title>Structured Statement</title>
+            <para>Narrative: Pulse observed to be 100 bpm on Monday,
+                <?oxy_comment_start author="steph" timestamp="20190318T132951-0600" comment="Need to add &quot;2018&quot; here and in the narrative below since you included it in Statement time." flag="done"?>April
+                23rd, 2018 <?oxy_comment_end?>at 9:15 am Pacific Standard Time</para>
+            <para>Action Topic: Pulse</para>
+            <para>Circumstance: facts or conditions relevant to an action; Two types of action:
+                request, performance</para>
+            <para>
+                <table frame="topbot" rowsep="0" colsep="0" xml:id="table_9b08a484-6589-430a-bcb5-060703de35c3">
+                    <title>Patient pulse representation of narrative with Structured
+                        Statement</title>
+                    <tgroup cols="2" align="left">
+                        <colspec colname="c1" colnum="1" colwidth="96.98pt"/>
+                        <colspec colname="c2" colnum="2" colwidth="298.78pt"/>
+                        <thead>
+                            <row rowsep="1">
+                                <entry namest="c1" nameend="c2">Performance Statement</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>Narrative:</entry>
+                                <entry>Pulse observed to be 100 bpm on Monday, April
+                                    <?oxy_comment_start author="steph" timestamp="20190318T132844-0600" comment="Need to add &quot;2018&quot; here since you showed it below in Statement time." flag="done"?>23rd<?oxy_comment_end?>,
+                                    2018 at 9:15 am Pacific Standard Time</entry>
+                            </row>
+                            <row>
+                                <entry>Topic:</entry>
+                                <entry>Pulse</entry>
+                            </row>
+                            <row>
+                                <entry>Subject of information:</entry>
+                                <entry>Patient of Record</entry>
+                            </row>
+                            <row>
+                                <entry>Statement time:</entry>
+                                <entry>Monday, April 23rd 2018 at 9:15 am Pacific Standard
+                                    Time</entry>
+                            </row>
+                            <row>
+                                <entry>Act:</entry>
+                                <entrytbl cols="3">
+                                    <colspec colnum="1" colname="c1" colwidth="1.86*"/>
+                                    <colspec colnum="2" colname="c2" colwidth="1*"/>
+                                    <colspec colnum="3" colname="c3" colwidth="6.48*"/>
+                                    <tbody>
+                                        <row rowsep="0">
+                                            <entry colsep="0" rowsep="0">Circumstance:</entry>
+                                            <entry colsep="0" rowsep="0">Timing:</entry>
+                                            <entry colsep="0" rowsep="0"/>
+                                        </row>
+                                        <row rowsep="0">
+                                            <entry colsep="0" rowsep="0">Result:</entry>
+                                            <entry colsep="0" rowsep="0" namest="c2" nameend="c3">120 beats per minute </entry>
+                                        </row>
+                                    </tbody>
+                                </entrytbl>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </para>
+            <section xml:id="section_5307a5f5-3008-4c0c-948b-f0a13c3e059c">
+                <title>Modeling Principles</title>
+                <para>The modeling guidelines were developed in accordance with the principles shown
+                    below.</para>
+                <itemizedlist>
+                    <listitem>
+                        <para><emphasis role="bold">Separation of Concerns:</emphasis> As defined by
+                                Wikipedia<footnote xml:id="__FN1A__">
+                                <para><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://en.wikipedia.org/wiki/Separation_of_concerns">https://en.wikipedia.org/wiki/Separation_of_concerns</link>
+                                </para>
+                            </footnote>: Separation of Concerns (SoC) is a design principle for
+                            separating a computer program into distinct sections, such that each
+                            section addresses a separate concern. A concern is a set of information
+                            that affects the code of a computer program. A concern can be as general
+                            as the details of the hardware the code is being optimized for, or as
+                            specific as the name of a class to instantiate. A program that embodies
+                            SoC well is called a modular program. Modularity, and hence separation
+                            of concerns, is achieved by encapsulating information inside a section
+                            of code that has a well-defined interface. Encapsulation is a means of
+                            information hiding. Layered designs in information systems are another
+                            embodiment of separation of concerns (e.g., presentation layer, business
+                            logic layer, data access layer, persistence layer). The value of
+                            separation of concerns is simplifying development and maintenance of
+                            computer programs. When concerns are well-separated, individual sections
+                            can be reused, as well as developed and updated independently. Of
+                            special value is the ability to later improve or modify one section of
+                            code without having to know the details of the other sections, and
+                            without having to make corresponding changes to those sections.</para>
+                        <para>The use of immutable objects (see Immutability principle below) is a
+                            technique that fulfills the Separation of Concerns principle.</para>
+                        <para>Attributes that describe specific semantic concepts should be grouped
+                            together into a single class and not be spread across a number of
+                            classes. Doing the latter leads to tight coupling between classes. Doing
+                            the former leads to better decomposition of a potentially complex
+                            domain.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Example:</emphasis> Attributes for a Role (e.g.,
+                            Practitioner) should not be mixed with attributes for an Entity (e.g.,
+                            Person). This allows a person to assume a number of roles over their
+                            lifetime or to function in more than one role.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Immutability: </emphasis>An Immutable Object as
+                            defined by Wikipedia<footnote xml:id="__FN2A__">
+                                <para><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://en.wikipedia.org/wiki/immutable_object">https://en.wikipedia.org/wiki/immutable_object</link>
+                                </para>
+                            </footnote>: Used in object-oriented and functional programming, an
+                            immutable object is something that cannot be changed after it is
+                            created, in contrast to mutable objects that can be changed after they
+                            are created. There are multiple reasons for using immutable objects,
+                            including improved readability and runtime efficiency and higher
+                            security.</para>
+                        <para>Although building immutable objects…requires a bit more up-front
+                            complexity, the downstream simplification forced by this abstraction
+                            easily offsets the effort. One of the benefits of switching to a
+                            functional mindset is the realization that tests exist to check that
+                            changes occur successfully in code. In other words, testing’s real
+                            purpose is to validate mutation – and the more mutation you have, the
+                            more testing is required to make sure you get it right. If you isolate
+                            the places where changes occur by severely restricting mutation, you
+                            create a much smaller space for errors to occur and have few plates to
+                            test.</para>
+                        <para>Finally, one of the best features of immutable classes is how well
+                            they fit into the composition abstraction.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Composition Over Inheritance:
+                            </emphasis>Composition over inheritance (or composite reuse principle)
+                            in object-oriented programming is the principle that classes should
+                            achieve polymorphic behavior and code reuse by their composition (by
+                            containing those instances of other classes that implement the desired
+                            functionality) rather than inheritance from a base or parent
+                            class.</para>
+                        <para>To favor composition over inheritance is a design principle that gives
+                            the design higher flexibility. It is more natural to build
+                            business-domain classes out of various components than trying to find
+                            commonality between them and creating a family tree.</para>
+                        <para>Initial design is simplified by identifying system object behaviors in
+                            separate interfaces instead of creating a hierarchical relationship to
+                            distribute behaviors among business-domain classes via inheritance. This
+                            approach more easily accommodates future requirements changes that would
+                            otherwise require a complete restructuring of business-domain classes in
+                            the inheritance model.</para>
+                        <para><emphasis role="bold"><emphasis>Item for
+                                Consideration:</emphasis></emphasis><emphasis> Should we say that we
+                                only allow inheritance for a single concern, i.e., we can subtype
+                                measurement but not subtype a combination of phenomenon type and
+                                measurement type?</emphasis></para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Statement Model Stability:</emphasis> Stability
+                            is different from immutability. Stable means that the model can still
+                            meet unanticipated requirements without having to change. It is not
+                            acceptable to change the model every time a new way to administer a drug
+                            or to treat a condition is identified. By representing these types of
+                            potentially dynamic concerns in the terminology expressions, as opposed
+                            to static fields in a class structure, we do not have to change the
+                            model every time something new is discovered. As Terry Winograd said,
+                            anticipating breakdowns, and providing a space for action when they
+                            occur, is a design imperative.</para>
+                        <para>In some regards, in this context “stable” means “not brittle.” A model
+                            easily broken by changes that someone could anticipate is one possible
+                            definition of brittle. A stable model is critical in the phase of a
+                            known changing landscape. We do that by isolating areas of anticipated
+                            change into a dynamic data structure. That dynamic data structure may
+                            also be immutable in an object that represents a clinical
+                            statement.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Overall Model Simplicity: </emphasis>In cases
+                            where different principles collide, we shall favor the enhancement of
+                            simplicity of the entire system over simplicity in one area of the
+                            system.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Cohesion: </emphasis>Related classes should
+                            reside in the same module or construction. The placement of a class in a
+                            module should reduce the dependencies between modules.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Reusability: </emphasis>Architectural patterns
+                            should encourage class reusability where possible. Reusability may
+                            further refine encapsulation when composition is considered.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Assumption-free: </emphasis>Implied semantics
+                            must be surfaced explicitly in the model.</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para><emphasis role="bold">Example: </emphasis>Implicit in the
+                                    statement, “I order a book from Amazon” are: paying for the
+                                    book, delivery of the book to some location, and the transfer of
+                                    ownership of the book from the vendor to the client.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Design by Composition and/or Class
+                                Specialization: </emphasis>The capture of additional model
+                            expressivity must be captured by composition and/or by class
+                            specialization. The modeling approach should avoid the use of design by
+                            constraint (except for terminology binding and attribute type
+                            constraints) as it violates proper decoupling and encapsulation. An
+                            example of design by constraint is to create a single procedure class
+                            containing
+                            <?oxy_comment_start author="steph" timestamp="20190318T143951-0600" comment="Previously it was said that design by constraint should be avoided except for attribute type constraints.  Is the example here different from that?"?>all
+                            attributes<?oxy_comment_end?> for all known procedures and constraining
+                            out irrelevant attributes in a more specialized model. This approach is
+                            very difficult to implement and violates numerous object-oriented best
+                            practices.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">No False Dichotomies: </emphasis>Dichotomies
+                            that are not completely disjoint (mutually exclusive) lead to arbitrary
+                            classification rules and result in ambiguity based on different
+                            assumptions about the domain. These must be avoided.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Model Should Avoid Semantic Overloading
+                                (semantic precision): </emphasis>Semantic overloading occurs when a
+                            model attribute’s meaning changes entirely, depending on context. While
+                            the refinement of the semantics of an attribute in a subclass is
+                            acceptable, a change of meaning is problematic. For instance, in FHIR,
+                            the Composition class defines an attribute called Subject. In some
+                            subclasses, the attribute may be the entity that this composition refers
+                            to (e.g., the patient in a medical record). In other cases, it is the
+                            topic being discussed by the composition (e.g., a medication orderable
+                            catalog).</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Convention Over Configuration:
+                            </emphasis>Convention over configuration (also known as coding by
+                            convention) is a software design paradigm used by software frameworks
+                            that attempt to decrease the number of decisions that a developer using
+                            the framework is required to make without necessarily losing
+                            flexibility.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Model Consistency:</emphasis> Patterns should
+                            allow the consistent representation of information that is commonly
+                            shared across models. For instance, attribution and participation
+                            information should be captured consistently. Failure to do so forces
+                            implementers to develop heuristics to capture and normalize attribution
+                            information that is represented or extended differently in different
+                            classes (e.g., FHIR).</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="bold">Model Symmetry: </emphasis>There should be
+                            symmetry in the models wherever we can have it.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Iterative development and validation using use cases</para>
+                    </listitem>
+                </itemizedlist>
+
+
+                <para>
+                    <table frame="topbot" rowsep="0" colsep="0">
+                        <title><?oxy_comment_start author="steph" timestamp="20190318T150005-0600" comment="For both Pulse Measurement and Pulse Request statements, why isn&apos;t the info for the rest of the fields included, as applicable, particularly Narrative and Topic?"?>Pulse<?oxy_comment_end?>
+                            Measurement Statement</title>
+                        <tgroup cols="2" align="left">
+                            <colspec colname="c1" colnum="1" colwidth="1*"/>
+                            <colspec colname="c2" colnum="2" colwidth="3*"/>
+                            <thead>
+                                <row rowsep="1">
+                                    <entry namest="c1" nameend="c2">Performance Statement</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                    <entry>Narrative:</entry>
+                                    <entry/>
+                                </row>
+                                <row>
+                                    <entry>Topic:</entry>
+                                    <entry/>
+                                </row>
+                                <row>
+                                    <entry>Subject of information:</entry>
+                                    <entry/>
+                                </row>
+                                <row>
+                                    <entry>Statement time:</entry>
+                                    <entry/>
+                                </row>
+                                <row>
+                                    <entry>Performance Act:</entry>
+                                    <entrytbl cols="3">
+                                        <colspec colnum="1" colname="c1" colwidth="1.86*"/>
+                                        <colspec colnum="2" colname="c2" colwidth="1*"/>
+                                        <colspec colnum="3" colname="c3" colwidth="6.48*"/>
+                                        <tbody>
+                                            <row rowsep="0">
+                                                <entry colsep="0" rowsep="0">Circumstance:</entry>
+                                                <entry colsep="0" rowsep="0">Timing:</entry>
+                                                <entry colsep="0" rowsep="0"/>
+                                            </row>
+                                            <row rowsep="0">
+                                                <entry colsep="0" rowsep="0">Result:</entry>
+                                                <entry colsep="0" rowsep="0" namest="c2" nameend="c3">120 beats per minute </entry>
+                                            </row>
+                                        </tbody>
+                                    </entrytbl>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
+                </para>
+                <para>
+                    <table xml:id="table_7e8ac57c-08f8-4f1e-b1fc-af55f26c991d" colsep="0" rowsep="0" frame="topbot">
+                        <title>Pulse Request Statement</title>
+                        <tgroup cols="2" align="left">
+                            <colspec colname="c1" colnum="1" colwidth="1*" colsep="0" rowsep="0"/>
+                            <colspec colname="c2" colnum="2" colwidth="4*" colsep="0" rowsep="0"/>
+                            <thead>
+                                <row rowsep="1">
+                                    <entry namest="c1" nameend="c2">Request Statement</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row rowsep="0">
+                                    <entry>Narrative:</entry>
+                                    <entry/>
+                                </row>
+                                <row rowsep="0">
+                                    <entry>Topic:</entry>
+                                    <entry/>
+                                </row>
+                                <row>
+                                    <entry>Subject of information:</entry>
+                                    <entry/>
+                                </row>
+                                <row>
+                                    <entry>Statement time:</entry>
+                                    <entry/>
+                                </row>
+                                <row rowsep="0">
+                                    <entry>Request Act:</entry>
+                                    <entrytbl cols="3">
+                                        <colspec colnum="1" colname="c1" colwidth="2.14*"/>
+                                        <colspec colnum="2" colname="c2" colwidth="1*"/>
+                                        <colspec colnum="3" colname="c3" colwidth="6.35*"/>
+                                        <tbody>
+                                            <row rowsep="0">
+                                                <entry colsep="0" rowsep="0">Circumstance:</entry>
+                                                <entry colsep="0" rowsep="0">Timing:</entry>
+                                                <entry colsep="0" rowsep="0"/>
+                                            </row>
+                                            <row rowsep="0">
+                                                <entry colsep="0" rowsep="0"/>
+                                                <entry colsep="0" rowsep="0">Repetition:</entry>
+                                                <entry colsep="0" rowsep="0"/>
+                                            </row>
+                                            <row rowsep="0">
+                                                <entry colsep="0" rowsep="0">Requested
+                                                  result:</entry>
+                                                <entry colsep="0" rowsep="0" namest="c2" nameend="c3">&lt; 70 beats per minute</entry>
+                                            </row>
+                                        </tbody>
+                                    </entrytbl>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
+                </para>
+            </section>
+            <section xml:id="section_70b0a98c-07ee-461f-943d-56b055dabf64">
+                <title>Measurement</title>
+                <para>
+                    <editorial-rule>
+                        <title>Measurement</title>
+                        <mathphrase>Define measurement</mathphrase>
+                    </editorial-rule>
+                    <editorial-rule>
+                        <title>Lower bound</title>
+                        <mathphrase>The lower bound is the smallest reported value of the
+                            measurement. If only one value is reported, then the lower bound is the
+                            same as the upper bound.</mathphrase>
+                    </editorial-rule>
+                    <editorial-rule>
+                        <title>Upper bound</title>
+                        <mathphrase>The upper bound is the largest reported value of the
+                            measurement. If only one value is reported, then the upper bound is the
+                            same as the lower bound. </mathphrase>
+                    </editorial-rule>
+                    <editorial-rule>
+                        <title>Include lower bound</title>
+                        <mathphrase><?oxy_comment_start author="steph" timestamp="20190318T151038-0600" comment="Recommend revising sentence to:  Indicate if the lower bound is withi or outside the interval represented by this measurement.  Same for Include upper bound below." flag="done"?>Indicate<?oxy_comment_end?>
+                            if the lower bound is within or outside the interval represented by this
+                            measurement.</mathphrase>
+                    </editorial-rule>
+                    <editorial-rule>
+                        <title>Include upper bound</title>
+                        <mathphrase>Indicate if the upper bound is within the interval represented
+                            by this measurement, or outside the interval represented by this
+                            measurement.</mathphrase>
+                    </editorial-rule>
+                    <editorial-rule>
+                        <title>Resolution</title>
+                        <mathphrase>An optional numeric representation of the resolution of this
+                            measurement, using the same semantics as the measurement itself.
+                        </mathphrase>
+                    </editorial-rule>
+                    <editorial-rule>
+                        <title>Measure semantic</title>
+                        <mathphrase>A concept that defines the semantic interpretation of the upper
+                            and lower bounds of this measurement.</mathphrase>
+                    </editorial-rule>
+                </para>
+            </section>
+        </section>
+
+        <section xml:id="section_b139fa1d-0462-42f7-bc7a-182d28e32efd">
+            <title>Statement Types</title>
+            <para>The types of clinical statements are listed and described below. The rationale for
+                selecting these types is: Clinicians basically do two categories of things with a
+                patient that need to be documented as clinical statements.</para>
+            <orderedlist>
+                <listitem>
+                    <para><emphasis role="bold">Performance of action</emphasis>: Actions may
+                        include passive observation of a phenomenon related to patients and their
+                        health status or family history, and may also include active interventions,
+                        such as providing education or administering medications or documenting that
+                        a patient is participating in exercise to improve their overall health
+                        status.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Request for action</emphasis>: Requests for future
+                        actions may include defining goals, consultation with other providers, or
+                        active interventions.</para>
+                </listitem>
+            </orderedlist>
+            <para><emphasis role="bold">NOTE: </emphasis>Given that this work is not finalized yet,
+                it is possible that additional clinical statement types may need to be added in the
+                event
+                <?oxy_comment_start author="steph" timestamp="20190318T152038-0600" comment="Since that contract ended and apparently did not result in identifying new statement types that are needed, should this sentence be revised?"?>during
+                creation of the KNARTs<?oxy_comment_end?> there are clinical terminology artifacts
+                identified that do not fit into any of the types listed above.</para>
+            <para>Any statement that states or implies an “if/then” clause should be expressed and
+                captured as an Event Condition Action (ECA) rule.</para>
+            <para>Example: </para>
+            <itemizedlist>
+                <listitem>
+                    <para>“Free-text reminder: Consider [ordering X procedure] for patients with
+                        suspected pericarditis, myocarditis, hypertrophic cardiomyopathy, or
+                        pulmonary hypertension.”</para>
+                </listitem>
+                <listitem>
+                    <para>Implied “if/then” clause: <emphasis role="bold">IF</emphasis>
+                        pericarditis, myocarditis, hypertrophic cardiomyopathy, or pulmonary
+                        hypertension is suspected – <emphasis role="bold">THEN</emphasis> consider
+                        ordering X procedure.</para>
+                </listitem>
+                <listitem>
+                    <para>Rather than capturing the above statement as a free text reminder,
+                        building an appropriate ECA rule should be considered.</para>
+                </listitem>
+            </itemizedlist>
+            <section xml:id="section_e50dee69-daff-4b15-8e2b-a2eb6bc21b21">
+                <title>Performance Statements</title>
+                <para>An action statement describes an action that has previously been performed,
+                    and – if applicable - the results of that action. As shown in the examples
+                    below, this can range from documenting that a subject of record: </para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Was observed to have the presence or absence of a clinical
+                            phenomenon</para>
+                    </listitem>
+                    <listitem>
+                        <para>Underwent a specific test/screening or procedure, and its resultant
+                            value, if any</para>
+                    </listitem>
+                    <listitem>
+                        <para>Was administered a medication or other substance </para>
+                    </listitem>
+                    <listitem>
+                        <para>Was provided educational materials</para>
+                    </listitem>
+                    <listitem>
+                        <para>Has any other state or specific characteristic that is clinically
+                            relevant</para>
+                    </listitem>
+                </itemizedlist>
+                <para>If the action statement:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Regards a measurement that was taken, all information about that
+                            measurement will be included as part of the clinical statement, such as
+                            its value and unit of measure and any details about how the measurement
+                            was taken. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Results in an order(s) placed during the same encounter that was made
+                            to learn more about the phenomenon or to monitor it, then a link will be
+                            made to the order(s). </para>
+                    </listitem>
+                </itemizedlist>
+                <para>Examples of Action clinical statements:</para>
+                <orderedlist>
+                    <listitem>
+                        <para>Systolic blood pressure of 120 mmHg taken from right brachial artery
+                            while seated and no more than 30 minutes from when the patient last
+                            urinated</para>
+                    </listitem>
+                    <listitem>
+                        <para>Diabetes mellitus is present</para>
+                    </listitem>
+                    <listitem>
+                        <para>Diabetes mellitus is not present</para>
+                    </listitem>
+                    <listitem>
+                        <para>Three dot blot hemorrhages</para>
+                    </listitem>
+                    <listitem>
+                        <para>Dot blot hemorrhage is present</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient taking one Acetaminophen 100 mg tablet by mouth daily as
+                            needed for pain</para>
+                    </listitem>
+                    <listitem>
+                        <para>Positive screen for fall risk</para>
+                    </listitem>
+                    <listitem>
+                        <para>Negative screen for PTSD and depression</para>
+                    </listitem>
+                    <listitem>
+                        <para>Family history of colon cancer </para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient provided educational materials on pre-diabetes
+                            diagnosis</para>
+                    </listitem>
+                    <listitem>
+                        <para>Patient counseled on the health risks of continuing smoking </para>
+                    </listitem>
+                </orderedlist>
+            </section>
+            <section xml:id="section_3cd03dbb-48dd-4bdc-8f29-fa20bfd459c9">
+                <title>Request Statements</title>
+                <para>A Request clinical statement describes a request for an action made by a
+                    clinician. Most of the times, but not always, the object of the request (e.g.,
+                    lab test, medication order) will be fulfilled by someone other than the
+                    clinician (e.g., lab technician, pharmacist) making the request. All information
+                    about the request will be documented in this clinical statement, including
+                    information about details relating to the request, such as patient must fast for
+                    12 hours before having a lipids blood test.</para>
+                <para>Examples of Request clinical statements:</para>
+                <orderedlist>
+                    <listitem>
+                        <para>Lipids panel for patient Jane Doe. Patient must fast for 12 hours
+                            prior to the blood test.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Head CT with contrast for patient John Doe. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Cardiology referral for patient Mary Smith.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Penicillin medication for patient Michael Smith to be taken twice a
+                            day by mouth with food for 10 days.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to participate in group tobacco cessation counseling once a
+                            week.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to lose 15 pounds within 3 months.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to exercise at least 3 times a week for 30 minutes per day for
+                            3 months. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Advised to decrease the number of packs smoked per day from 3 to 2
+                            within 6 months by using a nicotine patch.</para>
+                        <para/>
+                    </listitem>
+                </orderedlist>
+            </section>
+        </section>
+        <section xml:id="section_1b4e6bff-3a99-465f-95ae-89b8ac23bc6e">
+            <title>Statement Building Blocks</title>
+            <para>The following components are used in multiple places within clinical statements. </para>
+            <para/>
+            <section xml:id="section_a4879816-b718-4def-80a1-926f2850f40e">
+                <title><?oxy_comment_start author="steph" timestamp="20190318T152743-0600" comment="I changed this to all caps since that&apos;s how it&apos;s referred to previously." flag="done"?>STAMP<?oxy_comment_end?>
+                    Coordinate</title>
+                <para>The STAMP coordinate represents the versions of the integrated terminology and
+                    statement model used to represent a clinical statement. </para>
+            </section>
+            <section xml:id="_Ref493843805">
+                <title>Phenomena and Interval Values</title>
+                <para>In many representation models, such as SNOMED-CT and CIMI, a somewhat
+                    arbitrary distinction exists between the modeling of “Findings” and “Observable
+                    Entities.” The former typically document the presence or absence of some
+                    phenomenon in the patient (such as whether the patient has a pressure ulcer),
+                    whereas the latter characterize some feature of the patient or the patient’s
+                    condition (such as the number of pressure ulcers a patient has). <xref linkend="table_95d32b2d-0ebf-4caf-abb0-380bf1ff3551"/> shows an example of
+                    the different representations for these two similar observations when modeled as
+                    Findings versus Observable Entity.<table frame="topbot" rowsep="0" colsep="0" xml:id="table_95d32b2d-0ebf-4caf-abb0-380bf1ff3551">
+                        <title>An undesirable redundancy in representing clinical
+                            observations.</title>
+                        <tgroup cols="2" align="left">
+                            <colspec colname="c1" colnum="1" colwidth="1*"/>
+                            <colspec colname="c2" colnum="2" colwidth="1*"/>
+                            <thead>
+                                <row>
+                                    <entry>Pressure Ulcer as Finding</entry>
+                                    <entry>Pressure Ulcer as Observable Entity</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                    <entry>[Pressure Ulcer(s)]→(value)→[Present]</entry>
+                                    <entry>[Pressure Ulcer(s)]→(value)→5</entry>
+                                </row>
+                                <row>
+                                    <entry>[Pressure Ulcer(s)]→(value)→[Absent]</entry>
+                                    <entry>[Pressure Ulcer(s)]→(value)→0</entry>
+                                </row>
+                                <row>
+                                    <entry/>
+                                    <entry/>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table></para>
+                <para><?oxy_comment_start author="steph" timestamp="20190318T153036-0600" comment="This paragraph doesn&apos;t make sense.  It also seems partially redundant of the paragraph above it." id="nf3_c5s_fhb"?><?oxy_comment_start author="timowilliams" timestamp="20190327T125559-0500" comment="Deleted paragraph above.  Will clarify paragraph in next round." parentID="nf3_c5s_fhb" mid="27"?>Because
+                    the observation of pressure ulcers<link xlink:href="#con_224b97e0-b703-39f6-ba4b-aa27f5dc15aa"><inlinemediaobject>
+                            <imageobject>
+                                <imagedata>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px" height="14px">
+                                        <?oxy_comment_start author="steph" timestamp="20190318T152917-0600" comment="Same as prior comment.  Recommend just typing this here."?>
+                                        <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;"><?oxy_comment_end?>[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; ">&#xF061; </tspan>
+                                            <tspan dy="-1.5"/>Tetralogy of Fallot]</text>
+                                    </svg>
+                                </imagedata>
+                            </imageobject>
+                        </inlinemediaobject></link> in a patient could be correctly modeled as
+                    either a Finding or Observable Entity Text before. <link xlink:href="#table_9b08a484-6589-430a-bcb5-060703de35c3"><inlinemediaobject>
+                            <imageobject>
+                                <imagedata>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="126px" height="14px">
+                                        <text x="1" y="7" style="font-size: 9pt; font-family: Open Sans Condensed Light, Symbol, Material Design Icons; baseline-shift: sub;">[<tspan dy="1.5" style="font-family: Material Design Icons; fill: #FF4E08; stroke: #FF4E08; ">&#xF2D8; </tspan>
+                                            <tspan dy="-1.5"/>Overriding structures]</text>
+                                    </svg>
+                                </imagedata>
+                            </imageobject>
+                        </inlinemediaobject></link> Text
+                    after.<?oxy_comment_end mid="27"?><?oxy_comment_end?> any subsequent query to
+                    determine whether a patient had a pressure ulcer would need to test for the
+                    observation in two different ways: </para>
+                <para><emphasis>IF EXISTS object WHERE object.conceptId = “3456_PressureUlcers” AND
+                        (object.value = “Present” OR object.value &gt; 0)</emphasis></para>
+                <para>This duality of representation complicates data querying and significantly
+                    increases the possibility that data analysts will not be aware of and account
+                    for all the ways that an observation may be represented, resulting in
+                    false-negative query results.</para>
+                <para>To resolve the arbitrary distinction between “Findings” and “Observable
+                    Entities,” one must consolidate these redundant concept types into the single
+                    concept type “Phenomenon.” Further, one must introduce a new data type to
+                    represent the values of Phenomena, one that can express both the “presence”
+                    (present/absent/indeterminate) and numeric (integer, real) values that Findings
+                    and Observable Entities can currently represent, respectively. This new data
+                    type is an “interval value.” </para>
+                <para/>
+                <section>
+                    <title>The Interval Value Data Type</title>
+                    <para>An interval value data type (or “interval value”) formally represents a
+                        numeric interval between two non-negative real numbers. The interval can be
+                        open or closed. Examples of interval values are:</para>
+                    <para>[5,5], [0,10), (0,∞], [0,0]</para>
+                    <para>The formal syntax of interval values is represented by the following
+                        grammar:</para>
+                    <para>Interval :: [ ‘[‘ | ‘(‘ ] N1 ‘,’ N2 [ ‘]’ | ‘)’ ]</para>
+                    <para>N1 :: Non-Negative Real Number</para>
+                    <para>N2 :: [ Non-Negative Real Number | ∞ ]</para>
+                    <para>The semantics of this grammar are as follows:</para>
+                    <para>‘[‘ and ‘]’ : Inclusive boundary (i.e. &gt;= and &lt;= )</para>
+                    <para>‘(‘ and ‘)’ : Exclusive boundary (i.e., &gt; and &lt; )</para>
+                    <para>∞: infinity, is &gt; every Non-Negative Real Number</para>
+                    <para>N1 &lt;= N2</para>
+                    <para>The interval value data type provides a single way to represent both
+                        “presence” values and numeric values for a phenomenon. In general, the
+                        interval value represents the numeric range within which the observed value
+                        of a phenomenon occurs. Note that this formalism allows both exact values
+                        and ranges of values to be expressed.</para>
+                    <para>In the special case that the beginning and end point of an interval are
+                        the same number, <emphasis>n</emphasis>, the meaning is that the value of
+                        the phenomenon is <emphasis>exactly n</emphasis>. </para>
+                    <para>[5,5] : exactly 5 ; [0,0] : exactly 0</para>
+                    <para>In the special case that the beginning of the interval is a number,
+                            <emphasis>n</emphasis>, and the end point is ∞, the meaning is that the
+                        value of the phenomenon is <emphasis>&gt; n </emphasis>or
+                            <emphasis>&gt;=n</emphasis>, depending on whether the interval is open
+                        or closed.</para>
+                    <para>(0,∞] : &gt; 0 ; [10,∞] : &gt;= 10</para>
+                    <para>The interval value also represents whether a phenomenon is “present”,
+                        “absent”, or “indeterminate”. Specifically, any interval value that includes
+                            <emphasis>only </emphasis>numbers that are &gt; 0 also denotes the value
+                        “present”. Any interval value that includes only the number 0, itself,
+                        denotes the value “absent”. Any interval value that includes
+                            <emphasis>both</emphasis> the number 0 and at least one number &gt; 0
+                        denotes the value “indeterminate”. Lastly, there are two interval values
+                        that explicitly denote “present” and “absent,” respectively. These values
+                        may be assigned to phenomena that would not otherwise take on a numeric
+                        value (such as “nausea”):</para>
+                    <para>Nausea value = (0,∞] : present</para>
+                    <para>Nausea value = [0,0] : absent </para>
+                    <para><xref linkend="_Ref493768774"/> lists a number of phenomena and how their
+                        current values (as “Findings” or “Observable Entities”) would be represented
+                        instead as interval values under the model proposed here.</para>
+                    <figure xml:id="_Ref493768774">
+                        <title>The semantics of interval values assigned to phenomena, as shown
+                            through examples.</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/interval-values-for-phenomena.png" scalefit="1" width="100%" contentdepth="100%"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </section>
+                <section>
+                    <title>Comparing Interval Values using IsWithin()</title>
+                    <para>Phenomena that represent clinical observations must be assigned interval
+                        values, so the querying of such phenomena for purposes of data retrieval and
+                        data analysis requires the comparison of interval values. Specifically, one
+                        must be able to test whether one interval value <emphasis>is
+                            within</emphasis> (i.e., encompassed by) another interval value. For
+                        example, if one wanted to retrieve only those patients who had between 1 and
+                        5 pressure ulcers, one would test whether a patient had the phenomenon
+                        “pressure ulcer” recorded with a value interval that was within the interval
+                        [1,5]. Note that this test would retrieve patients who had pressure-ulcer
+                        interval values, for example, of [1,1], [4,4], and [3,5], but not those who
+                        had [0,0] or [1,10].</para>
+                    <para>Formally, the comparison of two interval values is done using the
+                        predicate <emphasis>IsWithin(
+                            i</emphasis><subscript>1</subscript><emphasis>, i</emphasis><subscript>2
+                            </subscript><emphasis>), </emphasis>where i<subscript>1</subscript>,
+                            i<subscript>2 </subscript>are interval values. The values of the
+                        IsWithin() predicate may be TRUE, FALSE, or UNKNOWN, determined as
+                        follows:</para>
+                    <para>TRUE =&gt; if a number is in i<subscript>1</subscript>, then it is
+                        definitely in i<subscript>2</subscript> (i<subscript>2</subscript>
+                        “subsumes” i<subscript>1</subscript>)</para>
+                    <para>FALSE =&gt; if a number is in i<subscript>1</subscript>, then it is
+                        definitely NOT in i<subscript>2</subscript> (i<subscript>2</subscript>
+                            “i<subscript>1</subscript>is disjoint with”
+                        i<subscript>1</subscript>)</para>
+                    <para>UNKNOWN =&gt; if a value is in, it may or may not be in
+                            i<subscript>2</subscript> (i<subscript>2</subscript> “overlaps”
+                            i<subscript>1</subscript>)</para>
+                    <para>Examples of interval-value comparisons:</para>
+                    <para><emphasis>IsWithin</emphasis>( [5,5], [0,10] ) =&gt; TRUE (interval
+                            i<subscript>2</subscript> “subsumes” interval
+                        i<subscript>1</subscript>)</para>
+                    <para><emphasis>IsWithin</emphasis>( [15,20], [0,10] ) =&gt; FALSE (interval
+                            i<subscript>2</subscript> “is disjoint with” interval
+                            i<subscript>1</subscript>)</para>
+                    <para><emphasis><?oxy_comment_start author="steph" timestamp="20190319T095940-0600" comment="Why wouldn&apos;t this be false vs. unknown since upperbound for interval2 is 10 vs. 15?"?>IsWithin<?oxy_comment_end?></emphasis>(
+                        [5,15], [0,10] ) =&gt; UNKNOWN (interval i<subscript>2</subscript>
+                        “overlaps” interval i<subscript>1</subscript>)</para>
+                    <para>Other useful examples:</para>
+                    <para><emphasis>IsWithin( [2,2], (0,</emphasis>∞<emphasis>] ) =&gt;
+                            TRUE</emphasis></para>
+                    <para><emphasis><?oxy_comment_start author="steph" timestamp="20190319T095750-0600" comment="Again, I definitely am not a mathematician and am just trying to understand this.  Why is this unknown vs. false since the interval2 excluded 0 and interval1 includes it?"?>IsWithin<?oxy_comment_end?>(
+                            [0,2], (0,</emphasis>∞<emphasis>] ) =&gt; UNKNOWN </emphasis></para>
+                    <para><emphasis>IsWithin( (0,2], (0,</emphasis>∞<emphasis>] ) =&gt;
+                            TRUE</emphasis></para>
+                    <para><emphasis>IsWithin( [0,0], (0,</emphasis>∞<emphasis>] ) =&gt;
+                            FALSE</emphasis></para>
+                    <para><emphasis>IsWithin( [0,0], [0,0] ) =&gt; TRUE</emphasis></para>
+                </section>
+            </section>
+            <section>
+                <title>Querying Phenomena Using Interval Values</title>
+                <para>Based on the definition of the IsWithin() predicate, patient records may be
+                    queried for the presence or the numeric value of clinical observations using a
+                    single formalism.</para>
+                <section xml:id="section_4ba31e20-94ae-4d32-86a6-0d16fe45b3a9">
+                    <title>UUID</title>
+                    <para>The UUID is the means by which all clinical statement items that require
+                        unique identifiers are identified. </para>
+                </section>
+                <section xml:id="section_a90e0e13-e26f-4e0f-95a1-bd3d6884c6fa">
+                    <title>Logical Expression</title>
+                </section>
+                <section xml:id="section_d77f3cb2-b433-4811-acee-39c70e475f67">
+                    <title>STAMP Coordinate</title>
+                </section>
+            </section>
+            <section xml:id="section_55e57c1b-49ed-47b3-8e74-b443103c0af8">
+                <title>Compound Statements</title>
+                <section xml:id="section_2beebad7-bd18-4e6d-8228-f67220a7750a">
+                    <title>Use case: Systolic BP while seated with
+                        <?oxy_comment_start author="steph" timestamp="20190319T102044-0600" comment="This is nit picky but the use case only says seated and doesn&apos;t specify feet on the floor.  I am short and can be seated but not have feet on the floor, such as when I&apos;m sitting on the exam table having my BP checked and my feet don&apos;t reach."?>feet<?oxy_comment_end?>
+                        on the floor for 5 minutes</title>
+                    <bridgehead renderas="sect1"><?oxy_comment_start author="steph" timestamp="20190319T100537-0600" comment="Should this be under a numbered section heading?"?>Principles<?oxy_comment_end?></bridgehead>
+                    <itemizedlist>
+                        <listitem>
+                            <para><emphasis role="bold">Proposed Principle 1:</emphasis> Clinical
+                                statements have separable and inseparable components; clinical
+                                statements with separable components are considered
+                                    <emphasis>compound</emphasis> clinical statements.</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis role="bold">Proposed Principle 2:</emphasis> Separable
+                                components are statements, which require a value. </para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>The values can be: </para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>numerical </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>pseudo-numerical, e.g. low/medium/high</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Present/absent</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis role="bold">Proposed Principle 3:</emphasis> Clinical
+                                statements with values can stand alone.</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis role="bold">Proposed Principle 4:</emphasis> Clinical
+                                statements with present/absent values can be components that play a
+                                role in the focus of the statement.</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis role="bold">Proposed Principle 5:</emphasis> Inseparable
+                                components of clinical statements do not require values.</para>
+                        </listitem>
+                    </itemizedlist>
+                    <para>Compound clinical statements with separable components should be
+                        represented as “panels,” with each separable clinical statement as a “stand
+                        alone” statement, which can be referenced by multiple “panels.”</para>
+                    <para><emphasis role="bold">Examples:</emphasis></para>
+                    <table xml:id="table_87bc807a-743b-4148-a89f-8daf97b8f242">
+                        <title>Separable/Inseparable Statements - Blood Pressure Measurement Use
+                            Case</title>
+                        <tgroup cols="3">
+                            <colspec colname="c1" colwidth="42*"/>
+                            <colspec colname="c2" colwidth="31*"/>
+                            <colspec colname="c3" colwidth="26*"/>
+                            <tbody valign="top">
+                                <row>
+                                    <entry valign="bottom">
+                                        <para><emphasis role="bold">USE CASE</emphasis></para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para><emphasis role="bold">SEPARABLE
+                                            STATEMENTS</emphasis></para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para><emphasis role="bold">INSEPARABLE
+                                                COMPONENTS</emphasis></para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry morerows="3" valign="middle">
+                                        <para>BP of 120/80 mmHg on right brachial artery, patient in
+                                            sitting position for at least 5 min., using adult BP
+                                            cuff, urinary bladder voided within 30 min. before
+                                            measurement</para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para>Systolic BP = 120 mmHg</para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para>Using adult BP cuff</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom">
+                                        <para>Diastolic BP = 80 mmHg</para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para>Right brachial artery</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom">
+                                        <para>Time since last urination = 30 min. or less</para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para> Sitting position</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom">
+                                        <para>Time in sitting position = 5 min. or more</para>
+                                    </entry>
+                                    <entry valign="bottom"/>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
+                    <para>The “panel” above would consist of the following statements:</para>
+                    <orderedlist>
+                        <listitem>
+                            <para>Blood pressure on right brachial artery, using adult cuff, with
+                                patient in sitting position</para>
+                        </listitem>
+                        <listitem>
+                            <para>Systolic BP = 120 mmHg</para>
+                        </listitem>
+                        <listitem>
+                            <para>Diastolic BP = 80 mmHg</para>
+                        </listitem>
+                        <listitem>
+                            <para>Time since last urination = 30 min. or less</para>
+                        </listitem>
+                        <listitem>
+                            <para>Time in sitting position = 5 min. or more</para>
+                        </listitem>
+                    </orderedlist>
+                    <table xml:id="table_d2260126-0da5-439f-ba68-4e59a7d67b21">
+                        <title>Separable/Inseparable Statements - Administration of Nitroglycerin
+                            Use Case</title>
+                        <tgroup cols="3">
+                            <colspec colname="c1" colwidth="43*"/>
+                            <colspec colname="c2" colwidth="31*"/>
+                            <colspec colname="c3" colwidth="26*"/>
+                            <tbody valign="top">
+                                <row>
+                                    <entry valign="bottom">
+                                        <para><emphasis role="bold">USE CASE</emphasis></para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para><emphasis role="bold">SEPARABLE
+                                            STATEMENTS</emphasis></para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para><emphasis role="bold">INSEPARABLE
+                                                COMPONENTS</emphasis></para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry morerows="6" valign="middle">
+                                        <para>Administration of nitroglycerin 0.4 mg tablet
+                                            sub-lingual every 5 minutes as needed for chest pain;
+                                            maximum 3 tablets (routine)</para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para>Strength = 0.4 mg</para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para>Administration</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom">
+                                        <para>Frequency = every 5 minutes </para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para>Nitroglycerin</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom">
+                                        <para>Maximum dosage = 3 tablets</para>
+                                    </entry>
+                                    <entry valign="bottom">
+                                        <para>Tablet</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom"/>
+                                    <entry valign="bottom">
+                                        <para>As needed</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom"/>
+                                    <entry valign="bottom">
+                                        <para>Sublingual</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom"/>
+                                    <entry valign="bottom">
+                                        <para>For chest pain</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry valign="bottom"/>
+                                    <entry valign="bottom">
+                                        <para>Routine</para>
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
+                    <para>The “panel” above would consist of the following statements:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Administration of nitroglycerin tablets as needed, sublingual, for
+                                chest pain, routine priority</para>
+                        </listitem>
+                        <listitem>
+                            <para>Medication strength = 0.4 mg</para>
+                        </listitem>
+                        <listitem>
+                            <para>Frequency = every 5 minutes</para>
+                        </listitem>
+                        <listitem>
+                            <para>Maximum dosage = 3 tablets</para>
+                        </listitem>
+                    </itemizedlist>
+                    <para><emphasis role="bold">Pseudo-numerical values</emphasis> are qualitative
+                        scales, e.g.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Low/medium/high</para>
+                        </listitem>
+                        <listitem>
+                            <para>Mild/moderate/severe</para>
+                        </listitem>
+                        <listitem>
+                            <para>Tumor staging and grading</para>
+                        </listitem>
+                        <listitem>
+                            <para>+ pos./++ pos./+++ pos.</para>
+                        </listitem>
+                    </itemizedlist>
+                    <para><emphasis role="bold">Statements with absent/present values</emphasis> are
+                        considered <emphasis role="bold">inseparable</emphasis> components, if they
+                        are <emphasis role="bold">part of</emphasis> the focus of the
+                        statement.</para>
+                    <para><emphasis>Example statement</emphasis>: Patient has warm skin and blue
+                        eyes.</para>
+                    <para>Warm skin and blue eyes are the focus of this statement; both components
+                        have a value of “present” and they are <emphasis role="bold">part
+                            of</emphasis> the focus of the statement and are therefore considered
+                        inseparable:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Blue eyes = present</para>
+                        </listitem>
+                        <listitem>
+                            <para>Warm skin = present</para>
+                        </listitem>
+                    </itemizedlist>
+                    <para>Other components, such as <emphasis>right brachial artery</emphasis> and
+                            <emphasis>adult BP cuff</emphasis> in the BP measurement use case
+                        <?oxy_comment_start author="steph" timestamp="20190319T101541-0600" comment="This contradicts what is shown in the table above, that clearly has them labeled as inseparable components."?>are
+                        considered separable<?oxy_comment_end?>, although they may appear to be able
+                        to stand alone and have values of present/absent.</para>
+                    <para><emphasis>Example </emphasis><emphasis role="underline"><emphasis>action</emphasis></emphasis><emphasis> statement:
+                            </emphasis>Systolic<emphasis> </emphasis>BP 120 mmHg taken on right
+                        brachial artery, using adult BP cuff</para>
+                    <para>The right brachial artery and the adult BP have (implied) values of
+                        “present”, but they are <emphasis role="bold">not part of the
+                            focus</emphasis> of the statement (Blood pressure). Therefore, they are
+                        considered separable.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Right brachial artery = present</para>
+                        </listitem>
+                        <listitem>
+                            <para>Adult BP cuff = present</para>
+                        </listitem>
+                    </itemizedlist>
+                    <para>The right brachial artery <emphasis role="bold">plays a role</emphasis> as
+                        the site of the blood pressure. Similarly, the adult BP cuff <emphasis role="bold">plays a role</emphasis> as the device used to perform the
+                        measurement. </para>
+                    <para><emphasis>Example </emphasis><emphasis role="underline"><emphasis>request</emphasis></emphasis><emphasis> statement:
+                        </emphasis>BP measurement to take on right brachial artery, using adult BP
+                        cuff</para>
+                    <para>The right brachial artery and the adult BP have (implied) values of
+                        “present”, but they are <emphasis role="bold">not part of the
+                            focus</emphasis> of the statement (blood pressure). Therefore, they are
+                        considered separable.</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Right brachial artery = present</para>
+                        </listitem>
+                        <listitem>
+                            <para>Adult BP cuff = present</para>
+                        </listitem>
+                    </itemizedlist>
+                    <para>The right brachial artery <emphasis role="bold">plays a role</emphasis> as
+                        the site of the blood pressure measurement. Similarly, the adult BP cuff
+                            <emphasis role="bold">plays a role</emphasis> as the device used to
+                        perform the measurement. </para>
+                    <para>The two examples above show, that the focus of the statements does not
+                        change. It is in both cases the blood pressure. The roles of the right
+                        brachial artery and the adult BP cuff consequently do not change,
+                        either.</para>
+                    <para>The separable components of a clinical statements are also variables. BP
+                        measurement can be performed at a different body site (e.g. left brachial
+                        artery) or using a different device (e.g. digital BP machine). However, the
+                        focus of the statement remains the same.</para>
+                    <para><emphasis role="bold">Other examples:</emphasis></para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Head CT with contrast: Contrast media plays a role as an imaging
+                                substance used</para>
+                        </listitem>
+                        <listitem>
+                            <para>Dobutamine stress echocardiogram: Dobutamine plays a role as a
+                                substance to induce cardiac stress</para>
+                        </listitem>
+                        <listitem>
+                            <para>BP measurement taken at doctor’s office: The office plays a role
+                                as an environment</para>
+                        </listitem>
+                        <listitem>
+                            <para>Body temperature reported by nurse: The nurse plays a role as the
+                                finding informer</para>
+                        </listitem>
+                    </itemizedlist>
+                    <section xml:id="section_1197e8bb-7ae1-480c-b421-f83af8b5c71a">
+                        <title>Details</title>
+                        <itemizedlist>
+                            <listitem>
+                                <para><emphasis role="bold">Proposed Principle 1:</emphasis> Details
+                                    refine or further qualify the topic. Topic type and topic focus
+                                    together with the details sufficiently define instance
+                                    requests.</para>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis role="bold">Proposed Principle 2:</emphasis> Not
+                                    every action or request requires details to be sufficiently
+                                    defined.</para>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis role="bold">Proposed Principle 3:</emphasis> A
+                                    detail has a key and a value, where the value can be a concept
+                                    or a numeric range with unit.</para>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis role="bold">Proposed Principle 4:</emphasis> A
+                                    detail can be a separable or inseparable part of a complex
+                                    clinical statement.</para>
+                            </listitem>
+                        </itemizedlist>
+                        <para><emphasis role="highlight"><emphasis role="bold">The criteria for
+                                    identifying the focus and details that are not part of the
+                                    focus, but play a role in a clinical statement suggest that
+                                    “details” are </emphasis><emphasis role="underline"><emphasis role="bold">all</emphasis></emphasis><emphasis role="bold">
+                                    components, which </emphasis><emphasis role="underline"><emphasis role="bold">play a
+                                    role</emphasis></emphasis><emphasis role="bold"> and are
+                                    therefore separable components.</emphasis></emphasis></para>
+                        <para><emphasis role="bold">Examples:</emphasis></para>
+                        <table xml:id="table_3e60408b-f9f1-40c6-b9bd-444a00d75fe0">
+                            <title>Separable/Inseparable Statements – Details</title>
+                            <tgroup cols="7">
+                                <colspec colname="c1" colwidth="13*"/>
+                                <colspec colname="c2" colwidth="28*"/>
+                                <colspec colname="c3" colwidth="12*"/>
+                                <colspec colname="c4" colwidth="12*"/>
+                                <colspec colname="c5" colwidth="13*"/>
+                                <colspec colname="c6" colwidth="9*"/>
+                                <colspec colname="c7" colwidth="13*"/>
+                                <tbody valign="top">
+                                    <row>
+                                        <entry valign="middle">
+                                            <para><emphasis role="bold">Detail</emphasis></para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para><emphasis role="bold">Description</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Has (Pseudo-) Numeric
+                                                  Value</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Has Present/Absent
+                                                  Value</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Part of Focus of
+                                                  Statement</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Plays Role</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Separable/</emphasis></para>
+                                            <para><emphasis role="bold">Inseparable</emphasis></para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Actor</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Person making the request or documenting/reporting
+                                                the action</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Approach/Access Route</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Passage used to reach the procedure site or take a
+                                                measurement</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para><?oxy_comment_start author="steph" timestamp="20190319T102442-0600" comment="Again in the BP use case example, body position (sitting) was shown as inseparable.  Not sure if right brachial artery is considered approach/access route but if yes, then it too was shown in the example as inseparable vs. separable."?>Body
+                                                position<?oxy_comment_end?></para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Position of the body during a
+                                                procedure/test</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Priority</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Priority of the request, e.g. Stat or
+                                                Routine</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Indication</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Reason that a request was made or an action
+                                                taken</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Duration</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>A length of time, such as for 7 days, within 24
+                                                hours, or as needed</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Frequency</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>How often something must be done, such as daily,
+                                                twice per day</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para><emphasis role="bold">Detail</emphasis></para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para><emphasis role="bold">Description</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Has (Pseudo-) Numeric
+                                                  Value</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Has Present/Absent
+                                                  Value</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Part of Focus of
+                                                  Statement</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Plays Role</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Separable/</emphasis></para>
+                                            <para><emphasis role="bold">Inseparable</emphasis></para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Route of Administration</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Way in which something, such as a medication, is
+                                                given to a patient, such as by mouth/oral,
+                                                intravenously, sublingual</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Strength</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Strength of a unit of the medication/drug itself,
+                                                such as 25 mg</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Amount</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Amount of the medication/drug that is to be taken
+                                                at a given time, such as 2 tablets</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Dosage</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Equals strength multiplied by amount, e.g. 2
+                                                tablets of 25mg equals 50mg</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Projection</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>The path taken by an x-ray beam or
+                                                ultrasonographical wave as it passes through the
+                                                body</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Substance used</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Substance such as contrast media for imaging or
+                                                catecholamine for stress induction</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Device used</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para><?oxy_comment_start author="steph" timestamp="20190319T104135-0600" comment="Again, in the BP use case, the adult BP cuff was shown as an inseparable component."?>Device
+                                                used to perform something, such as using a BP cuff
+                                                to measure blood pressure <?oxy_comment_end?></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Device setting</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Specific settings for a device used to perform a
+                                                procedure, such as O2 Flow Rate 5 to 12 L/min</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Informer</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Person who reports a test result or gives
+                                                information about the patient</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para><emphasis role="bold">Detail</emphasis></para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para><emphasis role="bold">Description</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Has (Pseudo-) Numeric
+                                                  Value</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Has Present/Absent
+                                                  Value</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Part of Focus of
+                                                  Statement</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Plays Role</emphasis></para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para><emphasis role="bold">Separable/</emphasis></para>
+                                            <para><emphasis role="bold">Inseparable</emphasis></para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Performer</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Person who performs an action</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry valign="middle">
+                                            <para>Assessment Scale</para>
+                                        </entry>
+                                        <entry valign="middle">
+                                            <para>Reference scale use for scoring</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>no</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>yes</para>
+                                        </entry>
+                                        <entry align="center" valign="middle">
+                                            <para>separable</para>
+                                        </entry>
+                                    </row>
+                                </tbody>
+                            </tgroup>
+                        </table>
+                        <section xml:id="section_81cca6ed-501d-43d1-86d9-951b1955ab3b">
+                            <title>Details/Roles in the Context of Use Cases</title>
+                            <itemizedlist>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Approach/Access
+                                            Route</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Passage used to reach the procedure site or take a
+                                                  measurement.<emphasis role="bold"> </emphasis></para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Excision of rib by <emphasis>cervical
+                                                  approach</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Administration of enema via <emphasis>rectal
+                                                  route</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Body
+                                        Position</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The position of the body during a procedure/test. </para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Colonoscopy in <emphasis>right lateral
+                                                  position</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Blood pressure measurement in
+                                                  <emphasis>seated position</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>ECG in <emphasis>lying
+                                                  position</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role:
+                                            <?oxy_comment_start author="steph" timestamp="20190319T104600-0600" comment="Body Site was not included in the Details table above.  Should it have been?"?>Body
+                                            Site<?oxy_comment_end?></emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The body site of a finding or a procedure</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Blood pressure measurement on
+                                                  <emphasis>right brachial artery</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Removal of tattoo from <emphasis>left upper
+                                                  arm</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Priority</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The priority of the request, such as Stat or
+                                                Routine. </para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Blood sugar measurement 3 times/day,
+                                                  <emphasis>routine</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Indication</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The reason for a request made or an action
+                                                  taken.<emphasis role="bold"> </emphasis></para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>ECG to evaluate <emphasis>chest
+                                                  pain</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>X-ray of hands to evaluate
+                                                  <emphasis>rheumatoid arthritis</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Patient placed in observation status due to
+                                                  <emphasis>suicidal thoughts</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Duration</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>A length of time, such as for 7 days, within 24
+                                                hours</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Physical therapy for <emphasis>3
+                                                  weeks</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Administration of Aspirin 200mg oral tablets
+                                                  for pain as needed for <emphasis>2
+                                                  days</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Frequency</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>How often something must be done, such as daily,
+                                                twice per day or
+                                                <?oxy_comment_start author="steph" timestamp="20190319T105008-0600" comment="How is this different from daily, which is already shown as an example?"?>once
+                                                in a 24-hour period<?oxy_comment_end?>.</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Chest x-ray <emphasis>once daily</emphasis>
+                                                  to evaluate pneumonia</para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Psychiatric evaluation
+                                                  <emphasis>bi-weekly</emphasis> for PTSD</para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Route of
+                                            Administration</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The way in which something, such as a medication,
+                                                is given to a patient.</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Patient taking two Acetaminophen 100mg
+                                                  tablets <emphasis>by mouth</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Strength</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The strength of the medication/drug</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Patient taking two Acetaminophen
+                                                  <emphasis>100mg</emphasis> tablets by mouth</para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Amount</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The amount of the medication/drug that is to be
+                                                taken at a given time, such as 2 tablets. </para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Patient taking <emphasis>two</emphasis>
+                                                  Acetaminophen 100mg tablets by mouth</para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role:
+                                            <?oxy_comment_start author="steph" timestamp="20190319T105154-0600" comment="This wasn&apos;t shown in the Details table above.  Should it have been?"?>Dose
+                                            Form<?oxy_comment_end?></emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The form of preparation of a medication</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Patient taking <emphasis>two</emphasis>
+                                                  Acetaminophen <emphasis>100mg</emphasis>
+                                                  <emphasis>tablets</emphasis>
+                                                  <emphasis>by mouth</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Dosage</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Equals strength multiplied by amount. </para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Patient taking two tablets of Acetaminophen
+                                                  100mg each = <emphasis>amount of 200mg</emphasis>.
+                                                  </para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Projection</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>The path taken by an x-ray beam or
+                                                ultrasonographical wave as it passes through the
+                                                body </para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>MRI of brain <emphasis>sagittal and
+                                                  transversal</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para><emphasis>Transthoracic</emphasis>
+                                                  echocardiogram</para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Substance
+                                        Used</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Substance such as contrast media for imaging or
+                                                catecholamine for stress induction</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Head CT with
+                                                  <emphasis>contrast</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para><emphasis>Radioisotope</emphasis> study of
+                                                  musculoskeletal system</para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para><emphasis>Dye</emphasis> test of fallopian
+                                                  tube</para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Device Used</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>A device used to perform an action, such as using
+                                                a sphygmomanometer to measure blood pressure or a
+                                                ventilator to help a patient breath.</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Lithotripsy using
+                                                  <emphasis>laser</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Biopsy using <emphasis>Watson
+                                                  capsule</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Device
+                                        Setting</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Specific settings for a device used to perform a
+                                                procedure, such as </para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Oxygen therapy, <emphasis>O2 Flow Rate 5 to
+                                                  12 L/min.</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Electrode setting for electro-surgery
+                                                  <emphasis>12 watts</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role:
+                                            <?oxy_comment_start author="steph" timestamp="20190319T110005-0600" comment="This one was also not shown in the table.  If the table wasn&apos;t all-inclusive, I think it would be best to show only examples in this section for details that were shown in the table, to avoid confusion."?>Family
+                                            Member<?oxy_comment_end?></emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Blood relative of the patient, such as mother,
+                                                maternal grandfather. This information is used to
+                                                identify which family member(s) have a history of
+                                                certain phenomena.</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para><emphasis>Maternal</emphasis> pyrexia</para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Drug misuse by
+                                                  <emphasis>father</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Informer</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Person reporting/documenting an action result or
+                                                giving information about the patient.</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Patient medical history reported by
+                                                  <emphasis>spouse</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Bedside blood sugar measurement reported by
+                                                  <?oxy_comment_start author="steph" timestamp="20190319T110057-0600" comment="This should be shown in italic font." flag="done"?><emphasis>nurse</emphasis><?oxy_comment_end?></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis role="bold">Role: Performer</emphasis></para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>Person performing an action</para>
+                                            <itemizedlist>
+                                                <listitem>
+                                                  <para>Blood pressure measurement taken by
+                                                  <emphasis>physician</emphasis></para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>Diabetes education given by<emphasis>
+                                                  dietician</emphasis></para>
+                                                </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section xml:id="section_bd1f7cf1-b2b8-4821-afab-3a4fe39c0b4a">
+                <title>Encoded Statements </title>
+                <section xml:id="section_238419b7-a2e8-478c-89ed-c15787f89031">
+                    <title>Procedures</title>
+                </section>
+                <section xml:id="section_5531cfa4-c0bd-4f7d-80f0-ca2ce09964a8">
+                    <title>Finding, Observation, and Phenomenon</title>
+                </section>
+            </section>
+            <section>
+                <title>Statement Models</title>
+                <para><?oxy_comment_start author="steph" timestamp="20190319T110646-0600" comment="Is this a placeholder until more information can be provided?  It&apos;s not a complete sentence."?>Analysis
+                    normal form and clinical input form</para>
+            </section><?oxy_comment_end?>
+        </section>
+
+
+        <section xml:id="section_74f143a7-6834-4d5e-9991-b7c87a6eb276">
+            <title>Validation</title>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para>To provide a validation framework for inter-modeler reliability when
+                            applied in the field. </para>
+                    </listitem>
+                    <listitem>
+                        <para><?oxy_comment_start author="steph" timestamp="20190319T110739-0600" comment="WIll this section be updated since the KNART project is over?"?>To<?oxy_comment_end?>
+                            provide information on how clinical statements will be modeled for the
+                            KBS Clinical Decision Support (CDS) Knowledge Artifact (KNART) project.
+                            Once the models are approved, model slots bound to terminologies will be
+                            identified for subsequent terminology binding definitions proposed by
+                            the VA Terminology Team. Modeling of clinical statements outside of the
+                            CDS KNART project is currently beyond the scope of this effort.</para>
+                        <para>These modeling guidelines were derived from several documented use
+                            cases. The main goal of this effort is to provide a reproducible and a
+                            principled approach to the formal capture of clinical knowledge within
+                            Information Models and their references to underlying Terminology
+                            Models. Currently, the proposal and examples are independent of any
+                            specific terminology.</para>
+                        <para>These guidelines will be distributed to a variety of participants to
+                            contribute to a modeling exercise. After having read the guidelines,
+                            participants will be asked to access a survey where they will view a
+                            number of clinical statements and indicate how they would model them.
+                                <emphasis role="bold"><emphasis>When attempting the modeling
+                                    exercise, it will be important to model per the guidelines
+                                    specified in this document regardless of how existing
+                                    terminologies, such as SNOMED-CT, may model these
+                                    concepts</emphasis></emphasis>. In the future, an exercise to
+                            reconcile approaches may be conducted but is out-of-scope at this
+                            time.</para>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </section>
+
+        
+    </section>
+
+-->
+</section>

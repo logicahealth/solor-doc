@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Application of Terminology Knowledge Layer</title>
+    <para>Terminology is used throughout the architectural layers.  In this section we will give
+        examples of how terminology should best be used in the various architectural layers.</para>
+    <section>
+        <title>Analysis Normal Form Terminology Usage</title>
+        <para>The Statement Layer requires that the Terminology Expression fields in a statement are
+            disjoint: There should be no confusion—or creation of false dichotomies. There should be
+            one, and only one, place to put each type of information in a terminology expression.
+            For example, the Statement Layer defines a particular place to represent the subject of
+            information. Therefore, the terminology layer must not allow the subject of information
+            to be redundantly—and possibly contradictory—represented in a topic expression (such as
+            would be the case if "maternal history of diabetes" were an allowed topic
+            expression).</para>
+        <para><emphasis role="bold">topic:</emphasis> The particulars of how topics—and other
+            statement fields—are modeled as a Terminology Knowledge Layer concern, not a Statement
+            Layer concern. The Statement Layer requires that the topic represent an Action as a code
+            or expression according to the rules of the
+            T<?oxy_comment_start author="steph" timestamp="20190903T121300-0600" comment="Recommend being consistent with capitalization and the terms you are using when referring to the various layers..  In this one paragraph for this layer, you have:
+
+ - Terminology Knowledge layer
+ - Terminology Layer
+ - terminology layer" flag="done"?>erminology
+            Knowledge Layer<?oxy_comment_end?>, and that the rules of the Terminology Knowledge
+            Layer enforce a disjointness between different types of terminology expressions. Here we
+            present a starting point for what the Terminology Knowledge Layer editorial rules may
+            look like, based on current SNOMED CT practice.</para>
+        <itemizedlist>
+            <listitem>
+                <para>SNOMED CT can accommodate this requirement for simple observations by using
+                    Observation procedures to represent the topic (or other types of procedures when
+                    appropriate, such as the administration of a medication). In SNOMED CT examples,
+                    the Observation procedure specifies a Has focus attribute linking it to the
+                    Clinical Finding or Disorder that it is being observed. The Observation
+                    procedure can also be refined further by adding attributes in the terminology
+                    model, including Method, Procedure site - Direct, and
+                    <?oxy_comment_start author="steph" timestamp="20190903T121959-0600" comment="If this is referring to Laterality, recommend putting it aftward, not before." id="ads_f3d_z3b" mid="3"?><?oxy_comment_start author="timowilliams" timestamp="20190905T211040-0500" comment="Does this new wording work?" parentID="ads_f3d_z3b"?><?oxy_comment_start author="steph" timestamp="20191016T101952-0600" comment="Yes, thanks." mid="2"?>if
+                    appropriate
+                    <?oxy_comment_end mid="2"?><?oxy_comment_end?><?oxy_comment_end mid="3"?>Laterality
+                    and Using device. For example:<itemizedlist>
+                        <listitem>
+                            <para>Diabetes Mellitus Type 2 Present = [Observation procedure]-(Has
+                                focus) [Diabetes mellitus type 2]</para>
+                        </listitem>
+                        <listitem>
+                            <para>Pulse Rate 68 bpm, Taken by Pulse Oximeter = [Observation
+                                procedure]-(Method) [Examination - action]-(Has focus) On
+                                examination - pulse rate]-(Using device) [Pulse oximeter];</para>
+                        </listitem>
+                    </itemizedlist></para>
+            </listitem>
+            <listitem>
+                <para>Medication administrations will use an Administration of substance concept to
+                    represent the topic. All Administration of substance concepts will be refined
+                    with the substance, dose form and strength being requested. If Route of
+                    administration exists, then it will also be added.  For example:<itemizedlist>
+                        <listitem>
+                            <para>Patient Took One Acetaminophen 500 mg Tablet by Mouth
+                                <?oxy_comment_start author="steph" timestamp="20191016T102153-0600" comment="This part of the statement isn&apos;t modeled in this example.  SHouldn&apos;t it be?"?>for
+                                Pain<?oxy_comment_end?> = [Administration of substance]-(Method)
+                                [Administration - action]-(Direct substance) [Product containing
+                                precisely paracetamol 500 milligram/1 each conventional release oral
+                                tablet]-(Route of administration) [Oral]</para>
+                        </listitem>
+                        <listitem>
+                            <para>Ribavirin 200 mg Capsule Oral,
+                                <?oxy_comment_start author="steph" timestamp="20191016T102243-0600" comment="Again, it seems you are showing only part of the modeling and not all of it, which is confusing to me.  In all of the examples, I would like to see the full modeling or take the part out of the statement that isn&apos;t modeled."?>Take
+                                2 Capsules Every Morning<?oxy_comment_end?> =
+                                [Administration]-(Method)[Administration - action]-(Direct
+                                substance)[Ribavirin 200 MG Oral Capsule]-(Route of
+                                administration)[Oral]</para>
+                        </listitem>
+                    </itemizedlist></para>
+            </listitem>
+            <listitem>
+                <para>Laboratory tests will use a Laboratory Procedure concept to represent the
+                    topic. These concepts can be further refined. For example:<itemizedlist>
+                        <listitem>
+                            <para>Rheumatoid Factor 1 Time Routine = Rheumatoid factor
+                                measurement</para>
+                        </listitem>
+                    </itemizedlist></para>
+            </listitem>
+            <listitem>
+                <para>Imaging Procedures will use an Imaging Procedure concept to represent the
+                    topic. These concepts will be further refined with a Method, Procedure site, and
+                    a laterality for those sites that are lateralizable. For example:<itemizedlist>
+                        <listitem>
+                            <para>X-ray Chest to Evaluate for Heart Failure = Plain chest
+                                X-ray</para>
+                        </listitem>
+                    </itemizedlist></para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">purpose:</emphasis>
+            <?oxy_comment_start author="steph" timestamp="20191016T102552-0600" comment="Does this mean that purpose only applies to request statements and not performance statements?  If yes, do you want to explicitly state that?  What if a stress test was performed to rule out heart problems?  Wouldn&apos;t that include a purpose?"?>The
+            purpose is why an action was requested.<?oxy_comment_end?> The purpose of the topic is
+            typically some type of therapeutic intent, diagnostic intent, or both. There can be more
+            than one therapeutic intent and diagnostic intent and therefore there can be more than
+            one purpose. The purpose is represented as a post-coordinated expression, based on two
+            possible procedures:<itemizedlist>
+                <listitem>
+                    <para>386053000 |Evaluation procedure|</para>
+                </listitem>
+                <listitem>
+                    <para>277132007 |Therapeutic procedure|</para>
+                </listitem>
+            </itemizedlist></para>
+        <para>The procedure is then refined by post-coordinating with a “363702006 |Has focus
+            (attribute)|” attribute and identifying a finding/disorder or procedure concept as the
+            value for the attribute.  For example: Request for administration of Ibuprofen 400 mg
+            tablet oral every 6 hours as needed for back pain has a purpose of [Therapeutic
+            procedure]-(Has focus)[Backache]</para>
+        <para><emphasis role="bold">subjectofInformation:</emphasis> The subjectOfInformation is
+            used to represent who the statement is about. This is normally the patient (Subject of
+            record) unless explicitly stated otherwise, for example Mother, Sibling, Donor,
+            etc.</para>
+        <para><emphasis role="bold">associationSemantic:</emphasis> A logical expression to capture
+            how the target statement is associated (e.g. a precondition, an interpretation, a
+            component).</para>
+        <para><emphasis role="bold">measureSemantic:</emphasis> Measure semantic represents a unit
+            of measure or scale specified by the interval values. It is described using a logical
+            expression using standard-based terminology (i.e. SNOMED CT). For example, for systolic
+            blood pressure, the unit of measure is millimeters of mercury, and thus the measure
+            semantic is a SNOMED CT concept: 259018001 |Millimeter of mercury|. For blood glucose
+            measurement daily for 2 weeks, the measure semantic would be 258705008 |week|. For
+            quantity/count measure values, the measure semantic to express a number of findings or
+            phenomena described in the ANFStatement.topic "3 dot-and-blot hemorrhages" would be
+            30766002 |Quantitative|. If Measure is used to represent date or time:</para>
+        <itemizedlist>
+            <listitem>
+                <para>Date/time using Unix Epoch time: [762636008] Duration, [257997001]
+                    Seconds</para>
+            </listitem>
+            <listitem>
+                <para>Duration using Unix Epoch time start time and end time: [762636008] Duration,
+                    [257997001] Seconds</para>
+            </listitem>
+        </itemizedlist>
+        <para><emphasis role="bold">status:</emphasis> This is a coded value used with a Performance
+            of action representing the current status of the intervention (e.g. completed, on hold,
+            needed, rejected, etc). This data element is not intended as a substitute for workflow
+            specification.</para>
+        <para><emphasis role="bold">healthRisk:</emphasis> In PerformanceCircumstance, healthRisk is
+            used to flag a result with coded values such as 'low', 'normal', high', and
+            'critical'.</para>
+        <para><emphasis role="bold">participantRole:</emphasis> Participants can be specified or
+            requested.</para>
+        <itemizedlist>
+            <listitem>
+                <para>A Performance of action can specify participants using participant in
+                    PerformanceCircumstance.</para>
+            </listitem>
+            <listitem>
+                <para>A Request for action can specify requested participants using
+                    requestedParticipant in RequestCircumstance.</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+</chapter>

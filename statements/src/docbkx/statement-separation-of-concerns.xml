@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+
+
+<section xml:id="SoC_Section" xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="5.1">
+  <title><?oxy_comment_start author="kec" timestamp="20190721T123358-0700" comment="Change section name to &quot;Architectural Separation of Concerns&quot;. Promote section, and move to prior to Analysis Normal Form section. " flag="done"?>Approach
+    - Architectural Separation of Concerns<?oxy_comment_end?></title>
+  <para>Increased reliance on computerized health records, including Electronic Health Records
+    Systems, requires standardized medical terminology to encode health information consistently
+    across systems and enterprises.
+    <?oxy_comment_start author="kec" timestamp="20190721T123842-0700" comment="Add why simply mapping won&apos;t solve the problem, and we need to rely on a more comprehensive approach of statement to model transformation. Maybe anticipate the model transformation section. " flag="done"?>Clinicians
+    require not only objective quantitative measurements (e.g. 90 beats per minute for a patient's
+    pulse) but also contextual or procedural context (e.g. pulse oximetry, manual) about past
+    observations or requests for future interventions. While two quantitative measurements may be
+    the same, the procedural information could indicate meaningful semantic differences and lead to
+    different clinical interpretation and treatment.
+    <?oxy_comment_start author="steph" timestamp="20191015T181648-0600" comment="I recommend making this a new paragraph."?>As<?oxy_comment_end?>
+    information is exchanged across systems, the solution requires a common understanding of data
+    and a method to support knowledge-representation and clinical decision rules based on common
+    terminology and statements. Each component must address an aspect and, together they need to
+    address the requirements of clinicians.<?oxy_comment_end?> Current HL7 standard implementations
+    rely on profiles and templates to disambiguate statement and terminology, and provide sufficient
+    precision for transactions, documents, and standards-based APIs. Therefore the architectural
+    approach described here would be applicable to standards organizations developing
+    interoperability-enterprise, and project-specific implementations in equal measure. </para>
+  <para><?oxy_comment_start author="kec" timestamp="20190721T124118-0700" comment="&quot;Breaking up the solution&quot; is a bad phrase... Humpty Dumpty had a great fall.. All the [etc] could not put him back togehter again. There is a potential fear that this will make things more complicated, and make it difficult to fit all the pieces. 
+
+
+Try &quot;Separating concerns across architectural layers is a foundational...&quot;" flag="done"?>Functional
+    decomposition<?oxy_comment_end?>—often referred to as a <glossterm
+      baseform="Separation of Concerns">Separation of Concerns</glossterm> (SoC)—across components
+    or sections with a specific purpose is a foundational design principle for complex system
+    architecture. Enabling a SoC allows a complete system to be subdivided into distinct sections or
+    components with well-defined functionality and dependencies. If successful, this approach allows
+    individual sections to be able to be <emphasis>reused</emphasis>, as well as designed,
+    implemented, and updated <emphasis>independently</emphasis> to address emerging
+      <emphasis>requirements</emphasis>. This is especially useful and important in a medical
+    context given how many different health information and clinical terminology projects are
+    ongoing at any given time. Efforts are often uncoordinated and led by disparate and unrelated
+    standards development organizations. In these cases, SoC allows teams to work independently, in
+    coordination with each other, and reuse the resulting artifacts.</para>
+  <para><?oxy_comment_start author="kec" timestamp="20190721T131643-0700" comment="I edited this one directly to demonstrate the linking mechanism. " flag="done"?><xref
+      linkend="SoC-diagram"/> shows how a layered knowledge architecture can enable a separation of
+    concerns.<?oxy_comment_end?></para>
+  <figure xml:id="SoC-diagram">
+    <title>Separation of Concerns: Knowledge Architecture</title>
+    <mediaobject role="bordered">
+      <imageobject>
+        <?oxy_comment_start author="kec" timestamp="20190721T130116-0700" comment="Move the &quot;Each architectural layer...&quot; to the caption (I demonstrated how to do it here)
+
+Not sure how ANF leads to agile improvement. Possibly just remove, and simplify diagram, 
+
+Add to the Shared Module System description: &quot;Shared version and module system&quot; &quot;Provides the structural foundation that supports change over time, modularity, and knowledge representation. &quot;
+
+Remove the definition from the figure, and link to glossary where appropriate. " flag="done"?>
+        <imagedata fileref="images/SoC_new.png" scale="40" align="center"/><?oxy_comment_end?>
+      </imageobject>
+    </mediaobject>
+    <caption>
+      <para><emphasis>Separation of concerns is an architectural design principle, whereby a system
+          is divided into distinct sections, such that each section can address separate concerns.
+          In this case, each architectural layer addresses separate concerns that can make use of
+          the architecture layers below.</emphasis></para>
+    </caption>
+  </figure>
+  <para><?oxy_comment_start author="kec" timestamp="20190721T130509-0700" comment="Change from using emphasis, to using glossary link. Start out active voice. &quot;The Architectural Foundation layer is responsible for defining how object identity, versioning, modularity, and symbolic knowledge is represented&quot;" flag="done"?><emphasis
+      role="bold"
+        ><?oxy_comment_start author="Ioana" timestamp="20190729T001818-0400" comment="Add link to glossary" flag="done"?><link
+        linkend="CIF_EHR_1"><glossterm baseform="Architectural Foundation">Architectural
+          Foundation</glossterm></link><?oxy_comment_end?></emphasis> – The <glossterm>Architectural
+      Foundation</glossterm> of the Knowledge Architecture provides the common elements of
+    interoperability such as object identity, versioning, modularity, and knowledge representation.
+    It includes a) the foundation and building blocks of the common model; (b) how the repeatable
+    transformation process of disparate standards into the common model promotes interoperability
+    with other environments; and (c) how the modules of the architecture are tightly version
+    controlled over time.
+    <!--The Architectural Foundation provides patient identity cross-referencing, practitoiner, data provance, security, etc. --></para><?oxy_comment_end?>
+  <para><link linkend="CIF_EHR_1">
+      <emphasis role="bold"
+          ><?oxy_comment_start author="Ioana" timestamp="20190729T001906-0400" comment="Add link to glossary" flag="done"?><glossterm
+          baseform="Terminology Knowledge">Terminology
+        Knowledge</glossterm><?oxy_comment_end?></emphasis>
+    </link><?oxy_comment_start author="kec" timestamp="20190721T130700-0700" comment="The Termnology Knowledge layer is responsible for... Most of SNOMED CT, LOINC, RxNorm live here. I don&apos;t think &quot;Representation of absence&quot; should be mentioned here. " flag="done"?>–
+    The Terminology Knowledge layer is responsible for structured sets of medical terms and codes
+    that <emphasis>define</emphasis> concepts of interest, including descriptions, dialects,
+    language, and semantic hierarchy. SNOMED CT, LOINC, and RxNorm are part of this layer. It
+    defines what valid codes or expressions may be used by higher level layers<?oxy_comment_end?>. </para>
+  <para><?oxy_comment_start author="kec" timestamp="20190721T130821-0700" comment="The Statement Model layer is responsible for defining how terminology concepts can be combined to create a statement. " flag="done"?><emphasis
+      role="bold"
+        ><?oxy_comment_start author="rcholan" timestamp="20190730T111546-0400" comment="glossary" flag="done"?><glossterm
+        baseform="Statement Model">Statement Model</glossterm><?oxy_comment_end?></emphasis> – The
+    Statement Model layer is responsible for defining how data elements are combined to create a
+    statement. <?oxy_comment_end?>ANF Reference Model belongs in this layer. Other standards-based
+    clinical statements are discussed later in this chapter. This layer reuses the artifacts defined
+    in the Terminology Knowledge layer.</para>
+  <para><?oxy_comment_start author="kec" timestamp="20190721T130846-0700" comment="The Assertional Knowledge layer is responsible for..." flag="done"?><emphasis
+      role="bold"
+        ><?oxy_comment_start author="rcholan" timestamp="20190730T111554-0400" comment="glossary" flag="done"?><glossterm
+        baseform="Assertional Knowledge">Assertional
+      Knowledge<?oxy_comment_end?></glossterm></emphasis> – The Assertional Knowledge layer makes
+    use of the Terminology Knowledge layer concepts to specify <emphasis>non-defining</emphasis>
+    facts that may be used by procedural knowledge algorithms. An example of such a fact might be
+    that "thiazide diuretics treat hypertension." Assertional Knowledge may indicate what symptoms
+    may be associated with a disorder. </para>
+  <para><?oxy_comment_end?><emphasis role="bold"
+        ><?oxy_comment_start author="rcholan" timestamp="20190730T111601-0400" comment="glossary" flag="done"?><?oxy_comment_start author="kec" timestamp="20190721T130913-0700" comment="The procedural knowledge layer is responsible for..." flag="done" mid="15"?><glossterm
+        baseform="Procedural Knowledge">Procedural
+      Knowledge</glossterm><?oxy_comment_end?></emphasis> – Procedural knowledge, also known as
+    imperative knowledge, is the knowledge exercised in the performance of some task, such as
+    determining a hypertension treatment plan by analyzing a combination of a patient's ANF
+    statements, and the available assertional knowledge. The procedural knowledge is responsible for
+    information about standard ways to carry out specific procedures as well as other procedural
+    guidelines, e.g. treatment protocols for diseases and order sets focused on particular patient
+    situations. Procedural knowledge, together with assertional knowledge, enables clinical decision
+    support, quality measurement, and supports patient safety. This layer relies on the
+    architectural foundation and terminology layers, incorporates the statement model for
+    information retrieval, and uses the assertional knowledge.<?oxy_comment_end mid="15"?>
+    Procedural knowledge artifacts may include clinical alert rules, reminders, etc. that trigger
+    actions or recommend interventions.</para>
+  <para>Examining a clinical procedure for controlling hypertension illustrates each of the layers
+    of the informatics architectural separation of concerns. <itemizedlist>
+      <listitem>
+        <para>At the Terminology Knowledge layer, there may be various codes and terms from
+          disparate source terminologies to define a concept (e.g. hypertension).
+          <!--For example, the concept “essential hypertension” is defined by the ICD-10 CM code I10 and 59621000 in SNOMED CT-->
+          Ideally, these overlapping codes and terms would be oriented to the same parent concept
+          during the transformation and integration process at
+          <?oxy_comment_start author="kec" timestamp="20190721T171552-0700" comment="The foundational layer is just data structures. Terminology integration happens at the terminology layer. " flag="done"?>the
+          Terminology layer <?oxy_comment_end?>(e.g.,
+          <glossterm>Solor</glossterm>).<!-- Furthermore, any updates over time to code sets or value sets that define hypertension (in the NLM’s Value Set Authority Center for instance) would be maintained by continuous integration at the Architectural Foundation layer.--></para>
+      </listitem>
+      <listitem>
+        <para>The<?oxy_comment_start author="kec" timestamp="20190721T171955-0700" comment="The FHIR observation resource is not ANF. Can be considered another CIF, and we would need a standard transform. For here, just say that the statement model layer provide a standard means for representing quantatative and existential measurement... Probably want to replace categorical data with existential measurement throughout. " flag="done"?>
+          Statement Model layer enables representation of blood pressure measurement values (e.g.,
+          systolic BP = 140 mmHg) or the categorical data (e.g., pregnancy induced hypertension vs.
+          renal hypertension) within a standard data structure to facilitate information exchange or
+          retrieval, such as within a standards-based clinical statement (i.e. CIMI, CDA, FHIR, ANF,
+          etc.). <?oxy_comment_end?>
+        </para>
+      </listitem>
+      <listitem>
+        <para>T<?oxy_comment_start author="kec" timestamp="20190721T171053-0700" comment="Assertional knowledge can&apos;t contain conditional branches, so can&apos;t represent workflow (implied branching), and can&apos;t represent rules &quot;if-then-else&quot;" flag="done"?>he
+          Assertional Knowledge layer represents non-procedural statements, or facts, such "Stage 2
+          high blood pressure is over 140 systolic or 90 diastolic," or that beta-blockers and ACE
+          inhibitors may be used to treat hypertension, or that beta-blockers are contraindicated in
+          patients with a diagnosis of reactive airway disease.<?oxy_comment_end?>
+        </para>
+      </listitem>
+      <listitem>
+        <para><?oxy_comment_start author="kec" timestamp="20190721T171119-0700" comment="Procedural knowledge includes if-then-else. " flag="done"?>Finally,
+          the Procedural Knowledge layer provides algorithms to analyze ANF statements about a
+          patients, in combination with the Assertional Knowledge, to recommend a treatment protocol
+          for different kinds of hypertension, including the considerations of, e.g. patient age,
+          co-morbidities etc., which can be generated by an electronic clinical decision support
+          system (Statement + Assertional layers).<?oxy_comment_end?> This layer adds to support for
+          workflow and conditional logic (i.e. if-then-else).</para>
+      </listitem>
+    </itemizedlist></para>
+  <para>A clear separation of concerns enables the isosemantic transformation of standards-based
+    clinical statements to normal form by decoupling structure from semantics and workflow
+    <?oxy_comment_start author="kec" timestamp="20190721T172337-0700" comment="The clean separation of concerns helps to enable isosemantic transformation, by having a reproducible form. The separation of concerns does not really speak to the isosemantic representation. 
+
+Yes, ANF is for URU..." flag="done"?>in
+    regard to an isosemantic representation in the Statement Model layer<?oxy_comment_end?>.</para>
+  <para>HL7 relies on implementation guides (for V2, CDA, and FHIR) to add sufficient terminology
+    knowledge to standards-based clinical statements. Vocabulary constraints documented as profiles
+    or templates are the mechanism to create interoperable implementation guides from health IT
+    standards. Only after the Terminology Knowledge is fully defined, the standards-based statements
+    can be used to support business and workflow decision points consistent with Assertional and
+    Procedural layers described above. </para>
+</section>
+

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+
+	<title>Editorial Rules</title>
+
+	<editorial-rule xml:id="anf-editorialrule-performanceRequest" xreflabel="Performance versus request">
+        <title>Performance versus request</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-performanceRequest-content">
+                <listitem>
+                    <para>ANF Statements must be either a Performance of an action or a Request for an action.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>A Performance may include the passive observation of a phenomenon related to patients and their health status or family history, and may also include active interventions, such as providing education or administering medications or documenting that a patient is participating in exercise to improve their overall health status.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>A Request may include requests for clinical testing, active interventions, future goals, or consultation with other providers.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-topicsAreActions" xreflabel="Topics are always an action">
+        <title>Topics are always an action</title>                    
+        <mathphrase>
+        	<itemizedlist xml:id="anf-editorialrule-topicsAreActions-content">
+        		<listitem>
+                    <para>The particulars of how topics—and other statement fields—are modeled
+                        <?oxy_comment_start author="Ioana" timestamp="20190806T115233-0400" comment="Update: &quot;is&quot; to &quot;as&quot;  based on technical writer&apos;s review."?><?oxy_comment_start author="steph" timestamp="20191009T120859-0600" comment="I think it should be changed back to &quot;is&quot;.  You are saying that the particulars of how topics are modeled is a terminology knowledge layer concern vs. a statement layer concern.  The way it&apos;s worded now doesn&apos;t make sense to me." mid="1"?>as<?oxy_comment_end?><?oxy_comment_end mid="1"?>
+                        a Terminology Knowledge layer concern, not a Statement Layer concern. The
+                        Statement Layer does require that the Terminology Expression fields in a
+                        statement are disjoint: There should be no confusion—or creation of false
+                        dichotomies. There should be one, and only one, place to put each type of
+                        information in a terminology expression. For example, the Statement Layer
+                        defines a particular place to represent the subject of information.
+                        Therefore, the terminology layer must not allow the subject of information
+                        to be redundantly—and possibly contradictory—represented in a topic
+                        expression (such as would be the case if "maternal history of diabetes"
+                        <?oxy_comment_start author="steph" timestamp="20191009T121334-0600" comment="I changed it from &quot;where&quot;, which is incorrect."?>were<?oxy_comment_end?>
+                        an allowed topic expression). The Statement Layer requires that the topic
+                        represent an Action as a code or expression according to the rules of the
+                        terminology layer, and that the rules of the terminology layer enforce a
+                        disjointness
+                        <?oxy_comment_start author="steph" timestamp="20191009T121126-0600" comment="I think &quot;of&quot; should be deleted, so it reads &quot;...enforce a disjointness between different types of terminology expressions.&quot;"?>of
+                        <?oxy_comment_end?>between different types of terminology expressions. Here
+                        we present a starting point for what the Terminology Layer editorial rules
+                        may look like, based on current SNOMED CT practice. </para>
+                </listitem>
+                <listitem>
+                    <para>SNOMED CT can accommodate this requirement for simple observations by
+                        using Observation procedure to represent the topic (or other types of
+                        procedures when appropriate, such as the administration of a medication). In
+                        SNOMED CT examples, the Observation procedure specifies a Has focus
+                        attribute linking it to the Clinical Finding or Disorder that it is being
+                        observed. The observation procedure can also be further refined by adding
+                        attributes in the terminology model, including Method, Procedure site -
+                        Direct, (if appropriate) Laterality, and Using device.
+                        <?oxy_comment_start author="Ioana" timestamp="20190806T115341-0400" comment="Imcomplete statement "?><!--We
+                        expect --><?oxy_comment_end?></para>
+                </listitem>
+        		<listitem>
+					<para>Medication administrations will use an Administration of substance concept to represent
+                        the topic. All Administration of substance concepts will be refined with the
+                        substance and dose form and strength being requested. If Route of
+                        administration exists, then it will also be added. </para>
+				</listitem>
+				<listitem>
+					<para>Laboratory tests will use a Laboratory Procedure concept to represent the topic. These
+                        concepts can be further refined. </para>
+				</listitem>
+				<listitem>
+					<para>Imaging Procedures
+                        <?oxy_comment_start author="steph" timestamp="20191009T121316-0600" comment="Change to &quot;will.&quot;  I believe I&apos;ve made this change before so not sure why it&apos;s still not changed."?>with<?oxy_comment_end?>
+                        use an Imaging Procedure concept to represent the topic. These concepts will
+                        be further refined with a Method, Procedure site and (if appropriate) a
+                        laterality for those sites that are lateralizable. </para>
+				</listitem>
+			</itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-timing" xreflabel="Timing - past, present, or future">
+        <title>Timing - past, present, or future</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-timing-content">
+                <listitem>
+        	       <para>For a Performance of Action, the Timing can represent a time in the past or a
+                        current time. If a history of a performance of action is to be represented
+                        in ANF, the Timing will be for a time in the past, prior to the statement.
+                        Otherwise the Timing will be represented with the current time of the
+                        statement. </para>
+                </listitem>
+                <listitem>
+                    <para>For a Request of Action, the Timing will always represent a future time. 
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-resultsRangedQuantity" xreflabel="Results are always a ranged quantity">
+        <title>Results are always a ranged quantity</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-resultsRangedQuantity-content">
+                <listitem>
+                	<para>Results are always a Measure, which is a
+                        <?oxy_comment_start author="steph" timestamp="20191009T121735-0600" comment="Do you want to clarify that this can include things like presence and absence?"?>ranged
+                        quantity<?oxy_comment_end?>. Measure includes both a numeric interval along
+                        with a Measure Semantic specified as a Logical Expression. </para>
+                </listitem>
+                <listitem>
+                    <para>If a Result is intended to represent a numeric result then the upperBound and lowerBound would be populated with the appropriate numeric values and the Measure Semantic would indicate the unit of measure.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-presenceAbsence" xreflabel="Presence and absence are a countable quantity">
+        <title>Presence and absence are a countable quantity</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-presenceAbsence-content">
+                <listitem>
+                	<para>Any statement that represents the Presence or implies Presence of a Topic
+                        will have a Result with an upperBound of infinite (inf), lowerBound of 1,
+                        and Measure.semantic of "Countable quantity". </para>
+                </listitem>
+                <listitem>
+                    <para>Any statement that represents the Absence or implies Absence of a Topic
+                        will have a Result with an upperBound of 0, lowerBound of 0, and
+                        Measure.semantic of "Countable quantity". </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-separateCompoundTopics" xreflabel="Separate compound topics">
+        <title>Separate compound topics</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-separateCompoundTopics-content">
+                <listitem>
+                    <para>For the purposes of ANF, a statement is a request or performance of an
+                        action that should exist independently. Thus, if a compound topic contains
+                        two topics that could each exist separately, then they should be divided
+                        into separate ANF Statements. These independent ANF Statements can then be
+                        associated with each other as associated statements. </para>
+                </listitem>
+                <listitem>
+                    <para>For example, "Negative screen for PTSD and depression", contains two
+                        separate ANF Statements that would then be associated to each other.
+                        However, if the narrative represents two or more actions that are performed
+                        as a single activity at the same time without the need for stopping the
+                        action, then a single topic would be used. For example, "Lumbar/Thoracic
+                        Spine CT" would be represented with a single topic as it represents a single
+                        activity that is performed at the same time even though a Lumbar CT and a
+                        Thoracic CT could be done separately. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-techniques" xreflabel="Techniques are inseparable from the topic">
+        <title>Techniques are inseparable from the topic</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-techniques-content">
+                <listitem>
+                    <para>A technique must be true within the duration of the performance.</para>
+                </listitem>
+                <listitem>
+                	<para>A technique is inseparable from the topic and cannot be expressed as a
+                        stand-alone clinical statement.</para>
+                </listitem>
+                <listitem>
+                    <para>A technique is a device used, a method applied, or a temporary state in
+                        which the patient was actively placed during performance of the action. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-prerequisites" xreflabel="Prerequisites must be separated from the topic">
+        <title>Prerequisites must be separated from the topic</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-prerequisites-content">
+                <listitem>
+                	<para>A prerequisite is separable from the topic and can be expressed as a
+                        stand-alone clinical statement </para>
+                </listitem>
+                <listitem>
+                    <para>A prerequisite is a state that must exist before something else can happen
+                        or be done. Prerequisites are part of the details under which a procedure is
+                        being performed. The state must exist prior to the performance of the
+                        action. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-associatedStatement" xreflabel="Related statements should be associated">
+        <title>Related statements should be associated</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-associatedStatement-content">
+                <listitem>
+                	<para>Use an associated statement when it is important for the interpretation of
+                        one statement that the other statements were observed, performed, or
+                        requested. Also, if there is some implicitness that the two statements are
+                        related (e.g. pleural empyema with fistula) or that they are unrelated (e.g.
+                        Akinetic seizure without atonia) then the two statements should be
+                        associated. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-subjectOfInformation" xreflabel="Subject of information is used to represent family and donor history">
+        <title>Subject of information is used to represent family and donor history</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-subjectOfInformation-content">
+                <listitem>
+                    <para>The subjectOfInformation is used to represent who the statement is about.
+                        This is normally the patient (Subject of record) unless explicitly stated
+                        otherwise, for example Mother, Sibling, Donor, etc. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-status" xreflabel="Status indicates the state of a result">
+        <title>Status indicates the state of a result</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-status-content">
+                <listitem>
+                	<para>The status of a Performance of action can be specified with concepts such as
+                        (on hold, needed, rejected, etc). </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-healthRisk" xreflabel="HealthRisk indicates the clinical risk of the result">
+        <title>HealthRisk indicates the clinical risk of the result</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-healthRisk-content">
+                <listitem>
+                	<para>In PerformanceCircumstance, healthRisk is used to flag a result with coded
+                        values such as 'low', 'normal', high', and 'critical'. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-normalRange" xreflabel="Normal Range can be specified for a result">
+        <title>Normal Range can be specified for a result</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-normalRange-content">
+                <listitem>
+                	<para>In PerformanceCircumstance, normalRange is used to flag a result with coded
+                        values such as 'low', 'normal', high', and 'critical'. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-participants" xreflabel="Participants can be specified or requested">
+        <title>Participants can be specified or requested</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-participants-content">
+                <listitem>
+                    <para>A Performance of action can specify participants using participant in
+                        PerformanceCircumstance. </para>
+                </listitem>
+                <listitem>
+                	<para>A Request for action can specify requested participants using
+                        requestedParticipant in RequestCircumstance. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-purpose" xreflabel="Purpose indicates the reason for a request">
+        <title>Purpose indicates the reason for a request</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-purpose-content">
+                <listitem>
+                    <para>The purpose is why an action was requested. The purpose of the topic is
+                        typically some type of therapeutic intent, diagnostic intent, or both. There can be more than one therapeutic intent and diagnostic intent.</para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-priority" xreflabel="Priority defaults to routine for a request">
+        <title>Priority defaults to routine for a request</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-priority-content">
+                <listitem>
+                	<para>Priority is used to represent the priority for which a request is to be
+                        carried out. By default a Request will be considered "routine" unless
+                        otherwise specified. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-repetition" xreflabel="Repetition is used to request multiple occurences of a topic">
+        <title>Repetition is used to request multiple occurrences of a topic</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-repetition-content">
+                <listitem>
+                	<para>Repetition is used to represent when an action is requested for more than a
+                        single occurrence. </para>
+                </listitem>
+                <listitem>
+                    <para>Repetition is an optional component for a RequestCircumstance and contains
+                        five Measures that are used to further define the parameters of the
+                        Repetition: </para>
+
+                    <itemizedlist>
+                        <listitem>
+                            <para><emphasis>periodDuration:</emphasis> This required field is used
+                                to represent how long a repetition should persist. If it is not
+                                specified, a default value of [0,inf) will be used. e.g. for 3
+                                weeks</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis>periodStart:</emphasis> This required field is used to represent
+                                when a repeated action should begin. If it is not specified, a default value
+                                of [0,inf) will be used. e.g. NOW</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis>eventSeparation:</emphasis> This required field is used
+                                to represent how long between actions. If it is not specified, a
+                                default value of [0,inf) will be used. e.g. for 2 weeks</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis>eventFrequency:</emphasis> This required field is used
+                                to represent how often the action should occur. If it is not
+                                specified, a default value of [0,inf) will be used. e.g. 3 times per
+                                week</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis>eventDuration:</emphasis> This is an optional field that
+                                is used to represent how long every action should last. </para>
+                        </listitem>
+                    </itemizedlist>
+
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+    <editorial-rule xml:id="anf-editorialrule-requestedResult" xreflabel="A desired result can be specified in a request">
+        <title>A desired result can be specified in a request</title>                    
+        <mathphrase>
+            <itemizedlist xml:id="anf-editorialrule-requestedResult-content">
+                <listitem>
+                    <para>A desired result can be specified as a Measure using requestedResult in
+                        RequestCircumstance. </para>
+                </listitem>
+                <listitem>
+                    <para>If a requestedResult is specified, the appropriate upperBound and
+                        lowerBound is specified with the correct Measure.semantic. </para>
+                </listitem>
+                <listitem>
+                	<para>If a requestedResult is not specified in the request, an upperBound and
+                        lowerBound of 1 is used with a Measure.semantic of ISO 8601 after statement
+                        time. </para>
+                </listitem>
+            </itemizedlist>
+        </mathphrase>
+    </editorial-rule>
+
+
+</section>

@@ -111,82 +111,103 @@
             same, the procedural information should also be documented and the differences
             noted.</para>
     </section>
-    <section>
-        <title>Separation of Concerns</title>
-        <para>A systematic way to think about this (borrowed from the software development industry)
-            is something called Separation of Concerns. Separation of Concerns is an architectural
-            design principle that allows a complete system to be subdivided into several distinct
-            sections. If concerns are well separated from each other, individual sections may be
-            able to be reused, as well as worked on and updated independently to address new
-            requirements and use cases. This is especially useful and important in a medical context
-            given how many different health information and clinical terminology projects are
-            ongoing at any given time, efforts that are often uncoordinated and led by disparate and
-            unrelated standards development organizations.</para>
-        <para>The following diagram shows how the concept of Separation of Concerns can be applied
-            to the problem of systematically and consistently representing data from clinical
-            observations: <inlinemediaobject>
+    <section><title>Separation of Concerns</title><para>A systematic way to think about this
+            (borrowed from the software development industry) is something called Separation of
+            Concerns. Separation of Concerns is an architectural design principle that allows a
+            complete system to be subdivided into several distinct sections. If concerns are well
+            separated from each other, individual sections may be able to be reused, as well as
+            worked on and updated independently to address new requirements and use cases. This is
+            especially useful and important in a medical context given how many different health
+            information and clinical terminology projects are ongoing at any given time, efforts
+            that are often uncoordinated and led by disparate and unrelated standards development
+            organizations.</para><para>The following diagram shows how the concept of Separation of
+            Concerns can be applied to the problem of systematically and consistently representing
+            data from clinical observations: <inlinemediaobject>
                 <imageobject>
-                    <imagedata fileref="images/PASTF.png" scale="50"/>
+                    <imagedata fileref="images/SoC_new.png" scale="50"/>
                 </imageobject>
-            </inlinemediaobject></para>
-        <?oxy_comment_start author="steph" timestamp="20190305T101254-0700" comment="As a novice in this, it&apos;s confusing to me in the PASTA diagram above to reference all of the alayers as the &quot;architecture&quot; but then also have &quot;architecture&quot; as one of the layers in the diagram.  Then in Section 2, you&apos;re referring to the &quot;various architectural layers,&quot; which again I think refers to the diagram shown here vs. the &quot;architecture&quot; layer.  Is there anything tht can be done to simplify or clarify this?" flag="done"?><?oxy_comment_end?>
-        <para>Starting from the bottom to the top of the Separation of Concerns diagram, the layers
-            of the informatics architectural separation of concerns are described as: </para>
-        <para><emphasis role="bold">Solor
-                <?oxy_comment_start author="steph" timestamp="20190403T104727-0600" comment="I think this needs to be revised to &quot;Solor Architectural Foundation&quot; since that is how it&apos;s now shown in the diagram. This may require other references to it throughout the document to be changed." flag="done"?>Architectur<?oxy_comment_end?>al
-                Foundation</emphasis> – Provides an interoperable, integrated common terminology
-            model which concerns (a) the foundation and building blocks of the common model; (b) how
-            the repeatable transformation process of disparate standards into the common model
-            promotes interoperability with other environments; and, (c) how the modules of the
-            architecture are tightly version controlled over time. </para>
-        <para><emphasis role="bold">Terminology Knowledge</emphasis> – Structured sets of medical
-            terms and codes that define concepts of interest, including descriptions, dialects,
-            language, and semantic hierarchy. This layer also incorporates logical operators and
-            description logic such as ‘representation of absence’. </para>
-        <para><emphasis role="bold">Statement Model</emphasis> – Packaging of the terminology
-            content in standardized data structures so that they can be readily consumed by the
-            information retrieval process for analysis. Within the data structures, additional
-            detail to describe subject, numerical, and categorical information related to concepts
-            can be added in this layer.</para>
-        <para><emphasis role="bold">Assertional Knowledge</emphasis> – Translation of guidelines to
-            assist clinical decision making. This includes facts and knowledge upon which concepts
-            and combinations of concepts can assimilate into protocols.</para>
-        <para><emphasis role="bold">Procedural Knowledge</emphasis> – Information about standard
-            ways to carry out specific procedures as well as other procedural guidelines, e.g.
-            treatment protocols for diseases and
-            o<?oxy_comment_start author="steph" timestamp="20190305T101327-0700" comment="I don&apos;t think &quot;Order Sets&quot; needs to be capitalized." flag="done"?>rder<?oxy_comment_end?>
-            sets focused on particular patient situations. Procedural knowledge, together with
-            assertional knowledge, enables clinical decision support, quality measurement, and
-            supports patient safety. This layer
-            i<?oxy_comment_start author="steph" timestamp="20190305T101352-0700" comment="This isn&apos;t a complete sentence and needs revision.  Should it be part of the prior sentence?" id="o1r_2vj_1hb" flag="done" mid="12"?><?oxy_comment_start author="bechang" timestamp="20190308T081906-0700" comment="Clarified." parentID="o1r_2vj_1hb" flag="done"?>ntegrates<?oxy_comment_end?><?oxy_comment_end mid="12"?>
-            the architectural and terminology layers, incorporates the statement model for
-            information retrieval, and uses the assertional layer to apply rules.</para>
-        <para>Examining a clinical procedure for controlling hypertension illustrates each of the
-            layers of the informatics architectural separation of concerns. At the Terminology
-            layer, there may be various codes and terms from disparate source terminologies to
-            define the hypertension concept. For example, the concept “essential hypertension” is
-            defined by the ICD-10 CM code I10 and 59621000 in SNOMED CT. Ideally, these overlapping
-            codes and terms would be oriented to the same parent concept during the transformation
-            and integration process at the Solor Architectural Foundation layer. Furthermore, any
-            updates over time to code sets or value sets that define hypertension (in the NLM’s
-            Value Set Authority Center for instance) would be maintained by continuous integration
-            at the Solor Architectural Foundation layer. Moving to the statement layer, blood
-            pressure measurement values may be packaged as a numerical measurement (e.g., systolic
-            BP = 140 mmHg) or the categorial data (e.g., pregnancy induced hypertension vs. renal
-            hypertension) within a standard data structure to facilitate information exchange or
-            retrieval, such as within a FHIR Observation Resource. At the Assertional layer,
-            guidelines such as the recommendation to control hypertension to under 140/90 mmHg might
-            be translated into a clinical workflow facilitated by Health Information Technology
-            (HIT). If HIT is involved with programmed Clinical Decision Support, there may be
-            additional rules to suggest hypertension medications (e.g., beta-blockers, ACE
-            inhibitors) while also including rules to
-            <?oxy_comment_start author="steph" timestamp="20190305T101503-0700" comment="&quot;to&quot; should be inserted here." flag="done"?>avoid<?oxy_comment_end?>
-            medication
-            <?oxy_comment_start author="steph" timestamp="20190305T101538-0700" comment="I don&apos;t think this should be hyphenated." flag="done"?>contra<?oxy_comment_end?>indications.
-            Finally, at the Procedural-level, there may be a treatment protocol for different kinds
-            of hypertension, including the considerations of, e.g. patient age, co-morbidities etc.,
-            which can be generated by an electronic clinical decision support system (Statement +
-            Assertional layers). </para>
-    </section>
+            </inlinemediaobject></para><emphasis>Separation of concerns is an architectural design
+            principle, whereby a system is divided into distinct sections, such that each section
+            can address separate concerns. In this case, each architectural layer addresses separate
+            concerns that can make use of the architecture layers below.</emphasis><para>Starting
+            from the bottom to the top of the Separation of Concerns diagram, the layers of the
+            informatics architectural separation of concerns are described as:
+                </para><para><emphasis role="bold">Architectural Foundation</emphasis> – The
+                <glossterm><?oxy_comment_start author="steph" timestamp="20191008T161320-0600" comment="I think I&apos;ve commented before that I think this should be referred to the same way as it&apos;s shown in the diagram above, i.e., Foundational Architecture."?>Architectural
+                Foundation<?oxy_comment_end?></glossterm> of the Knowledge Architecture provides the
+            common elements of interoperability such as object identity, versioning, modularity, and
+            knowledge representation. It includes a) the foundation and building blocks of the
+            common model; (b) how the repeatable transformation process of disparate standards into
+            the common model promotes interoperability with other environments; and (c) how the
+            modules of the architecture are tightly version controlled over time.
+                </para><para><emphasis role="bold"><glossterm baseform="Terminology Knowledge"
+                    >Terminology Knowledge</glossterm></emphasis> – The Terminology Knowledge layer
+            is responsible for structured sets of medical terms and codes that
+                <emphasis>define</emphasis> concepts of interest, including descriptions, dialects,
+            language, and semantic hierarchy. SNOMED CT, LOINC, and RxNorm are part of this layer.
+            It defines what valid codes or expressions may be used by higher level layers.
+                </para><para><emphasis role="bold"><glossterm baseform="Statement Model">Statement
+                    Model</glossterm></emphasis> – The Statement Model layer is responsible for
+            defining how data elements are combined to create a statement. ANF Reference Model
+            belongs in this layer. Other standards-based clinical statements are discussed later in
+            this chapter. This layer reuses the artifacts defined in the Terminology Knowledge
+            layer.</para><para><emphasis role="bold"><glossterm baseform="Assertional Knowledge"
+                    >Assertional Knowledge</glossterm></emphasis> – The Assertional Knowledge layer
+            makes use of the Terminology Knowledge layer concepts to specify
+                <emphasis>non-defining</emphasis> facts that may be used by procedural knowledge
+            algorithms. An example of such a fact might be that "thiazide diuretics treat
+            hypertension." Assertional Knowledge may indicate what symptoms may be associated with a
+            disorder. </para><para><emphasis role="bold"><glossterm baseform="Procedural Knowledge"
+                    >Procedural Knowledge</glossterm></emphasis> – Procedural knowledge, also known
+            as imperative knowledge, is the knowledge exercised in the performance of some task,
+            such as determining a hypertension treatment plan by analyzing a combination of a
+            patient's ANF statements, and the available assertional knowledge. The procedural
+            knowledge is responsible for information about standard ways to carry out specific
+            procedures as well as other procedural guidelines, e.g. treatment protocols for diseases
+            and order sets focused on particular patient situations. Procedural knowledge, together
+            with assertional knowledge, enables clinical decision support, quality measurement, and
+            supports patient safety. This layer relies on the architectural foundation and
+            terminology layers, incorporates the statement model for information retrieval, and uses
+            the assertional knowledge. Procedural knowledge artifacts may include clinical alert
+            rules, reminders, etc. that trigger actions or recommend
+            interventions.</para><para>Examining a clinical procedure for controlling hypertension
+            illustrates
+            <?oxy_comment_start author="steph" timestamp="20191008T161734-0600" comment="I don&apos;t see the foundational architecture layer described below.  Should it be?"?>each
+            of the layers <?oxy_comment_end?>of the informatics architectural separation of
+            concerns. <itemizedlist>
+                <listitem>
+                    <para>At the Terminology Knowledge layer, there may be various codes and terms
+                        from disparate source terminologies to define a concept (e.g. hypertension).
+                        <!--For example, the concept “essential hypertension” is defined by the ICD-10 CM code I10 and 59621000 in SNOMED CT-->
+                        Ideally, these overlapping codes and terms would be oriented to the same
+                        parent concept during the transformation and integration process at the
+                        Terminology layer (e.g.,
+                        <glossterm>Solor</glossterm>).<!-- Furthermore, any updates over time to code sets or value sets that define hypertension (in the NLM’s Value Set Authority Center for instance) would be maintained by continuous integration at the Architectural Foundation layer.--></para>
+                </listitem>
+                <listitem>
+                    <para>The Statement Model layer enables representation of blood pressure
+                        measurement values (e.g., systolic BP = 140 mmHg) or the categorical data
+                        (e.g., pregnancy induced hypertension vs. renal hypertension) within a
+                        standard data structure to facilitate information exchange or retrieval,
+                        such as within a standards-based clinical statement (i.e. CIMI, CDA, FHIR,
+                        ANF, etc.). </para>
+                </listitem>
+                <listitem>
+                    <para>The Assertional Knowledge layer represents non-procedural statements, or
+                        facts, such "Stage 2 high blood pressure is over 140 systolic or 90
+                        diastolic," or that beta-blockers and ACE inhibitors may be used to treat
+                        hypertension, or that beta-blockers are contraindicated in patients with a
+                        diagnosis of reactive airway disease. </para>
+                </listitem>
+                <listitem>
+                    <para>Finally, the Procedural Knowledge layer provides algorithms to analyze ANF
+                        statements about a patients, in combination with the Assertional Knowledge,
+                        to recommend a treatment protocol for different kinds of hypertension,
+                        including the considerations of, e.g. patient age, co-morbidities etc.,
+                        which can be generated by an electronic clinical decision support system
+                        (Statement + Assertional layers). This layer adds to support for workflow
+                        and conditional logic (i.e. if-then-else).</para>
+                </listitem>
+            </itemizedlist></para></section>
 
 </chapter>

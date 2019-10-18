@@ -47,16 +47,52 @@
         <xi:include href="language.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <!--<xi:include href="SOLOR-language.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>-->
         <xi:include href="definitional.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="terminology_application.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </part>
     
     <part>
-        <title>Statement representation</title>
-        <xi:include href="statements-intro.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <!--<xi:include href="cem-cimi.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>-->
-        <xi:include href="analysis-normal-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="clinical-input-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <!--<xi:include href="isosemantic.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>-->
-        <xi:include href="knart-statement.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <title>Statement Model</title>
+        <!-- Statement Principles -->
+         <chapter>
+            <title>Statement Model Principles</title>
+            <xi:include href="statement-intro-begin.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>   
+            <xi:include href="statement-intro-patterns.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </chapter>
+
+        <!-- Statement Historical Implementations Chapter-->
+        <chapter>
+            <title>Statement Historical Implementations</title>
+            <xi:include href="statement-openehr.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+            <xi:include href="statement-clinical-input-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </chapter>
+
+        <!-- Analysis Normal Form Chapter -->   
+        <chapter>
+            <title>Analysis Normal Form</title>
+
+            <!-- ANF Ballot Introduction -->
+            <xi:include href="statement-why-analysis-normal-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+            <!-- <xi:include href="statement-separation-of-concerns.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>  -->
+            <!-- <xi:include href="statement-hl7-background.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>  -->
+
+            <!-- ANF Reference Model -->
+            <xi:include href="statement-anf-reference-model-intro.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+            <xi:include href="statement-anf-reference-model-uml-report.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+            <!-- ANF Clinical Statements -->
+            <xi:include href="statement-anf-clinical-statements.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+            <!-- Analysis Normal Form -->
+            <xi:include href="statement-analysis-normal-form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+            <xi:include href="statement-editorial-rules.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+            <!-- ANF-CIF Differences-->
+            <xi:include href="statement-differences-between-anf-and-cif.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+            <!-- Examples -->
+            <xi:include href="statement-examples-section.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </chapter>
+        
     </part>
     <part>
         <title>Assertional representation</title>
@@ -68,6 +104,10 @@
         <!--<xi:include href="procedural.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>-->
         <xi:include href="knart-procedural.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
    </part>
+    <part>
+        <title>Informatics Architecture Lifecycle</title>
+        <xi:include href="roundtrip-usecase.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </part>
     <part>
         <title>Solor Tooling</title>
         <xi:include href="komet-building-blocks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Differences between ANF and CIMI</title>
+    <para>There are two fundamental differences between the ANF and CIMI Statement approach. </para>
+    <orderedlist spacing="compact">
+        <listitem>
+            <para>The representation of topic.</para>
+        </listitem>
+        <listitem>
+            <para>The representation of results.</para>
+        </listitem>
+    </orderedlist>
+    <section>
+        <title>The Representation of Topic</title>
+        <para>In the ANF Statement model, the topic is represented by a single field containing a
+            terminology expression. This expression is not limited to any particular terminology
+            model, but in this document we use SNOMED CT, as Solor would potentially have extensions
+            to SNOMED CT. In the CIMI Statement model, all the pieces of information that make up
+            the topic can be broken out and structured as needed into a tree of objects with
+            multiple properties and appropriate datatypes.</para>
+        <para>
+            <figure>
+                <title>Topic Comparison</title>
+                <mediaobject>
+                    <imageobject>
+                        <?oxy_comment_start author="kec" timestamp="20190722T173233-0700" comment="Couple items here... OWL EL++ expression. 
+
+Also, OWL EL++ expression is classifiable, the CIMI topic is not. "?>
+                        <imagedata fileref="images/anf-cif-topic.png" align="center" format="png"
+                            scale="100"/><?oxy_comment_end?>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+        <para>As we can see in the Pulse Rate examples below, the ANF topic is represented as a
+            post-coordinated expression while the CIMI topic is represented with a topic containing
+            a single concept along with associated structural properties representing the pulse
+            oximeter device. Since the ANF Statement will always be either the request for an action
+            or the performance of an action, the post-coordinated expression will always be a
+            procedure that is further refined providing a consistent <?oxy_comment_start author="kec" timestamp="20190722T173538-0700" comment="Need a section of some sort discussing the benefits of a classifiable topic on aggregation, retrieval, etc. 
+
+Also, the implications of a more complex seperation of concerns with respect to the CIMI topic, and the multiple places within the topic that use codes, wich have their own semantics (LOINC semantics, UCUM semantics, RxNorm, SNOMED CT, etc... And how to reconcile all that simply is a challenge. Having the two possibly working together (CIMI topic can be transformed (normalized) into ANF topic is a potential win-win). "?>representation<?oxy_comment_end?>.<?oxy_comment_start author="jcoyle" timestamp="20190615T100303-0400" comment="I&apos;m questioning whether everything is a procedure" flag="done"?><?oxy_comment_end?>
+            <figure xml:id="anf_cimi_diff-anfPulse">
+                <title>Pulse Rate - ANF Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/pulse_rate_anf.svg" format="SVG" scalefit="1"
+                            width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure xml:id="anf_cimi_diff-cimiPulse">
+                <title>Pulse Rate - CIMI Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/pulse_rate_cimi.svg" format="SVG" scalefit="1"
+                            width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+                <caption>
+                    <para><emphasis role="italics">Pulse Rate 68bpm, Taken by Pulse Oximeter ANF vs
+                            CIMI Representations</emphasis></para>
+                </caption>
+            </figure></para>
+        <para>One implication of this is that the ANF Statement Model is using two formalisms to
+            represent the clinical statement. First it uses the formalism that represents the ANF
+            reference model. Second, it uses SNOMED CT's syntax for post-coordinated SNOMED CT
+            expressions. Tools for authoring and analysis would be required to parse and process
+            both syntaxes. </para>
+        <para>The CIMI Statement model in this example, on the other hand, would be fully
+            represented using the formalism that represents the CIMI reference model. This model
+            however allows for the possibility of multiple modeling style representations of the
+            same data that are then not easily queried for equivalence. </para>
+    </section>
+    <section>
+        <title>The Representation of Results</title>
+        <para>In the CIMI model, EvaluationResult and Assertion models are used to represent
+            observations. EvaluationResult has a topic representing what is being observed, and a
+            result represented by a choice of datatypes. EvaluationResult can be thought of as a
+            question and an answer. An Assertion on the other hand, has simply a topic stating what
+            is observed, and a coded result stating presence or absence.</para>
+        <para>In the ANF model, the topic represents what is being observed and the result may only
+            be a range of a quantity. No coded results are allowed. Not allowing coded results
+            forces more of the semantics to be represented in the terminology model and limits the
+            ability to allow multiple different representations of the same data. In the example
+            below we see Dot blot hemorrhage represented in ANF as either present or with the number
+            of hemorrhages that exist.</para>
+        <figure>
+            <title>Dot Blot Hemorrhage Present - ANF Representation</title>
+            <mediaobject>
+                <imageobject>
+                    <?oxy_comment_start author="kec" timestamp="20190722T174123-0700" comment="Need CIMI statement for deep retinal hemorrhage. For all examples in this chapter, should have an ANF and CIMI for each example. Maybe present together in a table. "?>
+                    <imagedata fileref="images/dbh_anf.svg" format="SVG" scalefit="1" width="100%"
+                        contentdepth="100%"/><?oxy_comment_end?>
+                </imageobject>
+            </mediaobject>
+            <caption><para><emphasis role="italics">Dot Blot Hemorrhage Present - ANF Representation</emphasis></para></caption>
+        </figure>
+        <figure>
+            <title>Three Dot Blot Hemorrhage - ANF Representation</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/Three_dbh_anf.svg" format="SVG" scalefit="1"
+                        width="100%" contentdepth="100%"/>
+                </imageobject>
+            </mediaobject>
+            <caption><para><emphasis role="italics">Three Dot Blot Hemorrhage - ANF Representation</emphasis></para></caption>
+        </figure>
+        <?oxy_comment_start author="jcoyle" timestamp="20190622T100303-0400" comment="With different units of measure, how are these dot blot hemorrhages comparable to each other." flag="done"?><?oxy_comment_end?>
+        <para>In the CIMI Statement model, when creating a model with a numeric result, the choice
+            is quite clear, and the choice will be an EvaluationResult, such as a topic of 'Systolic
+            Blood Pressure' and result with a numeric quantity. In this case, the CIMI and ANF model
+            are very aligned, except for the fact that the ANF model will always use a range of that
+            quantity.</para>
+        <figure>
+            <title>Systolic Blood Pressure - CIMI Representation</title>
+            <mediaobject>
+                <imageobject>
+                    <?oxy_comment_start author="kec" timestamp="20190722T173728-0700" comment="The CIMI statements and ANF statements are not visually distincitve, and easy to confuse. Several possible ways of improving. One would be to always present comparisons within a table that has ANF on the top ros, and CIMI on following row. This presents other benifits by havign the comparisons on the same page is the table does not get broken up. "?>
+                    <imagedata fileref="images/blood_pressure_cimi.svg" format="SVG" scalefit="1"
+                        width="100%" contentdepth="100%"/><?oxy_comment_end?>
+                </imageobject>
+            </mediaobject>
+            <caption><para><emphasis role="italics">Systolic Blood Pressure 120 mmHg - CIMI Representation</emphasis></para></caption>
+        </figure>
+        <para>But when a CIMI model has a potential coded result, the choice between
+            <?oxy_comment_start author="kec" timestamp="20190722T173830-0700" comment="Is there potential for confusion betwen when to use evauation result, assertion, and other types of coded result? "?>EvaluationResult
+            and Assertion <?oxy_comment_end?>becomes muddied. For example, a model for Breath Sound
+            could be an EvaluationResult with a topic of 'breath sound' and a coded result with the
+            following valueset. Thus, any of the breath sounds within the valueset can act as a
+            result for this model. </para>
+        <para>
+            <table>
+                <title>Breath Sound Valueset</title>
+                <tgroup cols="1">
+                    <thead>
+                        <row>
+                            <entry>Breath Sound Value</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>Absent</entry>
+                        </row>
+                        <row>
+                            <entry>Audible</entry>
+                        </row>
+                        <row>
+                            <entry>Clear</entry>
+                        </row>
+                        <row>
+                            <entry>Coarse Breath Sounds</entry>
+                        </row>
+                        <row>
+                            <entry>Coarse Crackles</entry>
+                        </row>
+                        <row>
+                            <entry>Crackles</entry>
+                        </row>
+                        <row>
+                            <entry>Diminished</entry>
+                        </row>
+                        <row>
+                            <entry>Expiratory wheezing</entry>
+                        </row>
+                        <row>
+                            <entry>Faint</entry>
+                        </row>
+                        <row>
+                            <entry>Fine Crackles</entry>
+                        </row>
+                        <row>
+                            <entry>Forced</entry>
+                        </row>
+                        <row>
+                            <entry>Inspiratory wheezing</entry>
+                        </row>
+                        <row>
+                            <entry>Left Ventricular Assist Device Noise</entry>
+                        </row>
+                        <row>
+                            <entry>Markedly Decreased</entry>
+                        </row>
+                        <row>
+                            <entry>Moderately Decreased</entry>
+                        </row>
+                        <row>
+                            <entry>Pleural Rub</entry>
+                        </row>
+                        <row>
+                            <entry>Prolonged Expiration</entry>
+                        </row>
+                        <row>
+                            <entry>Rhonchi</entry>
+                        </row>
+                        <row>
+                            <entry>Slightly Decreased</entry>
+                        </row>
+                        <row>
+                            <entry>Stridor</entry>
+                        </row>
+                        <row>
+                            <entry>Tubular Breath Sounds</entry>
+                        </row>
+                        <row>
+                            <entry>Upper Airway Congestion</entry>
+                        </row>
+                        <row>
+                            <entry>Wheeze</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </para>
+        <figure>
+            <title>Tubular Breath Sounds - CIMI Evaluation Representation</title>
+            <mediaobject>
+                <imageobject>
+                    <?oxy_comment_start author="timowilliams" timestamp="20190510T115942-0500" comment="I think this one may be off." flag="done"?>
+                    <?oxy_comment_start author="timowilliams" timestamp="20190520T161744-0500" comment=" JCoyle - Yes, the result doesn&apos;t go in the topic, it goes in context. 
+
+                    context(PresenceContext).contextCode = &quot;Some breath sound code&quot;
+
+                    -
+
+                    Also, I would either choose a result from the valueset, or add your result to the valueset 
+
+                    " flag="done" mid="3"?>
+                    <imagedata fileref="images/breath_evaluation_cimi.svg" format="SVG"
+                        scalefit="1" width="100%" contentdepth="100%"
+                    /><?oxy_comment_end?><?oxy_comment_end mid="3"?>
+                </imageobject>
+            </mediaobject>
+            <caption><para><emphasis role="italics">Tubular Breath Sounds - CIMI Evaluation Representation</emphasis></para></caption>
+        </figure>
+        <para>The other option, is that each of the breath sounds in the valueset is modeled as an
+            Assertion with a topic of Tubular breathing and a contextCode indicating presence or
+            absence. To decide which model is better, usually we ponder how the clinician thinks
+            about the data, or how it will be collected, or how it will be queried.</para>
+        <?oxy_comment_start author="jcoyle" timestamp="20190615T100303-0400" comment="We need to fix the digram because CIMI has changed the assertion style to be more consistent with ANF, where the breath sound goes in the topicCode, and presence or absence goes in contextCode, sorry!.
+        I fixed this diagram for use in the CIF chapter, so you can grab it from there." flag="done"?><?oxy_comment_end?>
+        <figure>
+            <title>Tubular Breath Sound - CIMI Assertion Representation</title>
+            <mediaobject>
+                <imageobject>
+                    <?oxy_comment_start author="timowilliams" timestamp="20190510T120637-0500" comment="Make sure this is correct CIMI
+" flag="done"?>
+                    <?oxy_comment_start author="timowilliams" timestamp="20190520T161759-0500" comment=" JCoyle - Same problem with topic as above" flag="done" mid="6"?>
+                    <imagedata fileref="images/breath_assertion_cimi.svg" format="SVG" scalefit="1"
+                        width="100%" contentdepth="100%"
+                    /><?oxy_comment_end?><?oxy_comment_end mid="6"?>
+                </imageobject>
+            </mediaobject>
+            <caption><para><emphasis role="italics">Tubular Breath Sounds - CIMI Evaluation Representation</emphasis></para></caption>
+        </figure>
+        <para>In this example, the ANF model doesn't support an EvaluationResult style model as it
+            doesn't allow coded results. Thus, ANF is forced to make one and only one choice, which
+            is an assertion style where the particular breath sound is the topic, and the result
+            will be a countable quantity indicating presence or absence.</para>
+        <para>When querying instance data, the Assertion or ANF style can be more difficult to
+            represent as it requires concepts to be pre-coordinated in the terminology or having
+            sufficient semantics available in the concept model to allow for representation of a
+            post-coordinated expression. To successfully query any breath sound instances using the
+            Assertion/ANF style, the underlying terminology must be correctly modeled to support. If
+            one of the breath sound values is not correctly placed under the higher level concept of
+            366135003 |Finding of breath sounds (finding)|, then retrieving all breath sounds will
+            require knowledge of all the possible breath sound values. With the EvaluationResult
+            style, querying is simpler as you simply query for a topic of 'breath sound', and the
+            coded result tells you what type of breath sound it is. Thus, you do not have to know
+            all the members of the valueset apriori to form the query.</para>
+    </section>
+    <section>
+        <title>ANF vs CIMI Examples</title>
+        <para>The following examples seek to highlight the differences between the ANF and CIMI
+            models. These representations are at a graphic high level and are not intended to be
+            exact representations.</para>
+        <section>
+            <title>Simple Systolic Blood Pressure Statement</title>
+            <para>In this systolic blood pressure example both the ANF and CIMI models are closely
+                aligned. Since the ANF model requires both an upper and lower bound there is extra
+                information required.</para>
+            <figure>
+                <title>Systolic Blood Pressure - ANF Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/blood_pressure_anf.svg" format="SVG" scalefit="1"
+                            width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure>
+                <title>Systolic Blood Pressure - CIMI Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <?oxy_comment_start author="kec" timestamp="20190722T173926-0700" comment="Make cimi and anf visualy distinct and possibly present together in a table. 
+" flag="done"?>
+                        <imagedata fileref="images/blood_pressure_cimi.svg" format="SVG"
+                            scalefit="1" width="100%" contentdepth="100%"/><?oxy_comment_end?>
+                    </imageobject>
+                </mediaobject>
+                <caption><para><emphasis role="italics">Systolic Blood Pressure 120 mmHg - ANF vs CIMI
+                            Representations</emphasis></para></caption>
+            </figure>
+        </section>
+        <section>
+            <title>Complex Systolic Blood Pressure Statement</title>
+            <para>In this systolic blood pressure example the ANF model requires multiple statements
+                to accurately capture all parts of the narrative clinical statement. The ANF model
+                requires a clinical statement to be separated if the clinical statement could stand
+                on its own. For example, in the clinical statement "Systolic Blood Pressure 120
+                mmHg, taken on right brachial artery, using BP cuff adult size, patient in sitting
+                position for at least 5 minutes, urinated not more than 30 minutes prior to
+                measurement", the patient sitting position and urination parts of the statement are
+                recorded as separate associated clinical statements since they could both be
+                recorded as clinical statements on their own if they were not associated with the
+                blood pressure clinical statement.</para>
+            <para>The ANF model is much more expressive and is able to capture the timing
+                information for the position and urination that requires a separate precondition code to be created in the CIMI model.</para>
+            <figure>
+                <title>Systolic Blood Pressure with Associated Statements- ANF
+                    Representation</title>
+               <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/bp_complex_anf.svg" format="SVG" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+                <caption><para><emphasis role="italics">Systolic Blood Pressure 120 mmHg, Taken on Right Brachial Artery,
+                            Using BP Cuff Adult Size, Patient in Sitting Position for at Least 5
+                            Minutes, Urinated Not More Than 30 Minutes Prior to Measurement - ANF
+                            Representation</emphasis></para></caption>
+            </figure>
+            <figure>
+                <title>Systolic Blood Pressure Sitting Position Associated - ANF
+                    Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/bp_complex2_anf.svg" format="SVG" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+                <caption><para><emphasis role="italics">Patient in Sitting Position for at Least 5 Minutes - ANF
+                            Representation</emphasis></para></caption>
+                          </figure>
+            <figure>
+                <title>Systolic Blood Pressure Urination  - ANF Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/bp_complex3_anf.svg" format="SVG" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+                <caption><para><emphasis role="italics">Urinated Not More Than 30 Minutes Prior to Measurement - ANF
+                            Representation</emphasis></para></caption>
+            </figure>
+            <figure>
+                <title>Systolic Blood Pressure with Associated Statements - CIMI
+                    Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/bp_complex_cimi.svg" format="SVG" scalefit="1"
+                            width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+                <caption><para><emphasis role="italics">Systolic Blood Pressure 120 mmHg, Taken on Right Brachial Artery,
+                            Using BP Cuff Adult Size, Patient in Sitting Position for at Least 5
+                            Minutes, Urinated Not More than 30 Minutes Prior to Measurement - CIMI
+                            Representation</emphasis></para></caption>
+            </figure>
+        </section>
+         
+        <section>
+            <title>Diabetes Mellitus Statement</title>
+            <para>The Diabetes Mellitus example highlights the main difference between ANF and CIMI
+                in the case of stating that a condition is present. In the case of ANF, since
+                Result is not allowed to use a coded value it represents the presence as a
+                lowerBound of 1 and an upperBound of infinite. Representing absence would be done
+                with an upper and lower bound of zero.</para>
+            <figure>
+                <title>Diabetes Mellitus Present - ANF Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dm_anf.svg" format="SVG" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+                <caption><para><emphasis role="italics">Diabetes Mellitus Type 2 - ANF Representation</emphasis></para></caption>
+            </figure>
+            <figure>
+                <title>Diabetes Mellitus Present - CIMI Representation</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dm_cimi.svg" format="SVG" scalefit="1" width="100%" contentdepth="100%"/>
+                    </imageobject>
+                </mediaobject>
+                <caption><para><emphasis role="italics">Diabetes Mellitus Type 2 - CIMI Representation</emphasis></para></caption>
+            </figure>
+        </section>
+    </section>
+</section>

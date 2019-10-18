@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <title>Examples of Performance Clinical Statements</title>
+    <para> </para>
+    <para>For the examples in the following chapters, the focus has been to illustrate the ANF
+        Model, using easy and intuitive examples, rather than focus on the correctness of the
+        modeling. The modeling within the post-coordinated expressions of the “topic” could
+        potentially be done in different ways.</para>
+    <section>
+        <title><anchor xml:id="table_perform_bpm"/>Blood Pressure Measurement</title>
+        <table>
+            <title>Blood Pressure
+                <?oxy_comment_start author="kec" timestamp="20190721T191629-0700" comment="I thought these tables where going away and would be replaced by the graphical representation that Tim has been working on. "?>Performance
+                Statement<?oxy_comment_end?></title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: <emphasis role="bold"
+                                        ><emphasis role="italic">Systolic blood pressure 120 mmHg;
+                                        taken on right brachial artery using adult blood pressure
+                                        cuff;</emphasis></emphasis> patient in sitting position for
+                                at least 5 minutes; urinated not more than 30 minutes prior to
+                                measurement</para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Subject of
+                                    record]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Method) [Examination -
+                                    action]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [On examination - Systolic
+                                    blood pressure reading]-</emphasis></para>
+                            <para><emphasis role="italic">(Procedure site – Direct)
+                                    [</emphasis><emphasis role="italic">Structure of right brachial
+                                    artery]-</emphasis></para>
+                            <para><emphasis role="italic">(Using device) [</emphasis><emphasis
+                                    role="italic">Blood pressure cuff, adult
+                                size];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing: <emphasis role="italic">[ISO 8601 date/time
+                                            format]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[120,120] Millimeter of mercury</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: </para>
+                            <para><emphasis>[UUID]</emphasis><emphasis role="bold"><emphasis
+                                        role="italic"> (Table: Associated Clinical Statement
+                                        1)</emphasis></emphasis></para>
+                            <para><emphasis>[UUID]</emphasis><emphasis role="bold"><emphasis
+                                        role="italic">(Table: Associated Clinical Statement
+                                        2)</emphasis></emphasis></para>
+                            <para/>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z Statement id: <emphasis>[UUID]</emphasis></para>
+                            <para/>
+                            <para>Subject of record ID:<emphasis>[UUID]</emphasis></para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <table>
+            <title> Blood Pressure Positioning Associated Statement</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: Arterial blood
+                                pressure 120 mmHg; taken on right brachial artery using adult blood
+                                pressure cuff; <emphasis role="bold"><emphasis role="italic">patient
+                                        in sitting position for at least 5
+                                    minutes</emphasis></emphasis>; urinated not more than 30 minutes
+                                prior to measurement</para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Subject of
+                                    record]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [Sitting position
+                                    finding]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing: ≥ 5 min. prior to statement time </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <?oxy_comment_start author="kmaulden" timestamp="20190418T112624-0400" comment=" can we allow in the result, e.g. result status, like “pending”, or “complete” or “performed”? Maybe add a section somewhere on how we would represent “pending” or ‘in progress” – or do we?
+ "?><?oxy_comment_end?>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[5,inf) minute</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: <emphasis>[UUID]</emphasis></para>
+                            <para/>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z</para>
+                            <para>Statement id: fc48551f-876a-42c1-b179-3169e3748332</para>
+                            <para/>
+                            <para>Subject of record ID:<emphasis>[UUID]</emphasis></para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <table>
+            <title>Blood Pressure Urination Associated Statement</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: Arterial blood
+                                pressure 120 mmHg; taken on right brachial artery using adult blood
+                                pressure cuff; patient in sitting position for at least 5 minutes;
+                                    <emphasis role="bold"><emphasis role="italic">urinated not more
+                                        than 30 minutes prior to
+                                measurement</emphasis></emphasis></para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Subject of
+                                    record]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [Micturition
+                                    finding]</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing: ≤ 30 min. prior to statement time </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[0,30] minute</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: <emphasis>[UUID]</emphasis></para>
+                            <para/>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z, Statement id: <emphasis>[UUID]</emphasis></para>
+                            <para>Statement id: df478857-2eae-40b2-909f-68ef0d0b9eb5</para>
+                            <para/>
+                            <para>Subject of record ID:<emphasis>[UUID]</emphasis></para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+    <section>
+        <title><anchor xml:id="table_perform_pulse"/>Pulse Rate Measurement</title>
+        <para>
+            <table>
+                <title>Pulse Rate Measurement Performance Statement</title>
+                <tgroup cols="2">
+                    <colspec colnum="1" colname="col1"/>
+                    <colspec colnum="2" colname="col2"/>
+                    <tbody>
+                        <row>
+                            <entry namest="col1" nameend="col2">
+                                <para><emphasis role="bold">Narrative</emphasis>: <emphasis
+                                        role="bold"><emphasis role="italic">Pulse Rate 68 bpm, taken
+                                            by pulse oximeter</emphasis></emphasis></para>
+                                <para/>
+                                <para>Statement type:<emphasis role="underline"><emphasis
+                                            role="italic">[Performance]</emphasis></emphasis></para>
+                                <para/>
+                                <para>Subject of info: <emphasis role="italic">[Subject of
+                                        record]</emphasis></para>
+                                <para> </para>
+                                <para>Authors: <emphasis role="italic">[Healthcare
+                                        professional]</emphasis></para>
+                                <para/>
+                                <para>Topic: <emphasis role="italic">[Observation
+                                        procedure]-</emphasis></para>
+                                <para><emphasis role="italic">(Method) [Examination -
+                                        action]-</emphasis></para>
+                                <para><emphasis role="italic">(Has focus) [On examination - pulse
+                                        rate]-</emphasis></para>
+                                <para><emphasis role="italic">(Using device) [</emphasis><emphasis
+                                        role="italic">Pulse oximeter];</emphasis></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="2">Circumstance:</entry>
+                            <entry>Performance Circumstance</entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Timing: <emphasis role="italic">[ISO 8601 date/time
+                                                format]</emphasis></para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Purposes: Ø</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Triggers: Ø</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Participants: <emphasis role="italic">[Subject of
+                                                record]</emphasis></para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Priority: Ø</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Result:</para>
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para>[68,68] Beats/minute</para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </listitem>
+                                </itemizedlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry namest="col1" nameend="col2">
+                                <para>Associations: Ø</para>
+                                <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                        format]</emphasis></para>
+                                <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                    </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                    2007-04-05T14:30Z, Statement id: <emphasis>[UUID]</emphasis>
+                                </para>
+                                <para>Subject of record ID:[<emphasis>UUID</emphasis>]</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </para>
+    </section>
+    <section>
+        <?oxy_comment_start author="kmaulden" timestamp="20190418T112637-0400" comment="This and all the following examples still have to be either formatted (tables) like the examples above or moved into an Appendix, where the formatting could be simpler." flag="done"?>
+        <title>Patient History</title><?oxy_comment_end?>
+        <table>
+            <title>Patient History Performance Statement</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: <emphasis role="bold"
+                                        ><emphasis role="italic">Patient has thromboembolism
+                                        history</emphasis></emphasis></para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Subject of
+                                    record]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Method) [Examination -
+                                    action]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [Thromboembolic
+                                    disorder];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing Value: [1, inf) ISO 8601 prior to statement
+                                        time</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[1,inf) Countable quantity</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: Ø</para>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z, Statement id: <emphasis>[UUID] </emphasis></para>
+                            <para>Subject of record ID:[<emphasis>UUID</emphasis>]</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+    <section>
+        <title><anchor xml:id="table_perform_dmpresent"/>Condition Present</title>
+        <table>
+            <title>Condition Present Performance Statement</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: <emphasis role="bold"
+                                        ><emphasis role="italic">Diabetes Mellitus
+                                        present</emphasis></emphasis></para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Subject of
+                                    record]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Method) [Examination -
+                                    action]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [Diabetes
+                                    mellitus];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing: <emphasis role="italic">[ISO 8601 date/time
+                                            format]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[1,inf) Countable quantity</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: Ø</para>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z, Statement id: <emphasis>[UUID] </emphasis></para>
+                            <para>Subject of record ID:[<emphasis>UUID</emphasis>]</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+    <section>
+        <title><anchor xml:id="table_perform_dmabsent"/>Condition Not Present</title>
+        <table>
+            <title>Condition Not Present Performance Statement</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: <emphasis role="bold"
+                                        ><emphasis role="italic">Diabetes Mellitus not
+                                        present</emphasis></emphasis></para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Subject of
+                                    record]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Method) [Examination -
+                                    action]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [Diabetes
+                                    mellitus];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing: <emphasis role="italic">[ISO 8601 date/time
+                                            format]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[0,0] Unit of time</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: Ø</para>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z, Statement id: <emphasis>[UUID]</emphasis>
+                            </para>
+                            <para>Subject of record ID:[<emphasis>UUID</emphasis>]</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+    <section>
+        <title><anchor xml:id="table_perform_3dbh"/>Three Dot Blot Hemorrhages</title>
+        <table>
+            <title>Three Dot Blot Hemorrhages Performance Clinical Statement</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: <emphasis role="bold"
+                                        ><emphasis role="italic">Three dot blot
+                                        hemorrhages</emphasis></emphasis></para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Subject of
+                                    record]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Method) [Examination -
+                                    action]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [Deep retinal
+                                    hemorrhage];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing: <emphasis role="italic">[ISO 8601 date/time
+                                            format]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[3,3]
+                                                <?oxy_comment_start author="steph" timestamp="20191015T172945-0600" comment="Why is number used here but in the prior example above, countable quantity is used?  Is countable quantity used when the exact number isn&apos;t known?"?>Number<?oxy_comment_end?></para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: Ø</para>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z, Statement id: [<emphasis>UUID</emphasis>] </para>
+                            <para>Subject of record ID:[<emphasis>UUID</emphasis>]</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+    <section>
+        <title><anchor xml:id="table_perform_dbhpresent"/>Dot Blot Hemorrhage Present</title>
+        <table>
+            <title>Dot Blot Hemorrhage Present Performance Clinical Statement</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: <emphasis role="bold"
+                                        ><emphasis role="italic">Dot blot hemorrhage
+                                        present</emphasis></emphasis></para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Subject of
+                                    record]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Method) [Examination -
+                                    action]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [Deep retinal
+                                    hemorrhage];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing: <emphasis role="italic">[ISO 8601 date/time
+                                            format]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[1,inf) Countable quantity</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: Ø</para>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z, Statement id: [<emphasis>UUID</emphasis>] </para>
+                            <para>Subject of record ID:[<emphasis>UUID</emphasis>]</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+    <section>
+        <title>Family History</title>
+        <table>
+            <title>Family History Performance Clinical Statement</title>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1"/>
+                <colspec colnum="2" colname="col2"/>
+                <tbody>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para><emphasis role="bold">Narrative</emphasis>: <emphasis role="bold"
+                                        ><emphasis role="italic">Family history (mother) of colon
+                                        cancer</emphasis></emphasis></para>
+                            <para/>
+                            <para>Statement type:<emphasis role="underline"><emphasis role="italic"
+                                        >[Performance]</emphasis></emphasis></para>
+                            <para/>
+                            <para>Subject of info: <emphasis role="italic">[Mother of
+                                    subject]</emphasis></para>
+                            <para> </para>
+                            <para>Authors: <emphasis role="italic">[Healthcare
+                                    professional]</emphasis></para>
+                            <para/>
+                            <para>Topic: <emphasis role="italic">[Observation
+                                procedure]-</emphasis></para>
+                            <para><emphasis role="italic">(Method) [Examination -
+                                    action]-</emphasis></para>
+                            <para><emphasis role="italic">(Has focus) [Malignant neoplasm of
+                                    colon];</emphasis></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry morerows="2">Circumstance:</entry>
+                        <entry>Performance Circumstance</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Timing: [1, inf) ISO 8601 prior to statement time</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Purposes: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Triggers: Ø</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Participants: <emphasis role="italic">[Subject of
+                                            record]</emphasis></para>
+                                </listitem>
+                                <listitem>
+                                    <para>Priority: Ø</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Result:</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>[1,inf) Countable quantity</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry namest="col1" nameend="col2">
+                            <para>Associations: Ø</para>
+                            <para>Statement time: <emphasis role="italic">[ISO 8601 date/time
+                                    format]</emphasis></para>
+                            <para>Stamp coordinate: <emphasis role="italic">[Solor Module]
+                                </emphasis>, <emphasis role="italic">[Release Path] </emphasis>,
+                                2007-04-05T14:30Z, Statement id: [<emphasis>UUID</emphasis>] </para>
+                            <para>Subject of record ID:[<emphasis>UUID</emphasis>]</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+</section>

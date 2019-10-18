@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="../../../docbook-customization/src/docbkx-stylesheet/common/komet.rnc" type="application/relax-ng-compact-syntax"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+  <title>Why Analysis Normal Form? A Normal Form for Clinical Statements</title>
+  <para>A <glossterm baseform="Clinical Statement">clinical statement</glossterm> is a definite and
+    clear representation of a clinically-significant fact or situation that was observed to exist or
+    happened. A clinical statement can be expressed as a <glossterm baseform="Statement Narrative"
+      >narrative</glossterm> that provides a written account that can be naturally read by humans,
+    as well as a <glossterm baseform="Normal Form">normal form</glossterm> which is a
+    machine-processable representation of the statement's data as a standardized and encoded
+    fundamental form. Today, clinical statements are often represented in unpredictable and
+    denormalized forms, which makes reliable and safe decision support challenging, and reduces the
+    quality of other types of data processing. </para>
+  <para>Healthcare organizations are striving to become <glossterm
+      baseform="High Reliability Organization">high reliability organizations (HROs)</glossterm>,
+    characterized by high levels of safety under inherently risky, technologically-complex, and
+    demanding conditions. <link linkend="bib1">[1]</link>
+    <?oxy_comment_start author="Ioana" timestamp="20190723T000019-0400" comment="Moved from previous section and removed redundant reference/bibliography, reworded" flag="done"?>Deployment
+    of EHR systems is nearly ubiquitous in the US and there is increasing opportunity to leverage
+    standards-based clinical statements<!--a substantial number of extant EHR mapped data sets--> to
+    improve population health through quality measures, case reporting, and decision support. The
+    ability to measure and improve outcomes relies on consistent, high-quality data that was
+    aggregated from a variety of systems. Analysis using normal form allows HROs to
+    <?oxy_comment_end?>derive added knowledge from data and reach high levels and safety. <link
+      linkend="bib2">[2]</link> A <emphasis>standard</emphasis> normal form can help replicate HROs
+    across our industry.</para>
+  <para>In this document, we present <?oxy_comment_start author="Ioana" timestamp="20190722T235418-0400" comment="We should reserve the keyword &quot;normal&quot; for &quot;ANF&quot; - other clinical statements are either strcutured or standard-based - ANF should be the &quot;normal&quot; representation - the result of normalization of CIFs and other standard-based clinical satetement." flag="done"?>
+    <!--normal forms--><?oxy_comment_end?> background on other logical
+      <?oxy_comment_start author="rcholan" timestamp="20190730T082039-0400" comment="glossary HL7" flag="done"?><glossterm
+      baseform="Health Level Seven">HL7</glossterm><?oxy_comment_end?> and
+      <?oxy_comment_start author="rcholan" timestamp="20190730T082028-0400" comment="glossary ISO" flag="done"?><glossterm
+      baseform="International Organization for Standardization">ISO</glossterm><?oxy_comment_end?>
+    clinical statement models, and focus on the need for—and logical specification of—an <glossterm
+      baseform="Analysis Normal Form">Analysis Normal Form (ANF)</glossterm>.
+    <?oxy_comment_start author="Ioana" timestamp="20190722T235956-0400" comment="Expanded this section." flag="done"?><?oxy_comment_start author="kec" timestamp="20190721T085644-0700" comment="Insert introduction of URU here (Understandable, Reproducible, and Useful. " flag="done" mid="5"?>ANF
+    is a <emphasis role="bold">normal</emphasis>
+    <emphasis role="bold">form</emphasis> intended to safely and reliably support data analysis that
+    can be used to aggregate data created using any standard or non-standard input form or exchange
+    mechanism.<?oxy_comment_end?> The ANF Reference Model, is a <glossterm baseform="Logical Model"
+      >logical model</glossterm> and part of the <glossterm>CIMI</glossterm> library of
+    models.</para><?oxy_comment_end mid="5"?>
+  <?oxy_comment_start author="Ioana" timestamp="20190722T224830-0400" comment="Moved the URU references fron SoC section and expanded how URU is embodied by ANF." flag="done"?>
+  <para>ANF is a model for clinical statements used in analysis that meet the following criteria:
+        <emphasis><glossterm baseform="Understandable, Reproducible, Useful">Understandable,
+        Reproducible, and Useful</glossterm></emphasis>
+    (<?oxy_comment_start author="rcholan" timestamp="20190730T082722-0400" comment="glossary" flag="done"?>URU<?oxy_comment_end?>)
+      <link linkend="bib3">[3]</link><link linkend="bib4">[4]</link></para><?oxy_comment_end?>
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold"><glossterm baseform="Understandable"
+          >Understandable</glossterm></emphasis>. The content of an <glossterm
+          baseform="ANF Statement">ANF statement</glossterm> can be processed by health IT systems
+        and understood by most healthcare providers, without reference to private or inaccessible
+        information. </para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold"><glossterm baseform="Reproducible"
+          >Reproducible</glossterm></emphasis>. Multiple users or systems apply the ANF to the same
+        situations and source data with an equivalent result. </para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold"><glossterm baseform="Useful">Useful</glossterm></emphasis>. The
+        ANF statement is fit-for-purpose—it has practical value for data analysis, in support of
+        clinical decision support, research, and population health that requires information
+        aggregated across health IT systems. </para>
+    </listitem>
+  </itemizedlist>
+  <para>This document describes how information systems can improve patient safety and outcomes by
+    increasing the precision of clinical information using a normal form to enhance and support
+    quality data and analysis. </para>
+  <section>
+    <title>Motivation: Why Do We Need ANF? </title>
+    <para><?oxy_comment_start author="kec" timestamp="20190721T122636-0700" comment="Also move to prior section (1.). This isn&apos;t specific to ANF, and provides more general background. " flag="done"?>Information
+      systems record and manage clinical statements using a variety of standard or ad-hoc models.
+      However, both treatment and analysis of clinical statements require consistency not only at
+      the format level (e.g. <glossterm>CDA</glossterm>, FHIR, V2) but also the content model (i.e.
+      an instance of an <link xlink:href="https://www.iso.org/standard/62416.html"><glossterm
+          baseform="ISO/TS Detailed Clinical Models">ISO/TS 13972</glossterm></link> DCM, CIMI
+      model, etc.). <link linkend="bib5">[5]</link> In most cases the data quality is the greatest
+      obstacle to analysis, but even in the case of structured, semantically-clear information,
+      inconsistency across sources of information raises obstacles to analysis. Analysis of
+      aggregate information managed by health information networks poses the greatest challenge
+      today because a meaningful use of data for patient outcomes or research requires a common
+      format, semantic clarity, and quality data.<?oxy_comment_end?></para>
+    <para><?oxy_comment_start author="kec" timestamp="20190721T122653-0700" comment="Also move to prior section (1.). This isn&apos;t specific to ANF, and provides more general background. " flag="done"?>Not
+      only is there a potential for a lack of consistency with representing clinical statements with
+      current <glossterm baseform="Detailed Clinical Model">detailed clinical modeling</glossterm>
+      efforts, but there is also further variation in how the data is entered into information
+      systems by end-users. This reality has a direct impact on patient safety if a clinical
+      statement is recorded and displayed differently across the continuum of care. Clinicians
+      author clinical statements and enter them into their organization’s EHR systems where they are
+      represented as some type of <glossterm baseform="Structured Clinical Input Forms">"Clinical
+        Input Form"</glossterm> (CIF). This concept describes the representation of any natural
+      language processing or data entry mechanism used by clinicians to record clinical statements.
+      Vendors may compete on usability which may result in proprietary CIF data, or, clinical
+      statements are based on standards-based models (e.g. CIMI, openEHR archetypes). For the
+      purposes of this document, the type or usability of CIF data structures are not in scope. We
+      assume that <emphasis role="bold">any suitably encoded</emphasis> clinical statement may be
+      normalized. <?oxy_comment_end?></para>
+    <para>Ideally, clinical information is modeled in a manner that is most efficient for use. This
+      is a problem because there are many different use cases for clinical information with a wide
+      range of requirements. There is no single model that can be the most efficient model for all
+      the various use cases. Maximum efficiency for each use case necessitates that any particular
+      clinical information be available in multiple modeled forms. These models, although different
+      in form, semantically represent the same information, and are known as <glossterm
+        baseform="Isosemantic Model">isosemantic models</glossterm>. Any particular detailed
+      clinical model exists within a family of isosemantic siblings. </para>
+    <para>Clinical statements can be expressed and documented in many different ways in EHR systems,
+      where clinical input forms provide different options to document the same clinical statement.
+      These differences pose challenges for how the data is modeled, how the data is stored, and
+      therefore has implications on data retrieval, data analysis, and accuracy of clinical analysis
+      results. </para>
+    <section>
+      <title>Variation by Implementation: Clinical Input Forms</title>
+      <para>Clinicians enter clinical statements into their organization’s EHR typically in a manner
+        that we call here
+        <?oxy_comment_start author="kec" timestamp="20190721T122744-0700" comment="a Clinical Input Form (CIF) and link to glossary. " flag="done"?>
+        clinical input<?oxy_comment_end?> form (CIF), or the manner in which
+        <?oxy_comment_start author="kec" timestamp="20190721T122821-0700" comment="A Clinical Presentation Form (CPF) and link to glossary. " flag="done"?>information
+        is presented<?oxy_comment_end?> to the clinicians and how they enter the data, such as by
+        constraining the information to allow only certain values to be entered - for instance,
+        through a drop-down list, radio buttons, or breaking up large chunks of related information
+        into smaller parts, or through natural language processing.</para>
+      <para>Let's consider the following example, represented below, in which <link
+          linkend="CIF_EHR_1">data collected by an EHR</link> combines information reported by
+        devices with findings and interpretation: <orderedlist>
+          <listitem>
+            <para>A vital signs monitor transmits the systolic and diastolic blood pressure
+              including date/time and the id of the device. </para>
+          </listitem>
+          <listitem>
+            <para>The nurse marks the measurement as "verified". </para>
+          </listitem>
+          <listitem>
+            <para>Next, the nurse documents how the measurement was performed: </para>
+            <para>
+              <itemizedlist spacing="compact">
+                <listitem>
+                  <para>using an adult cuff size</para>
+                </listitem>
+                <listitem>
+                  <para>in prone position</para>
+                </listitem>
+                <listitem>
+                  <para>brachial artery</para>
+                </listitem>
+                <listitem>
+                  <para>on the left side</para>
+                </listitem>
+                <listitem>
+                  <para>the micturition context is left empty/unknown<footnote><para>Studies have shown that systolic blood pressure measurements could increase 10 to 15mmHg with
+                        a full bladder. Micturition, the process of emptying the bladder, is
+                        therefore a data element that can be recorded with some Clinical Input
+                        Forms. <link linkend="bibA">[6]</link><link linkend="bibB">[7]</link><link
+                          linkend="bibC">[8]</link>
+                      </para></footnote></para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+          <listitem>
+            <para>Next, the physician adds an interpretation. </para>
+          </listitem>
+        </orderedlist><figure xml:id="CIF_EHR_1">
+          <title>Blood Pressure Statement recorded by an EHR system</title>
+          <mediaobject role="bordered">
+            <imageobject>
+              <imagedata fileref="images/BP data capture.svg" scale="60" align="center" format="SVG"
+              />
+            </imageobject>
+          </mediaobject>
+          <caption>
+            <para><emphasis>In this example the CIF provides the measurement information from the
+                device to be verified by a nurse. The nurse adds annotations describing how the
+                measurement was taken (at rest, prone) and the location (left brachial artery). The
+                user may also fill in information about micturition, if known. A physician may
+                interpret the measurement to be indicative of hypertension.</emphasis>
+            </para>
+          </caption>
+        </figure></para>
+      <para><link linkend="Display_EHR_2">Another EHR system</link> may capture or display a subset
+        of information in CIFs about the blood pressure measurement—omitting "micturition context"
+        and pre-coordinates site and laterality as:</para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Right brachial artery</para>
+        </listitem>
+        <listitem>
+          <para>Left brachial artery</para>
+        </listitem>
+      </itemizedlist>
+      <para>The image below illustrates another distinct CIF in which the user interface captures a
+        set of clinical statements related to Blood Pressure. </para>
+      <para>In the first case, the clinical input form has separate drop-down constraints to enter
+        the artery and laterality as distinct concepts. In the alternative data entry form, the
+        location and laterality are represented by a single, compound concept. This variation
+        present in CIFs may also have implications on how the clinical statement is modeled. </para>
+      <figure xml:id="Display_EHR_2">
+        <title>Alternative Blood Pressure representation in a second EHR system</title>
+        <mediaobject role="bordered">
+          <imageobject>
+            <imagedata fileref="images/EHR-2.svg" scale="60" align="center" format="SVG"/>
+          </imageobject>
+        </mediaobject>
+        <caption>
+          <para><emphasis>In this second CIF example, a similar system (or an alternative
+              configuration of the same system) may support a different set of options to verify and
+              record blood pressure measurement. This representation combines laterality and site
+              and excludes details related to micturition.</emphasis></para>
+        </caption>
+      </figure>
+    </section>
+  </section>
+  <section>
+    <title>Analysis Normal Form </title>
+    <para><emphasis role="bold">Analysis Normal Form</emphasis> (ANF) is a logical model intended to
+      represent a <emphasis role="bold">normalized</emphasis> view of aggregate clinical statements
+      recorded during treatment for analysis, research, clinical decision support, and other
+      purposes. ANF can be used to represent any isosemantic clinical statements irrespective of how
+      the information was captured at its source (i.e. information systems or medical devices). ANF
+      <?oxy_comment_start author="kec" timestamp="20190721T085712-0700" comment="can" flag="done"?>can<?oxy_comment_end?>
+      be used in conjunction with other models intended to ensure that clinical information is
+      structured and complete at the time of entry (e.g. CIMI models, <link
+        xlink:href="https://www.iso.org/standard/62416.html">ISO/TS 13972</link> Detailed Clinical
+      Models) or exchanged among systems (e.g. HL7 CDA templates, <glossterm
+        baseform="HL7 V2 Messaging Profile">HL7 V2 message profiles</glossterm>, FHIR profiles). </para>
+    <para><?oxy_comment_start author="kec" timestamp="20190721T085757-0700" comment="Clinicians, researchers, and HIT developers" flag="done"?>Clinicians,
+      integrators, health IT developers, and researchers<?oxy_comment_end?> face different
+      priorities, forcing trade-offs to be made that optimize data entry brevity at the cost of
+      computability. ANF represents a collection of patterns and approaches to provide a
+      <?oxy_comment_start author="kec" timestamp="20190721T085955-0700" comment="ANF does not provide predictable transformations, it provides a predictable (URU) normal form that can be used by transformation developers. " flag="done"?>predictable
+      <?oxy_comment_end?>normal form to aggregate data sets across multiple
+      <?oxy_comment_start author="kec" timestamp="20190721T122129-0700" comment="and therefore can be used as a predictable formal form for transformation. " flag="done"?><?oxy_comment_end?>systems
+      <!--through normalization-->. The more normalized a data set is, the simpler it will become to
+      analyze, and errors will be reduced. In addition to improving analysis, ANF introduces the
+      ability to compare statements with ease and no loss of semantic integrity.
+      <?oxy_comment_start author="timowilliams" timestamp="20190710T093048-0500" comment="Bibliography?" flag="done"?><?oxy_comment_end?></para>
+    <section>
+      <title>Objectives and Purpose of ANF</title>
+      <para><?oxy_comment_start author="kec" timestamp="20190721T090631-0700" comment="Change to more active voice... &quot;ANF&apos;s main purpose is the normalized representation of statements...&quot;" flag="done"?>ANF<?oxy_comment_end?>'s
+        purpose is to introduce standards-based, normalized representation of clinical statements
+        from a heterogeneous source using an objective <emphasis role="bold"
+            ><?oxy_comment_start author="rcholan" timestamp="20190730T085855-0400" comment="glossary" flag="done"?><glossterm
+            baseform="Measure">measure</glossterm><?oxy_comment_end?></emphasis> to help evaluate
+        the result, presence, and magnitude of a specific finding, request or observation. ANF
+        requires an ability to classify the <emphasis role="bold"
+            ><?oxy_comment_start author="rcholan" timestamp="20190730T085913-0400" comment="glossary" flag="done"?><glossterm
+            baseform="Topic expression">topic</glossterm><?oxy_comment_end?></emphasis> of a
+        statement using standard terminology expressions. ANF defines responsibility for different
+        representational aspects of input data along well-defined compositional layers (see <link
+          linkend="SoC_Section">Separation of Concerns</link>). In practice, information systems may
+        create
+        <?oxy_comment_start author="steph" timestamp="20191016T095716-0600" comment="What is normal data?  Should it be normalized data instead?"?>normal
+        data<?oxy_comment_end?> natively or transform other representations of clinical statements
+        (e.g. C-CDA templates, FHIR profiles) to normal form (i.e., ANF).</para>
+      <para>Overall, ANF allows healthcare enterprises to normalize information aggregated across
+        multiple sources to better support a set of analysis. ANF enhances the ability to analyze
+        and compare clinical statements aggregated across systems and organizations and provide a
+        logical model to:<itemizedlist spacing="compact">
+          <listitem>
+            <para>Specify a common form for clinical statements extracted from EHR systems
+              <?oxy_comment_start author="steph" timestamp="20191016T101103-0600" comment="This is probably my ignorance of FHIR but can you really extract data from FHIR?  Is it a database system?  I thought it was a data exchange mechanism. Doesn&apos;t it take data from a system and exchange it?"?>and
+              FHIR<?oxy_comment_end?>.</para>
+          </listitem>
+        </itemizedlist><itemizedlist>
+          <listitem>
+            <para>Provide a common analysis form to data exchange paradigms (e.g. HL7 messages, FHIR
+              and CDA).</para>
+          </listitem>
+        </itemizedlist><itemizedlist spacing="compact">
+          <listitem>
+            <?oxy_comment_start author="steph" timestamp="20191016T101244-0600" comment="I don&apos;t think you need to capitalize the things referenced here, such as Systems, Clinical Quality Measures, etc."?>
+            <para><?oxy_comment_start author="kec" timestamp="20190721T122226-0700" comment="Don&apos;t put bulleted lists inside of bullited lists. Maybe put in a transition paragraph, then a new bullited list. " flag="done" mid="23"?>Enhance
+              clinical data for use in <glossterm>Clinical Decision Support</glossterm> Systems,
+              Clinical Quality Measures and National Registries, Healthcare Guidelines and
+              Protocols, and Epidemiological
+            Research.<?oxy_comment_end?></para><?oxy_comment_end mid="23"?>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+    <section>
+      <title>Assumptions for ANF</title>
+      <para>ANF provides a precise statement specification that is comparable and sharable between
+        multiple care providers, health enterprises, and standards-based Healthcare Information
+        Technology (HIT) systems. ANF does not define the terminology specification but relies on
+          <glossterm baseform="Terminology Knowledge">terminology knowledge </glossterm> to specify
+        the meaning of clinical statements. ANF coded data may use single codes, as well as any
+        <?oxy_comment_start author="steph" timestamp="20191016T101448-0600" comment="Recommend using &quot;allowed&quot; vs &quot;legal&quot; since the latter is regarding the law."?>legal
+        <?oxy_comment_end?>terminology expression defined within the terminology layer of the <link
+          linkend="SoC_Section">architecture</link>.</para>
+      <para>ANF
+        supports<?oxy_comment_start author="kec" timestamp="20190721T123126-0700" comment="supports—but does not require—postcoordinated compositional terminologies" flag="done"?>
+        pre-coordinated and
+          <?oxy_comment_start author="rcholan" timestamp="20190730T110517-0400" comment="glossary" flag="done" mid="22"?><glossterm
+          baseform="Post-coordinated concept"
+        >post-coordinated</glossterm><?oxy_comment_end?><?oxy_comment_end mid="22"?> terminology
+        expressions to provide greater content coverage than can be achieved by relying only on
+          <glossterm baseform="Pre-coordinated concept">pre-coordinated concepts.</glossterm>
+        Post-coordinated compositional terminologies are more expressive and can achieve better
+        analysis than can be achieved by relying only on pre-coordinated concepts. </para>
+      <para>Successful analysis requires appropriate data quality necessary for systems to define a
+        precise
+        <?oxy_comment_start author="rcholan" timestamp="20190730T110833-0400" comment="glossary" flag="done"?>topic<?oxy_comment_end?>,
+        <?oxy_comment_start author="rcholan" timestamp="20190730T110839-0400" comment="glossary" flag="done"?>category<?oxy_comment_end?>,
+        and clear
+        <?oxy_comment_start author="rcholan" timestamp="20190730T110912-0400" comment="glossary" flag="done"?>measure<?oxy_comment_end?>
+        or
+          <?oxy_comment_start author="rcholan" timestamp="20190730T110921-0400" comment="glossary" flag="done"?><glossterm
+          baseform="Evaluation Result">result</glossterm><?oxy_comment_end?> of what was observed,
+        requested, or assessed during treatment. ANF can be applied to any input data and any
+        formalism as long as the data semantics and terminology are sufficiently precise to define
+        the elements mandatory for analysis. </para>
+    </section>
+  </section>
+</section>
+ 

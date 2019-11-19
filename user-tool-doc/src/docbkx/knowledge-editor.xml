@@ -5,7 +5,11 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Knowledge Editor</title>
     <section><title>Knowledge Editor Overview</title>   
-        <para>The Editor allows user</para>
+        <para>The Editor allows the user to view, modify, and add new terminologies and value sets
+            to their medical dictionary. By default, the Editor is divided into 2 sections: the
+                <emphasis role="bold">task</emphasis> pane and the <emphasis role="bold">concept
+                viewer</emphasis> pane. When a concept is selected on the left task pane, its
+            details can be viewed in the right details pane. </para>
    
     <simplesect><title>Knowledge Editor Layout</title>
         <para>
@@ -35,6 +39,25 @@
                     <imagedata fileref="images/display-options.png" width="750px"/>
                 </imageobject>
             </inlinemediaobject></para>
+        <para>Optionally another <emphasis role="bold">concept viewer</emphasis> pane can be opened
+            and will display on the far right side of the window. There are three alternatives to
+            open another concept viewer: </para>
+        <itemizedlist>
+            <listitem>
+                <para>Right-click the concept you wish to review and select "<emphasis role="bold"
+                        >open in new concept viewer</emphasis>". </para>
+            </listitem>
+            <listitem>
+                <para>Highlight the concept you want to see in a new viewer and press "<emphasis
+                        role="bold">keyboard shortcut tbd, e.g. ctrl+alt+n</emphasis> " to open a
+                    new concept viewer. </para>
+            </listitem>
+            <listitem>
+                <para>In the top navigation pane, select <emphasis role="bold"
+                        >"Authoring"</emphasis>, then <emphasis role="bold">"Launch Third
+                        View"</emphasis>.</para>
+            </listitem>
+        </itemizedlist>
         </section>
         <section><title>Task Pane </title>
             <simplesect><title>Taxonomy Tree</title>
@@ -46,65 +69,35 @@
             <simplesect><title></title></simplesect>
         </section>   
         <section><title>Navigation</title>
-            <para></para>
-        </section>
-
-        <section><title>Can I view concepts in a hierarchical view?</title>
-            
-        </section>
-
-        
-        <!-- Part 2-->
-
-    <section><title>Knowledge Editor</title>
-        <para>The Knowledge application has 2 components the: Editor and Manager. The remainder
-            of this chapter will describe the Editor functionality. The Manager functionality will
-            be described in a separate chapter. </para>
-
-        <section><title>Knowledge Editor Overview</title>
-            <para>The Editor is an interactive application that allows you to search, view, edit,
-                create new content,  assemblages, and searches. By default, the Editor is divided
-                into 2 sections: the <emphasis role="bold">task</emphasis> pane and the <emphasis
-                    role="bold">concept viewer</emphasis> pane. When you select a concept on the
-                left task pane, its details can be viewed in the right details pane. <informalfigure>
-                    <mediaobject>
-                        <alt>Figure of the Knowledge Editor layout as described above.</alt>
-                        <imageobject>
-                            <imagedata fileref="images/editor-layout.png" width="600px"/>
-                        </imageobject>
-                    </mediaobject>
-                </informalfigure>Optionally another <emphasis role="bold">concept viewer</emphasis>
-                pane can be opened and will display on the far right side of the window. There are
-                three alternatives to open another concept viewer: 
-            </para>
-            <itemizedlist>
-                <listitem>
-                    <para>Right-click the concept you wish to review and select "<emphasis
-                        role="bold">open in new concept viewer</emphasis>". </para>
-                </listitem>
-                <listitem>
-                    <para>Highlight the concept you want to see in a new viewer and press "<emphasis role="bold">keyboard shortcut tbd, e.g.
-                        ctrl+alt+n</emphasis> " to open a new concept viewer. </para>
-                </listitem>
-                <listitem>
-                    <para>In the top navigation pane, select <emphasis role="bold"
-                        >"Authoring"</emphasis>, then <emphasis role="bold">"Launch Third View"</emphasis>.</para>
-                </listitem>
-            </itemizedlist>
-        </section> 
-    </section>
-        <section><title>How do I modify and new create content?</title>
-            <para>The Editor enables a you to modify,create content, view content, and export conten. 
-                Access to these functions are found in the top
-                navigation bar.</para>
+        <para>The Editor allows the ability to modify,create content, view content, and export
+            content. Access to these functions are found in the top navigation bar. Additional
+            features may also be accessed by right-clicking the concepts within the taxonomy
+            tab.</para>
             <para><inlinemediaobject>
                 <alt>Figure of the Knowledge Editor navigation with the interfaces highlighted</alt>
                 <imageobject>
                     <imagedata fileref="images/nav-editor-layout.png" width="750px"/>
                 </imageobject>
             </inlinemediaobject></para>
-            <para>The application indicates which area and function you are working with on the
-                upper left corner.</para>
+        <para>The application indicates which area and function you are working with on the upper
+            left corner.</para>
+        </section>
+
+        <section><title>Can I view concepts in a hierarchical view?</title>
+        <para>Imported dictionaries are displayed in a hierachical view under the "Taxonomy" tab
+            (the left panel). To expand each node, select the caret icon next to each concept. If
+            you open a concept using the search method, the term's hierarchical location will be
+            illustrated in the taxonomy tab as well.</para>
+            
+        </section>
+
+        
+        <!-- Part 2-->
+        <section><title>How do I modify and new create content?</title>
+
+            <para>In order to modify a concept or value set, search for the concept by keyword or
+            through the taxonomy tree, then select it. The concept's details should display with an
+            option to select the "Edit" action on the top right corner of the screen. </para>
             
             <section><title>Authoring</title>
                 <para>The Authoring interface displays terminologies loaded into the environment

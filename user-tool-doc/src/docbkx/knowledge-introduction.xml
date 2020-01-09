@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<chapter xmlns="http://docbook.org/ns/docbook" 
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
 
         
 <title>Introduction to Knowledge</title>
     
-        <para>MindComputing Knowledge is an intuitive full featured web-based application designed
-            to be used. We will describe how to get the most value out of Knowledge by using its key
-            features, such as search, creating a new concept, creating value sets, running the
-            classifier, and exporting your work in Solor's RF2 compatible format and the future
-            Solor's object release format.</para>
-        <para>Knowledge is based on HSPC's project Solor. Knowledge has similar functionality to Solor's desktop application but 
-              Knowledge also differs. Our most basic difference is that Knowledge has defined a REST API and is a 
-              web-based applicaiton. Knowledge utilizes Solor's common model approach to integrating Meaningful Use Standards 
-              (SNOMED CT, LOINC and RxNorm) and local terminologies to import into the Knowledge application. In addition, Knowledge can
-              also load Meaningful Use Standards and local terminologies without utilizing Solor's common model integration.</para>
-        <para>The Knowledge application has 3 components the: Editor, Manager, and a Terminology Server:</para>
-           <itemizedlist>
-               <listitem>
-                  <para>The <emphasis>Knowledge Editor</emphasis> provides all authoring functionality, such as creating new concepts, modify concepts, 
-                            creating value sets, modifying value sets, classifying, search, mapping and exporting content. 
-                            The application supports the SNOMED CT RF2, and Solor RF2 compatible export out-of-the-box. </para>
-               </listitem>
-               <listitem>                
-                  <para>The <emphasis>Knowledge Manager</emphasis> provides user administration functions, such as user creation, disabling a user, 
-                            and user roles within a project. In addition, Manager has project management functions such as, project creation. </para>
-               </listitem>
-               <listitem>
-                  <para>Our <emphasis>Terminology Server</emphasis> supports runtime terminology requirements. This includes a complete implementation of Fast Healthcare 
-                          Interoperability Resources (FHIR) Application Programming Interface (API) as an enterprise cloud computing service.</para>
-               </listitem>
-              </itemizedlist>
+    <para>Knowledge is an intuitive full featured web-based application designed
+          to be used by individuals, and organizations who need to manage their medical terminology needs to improve
+          healthcare delivery and reimbursement. The following chapters describe the functionality that enables 
+          the creation of new content, the modification of content, and releasing content to satisfy our customers needs.</para>
+    
+    <para>Knowledge is based on <link xlink:href="https://www.logicahealth.org/">Logica's</link>
+       Open Source project <link xmlns:xlink="https://www.solor.io/">Solor</link>. Mind Computing has taken the Solor project
+        and created Knowledge a web-based application. Knowledge also utilizes Solor's common model
+        approach to integrating Meaningful Use Standards, such as SNOMED CT, LOINC and RxNorm.
+        Additionally, Knowledge can also integrate locally created content and import this created
+        content into the Knowledge application where this terminology can be integrated with
+        Meaningful Use Standards. Knowledge can load Meaningful Use Standards and locally created
+        terminologies without utilizing Solor's common model. </para>
+    
+    
+    <para>The Knowledge application has 3 components the: Editor, Manager, and a Terminology Server. The <emphasis>Knowledge Editor</emphasis> 
+          provides all authoring functionality, such as creating new concepts, modify concepts, creating value sets, modifying value sets, 
+          classifying, search, mapping and exporting content. The Knowledge Manager provides the functionality to create new users and modify a user's role
+          the user has the administrator role. Our <emphasis>Terminology Server</emphasis> supports runtime terminology requirements. This includes a complete implementation of Fast Healthcare 
+          Interoperability Resources (FHIR) Application Programming Interface (API) as an enterprise cloud computing service.</para>
+    <para><link xlink:href="http://cnn.com">test</link></para> 
     
 </chapter>  
  

@@ -5,34 +5,24 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Knowledge Editor</title>
     
-        <para>The Editor allows the user to view, modify, add new concepts, classify, release and
+    <para>The Editor allows the user to view, modify, add new concepts, classify, release and
         create new value sets. This section provides an overview of Knowledge areas and a
         description. Users are able to see changes made by all users in real-time. </para>
-    <para>By default, the Editor is divided into 3 sections: the <emphasis role="italic"
-            >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and the
-        navigation bar see figure X below. </para>
+    
     <para>There are two roles that a user can have which changes the functionality available;
         Author, and  Administrator role. The Administrator role has all the functionality as an
         Author with the addition of the ability to Release content. The functionality to Release
         content  is present navagation bar and is described below.</para>
-    <section><title>Editor Login</title>
-        <para>You will receive an email when the administrator creates
-            an account. The email will contain login information (be sure to check your spam folder).
-            If you do not receive an email, contact your Knowledge administrator.
-            After your first login your password should be changed.
-        </para>
-            <para>To Login you will enter your username and password. If you've forgotten your user
-            name or password there is link to reset your password and a link to obtain your username.
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/taxonomy-view.png" width="600px"/>
-                    </imageobject>
-                    <textobject>
-                        <phrase>Taxonomy View</phrase>
-                    </textobject>
-                </mediaobject></para></section>
+    
     <section><title>Editor Layout</title>
-        <para>
+        <para>By default, the Editor is divided into 3 sections: the <emphasis role="italic"
+            >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and the
+            navigation bar see figure X below. </para>
+        <simplesect><title>Task Pane</title>
+            <para><emphasis>Task Pane</emphasis>: The Task Pane has several tabs that perform different functions, such as the
+                Taxonomy, Sets, Search, Classifier, and Briefcase. Each of these functions are described
+                in the preceding sections.
+            
             <figure>
                 <title>Knowledge Editor Layout</title>
                 <mediaobject>
@@ -42,27 +32,23 @@
                     <textobject><phrase>Knowledge Editor Layout Overview </phrase></textobject>
                 </mediaobject>
             </figure>
-        </para>
+        </para></simplesect>
     </section>
-      <section><title>Task Pane</title>
-           <para>The Task Pane has several tabs that perform different functions, such as the
-                Taxonomy, Sets, Search, Classifier, and Briefcase. Each of these functions are described
-                in the preceding sections.</para>
-    
-             <section><title>Taxonomy View</title>
-                  <para>In the Taxonomy view, users can navigate through the concept hiearchy to
+    <section><title>Taxonomy View</title>
+           <para>In the Taxonomy view, users can navigate through the concept hiearchy to
                 traverse the taxonomy tree located in the left pane. The displays the concepts with
                 their parents and their children. You can traverse the tree by selecting the caret
-                symbol on the left of the tree to display the selected concept's children.<mediaobject>
+                symbol on the left of the tree to display the selected concept's children.
+               <mediaobject>
                     <imageobject>
                         <imagedata fileref="images/taxonomy-view.png" width="600px"/>
                     </imageobject>
                     <textobject>
                         <phrase>Taxonomy View</phrase>
                     </textobject>
-                </mediaobject></para>
-                
-                 <para>The tree-like structure of the Taxonomy View allows you to navigate content
+                </mediaobject>
+           </para>
+           <para>The tree-like structure of the Taxonomy View allows you to navigate content
                     from a "top-down" view – user can navigate up or down in the lineage of the
                     content by selecting the <emphasis>caret</emphasis> symbol on the left. The user
                     can also select to display the <emphasis role="italic">inferred</emphasis> or
@@ -70,53 +56,52 @@
                     is to display the <emphasis role="italic">inferred</emphasis> view. The inferred
                     view shows the parent-child lineage that has been inferred after classification
                     and the <emphasis role="italic">stated</emphasis> view shows the parent-child
-                    lineage that has been stated by the author when creating the concept. </para>
-                 <simplesect><title>Status</title>
-                  <para>In addition, the user can select to display <emphasis role="italic"
-                        >active</emphasis> only concepts or both <emphasis role="italic">active
-                    </emphasis> and <emphasis role="italic">inactive</emphasis> concepts. Inactive
-                      concepts will display in <emphasis>italics</emphasis>. The default is set to display both <emphasis
-                        role="italic">active</emphasis>concepts only concepts.</para></simplesect>
-                  <simplesect><title>Display Type</title>
-                  <para>
-                      The user has an additional option to display the <emphasis role="italic">Fully Qualified Name</emphasis> (FQN) 
-                      or the <emphasis role="italic">Normal Name </emphasis>(NAM) of the concept.
-                  </para></simplesect>
-                  <simplesect>
-                <title>Refresh the Taxonomy</title>
-                <para> The user is also able to force a refresh of the taxonomy by selecting the
-                        <emphasis>Refresh</emphasis> button.
-                    <?oxy_comment_start author="susancastillo" timestamp="20191231T081303-0800" comment="I can&apos;t think of a scenario for the user needing to refresh the taxonomy. I&apos;ve asked Tim to provide the conditions for needing a refresh."?></para><?oxy_comment_end?>
-            </simplesect>
-                <simplesect>
-                    <title>Linking the Taxonomy View with Search Results</title>
-                    <para>In the Knowledge Authoring application you can connect th concept selected in the
-                        search results and in the taxonomy to the Concept Viewer Panel. By default in connection
-                        or linkage is set. This means when you select a concept in the taxonomy the Concept
-                        Viewer will display the details of that concept. The same is true if select a result
-                        from a search. You can modify the linkage by toggling the linkage icon in the upper
-                        lefthand corner of the concept details panel.
-                    </para>
-                    <para><inlinemediaobject>
-                        <alt>Linkage icon</alt>
-                        <imageobject>
-                            <imagedata fileref="images/linkage-icon.png" width="250px" />
-                        </imageobject>
-                    </inlinemediaobject></para>
-                </simplesect>
-                <simplesect><title>Right Click on a Concept in the Taxonomy
-                    <?oxy_comment_start author="susancastillo" timestamp="20200101T155052-0800" comment="Need to add content here for right-click functionality"?>View<?oxy_comment_end?></title>
-                    <para> There are several useful functions available to the user when ….</para></simplesect>
-        </section>          
+                    lineage that has been stated by the author when creating the concept. 
+           </para>
+        <simplesect><title>Status</title>
+                  <para>In addition, the user can select to display <emphasis role="italic">active</emphasis> 
+                        only concepts or both <emphasis role="italic">active</emphasis> and 
+                        <emphasis role="italic">inactive</emphasis> concepts. Inactive concepts will display in 
+                      <emphasis>italics</emphasis>. The default is set to display both <emphasis>active</emphasis>
+                      concepts only concepts.</para>
+        </simplesect>
+        <simple><title>Display Type</title>
+            <para>
+                The user has an additional option to display the <emphasis role="italic">Fully Qualified Name</emphasis> (FQN) 
+                or the <emphasis role="italic">Normal Name </emphasis>(NAM) of the concept.</para>
+        </simple>
+        <simplesect><title>Refresh the Taxonomy</title>
+            <para> The user is also able to force a refresh of the taxonomy by selecting the
+                <emphasis>Refresh</emphasis> button.</para>
+        </simplesect></section>
+        <section><title>Linking the Taxonomy View with Search Results</title>
+            <para>In the Knowledge Authoring application you can connect th concept selected in the
+                search results and in the taxonomy to the Concept Viewer Panel. By default in connection
+                or linkage is set. This means when you select a concept in the taxonomy the Concept
+                Viewer will display the details of that concept. The same is true if select a result
+                from a search. You can modify the linkage by toggling the linkage icon in the upper
+                lefthand corner of the concept details panel.      
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/linkage-icon.png" width="250px" />
+                    </imageobject>
+                    <textobject><phrase>Linkage Icon</phrase></textobject>
+                </mediaobject>
+            </para>
+        </section>
+        <section><title>Right Click on a Concept in the Taxonomy</title>
+            <para> There are several useful functions available to the user when ….</para>
+        </section>
+   
             
-            <section><title>Sets</title>
-                <para>
+        <section><title>Sets</title>
+              <para>
                     The <emphasis>Sets</emphasis> tab allows a user to create, and modify Value Sets, and Map Sets.
                     Value Sets are a collection of concepts that is used for a specific
                 purpose. e.g. Wound Color Value Set. The Wound Color Value Set would contain the concepts needed to describe
                 the color of a wound by a clinician. A Map Set is a mapping between one terminology and another. e.g. SNOMED CT to LOINC mapping. 
                 </para> 
-                <simplesect><title>Creating a Value Set</title>
+                <section><title>Creating a Value Set</title>
                 <para>In Knowledge a Value Set can be created which contains a collection of
                     concepts to be used for a particular use determined by the author of the Value
                     Set. For example: The SNOMED CT Value Set – Lateralizable body structure
@@ -148,12 +133,12 @@
                     remove members from the table by selecting the "X" icon. You must select
                     "Compare Sync" to review and confirm your changes. Refer to the "Adding Members
                     to a Refset" section for additional information on what the "Save Changes" and
-                    "Cancel Changes" buttons do. </para></simplesect>
+                    "Cancel Changes" buttons do. </para></section>
                 
-                <simplesect><title>Creating a Map Set</title>
-                <para>
+                <section><title>Creating a Map Set</title>
+                    <para>
                     
-                </para></simplesect>
+                    </para></section>
             </section>
             <section><title>Search</title>
                 <para>You can perform a search in the Authoring interface. On the left pane,here are two
@@ -163,15 +148,15 @@
                     in the subsequent sections use Lucene. With the Lucene syntax you can easily perform
                     searchs for more details on the Lucene search syntax refer to the Lucene tutorial
                     <link xlink:href="http://www.lucenetutorial.com"> Lucene tutorial</link></para>
-            <simplesect><title>Simple Search</title>
+            <section><title>Creating a Simple Search</title>
                 <para>Terminologies can be searched by keywords under the Search tab in the left
                     pane. Begin After the keywords are entered, select the button "Search" to
                     retrieve results.</para>
                 <para>Simple search allows you to search for the keyword that you typed in the
                     search box without selecting and advanced search or SNOMED CT options.
                     Selecting the search button will return all descriptions that matches. 
-                </para></simplesect>
-            <simplesect><title>Advanced Search</title>
+                </para></section>
+            <section><title>Creating an Advanced Search</title>
                 <para>There are several ways to refine the search criteria under  "Advanced
                     Search" and "SNOMED Filters" sections of the Search tab. Select the button
                     "Search" to retrieve results after any search criteria changes. Selecting
@@ -184,7 +169,7 @@
                     <imageobject>
                         <imagedata fileref="images/advanced-search.png"/>
                     </imageobject>
-                </inlinemediaobject></para></simplesect>
+                </inlinemediaobject></para></section>
                 <!-- TBD feature 
              <simplesect><title>Saved Searches</title>
                   <para>Search criteria can be saved for later user under the Search tab. To do so,
@@ -207,8 +192,8 @@
                 <emphasis role="italic">concept viewer pane </emphasis>and the Taxonomy displays
                 <emphasis role="italic">stated and inferred </emphasis>is-a relationships based on the
                 Taxonomy display options.</para>
-                <simplesect>
-                    <title>Initiate Classification</title>
+                <section>
+                    <title>Run the Classifier</title>
                     <para>There are 2 places in the Knowledge Editor interface to run the classifier: at the
                         main navigation menu under "Authoring" and in the "Classifier" tab on the left pane. </para>
                     <para>The initial run of the classifier after the start of the system will result in all
@@ -216,9 +201,9 @@
                         concepts, also known as incremental classification. Incremental classification will
                         continue so long as the classifier status cache is maintained. This number is only a
                         measure of how much work the classifier did. </para>
-                </simplesect>
-                <simplesect>
-                    <title>How Do I View Previous Classifier Results?</title>
+                </section>
+                <section>
+                    <title>View Classifier Results</title>
                     <para>When you open the Classifier tab under the Authoring interface, there is a table of
                         previously run classifications. You may view classifications  results selecting a
                         different classification run from the dropdown "Classifier runs".</para>
@@ -250,7 +235,7 @@
                         have the option of adding concepts to your briefcase.</para>
                     <para>If you discover any inaccuracies or equivalencies after a classification, edits must
                         be made directly at the concept level. Refer to "How to Edit a Concept" for information
-                        on modifying terminologies.</para></simplesect></section>
+                        on modifying terminologies.</para></section></section>
        
        <section><title>Briefcase</title>
            <para>The briefcase temporarily holds concepts that can be reviewed and/or edited later. 
@@ -272,21 +257,21 @@
                            "Select All Items, Remove Selected Items, and Refresh List".</alt>
                        <imageobject>
                            <imagedata fileref="images/briefcase-panel.png"/> </imageobject></inlinemediaobject></para>
-           <simplesect><title>Adding a concept to the Briefcase from Classifier Results</title>
+           <section><title>Adding a concept to the Briefcase from Classifier Results</title>
                <para>To add a terminology to the briefase from some lists such as classifier page,
                    select the briefcase icon (not all tables have this feature). In the example
                    below, there is an "Add to Briefcase" icon on the 5th column of the members
                    table and an option to "Add all to Briefcase" above the table.</para>
                
-           </simplesect>
+           </section>
            
-           <simplesect><title>Adding a concept to the Briefcase from a Value Set</title>
+           <section><title>Adding a concept to the Briefcase from a Value Set</title>
                <para><inlinemediaobject>
                    <alt>Members tab under the concept "Lateralizable body structure reference
                        set" with a table that contains the option to add to briefcase in the
                        5th column</alt><imageobject><imagedata fileref="images/add-to-briefcase.png"/></imageobject></inlinemediaobject></para>
-           </simplesect>
-              <simplesect><title>Removing concepts from the briefcase</title>
+           </section>
+              <section><title>Removing concepts from the briefcase</title>
                   <para>There are two options to remove concepts from the Briefcase:
                 <orderedlist>
                     <listitem>
@@ -296,11 +281,10 @@
                         <para>To remove one or more concepts but <emphasis>not all</emphasis> concepts from the briefbase
                             select the box to the right of the concept to be removed and select the
                             <emphasis>Remove Selected Items</emphasis> button.</para></listitem>
-                </orderedlist></para></simplesect>
+                </orderedlist></para></section>
            <simplesect><title>Refreshing the Briefcase List</title>
                <para>If you do not see the concept(s) just added, try refreshing the list by
                    selecting <emphasis>Refresh List</emphasis>.</para></simplesect></section>
-    </section>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" 
         href="knowledge-concept-viewer.xml" xpointer="concept-viewer"/>

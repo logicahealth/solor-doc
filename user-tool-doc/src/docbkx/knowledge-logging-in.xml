@@ -1,39 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.1">
     <title>Logging In to Knowledge</title>
-        <para>You will receive an email when the administrator creates an account for you. The email
-        will contain login information (be sure to check your spam folder) which will enable the you
-        to access the Knowledge web-application. If you do not receive an email, contact your
-        Knowledge administrator. After your first login your password should be changed. </para>  
-        
-    <section><title>User Roles</title>
-        <para>Knowledge has 6 roles Author, Administrator, and Read. Each of these roles have
-            different permissions: <itemizedlist>
+    <para><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T111559-0500" content="You will receive an email w"?><?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T111559-0500"?>W<?oxy_insert_end?>hen
+        the administrator creates an account for
+        you<?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T111603-0500"?>, you
+        will receive an email,
+        which<?oxy_insert_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T111614-0500" content=". The email"?>
+        will contain login information (be sure to check your spam folder)<?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T111630-0500"?>.<?oxy_insert_end?>
+        <?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T111634-0500"?>This<?oxy_insert_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T111633-0500" content="which"?>
+        will enable
+        <?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T111500-0500" content="the "?>you
+        to access the Knowledge
+        web-application.<?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T111532-0500"?>
+        After your first login your password should be changed.<?oxy_insert_end?> If you do not
+        receive an email, contact your Knowledge administrator.
+        <?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T111529-0500" content="After your first login your password should be changed. "?></para>
+    <section>
+        <title>User Roles</title>
+        <para>Knowledge has
+            <?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T114235-0500"?>six<?oxy_insert_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114235-0500" content="6"?>
+            roles<?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T114231-0500"?>.<?oxy_insert_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114230-0500" content=" Author, Administrator, and Read"?>.
+            Each of these roles have different permissions: <itemizedlist>
                 <listitem>
-                    <para><emphasis>Read role</emphasis>: Allows users to view content and download content
-                        <?oxy_comment_start author="susancastillo" timestamp="20200108T211242-0800" comment="need to confirm this when content release feature is completed"?>releases<?oxy_comment_end?>.</para></listitem>
+                    <para><emphasis>Read role</emphasis>:
+                        <?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114518-0500" content="Allows users to"?><?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T114518-0500"?>Users
+                        with Read role can<?oxy_insert_end?> view content and download content
+                        <?oxy_comment_start author="susancastillo" timestamp="20200108T211242-0800" comment="need to confirm this when content release feature is completed"?>releases<?oxy_comment_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114300-0500" content="."?></para>
+                </listitem>
                 <listitem>
-                    <para><emphasis>Editor role</emphasis>: Editors modify content, create new content, search, classify, and
-                        download content releases</para></listitem>
+                    <para><emphasis>Editor role</emphasis>: Editors modify content, create new
+                        content, search, classify, and download content releases</para>
+                </listitem>
                 <listitem>
-                    <para><emphasis>Content Manager</emphasis>: The Content Manager has all the capabilities of the Editor role and can release content. </para></listitem>
+                    <para><emphasis>Content Manager</emphasis>: The Content Manager has all the
+                        capabilities of the Editor role and can release
+                        content<?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114535-0500" content="."?>
+                    </para>
+                </listitem>
                 <listitem>
-                    <para><emphasis>System Manager</emphasis>: The System Manager has administrative priveleges of the whole environment</para></listitem>
+                    <para><emphasis>System Manager</emphasis>: The System Manager has administrative
+                        priveleges of the whole environment</para>
+                </listitem>
                 <listitem>
-                    <para><emphasis>Administrator role</emphasis>: Can create user accounts, modify user accounts, and
-                        has all the editing functions as the Author role with the additional ability
-                        to release content.</para></listitem>
+                    <para><emphasis>Administrator role</emphasis>:
+                        <?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T114546-0500"?>Administrators
+                        c<?oxy_insert_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114546-0500" content="C"?>an
+                        create user accounts, modify user accounts, and
+                        ha<?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T114603-0500"?>ve<?oxy_insert_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114603-0500" content="s"?>
+                        all the editing
+                        function<?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200114T114620-0500"?>ality<?oxy_insert_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114620-0500" content="s"?>
+                        as the Author role with the additional ability to release
+                        content<?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114627-0500" content="."?></para>
+                </listitem>
                 <listitem>
-                    <para><emphasis>Automated</emphasis>: This is a role used for system to system communicaiton.</para></listitem>
+                    <para><emphasis>Automated</emphasis>: This is a role used for system to system
+                        communicaiton<?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200114T114643-0500" content="."?></para>
+                </listitem>
             </itemizedlist></para>
     </section>
-    <section><title>Login</title>
-    
-        <para>To Login you will enter your username and password. If you've forgotten your user name
-            or password select the appropriate link in the Knowledge Login screen. <?oxy_comment_start author="susancastillo" timestamp="20200108T090501-0800" comment="if developers are able to implement logging in with google or MS will need to add content
+    <section>
+        <title>Login</title>
+        <para>To Login you will enter your username and password. If
+            you<?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200129T104825-0500" content="&apos;ve"?>
+            forg<?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200129T104844-0500"?>e<?oxy_insert_end?><?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200129T104844-0500" content="o"?>t<?oxy_delete author="ColinCavanaugh-Johns" timestamp="20200129T104827-0500" content="ten"?><?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200129T104830-0500"?>
+            either<?oxy_insert_end?> your user name or
+            password<?oxy_insert_start author="ColinCavanaugh-Johns" timestamp="20200129T104836-0500"?>,<?oxy_insert_end?>
+            select the appropriate link in the Knowledge Login screen. <?oxy_comment_start author="susancastillo" timestamp="20200108T090501-0800" comment="if developers are able to implement logging in with google or MS will need to add content
 "?><figure><?oxy_comment_end?>
                 <title>Login</title>
                 <mediaobject>
@@ -45,8 +80,7 @@
                     </textobject>
                 </mediaobject>
             </figure></para>
-        <para>After you succcessfully login to Knowledge you will see the Manager homepage.
-            <figure>
+        <para>After you succcessfully login to Knowledge you will see the Manager homepage. <figure>
                 <title>Homepage of user with Author role</title>
                 <mediaobject>
                     <imageobject>
@@ -57,44 +91,49 @@
                     </textobject>
                 </mediaobject>
             </figure></para>
-            <para>From this page you can: <orderedlist>
+        <para>From this page you can: <orderedlist>
                 <listitem>
                     <para>select the <emphasis role="bold">Profile </emphasis> menu option to change
-                        your user profile.</para></listitem>
+                        your user profile.</para>
+                </listitem>
                 <listitem>
-                    <para><emphasis>add</emphasis> a user or <emphasis>modify</emphasis> a user's role 
-                        if you are an administrator.</para></listitem>
+                    <para><emphasis>add</emphasis> a user or <emphasis>modify</emphasis> a user's
+                        role if you are an administrator.</para>
+                </listitem>
                 <listitem>
                     <para>select the <emphasis role="bold">Go To Editor</emphasis> button to be
-                        directed to the Knowledge Editor.</para></listitem>
+                        directed to the Knowledge Editor.</para>
+                </listitem>
                 <listitem>
                     <para>select the <emphasis role="bold">Go To API</emphasis> button to be view
-                        the Rest API documentation</para></listitem>
+                        the Rest API documentation</para>
+                </listitem>
                 <listitem>
                     <para>select the <emphasis role="bold">Logout</emphasis> button to logout of the
-                        application</para></listitem>
+                        application</para>
+                </listitem>
             </orderedlist></para>
-        <para><figure xreflabel="Admin">
-            <title>Homepage of user with Administrator role</title>
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="images/admin-user-menu.png" width="600px"/>
-                </imageobject>
-                <textobject>
-                    <phrase>Manager page of a user with Administrator role</phrase>
-                </textobject>
-            </mediaobject>
-        </figure></para>
-        
-        </section>
-    
-    <section><title>Edit User Profile</title>
-        
+        <para>
+            <figure xreflabel="Admin">
+                <title>Homepage of user with Administrator role</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/admin-user-menu.png" width="600px"/>
+                    </imageobject>
+                    <textobject>
+                        <phrase>Manager page of a user with Administrator role</phrase>
+                    </textobject>
+                </mediaobject>
+            </figure>
+        </para>
+    </section>
+    <section>
+        <title>Edit User Profile</title>
         <para>When you select the <emphasis>Profile</emphasis> menu option you are able to modify:
-            the Display Name, your User Name, your  email address and change your password. To save
-            any changes made you will need to select the <emphasis>Save</emphasis>button. 
-            The <emphasis>Cancel</emphasis>button will discard any changes made.
-            <figure>
+            <?oxy_comment_start author="ColinCavanaugh-Johns" timestamp="20200129T180649-0500" comment="I cannot get this to work, but I would make this a short bulleted list. "?>the<?oxy_comment_end?>
+            Display Name, your User Name, your email address and change your password. To save any
+            changes made you will need to select the <emphasis>Save</emphasis>button. The
+                <emphasis>Cancel</emphasis>button will discard any changes made. <figure>
                 <title>User Profile</title>
                 <mediaobject>
                     <imageobject>
@@ -104,5 +143,7 @@
                         <phrase>Edit User Profile</phrase>
                     </textobject>
                 </mediaobject>
-            </figure></para></section>
+            </figure></para>
+    </section>
 </chapter>
+<?oxy_options track_changes="on"?>

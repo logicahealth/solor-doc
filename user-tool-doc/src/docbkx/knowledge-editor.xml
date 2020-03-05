@@ -141,33 +141,56 @@
                     </para></section>
             </section>
             <section><title>Search</title>
-                <para>You can perform a search in the Authoring interface. On the left pane,here are two
-                    options to find the concepts: under the taxonomy tab or by the search tab.
-                    Knowledge has implemented Lucene as one of it's search engines. Lucene is an 
-                    open-source full-text search library. Both Simple Search and Advanced Search described 
-                    in the subsequent sections use Lucene. With the Lucene syntax you can easily perform
-                    searchs for more details on the Lucene search syntax refer to the Lucene tutorial
-                    <link xlink:href="http://www.lucenetutorial.com"> Lucene tutorial</link></para>
+                <para>Search can be performed in the Authoring interface through keywords and Lucene
+            query syntax. Knowledge has implemented Lucene, an open-source full-text search library,
+            as one of its search engines. To search for a concept, select the “Search” tab on the
+            left panel, then fill in the fields as needed. Both Simple Search and Advanced Search
+            described in the subsequent sections use Lucene. For more details on the Lucene search
+            syntax refer to the <link xlink:href="http://www.lucenetutorial.com"> Lucene
+                tutorial</link></para>
             <section><title>Creating a Simple Search</title>
-                <para>Terminologies can be searched by keywords under the Search tab in the left
-                    pane. Begin After the keywords are entered, select the button "Search" to
-                    retrieve results.</para>
-                <para>Simple search allows you to search for the keyword that you typed in the
-                    search box without selecting and advanced search or SNOMED CT options.
-                    Selecting the search button will return all descriptions that matches. 
-                </para></section>
+            <example>
+                <caption>
+                    <para>Terminologies can be searched by keywords under the Search tab in the left
+                        pane. Type in keywords under the “Search text” field, then select the
+                        “Search” button to retrieve results. </para>
+                    <para>Simple search allows you to search for the keyword that you typed in the
+                        search box without selecting advanced search or SNOMED CT options. Selecting
+                        the search button will return all descriptions that matches. Keywords used
+                        in simple search are identified as Single Terms and Phrases. A Single Term
+                        is a single word such as "test" or "hello". A Phrase is a group of words
+                        surrounded by double quotes such as "hello dolly". If a group of words
+                        without double quotes are used such as hello goodbye, then the results will
+                        display results that contain either “hello” or “goodbye”. Multiple terms can
+                        be combined with Boolean operators to form a more complex query. Review
+                        Lucene query <link
+                            xlink:href="http://www.lucenetutorial.com/lucene-query-syntax.html"
+                            >keyword matching</link>for more advanced search syntax.</para>
+                </caption>
+            </example></section>
             <section><title>Creating an Advanced Search</title>
-                <para>There are several ways to refine the search criteria under  "Advanced
-                    Search" and "SNOMED Filters" sections of the Search tab. Select the button
-                    "Search" to retrieve results after any search criteria changes. Selecting
-                    the "Reset" button will clear all fields in the Search tab. A figure of the
-                    available filter criteria is shown below.</para>
+            <para>Search results can be filtered by using the Advanced Search section under the
+                “Search for” field. There are 3 options in the Advanced Search section:</para>
+            <orderedlist>
+                <listitem>
+                    <para>Search In – The system will look for the keywords in either the
+                        descriptions, semantics, or identifiers. Descriptions are all information
+                        within the concept details; semantics are the properties; and identifiers
+                        are alphanumeric IDs such as an SCTID or LOINC code.</para>
+                </listitem>
+                <listitem>
+                    <para>Page size – Select the number of results to display at a time</para>
+                </listitem>
+                <listitem>
+                    <para>Description Type – The system will restrict the search to concepts that
+                        are either a fully qualified name, a regular name, a definition, or
+                        all.</para>
+                </listitem>
+            </orderedlist>
                 <para><inlinemediaobject>
-                    <alt>Figure of the Search tab with additional filter criteria such as
-                        Status, Path, STAMP date range, Author, Modules, and Description
-                        type.</alt>
+                    <alt>Figure of the Search tab in Knowledge.</alt>
                     <imageobject>
-                        <imagedata fileref="images/advanced-search.png"/>
+                        <imagedata fileref="images/search-fields.png"/>
                     </imageobject>
                 </inlinemediaobject></para></section>
                 <!-- TBD feature 

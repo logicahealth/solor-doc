@@ -73,25 +73,54 @@
         <simplesect><title>Refresh the Taxonomy</title>
             <para> The user is also able to force a refresh of the taxonomy by selecting the
                 <emphasis>Refresh</emphasis> button.</para>
-        </simplesect></section>
-        <section><title>Linking the Taxonomy View with Search Results</title>
-            <para>In the Knowledge Authoring application you can connect th concept selected in the
-                search results and in the taxonomy to the Concept Viewer Panel. By default in connection
-                or linkage is set. This means when you select a concept in the taxonomy the Concept
-                Viewer will display the details of that concept. The same is true if select a result
-                from a search. You can modify the linkage by toggling the linkage icon in the upper
-                lefthand corner of the concept details panel.      
-                <mediaobject>
+        </simplesect>
+        <simplesect><title>Concept Type – Primitive versus Defined</title>
+            <para>In Knowledge concepts are defined as either a <emphasis>defined</emphasis> or
+                <emphasis>primitive</emphasis>. <itemizedlist>
+                    <listitem>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                                <imagedata format="SVG" fileref="images/green-circle.svg"/>
+                            </imageobject>
+                            <textobject>
+                                <phrase>Defined concept</phrase>
+                            </textobject>
+                        </inlinemediaobject>Defined – A concept that is
+                            <emphasis>defined</emphasis> is represented by a green circle. A
+                            concept is considered defined by unique relationships between its relatives (e.g.
+                            siblings and parents)</para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <inlinemediaobject>
+                                <imageobject>
+                                    <imagedata format="SVG" fileref="images/hexagon.svg"/>
+                                </imageobject>
+                            </inlinemediaobject> Primative – A concept that is
+                            <emphasis>primative</emphasis> is represented by an orange hexagon
+                            and signifies that its attributes and parents composing the concept are
+                            non-definitive characteristics. </para>
+                    </listitem>
+                </itemizedlist></para></simplesect></section>
+    
+        <section><title>Link Concept Details to Taxonomy</title>
+            <para>Concept details are displayed in the concept viewer panel automatically if a concept is selected in the 
+                taxonomy and the taxonomy and concept panel are linked as shown in the figure below. You can modify the 
+                linkage by toggling the linkage icon in the upper lefthand corner of the concept details panel.    
+                <figure xreflabel="linkage">
+                    <title>Taxonomy is linked to concept viewer panel</title>
+                    <mediaobject>
                     <imageobject>
                         <imagedata fileref="images/linkage-icon.png" width="250px" />
                     </imageobject>
                     <textobject><phrase>Linkage Icon</phrase></textobject>
                 </mediaobject>
-            </para>
+                </figure></para>
         </section>
         <section><title>Right Click on a Concept in the Taxonomy</title>
             <para> There are several useful functions available to the user when ….</para>
         </section>
+   
    
             
         <section><title>Sets</title>
@@ -219,11 +248,9 @@
                     <title>Run the Classifier</title>
                     <para>There are 2 places in the Knowledge Editor interface to run the classifier: at the
                         main navigation menu under "Authoring" and in the "Classifier" tab on the left pane. </para>
-                    <para>The initial run of the classifier after the start of the system will result in all
-                        concepts being evaluated. Subsequent classifications will only evaluate modified
-                        concepts, also known as incremental classification. Incremental classification will
-                        continue so long as the classifier status cache is maintained. This number is only a
-                        measure of how much work the classifier did. </para>
+                    <para>The initial run of the classifier after the start of the system will
+                result in all concepts being evaluated. Subsequent classifications will only
+                evaluate modified concepts.</para>
                 </section>
                 <section>
                     <title>View Classifier Results</title>

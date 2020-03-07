@@ -5,9 +5,10 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Knowledge Editor</title>
     
-    <para>The Editor allows the user to view, modify, add new concepts, classify, release and
-        create new value sets. This section provides an overview of Knowledge areas and a
-        description. Users are able to see changes made by all users in real-time. </para>
+    <para>The Editor enables users to view, modify, create concepts, modify concepts, classify,
+        create versions, export versions, create value sets and modify value sets. This chapter
+        provides an overview of the Editor layout and details on autoring content. Users are able to
+        see changes made by all users in real-time. </para>
     
     <para>There are two roles that a user can have which changes the functionality available;
         Author, and  Administrator role. The Administrator role has all the functionality as an
@@ -17,7 +18,21 @@
     <section><title>Editor Layout</title>
         <para>By default, the Editor is divided into 3 sections: the <emphasis role="italic"
             >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and the
-            navigation bar see figure X below. </para>
+            navigation bar see figure X below. Each of these functions are described
+            in more details succeeding sections.
+            <itemizedlist>
+                <listitem>
+                    <para>Task Pane –  The Task Pane has several tabs that perform different functions, such as the
+                        Taxonomy, Sets, Search, Classifier, and Briefcase tabs. </para>
+                </listitem>
+                <listitem>
+                    <para>Concept Viewer – The Concept Viewer displays details of the concept selected in the taxonomy.</para>
+                </listitem>
+                <listitem>
+                    <para>Navigation bar – The Navigation bar enables fast access to functions e.g. New Concept, 
+                        Export Management</para>
+                </listitem>
+            </itemizedlist></para>
         <simplesect><title>Task Pane</title>
             <para><emphasis>Task Pane</emphasis>: The Task Pane has several tabs that perform different functions, such as the
                 Taxonomy, Sets, Search, Classifier, and Briefcase. Each of these functions are described
@@ -65,11 +80,11 @@
                       <emphasis>italics</emphasis>. The default is set to display both <emphasis>active</emphasis>
                       concepts only concepts.</para>
         </simplesect>
-        <simple><title>Display Type</title>
+        <simplesect><title>Display Type</title>
             <para>
                 The user has an additional option to display the <emphasis role="italic">Fully Qualified Name</emphasis> (FQN) 
                 or the <emphasis role="italic">Normal Name </emphasis>(NAM) of the concept.</para>
-        </simple>
+        </simplesect>
         <simplesect><title>Refresh the Taxonomy</title>
             <para> The user is also able to force a refresh of the taxonomy by selecting the
                 <emphasis>Refresh</emphasis> button.</para>
@@ -101,25 +116,25 @@
                             and signifies that its attributes and parents composing the concept are
                             non-definitive characteristics. </para>
                     </listitem>
-                </itemizedlist></para></simplesect></section>
-    
-        <section><title>Link Concept Details to Taxonomy</title>
-            <para>Concept details are displayed in the concept viewer panel automatically if a concept is selected in the 
-                taxonomy and the taxonomy and concept panel are linked as shown in the figure below. You can modify the 
-                linkage by toggling the linkage icon in the upper lefthand corner of the concept details panel.    
-                <figure xreflabel="linkage">
-                    <title>Taxonomy is linked to concept viewer panel</title>
-                    <mediaobject>
+                </itemizedlist></para></simplesect>
+        <simplesect><title>Linking the Taxonomy View with Search Results</title>
+            <para>In the Knowledge Editor you can connect/link the concept selected in the
+                Taxonomy to the Concept Viewer Panel. By default the connection
+                or linkage is set. This means when you select a concept in the taxonomy the Concept
+                Viewer will display the details of that concept. The same is true if select a result
+                from a search. You can modify the linkage by toggling the linkage icon in the upper
+                lefthand corner of the concept details panel.      
+                <mediaobject>
                     <imageobject>
                         <imagedata fileref="images/linkage-icon.png" width="250px" />
                     </imageobject>
                     <textobject><phrase>Linkage Icon</phrase></textobject>
                 </mediaobject>
-                </figure></para>
-        </section>
-        <section><title>Right Click on a Concept in the Taxonomy</title>
-            <para> There are several useful functions available to the user when ….</para>
-        </section>
+            </para>
+        </simplesect></section>
+    
+        
+    
    
    
             
@@ -341,5 +356,66 @@
                 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" 
         href="knowledge-navigation-bar.xml" xpointer="navigation-bar"/>
-
+    <section><title>Context Menu</title>
+        <para>A context menu appears when you right-click on the concept name either on the taxonomy tree or in the 
+            title of concept details panel.</para>
+        <para>The context menu contains the following options:
+            <itemizedlist>
+                <listitem>
+                    <para>Open concept – opens the concept details information</para>
+                </listitem>
+                <listitem>
+                    <para>Open concept in new concept viewer – opens the concept details information
+                        in a third panel.</para>
+                </listitem>
+                <listitem>
+                    <para>Add to briefcase – add the concept to your briefcase, which can be viewed under in
+                        the briefcase tab.</para>
+                </listitem>
+                <listitem>
+                    <para>Copy concept, UUID, SCTID, description and SCTID – copies the information described.</para>
+                </listitem>
+                <listitem>
+                    <para>Edit concept – opens the concept in edit mode.</para>
+                </listitem>
+                <listitem>
+                    <para>Edit concept in new viewer – opens the concept in edit mode, in a third concept
+                        details panel.</para>
+                </listitem>
+                <listitem>
+                    <para>Clone concept – duplicates the concept information as a new concept.</para>
+                </listitem>
+                <listitem>
+                    <para>Clone concept in new viewer – duplicates the concept information as
+                        a new concpet and opens a new concept details panel.</para>
+                </listitem>
+                <listitem>
+                    <para>Create child concept – creates a new child concept with the same information as the selected
+                        concept and uses the selected concept as the parent.</para>
+                </listitem>
+                <listitem>
+                    <para>Create child concept in new viewer – creates a new child concept with the same information as the selected
+                        concept, uses the selected concept as the parent and opens a third concept viewer panel.</para>
+                </listitem>
+                <listitem>
+                    <para>Inactivate concept – sets the selected concept's state to inactive. If the concept disappears from the taxonomy
+                        your display options are set not to display inactive concepts.</para>
+                </listitem>
+                <listitem>
+                    <para>Activate concept – sets the selected concept's state to active. This option is only visible in the context menu
+                        if the selected concept is inactive.</para>
+                </listitem>
+            </itemizedlist>
+            <figure xreflabel="linkage">
+                <title>Context Menu Options</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/cursor-over-concept-details.png" width="750px"/>
+                    </imageobject>
+                    <textobject>
+                        <phrase>Right click options</phrase>
+                    </textobject>
+                </mediaobject>
+            </figure></para>
+    </section>
 </chapter> 

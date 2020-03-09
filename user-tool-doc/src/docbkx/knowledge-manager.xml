@@ -9,80 +9,101 @@
     <section>
         <title>Adding New User</title>
         <para>To add a new user, select "View Users" option under the username, which in this case
-            is "<emphasis>admin</emphasis>" in the upper right hand corner,  <xref
-                linkend="new-user"/></para>
+            is "<emphasis>admin</emphasis>" in the upper right hand corner, <xref
+                linkend="new-user-homepage"/>.</para>
         <para>
-            <figure xml:id="new-user"><title>New User</title>
+            <figure xml:id="new-user-homepage"><title>Knowledge Homepage</title>
                 <mediaobject>
                     <imageobject>
                         <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
                             fileref="images/admin-user-menu.png" />
                     </imageobject>
-                    <textobject><phrase>test</phrase></textobject>
                 </mediaobject>
             </figure></para>
-        <para>A page will display that lists all the user accounts in Knowledge, refer to figure
-            XXX.  Select the "<emphasis>New Account</emphasis>" button on this page to create a new
-            user account, refer to Figure XXX.</para>
-        <para><inlinemediaobject>
-                <imageobject>
-                    <imagedata fileref="images/new-user-account.png" width="550px"/>
-                </imageobject>
-            </inlinemediaobject></para>
-        <para>On the Create a New Account page, fill in the following information:<itemizedlist>
+        <para>The next page will display a list of all the user accounts in Knowledge, as show in
+                <xref linkend="user-list"/>. To create a new account select the "<emphasis>New
+                Account</emphasis>" button and enter the required information, refer to <xref
+                linkend="new-user-account"/>.</para>
+        <para>
+            <figure xml:id="user-list"><title>List of Users</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%" 
+                            fileref="images/new-user-account.png" />
+                    </imageobject>
+                </mediaobject>
+            </figure></para>
+        
+        <para>On the Create a New Account page below, fill in the following information:<itemizedlist>
                 <listitem>
                     <para><emphasis>Display Name</emphasis> – the name that will be displayed in the
-                        upper right corner of the web-pages</para>
+                        upper right corner of the Editor, display as the <emphasis>author</emphasis>
+                        in the Editor </para>
+                    <para>as well. The Knowledge Manager Homepage will display the <emphasis>User
+                            Name</emphasis> in the upper right corner. </para>
                 </listitem>
                 <listitem>
-                    <para><emphasis>User Name</emphasis> – this field is optional but can be used to
-                        login</para>
+                    <para><emphasis>User Name</emphasis> – enter the users name. The users name can
+                        also be used to login.</para>
                 </listitem>
                 <listitem>
-                    <para><emphasis>E-mail</emphasis> – is the email address associated with the
+                    <para><emphasis>E-mail</emphasis> – enter the email address associated with the
                         user account</para>
                 </listitem>
                 <listitem>
                     <para><emphasis>Password</emphasis> – entering a password is optional</para>
                 </listitem>
                 <listitem>
-                    <para><emphasis>role</emphasis> – select the role(s) for this user</para>
+                    <para><emphasis>Role</emphasis> – select the role(s) for this user</para>
                 </listitem>
-            </itemizedlist>
-        Select <emphasis>Create Account</emphasis> when you are done to create the new account.</para>
-        <para><inlinemediaobject>
+            </itemizedlist> Select <emphasis>Create Account</emphasis> to create a new user
+            account.</para>
+        <para><figure xml:id="new-user-account"><title>Create New Account</title>
+            <mediaobject>
                 <imageobject>
-                    <imagedata fileref="images/new-user-form.png" width="550px"/>
+                    <imagedata align="center" scalefit="1" width="100%" contentdepth="100%" 
+                        fileref="images/new-user-form.png" />
                 </imageobject>
-            </inlinemediaobject></para>
+            </mediaobject>
+        </figure></para>
+        
     </section>
     <section><title>Modifying User Roles</title>
         <para>An administrator can modify a user's role by selecting <emphasis>View Users</emphasis>
-            and then selecting <emphasis>Edit</emphasis>. This will bring you to the <emphasis>Edit
-                Account Profile</emphasis> for the user where you can add or remove roles for the
-            user (a user can have more than one role). When done modifying a user's role(s) select
-                <emphasis>Save</emphasis> to change the user's permission(s) or select 
-            <emphasis>Cancel</emphasis> to cancel the modifications made or return to the previous page.</para>
-        <para><inlinemediaobject>
-            <imageobject>
-                <imagedata fileref="images/edit-role.png" width="550px"/>
-            </imageobject>
-        </inlinemediaobject></para>
+            then selecting <emphasis>Edit</emphasis>. This will bring you to the <emphasis>Edit
+                Account Profile</emphasis>, as shown in <xref linkend="modify-role"/>for the user.
+            Here user roles can be added or removed (a user can have more than one role). When done
+            modifying a user's role(s) select <emphasis>Save</emphasis> to change the user's
+            permission(s) or select <emphasis>Cancel</emphasis> to cancel the modifications made and
+            return to the previous page.</para>
+        <para> <figure xml:id="modify-role"><title>Modify Roles</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                        fileref="images/edit-role.png" />
+                </imageobject>
+            </mediaobject>
+        </figure></para>
     </section>
     <section>
         <title>Disable a User Account</title>
         <para>The <emphasis>Administrator</emphasis> can also disable a user's account by selecting
-                <emphasis>View Users</emphasis> and then selecting <emphasis>Edit</emphasis>. This
-            will bring you to the <emphasis>Edit Account Profile</emphasis> where the
-                <emphasis>Disable Account</emphasis> is selected. This will prevent a the user from
-            using their credentials to login to Knowledge. Then select <emphasis>Save</emphasis> or
-            select <emphasis>Cancel</emphasis> to cancel the modifications made or to return to the
-            previous page.</para>
-        <para><inlinemediaobject>
-            <imageobject>
-                <imagedata fileref="images/disable-account.png" width="550px"/>
-            </imageobject>
-        </inlinemediaobject></para>
+                <emphasis>View Users</emphasis> and then select <emphasis>Edit</emphasis>. This will
+            bring you to the <emphasis>Edit Account Profile</emphasis> select the <emphasis>Disable
+                Account</emphasis> checkbox. Disabling an will prevent the user from using their
+            credentials to login to Knowledge – they will no longer have any priveledges in
+            Knowledge. Then select <emphasis>Save</emphasis> to disable the account or select
+                <emphasis>Cancel</emphasis> to cancel the modifications made and return to the
+                <emphasis>View Accounts</emphasis> page.</para>
+        <para>
+            <figure xml:id="disable-account"><title>Disable Account</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                            fileref="images/disable-account.png" />
+                    </imageobject>
+                </mediaobject>
+            </figure></para>
     </section>
     <section>
         <title>Return to Knowledge Homepage</title>
@@ -91,7 +112,7 @@
             corner and select <emphasis>Home</emphasis>.</para>
         <para><inlinemediaobject>
             <imageobject>
-                <imagedata fileref="images/go-to-homepage.png" width="250px"/>
+                <imagedata align="center" fileref="images/go-to-homepage.png" width="250px"/>
             </imageobject>
         </inlinemediaobject></para>
     </section>

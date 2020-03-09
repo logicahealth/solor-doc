@@ -1,41 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
+<chapter xml:id="mgmt" xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-     <title>User Management</title>
-     <para>Knowledge's application administrator can create new user accounts, modify a users role, disable an
-         account.
-        permissions, and users. Most of these workflows are viewable in a separate section of the
-        application called Knowledge Manager. Editors and content managers have permissions to the
-        section called Knowledge Editor.</para>
-    
-        <section>
-            <title>Adding New Users</title>
-            <para>To add a user, select the "Accounts and Roles" option in the main navigation. On
-                this page, there should be a table that lists all users in the application along
-                with filter options to aide in user search. Select the "New Account" button on this
-                page.</para>
-            <para>On the Create a New Account page, fill in the appropriate information. Select the
-                permissions that the user will have for ALL projects assigned, this is described as
-                Global in the application. Project-specific permissions can be assigned on the Edit
-                Account Profile page after the account is created.</para>
-            <para>In order for the new user to access the project contents, the account must be
-                assigned the appropriate projects and roles, so after account creation, select the
-                user from the View Accounts and Roles page. You can assign the requested projects to
-                the user under the "Assign to Project" dropdown. Select "Add" to confirm the
-                assignment.</para>
-            <para><inlinemediaobject>
+    <title>User Management</title>
+    <para>Knowledge has an adminsitrator role that can craete new user accounts, assign roles, and
+        deactive users. The folling sections describes these functions. </para>
+    <section>
+        <title>Adding New User</title>
+        <para>To add a new user, select "View Users" option under the username, which in this case
+            is "<emphasis>admin</emphasis>" in the upper right hand corner. </para>
+        <para>
+            <figure><title>New User</title>
+            <mediaobject><imageobject></imageobject>
+             </mediaobject></figure>
+        </para>
+            <figure><title>New User</title>
                 <imageobject>
-                    <imagedata fileref="" width="750px"/>
+                    <imagedata></imagedata> fileref="images/admin-user-menu.png" width="550px"
                 </imageobject>
-            </inlinemediaobject> To modify roles and permissions per project, select "Edit
-                Roles" for the specific project on the Edit Account Profile page. There, you can
-                assign additional permissions to the user if different projects require different
-                access levels.</para></section>
-         <section>
-            <title>Modifying User Roles</title>
-             <para></para> </section>
-  
+            </figure></para>
+        <para>A page will display that lists all the user accounts in Knowledge, refer to figure
+            XXX.  Select the "<emphasis>New Account</emphasis>" button on this page to create a new
+            user account, refer to Figure XXX.</para>
+        <para><inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="images/new-user-account.png" width="550px"/>
+                </imageobject>
+            </inlinemediaobject></para>
+        <para>On the Create a New Account page, fill in the following information:<itemizedlist>
+                <listitem>
+                    <para><emphasis>Display Name</emphasis> – the name that will be displayed in the
+                        upper right corner of the web-pages</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis>User Name</emphasis> – this field is optional but can be used to
+                        login</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis>E-mail</emphasis> – is the email address associated with the
+                        user account</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis>Password</emphasis> – entering a password is optional</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis>role</emphasis> – select the role(s) for this user</para>
+                </listitem>
+            </itemizedlist>
+        Select <emphasis>Create Account</emphasis> when you are done to create the new account.</para>
+        <para><inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="images/new-user-form.png" width="550px"/>
+                </imageobject>
+            </inlinemediaobject></para>
+    </section>
+    <section><title>Modifying User Roles</title>
+        <para>An administrator can modify a user's role by selecting <emphasis>View Users</emphasis>
+            and then selecting <emphasis>Edit</emphasis>. This will bring you to the <emphasis>Edit
+                Account Profile</emphasis> for the user where you can add or remove roles for the
+            user (a user can have more than one role). When done modifying a user's role(s) select
+                <emphasis>Save</emphasis> to change the user's permission(s) or select 
+            <emphasis>Cancel</emphasis> to cancel the modifications made or return to the previous page.</para>
+        <para><inlinemediaobject>
+            <imageobject>
+                <imagedata fileref="images/edit-role.png" width="550px"/>
+            </imageobject>
+        </inlinemediaobject></para>
+    </section>
+    <section>
+        <title>Disable a User Account</title>
+        <para>The <emphasis>Administrator</emphasis> can also disable a user's account by selecting
+                <emphasis>View Users</emphasis> and then selecting <emphasis>Edit</emphasis>. This
+            will bring you to the <emphasis>Edit Account Profile</emphasis> where the
+                <emphasis>Disable Account</emphasis> is selected. This will prevent a the user from
+            using their credentials to login to Knowledge. Then select <emphasis>Save</emphasis> or
+            select <emphasis>Cancel</emphasis> to cancel the modifications made or to return to the
+            previous page.</para>
+        <para><inlinemediaobject>
+            <imageobject>
+                <imagedata fileref="images/disable-account.png" width="550px"/>
+            </imageobject>
+        </inlinemediaobject></para>
+    </section>
+    <section>
+        <title>Return to Knowledge Homepage</title>
+        <para>To return to the Knowledge homepage from <emphasis>View Users</emphasis> go to
+            username, which in this case is "<emphasis>admin</emphasis>" in the upper right hand
+            corner and select <emphasis>Home</emphasis>.</para>
+        <para><inlinemediaobject>
+            <imageobject>
+                <imagedata fileref="images/go-to-homepage.png" width="250px"/>
+            </imageobject>
+        </inlinemediaobject></para>
+    </section>
 </chapter>
-

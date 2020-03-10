@@ -19,35 +19,44 @@
         <para>The Knowledge Editor is divided into 3 sections: the <emphasis role="italic"
                 >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and
             the navigation bar see figure X below. Each of these functions are described in more
-            details in the succeeding sections. Below is a brief description of each area of the Editor:<orderedlist>
+            details in the succeeding sections. Below is a brief description of each area of the Editor:
+            <orderedlist>
                 <listitem>
                     <para><emphasis role="bold">Task Pane</emphasis> – The Task Pane consists of
                         several tabs that contain functionality, such as Search, and QA. To this
                         functionality a user selects the appropriate tab. A brief description of
-                        each tabs functionility is described: <itemizedlist>
+                        each tabs functionility is described: 
+                        <orderedlist>
                             <listitem>
-                                <para>Taxonomy – the Taxonomy tab is always the default tab in the
-                                    task pane when a user logs into Knowledge</para>
+                                <para>Taxonomy – the Taxonomy displays the content in a hiearchial
+                                    view. It is always the default view when a user logs into
+                                    Knowledge</para>
                             </listitem>
                             <listitem>
-                                <para>Sets – </para>
+                                <para>Sets – a user can create, edit and view value sets and
+                                    maps</para>
                             </listitem>
                             <listitem>
-                                <para>Search</para>
+                                <para>Search – the search function enables the user to search for
+                                    specific descriptions, ids and other values</para>
                             </listitem>
                             <listitem>
-                                <para>Classifier</para>
+                                <para>Classifier – the user can run the classifier, and view results
+                                    of classification </para>
                             </listitem>
                             <listitem>
-                                <para>QA</para>
+                                <para>QA – data checks can be initiated, and result can be
+                                    viewed</para>
                             </listitem>
                             <listitem>
-                                <para>Export and Versions</para>
+                                <para>Export and Versions – users with the appropriate permissions
+                                    can export content and create a version</para>
                             </listitem>
                             <listitem>
-                                <para>Briefcase</para>
+                                <para>Briefcase – is similar to a list. User's can add to the
+                                    Briefcase throughout the Editor to be viewed or modified.</para>
                             </listitem>
-                        </itemizedlist></para>
+                        </orderedlist></para>
                 </listitem>
                 <listitem>
                     <para><emphasis role="bold">Concept Viewer</emphasis> – The Concept Viewer
@@ -59,32 +68,34 @@
                         Knowledge Manager page, Modify global display options</para>
                 </listitem>
             </orderedlist>
+            
             <figure>
                 <title>Knowledge Editor Layout</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/editor-layout.png" width="600px"/>
+                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                            fileref="images/editor-layout.png" />
                     </imageobject>
                     <textobject>
-                        <phrase>Knowledge Editor Layout Overview </phrase>
+                        <phrase>Editor Layout Overview </phrase>
                     </textobject>
                 </mediaobject>
             </figure></para>
     </section>
     <section><title>Taxonomy View</title>
-           <para>In the Taxonomy view, users can navigate through the concept hiearchy to
-                traverse the taxonomy tree located in the left pane. The displays the concepts with
-                their parents and their children. You can traverse the tree by selecting the caret
-                symbol on the left of the tree to display the selected concept's children.
-               <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/taxonomy-view.png" width="600px"/>
-                    </imageobject>
-                    <textobject>
-                        <phrase>Taxonomy View</phrase>
-                    </textobject>
-                </mediaobject>
-           </para>
+           <para>In the Taxonomy view, users can navigate through the concept hiearchy to traverse
+            the taxonomy tree. The Taxonomy also displays the concepts with their parents and their
+            children. You can traverse the tree by selecting the caret symbol on the left of the
+            tree to display the selected concept's children. 
+               <figure xml:id="taxonomy-view"><title>Taxonomy</title>
+                   <mediaobject>
+                       <imageobject>
+                           <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
+                               fileref="images/taxonomy-view.png" />
+                       </imageobject>
+                   </mediaobject>
+               </figure>           
+        </para>
            <para>The tree-like structure of the Taxonomy View allows you to navigate content
                     from a "top-down" view – user can navigate up or down in the lineage of the
                     content by selecting the <emphasis>caret</emphasis> symbol on the left. The user
@@ -145,13 +156,23 @@
                 or linkage is set. This means when you select a concept in the taxonomy the Concept
                 Viewer will display the details of that concept. The same is true if select a result
                 from a search. You can modify the linkage by toggling the linkage icon in the upper
-                lefthand corner of the concept details panel.      
-                <mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/linkage-icon.png" width="250px" />
-                    </imageobject>
-                    <textobject><phrase>Linkage Icon</phrase></textobject>
-                </mediaobject>
+                lefthand corner of the concept details panel.  
+                <figure xml:id="search-linked"><title>Linked</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata  align="center" scalefit="1" width="100%" contentdepth="75%" 
+                                fileref="images/linkage-icon.png" />
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <figure xml:id="search-unlinked"><title>Unlinked </title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata  align="center" scalefit="1" width="100%" contentdepth="70%" 
+                                fileref="images/unlinked-icon.png" />
+                        </imageobject>
+                    </mediaobject>
+                </figure>
             </para>
         </simplesect></section>
          
@@ -245,12 +266,17 @@
                         all.</para>
                 </listitem>
             </orderedlist>
-                <para><inlinemediaobject>
-                    <alt>Figure of the Search tab in Knowledge.</alt>
-                    <imageobject>
-                        <imagedata fileref="images/search-fields.png"/>
-                    </imageobject>
-                </inlinemediaobject></para></section>
+                <para>
+                    <figure xml:id="search-tab"><title>Search</title>
+                        <mediaobject>
+                            <alt>Figure of the Search tab in Knowledge.</alt>
+                            <imageobject>
+                                <imagedata  align="center" scalefit="1" width="100%" contentdepth="50%" 
+                                    fileref="images/search-fields.png" />
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                    </para></section>
                 <!-- TBD feature 
              <simplesect><title>Saved Searches</title>
                   <para>Search criteria can be saved for later user under the Search tab. To do so,
@@ -331,11 +357,16 @@
            
            <para>The briefcase is viewable from the Task Pane of the Knowledge Editor, see screen
                 shot below.
-                   <inlinemediaobject>
+               <figure xml:id="briefcase"><title>Briefcase</title>
+                   <mediaobject>
                        <alt>The briefcase options
                            "Select All Items, Remove Selected Items, and Refresh List".</alt>
                        <imageobject>
-                           <imagedata fileref="images/briefcase-panel.png"/> </imageobject></inlinemediaobject></para>
+                           <imagedata  align="center" scalefit="1" width="100%" contentdepth="75%" 
+                               fileref="images/briefcase-panel.png" />
+                       </imageobject>
+                   </mediaobject>
+               </figure></para>
            <section><title>Adding a concept to the Briefcase from Classifier Results</title>
                <para>To add a terminology to the briefase from some lists such as classifier page,
                    select the briefcase icon (not all tables have this feature). In the example
@@ -345,10 +376,18 @@
            </section>
            
            <section><title>Adding a concept to the Briefcase from a Value Set</title>
-               <para><inlinemediaobject>
-                   <alt>Members tab under the concept "Lateralizable body structure reference
-                       set" with a table that contains the option to add to briefcase in the
-                       5th column</alt><imageobject><imagedata fileref="images/add-to-briefcase.png"/></imageobject></inlinemediaobject></para>
+               <para>
+                   <figure xml:id="add-to-briefcase"><title>Add to Briefcase</title>
+                       <mediaobject>
+                           <alt>Members tab under the concept "Lateralizable body structure reference
+                               set" with a table that contains the option to add to briefcase in the
+                               5th column</alt>
+                           <imageobject>
+                               <imagedata  align="center" scalefit="1" width="75" contentdepth="75%" 
+                                   fileref="images/add-to-briefcase.png" />
+                           </imageobject>
+                       </mediaobject>
+                   </figure></para>
            </section>
               <section><title>Removing concepts from the briefcase</title>
                   <para>There are two options to remove concepts from the Briefcase:
@@ -424,7 +463,8 @@
                 <title>Context Menu Options</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata fileref="images/cursor-over-concept-details.png" width="750px"/>
+                        <imagedata align="center" scalefit="1" width="50%" contentdepth="50%" 
+                            fileref="images/cursor-over-concept-details.png" />
                     </imageobject>
                     <textobject>
                         <phrase>Right click options</phrase>

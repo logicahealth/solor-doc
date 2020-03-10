@@ -44,11 +44,10 @@
                 than one project defined. The default is to have one project per Knowledge
                 instance.</para></section>
     <section><title>Release Management</title>
-        <para>The Export Management and the creation of a Version  are accessable users who have
-                Editing permissions, Administrators, Content Managers. Tasks such as running QA
-                checks, content releases, QA reports, and conflict resolutions are done in this
-                area. Only Content Managers have permissions to export content.The Export Management
-                interface contains information such as: <itemizedlist>
+        <para>The Export Management and the creation of a Version are accessable users who are
+                Editors , Administrators, or Content Managers. Tasks such as running QA checks,
+                content releases, QA reports, and conflict resolutions are done in this area. The
+                Export Management interface contains information such as: <itemizedlist>
                     <listitem>
                         <para>Content Releases Overview</para>
                     </listitem>
@@ -58,13 +57,11 @@
                     <listitem>
                         <para>Run QA</para>
                     </listitem>
-                </itemizedlist></para>
-        <para>Knowledge users with Content Manager permissions have access to these information. The
-            primary purpose of Export Management is to run QA checks, export files and releases, and
-            review release statistics.</para>
+                </itemizedlist>The primary purpose of Export Management is to run QA checks, export
+                files and releases, and review release statistics.</para>
    
     <simplesect>
-        <title>Creating an Export</title>
+        <title>Export Content</title>
         <para>There are two types of exports that can be created: a local downloadable file, and a
             release version that is uploaded to the repository. Exports and releases created are
             specific to the module you are working on. Once a release is created, you have the
@@ -77,17 +74,19 @@
         <para>A modal appears asking which path the release should be created under, the file type
             for export, and a few additional details. Select "Create" to confirm and execute the
             task.</para>
+        <para><figure xml:id="export-content"><title>Export</title>
+            <mediaobject>
+                <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed."?>
+                <alt>Create an Export Modal displays a form with the following information:
+                    Exporting Module, Path, Type of Export, Namespace, Create Release Version,
+                    Version number, and buttons Create and Cancel.</alt><?oxy_comment_end?>
+                <imageobject>
+                    <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
+                        fileref="images/create-export-modal.png" />
+                </imageobject>
+            </mediaobject>
+        </figure></para>
         
-        <para><inlinemediaobject>
-            <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed."?>
-            <alt>Create an Export Modal displays a form with the following information:
-                Exporting Module, Path, Type of Export, Namespace, Create Release Version,
-                Version number, and buttons Create and Cancel.</alt><?oxy_comment_end?>
-            <imageobject>
-                <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
-                    fileref="images/create-export-modal.png"/>
-            </imageobject>
-        </inlinemediaobject></para>
         <para>The content release will appear in the Content Releases table on the left pane. There
             is the ability to cancel the release creation if it has not been complete yet, located
             under the table's Status column. </para>
@@ -119,12 +118,19 @@
                     changes and temporal trends as a measurement of progress. You can download this
                     information by selecting "Download Statistics" under the export or release details
                     page.</para>
-                <para><inlinemediaobject>
-                    <alt>Screenshot of the Content Export page titled, "Content Export 01/02/2019 12:09:05" with two buttons underneath "Download Export" and "Download Statistics".</alt>
-                    <imageobject>
-                        <imagedata fileref="images/download-statistics.png"/>
-                    </imageobject>
-                </inlinemediaobject></para>
+                <para>
+                    <figure xml:id="release-stats"><title>Release Statistics</title>
+                        <mediaobject>
+                            <alt>Screenshot of the Content Export page titled, 
+                                "Content Export 01/02/2019 12:09:05" 
+                                with two buttons underneath "Download Export" and "Download Statistics".</alt>
+                            <imageobject>
+                                <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
+                                    fileref="images/download-statistics.png" />
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                    </para>
             </simplesect>
 
         <simplesect>
@@ -143,13 +149,19 @@
                 <para>Whitelisting a terminology in the QA Test Results pane means that the error the
                     system found is acceptable and no action needs to be done. You can choose to
                     whitelist a concept by clicking the "Whitelist" link in the table results.</para>
-                <para><inlinemediaobject>
-                    <alt>The details for "All active stated relationships should be the same moduleID of the source concept" table displaying 3 concepts, a message associated with each describing QA problem, the concept ID, and a "Click to WHitelist" button.</alt>
-                    <imageobject>
-                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
-                            fileref="images/whitelist-qatests.png"/>
-                    </imageobject>
-                </inlinemediaobject></para>
+                <para>
+                    <figure xml:id="qa-tests"><title>quality Assurance Tests</title>
+                        <mediaobject>
+                            <alt>The details for "All active stated relationships should be the same moduleID of the source concept" 
+                                table displaying 3 concepts, a message associated with each describing QA problem, the concept ID, 
+                                and a "Click to WHitelist" button.</alt>
+                            <imageobject>
+                                <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
+                                    fileref="images/whitelist-qatests.png" />
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                    </para>
             </simplesect>
  
     </section>

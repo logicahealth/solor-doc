@@ -5,9 +5,9 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Navigation Bar</title>
 <section xml:id="navigation-bar"><title>Navigation Bar</title>
-    <para>The Editor allows the ability to modify, create content, view content, and
-        export content. Access to these functions are found in the top navigation bar.
-        </para>
+    <para>The Editor allows the ability to modify, create content, view content, create versions,
+            and export content. One of the areas to access these functions are found in the top
+            navigation bar. </para>
     <para><inlinemediaobject>
         <alt>Figure of the Knowledge Editor navigation displaying the Editor logo, and
             menu options for Projects, Export Management, Authoring, Manager, and User
@@ -17,46 +17,48 @@
                 fileref="images/nav-editor-layout2.png" />
         </imageobject>
     </inlinemediaobject></para>
-    <para>The navigation options are as described:<itemizedlist>
-        <listitem>
-            <para>Projects - If your account has more than one project assigned, switch
-                between them by selecting this menu item</para>
-        </listitem>
-        <listitem>
-            <para>Release Management - Used for exporting classifications and
-                dictionaries</para>
-        </listitem>
-        <listitem>
-            <para>Authoring - Used for creating new concepts, running the classifier</para>
-        </listitem>
-        <listitem>
-            <para>Manager - this option takes you to the Knowledge Manager Homepage</para>
-        </listitem>
-        <listitem>
-            <para>User - The menu under the user's name provides the ability to update
-                global settings, account settings, view the user guide, and to log
-                out.</para>
-        </listitem>
-    </itemizedlist></para>
-    <section><title>Projects</title>
-       <para></para></section>
-    <section><title>Release Management</title>
-        <para>The Export Management functions are accessable users who have Editing
-            permissions. Tasks such as running QA checks, content releases, QA reports, and
-            conflict resolutions are done in this area. Only Content Managers have
-            permissions to export content.The Export Management interface contains information such as:
-            <itemizedlist>
+    <para>The navigation options are:<itemizedlist>
                 <listitem>
-                    <para>Content Releases Overview</para>
+                    <para>Projects - If your account has more than one project assigned, switch
+                        between them by selecting this menu item</para>
                 </listitem>
                 <listitem>
-                    <para>Release Content</para>
+                    <para>Release Management - used for exporting content in SNOMED International
+                        RF2 or Solor RF2 compatible formats, and creating version of content</para>
                 </listitem>
                 <listitem>
-                    <para>Run QA</para>
+                    <para>Authoring - used for creating new concepts, running the classifier</para>
                 </listitem>
-                
+                <listitem>
+                    <para>Manager - this option takes you to the Knowledge Manager Homepage</para>
+                </listitem>
+                <listitem>
+                    <para>User - the menu under the user's name provides the ability to update
+                        global settings, account settings, and to log out.</para>
+                </listitem>
             </itemizedlist></para>
+    <section><title>Projects</title>
+       <para>This menu displays the projects that a user is assigned to. The user can switch from
+                project to project with this menu option as long as there is more than one project
+                the user is assgined, and the Knowledge environment they are working in has more
+                than one project defined. The default is to have one project per Knowledge
+                instance.</para></section>
+    <section><title>Release Management</title>
+        <para>The Export Management and the creation of a Version  are accessable users who have
+                Editing permissions, Administrators, Content Managers. Tasks such as running QA
+                checks, content releases, QA reports, and conflict resolutions are done in this
+                area. Only Content Managers have permissions to export content.The Export Management
+                interface contains information such as: <itemizedlist>
+                    <listitem>
+                        <para>Content Releases Overview</para>
+                    </listitem>
+                    <listitem>
+                        <para>Release Content</para>
+                    </listitem>
+                    <listitem>
+                        <para>Run QA</para>
+                    </listitem>
+                </itemizedlist></para>
         <para>Knowledge users with Content Manager permissions have access to these information. The
             primary purpose of Export Management is to run QA checks, export files and releases, and
             review release statistics.</para>

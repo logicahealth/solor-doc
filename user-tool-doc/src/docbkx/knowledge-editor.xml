@@ -18,7 +18,7 @@
     <section><title>Editor Layout</title>
         <para>The Knowledge Editor is divided into three sections: the <emphasis role="italic"
                 >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and
-            the navigation bar (see <xref linkend="layout"/> below). Each of these functions are described in more
+            the navigation bar, see <xref linkend="layout"/> below. Each of these functions are described in more
             details in the succeeding sections. A description of each area is provided below: <orderedlist>
                 <listitem>
                     <para><emphasis role="bold">Task Pane</emphasis> – The Task Pane consists of
@@ -264,7 +264,7 @@
             <section><title>Search</title>
                 <para>Search can be performed in the Authoring interface through keywords and Lucene
             query syntax. Knowledge has implemented Lucene, an open-source full-text search library,
-            as one of its search engines. To search for a concept, select the “Search” tab on the
+            as its search engine. To search for a concept, select the “Search” tab on the
             left panel, then fill in the fields as needed. Both Simple Search and Advanced Search
             described in the subsequent sections use Lucene. For more details on the Lucene search
             syntax refer to the <link xlink:href="http://www.lucenetutorial.com"> Lucene
@@ -415,11 +415,13 @@
                 right-clicking to view the context menu, and selecting "Add to Briefcase". Some of
                 the concepts displayed in tables and the Concept Viewer panel can also be added by
                 this method.</para>
-            <para><figure xml:id="context-menu"><title>Context Menu</title><inlinemediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/context-menu.jpg"/>
-                    </imageobject>
-            </inlinemediaobject></figure></para>
+            <para><figure xml:id="context-menu"><title>Context Menu</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/context-menu.jpg"/>
+                        </imageobject>
+                    </mediaobject>
+                 </figure></para>
         </section>
            <section><title>Adding a concept to the Briefcase from Classifier Results</title>
                <para>To add a terminology to the briefase from some lists such as classifier page,
@@ -464,8 +466,9 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-navigation-bar.xml"
         xpointer="navigation-bar"/>
     <section><title>Context Menu</title>
-        <para>A context menu appears when you right-click on the concept name either on the taxonomy tree or in the 
-            title of concept details panel.</para>
+        <para>A context menu appears when you right-click on the concept name either on the taxonomy tree 
+            <xref linkend="taxonomy-context-menu"/> or in the title of concept details panel 
+            <xref linkend="concept-details-context-menu"/>.</para>
         <para>The context menu contains the following options:
             <itemizedlist>
                 <listitem>
@@ -512,12 +515,25 @@
                     <para>Activate concept – sets the selected concept's state to active. This option is only visible in the context menu
                         if the selected concept is inactive.</para>
                 </listitem>
-            </itemizedlist>
-            <figure xreflabel="linkage">
-                <title>Context Menu Options</title>
+            </itemizedlist></para>
+            <para>
+                <figure xml:id="taxonomy-context-menu">
+                    <title>Taxonomy Context Menu Options</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="50%" contentdepth="50%" 
+                                fileref="images/taxonomy-context-menu.png" />
+                        </imageobject>
+                        <textobject>
+                            <phrase>Right click options</phrase>
+                        </textobject>
+                    </mediaobject>
+                </figure>
+            <figure xml:id="concept-details-context-menu">
+                <title>Concept Details Context Menu Options</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata align="center" scalefit="1" width="50%" contentdepth="50%" 
+                        <imagedata align="left" scalefit="1" width="50%" contentdepth="50%" 
                             fileref="images/cursor-over-concept-details.png" />
                     </imageobject>
                     <textobject>

@@ -5,113 +5,107 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Knowledge Editor</title>
     
-    <para>The Editor enables users to view, modify, create concepts, modify concepts, classify,
-        create versions, export versions, create value sets and modify value sets. This chapter
-        provides an overview of the Editor layout and details on autoring content. Users are able to
-        see changes made by all users in real-time. </para>
+    <para>The Editor allows you to view, modify, create concepts, modify concepts, classify, create
+        versions, export versions, create value sets and modify value sets. This chapter provides an
+        overview of the Editor layout and details on autoring content. Users are able to see changes
+        made by all users in real-time. </para>
     
-    <para>There are two roles that a user can have which changes the functionality available;
-        Author, and  Administrator role. The Administrator role has all the functionality as an
-        Author with the addition of the ability to Release content. The functionality to Release
-        content  is present navagation bar and is described below.</para>
+    <para>There are two roles that a user can have which changes the functionality available: Author
+        and Administrator role. The Administrator role has all the functionality as an Author with
+        the addition of the ability to Release content. The functionality to Release content is
+        present navagation bar and is described below.</para>
     
     <section><title>Editor Layout</title>
         <para>The Knowledge Editor is divided into 3 sections: the <emphasis role="italic"
                 >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and
-            the navigation bar see figure X below. Each of these functions are described in more
-            details in the succeeding sections. Below is a brief description of each area of the Editor:
-            <orderedlist>
+            the navigation bar (see <xref linkend="layout"/> below). Each of these functions are described in more
+            details in the succeeding sections. Below is a brief description of each area of the
+            Editor: <orderedlist>
                 <listitem>
                     <para><emphasis role="bold">Task Pane</emphasis> – The Task Pane consists of
-                        several tabs that contain functionality, such as Search, and QA. To this
-                        functionality a user selects the appropriate tab. A brief description of
-                        each tabs functionility is described: 
-                        <orderedlist>
+                        several tabs that contain functionality such as Search and QA. A brief
+                        description of each tab's functionality are described: <orderedlist>
                             <listitem>
-                                <para>Taxonomy – the Taxonomy displays the content in a hiearchial
-                                    view. It is always the default view when a user logs into
-                                    Knowledge</para>
+                                <para>Taxonomy – the Taxonomy tab displays the content in a
+                                    hierarchical view. It is always the default view when a user
+                                    logs into Knowledge.</para>
                             </listitem>
                             <listitem>
-                                <para>Sets – a user can create, edit and view value sets and
-                                    maps</para>
+                                <para>Sets – displays value sets and maps; the user can create, edit
+                                    and view them here.</para>
                             </listitem>
                             <listitem>
                                 <para>Search – the search function enables the user to search for
-                                    specific descriptions, ids and other values</para>
+                                    specific descriptions, ids and other values.</para>
                             </listitem>
                             <listitem>
-                                <para>Classifier – the user can run the classifier, and view results
-                                    of classification </para>
+                                <para>Classifier – the user can run the classifier and view results
+                                    of classification.</para>
                             </listitem>
                             <listitem>
-                                <para>QA – data checks can be initiated, and result can be
-                                    viewed</para>
+                                <para>QA – data checks can be initiated and results can be
+                                    viewed.</para>
                             </listitem>
                             <listitem>
                                 <para>Export and Versions – users with the appropriate permissions
-                                    can export content and create a version</para>
+                                    can export content and/or create a version.</para>
                             </listitem>
                             <listitem>
-                                <para>Briefcase – is similar to a list. User's can add to the
-                                    Briefcase throughout the Editor to be viewed or modified.</para>
+                                <para>Briefcase – is similar to a bookmarks list. Throughout the
+                                    editor, there are tables that will allow you to add concepts to
+                                    the Briefcase. You can then view or modify them here.</para>
                             </listitem>
                         </orderedlist></para>
                 </listitem>
                 <listitem>
                     <para><emphasis role="bold">Concept Viewer</emphasis> – The Concept Viewer
-                        displays details of the concept selected in the taxonomy.</para>
+                        displays details of the concept or item selected in the task pane.</para>
                 </listitem>
                 <listitem>
                     <para><emphasis role="bold">Navigation</emphasis> – The Navigation bar enables
-                        fast access to functions e.g. New Concept, and Run Classifier, Return to
+                        fast access to functions e.g. New Concept, Run Classifier, Return to
                         Knowledge Manager page, Modify global display options</para>
                 </listitem>
             </orderedlist>
-            
-            <figure>
+            <figure xml:id="layout">
                 <title>Knowledge Editor Layout</title>
                 <mediaobject>
                     <imageobject>
                         <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
-                            fileref="images/editor-layout.png" />
+                            fileref="images/editor-layout.png"/>
                     </imageobject>
-                    <textobject>
-                        <phrase>Editor Layout Overview </phrase>
-                    </textobject>
                 </mediaobject>
             </figure></para>
     </section>
     <section><title>Taxonomy View</title>
-           <para>In the Taxonomy view, users can navigate through the concept hiearchy to traverse
-            the taxonomy tree. The Taxonomy also displays the concepts with their parents and their
+           <para>In the Taxonomy view, users can navigate through the concept hiearchy under the
+            taxonomy tree. The Taxonomy also displays the concepts with their parents and their
             children. You can traverse the tree by selecting the caret symbol on the left of the
-            tree to display the selected concept's children. 
-               <figure xml:id="taxonomy-view"><title>Taxonomy</title>
-                   <mediaobject>
-                       <imageobject>
-                           <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
-                               fileref="images/taxonomy-view.png" />
-                       </imageobject>
-                   </mediaobject>
-               </figure>           
+            tree to display the selected concept's children. <figure xml:id="taxonomy-view">
+                <title>Taxonomy</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                            fileref="images/taxonomy-view.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
         </para>
-           <para>The tree-like structure of the Taxonomy View allows you to navigate content
-                    from a "top-down" view – user can navigate up or down in the lineage of the
-                    content by selecting the <emphasis>caret</emphasis> symbol on the left. The user
-                    can also select to display the <emphasis role="italic">inferred</emphasis> or
-                        <emphasis role="italic">stated</emphasis> view of the content. The default
-                    is to display the <emphasis role="italic">inferred</emphasis> view. The inferred
-                    view shows the parent-child lineage that has been inferred after classification
-                    and the <emphasis role="italic">stated</emphasis> view shows the parent-child
-                    lineage that has been stated by the author when creating the concept. 
-           </para>
+           <para>The tree-like structure of the Taxonomy View allows you to navigate content from a
+            "top-down" view – user can navigate up or down in the lineage of the content by
+            selecting the <emphasis>caret</emphasis> symbol on the left. The user can also select to
+            display the <emphasis role="italic">inferred</emphasis> or <emphasis role="italic"
+                >stated</emphasis> view of the content (Knowledge displays the <emphasis
+                role="italic">inferred</emphasis> view by default). The inferred view shows the
+            parent-child lineage that is derived by inferences through a set of logical rules and
+            related concepts; the <emphasis role="italic">stated</emphasis> view shows the
+            parent-child lineage that is set by the author when creating the concept. </para>
         <simplesect><title>Status</title>
-                  <para>In addition, the user can select to display <emphasis role="italic">active</emphasis> 
-                        only concepts or both <emphasis role="italic">active</emphasis> and 
-                        <emphasis role="italic">inactive</emphasis> concepts. Inactive concepts will display in 
-                      <emphasis>italics</emphasis>. The default is set to display both <emphasis>active</emphasis>
-                      concepts only concepts.</para>
+                  <para>In addition, the user can display <emphasis role="italic">active</emphasis>
+                only concepts or both <emphasis role="italic">active</emphasis> and <emphasis
+                    role="italic">inactive</emphasis> concepts. Inactive concepts will display in
+                    <emphasis>italics</emphasis>. The default is set to display both
+                    <emphasis>active</emphasis> concepts only concepts.</para>
         </simplesect>
         <simplesect><title>Display Type</title>
             <para>
@@ -120,23 +114,24 @@
         </simplesect>
         <simplesect><title>Refresh the Taxonomy</title>
             <para> The user is also able to force a refresh of the taxonomy by selecting the
-                <emphasis>Refresh</emphasis> button.</para>
+                    <emphasis>Refresh</emphasis> button. This is useful when multiple concepts are
+                expanded and want to collapse them all.</para>
         </simplesect>
         <simplesect><title>Concept Type – Primitive versus Defined</title>
-            <para>In Knowledge concepts are defined as either a <emphasis>defined</emphasis> or
-                <emphasis>primitive</emphasis>. <itemizedlist>
+            <para>In Knowledge, concepts are defined as either a <emphasis>defined</emphasis> or
+                    <emphasis>primitive</emphasis>. <itemizedlist>
                     <listitem>
                         <para><inlinemediaobject>
-                            <imageobject>
-                                <imagedata format="SVG" fileref="images/green-circle.svg"/>
-                            </imageobject>
-                            <textobject>
-                                <phrase>Defined concept</phrase>
-                            </textobject>
-                        </inlinemediaobject>Defined – A concept that is
-                            <emphasis>defined</emphasis> is represented by a green circle. A
-                            concept is considered defined by unique relationships between its relatives (e.g.
-                            siblings and parents)</para>
+                                <imageobject>
+                                    <imagedata format="SVG" fileref="images/green-circle.svg"/>
+                                </imageobject>
+                                <textobject>
+                                    <phrase>Defined concept</phrase>
+                                </textobject>
+                            </inlinemediaobject>Defined – A concept that is
+                                <emphasis>defined</emphasis> is represented by a green circle. A
+                            concept is considered defined by unique relationships between its
+                            relatives (e.g. siblings and parents)</para>
                     </listitem>
                     <listitem>
                         <para>
@@ -145,77 +140,83 @@
                                     <imagedata format="SVG" fileref="images/hexagon.svg"/>
                                 </imageobject>
                             </inlinemediaobject> Primative – A concept that is
-                            <emphasis>primative</emphasis> is represented by an orange hexagon
+                                <emphasis>primative</emphasis> is represented by an orange hexagon
                             and signifies that its attributes and parents composing the concept are
                             non-definitive characteristics. </para>
                     </listitem>
                 </itemizedlist></para></simplesect>
         <simplesect><title>Linking the Taxonomy View with Search Results</title>
-            <para>In the Knowledge Editor you can connect/link the concept selected in the
-                Taxonomy to the Concept Viewer Panel. By default the connection
-                or linkage is set. This means when you select a concept in the taxonomy the Concept
-                Viewer will display the details of that concept. The same is true if select a result
-                from a search. You can modify the linkage by toggling the linkage icon in the upper
-                lefthand corner of the concept details panel.  
-                <figure xml:id="search-linked"><title>Linked</title>
+            <para>In the Knowledge Editor, the user can connect/link the concept selected in the
+                Taxonomy to the Concept Viewer Panel. By default the connection or linkage is set.
+                This means when you select a concept in the taxonomy, the Concept Viewer will
+                display the details of that concept. The same is true if select a result from a
+                search. You can modify the linkage by toggling the linkage icon in the upper
+                lefthand corner of the concept details panel. <figure xml:id="search-linked">
+                    <title>Linked</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata  align="center" scalefit="1" width="100%" contentdepth="75%" 
-                                fileref="images/linkage-icon.png" />
+                            <imagedata align="center" scalefit="1" width="100%" contentdepth="75%"
+                                fileref="images/linkage-icon.png"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
-                <figure xml:id="search-unlinked"><title>Unlinked </title>
+                <figure xml:id="search-unlinked">
+                    <title>Unlinked </title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata  align="center" scalefit="1" width="100%" contentdepth="70%" 
-                                fileref="images/unlinked-icon.png" />
+                            <imagedata align="center" scalefit="1" width="100%" contentdepth="70%"
+                                fileref="images/unlinked-icon.png"/>
                         </imageobject>
                     </mediaobject>
+                    <para>If a concept becomes unlinked and you click on a different term to review,
+                        a new Concept View Panel will open. A maximum of 2 concept viewers can be
+                        opened, so if 2 Concept Viewer Panels are already open and both concepts are
+                        unlinked, the system will choose to display the new concept you selected on
+                        one of the existing panels.</para>
                 </figure>
             </para>
         </simplesect></section>
          
         <section><title>Sets</title>
-              <para>
-                    The <emphasis>Sets</emphasis> tab allows a user to create, and modify Value Sets, and Map Sets.
-                    Value Sets are a collection of concepts that is used for a specific
-                purpose. e.g. Wound Color Value Set. The Wound Color Value Set would contain the concepts needed to describe
-                the color of a wound by a clinician. A Map Set is a mapping between one terminology and another. e.g. SNOMED CT to LOINC mapping. 
-                </para> 
+              <para> The <emphasis>Sets</emphasis> tab allows a user to create, and modify value
+            sets, and map sets. Value sets are a collection of concepts that is used for a specific
+            purpose (e.g. Wound Color Value Set would contain the concepts needed to describe the
+            color of a wound by a clinician). A map set is a mapping between one terminology and
+            another (e.g. SNOMED CT to LOINC mapping). </para> 
                 <section><title>Creating a Value Set</title>
-                <para>In Knowledge a Value Set can be created which contains a collection of
-                    concepts to be used for a particular use determined by the author of the Value
-                    Set. For example: The SNOMED CT Value Set – Lateralizable body structure
-                    reference set <footnote><para>A Value Set and a SNOMED CT Simple Referece Set are 
-                    essentially the same</para></footnote>
-                    has implemented Simple Assemblages. A Simple Assemblage is a set
-                    of concepts. The set of concepts are defined by the user creating the Simple
-                    Assemblage. For example, a simple Assemblage may be created for values used to
-                    record the measurement site of a patients heart rate, where the values could be
-                    finger, ear lobe, and wrist. There are two ways to create a new reference set,
-                    also referred to as a refset in the application: by selecting "Create Refset"
-                    under the Authoring navigation menu, and by selecting "New…" under the Sets tab
-                    in the Authoring viewing pane. On the Create New Refset page, fill out the
-                    information needed and select "Create". Once the refset is created, you will see
-                    the ability to add concept members on the left pane. Adding Members to a Refset
-                    To add members to a refset, select the "Edit Members" button when viewing the
-                    refset details. This will take you into an edit view where you can find concepts
-                    by taxonomy, search, or import. Once you have found the concept(s) you want to
-                    add, select the plus icon next to it and the item will be added to the table on
-                    the left pane. When you are ready to save the members list, select "Compare
-                    Sync" to review your changes. If there are any conflicts, the table will display
-                    the information to help you decide how to sync the new data into the refset. On
-                    the Compare Sync page, the "Save Changes" button means that you wish to save the
-                    changes you just made (as displayed under the Draft column in the table). The
-                    "Cancel Changes" button means that you wish to discard the changes you made
-                    (save the changes under the Published column in the table). Removing Refset
-                    Members To remove members from a refset, select the "Edit Members" button when
-                    viewing the refset details. This will take you to Edit Mode, where you can
-                    remove members from the table by selecting the "X" icon. You must select
-                    "Compare Sync" to review and confirm your changes. Refer to the "Adding Members
-                    to a Refset" section for additional information on what the "Save Changes" and
-                    "Cancel Changes" buttons do. </para></section>
+                <para>A value set is also known as a simple assemblage or refset and contains a
+                collection of concepts used for a particular purpose determined by its author. For
+                example: The SNOMED CT Value Set – Lateralizable body structure reference set is a
+                user defined simple assemblage (or value set) created for values used to record the
+                measurement site of a patients heart rate, where the values could be finger, ear
+                lobe, and wrist. There are two ways to create a new value set: by selecting "Create
+                Refset" under the Shortcuts navigation menu, or by selecting the "New" button under
+                the Sets tab in the Authoring viewing pane. On the Create New Value Set page, fill
+                out the information needed, check the box for "This concept is a Value Set," and
+                select "Create". After the refset is created, you will see the ability to add
+                concept members on the left pane. </para>
+                    <simplesect>
+                <title>Adding Members to a Value Set</title>
+                <para> To add members to a value set, select the "Edit" link when viewing the value
+                    set's details. This will take you into an edit view where concepts can be added,
+                    removed, or imported. </para>
+                <para>Select "Add Member" to find concepts to add, select the remove icon to remove
+                    them, and select the add to briefcase icon to add any of them to your briefcase. </para>
+                <para>When you are ready to save the members list, select "Compare Sync" to review
+                    your changes. </para>
+                <para>If there are any conflicts, the table will display the information to help you
+                    decide how to sync the new data into the refset. </para>
+            </simplesect>
+            <simplesect>
+                <title>Removing Value Set Members</title>
+           
+            
+                <para>To remove members from a refset, select the "Edit Members" button when viewing
+                    the refset details. This will take you to Edit Mode, where you can remove
+                    members from the table by selecting the "X" icon. The system will display your
+                    selection in the table "Value Set membership Changes" for review. Press Save to
+                    confirm your updates.</para>
+            </simplesect> </section>
                 
                 <section><title>Creating a Map Set</title>
                     <para>

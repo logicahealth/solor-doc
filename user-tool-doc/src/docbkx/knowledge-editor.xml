@@ -16,11 +16,10 @@
         present navagation bar and is described below.</para>
     
     <section><title>Editor Layout</title>
-        <para>The Knowledge Editor is divided into 3 sections: the <emphasis role="italic"
+        <para>The Knowledge Editor is divided into three sections: the <emphasis role="italic"
                 >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and
             the navigation bar (see <xref linkend="layout"/> below). Each of these functions are described in more
-            details in the succeeding sections. Below is a brief description of each area of the
-            Editor: <orderedlist>
+            details in the succeeding sections. A description of each area is provided below: <orderedlist>
                 <listitem>
                     <para><emphasis role="bold">Task Pane</emphasis> – The Task Pane consists of
                         several tabs that contain functionality such as Search and QA. A brief
@@ -81,7 +80,17 @@
            <para>In the Taxonomy view, users can navigate through the concept hiearchy under the
             taxonomy tree. The Taxonomy also displays the concepts with their parents and their
             children. You can traverse the tree by selecting the caret symbol on the left of the
-            tree to display the selected concept's children. <figure xml:id="taxonomy-view">
+            tree to display the selected concept's children.</para>
+            <para>The tree-like structure of the Taxonomy View allows you to navigate content from a
+                "top-down" view – user can navigate up or down in the lineage of the content by
+                selecting the <emphasis>caret</emphasis> symbol on the left. The user can also select to
+                display the <emphasis role="italic">inferred</emphasis> or <emphasis role="italic"
+                >stated</emphasis> view of the content (Knowledge displays the <emphasis
+                    role="italic">inferred</emphasis> view by default). The inferred view shows the
+                parent-child lineage that is derived by inferences through a set of logical rules and
+                related concepts; the <emphasis role="italic">stated</emphasis> view shows the
+                parent-child lineage that is set by the author when creating the concept. </para>
+            <para><figure xml:id="taxonomy-view">
                 <title>Taxonomy</title>
                 <mediaobject>
                     <imageobject>
@@ -91,15 +100,7 @@
                 </mediaobject>
             </figure>
         </para>
-           <para>The tree-like structure of the Taxonomy View allows you to navigate content from a
-            "top-down" view – user can navigate up or down in the lineage of the content by
-            selecting the <emphasis>caret</emphasis> symbol on the left. The user can also select to
-            display the <emphasis role="italic">inferred</emphasis> or <emphasis role="italic"
-                >stated</emphasis> view of the content (Knowledge displays the <emphasis
-                role="italic">inferred</emphasis> view by default). The inferred view shows the
-            parent-child lineage that is derived by inferences through a set of logical rules and
-            related concepts; the <emphasis role="italic">stated</emphasis> view shows the
-            parent-child lineage that is set by the author when creating the concept. </para>
+           
         <simplesect><title>Status</title>
                   <para>In addition, the user can display <emphasis role="italic">active</emphasis>
                 only concepts or both <emphasis role="italic">active</emphasis> and <emphasis
@@ -115,7 +116,7 @@
         <simplesect><title>Refresh the Taxonomy</title>
             <para> The user is also able to force a refresh of the taxonomy by selecting the
                     <emphasis>Refresh</emphasis> button. This is useful when multiple concepts are
-                expanded and want to collapse them all.</para>
+                expanded and the user would like to collapse them all.</para>
         </simplesect>
         <simplesect><title>Concept Type – Primitive versus Defined</title>
             <para>In Knowledge, concepts are defined as either a <emphasis>defined</emphasis> or
@@ -147,9 +148,9 @@
                 </itemizedlist></para></simplesect>
         <simplesect><title>Linking the Taxonomy View with Search Results</title>
             <para>In the Knowledge Editor, the user can connect/link the concept selected in the
-                Taxonomy to the Concept Viewer Panel. By default the connection or linkage is set.
+                Taxonomy to the Concept Viewer Panel, by default the connection or linkage is set.
                 This means when you select a concept in the taxonomy, the Concept Viewer will
-                display the details of that concept. The same is true if select a result from a
+                display the details of that concept. The same is true if a user selects a result from a
                 search. You can modify the linkage by toggling the linkage icon in the upper
                 lefthand corner of the concept details panel. <figure xml:id="search-linked">
                     <title>Linked</title>
@@ -169,10 +170,11 @@
                         </imageobject>
                     </mediaobject>
                     <para>If a concept becomes unlinked and you click on a different term to review,
-                        a new Concept View Panel will open. A maximum of 2 concept viewers can be
-                        opened, so if 2 Concept Viewer Panels are already open and both concepts are
-                        unlinked, the system will choose to display the new concept you selected on
-                        one of the existing panels.</para>
+                        a new Concept View Panel will open. A maximum of two concept viewers can be
+                        opened, if two Concept Viewer Panels are already open and both concept viewers are
+                        linked, the system will choose to display the new concept you selected on
+                        one of the existing panels. If both concept viewers are unlinked the concept viewers 
+                        will not display the concept information of the selected concept.</para>
                 </figure>
             </para>
         </simplesect></section>

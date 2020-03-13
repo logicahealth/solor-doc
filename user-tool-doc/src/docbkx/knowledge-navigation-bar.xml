@@ -33,7 +33,7 @@
                 </listitem>
                 <listitem>
                     <para>User - the menu under the user's name provides the ability to update
-                        global settings, account settings, and to log out.</para>
+                        global settings, manage account, and to log out.</para>
                 </listitem>
             </itemizedlist></para>
     <section><title>Projects</title>
@@ -45,52 +45,94 @@
         <para>The shortcuts submenu provides a quick way for the user to access certain actions.
                 These include:<itemizedlist>
                     <listitem>
-                        <para>xyz</para>
+                        <para>New concept – to create a new concept.</para>
                     </listitem>
                     <listitem>
-                        <para>xyz</para>
+                        <para>New map set – to create a new map set.</para>
                     </listitem>
                     <listitem>
-                        <para>Run QA</para>
+                        <para>New value set – to create a new value set (note that the "This concept
+                            is a Value Set" item needs to be checked on the form).</para>
                     </listitem>
-                </itemizedlist>The primary purpose of Export Management is to run QA checks, export
-                files and releases, and review release statistics.</para>
-   
+                    <listitem>
+                        <para>Run classifier – performs a classification run. To view results, go to
+                            the Classifier tab on the left panel.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Export content – displays the export content modal.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Create a version – displays the create a version modal.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Run QA test  – performs a quality assurance check. To view results, go
+                            to the QA tab on the left panel.</para>
+                    </listitem>
+                </itemizedlist><figure xml:id="shortcuts">
+                    <title>Shortcuts Menu</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/shortcuts-menu.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>All of these actions can be performed by going through the shortcut menu or
+                through features within specific tabs and panels.</para></section>
+    <section><title>Manager</title>
+        <para>The Manager option is only available to the administrator. This will take the administrator to 
+            the Knowledge Manager area to manage users, roles, and other items.</para></section>
+    <section><title>Username</title>
+        <para>The menu under the user's name provides the ability to update global settings, manage
+                account, view the user guide, and to log out. Global settings contain filters and
+                customizations for how you want to view the content. Manage account takes you to the
+                Manager portal of Knowledge, where your profile and login information can be
+                modified. </para></section>
     <simplesect>
         <title>Export Content</title>
-        <para>There are two types of exports that can be created: a local downloadable file, and a
-            release version that is uploaded to the repository. Exports and releases created are
-            specific to the module you are working on. Once a release is created, you have the
-            option of downloading it onto your system.</para>
-        <para>When an export is initiated, several steps happen in the background: the classifier is
-            run, a QA check is performed, and then a file is packaged for download.</para>
-        <para>To create an export, go to the Export Management interface and on the left pane there
-            is a table of Exports and QA, filtered by Path. Select the "Actions…" dropdown and
-            "Create an Export".</para>
-        <para>A modal appears asking which path the release should be created under, the file type
-            for export, and a few additional details. Select "Create" to confirm and execute the
-            task.</para>
+        <para>There are two types of exports that can be created: a SNOMED CT RF2 file, and a
+                Solor.io compatible RF2 file. To export a file, select the modules and date range
+                that you want, select the remaining information in the form, then press "Create
+                Export".</para>
+        <para>When an export is initiated, several steps happen in the background before a file is
+                packaged for download. Once it is ready, your browser will prompt you to download
+                the file to your computer. If another file is needed, go through the create export
+                form again.</para>
+        <para>The create an export form contains the following fields:<itemizedlist>
+                    <listitem>
+                        <para>Select modules - Select the modules that you want to export from. The
+                            module that you have edits in is selected by default.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Content range - Select the date range for the content you are
+                            exporting. Note that when the files are exported, the content's date
+                            stamp will be updated to the selected start date.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Generate SCTID for content with missing IDs - If there are any SNOMED
+                            content with missing SCTIDs, the system can generate them for you.
+                            Include the namespace identifier provided by SNOMED international when
+                            this option is selected.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Export type - select the appropriate file type for the system to
+                            create.</para>
+                    </listitem>
+                </itemizedlist></para>
         <para><figure xml:id="export-content"><title>Export</title>
             <mediaobject>
-                <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed."?>
-                <alt>Create an Export Modal displays a form with the following information:
-                    Exporting Module, Path, Type of Export, Namespace, Create Release Version,
-                    Version number, and buttons Create and Cancel.</alt><?oxy_comment_end?>
-                <imageobject>
-                    <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
-                        fileref="images/create-export-modal.png" />
-                </imageobject>
-            </mediaobject>
+                        <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed." flag="done"?>
+                        <alt>Create an Export modal displays a form with the following information:
+                            select modules, content range, generate SCTIDs, namespace, export type,
+                            and buttons Create and Cancel.</alt><?oxy_comment_end?>
+                        <imageobject>
+                            <imagedata align="center" scalefit="1" fileref="images/export.png"/>
+                        </imageobject>
+                    </mediaobject>
         </figure></para>
-        
-        <para>The content release will appear in the Content Releases table on the left pane. There
-            is the ability to cancel the release creation if it has not been complete yet, located
-            under the table's Status column. </para>
     </simplesect>
     <simplesect>
         <title>Creating a Release Version</title>
-        <para>When a module is ready for a release, the content manager must go through the
-            Export Management workflow in order to upload content to the repository.</para>
+        <para>When a module is ready for a release, the content manager can go through the Create a
+                Version workflow to upload content to the repository.</para>
         <para>To create a version release, go to the Export Management interface and on the left
             pane there is a table of Exports and QA, filtered by Path. Select the "Actions…"
             dropdown and "Create an Export". </para>
@@ -100,34 +142,6 @@
             execute the task. The version number is automatically set to your current date in
             year-month-date format.</para>
     </simplesect>
-        <simplesect>
-            <title>Downloading files</title>
-            <para>Conent releases and their statistics can be downloaded under the details panel. Select
-                the release you are interested in and there will be a button on the right panel named
-                "Download Release". Content releases download in a
-                <?oxy_comment_start author="mnham" timestamp="20190626T111231-0700" comment="needs file formats, including .txt and.xml (what is solor&apos;s native export?)"?>[format]<?oxy_comment_end?>.</para>
-        </simplesect>
-            <simplesect>
-                <title>What are release statistics?</title>
-                <para>Release statistics are a set of descriptive measures and statistics obtained
-                    through automated queries with the objective of providing information on content
-                    changes and temporal trends as a measurement of progress. You can download this
-                    information by selecting "Download Statistics" under the export or release details
-                    page.</para>
-                <para>
-                    <figure xml:id="release-stats"><title>Release Statistics</title>
-                        <mediaobject>
-                            <alt>Screenshot of the Content Export page titled, 
-                                "Content Export 01/02/2019 12:09:05" 
-                                with two buttons underneath "Download Export" and "Download Statistics".</alt>
-                            <imageobject>
-                                <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
-                                    fileref="images/download-statistics.png" />
-                            </imageobject>
-                        </mediaobject>
-                    </figure>
-                    </para>
-            </simplesect>
 
         <simplesect>
             <title>QA Tests</title>
@@ -146,7 +160,7 @@
                     system found is acceptable and no action needs to be done. You can choose to
                     whitelist a concept by clicking the "Whitelist" link in the table results.</para>
                 <para>
-                    <figure xml:id="qa-tests"><title>quality Assurance Tests</title>
+                    <figure xml:id="qa-tests"><title>Quality Assurance Tests</title>
                         <mediaobject>
                             <alt>The details for "All active stated relationships should be the same moduleID of the source concept" 
                                 table displaying 3 concepts, a message associated with each describing QA problem, the concept ID, 
@@ -171,5 +185,4 @@
     <section><title>User Menu</title>
        <para></para></section>
     
-</section>
 </chapter>

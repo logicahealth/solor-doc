@@ -3,118 +3,155 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
- 
-     <title>Export Management</title>
-     <para>The Export Management interface contains information such as:<itemizedlist>
+    <title>Exports and Versions</title>
+    <section xml:id="export">    <title>Exports and Versions</title>
+     <para>The Versions tab contains information such as:<itemizedlist>
             <listitem>
-                <para>Recent exports</para>
+                <para>Recent versions of modules</para>
             </listitem>
             <listitem>
-                <para>Export file types</para>
+                <para>Ability to export content</para>
             </listitem>
             <listitem>
-                <para>Concept conflicts</para>
-            </listitem>
-            <listitem>
-                <para>Release statistics</para>
-            </listitem>
-            <listitem>
-                <para>QA test results</para>
+                <para>Ability to create module versions</para>
             </listitem>
         </itemizedlist></para>
-    <para>Knowledge users with Content Manager permissions have access to these information. The
-        primary purpose of Export Management is to run QA checks, export files and releases, and
-        review release statistics.</para>
+    <para>Knowledge users with Content Manager permissions can create module versions; editors can
+        export content. The primary purpose of creating versions is to make releases and exports
+        available to the organization.</para>
     <section>
-        <title>Creating an Export</title>
-        <para>There are two types of exports that can be created: a local downloadable file, and a
-            release version that is uploaded to the repository. Exports and releases created are
-            specific to the module you are working on. Once a release is created, you have the
-            option of downloading it onto your system.</para>
-        <para>When an export is initiated, several steps happen in the background: the classifier is
-            run, a QA check is performed, and then a file is packaged for download.</para>
-        <para>To create an export, go to the Export Management interface and on the left pane there
-            is a table of Exports and QA, filtered by Path. Select the "Actions…" dropdown and
-            "Create an Export".</para>
-        <para>A modal appears asking which path the release should be created under, the file type
-            for export, and a few additional details. Select "Create" to confirm and execute the
-            task.</para>
-        
-        <para><inlinemediaobject>
-            <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed."?>
-            <alt>Create an Export Modal displays a form with the following information:
-                    Exporting Module, Path, Type of Export, Namespace, Create Release Version,
-                    Version number, and buttons Create and Cancel.</alt><?oxy_comment_end?>
-                <imageobject>
-                                        <imagedata fileref="images/create-export-modal.png"/>
-                </imageobject>
-            </inlinemediaobject></para>
-        <para>The content release will appear in the Content Releases table on the left pane. There
-            is the ability to cancel the release creation if it has not been complete yet, located
-            under the table's Status column. </para>
+        <title>Export Content</title>
+        <para>There are two types of exports that can be created: a SNOMED CT RF2 file, and a
+            Solor.io compatible RF2 file. To export a file, select the modules and date range that
+            you want, select the remaining information in the form, then press "Create
+            Export".</para>
+        <para>When an export is initiated, several steps happen in the background before a file is
+            packaged for download. Once it is ready, your browser will prompt you to download the
+            file to your computer. If another file is needed, go through the create export form
+            again.</para>
+        <para>The create an export form contains the following fields:<itemizedlist>
+                <listitem>
+                    <para>Select modules - Select the modules that you want to export from. The
+                        module that you have edits in is selected by default.</para>
+                </listitem>
+                <listitem>
+                    <para>Content range - Select the date range for the content you are exporting.
+                        Note that when the files are exported, the content's date stamp will be
+                        updated to the selected start date.</para>
+                </listitem>
+                <listitem>
+                    <para>Generate SCTID for content with missing IDs - If there are any SNOMED
+                        content with missing SCTIDs, the system can generate them for you. Include
+                        the namespace identifier provided by SNOMED international when this option
+                        is selected.</para>
+                </listitem>
+                <listitem>
+                    <para>Export type - select the appropriate file type for the system to
+                        create.</para>
+                </listitem>
+            </itemizedlist></para>
+        <para>
+            <figure>
+                <title>Export</title>
+                <mediaobject>
+                    <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed." flag="done"?>
+                    <alt>Create an Export modal displays a form with the following information:
+                        select modules, content range, generate SCTIDs, namespace, export type, and
+                        buttons Create and Cancel.</alt><?oxy_comment_end?>
+                    <imageobject>
+                        <imagedata align="center" scalefit="1" fileref="images/export.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </para>
+    </section>
         <section>
             <title>Creating a Release Version</title>
-            <para>When a module is ready for a release, the content manager must go through the
-                Export Management workflow in order to upload content to the repository.</para>
-            <para>To create a version release, go to the Export Management interface and on the left
-                pane there is a table of Exports and QA, filtered by Path. Select the "Actions…"
-                dropdown and "Create an Export". </para>
-            <para>A modal appears asking which path the release should be created under, the file
-                type for export, and a dialogue for release version. Check the box for release
-                version, modify the version number if needed, then select "Create" to confirm and
-                execute the task. The version number is automatically set to your current date in
-                year-month-date format.</para>
+            <para>When a module is ready for a release, the content manager can go through the
+                Create a Version workflow to upload content to the repository.</para>
+            <para>To create a version release, go to the versions tab on the left panel and select
+                "Create a Release...". A form will appear asking for the following information:<itemizedlist>
+                    <listitem>
+                        <para>Module location - This is where the new version module will be located
+                            after creation.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Version name</para>
+                    </listitem>
+                    <listitem>
+                        <para>Content version date - This optional field will update the content
+                            modification dates of the concepts to the date selected. If it is left
+                            blank, no changes will be made to the original dates on each
+                            concept.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Content range - Select the date range for the content you want to
+                            create a version with. To better assist you, you can optionally select
+                            the "Select by version date" link to pick a date by previous
+                            versions.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Perform QA Test - QA tests are necessary to ensure accurate data. The
+                            version may not be created if there is a QA error. You can perform the
+                            test independently before creating a version or run it in this process.
+                            If you run QA in this form and there are errors, the version will not be
+                            created and you will be taken to the QA results page.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Generate SCTIDs for content with missing IDs - If there are any SNOMED
+                            content with missing SCTIDs, the system can generate them for you.
+                            Include the namespace identifier provided by SNOMED international when
+                            this option is selected.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Namespace - If you choose to generate SCTIDs, this is the SNOMED
+                            identifier that is provided to you by SNOMED CT.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Create and download and export file - Downloads a compressed file of
+                            all of the contents.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Save a copy to the respository - Publishes the exported file into the
+                            repository server.</para>
+                    </listitem>
+                </itemizedlist></para>
+            <para>Select "Create Version" to begin the backend versioning process.</para>
         </section>
-    </section>
-    <section>
+        <section>
         <title>QA Tests</title>
-        <para>QA Tests flag terminologies that have broken concept rules in the requested
-            release/export, including domain attribute errors and description duplicates. This check
-            can be run individually or as part of an export request. To do so, select the desired
-            action from the "Create…" dropdown on the Export Management interface.</para>
-        <para>Once the QA test has completed its analysis, select the run you just requested from
-            the Exports and QA table on the left to review the results on the right pane. There is a
-            relationship tree categorizing the results for you to select from. When you select a
-            category, its details will appear in the bottom half of the pane with the options to
-            review the concept described and to whitelist the concept.</para>
+            <para>Quality Assurance (QA) Tests flag terminologies that have broken concept rules,
+                including domain attribute errors and description duplicates. This check can be run
+                individually or as part of a versioning request. To perform a QA test independently,
+                select "QA" from the left panel tabs and click "Run QA Test".</para>
+            <para>Once the QA test has completed its analysis, details can be viewed by clicking on
+                the test in the QA Run List table. Refresh the list if necessary.</para>
+            <para><emphasis role="bold">Note:</emphasis> At this time, QA tests for the rule "active
+                terms should not contain tabs, newlines, or characters @, $, #, \\." Additional
+                rules will be implemented at a later time.</para>
+        
         <simplesect>
-            <title>What is whitelisting?</title>
-            <para>Whitelisting a terminology in the QA Test Results pane means that the error the
-                system found is acceptable and no action needs to be done. You can choose to
-                whitelist a concept by clicking the "Whitelist" link in the table results.</para>
-            <para><inlinemediaobject>
-                <alt>The details for "All active stated relationships should be the same moduleID of the source concept" table displaying 3 concepts, a message associated with each describing QA problem, the concept ID, and a "Click to WHitelist" button.</alt>
-                    <imageobject>
-                        <imagedata fileref="images/whitelist-qatests.png"/>
-                    </imageobject>
-                </inlinemediaobject></para>
+            <title>Viewing the QA Results</title>
+            <para>The QA Test results provides generic information such as the duration of the test
+                and total failures detected. Below that, a list of rules and number of results are
+                displayed. If you click on one of the rules, the second table below it, called QA
+                Run Details, will display the specific concepts that failed the test. Right-click to
+                open the context menu and perform actions such as viewing the concept and copying
+                the UUID.</para>
+            <para>
+                <figure>
+                    <title>Quality Assurance Run Details</title>
+                    <mediaobject>
+                        <alt>The details for a QA run includes the request time, complete time,
+                            status, duration, total QA failure, QA rules, and the error
+                            counts.</alt>
+                        <imageobject>
+                            <imagedata fileref="images/whitelist-qatests.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
         </simplesect>
     </section>
-    <section>
-        <title>Conflict Detection</title>
-        <para>Conflict detection finds concepts that have conficting information due to updates made
-            by two or more users. These results are found under the "Conflicts" tab with a link to
-            the terminology.</para>
-    </section>
-    <section>
-        <title>Downloading files</title>
-        <para>Conent releases and their statistics can be downloaded under the details panel. Select
-            the release you are interested in and there will be a button on the right panel named
-            "Download Release". Content releases download in a
-            <?oxy_comment_start author="mnham" timestamp="20190626T111231-0700" comment="needs file formats, including .txt and.xml (what is solor&apos;s native export?)"?>[format]<?oxy_comment_end?>.</para>
-        <simplesect>
-            <title>What are release statistics?</title>
-            <para>Release statistics are a set of descriptive measures and statistics obtained
-                through automated queries with the objective of providing information on content
-                changes and temporal trends as a measurement of progress. You can download this
-                information by selecting "Download Statistics" under the export or release details
-                page.</para>
-            <para><inlinemediaobject>
-                <alt>Screenshot of the Content Export page titled, "Content Export 01/02/2019 12:09:05" with two buttons underneath "Download Export" and "Download Statistics".</alt>
-                    <imageobject>
-                        <imagedata fileref="images/download-statistics.png"/>
-                    </imageobject>
-                </inlinemediaobject></para>
-        </simplesect>
     </section>
 </chapter>

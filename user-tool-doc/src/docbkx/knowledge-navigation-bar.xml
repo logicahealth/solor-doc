@@ -133,44 +133,88 @@
         <title>Creating a Release Version</title>
         <para>When a module is ready for a release, the content manager can go through the Create a
                 Version workflow to upload content to the repository.</para>
-        <para>To create a version release, go to the Export Management interface and on the left
-            pane there is a table of Exports and QA, filtered by Path. Select the "Actions…"
-            dropdown and "Create an Export". </para>
-        <para>A modal appears asking which path the release should be created under, the file
-            type for export, and a dialogue for release version. Check the box for release
-            version, modify the version number if needed, then select "Create" to confirm and
-            execute the task. The version number is automatically set to your current date in
-            year-month-date format.</para>
+        <para>To create a version release, go to the versions tab on the left panel and select
+                "Create a Release...". A form will appear asking for the following information:<itemizedlist>
+                    <listitem>
+                        <para>Module location - This is where the new version module will be located
+                            after creation.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Version name</para>
+                    </listitem>
+                    <listitem>
+                        <para>Content version date - This optional field will update the content
+                            modification dates of the concepts to the date selected. If it is left
+                            blank, no changes will be made to the original dates on each
+                            concept.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Content range - Select the date range for the content you want to
+                            create a version with. To better assist you, you can optionally select
+                            the "Select by version date" link to pick a date by previous
+                            versions.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Perform QA Test - QA tests are necessary to ensure accurate data. The
+                            version may not be created if there is a QA error. You can perform the
+                            test independently before creating a version or run it in this process.
+                            If you run QA in this form and there are errors, the version will not be
+                            created and you will be taken to the QA results page.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Generate SCTIDs for content with missing IDs - If there are any SNOMED
+                            content with missing SCTIDs, the system can generate them for you.
+                            Include the namespace identifier provided by SNOMED international when
+                            this option is selected.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Namespace - If you choose to generate SCTIDs, this is the SNOMED
+                            identifier that is provided to you by SNOMED CT.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Create and download and export file - Downloads a compressed file of
+                            all of the contents.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Save a copy to the respository - Publishes the exported file into the
+                            repository server.</para>
+
+                    </listitem>
+                </itemizedlist></para>
+        <para>Select "Create Version" to begin the backend versioning
+            process.</para>
     </simplesect>
 
         <simplesect>
             <title>QA Tests</title>
-            <para>QA Tests flag terminologies that have broken concept rules in the requested
-                release/export, including domain attribute errors and description duplicates. This check
-                can be run individually or as part of an export request. To do so, select the desired
-                action from the "Create…" dropdown on the Export Management interface.</para>
-            <para>Once the QA test has completed its analysis, select the run you just requested from
-                the Exports and QA table on the left to review the results on the right pane. There is a
-                relationship tree categorizing the results for you to select from. When you select a
-                category, its details will appear in the bottom half of the pane with the options to
-                review the concept described and to whitelist the concept.</para></simplesect>
+            <para>Quality Assurance (QA) Tests flag terminologies that have broken concept rules,
+                including domain attribute errors and description duplicates. This check can be run
+                individually or as part of a versioning request. To perform a QA test independently,
+                select "QA" from the left panel tabs and click "Run QA Test".</para>
+            <para>Once the QA test has completed its analysis, details can be viewed by clicking on
+                the test in the QA Run List table. Refresh the list if necessary.</para>
+            <para><emphasis role="bold">Note:</emphasis> At this time, QA tests for the rule "active
+                terms should not contain tabs, newlines, or characters @, $, #, \\." Additional
+                rules will be implemented at a later time.</para></simplesect>
             <simplesect>
-                <title>What is whitelisting?</title>
-                <para>Whitelisting a terminology in the QA Test Results pane means that the error the
-                    system found is acceptable and no action needs to be done. You can choose to
-                    whitelist a concept by clicking the "Whitelist" link in the table results.</para>
+                <title>Viewing the QA Results</title>
+                <para>The QA Test results provides generic information such as the duration of the
+                test and total failures detected. Below that, a list of rules and number of results
+                are displayed. If you click on one of the rules, the second table below it, called
+                QA Run Details, will display the specific concepts that failed the test. Right-click
+                to open the context menu and perform actions such as viewing the concept and copying
+                the UUID.</para>
                 <para>
-                    <figure xml:id="qa-tests"><title>Quality Assurance Tests</title>
+                    <figure xml:id="qa-tests"><title>Quality Assurance Run Details</title>
                         <mediaobject>
-                            <alt>The details for "All active stated relationships should be the same moduleID of the source concept" 
-                                table displaying 3 concepts, a message associated with each describing QA problem, the concept ID, 
-                                and a "Click to WHitelist" button.</alt>
+                            <alt>The details for a QA run includes the request time, complete time,
+                            status, duration, total QA failure, QA rules, and the error
+                            counts.</alt>
                             <imageobject>
-                                <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
-                                    fileref="images/whitelist-qatests.png" />
+                                <imagedata fileref="images/whitelist-qatests.png"/>
                             </imageobject>
                         </mediaobject>
-                    </figure>
+                                   </figure>
                     </para>
             </simplesect>
  

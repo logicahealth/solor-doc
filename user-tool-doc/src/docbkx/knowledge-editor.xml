@@ -5,25 +5,38 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Knowledge Editor</title>
     
-    <para>The Editor allows you to view, modify, create concepts, modify concepts, classify, create
-        versions, export versions, create value sets and modify value sets. This chapter provides an
-        overview of the Editor layout and details on autoring content. Users are able to see changes
-        made by all users in real-time. </para>
+    <para>The Editor allows
+        <?oxy_delete author="linds" timestamp="20200319T113814-0400" content="you"?><?oxy_insert_start author="linds" timestamp="20200319T113814-0400"?>users<?oxy_insert_end?>
+        to view, modify, create concepts, modify concepts, classify, create versions, export
+        versions, create value sets and modify value sets. This chapter provides an overview of the
+        Editor layout and details on
+        aut<?oxy_insert_start author="linds" timestamp="20200318T142308-0400"?>h<?oxy_insert_end?>oring
+        content. Users are able to see changes made by all users in real-time. </para>
     
     <para>There are two roles that a user can have which changes the functionality available: Author
         and Administrator role. The Administrator role has all the functionality as an Author with
         the addition of the ability to Release content. The functionality to Release content is
-        present navagation bar and is described below.</para>
+        present <?oxy_insert_start author="linds" timestamp="20200319T115534-0400"?>in the
+        <?oxy_insert_end?>nav<?oxy_delete author="linds" timestamp="20200319T112232-0400" content="a"?><?oxy_insert_start author="linds" timestamp="20200319T112232-0400"?>i<?oxy_insert_end?>gation
+        bar and is described below.</para>
     
     <section><title>Editor Layout</title>
         <para>The Knowledge Editor is divided into three sections: the <emphasis role="italic"
                 >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and
-            the navigation bar (see <xref linkend="layout"/> below). Each of these functions are described in more
-            details in the succeeding sections. A description of each area is provided below: <orderedlist>
+            the
+                <?oxy_insert_start author="linds" timestamp="20200319T112256-0400" type="surround"?><emphasis><?oxy_insert_end?>navigation</emphasis>
+            bar (see <xref linkend="layout"/> below).
+            <?oxy_insert_start author="linds" timestamp="20200319T112353-0400"?>While
+            <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200319T112355-0400" content="E"?><?oxy_insert_start author="linds" timestamp="20200319T112355-0400"?>e<?oxy_insert_end?>ach
+            of these functions are described in more details in the succeeding
+            sections<?oxy_insert_start author="linds" timestamp="20200319T112403-0400"?>,
+            <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200319T112404-0400" content=". A"?><?oxy_insert_start author="linds" timestamp="20200319T112405-0400"?>a<?oxy_insert_end?>
+            description of each area is provided below: <orderedlist>
                 <listitem>
                     <para><emphasis role="bold">Task Pane</emphasis> – The Task Pane consists of
-                        several tabs that contain functionality such as Search and QA. A brief
-                        description of each tab's functionality are described: <orderedlist>
+                        several tabs that contain functionality such as Search and QA.
+                        <?oxy_comment_start author="linds" timestamp="20200319T112513-0400" comment="I dont know that this sentence is necessary. I would delete. "?>A
+                        brief description of each tab's functionality are described: <?oxy_comment_end?><orderedlist>
                             <listitem>
                                 <para>Taxonomy – the Taxonomy tab displays the content in a
                                     hierarchical view. It is always the default view when a user
@@ -51,8 +64,11 @@
                             </listitem>
                             <listitem>
                                 <para>Briefcase – is similar to a bookmarks list. Throughout the
-                                    editor, there are tables that will allow you to add concepts to
-                                    the Briefcase. You can then view or modify them here.</para>
+                                    editor, there are tables that will allow
+                                    <?oxy_delete author="linds" timestamp="20200319T113759-0400" content="you"?><?oxy_insert_start author="linds" timestamp="20200319T113759-0400"?>users<?oxy_insert_end?>
+                                    to add concepts to the Briefcase.
+                                    <?oxy_delete author="linds" timestamp="20200319T113744-0400" content="You "?><?oxy_insert_start author="linds" timestamp="20200319T113744-0400"?>Users
+                                    <?oxy_insert_end?>can then view or modify them here.</para>
                             </listitem>
                         </orderedlist></para>
                 </listitem>
@@ -77,19 +93,25 @@
             </figure></para>
     </section>
     <section><title>Taxonomy View</title>
-           <para>In the Taxonomy view, users can navigate through the concept hiearchy under the
-            taxonomy tree. The Taxonomy also displays the concepts with their parents and their
-            children. You can traverse the tree by selecting the caret symbol on the left of the
-            tree to display the selected concept's children.</para>
-            <para>The tree-like structure of the Taxonomy View allows you to navigate content from a
-                "top-down" view – user can navigate up or down in the lineage of the content by
-                selecting the <emphasis>caret</emphasis> symbol on the left. The user can also select to
-                display the <emphasis role="italic">inferred</emphasis> or <emphasis role="italic"
+           <para>In the Taxonomy view, users can navigate through the concept
+            hie<?oxy_insert_start author="linds" timestamp="20200319T112759-0400"?>r<?oxy_insert_end?>archy
+            under the taxonomy tree. The Taxonomy also displays the concepts with their parents and
+            their children.
+            <?oxy_delete author="linds" timestamp="20200319T113714-0400" content="You"?><?oxy_insert_start author="linds" timestamp="20200319T113715-0400"?>Users<?oxy_insert_end?>
+            can traverse the tree by selecting the caret symbol on the left of the tree to display
+            the selected concept's children.</para>
+            <para>The tree-like structure of the Taxonomy View allows
+            <?oxy_delete author="linds" timestamp="20200319T113722-0400" content="you"?><?oxy_insert_start author="linds" timestamp="20200319T113722-0400"?>users<?oxy_insert_end?>
+            to navigate content from a "top-down" view –
+            user<?oxy_insert_start author="linds" timestamp="20200319T112827-0400"?>s<?oxy_insert_end?>
+            can navigate up or down in the lineage of the content by selecting the
+                <emphasis>caret</emphasis> symbol on the left. The user can also select to display
+            the <emphasis role="italic">inferred</emphasis> or <emphasis role="italic"
                 >stated</emphasis> view of the content (Knowledge displays the <emphasis
-                    role="italic">inferred</emphasis> view by default). The inferred view shows the
-                parent-child lineage that is derived by inferences through a set of logical rules and
-                related concepts; the <emphasis role="italic">stated</emphasis> view shows the
-                parent-child lineage that is set by the author when creating the concept. </para>
+                role="italic">inferred</emphasis> view by default). The inferred view shows the
+            parent-child lineage that is derived by inferences through a set of logical rules and
+            related concepts; the <emphasis role="italic">stated</emphasis> view shows the
+            parent-child lineage that is set by the author when creating the concept. </para>
             <para><figure xml:id="taxonomy-view">
                 <title>Taxonomy</title>
                 <mediaobject>
@@ -105,20 +127,26 @@
                   <para>In addition, the user can display <emphasis role="italic">active</emphasis>
                 only concepts or both <emphasis role="italic">active</emphasis> and <emphasis
                     role="italic">inactive</emphasis> concepts. Inactive concepts will display in
-                    <emphasis>italics</emphasis>. The default is set to display both
-                    <emphasis>active</emphasis> concepts only concepts.</para>
+                    <emphasis>italics</emphasis>.
+                <?oxy_comment_start author="linds" timestamp="20200319T112923-0400" comment="Check this sentence. Seems like something is missing here. "?>The
+                default is set to display both <emphasis>active</emphasis> concepts only
+                concepts.<?oxy_comment_end?></para>
         </simplesect>
         <simplesect><title>Display Type</title>
-            <para>
-                The user has an additional option to display the <emphasis role="italic">Fully Qualified Name</emphasis> (FQN) 
-                or the <emphasis role="italic">Normal Name </emphasis>(NAM) of the concept.</para>
+            <para><?oxy_delete author="linds" timestamp="20200319T115716-0400" content=" "?>The user
+                has an additional option to display the <emphasis role="italic">Fully Qualified
+                    Name</emphasis> (FQN) or the <emphasis role="italic">Normal Name
+                </emphasis>(NAM) of the concept.</para>
         </simplesect>
         <simplesect><title>Refresh the Taxonomy</title>
-            <para> The user is also able to force a refresh of the taxonomy by selecting the
+            <para><?oxy_delete author="linds" timestamp="20200319T115718-0400" content=" "?>The user
+                is also able to force a refresh of the taxonomy by selecting the
                     <emphasis>Refresh</emphasis> button. This is useful when multiple concepts are
                 expanded and the user would like to collapse them all.</para>
         </simplesect>
-        <simplesect><title>Concept Type – Primitive versus Defined</title>
+        <simplesect><title>Concept Type –
+                <?oxy_comment_start author="linds" timestamp="20200319T113049-0400" comment="Make this title match the order of the paragraph. &quot;Defined&quot; is first in the list below so either make that the first word in the title or reorder the definitions in the paragraph. "?>Primitive
+                versus Defined<?oxy_comment_end?></title>
             <para>In Knowledge, concepts are defined as either a <emphasis>defined</emphasis> or
                     <emphasis>primitive</emphasis>. <itemizedlist>
                     <listitem>
@@ -140,19 +168,27 @@
                                 <imageobject>
                                     <imagedata format="SVG" fileref="images/hexagon.svg"/>
                                 </imageobject>
-                            </inlinemediaobject> Primative – A concept that is
-                                <emphasis>primative</emphasis> is represented by an orange hexagon
-                            and signifies that its attributes and parents composing the concept are
-                            non-definitive characteristics. </para>
+                            </inlinemediaobject>
+                            Prim<?oxy_delete author="linds" timestamp="20200319T113102-0400" content="a"?><?oxy_insert_start author="linds" timestamp="20200319T113103-0400"?>i<?oxy_insert_end?>tive
+                            – A concept that is
+                                <emphasis>prim<?oxy_delete author="linds" timestamp="20200319T113104-0400" content="a"?><?oxy_insert_start author="linds" timestamp="20200319T113104-0400"?>i<?oxy_insert_end?>tive</emphasis>
+                            is represented by an orange hexagon and signifies that its attributes
+                            and parents composing the concept are non-definitive characteristics. </para>
                     </listitem>
                 </itemizedlist></para></simplesect>
         <simplesect><title>Linking the Taxonomy View with Search Results</title>
             <para>In the Knowledge Editor, the user can connect/link the concept selected in the
                 Taxonomy to the Concept Viewer Panel, by default the connection or linkage is set.
-                This means when you select a concept in the taxonomy, the Concept Viewer will
-                display the details of that concept. The same is true if a user selects a result from a
-                search. You can modify the linkage by toggling the linkage icon in the upper
-                lefthand corner of the concept details panel. <figure xml:id="search-linked">
+                This means when
+                <?oxy_delete author="linds" timestamp="20200319T113130-0400" content="yo"?>u<?oxy_insert_start author="linds" timestamp="20200319T113132-0400"?>sers<?oxy_insert_end?>
+                select a concept in the taxonomy, the Concept Viewer will display the details of
+                that concept. The same is true if a user selects a result from a search.
+                <?oxy_insert_start author="linds" timestamp="20200319T113145-0400"?>Linkage can be
+                modified
+                <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200319T113152-0400" content="You can modify the linkage"?>
+                by toggling the linkage icon in the upper
+                left<?oxy_insert_start author="linds" timestamp="20200319T113159-0400"?>-<?oxy_insert_end?>hand
+                corner of the concept details panel. <figure xml:id="search-linked">
                     <title>Linked</title>
                     <mediaobject>
                         <imageobject>
@@ -169,12 +205,17 @@
                                 fileref="images/unlinked-icon.png"/>
                         </imageobject>
                     </mediaobject>
-                    <para>If a concept becomes unlinked and you click on a different term to review,
-                        a new Concept View Panel will open. A maximum of two concept viewers can be
-                        opened, if two Concept Viewer Panels are already open and both concept viewers are
-                        linked, the system will choose to display the new concept you selected on
-                        one of the existing panels. If both concept viewers are unlinked the concept viewers 
-                        will not display the concept information of the selected concept.</para>
+                    <para>If a concept becomes unlinked and
+                        <?oxy_delete author="linds" timestamp="20200319T113551-0400" content="you"?><?oxy_insert_start author="linds" timestamp="20200319T113551-0400"?>users<?oxy_insert_end?>
+                        click on a different term to review, a new Concept View Panel will open. A
+                        maximum of two concept viewers can be opened<?oxy_delete author="linds" timestamp="20200319T113613-0400" content=","?><?oxy_insert_start author="linds" timestamp="20200319T113613-0400"?>.<?oxy_insert_end?>
+                        <?oxy_delete author="linds" timestamp="20200319T113615-0400" content="i"?><?oxy_insert_start author="linds" timestamp="20200319T113616-0400"?>I<?oxy_insert_end?>f
+                        two Concept Viewer Panels are already open and both concept viewers are
+                        linked, the system will choose to display the new concept
+                        <?oxy_delete author="linds" timestamp="20200319T113626-0400" content="you "?>selected
+                        on one of the existing panels. If both concept viewers are unlinked the
+                        concept viewers will not display the concept information of the selected
+                        concept.</para>
                 </figure>
             </para>
         </simplesect></section>
@@ -466,10 +507,13 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-navigation-bar.xml"
         xpointer="navigation-bar"/>
     <section><title>Context Menu</title>
-        <para>A context menu appears when you right-click on the concept name either on the taxonomy tree 
-            <xref linkend="taxonomy-context-menu"/> or in the title of concept details panel 
-            <xref linkend="concept-details-context-menu"/>. Some tables contain a context menu as
-            well througout the application.</para>
+        <para>A context menu appears when
+            <?oxy_delete author="linds" timestamp="20200319T113446-0400" content="you"?><?oxy_insert_start author="linds" timestamp="20200319T113446-0400"?>users<?oxy_insert_end?>
+            right-click on the concept name either on the taxonomy tree <xref
+                linkend="taxonomy-context-menu"/> or in the title of concept details panel <xref
+                linkend="concept-details-context-menu"/>. Some tables contain a context menu
+            <?oxy_delete author="linds" timestamp="20200319T113248-0400" content="as well "?>througout
+            the application.</para>
         <para>The context menu contains the following options:
             <itemizedlist>
                 <listitem>
@@ -480,8 +524,11 @@
                         in a third panel.</para>
                 </listitem>
                 <listitem>
-                    <para>Add to briefcase – add the concept to your briefcase, which can be viewed under in
-                        the briefcase tab.</para>
+                    <para>Add to briefcase – add the concept to
+                        <?oxy_delete author="linds" timestamp="20200319T113437-0400" content="your"?>
+                        briefcase, which can be viewed
+                        <?oxy_delete author="linds" timestamp="20200319T113300-0400" content="under"?>
+                        in the briefcase tab.</para>
                 </listitem>
                 <listitem>
                     <para>Copy concept, UUID, SCTID, description and SCTID – copies the information described.</para>
@@ -497,8 +544,9 @@
                     <para>Clone concept – duplicates the concept information as a new concept.</para>
                 </listitem>
                 <listitem>
-                    <para>Clone concept in new viewer – duplicates the concept information as
-                        a new concpet and opens a new concept details panel.</para>
+                    <para>Clone concept in new viewer – duplicates the concept information as a new
+                        conc<?oxy_delete author="linds" timestamp="20200319T113313-0400" content="pe"?><?oxy_insert_start author="linds" timestamp="20200319T113313-0400"?>ep<?oxy_insert_end?>t
+                        and opens a new concept details panel.</para>
                 </listitem>
                 <listitem>
                     <para>Create child concept – creates a new child concept with the same information as the selected
@@ -509,8 +557,14 @@
                         concept, uses the selected concept as the parent and opens a third concept viewer panel.</para>
                 </listitem>
                 <listitem>
-                    <para>Inactivate concept – sets the selected concept's state to inactive. If the concept disappears from the taxonomy
-                        your display options are set not to display inactive concepts.</para>
+                    <para>Inactivate concept – sets the selected concept's state to inactive. If the
+                        concept disappears from the
+                        taxonomy<?oxy_insert_start author="linds" timestamp="20200319T113415-0400"?>,<?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200319T113415-0400" content=" your"?>
+                        display options are
+                        set<?oxy_insert_start author="linds" timestamp="20200319T113343-0400"?>
+                        to<?oxy_insert_end?> not
+                        <?oxy_delete author="linds" timestamp="20200319T113346-0400" content="to "?>display
+                        inactive concepts.</para>
                 </listitem>
                 <listitem>
                     <para>Activate concept – sets the selected concept's state to active. This option is only visible in the context menu
@@ -544,3 +598,4 @@
             </figure></para>
     </section>
 </chapter> 
+<?oxy_options track_changes="on"?>

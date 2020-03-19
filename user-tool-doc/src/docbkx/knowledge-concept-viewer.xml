@@ -7,31 +7,48 @@
     <title>Concept Viewer</title>
        <section xml:id="concept-viewer">
            <title>Concept Details</title>
-            <para>The details of a concept are displayed in the Concept Details pane. Concpepts represent a clinical 
-                meaning which is assigned a unique identifier. In addition, concepts have descriptions that describe the concept, they
-                have relationships that relate concepts to eachother and OWL axioms that provide a logical definition to the concept.
-                The logical definition is used by the <emphasis>Classifier</emphasis> to infer additional relationships between concepts. 
-                After a user selects a concept from the Taxonomy view or a search result, the information about the 
-                selected concept is displayed in the Concept Details panel. This view contains a variety of information 
-                about the conceptas described below:
-            <itemizedlist>
+            <para>Concepts represent a clinical meaning which is assigned a unique identifier, have
+            descriptions that describe the concept,  have relationships that relate concepts to
+            eachother, and OWL axioms that provide a logical definition to the concept. The logical
+            definition is used by the <emphasis>Classifier</emphasis> to infer additional
+            relationships between concepts. When a user selects a concept from the Taxonomy view,
+            search results, or the briefcase details about the selected concept are displayed in the
+            Concept Details panel, refer to <xref linkend="concept-details-overview"/>. 
+                This view contains a variety of information about the
+            concept as described below: 
+                <itemizedlist>
                 <listitem>
-                    <para>Fully Qualified Name (FQN) – human readable unique word or phrase which represents 
-                        clinical meaning. And FQN </para>
+                    <para>Fully Qualified Name (FQN) – human readable unique word or phrase which
+                        represents clinical meaning. And FQN </para>
+                </listitem>
+                <listitem >
+                    <para></para>
                 </listitem>
                 <listitem>
-                    <para>Regular Name (NAM) – is a term of a specified type that describes the concept. A concept 
-                        can have more than one Regular Name.</para>
+                    <para>Regular Name (NAM) – is a term of a specified type that describes the
+                        concept. A concept can have more than one Regular Name.</para>
                 </listitem>
                 <listitem>
                     <para>Status – defines whether the concept is active or inactive</para>
                 </listitem>
                 <listitem>
-                    <para>Module – identifies which module the concept belongs in e.g. a SNOMED CT concept is in SNOMED CT core module</para>
+                    <para>Module – identifies which module the concept belongs in e.g. a SNOMED CT
+                        concept is in SNOMED CT core module</para>
                 </listitem>
             </itemizedlist></para>
-        
-           
+        <para/>
+        <para>
+           <figure xml:id="concept-details-overview">
+               <title>Concept Details</title>
+               <mediaobject>
+                   <alt>Figure of the Concept Details pane.</alt>
+                   <imageobject>
+                       <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                           fileref="images/concept-details-overview.png"/>
+                   </imageobject>
+               </mediaobject>
+           </figure>
+        </para>
            <para>The pane lists the general concept information such as STAMP (define STAMP), its
             descriptions which include additional names it may be known by in other languages and
             dialects, and the axiom history which illustrates its taxonomy relationship. Details
@@ -42,7 +59,7 @@
                 <alt>Figure of the Display Options modal from the concept viewer. Displays options
                     such as "Show authors, language, modules, filter STAMP date," and more.</alt>
                 <imageobject>
-                    <imagedata fileref="images/display-options.png" width="750px"/>
+                    <imagedata fileref="images" width="750px"/>
                 </imageobject>
                 
             </inlinemediaobject></para>

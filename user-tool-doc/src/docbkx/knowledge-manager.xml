@@ -5,11 +5,11 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>User Management</title>
     <para>A user must have the <emphasis><emphasis role="bold">administration
-            role</emphasis></emphasis> to perform these administrator functions, such as create a
+            role</emphasis></emphasis> to perform administrator functions, such as create a
         new user account, assign role(s), and deactivate a users account. The following sections
         describes these functions. </para>
     <section>
-        <title>Adding a New User</title>
+        <title>Create a New User</title>
         <para>To add a new user, select the "View Users" option under the username, which in this
             case is "<emphasis>admin</emphasis>" in the upper right hand corner, <xref
                 linkend="new-user-homepage"/>.</para>
@@ -17,7 +17,7 @@
             <figure xml:id="new-user-homepage"><title>Knowledge Homepage</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata  align="center" scalefit="1" width="100%" contentdepth="100%" 
+                        <imagedata  align="left" scalefit="1" width="100%" contentdepth="100%" 
                             fileref="images/admin-user-menu.png" />
                     </imageobject>
                 </mediaobject>
@@ -30,7 +30,7 @@
             <figure xml:id="user-list"><title>List of Users</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%" 
+                        <imagedata align="left" scalefit="1" width="100%" contentdepth="100%" 
                             fileref="images/new-user-account.png" />
                     </imageobject>
                 </mediaobject>
@@ -57,14 +57,14 @@
                 </listitem>
                 <listitem>
                     <para><emphasis>Role</emphasis> – a user can have more than one role; select the
-                        role(s) and permissions for this user</para>
+                        role(s) for this user</para>
                 </listitem>
             </itemizedlist> Select <emphasis>Create Account</emphasis> to create a new user
             account.</para>
         <para><figure xml:id="new-user-account"><title>Create New Account</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata align="center" scalefit="1" width="100%" contentdepth="100%" 
+                    <imagedata align="left" scalefit="1" width="100%" contentdepth="100%" 
                         fileref="images/new-user-form.png" />
                 </imageobject>
             </mediaobject>
@@ -73,55 +73,52 @@
     </section>
     <section><title>Modifying a User's Role</title>
         <para>An administrator can modify a user's role by selecting <emphasis>View Users</emphasis>
-            t<?oxy_comment_start author="linds" timestamp="20200319T114620-0400" comment="Add something about selecting &quot;edit&quot; next to the account that is to be modified. Also, there is a step missing here. When you select EDIT by the account to be modified from the full list of accounts, it takes you to Edit Account Profile - where you again have to select EDIT before you can change any permissions. This is spelled out nicely in the section below on how to Disable an account but it also needs to be added here.  The screenshot under DISABLE ACCOUNTS below could also be added to this section with the removal of the red arrow pointing to the checked DISABLE box. Does that make sense? :) "?>hen
-            selecting <emphasis>Edit</emphasis><?oxy_comment_end?> next to the user's name in the
-            table. This will bring you to the <emphasis>Edit Account Profile</emphasis>, select
+            then selecting <emphasis>Edit</emphasis> next to the user's name in the table, refer to <xref
+                linkend="user-list"/>. This will
+            bring you to the <emphasis>Edit Account Profile</emphasis>, select
                 <emphasis>Edit</emphasis> again under Project Roles. This will direct you to <xref
                 linkend="modify-role"/>for the user.</para>
         <para>
             <figure xml:id="edit-account"><title>Edit Account Profile</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                        <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
                             fileref="images/edit-account-profile.png" />
                     </imageobject>
                 </mediaobject>
             </figure></para>
-        <para>Here, a user's role can be added or removed (a user can have more
-            than one role). A user can be assigned more than one role by selecting multiple user
-            role options. When done modifying a user's role(s), select <emphasis>Save</emphasis> to
-            change the user's permission(s) or select <emphasis>Cancel</emphasis> to cancel the
-            modifications made and return to the previous page. For a description of user roles
-            <?oxy_comment_start author="linds" timestamp="20200319T114013-0400" comment="Refer to what? "?>refer
-            to – <?oxy_comment_end?></para>
+        <para>A user can have more than one role. You can modify a user's role by selecting more
+            than one role in the <emphasis>Edit Account Roles</emphasis>, refer to <xref
+                linkend="modify-role"/>. When done modifying a user's role(s), select
+                <emphasis>Save</emphasis> to change the user's permission(s) or select
+                <emphasis>Cancel</emphasis> to cancel the modifications made and return to the
+            previous page. For a description of user roles refer to – </para>
         <para/>
         <para> <figure xml:id="modify-role"><title>Modify Roles</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                    <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
                         fileref="images/edit-role.png" />
                 </imageobject>
             </mediaobject>
         </figure></para>
     </section>
     <section>
-        <title><?oxy_comment_start author="linds" timestamp="20200319T115355-0400" comment="Is there a section that will explain what the X REMOVE button does? Can an admin user just REMOVE an account instead of Disabling it? "?>Disabling
-            a User Account<?oxy_comment_end?></title>
+        <title xml:id="disable-account-section">Disabling a User Account</title>
         <para>The <emphasis>Administrator</emphasis> can also disable a user's account by selecting
-                <emphasis>View Users</emphasis> and then
-            <?oxy_comment_start author="linds" timestamp="20200319T115228-0400" comment="&quot;...by the user to be disabled.&quot; or something along those lines - same as above. "?>select
-                <emphasis>Edit</emphasis><?oxy_comment_end?> next to the user to be disabled. This
-            will direct users to the <emphasis>Edit Account Profile</emphasis> select the
-                <emphasis>Disable Account</emphasis> checkbox. Disabling will prevent the user from
-            using their credentials to log in to Knowledge – they will no longer have any
-            priviledges in Knowledge. Then select <emphasis>Save</emphasis> to disable the account
-            or select <emphasis>Cancel</emphasis> to cancel the modifications made and return to the
+                <emphasis>View Users</emphasis> and then select <emphasis>Edit</emphasis> next to
+            the user to be disabled. This will direct the administrator to the <emphasis>Edit
+                Account Profile</emphasis> select the <emphasis>Disable Account</emphasis> checkbox.
+            Disabling will prevent the user from using their credentials to log in to Knowledge –
+            they will no longer have any priviledges in Knowledge. Then select
+                <emphasis>Save</emphasis> to disable the account or select
+                <emphasis>Cancel</emphasis> to cancel the modifications made and return to the
                 <emphasis>View Accounts</emphasis> page.</para>
         <para>
             <figure xml:id="disable-account"><title>Disable Account</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                        <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
                             fileref="images/disable-account.png" />
                     </imageobject>
                 </mediaobject>
@@ -131,7 +128,8 @@
         <title>Deleting a User</title>
         <para>As another option, the administrator can permanently delete a user from the system.
             Deleting an account will prevent the user from logging in permanently. If you want to
-            temporarily suspend access, follow the steps for disabling a user account instead. To
+            temporarily suspend access, follow the steps for disabling a user account instead, <xref
+                linkend="disable-account-section"/>. To
             delete a user, select <emphasis>View Users</emphasis> from the admin menu and review the
             list of user accounts. On the right side of the list, there is a corresponding link to
             remove the user.</para>
@@ -140,7 +138,7 @@
         <para><figure xml:id="delete-account"><title>Deleting a User Account</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata align="center"
+                    <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
                         fileref="images/delete-user.png"/>
                 </imageobject>
             </mediaobject>
@@ -152,10 +150,13 @@
         <para>To return to the Knowledge homepage from <emphasis>View Users</emphasis> go to
             username, which in this case is "<emphasis>admin</emphasis>" in the upper right-hand
             corner and select <emphasis>Home</emphasis>.</para>
-        <para><inlinemediaobject>
+        <para><figure xml:id="return-to-homepage"><title>Knowledge Homepage</title>
+            <mediaobject>
             <imageobject>
-                <imagedata align="center" fileref="images/go-to-homepage.png" width="250px"/>
+                <imagedata align="left" scalefit="1" width="50%" contentdepth="50%"
+                    fileref="images/go-to-homepage.png" />
             </imageobject>
-        </inlinemediaobject></para>
+            </mediaobject>
+        </figure></para>
     </section>
 </chapter>

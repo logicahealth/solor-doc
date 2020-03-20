@@ -34,9 +34,10 @@
             description of each area is provided below: <orderedlist>
                 <listitem>
                     <para><emphasis role="bold">Task Pane</emphasis> – The Task Pane consists of
-                        several tabs that contain functionality such as Search and QA.
-                        <?oxy_comment_start author="linds" timestamp="20200319T112513-0400" comment="I dont know that this sentence is necessary. I would delete. "?>A
-                        brief description of each tab's functionality are described: <?oxy_comment_end?><orderedlist>
+                        several tabs that contain
+                        <?oxy_insert_start author="mnham" timestamp="20200320T121814-0700"?>the
+                        following <?oxy_insert_end?>functionality<?oxy_insert_start author="mnham" timestamp="20200320T121827-0700"?>:<?oxy_insert_end?>
+                        <?oxy_delete author="mnham" timestamp="20200320T121825-0700" content="such as Search and QA. A brief description of each tab&apos;s functionality are described"?><?oxy_comment_start author="linds" timestamp="20200319T112513-0400" comment="I dont know that this sentence is necessary. I would delete. "?>: <?oxy_comment_end?><orderedlist>
                             <listitem>
                                 <para>Taxonomy – the Taxonomy tab displays the content in a
                                     hierarchical view. It is always the default view when a user
@@ -129,8 +130,11 @@
                     role="italic">inactive</emphasis> concepts. Inactive concepts will display in
                     <emphasis>italics</emphasis>.
                 <?oxy_comment_start author="linds" timestamp="20200319T112923-0400" comment="Check this sentence. Seems like something is missing here. "?>The
-                default is set to display both <emphasis>active</emphasis> concepts only
-                concepts.<?oxy_comment_end?></para>
+                default is set to display
+                    <?oxy_insert_start author="mnham" timestamp="20200320T121925-0700"?>only<?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200320T121924-0700" content="both "?><emphasis>active</emphasis>
+                concepts<?oxy_delete author="mnham" timestamp="20200320T121930-0700" content=" only concepts"?>.<?oxy_comment_end?><?oxy_insert_start author="mnham" timestamp="20200320T121934-0700"?>
+                To see both types, change the settings under "Display
+                Options".<?oxy_insert_end?></para>
         </simplesect>
         <simplesect><title>Display Type</title>
             <para><?oxy_delete author="linds" timestamp="20200319T115716-0400" content=" "?>The user
@@ -145,8 +149,8 @@
                 expanded and the user would like to collapse them all.</para>
         </simplesect>
         <simplesect><title>Concept Type –
-                <?oxy_comment_start author="linds" timestamp="20200319T113049-0400" comment="Make this title match the order of the paragraph. &quot;Defined&quot; is first in the list below so either make that the first word in the title or reorder the definitions in the paragraph. "?>Primitive
-                versus Defined<?oxy_comment_end?></title>
+                <?oxy_comment_start author="linds" timestamp="20200319T113049-0400" comment="Make this title match the order of the paragraph. &quot;Defined&quot; is first in the list below so either make that the first word in the title or reorder the definitions in the paragraph. "?><?oxy_delete author="mnham" timestamp="20200320T122207-0700" content="Primitive versus "?>Defined<?oxy_comment_end?><?oxy_insert_start author="mnham" timestamp="20200320T122209-0700"?>
+                versus Primitive<?oxy_insert_end?></title>
             <para>In Knowledge, concepts are defined as either a <emphasis>defined</emphasis> or
                     <emphasis>primitive</emphasis>. <itemizedlist>
                     <listitem>
@@ -600,4 +604,5 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-export.xml"
         xpointer="export"/>
 </chapter> 
+
 <?oxy_options track_changes="on"?>

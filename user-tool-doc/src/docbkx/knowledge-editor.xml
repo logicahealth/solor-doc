@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
+<chapter xml:id="editor-chapter" xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Knowledge Editor</title>
     
@@ -20,7 +20,7 @@
         <?oxy_insert_end?>nav<?oxy_delete author="linds" timestamp="20200319T112232-0400" content="a"?><?oxy_insert_start author="linds" timestamp="20200319T112232-0400"?>i<?oxy_insert_end?>gation
         bar and is described below.</para>
     
-    <section><title>Editor Layout</title>
+    <section><title xml:id="editor-functions" >Editor Layout</title>
         <para>The Knowledge Editor is divided into three sections: the <emphasis role="italic"
                 >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and
             the
@@ -474,7 +474,7 @@
            
            <section><title>Adding a concept to the Briefcase from a Value Set</title>
                <para>
-                   <figure xml:id="add-to-briefcase"><title>Add to Briefcase</title>
+                   <figure xml:id="add-briefcase"><title>Add to Briefcase</title>
                        <mediaobject>
                            <alt>Members tab under the concept "Lateralizable body structure reference
                                set" with a table that contains the option to add to briefcase in the
@@ -503,9 +503,9 @@
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" 
         href="knowledge-concept-viewer.xml" xpointer="concept-viewer"/>
-                
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-navigation-bar.xml"
-        xpointer="navigation-bar"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" 
+        href="knowledge-navigation-bar.xml" xpointer="navigation-bar-description"/>
+    
     <section><title>Context Menu</title>
         <para>A context menu appears when
             <?oxy_delete author="linds" timestamp="20200319T113446-0400" content="you"?><?oxy_insert_start author="linds" timestamp="20200319T113446-0400"?>users<?oxy_insert_end?>

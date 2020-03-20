@@ -4,20 +4,23 @@
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Navigation Bar</title>
-<section xml:id="navigation-bar"><title>Navigation Bar</title>
-    <para>The Editor allows the ability to modify, create content, view content, create versions,
-            and export content. One of the areas to access these functions is in the  navigation
-            bar. </para>
-    <para><inlinemediaobject>
-        <alt>Figure of the Knowledge Editor navigation displaying the Editor logo, and
-            menu options for Projects, Export Management, Authoring, Manager, and User
-            name Admin</alt>
-        <imageobject>
-            <imagedata align="left" scalefit="1" width="40%" contentdepth="40%"
-                fileref="images/nav-editor-layout2.png" />
-        </imageobject>
-    </inlinemediaobject></para>
-    <para>The navigation options are:<itemizedlist>
+<section xml:id="navigation-bar-description"><title>Navigation Bar</title>
+    <para>The Editor allows the ability to modify content, create content, view content, create
+            versions, and export content. One of the areas to access these functions is in the
+            navigation bar. </para>
+    <para><figure xml:id="navigation-bar">
+        <title>Navigation Bar</title>
+        <mediaobject>
+            <alt>Figure of the Knowledge Editor navigation displaying the Editor logo, and
+                menu options for Projects, Export Management, Authoring, Manager, and User
+                name Admin</alt>
+            <imageobject>
+                <imagedata align="left" scalefit="1" width="40%" contentdepth="40%"
+                    fileref="images/nav-editor-layout2.png"/>
+            </imageobject>
+        </mediaobject>
+    </figure></para>
+    <para>The navigation bar provides the following options:<itemizedlist>
                 <listitem>
                     <para>Projects - If your account has more than one project assigned, switch
                         between them by selecting this menu item.</para>
@@ -51,12 +54,10 @@
                         <para>New map set – to create a new map set.</para>
                     </listitem>
                     <listitem>
-                        <para>New value set – to create a new value set (note that the "This concept
-                            is a Value Set" item needs to be checked on the form).</para>
+                        <para>New value set – to create a new value set.</para>
                     </listitem>
                     <listitem>
-                        <para>Run classifier – performs a classification run. To view results, go to
-                            the Classifier tab on the left panel.</para>
+                        <para>Run classifier – performs a classification run.</para>
                     </listitem>
                     <listitem>
                         <para>Export content – displays the export content modal.</para>
@@ -65,168 +66,92 @@
                         <para>Create a version – displays the create a version modal.</para>
                     </listitem>
                     <listitem>
-                        <para>Run QA test  – performs a quality assurance check. To view results, go
-                            to the QA tab on the left panel.</para>
+                        <para>Run QA test – performs a quality assurance check. </para>
                     </listitem>
-                </itemizedlist><figure xml:id="shortcuts">
+                </itemizedlist>
+            <figure xml:id="shortcuts">
                     <title>Shortcuts Menu</title>
                     <mediaobject>
+                        <alt></alt>
                         <imageobject>
-                            <imagedata fileref="images/shortcuts-menu.png"/>
+                            <imagedata align="left" 
+                                fileref="images/shortcuts-menu2.png"/>
                         </imageobject>
                     </mediaobject>
                 </figure>All of these actions can be performed by going through the shortcut menu or
-                through features within specific tabs and panels.</para></section>
+                through features within specific tabs and panels in the <emphasis>task pane</emphasis>, 
+            refer to <xref linkend="editor-functions"/>.</para>
+        </section>
+            
     <section><title>Manager</title>
-        <para>The Manager option is only available to the administrator. This will take the administrator to 
-            the Knowledge Manager area to manage users, roles, and other items.</para></section>
-    <section><title>Username</title>
-        <para>The menu under the user's name provides the ability to update global settings, manage
-                account, view the user guide, and to log out. Global settings contain filters and
+        <para>The Manager option is only available to an <emphasis>Administrator</emphasis>
+            or <emphasis>System Manager</emphasis> administrator. If selected the user will 
+            be taken to the Knowledge Manager area. Here a user with the appropriate permissions can
+            modify user accounts, create new accounts, etc. for more details refer to 
+            <xref linkend="manager-doc" /> </para>
+    </section>
+    
+    <section><title>Username Menu</title>
+        <para>The menu under the user's name provides the ability to modify global settings, manage
+                your account, view the user guide, and log out. Global settings contain filters and
                 customizations for how you want to view the content. Manage account takes you to the
                 Manager portal of Knowledge, where your profile and login information can be
-                modified. </para></section>
-    <simplesect>
-        <title>Export Content</title>
-        <para>There are two types of exports that can be created: a SNOMED CT RF2 file, and a
-                Solor.io compatible RF2 file. To export a file, select the modules and date range
-                that you want, select the remaining information in the form, then press "Create
-                Export".</para>
-        <para>When an export is initiated, several steps happen in the background before a file is
-                packaged for download. Once it is ready, your browser will prompt you to download
-                the file to your computer. If another file is needed, go through the create export
-                form again.</para>
-        <para>The create an export form contains the following fields:<itemizedlist>
-                    <listitem>
-                        <para>Select modules - Select the modules that you want to export from. The
-                            module that you have edits in is selected by default.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Content range - Select the date range for the content you are
-                            exporting. Note that when the files are exported, the content's date
-                            stamp will be updated to the selected start date.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Generate SCTID for content with missing IDs - If there are any SNOMED
-                            content with missing SCTIDs, the system can generate them for you.
-                            Include the namespace identifier provided by SNOMED international when
-                            this option is selected.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Export type - select the appropriate file type for the system to
-                            create.</para>
-                    </listitem>
-                </itemizedlist></para>
-        <para><figure xml:id="export-content"><title>Export</title>
+                modified. 
+            <itemizedlist>
+                <listitem>
+                  <para>Global Display Settings – a user can specify information that is displayed</para>
+                </listitem>
+                <listitem>
+                    <para>Manage Account – a user can modify their account information</para>
+                </listitem>
+                <listitem>
+                    <para>Help – user documentation for Knowledge</para>
+                </listitem>
+                <listitem>
+                    <para>Logout – signs you out of Knowledge</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para><figure xml:id="user-menu">
+            <title>User Menu</title>
             <mediaobject>
-                        <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed." flag="done"?>
-                        <alt>Create an Export modal displays a form with the following information:
-                            select modules, content range, generate SCTIDs, namespace, export type,
-                            and buttons Create and Cancel.</alt><?oxy_comment_end?>
-                        <imageobject>
-                            <imagedata align="center" scalefit="1" fileref="images/export.png"/>
-                        </imageobject>
-                    </mediaobject>
+                <alt></alt>
+                <imageobject>
+                    <imagedata align="left" 
+                        fileref="images/user-menu-options.png"/>
+                </imageobject>
+            </mediaobject>
         </figure></para>
-    </simplesect>
-    <simplesect>
-        <title>Creating a Release Version</title>
-        <para>When a module is ready for a release, the content manager can go through the Create a
-                Version workflow to upload content to the repository.</para>
-        <para>To create a version release, go to the versions tab on the left panel and select
-                "Create a Release...". A form will appear asking for the following information:<itemizedlist>
-                    <listitem>
-                        <para>Module location - This is where the new version module will be located
-                            after creation.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Version name</para>
-                    </listitem>
-                    <listitem>
-                        <para>Content version date - This optional field will update the content
-                            modification dates of the concepts to the date selected. If it is left
-                            blank, no changes will be made to the original dates on each
-                            concept.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Content range - Select the date range for the content you want to
-                            create a version with. To better assist you, you can optionally select
-                            the "Select by version date" link to pick a date by previous
-                            versions.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Perform QA Test - QA tests are necessary to ensure accurate data. The
-                            version may not be created if there is a QA error. You can perform the
-                            test independently before creating a version or run it in this process.
-                            If you run QA in this form and there are errors, the version will not be
-                            created and you will be taken to the QA results page.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Generate SCTIDs for content with missing IDs - If there are any SNOMED
-                            content with missing SCTIDs, the system can generate them for you.
-                            Include the namespace identifier provided by SNOMED international when
-                            this option is selected.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Namespace - If you choose to generate SCTIDs, this is the SNOMED
-                            identifier that is provided to you by SNOMED CT.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Create and download and export file - Downloads a compressed file of
-                            all of the contents.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Save a copy to the respository - Publishes the exported file into the
-                            repository server.</para>
-
-                    </listitem>
-                </itemizedlist></para>
-        <para>Select "Create Version" to begin the backend versioning
-            process.</para>
-    </simplesect>
-
-        <simplesect>
-            <title>QA Tests</title>
-            <para>Quality Assurance (QA) Tests flag terminologies that have broken concept rules,
-                including domain attribute errors and description duplicates. This check can be run
-                individually or as part of a versioning request. To perform a QA test independently,
-                select "QA" from the left panel tabs and click "Run QA Test".</para>
-            <para>Once the QA test has completed its analysis, details can be viewed by clicking on
-                the test in the QA Run List table. Refresh the list if necessary.</para>
-            <para><emphasis role="bold">Note:</emphasis> At this time, QA tests for the rule "active
-                terms should not contain tabs, newlines, or characters @, $, #, \\." Additional
-                rules will be implemented at a later time.</para></simplesect>
-            <simplesect>
-                <title>Viewing the QA Results</title>
-                <para>The QA Test results provides generic information such as the duration of the
-                test and total failures detected. Below that, a list of rules and number of results
-                are displayed. If you click on one of the rules, the second table below it, called
-                QA Run Details, will display the specific concepts that failed the test. Right-click
-                to open the context menu and perform actions such as viewing the concept and copying
-                the UUID.</para>
-                <para>
-                    <figure xml:id="qa-tests"><title>Quality Assurance Run Details</title>
-                        <mediaobject>
-                            <alt>The details for a QA run includes the request time, complete time,
-                            status, duration, total QA failure, QA rules, and the error
-                            counts.</alt>
-                            <imageobject>
-                                <imagedata fileref="images/whitelist-qatests.png"/>
-                            </imageobject>
-                        </mediaobject>
-                                   </figure>
-                    </para>
-            </simplesect>
- 
+        
+        <section><title>Global Display Options</title>
+            <para>Global display options enables the user to customize the information that is seen
+                    throughout the Knowledge application. For example: uncheck <emphasis>Show
+                    Only Active Concepts</emphasis> and select the <emphasis>apply</emphasis> button. The 
+                <emphasis>Inactive</emphasis> concepts and descriptions will display,
+                  see <xref linkend="inactive-concepts" />. </para>
+            <para><figure xml:id="display-options">
+                <title>Global Display Options</title>
+                <mediaobject>
+                    <alt></alt>
+                    <imageobject>
+                        <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
+                            fileref="images/global-display-options.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            </para>
+            <para><figure xml:id="inactive-concepts">
+                <title>Inactive Concepts and Descriptions</title>
+                <mediaobject>
+                    <alt></alt>
+                    <imageobject>
+                        <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
+                            fileref="images/inactive-concepts-descriptions-displayed.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure></para></section>
     </section>
-    <section><title>Authoring</title>
-       <para></para>
-       <section><title>New Concept</title>
-          <para></para></section>
-        <section><title>Run Classifier</title>
-           <para></para></section>
-    </section>
-    <section><title>User Menu</title>
-       <para></para></section>
     
+        
+</section> 
 </chapter>

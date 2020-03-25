@@ -71,7 +71,7 @@
                 <title>Knowledge Editor Layout</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                        <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
                             fileref="images/editor-layout.png"/>
                     </imageobject>
                 </mediaobject>
@@ -95,7 +95,7 @@
                 <title>Taxonomy</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata align="center" scalefit="1" width="100%" contentdepth="100%"
+                        <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
                             fileref="images/taxonomy-view.png"/>
                     </imageobject>
                 </mediaobject>
@@ -158,7 +158,7 @@
                     <title>Linked</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata align="center" scalefit="1" width="100%" contentdepth="75%"
+                            <imagedata align="left" scalefit="1" width="100%" contentdepth="75%"
                                 fileref="images/linkage-icon.png"/>
                         </imageobject>
                     </mediaobject>
@@ -167,7 +167,7 @@
                     <title>Unlinked </title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata align="center" scalefit="1" width="100%" contentdepth="70%"
+                            <imagedata align="left" scalefit="1" width="100%" contentdepth="70%"
                                 fileref="images/unlinked-icon.png"/>
                         </imageobject>
                     </mediaobject>
@@ -267,16 +267,25 @@
             <section><title>Search</title>
                 <para>Search can be performed in the Authoring interface through keywords and Lucene
             query syntax. Knowledge has implemented Lucene, an open-source full-text search library,
-            as one of its search engines. To search for a concept, select the “Search” tab on the
-            left panel, then fill in the fields as needed. Both Simple Search and Advanced Search
-            described in the subsequent sections use Lucene. For more details on the Lucene search
-            syntax refer to the <link xlink:href="http://www.lucenetutorial.com"> Lucene
-                tutorial</link></para>
+            as one of its search engines. To search select the “Search” tab on the left panel, then
+            fill in the fields as needed. Both Simple Search and Advanced Search use Lucene. For
+            more details on the Lucene search syntax refer to the <link
+                xlink:href="http://www.lucenetutorial.com"> Lucene tutorial</link>
+                <itemizedlist>
+                    <listitem>
+                        <para>Simple Search – searches for descriptions that matches the search phrase</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advanced Search – refines the search parameters further 
+                            searching for terminology id, description types (fully qualified name, 
+                            name, and definition)</para>
+                    </listitem>
+                </itemizedlist></para>
             <section>
-            <title>Creating a Simple Search</title>
-            <para>Terminologies can be searched by keywords under the Search tab in the left pane.
-                Type in keywords under the “Search text” field, then select the “Search” button to
-                retrieve results.  </para>
+            <title>Simple Search</title>
+            <para>Terminologies can be searched by keywords under the Search tab in the task pane.
+                Type in keywords under the “Search Text” field, then select the “Search” button to
+                retrieve results, <xref linkend="search-tab"/>. </para>
             <para>Simple search allows you to search for the keyword that you typed in the search
                 box without selecting advanced search or SNOMED CT options. Selecting the search
                 button will return all descriptions that matches. Keywords used in simple search are
@@ -288,32 +297,53 @@
                 complex query. Review Lucene query <link
                     xlink:href="http://www.lucenetutorial.com/lucene-query-syntax.html">keyword
                     matching</link>for more advanced search syntax. </para>
-        </section>
-            <section><title>Creating an Advanced Search</title>
-            <para>Search results can be filtered by using the Advanced Search section under the
-                “Search for” field. There are 3 options in the Advanced Search section:</para>
+                <para>
+                    <figure xml:id="search-tab"><title>Simple Search</title>
+                        <mediaobject>
+                            <alt>Simple Search</alt>
+                            <imageobject>
+                                <imagedata  align="left" scalefit="1" width="100%" contentdepth="50%" 
+                                    fileref="images/simple-search.png" />
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para></section>
+                
+    
+            <section><title>Advanced Search</title>
+            <para>Search results can be filtered by using the Advanced Search section, see <xref
+                    linkend="advanced-search-tab"/>. There are 3 options in the Advanced Search
+                section:</para>
             <orderedlist>
                 <listitem>
-                    <para>Search In – The system will look for the keywords in either the
-                        descriptions, semantics, or identifiers. Descriptions are all information
-                        within the concept details; semantics are the properties; and identifiers
-                        are alphanumeric IDs such as an SCTID or LOINC code.</para>
+                    <para>Search In – this option narrows the search for <emphasis>Search
+                            Text</emphasis> to concept <emphasis>Descriptions</emphasis>,
+                            <emphasis>Semantics</emphasis>, or <emphasis>Identifiers</emphasis>.
+                        When <emphasis>Descriptions</emphasis> is selected the search will search-in
+                        the <emphasis>Descriptions</emphasis> of a <emphasis>concept</emphasis>. A
+                        search in <emphasis>Semantics</emphasis> searches the properties of a
+                        concept; and a search in <emphasis>Identifiers</emphasis> searches the
+                        alphanumeric IDs of a concept such as an SCTID or LOINC code.</para>
                 </listitem>
                 <listitem>
                     <para>Page size – Select the number of results to display at a time</para>
                 </listitem>
                 <listitem>
-                    <para>Description Type – The system will restrict the search to concepts that
-                        are either a fully qualified name, a regular name, a definition, or
-                        all.</para>
+                    <para>Description Type – the sytem restricts the search to a particular
+                        description type, such as <emphasis>Fully Qualified Name</emphasis> (FQN), a
+                            <emphasis>Regular Name</emphasis>, (NAM), a
+                            <emphasis>Definition</emphasis> if selected. When <emphasis>All
+                            Types</emphasis> is selected the search will be performed on
+                            <emphasis>FQN</emphasis>,<emphasis> NAM</emphasis> and
+                            <emphasis>Definition</emphasis>.</para>
                 </listitem>
             </orderedlist>
                 <para>
-                    <figure xml:id="search-tab"><title>Search</title>
+                    <figure xml:id="advanced-search-tab"><title>Advanced Search</title>
                         <mediaobject>
-                            <alt>Figure of the Search tab in Knowledge.</alt>
+                            <alt>Advanced search options</alt>
                             <imageobject>
-                                <imagedata  align="center" scalefit="1" width="100%" contentdepth="50%" 
+                                <imagedata  align="left" scalefit="1" width="100%" contentdepth="50%" 
                                     fileref="images/search-fields.png" />
                             </imageobject>
                         </mediaobject>
@@ -330,6 +360,22 @@
                       tab. This section is only visible if there are previously saved searches. Select
                       the desired search from a dropdown list and press the "Search" button to pull
                       results.</para></simplesect>-->
+            <section><title>Search Results</title>
+                <para>The search results are displayed in a table below the search criteria. The
+                example in,<xref linkend="advanced-search-tab"/> the search results will be all
+                descriptions that contain <emphasis>hypertension</emphasis> and
+                    <emphasis>failure</emphasis>. The results table will contain the matching
+                concept, description, the terminology identifier, status, by default the columns of
+                the table are: refer to entered by the user, see </para>
+                <para><figure xml:id="search-results"><title>Search Results</title>
+                    <mediaobject>
+                        <alt>Search Results</alt>
+                        <imageobject>
+                            <imagedata  align="left" scalefit="1" width="100%" contentdepth="50%" 
+                                fileref="images/advance-search-results.png" />
+                        </imageobject>
+                    </mediaobject>
+                </figure></para></section>
         </section>
         <section><title>Classifier</title>
             <para>The Knowledge Editor integrates a high performance Classifier called SnoRocket
@@ -405,7 +451,7 @@
                        <alt>The briefcase options
                            "Select All Items, Remove Selected Items, and Refresh List".</alt>
                        <imageobject>
-                           <imagedata  align="center" scalefit="1" width="100%" contentdepth="75%" 
+                           <imagedata  align="left" scalefit="1" width="100%" contentdepth="75%" 
                                fileref="images/briefcase-panel.png" />
                        </imageobject>
                    </mediaobject>
@@ -440,7 +486,7 @@
                                set" with a table that contains the option to add to briefcase in the
                                5th column</alt>
                            <imageobject>
-                               <imagedata  align="center" scalefit="1" width="75" contentdepth="75%" 
+                               <imagedata  align="left" scalefit="1" width="75" contentdepth="75%" 
                                    fileref="images/add-to-briefcase.png" />
                            </imageobject>
                        </mediaobject>
@@ -548,6 +594,3 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-export.xml"
         xpointer="export"/>
 </chapter> 
-
-
-<?oxy_options track_changes="on"?>

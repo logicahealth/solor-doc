@@ -44,9 +44,16 @@
                 projects with this menu option as long as there is more than one project assgined,
                 and the Knowledge environment they are working in has more than one project defined.
                 The default is to have one project per Knowledge instance.</para></section>
-    <section><title>Shortcuts</title>
-        <para>The shortcuts submenu provides a quick way for the user to access certain actions.
+    <section>
+            <title>Shortcuts</title>
+            <para>The shortcuts submenu provides a quick way for the user to access certain actions.
                 These include:<itemizedlist>
+                    <listitem>
+                        <para>Create a version – displays the create a version modal.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Export content – displays the export content modal.</para>
+                    </listitem>
                     <listitem>
                         <para>New concept – to create a new concept.</para>
                     </listitem>
@@ -59,60 +66,56 @@
                     <listitem>
                         <para>Run classifier – performs a classification run.</para>
                     </listitem>
-                    <listitem>
-                        <para>Export content – displays the export content modal.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Create a version – displays the create a version modal.</para>
-                    </listitem>
-                    <listitem>
+                   <listitem>
                         <para>Run QA test – performs a quality assurance check. </para>
                     </listitem>
                 </itemizedlist>
-            <figure xml:id="shortcuts">
+                <figure xml:id="shortcuts">
                     <title>Shortcuts Menu</title>
                     <mediaobject>
-                        <alt></alt>
+                        <alt/>
                         <imageobject>
-                            <imagedata align="left" 
-                                fileref="images/shortcuts-menu2.png"/>
+                            <imagedata align="left" fileref="images/shortcuts-menu2.png"/>
                         </imageobject>
                     </mediaobject>
                 </figure>All of these actions can be performed by going through the shortcut menu or
-                through features within specific tabs and panels in the <emphasis>task pane</emphasis>, 
-            refer to <xref linkend="editor-functions"/>.</para>
+                through features within specific tabs and panels in the <emphasis>task
+                    pane</emphasis>, refer to <xref linkend="editor-functions"
+                />.<?oxy_comment_start author="susancastillo" timestamp="20200324T181504-0700" comment="reference will display when a .pdf is generated for the whole user guide."?></para><?oxy_comment_end?>
         </section>
             
-    <section><title>Manager</title>
-        <para>The Manager option is only available to an <emphasis>Administrator</emphasis>
-            or <emphasis>System Manager</emphasis> administrator. If selected the user will 
-            be taken to the Knowledge Manager area. Here a user with the appropriate permissions can
-            modify user accounts, create new accounts, etc. for more details refer to 
-            <xref linkend="manager-doc" /> </para>
-    </section>
+    <section>
+            <title>Manager</title>
+            <para>The Manager option is only available to an <emphasis>Administrator</emphasis> or
+                    <emphasis>System Manager</emphasis> administrator. If selected the user will be
+                taken to the Knowledge Manager area. Here a user with the appropriate permissions
+                can modify user accounts, create new accounts, etc. for more details refer to 
+                <xref linkend="user-management"/>
+                <?oxy_comment_start author="susancastillo" timestamp="20200324T181356-0700" comment="the reference here will display when a .pdf for the whole user guide is generated."?></para><?oxy_comment_end?>
+        </section>
     
     <section><title>Username Menu</title>
         <para>The menu under the user's name provides the ability to modify global settings, manage
-                your account, view the user guide, and log out. Global settings contain filters and
-                customizations for how you want to view the content. Manage account takes you to the
-                Manager portal of Knowledge, where your profile and login information can be
-                modified. 
-            <itemizedlist>
-                <listitem>
-                  <para>Global Display Settings – a user can specify information that is displayed</para>
-                </listitem>
-                <listitem>
-                    <para>Manage Account – a user can modify their account information</para>
-                </listitem>
-                <listitem>
-                    <para>Help – user documentation for Knowledge</para>
-                </listitem>
-                <listitem>
-                    <para>Logout – signs you out of Knowledge</para>
-                </listitem>
-            </itemizedlist>
-        </para>
-        <para><figure xml:id="user-menu">
+                your account, view the user guide, request technical support, and log out of the
+                application, <xref linkend="user-menu"/>.<itemizedlist>
+                    <listitem>
+                        <para>Global Display Settings – contains filters and customizations for what is
+                            displayed throughout the user interface.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Manage Account – enables a user to modify their user profile.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Help – user documentation for Knowledge.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Contact Technical Support – send a technical support request.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Logout – signs you out of Knowledge.</para>
+                    </listitem></itemizedlist>
+          </para>
+          <para><figure xml:id="user-menu">
             <title>User Menu</title>
             <mediaobject>
                 <alt></alt>
@@ -123,35 +126,82 @@
             </mediaobject>
         </figure></para>
         
-        <section><title>Global Display Options</title>
-            <para>Global display options enables the user to customize the information that is seen
-                    throughout the Knowledge application. For example: uncheck <emphasis>Show
-                    Only Active Concepts</emphasis> and select the <emphasis>apply</emphasis> button. The 
-                <emphasis>Inactive</emphasis> concepts and descriptions will display,
-                  see <xref linkend="inactive-concepts" />. </para>
-            <para><figure xml:id="display-options">
-                <title>Global Display Options</title>
-                <mediaobject>
-                    <alt></alt>
-                    <imageobject>
-                        <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
-                            fileref="images/global-display-options.png"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            </para>
-            <para><figure xml:id="inactive-concepts">
-                <title>Inactive Concepts and Descriptions</title>
-                <mediaobject>
-                    <alt></alt>
-                    <imageobject>
-                        <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
-                            fileref="images/inactive-concepts-descriptions-displayed.png"/>
-                    </imageobject>
-                </mediaobject>
-            </figure></para></section>
+        <section><title>Global Display Settings</title>
+            <para>When a user is created the display options are configured with
+                        <emphasis>default</emphasis> settings. A user can modify the display
+                    settings using the <emphasis>Global Display Settings</emphasis>
+                <footnote><para>There are other display options in the Global Display Settings panel
+                that are not fully implemented and will not be documented here. It is recommended
+                that users <emphasis role="strong">ONLY</emphasis> modify settings that are documented in this section</para></footnote> panel. Changes
+                    to the display settings in the <emphasis>Global Display Settings</emphasis>
+                    panel affects the displayed information in both the <emphasis>Task
+                        Pane</emphasis> and the <emphasis>Concept Viewer Pane</emphasis>, refer to
+                        <xref linkend="editor-functions"/>. However, the <emphasis>Concept Viewer
+                        Pane</emphasis> and the <emphasis>Task Pane</emphasis>
+                    <emphasis role="strong">can override</emphasis> the <emphasis>Global Display
+                        Settings</emphasis> using the <emphasis>Display Options</emphasis> located
+                    in the top right hand corner of each pane. The configurable options in
+                        <emphasis>Global Display Settings</emphasis> are: <itemizedlist>
+                        <listitem>
+                            <para>General Options – a user can change the order in which the
+                                descriptions are displayed in the taxonomy view and the number of
+                                concepts displayed in the taxonomy.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Display Options – a user can configure the properties displayed,
+                                stated or inferred views of the taxonomy, and modules.</para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            <section><title>General Options</title>
+                <para>In the default configuration FQN is the preferred description to display in
+                        the taxonomy, the taxonomy will display 250 concepts deep, and the language
+                        is English, are shown in <xref linkend="general-display-options"/> outlined
+                        in red.</para>
+                <para><figure xml:id="general-display-options">
+                    <title>General Display Options</title>
+                    <mediaobject>
+                        <alt></alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
+                                fileref="images/general-global-display-options.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure></para></section>
+             
+            <section><title>Display Options</title>
+                <para>Like <emphasis>General Options</emphasis> the <emphasis> Display
+                    Options</emphasis> are set to default settings when a user's account is
+                    created, see <xref linkend="display-options"/> areas circled in red. These
+                    options mostly effect the views in the <emphasis>Concept Viewer</emphasis>
+                    and the <emphasis>Taxonomy</emphasis>.</para>
+                <para><figure xml:id="display-options">
+                    <title>General Display Options</title>
+                     <mediaobject>
+                         <alt></alt>
+                         <imageobject>
+                             <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
+                                 fileref="images/global-display-options.png"/>
+                         </imageobject>
+                      </mediaobject></figure> </para>
+                <example><title>Display inactive descriptions</title>
+                <para>To show inactive descriptions in the taxonomy and in the concept viewer
+                                <emphasis role="bold">deselect</emphasis> the <emphasis>Show Only
+                                Active Concepts</emphasis> checkbox, and select <emphasis>Apply
+                                changes</emphasis>. Inactive descriptions in the screen shot below
+                            are outlined in green.<mediaobject>
+                                <alt/>
+                                <imageobject>
+                                    <imagedata align="left" scalefit="1" width="75%"
+                                        contentdepth="75%"
+                                        fileref="images/inactive-concepts-descriptions-displayed.png"
+                                    />
+                                </imageobject>
+                            </mediaobject>
+                        </para></example>
+            </section>
     </section>
-    
+    </section>  
         
 </section> 
 </chapter>

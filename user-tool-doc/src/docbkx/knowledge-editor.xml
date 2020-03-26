@@ -267,13 +267,10 @@
             <section><title>Search</title>
                 <para>Search can be performed in the Authoring interface through keywords and Lucene
             query syntax. Knowledge has implemented Lucene, an open-source full-text search library,
-            as one of its search engines. To
-            <?oxy_insert_start author="mnham" timestamp="20200326T142640-0700"?>begin
-            <?oxy_insert_end?>search<?oxy_insert_start author="mnham" timestamp="20200326T142642-0700"?>ing,<?oxy_insert_end?>
-            select the “Search” tab on the left panel, then fill in the fields as needed. Both
-            Simple Search and Advanced Search use Lucene. For more details on the Lucene search
-            syntax refer to the <link xlink:href="http://www.lucenetutorial.com"> Lucene
-                tutorial</link>
+            as one of its search engines. To begin searching, select the “Search” tab on the left
+            panel, then fill in the fields as needed. Both Simple Search and Advanced Search use
+            Lucene. For more details on the Lucene search syntax refer to the <link
+                xlink:href="http://www.lucenetutorial.com"> Lucene tutorial</link>
             <itemizedlist>
                 <listitem>
                     <para>Simple Search – searches for descriptions that matches the search
@@ -288,10 +285,8 @@
             <section>
             <title>Simple Search</title>
             <para>Terminologies can be searched by keywords under the Search tab in the task pane.
-                Type in keywords
-                <?oxy_delete author="mnham" timestamp="20200326T142807-0700" content="under "?><?oxy_insert_start author="mnham" timestamp="20200326T142807-0700"?>in
-                <?oxy_insert_end?>the “Search Text” field, then select the “Search” button to start
-                the search, <xref linkend="search-tab"/>. </para>
+                Type in keywords in the “Search Text” field, then select the “Search” button to
+                start the search, <xref linkend="search-tab"/>. </para>
             <para>Simple search allows you to search for the keyword that you typed in the search
                 box. Selecting the search button will return all descriptions that match. Keywords
                 used in simple search are single terms or phrases. A Single Term is a single word
@@ -317,7 +312,8 @@
                 </para></section>
                 
     
-            <section><title>Advanced Search</title>
+            <section>
+            <title>Advanced Search</title>
             <para>Search results can be filtered by using the Advanced Search section, see <xref
                     linkend="advanced-search-tab"/>. There are 4 options in the Advanced Search
                 section:</para>
@@ -329,9 +325,8 @@
                         When <emphasis>Descriptions</emphasis> is selected the search will search-in
                         the <emphasis>Descriptions</emphasis> of a <emphasis>concept</emphasis>. A
                         search in <emphasis>Semantics</emphasis> searches the properties of a
-                        concept<?oxy_insert_start author="mnham" timestamp="20200326T142913-0700"?>,<?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200326T142913-0700" content=";"?>
-                        and a search in <emphasis>Identifiers</emphasis> searches the alphanumeric
-                        IDs of a concept such as an SCTID or LOINC code.</para>
+                        concept, and a search in <emphasis>Identifiers</emphasis> searches the
+                        alphanumeric IDs of a concept such as an SCTID or LOINC code.</para>
                 </listitem>
                 <listitem>
                     <para>Page size – select the number of results to display at a time.</para>
@@ -339,39 +334,40 @@
                 <listitem>
                     <para>Description Type – the sytem restricts the search to a particular
                         description type, such as <emphasis>Fully Qualified Name</emphasis> (FQN), a
-                        <emphasis>Regular Name</emphasis>, a
-                        <emphasis>Definition</emphasis> if selected. When <emphasis>All
-                        Types</emphasis> is selected the search will be performed on
-                        <emphasis>FQN</emphasis>,<emphasis>Regular Name</emphasis> and
-                        <emphasis>Definition</emphasis>.</para>
+                            <emphasis>Regular Name</emphasis>, a <emphasis>Definition</emphasis> if
+                        selected. When <emphasis>All Types</emphasis> is selected the search will be
+                        performed on <emphasis>FQN</emphasis>,<emphasis>Regular Name</emphasis> and
+                            <emphasis>Definition</emphasis>.</para>
                 </listitem>
                 <listitem>
                     <para>CSV Export – when selected the search results table will export the
                         results table in CSV format.</para>
                 </listitem>
             </itemizedlist>
-                <?oxy_insert_start author="mnham" timestamp="20200326T142950-0700"?>
-                <para>Select the search button in order to update the results when advanced
-                    options are changed.</para>
-                <?oxy_insert_end?>
-            <example><title>Advanced Search Example</title><para>In this example, the search 
-                results are descriptions that contain <emphasis>hypertension</emphasis>
-                <emphasis role="bold">and</emphasis> <emphasis>failure</emphasis>. The results table 
-                will contain a list of matching concept, description, the terminology identifier, and 
-                status, <xref linkend="advanced-search-results"/>.</para>
-                </example>
-                <para>
-                    <figure xml:id="advanced-search-results"><title>Advanced Search<?oxy_insert_start author="mnham" timestamp="20200326T143113-0700"?> for
-                        'Hypertension + failure'<?oxy_insert_end?></title>
-                        <mediaobject>
-                            <alt>Advanced search options</alt>
-                            <imageobject>
-                                <imagedata  align="left" scalefit="1" width="100%" contentdepth="50%" 
-                                    fileref="images/advanced-search.png" />
-                            </imageobject>
-                        </mediaobject>
-                    </figure>
-                    </para></section>
+            <para>Select the search button in order to update the results when advanced options are
+                changed.</para>
+            <example>
+                <title>Advanced Search Example</title>
+                <para>In this example, the search results are descriptions that contain
+                        <emphasis>hypertension</emphasis>
+                    <emphasis role="bold">and</emphasis>
+                    <emphasis>failure</emphasis>. The results table will contain a list of matching
+                    concept, description, the terminology identifier, and status, <xref
+                        linkend="advanced-search-results"/>.</para>
+            </example>
+            <para>
+                <figure xml:id="advanced-search-results">
+                    <title>Advanced Search for 'Hypertension + failure'</title>
+                    <mediaobject>
+                        <alt>Advanced search options</alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="100%" contentdepth="50%"
+                                fileref="images/advanced-search.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+        </section>
                 <!-- TBD feature 
              <simplesect><title>Saved Searches</title>
                   <para>Search criteria can be saved for later user under the Search tab. To do so,

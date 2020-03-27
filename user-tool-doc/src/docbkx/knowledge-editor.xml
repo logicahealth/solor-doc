@@ -420,10 +420,15 @@
                 classification: the navigation menu <emphasis>Short Cuts</emphasis> and the
                     <emphasis>Classifier</emphasis> tab, <xref linkend="classifier-tab" />. </para>
                     <para>The first classification will evaluate all concepts in the environment,
-                        subsequent classifications will evaluate only modified concepts. The first
-                        classification duration will be less than 15 minutes, and subsequent 
-                        classifications will be less than 10 minutes.
-                    </para>
+                subsequent classifications will evaluate only modified concepts. The first
+                classification duration will be less than 15 minutes, and subsequent classifications
+                will be less than 10 minutes. A classification has three possible status values:
+                    <emphasis>Running</emphasis>, <emphasis>Done</emphasis>, and
+                    <emphasis>Failed</emphasis>.</para>
+                    <para>To start classification select the <emphasis>Run Classifier</emphasis>
+                button. An entry will be added to the <emphasis>Classifier Run List</emphasis>. The
+                user can select the <emphasis>Refresh Run List</emphasis> to force an update of the
+                run list table.</para>
                     <figure xml:id="classifier-tab"><title>Classifier Details</title><mediaobject>
                         <imageobject>
                             <imagedata fileref="images/classifier-tab.png"/>
@@ -433,37 +438,45 @@
                 </section>
                 <section>
                     <title>View Classifier Results</title>
-                    <para>Each classification initiated When you open the Classifier tab under the Authoring interface, there is a
-                table of previously run classifications. You may view classifications results by
-                selecting a classification run from the table.</para>
-                    <para>The classifier details will provide a summary of attributes and types
-                including: <itemizedlist>
+                    <para>When the classifier has completed, the status will change from
+                        <emphasis>Running</emphasis> to <emphasis>Done</emphasis>. A user may view
+                        classification results by selecting an entry in the <emphasis>Classifier Run
+                        List</emphasis>. The results of classification are displayed on the right in
+                        <emphasis>Classifier Details</emphasis>, 
+                        <xref linkend="classifier-details"/>.</para>
+                    <para>The classifier details will provide a summary and details of: 
+                   <itemizedlist>
                     <listitem>
-                        <para>Affected concepts  </para>
+                        <para>Affected concepts - this is a list of concepts are
+                            classification.</para>
                     </listitem>
                     <listitem>
-                        <para>Equivalent sets</para>
+                        <para>Equivalent sets – shows any defined concepts that have identical
+                            relationships.</para>
                     </listitem>
                     <listitem>
-                        <para>Orphaned concepts</para>
+                        <para>Orphaned concepts – are concepts that are not defined correctly and
+                            must be corrected.</para>
                     </listitem>
                     <listitem>
-                        <para>Cycles</para>
+                        <para>Cycles – the classifier finds cycles that would be difficult to find
+                            just by looking at the definition of a concept e.g. A ->B ->C
+                            ->A.</para>
                     </listitem>
-                </itemizedlist>The concepts under each of these summaries are displayed by default.
-                To hide any of the tables, select the caret symbol next to table name, it toggles
-                between expanding and collapsing the table view. A table listing the identificed
-                concepts will display below the summary list. You also have the option of adding
-                concepts to your briefcase.</para>
-                    <figure xml:id="classifier-details"><title>Classifier Details</title><mediaobject>
-                    <imageobject>
-                        <imagedata fileref="images/classifier-details.jpg"/>
-                    </imageobject>
-                </mediaobject>
-                <para/></figure>
-                    <para>If you discover any inaccuracies or equivalencies after a classification,
-                edits must be made directly at the concept level. Refer to <xref
-                    linkend="edit-concept"/> for information on modifying terminologies.</para></section></section>
+                  </itemizedlist></para>
+                  <para> The concepts under each of these categories are displayed by default. To
+                hide the details of a category, select the caret symbol next to table name, it
+                toggles between expanding and collapsing the table view. You also have the option of
+                adding concepts to your briefcase to correct any issues.</para>
+                    <para>
+                        <figure xml:id="classifier-details"><title>Classifier Details</title>
+                            <mediaobject>
+                            <imageobject><imagedata
+                                align="left" scalefit="1" width="100%" contentdepth="100%"
+                                fileref="images/classifier-details.png" /></imageobject>
+                            </mediaobject></figure>
+                    </para>
+                </section>
        
        <section><title>Briefcase</title>
            <para>The briefcase temporarily holds concepts that can be reviewed and/or edited later. 
@@ -485,11 +498,12 @@
                        <alt>The briefcase options
                            "Select All Items, Remove Selected Items, and Refresh List".</alt>
                        <imageobject>
-                           <imagedata  align="left" scalefit="1" width="100%" contentdepth="75%" 
+                           <imagedata  align="left" scalefit="1" width="75%" contentdepth="75%" 
                                fileref="images/briefcase-panel.png" />
                        </imageobject>
                    </mediaobject>
                </figure></para>
+       </section>
         <section>
             <title>Adding a concept to the Briefcase from Taxonomy List</title>
             <para>Most of the concepts in the taxonomy list can be added to the briefcase by
@@ -499,7 +513,8 @@
             <para><figure xml:id="context-menu"><title>Context Menu</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata fileref="images/context-menu.jpg"/>
+                            <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
+                                fileref="images/context-menu.jpg"/>
                         </imageobject>
                     </mediaobject>
                  </figure></para>
@@ -537,9 +552,10 @@
                             select the box to the right of the concept to be removed and select the
                             <emphasis>Remove Selected Items</emphasis> button.</para></listitem>
                 </orderedlist></para></section>
-           <simplesect><title>Refreshing the Briefcase List</title>
-               <para>If you do not see the concept(s) just added, try refreshing the list by
-                   selecting <emphasis>Refresh List</emphasis>.</para></simplesect></section>
+                <simplesect><title>Refreshing the Briefcase List</title>
+                    <para>If you do not see the concept(s) just added, try refreshing the list by
+                   selecting <emphasis>Refresh List</emphasis>.</para></simplesect>
+             </section>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" 
         href="knowledge-concept-viewer.xml" xpointer="concept-viewer"/>
@@ -628,4 +644,3 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-export.xml"
         xpointer="export"/>
 </chapter> 
-

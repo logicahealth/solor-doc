@@ -418,20 +418,28 @@
                     <title>Run the Classifier</title>
                     <para>There are two areas in the Knowledge Editor interface to initiate
                 classification: the navigation menu <emphasis>Short Cuts</emphasis> and the
-                    <emphasis>Classifier</emphasis> tab. </para>
-                    <para>If the classifier is run after the start of the system, it will evaluate
-                all of the concepts. Subsequent classifications will only evaluate modified
-                concepts.</para>
+                    <emphasis>Classifier</emphasis> tab, <xref linkend="classifier-tab" />. </para>
+                    <para>The first classification will evaluate all concepts in the environment,
+                        subsequent classifications will evaluate only modified concepts. The first
+                        classification duration will be less than 15 minutes, and subsequent 
+                        classifications will be less than 10 minutes.
+                    </para>
+                    <figure xml:id="classifier-tab"><title>Classifier Details</title><mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/classifier-tab.png"/>
+                        </imageobject>
+                    </mediaobject>
+                        <para/></figure>
                 </section>
                 <section>
                     <title>View Classifier Results</title>
-                    <para>When you open the Classifier tab under the Authoring interface, there is a
+                    <para>Each classification initiated When you open the Classifier tab under the Authoring interface, there is a
                 table of previously run classifications. You may view classifications results by
                 selecting a classification run from the table.</para>
                     <para>The classifier details will provide a summary of attributes and types
                 including: <itemizedlist>
                     <listitem>
-                        <para>Affected concepts</para>
+                        <para>Affected concepts  </para>
                     </listitem>
                     <listitem>
                         <para>Equivalent sets</para>

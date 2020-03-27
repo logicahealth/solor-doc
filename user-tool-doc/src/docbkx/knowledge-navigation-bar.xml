@@ -30,32 +30,46 @@
                         areas of the application.</para>
                 </listitem>
                 <listitem>
-                    <para>Manager - this option takes you to the Knowledge Manager Homepage. For the
-                        content editor and manager, account settings can be modified here; for the
-                        admin, user permissions and info are located here. This option is not
-                        visible to read-only and edit-only users.</para>
+                    <para>Manager -
+                        <?oxy_delete author="linds" timestamp="20200327T104845-0400" content="t"?><?oxy_insert_start author="linds" timestamp="20200327T104845-0400"?>T<?oxy_insert_end?>his
+                        option takes you to the Knowledge Manager Homepage. For the content editor
+                        and manager, account settings can be modified
+                        <?oxy_comment_start author="linds" timestamp="20200327T104926-0400" comment="Where?"?>here<?oxy_comment_end?>;
+                        for the admin, user permissions and info are located
+                        <?oxy_comment_start author="linds" timestamp="20200327T104934-0400" comment="Where? "?>here<?oxy_comment_end?>.
+                        This option is not visible to read-only and edit-only users.</para>
                 </listitem>
                 <listitem>
-                    <para>User - the menu under the user's name provides the ability to update
-                        global settings, manage account, find application help, and to log
-                        out.</para>
+                    <para>User -
+                        <?oxy_delete author="linds" timestamp="20200327T104848-0400" content="t"?><?oxy_insert_start author="linds" timestamp="20200327T104848-0400"?>T<?oxy_insert_end?>he
+                        menu under the user's name provides the ability to update global settings,
+                        manage account, find application help, and to log out.</para>
                 </listitem>
             </itemizedlist></para>
     <section><title>Projects</title>
-       <para>The projects menu displays the projects that a user is assigned to. The user can switch
-                between projects with this menu option as long as there are more than one project
-                assgined, and the Knowledge environment they are working in has more than one
-                project defined. The default is to have one project per Knowledge instance.</para></section>
+       <para>The projects menu displays
+                <?oxy_insert_start author="linds" timestamp="20200327T104953-0400"?>all of
+                <?oxy_insert_end?>the projects that a user is assigned to. The user can switch
+                between projects with this menu option as long as there
+                <?oxy_delete author="linds" timestamp="20200327T105005-0400" content="are"?><?oxy_insert_start author="linds" timestamp="20200327T105005-0400"?>is<?oxy_insert_end?>
+                more than one project
+                ass<?oxy_delete author="linds" timestamp="20200327T105018-0400" content="gi"?><?oxy_insert_start author="linds" timestamp="20200327T105018-0400"?>ig<?oxy_insert_end?>ned,
+                and the Knowledge environment they are working in has more than one project defined.
+                The default is to have one project per Knowledge instance.</para></section>
     <section>
             <title>Shortcuts</title>
-            <para>The shortcuts submenu provides a quick way for the user to access certain actions.
-                These include:<itemizedlist>
+            <para>The shortcuts submenu provides a quick way for the user to access certain
+                actions<?oxy_insert_start author="linds" timestamp="20200327T105344-0400"?>
+                including: <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200327T105349-0400" content=". These include:"?><itemizedlist>
                     <listitem>
-                        <para>Create a version – displays the create a version modal. This option is
-                            only visible to users with content manager permissions and above.</para>
+                        <para>Create a version – displays the create a version
+                            <?oxy_comment_start author="linds" timestamp="20200327T105409-0400" comment="model? im not sure "?>modal<?oxy_comment_end?>.
+                            This option is only visible to users with content manager permissions
+                            and above.</para>
                     </listitem>
                     <listitem>
-                        <para>Export content – displays the export content modal.</para>
+                        <para>Export content – displays the export content
+                            <?oxy_comment_start author="linds" timestamp="20200327T105455-0400" comment="same as above - not sure "?>modal<?oxy_comment_end?>.</para>
                     </listitem>
                     <listitem>
                         <para>New concept – to create a new concept.</para>
@@ -69,7 +83,7 @@
                     <listitem>
                         <para>Run classifier – performs a classification run.</para>
                     </listitem>
-                   <listitem>
+                    <listitem>
                         <para>Run QA test – performs a quality assurance check. </para>
                     </listitem>
                 </itemizedlist>
@@ -92,8 +106,9 @@
             <para>The Manager option is only available to an <emphasis>Administrator</emphasis> or
                     <emphasis>System Manager</emphasis> administrator. When selected, the user will
                 be taken to the Knowledge Manager area. Here, a user with the appropriate
-                permissions can modify user accounts, create new accounts, etc. for more details
-                refer to <xref linkend="user-management"/>
+                permissions can modify user accounts, create new accounts, etc.
+                <?oxy_delete author="linds" timestamp="20200327T105540-0400" content="f"?><?oxy_insert_start author="linds" timestamp="20200327T105540-0400"?>F<?oxy_insert_end?>or
+                more details refer to <xref linkend="user-management"/>
                 <?oxy_comment_start author="susancastillo" timestamp="20200324T181356-0700" comment="the reference here will display when a .pdf for the whole user guide is generated."?></para><?oxy_comment_end?>
         </section>
     
@@ -134,14 +149,17 @@
                         <emphasis>default</emphasis> settings. A user can modify the display
                     settings using the <emphasis>Global Display Settings</emphasis>
                     <footnote>
+                        <?oxy_comment_start author="linds" timestamp="20200327T114454-0400" comment="Maybe spell out which tabs are NOT described here (Module Flags, Path Flags, Value Set Flags) "?>
                         <para>There are other display options in the Global Display Settings panel
                             that are not fully implemented and will not be documented here. It is
                             recommended that users <emphasis role="strong">ONLY</emphasis> modify
-                            settings that are documented in this section</para>
+                            settings that are documented in this section<?oxy_comment_end?></para>
                     </footnote> panel. Changes to the display settings in the <emphasis>Global
                         Display Settings</emphasis> panel affects the displayed information in both
                     the <emphasis>Task Pane</emphasis> and the <emphasis>Concept Viewer
-                        Pane</emphasis>, refer to <xref linkend="editor-functions"/>. However, the
+                        Pane</emphasis>,
+                    <?oxy_comment_start author="linds" timestamp="20200327T114114-0400" comment="This comes up as &quot;???&quot; in the PDF version. Same for the ones above where you have a comment about links displaying once a full user guide PDF is generated. "?>refer
+                    to <xref linkend="editor-functions"/><?oxy_comment_end?>. However, the
                         <emphasis>Concept Viewer Pane</emphasis> and the <emphasis>Task
                         Pane</emphasis>
                     <emphasis role="strong">can override</emphasis> the <emphasis>Global Display
@@ -160,13 +178,18 @@
                     </itemizedlist>
                 </para>
             <section><title>General Options</title>
-                <para>In the default configuration FQN is the preferred description to display in
-                        the taxonomy, the taxonomy will display 250 children concepts per concept
-                        (additional ones are available through pagination), and the language is
-                        English, are shown in <xref linkend="general-display-options"/> outlined in
-                        red.</para>
+                <para>In the default
+                        configuration<?oxy_insert_start author="linds" timestamp="20200327T105831-0400"?>,<?oxy_insert_end?>
+                        FQN is the preferred description to display in the taxonomy, the taxonomy
+                        will display 250 children concepts per concept (additional ones are
+                        available through pagination), and the language is English, are shown in
+                            <xref linkend="general-display-options"/> outlined in red.</para>
                 <para><figure xml:id="general-display-options">
-                    <title>General Display Options</title>
+                    <title><?oxy_comment_start author="linds" timestamp="20200327T114327-0400" comment="I see:
+Fully qualified name
+Regular Name (not Synonym)
+Definition "?>General
+                                Display Options<?oxy_comment_end?></title>
                     <mediaobject>
                         <alt></alt>
                         <imageobject>
@@ -196,7 +219,9 @@
                                 <emphasis role="bold">deselect</emphasis> the <emphasis>Show Only
                                 Active Concepts</emphasis> checkbox, and select <emphasis>Apply
                                 changes</emphasis>. Inactive descriptions are italicized in the
-                            application, see the screen shot below where they are outlined in green.<mediaobject>
+                            application<?oxy_insert_start author="linds" timestamp="20200327T105913-0400"?>.
+                            <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200327T105914-0400" content=", s"?><?oxy_insert_start author="linds" timestamp="20200327T105916-0400"?>S<?oxy_insert_end?>ee
+                            the screen shot below where they are outlined in green.<mediaobject>
                                 <alt/>
                                 <imageobject>
                                     <imagedata align="left" scalefit="1" width="75%"
@@ -216,8 +241,9 @@
                     profile, select the <emphasis>save</emphasis> button. To return to the Knowledge
                     Editor, select your user menu at the top right, select
                     <emphasis>Home</emphasis>, then select <emphasis>Editor</emphasis> button. <note>
-                        <para>The <emphasis>System Token</emphasis>is needed only by
-                                <emphasis>Software Developers</emphasis>.</para>
+                        <para>The <emphasis>System
+                                Toke<?oxy_comment_start author="linds" timestamp="20200327T114704-0400" comment="add a space after Token "?>n</emphasis>is<?oxy_comment_end?>
+                            needed only by <emphasis>Software Developers</emphasis>.</para>
                     </note>
                 </para>
              <para><figure xml:id="user-edit-profile">
@@ -238,8 +264,10 @@
          <section><title>Contact Technical Support</title>
             <para>Selecting <emphasis>Contact Technical Support</emphasis> will bring the user to a
                     web-page where they can send their question and describe their issue to our
-                    technical support team, <xref linkend="tech-support"/>. An email response will
-                    be sent to the user as soon as possible.</para>
+                    technical support team,
+                        <?oxy_comment_start author="linds" timestamp="20200327T114749-0400" comment="move period inside of quotes"?><xref
+                        linkend="tech-support"/>. <?oxy_comment_end?>An email response will be sent
+                    to the user as soon as possible.</para>
              <para><figure xml:id="tech-support">
                  <title>Contact Technical Support</title>
                  <mediaobject>

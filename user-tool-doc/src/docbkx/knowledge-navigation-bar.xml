@@ -149,14 +149,17 @@
                         <emphasis>default</emphasis> settings. A user can modify the display
                     settings using the <emphasis>Global Display Settings</emphasis>
                     <footnote>
+                        <?oxy_comment_start author="linds" timestamp="20200327T114454-0400" comment="Maybe spell out which tabs are NOT described here (Module Flags, Path Flags, Value Set Flags) "?>
                         <para>There are other display options in the Global Display Settings panel
                             that are not fully implemented and will not be documented here. It is
                             recommended that users <emphasis role="strong">ONLY</emphasis> modify
-                            settings that are documented in this section</para>
+                            settings that are documented in this section<?oxy_comment_end?></para>
                     </footnote> panel. Changes to the display settings in the <emphasis>Global
                         Display Settings</emphasis> panel affects the displayed information in both
                     the <emphasis>Task Pane</emphasis> and the <emphasis>Concept Viewer
-                        Pane</emphasis>, refer to <xref linkend="editor-functions"/>. However, the
+                        Pane</emphasis>,
+                    <?oxy_comment_start author="linds" timestamp="20200327T114114-0400" comment="This comes up as &quot;???&quot; in the PDF version. Same for the ones above where you have a comment about links displaying once a full user guide PDF is generated. "?>refer
+                    to <xref linkend="editor-functions"/><?oxy_comment_end?>. However, the
                         <emphasis>Concept Viewer Pane</emphasis> and the <emphasis>Task
                         Pane</emphasis>
                     <emphasis role="strong">can override</emphasis> the <emphasis>Global Display
@@ -182,7 +185,11 @@
                         available through pagination), and the language is English, are shown in
                             <xref linkend="general-display-options"/> outlined in red.</para>
                 <para><figure xml:id="general-display-options">
-                    <title>General Display Options</title>
+                    <title><?oxy_comment_start author="linds" timestamp="20200327T114327-0400" comment="I see:
+Fully qualified name
+Regular Name (not Synonym)
+Definition "?>General
+                                Display Options<?oxy_comment_end?></title>
                     <mediaobject>
                         <alt></alt>
                         <imageobject>
@@ -234,8 +241,9 @@
                     profile, select the <emphasis>save</emphasis> button. To return to the Knowledge
                     Editor, select your user menu at the top right, select
                     <emphasis>Home</emphasis>, then select <emphasis>Editor</emphasis> button. <note>
-                        <para>The <emphasis>System Token</emphasis>is needed only by
-                                <emphasis>Software Developers</emphasis>.</para>
+                        <para>The <emphasis>System
+                                Toke<?oxy_comment_start author="linds" timestamp="20200327T114704-0400" comment="add a space after Token "?>n</emphasis>is<?oxy_comment_end?>
+                            needed only by <emphasis>Software Developers</emphasis>.</para>
                     </note>
                 </para>
              <para><figure xml:id="user-edit-profile">
@@ -256,8 +264,10 @@
          <section><title>Contact Technical Support</title>
             <para>Selecting <emphasis>Contact Technical Support</emphasis> will bring the user to a
                     web-page where they can send their question and describe their issue to our
-                    technical support team, <xref linkend="tech-support"/>. An email response will
-                    be sent to the user as soon as possible.</para>
+                    technical support team,
+                        <?oxy_comment_start author="linds" timestamp="20200327T114749-0400" comment="move period inside of quotes"?><xref
+                        linkend="tech-support"/>. <?oxy_comment_end?>An email response will be sent
+                    to the user as soon as possible.</para>
              <para><figure xml:id="tech-support">
                  <title>Contact Technical Support</title>
                  <mediaobject>

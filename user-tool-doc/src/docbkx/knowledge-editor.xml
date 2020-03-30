@@ -196,31 +196,54 @@
                 measurement site of a patients heart rate, where the values could be finger, ear
                 lobe, and wrist. There are two ways to create a new value set: by selecting "Create
                 Refset" under the Shortcuts navigation menu, or by selecting the "New" button under
-                the Sets tab in the Authoring viewing pane. On the Create New Value Set page, fill
-                out the information needed, check the box for "This concept is a Value Set," and
-                select "Create". After the refset is created, you will see the ability to add
-                concept members on the left pane. </para>
+                the Sets tab in the Authoring viewing pane. </para>
+            <para>To create a map set, go to the Sets tab in the left panel, make sure that "View
+                Group" is set to "Value Sets" and select New to open the form.On the Create New
+                Value Set page, fill out the information needed, check the box for "This concept is
+                a Value Set," and select "Create". After the refset is created, you will see the
+                ability to add concept members on the left pane. </para>
+            <para><?oxy_comment_start author="mnham" timestamp="20200330T093715-0700" comment="I don&apos;t know if I properly explain this here."?><emphasis
+                    role="bold">Note:</emphasis>Depending on the parent type, you may need to add a
+                semantic tag to the end of your value set name. The semantic tag describes the
+                dictionary it belongs to, for example "DynamicDefinition for refset Simple type
+                reference set (foundation metadata concept)" contains the tag "foundation metadata
+                concept".<?oxy_comment_end?> The application will notify you with an error message
+                if a semantic tag is needed.</para>
                     <simplesect>
                 <title>Adding Members to a Value Set</title>
                 <para> To add members to a value set, select the "Edit" link when viewing the value
-                    set's details. This will take you into an edit view where concepts can be added,
-                    removed, or imported. </para>
+                    set's details (located on the top right corner). This will take you into an edit
+                    view where concepts can be added, removed, or imported. If you do not see the
+                    members list, select the "Members" tab on the right panel after opening the
+                    value set details.</para>
                 <para>Select "Add Member" to find concepts to add, select the remove icon to remove
                     them, and select the add to briefcase icon to add any of them to your briefcase. </para>
-                <para>When you are ready to save the members list, select "Compare Sync" to review
-                    your changes. </para>
-                <para>If there are any conflicts, the table will display the information to help you
-                    decide how to sync the new data into the refset. </para>
+                <para>
+                    <figure xml:id="value-set-members">
+                        <title>Editing Value Set Members </title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata align="center" scalefit="1" width="100%" contentdepth="70%"
+                                    fileref="images/value-set-members.png"/>
+                            </imageobject>
+                        </mediaobject>
+                        </figure>
+                    </para>
+                <para>When you are ready to save the members list, select "Save". </para>
+                <para>If there are any conflicts, error notifications will display the information
+                    to help you decide how to resolve them. </para>
             </simplesect>
             <simplesect>
-                <title>Removing Value Set Members</title>
+                <title>Inactivating Value Set Members</title>
            
             
-                <para>To remove members from a refset, select the "Edit Members" button when viewing
-                    the refset details. This will take you to Edit Mode, where you can remove
-                    members from the table by selecting the "X" icon. The system will display your
-                    selection in the table "Value Set membership Changes" for review. Press Save to
-                    confirm your updates.</para>
+                <para>To inactivate members from a refset, select the "Edit Members" button when
+                    viewing the refset details. This will take you to Edit Mode, where you can
+                    remove members from the table by selecting the "X" icon. The system will display
+                    your selection in the table "Value Set membership Changes" for review. Press
+                    Save to confirm your updates.</para>
+                <para>Members cannot be removed from the list, only deactivated. A user can
+                    reactivate the concept anytime.</para>
             </simplesect> </section>
                 
                 <section><title>Creating a Map Set</title>
@@ -262,6 +285,11 @@
                     <para>After entering all relevant information, press the save button at the top
                 of the panel. The new map set sould appear in the left panel's Map Sets table. If
                 you do not see it there, press the Refresh button.</para>
+            <simplesect>
+                <title>Adding concepts to a new Map Set</title>
+                <para>At this point, make sure that the map set you just created is open on the
+                    right panel. Select "edit" on the top right corner</para>
+            </simplesect>
             </section>
             </section>
             <section><title>Search</title>

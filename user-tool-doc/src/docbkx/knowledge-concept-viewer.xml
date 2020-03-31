@@ -4,14 +4,23 @@
 
 <chapter xmlns="http://docbook.org/ns/docbook" 
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
-    <title>Concept Viewer</title>
-       <section xml:id="concept-viewer">
-           <title>Concept Details</title>
-            <para>Concepts represent a clinical meaning which is assigned a unique identifier, have
-            descriptions that describe the concept,  have relationships that relate concepts to
-            eachother, and OWL axioms that provide a logical definition to the concept. The logical
-            definition is used by the <emphasis>Classifier</emphasis> to infer additional
-            relationships between concepts. When a user selects a concept from the Taxonomy view,
+    <title>Concept Details</title>
+    <section xml:id="concept-details"><title>Concept Details</title>
+    <para>Concepts represent a clinical meaning which is assigned a unique identifier, have
+        descriptions that describe the concept, have relationships that relate concepts to
+        eachother, and OWL axioms that provide a logical definition to the concept. The logical
+        definition is used by the <emphasis>Classifier</emphasis> to infer additional relationships
+        between concepts. When a user selects a concept from the Taxonomy view, search results, or
+        the briefcase details about the selected concept are displayed in the Concept Details panel,
+        refer to <xref linkend="concept-details-overview"/>. The <emphasis>Concept
+            Details</emphasis> displays concept information, enables a user to modify display
+        options for the <emphasis>Concept Details </emphasis>, create a child concept, edit this
+        concept, clone this concept, close this pane, view value set membership, display history of
+        this concept.</para>
+    
+       <section>
+           <title>General Info</title>
+            <para>When a user selects a concept from the Taxonomy view,
             search results, or the briefcase details about the selected concept are displayed in the
             Concept Details panel, refer to <xref linkend="concept-details-overview"/>. 
                 This view contains a variety of information about the
@@ -56,25 +65,25 @@
             "Display options" in the upper right corner, and its refset relationships and history
             can be found in tabs within the same panel.</para>
             <para><inlinemediaobject>
-                <alt>Figure of the Display Options modal from the concept viewer. Displays options
+                <alt>Figure of the Display Options modal from the Concept Details. Displays options
                     such as "Show authors, language, modules, filter STAMP date," and more.</alt>
                 <imageobject>
                     <imagedata fileref="images" width="750px"/>
                 </imageobject>
                 
             </inlinemediaobject></para>
-        <para>Optionally another <emphasis role="bold">concept viewer</emphasis> pane can be opened
+        <para>Optionally another <emphasis role="bold">Concept Details</emphasis> pane can be opened
             and will display on the far right side of the window. There are three alternatives to
-            open another concept viewer: </para>
+            open another Concept Details: </para>
         <itemizedlist>
             <listitem>
                 <para>Right-click the concept you wish to review and select "<emphasis role="bold"
-                        >open in new concept viewer</emphasis>". </para>
+                        >open in new Concept Details</emphasis>". </para>
             </listitem>
             <listitem>
                 <para>Highlight the concept you want to see in a new viewer and press "<emphasis
                         role="bold">keyboard shortcut tbd, e.g. ctrl+alt+n</emphasis> " to open a
-                    new concept viewer. </para>
+                    new Concept Details. </para>
             </listitem>
             <listitem>
                 <para>In the top navigation pane, select <emphasis role="bold"
@@ -99,6 +108,6 @@
            <section><title>Close Pane</title>
                <para></para></section>
        </section>
+    </section>
 </chapter>
    
-

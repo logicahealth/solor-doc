@@ -17,7 +17,7 @@
     
     <section><title xml:id="editor-functions" >Editor Layout</title>
         <para>The Knowledge Editor is divided into three sections: the <emphasis role="italic"
-                >task</emphasis> pane, the <emphasis role="italic">concept viewer</emphasis>, and
+                >task</emphasis> pane, the <emphasis role="italic">Concept Details</emphasis>, and
             the <emphasis>navigation</emphasis> bar (see <xref linkend="layout"/> below). While each
             of these functions are described in more details in the succeeding sections, a
             description of each area is provided below: <orderedlist>
@@ -58,8 +58,8 @@
                         </orderedlist></para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="bold">Concept Viewer</emphasis> – The Concept Viewer
-                        displays details of the concept or item selected in the task pane.</para>
+                    <para><emphasis role="bold">Concept Details</emphasis> – The Concept Details Pan
+                        displays details of the concept selected in the task pane.</para>
                 </listitem>
                 <listitem>
                     <para><emphasis role="bold">Navigation</emphasis> – The Navigation bar enables
@@ -72,12 +72,13 @@
                 <mediaobject>
                     <imageobject>
                         <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
-                            fileref="images/editor-layout.png"/>
+                            fileref="images/Editor-layout2.png"/>
                     </imageobject>
                 </mediaobject>
             </figure></para>
     </section>
-    <section><title>Taxonomy View</title>
+    <section><title>Task Pane</title>
+    <section><title>Taxonomy</title>
            <para>In the Taxonomy view, users can navigate through the concept hierarchy under the
             taxonomy tree. The Taxonomy also displays the concepts with their parents and their
             children. Users can traverse the tree by selecting the caret symbol on the left of the
@@ -150,10 +151,10 @@
                 </itemizedlist></para></simplesect>
         <simplesect><title>Linking the Taxonomy View with Search Results</title>
             <para>In the Knowledge Editor, the user can connect/link the concept selected in the
-                Taxonomy to the Concept Viewer Panel, by default the connection or linkage is set.
-                This means when users select a concept in the taxonomy, the Concept Viewer will
+                Taxonomy to the Concept Details Panel, by default the connection or linkage is set.
+                This means when users select a concept in the taxonomy, the Concept Details will
                 display the details of that concept. The same is true if a user selects a result
-                from a search. Linkage can be modified  by toggling the linkage icon in the upper
+                from a search. Linkage can be modified by toggling the linkage icon in the upper
                 left-hand corner of the concept details panel. <figure xml:id="search-linked">
                     <title>Linked</title>
                     <mediaobject>
@@ -172,12 +173,12 @@
                         </imageobject>
                     </mediaobject>
                     <para>If a concept becomes unlinked and users click on a different term to
-                        review, a new Concept View Panel will open. A maximum of two concept viewers
-                        can be opened. If two Concept Viewer Panels are already open and both
-                        concept viewers are linked, the system will choose to display the new
-                        concept selected on one of the existing panels. If both concept viewers are
-                        unlinked the concept viewers will not display the concept information of the
-                        selected concept.</para>
+                        review, a new Concept View Panel will open. A maximum of two Concept
+                        Detailss can be opened. If two Concept Details Panels are already open and
+                        both Concept Detailss are linked, the system will choose to display the new
+                        concept selected on one of the existing panels. If both Concept Detailss are
+                        unlinked the Concept Detailss will not display the concept information of
+                        the selected concept.</para>
                 </figure>
             </para>
         </simplesect></section>
@@ -259,8 +260,8 @@
                         <imagedata fileref="images/mapset-table.png"/>
                     </imageobject>
                         </mediaobject></figure></para>
-                    <para>There are 3 tabs in the Concept Viewer panel for the user to fill out:
-                        Definition, Item Fields, and Business Rules.</para>
+                    <para>There are 3 tabs in the Concept Details panel for the user to fill out:
+                Definition, Item Fields, and Business Rules.</para>
                     <itemizedlist>
                         <listitem>
                             <para>Definition - Enter the name, purpose, and any additional
@@ -431,7 +432,7 @@
                 >Description Logics </emphasis>upon which the terminology is defined and generates
             the inferred relationships for each concept. The Knowledge Editor displays <emphasis
                 role="italic">stated and inferred </emphasis>views of the concept in the <emphasis
-                role="italic">concept viewer pane </emphasis>and the Taxonomy displays <emphasis
+                role="italic">Concept Details pane </emphasis>and the Taxonomy displays <emphasis
                 role="italic">stated and inferred </emphasis>is-a relationships based on the
             Taxonomy display options.</para>
                 <section>
@@ -499,7 +500,13 @@
                     </para>
                 </section>
         </section>
-       
+        
+        <section><title>QA</title>
+            <para></para></section>
+        
+        <section><title>Versions</title>
+            <para></para></section>
+        
        <section><title>Briefcase</title>
            <para>The briefcase temporarily holds concepts that can be reviewed and/or edited later. 
                For example, the briefcase can be used: </para>
@@ -530,7 +537,7 @@
             <title>Adding a concept to the Briefcase from Taxonomy List</title>
             <para>Most of the concepts in the taxonomy list can be added to the briefcase by
                 right-clicking to view the context menu, and selecting "Add to Briefcase". Some of
-                the concepts displayed in tables and the Concept Viewer panel can also be added by
+                the concepts displayed in tables and the Concept Details panel can also be added by
                 this method.</para>
             <para><figure xml:id="context-menu"><title>Context Menu</title>
                     <mediaobject>
@@ -578,9 +585,10 @@
                     <para>If you do not see the concept(s) just added, try refreshing the list by
                    selecting <emphasis>Refresh List</emphasis>.</para></simplesect>
              </section>
+    </section>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" 
-        href="knowledge-concept-viewer.xml" xpointer="concept-viewer"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-concept-viewer.xml"
+        xpointer="concept-details"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-navigation-bar.xml"
         xpointer="navigation-bar-description"/>
     
@@ -595,8 +603,8 @@
                     <para>Open concept – opens the concept details information</para>
                 </listitem>
                 <listitem>
-                    <para>Open concept in new concept viewer – opens the concept details information
-                        in a third panel.</para>
+                    <para>Open concept in new Concept Details – opens the concept details
+                        information in a third panel.</para>
                 </listitem>
                 <listitem>
                     <para>Add to briefcase – add the concept to  briefcase, which can be viewed  in
@@ -624,8 +632,9 @@
                         concept and uses the selected concept as the parent.</para>
                 </listitem>
                 <listitem>
-                    <para>Create child concept in new viewer – creates a new child concept with the same information as the selected
-                        concept, uses the selected concept as the parent and opens a third concept viewer panel.</para>
+                    <para>Create child concept in new viewer – creates a new child concept with the
+                        same information as the selected concept, uses the selected concept as the
+                        parent and opens a third Concept Details panel.</para>
                 </listitem>
                 <listitem>
                     <para>Inactivate concept – sets the selected concept's state to inactive. If the

@@ -202,13 +202,13 @@
                 Value Set page, fill out the information needed, check the box for "This concept is
                 a Value Set," and select "Create". After the refset is created, you will see the
                 ability to add concept members on the left pane. </para>
-            <para><?oxy_comment_start author="mnham" timestamp="20200330T093715-0700" comment="I don&apos;t know if I properly explain this here."?><emphasis
+            <para><?oxy_comment_start author="mnham" timestamp="20200330T093715-0700" comment="I don&apos;t know if I properly explain this here." id="tzt_k1z_2lb"?><?oxy_comment_start author="susancastillo" timestamp="20200330T135743-0700" comment="you should not have to add a semantic tag -- it should be added automatically -- it&apos;s a bug right now -- probably remove this note" parentID="tzt_k1z_2lb" mid="1"?><emphasis
                     role="bold">Note:</emphasis>Depending on the parent type, you may need to add a
                 semantic tag to the end of your value set name. The semantic tag describes the
                 dictionary it belongs to, for example "DynamicDefinition for refset Simple type
                 reference set (foundation metadata concept)" contains the tag "foundation metadata
-                concept".<?oxy_comment_end?> The application will notify you with an error message
-                if a semantic tag is needed.</para>
+                concept".<?oxy_comment_end mid="1"?><?oxy_comment_end?> The application will notify
+                you with an error message if a semantic tag is needed.</para>
                     <simplesect>
                 <title>Adding Members to a Value Set</title>
                 <para> To add members to a value set, select the "Edit" link when viewing the value
@@ -457,7 +457,7 @@
                         <para/></figure>
                 </section>
                 <section>
-                    <title>View Classifier Results</title>
+                    <title>Classifier Results</title>
                     <para>When the classifier has completed, the status will change from
                         <emphasis>Running</emphasis> to <emphasis>Done</emphasis>. A user may view
                         classification results by selecting an entry in the <emphasis>Classifier Run
@@ -498,6 +498,7 @@
                             </mediaobject></figure>
                     </para>
                 </section>
+        </section>
        
        <section><title>Briefcase</title>
            <para>The briefcase temporarily holds concepts that can be reviewed and/or edited later. 
@@ -524,7 +525,7 @@
                        </imageobject>
                    </mediaobject>
                </figure></para>
-       </section>
+      
         <section>
             <title>Adding a concept to the Briefcase from Taxonomy List</title>
             <para>Most of the concepts in the taxonomy list can be added to the briefcase by

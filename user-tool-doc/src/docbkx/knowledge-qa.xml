@@ -12,9 +12,10 @@
                 select "QA" from the Task panel tabs and click "Run QA Test".</para>
             <para>Once the QA test has completed its analysis, details can be viewed by clicking on
                 the test in the QA Run List table. Refresh the list if necessary.</para>
-            <para><emphasis role="bold">Note:</emphasis> At this time, QA rules check for
-                "active concepts should not contain tabs, newlines, or characters @, $, #, \\." Additional
-                rules will be implemented at a later time.</para>
+            <para>
+                <note><para>At this time, QA rules check for
+                    "active concepts should not contain tabs, newlines, or characters @, $, #, \\." Additional
+                    rules will be implemented at a later time.</para></note></para>
         <section>
             <title>Viewing the QA Results</title>
             <para>The QA Test results provides generic information such as the duration of the test
@@ -31,7 +32,8 @@
                             status, duration, total QA failure, QA rules, and the error
                             counts.</alt>
                         <imageobject>
-                            <imagedata fileref="images/whitelist-qatests.png"/>
+                            <imagedata align="left" scalefit="1" width="50%" contentdepth="50%"
+                                fileref="images/whitelist-qatests.png"/>
                         </imageobject>
                     </mediaobject>
                 </figure>

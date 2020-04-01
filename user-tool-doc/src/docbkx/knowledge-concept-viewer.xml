@@ -6,45 +6,121 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Concept Details</title>
     <section xml:id="concept-details"><title>Concept Details</title>
-    <para>Concepts represent a clinical meaning which is assigned a unique identifier, have
-        descriptions that describe the concept, have relationships that relate concepts to
-        eachother, and OWL axioms that provide a logical definition to the concept. The logical
-        definition is used by the <emphasis>Classifier</emphasis> to infer additional relationships
-        between concepts. When a user selects a concept from the Taxonomy view, search results, or
-        the briefcase details about the selected concept are displayed in the Concept Details panel,
-        refer to <xref linkend="concept-details-overview"/>. The <emphasis>Concept
-            Details</emphasis> displays concept information, enables a user to modify display
-        options for the <emphasis>Concept Details </emphasis>, create a child concept, edit this
-        concept, clone this concept, close this pane, view value set membership, display history of
-        this concept.</para>
-    
+    <para>A Concept represents a clinical meaning. Each Concept has descriptions that describe the concept,
+            relationships that relate concepts to eachother, and <emphasis>OWL axioms</emphasis>
+            that provide a logical definition to the concept. The logical definition (axiom) is used
+            by the <emphasis>Classifier</emphasis> to infer additional relationships between
+            concepts – this is the inferred axiom.</para>
+            
+     <para>In <emphasis>Concept Details</emphasis> a user can view concept information, modify
+        display options, create a child concept, edit the concept, clone the concept, 
+        view value set membership, and display history of a concept. When a user
+        selects a concept from the <emphasis>taxonomy</emphasis>, <emphasis>search
+        results</emphasis>, or the <emphasis>briefcase</emphasis> concept this information is
+        displayed in the <emphasis>Concept Details</emphasis> pane, refer to 
+        <xref linkend="concept-details-overview"/>.
+      </para>
+      <para>The sections below describe the concept information displayed, and the functions
+            available in the <emphasis>Concept Details</emphasis> pane.</para>
+        <note><para><emphasis>Context Menu</emphasis> options are also available in <emphasis>Concept
+                    Details</emphasis>by right-clicking on the concept name in the upper left, see
+                    <xref linkend="right-click-concept"/>. For a description of the functions
+                available in the <emphasis>Context Menu</emphasis>, refer to
+            <xref linkend="context-menu-section"/></para></note>
+       <section><title>Actions</title>
+           <para>There are several actions available in <emphasis>Concept Details</emphasis>
+           pane:
+           <itemizedlist>
+               <listitem>
+                   <para>New Child Concept – a new concept is created that is the child of the concept
+                   displayed.</para>
+               </listitem>
+               <listitem>
+                   <para>Edit Concept – enables the displayed concept to be modified.</para>
+               </listitem>
+               <listitem>
+                   <para>Clone – copies the displayed concept to a new concept template.</para>
+               </listitem>
+               <listitem>
+                   <para>Display Options - changes the display options for the 
+                       <emphasis>Concept Details</emphasis> pane.</para>
+               </listitem>
+               <listitem>
+                   <para>Close – closes the <emphasis>Concept Details</emphasis> pane.</para>
+               </listitem>
+           </itemizedlist></para>
+           
+           <para><figure xml:id="right-click-concept">
+               <title>Context Menu in Concept Details</title>
+               <mediaobject>
+                   <alt>Figure context menu in concept details pane</alt>
+                   <imageobject>
+                       <imagedata align="left" scalefit="1" width="45%" contentdepth="45%"
+                           fileref="images/right-click-concept-details.png"/>
+                   </imageobject>
+               </mediaobject>
+           </figure></para>
+           
+           <section><title>New Child Concept</title>
+               <para></para>
+           </section>
+           
+           <section xml:id="edit-concept"><title>Edit Concept</title>
+               <para></para>
+           </section>
+           
+           <section><title>Clone</title>
+               <para></para>
+           </section>
+           
+           <section><title>Display Options</title>
+               <para></para>
+           </section>
+           
+           <section><title>Close</title>
+               <para></para>
+           </section>
+       </section>
+           
        <section>
            <title>General Info</title>
-            <para>When a user selects a concept from the Taxonomy view,
-            search results, or the briefcase details about the selected concept are displayed in the
-            Concept Details panel, refer to <xref linkend="concept-details-overview"/>. 
-                This view contains a variety of information about the
-            concept as described below: 
+            <para>The <emphasis>General Info</emphasis> area has three sections: concept properties,
+                descriptions and axiom. This view is configured with default display options 
+                <footnote><para>See <xref linkend="display-options-section"/>.</para>
+                </footnote>: 
                 <itemizedlist>
-                <listitem>
-                    <para>Fully Qualified Name (FQN) – human readable unique word or phrase which
-                        represents clinical meaning. And FQN </para>
-                </listitem>
-                <listitem >
-                    <para>ID - </para>
-                </listitem>
-                <listitem>
-                    <para>Regular Name (NAM) – is a term of a specified type that describes the
-                        concept. A concept can have more than one Regular Name.</para>
-                </listitem>
-                <listitem>
-                    <para>Status – defines whether the concept is active or inactive</para>
-                </listitem>
-                <listitem>
-                    <para>Module – identifies which module the concept belongs in e.g. a SNOMED CT
-                        concept is in SNOMED CT core module</para>
-                </listitem>
-            </itemizedlist></para>
+                    <listitem>
+                        <para>Concept Properties
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Concept Type – primitive or defined, refer to <xref linkend="concept-type"/>
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Status – defines whether the concept is active or inactive</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Module – identifies which module the concept belongs in e.g. a SNOMED
+                                        CT concept is in SNOMED CT core module</para>
+                                </listitem>
+                                <listitem>
+                                    <para>ID - if the concept is a SNOMED concept then the SCTID is displayed.
+                                        If the conccept is a LOINC term the the LOINC ID is displayed.  </para>
+                                </listitem>
+                        </itemizedlist></para>
+                    </listitem>                        
+                    <listitem>
+                        <para>Fully Qualified Name (FQN) – human readable unique word or phrase
+                            which represents clinical meaning. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Regular Name  – is a term of a specified type that describes the
+                            concept. A concept can have more than one Regular Name.</para>
+                    </listitem>
+                    <listitem>
+                        <para/>
+                    </listitem>
+                </itemizedlist></para>
         <para/>
         <para>
            <figure xml:id="concept-details-overview">
@@ -91,23 +167,18 @@
                         View"</emphasis>.</para>
             </listitem>
         </itemizedlist> 
-           <section><title>Create New Concept</title>
-               <para></para></section>
-           <section><title>Show Concept Information</title>
-                <para></para></section>
-           <section><title>Display Concept History</title>
-               <para></para></section>
-           <section><title>Show Value Set Membership</title>
-               <para></para></section>
-           <section xml:id="edit-concept"><title>Edit Concept</title>
-               <para></para></section>
-           <section><title>Clone Concept</title>
-               <para></para></section>
-           <section><title>Concept Display Options</title>
-               <para></para></section>
-           <section><title>Close Pane</title>
-               <para></para></section>
        </section>
+     
+           
+         <section><title>Display Concept History</title>
+             <para></para>
+         </section>
+           
+         <section><title>Show Value Set Membership</title>
+               <para></para>
+          </section>
+           
+     
     </section>
 </chapter>
    

@@ -121,7 +121,7 @@
                     <emphasis>Refresh</emphasis> button. This is useful when multiple concepts are
                 expanded and the user would like to collapse them all.</para>
         </simplesect>
-        <simplesect><title>Concept Type – Defined versus Primitive</title>
+        <simplesect xml:id="concept-type"><title>Concept Type – Defined versus Primitive</title>
             <para>In Knowledge, concepts are defined as either a <emphasis>defined</emphasis> or
                     <emphasis>primitive</emphasis>. <itemizedlist>
                     <listitem>
@@ -523,12 +523,12 @@
                     </para>
                 </section>
         </section>
+         
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-qa.xml"
+            xpointer="qa-section"/>
         
-        <section><title>QA</title>
-            <para></para></section>
-        
-        <section><title>Versions</title>
-            <para></para></section>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-export.xml"
+                xpointer="export"/>
         
        <section><title>Briefcase</title>
            <para>The briefcase temporarily holds concepts that can be reviewed and/or edited later. 
@@ -557,8 +557,8 @@
                </figure></para>
       
         <section>
-            <title>Adding a concept to the Briefcase from Taxonomy List</title>
-            <para>Most of the concepts in the taxonomy list can be added to the briefcase by
+            <title>Adding a concept to the Briefcase from the Taxonomy</title>
+            <para>Concepts in the taxonomy can be added to the briefcase by
                 right-clicking to view the context menu, and selecting "Add to Briefcase". Some of
                 the concepts displayed in tables and the Concept Details panel can also be added by
                 this method.</para>
@@ -615,7 +615,7 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-navigation-bar.xml"
         xpointer="navigation-bar-description"/>
     
-    <section><title>Context Menu</title>
+    <section xml:id="context-menu-section"><title>Context Menu</title>
         <para>A context menu appears when users right-click on the concept name either on the
             taxonomy tree <xref linkend="taxonomy-context-menu"/> or in the title of concept details
             panel <xref linkend="concept-details-context-menu"/>. Some tables contain a context menu
@@ -695,6 +695,5 @@
                 </mediaobject>
             </figure></para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-export.xml"
-        xpointer="export"/>
+    
 </chapter> 

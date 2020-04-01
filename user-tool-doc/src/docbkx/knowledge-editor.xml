@@ -13,8 +13,7 @@
     <para>There are two roles that a user can have which changes the functionality available: Author
         and Administrator role. The Administrator role has all the functionality as an Author with
         the addition of the ability to Release content. The functionality to Release content is
-        present in the navigation bar and is described below.</para>
-    
+        present in the navigation bar and is described below.</para>    
  
     <para>The Knowledge Editor is divided into three sections: 
         the <emphasis role="italic" >task</emphasis> pane, the <emphasis role="italic">Concept Details</emphasis>, and
@@ -480,7 +479,7 @@
                     button. An entry will be added to the <emphasis>Classifier Run List</emphasis>.
                     <?oxy_insert_start author="mnham" timestamp="20200401T143036-0700"?>Since the
                     table does not update automatically when a classification is completed,
-                    <?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200401T143054-0700" content="T"?><?oxy_insert_start author="mnham" timestamp="20200401T143054-0700"?>t<?oxy_insert_end?>he
+                    <?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200401T143054-0700" content="T"?>the
                     user can select the <emphasis>Refresh Run List</emphasis> to force an update of
                     the run list table.</para>
                     <figure xml:id="classifier-tab"><title>Classifier Details</title><mediaobject>
@@ -501,43 +500,30 @@
                     <para>The classifier details will provide a summary at the top and details below
                 of: <itemizedlist>
                     <listitem>
-                        <para>Affected concepts - a list of concepts that
-                                <?oxy_insert_start author="mnham" timestamp="20200401T143144-0700"?>are
-                                <?oxy_insert_end?>changed by the classifier.</para>
+                        <para>Affected concepts - a list of concepts that are changed by the
+                                classifier.</para>
                     </listitem>
                     <listitem>
-                        <para>Equivalent sets –
-                                <?oxy_delete author="mnham" timestamp="20200401T143155-0700" content="flags "?>any
-                                defined concepts that have identical relationships.
-                                <?oxy_comment_start author="mnham" timestamp="20200401T143214-0700" comment="??"?>the
-                                concepts that are believed to be equivalent are grouped together,
-                                <?oxy_comment_end?></para>
+                        <para>Equivalent sets – any defined concepts that have identical
+                                relationships. </para>
                     </listitem>
                     <listitem>
-                        <para>Orphaned concepts –
-                                <?oxy_delete author="mnham" timestamp="20200401T143221-0700" content="are "?>concepts
-                                that are not defined correctly and must be corrected.</para>
+                        <para>Orphaned concepts – concepts that are not defined correctly and must
+                                be corrected.</para>
                     </listitem>
                     <listitem>
                         <para>Cycles – the classifier finds cycles that would be difficult to find
-                                just by looking at the definition of a
-                                concept<?oxy_insert_start author="mnham" timestamp="20200401T143902-0700"?>.
-                                Cycles are transitive relationships such as the following example:<?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200401T143921-0700" content=" e.g."?>
-                                <?oxy_insert_start author="mnham" timestamp="20200401T144147-0700"?>if
-                                concept A's "is-a" definition is B and B "is-a" C, and C "is-a" A,
-                                this will flag an error during
-                                classification<?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200401T144313-0700" content="A -&gt;B -&gt;C -&gt;A"?>.</para>
+                                just by looking at the definition of a concept. Cycles are
+                                transitive relationships such as the following example: if concept
+                                A's "is-a" definition is B and B "is-a" C, and C "is-a" A, this will
+                                flag a cycle error during classification.</para>
                     </listitem>
                 </itemizedlist></para>
-                  <para> The concepts under each of these categories are displayed
-                    <?oxy_insert_start author="mnham" timestamp="20200401T144802-0700"?>in a table
-                    <?oxy_insert_end?>by default. To hide the details of a category, select the
-                    caret symbol next to table
-                    name<?oxy_insert_start author="mnham" timestamp="20200401T144815-0700"?>
-                    to<?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200401T144814-0700" content=", it"?>
-                    toggle<?oxy_delete author="mnham" timestamp="20200401T144817-0700" content="s"?>
-                    between expanding and collapsing the table view. You also have the option of
-                    adding concepts to your briefcase to correct any issues.</para>
+                  <para> The concepts under each of these categories are displayed in a table by
+                    default. To hide the details of a category, select the caret symbol next to
+                    table name to toggle between expanding and collapsing the table view. You also
+                    have the option of adding concepts to your briefcase to correct any
+                    issues.</para>
                     <para>
                         <figure xml:id="classifier-details"><title>Classifier Details</title>
                             <mediaobject>

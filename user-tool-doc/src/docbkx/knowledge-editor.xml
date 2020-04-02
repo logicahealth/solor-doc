@@ -187,39 +187,53 @@
         </section></section>
          
         <section><title>Sets</title>
-              <para> The <emphasis>Sets</emphasis> tab allows a user to create, and modify value
-            sets, and map sets. Value sets are a collection of concepts that is used for a specific
-            purpose (e.g. Wound Color Value Set would contain the concepts needed to describe the
-            color of a wound by a clinician). A map set is a mapping between one terminology and
-            another (e.g. SNOMED CT to LOINC mapping). </para> 
+              <para> The <emphasis>Sets</emphasis> tab allows a user
+                <?oxy_delete author="linds" timestamp="20200402T141947-0400" content="to create, and modify value sets, and map sets"?><?oxy_insert_start author="linds" timestamp="20200402T141947-0400"?>to
+                create and modify both value and map sets<?oxy_insert_end?>.
+                <?oxy_insert_start author="linds" timestamp="20200402T142021-0400"?>A
+                <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200402T142024-0400" content="V"?><?oxy_insert_start author="linds" timestamp="20200402T142024-0400"?>v<?oxy_insert_end?>alue
+                set<?oxy_delete author="linds" timestamp="20200402T142027-0400" content="s"?><?oxy_insert_start author="linds" timestamp="20200402T142027-0400"?> is<?oxy_insert_end?>
+                <?oxy_delete author="linds" timestamp="20200402T142033-0400" content="are"?> a
+                collection of concepts that is used for a specific purpose (e.g. Wound Color Value
+                Set would contain the concepts needed to describe the color of a wound by a
+                clinician). A map set is a mapping between one terminology and another (e.g. SNOMED
+                CT to LOINC mapping). </para> 
                 <section><title>Creating a Value Set</title>
-                <para>A value set is also known as a simple assemblage or refset and contains a
-                collection of concepts used for a particular purpose determined by its author. For
-                example: The SNOMED CT Value Set – Lateralizable body structure reference set is a
-                user defined simple assemblage (or value set) created for values used to record the
-                measurement site of a patients heart rate, where the values could be finger, ear
-                lobe, and wrist. There are two ways to create a new value set: by selecting "Create
-                Refset" under the Shortcuts navigation menu, or by selecting the "New" button under
-                the Sets tab in the Authoring viewing pane. </para>
+                <para><?oxy_delete author="linds" timestamp="20200402T142105-0400" content="A value set is also known as a simple assemblage or refset and contains a collection of concepts used for a particular purpose determined by its author"?><?oxy_insert_start author="linds" timestamp="20200402T142105-0400"?>A
+                    value set, also known as a simple assemblage or refset, contains a collection of
+                    concepts used for a particular purpose determined by its
+                    author<?oxy_insert_end?>. For example: The SNOMED CT Value Set – Lateralizable
+                    body structure reference set is a user defined simple assemblage (or value set)
+                    created for values used to record the measurement site of a patients heart rate,
+                    where the values could be finger, ear lobe, and wrist. There are two ways to
+                    create a new value set: by selecting "Create Refset" under the Shortcuts
+                    navigation menu, or by selecting the "New" button under the Sets tab in the
+                    Authoring viewing pane. </para>
             <para>To create a map set, go to the Sets tab in the left panel, make sure that "View
-                Group" is set to "Value Sets" and select New to open the form.On the Create New
-                Value Set page, fill out the information needed, check the box for "This concept is
-                a Value Set," and select "Create". After the refset is created, you will see the
-                ability to add concept members on the left pane. </para>
-            <para><?oxy_comment_start author="mnham" timestamp="20200330T093715-0700" comment="I don&apos;t know if I properly explain this here." id="tzt_k1z_2lb"?><?oxy_comment_start author="susancastillo" timestamp="20200330T135743-0700" comment="you should not have to add a semantic tag -- it should be added automatically -- it&apos;s a bug right now -- probably remove this note" parentID="tzt_k1z_2lb" mid="1"?><emphasis
-                    role="bold">Note:</emphasis>Depending on the parent type, you may need to add a
-                semantic tag to the end of your value set name. The semantic tag describes the
-                dictionary it belongs to, for example "DynamicDefinition for refset Simple type
-                reference set (foundation metadata concept)" contains the tag "foundation metadata
-                concept".<?oxy_comment_end mid="1"?><?oxy_comment_end?> The application will notify
-                you with an error message if a semantic tag is needed.</para>
+                    Group" is set to "Value Sets" and select
+                    <?oxy_insert_start author="linds" timestamp="20200402T144403-0400"?>"<?oxy_insert_end?>New<?oxy_insert_start author="linds" timestamp="20200402T144404-0400"?>"<?oxy_insert_end?>
+                    to open the form.<?oxy_insert_start author="linds" timestamp="20200402T144357-0400"?>
+                    <?oxy_insert_end?>On the Create New Value Set page, fill out the information
+                    needed, check the box for "This concept is a Value Set," and select "Create".
+                    After the refset is created, you will see the ability to add concept members on
+                    the left pane. </para>
+            <para><?oxy_comment_start author="mnham" timestamp="20200330T093715-0700" comment="I don&apos;t know if I properly explain this here." id="tzt_k1z_2lb" mid="1"?><?oxy_comment_start author="susancastillo" timestamp="20200330T135743-0700" comment="you should not have to add a semantic tag -- it should be added automatically -- it&apos;s a bug right now -- probably remove this note" parentID="tzt_k1z_2lb"?><emphasis
+                        role="bold">Note:</emphasis>Depending on the parent type, you may need to
+                    add a semantic tag to the end of your value set name. The semantic tag describes
+                    the dictionary it belongs to, for example "DynamicDefinition for refset Simple
+                    type reference set (foundation metadata concept)" contains the tag "foundation
+                    metadata
+                    concept<?oxy_insert_start author="linds" timestamp="20200402T144509-0400"?>.<?oxy_insert_end?>"<?oxy_delete author="linds" timestamp="20200402T144510-0400" content="."?><?oxy_comment_end mid="1"?><?oxy_comment_end?>
+                    The application will notify you with an error message if a semantic tag is
+                    needed.</para>
                     <simplesect>
                 <title>Adding Members to a Value Set</title>
-                <para> To add members to a value set, select the "Edit" link when viewing the value
-                    set's details (located on the top right corner). This will take you into an edit
-                    view where concepts can be added, removed, or imported. If you do not see the
-                    members list, select the "Members" tab on the right panel after opening the
-                    value set details.</para>
+                <para><?oxy_delete author="linds" timestamp="20200402T142144-0400" content=" "?>To
+                        add members to a value set, select the "Edit" link when viewing the value
+                        set's details (located on the top right corner). This will take you into an
+                        edit view where concepts can be added, removed, or imported. If you do not
+                        see the members list, select the "Members" tab on the right panel after
+                        opening the value set details.</para>
                 <para>Select "Add Member" to find concepts to add, select the remove icon to remove
                     them, and select the add to briefcase icon to add any of them to your briefcase. </para>
                 <para>
@@ -241,11 +255,13 @@
                 <title>Inactivating Value Set Members</title>
            
             
-                <para>To inactivate members from a refset, select the "Edit Members" button when
-                    viewing the refset details. This will take you to Edit Mode, where you can
-                    remove members from the table by selecting the "X" icon. The system will display
-                    your selection in the table "Value Set membership Changes" for review. Press
-                    Save to confirm your updates.</para>
+                <para>To inactivate members from a refset, select the
+                        <?oxy_comment_start author="linds" timestamp="20200402T145231-0400" comment="I do not see this button. When I click the Member tab and then select EDIT from the top right, then I can click the circle w/ a line through it to inacitivate it, but there is no Edit Member button, that I can see anyway. "?>"Edit
+                        Members"<?oxy_comment_end?> button when viewing the refset details. This
+                        will take you to Edit Mode, where you can remove members from the table by
+                        selecting the "X" icon. The system will display your selection in the table
+                        "Value Set membership Changes" for review. Press Save to confirm your
+                        updates.</para>
                 <para>Members cannot be removed from the list, only deactivated. A user can
                     reactivate the concept anytime.</para>
             </simplesect> </section>
@@ -269,16 +285,20 @@
                     <itemizedlist>
                         <listitem>
                             <para>Definition - Enter the name, purpose, and any additional
-                                information that users may need for the new map set. You can add
-                                more fields such as source code version by selecting the "Add More
-                                Fields" button on the left.</para>
+                            information that users may need for the new map set. You can add more
+                            fields<?oxy_insert_start author="linds" timestamp="20200402T142237-0400"?>,<?oxy_insert_end?>
+                            such as source code
+                            version<?oxy_insert_start author="linds" timestamp="20200402T142241-0400"?>,<?oxy_insert_end?>
+                            by selecting the "Add More Fields" button on the left.</para>
                         </listitem>
                         <listitem>
                             <para>Item Fields - These are column headers to display when you view
-                                the map sets. Source description, target description, and
-                                equivalence type are selected by default, but you may add more
-                                fields or rearrange the order the columns display by selecting the
-                                "Add More Fields to Map Set Items" button.</para>
+                            the map sets. Source description, target description, and equivalence
+                            type are selected by default,
+                            <?oxy_delete author="linds" timestamp="20200402T142314-0400" content="but you may add more fields or rearrange the order the columns display by selecting the"?><?oxy_insert_start author="linds" timestamp="20200402T142314-0400"?>but
+                            you may add more fields or rearrange the order of the columns displayed
+                            by selecting the<?oxy_insert_end?> "Add More Fields to Map Set Items"
+                            button.</para>
                         </listitem>
                         <listitem>
                             <para>Business Rules - This is a free text comment box for additional
@@ -288,7 +308,8 @@
                         
                     </itemizedlist>
                     <para>After entering all relevant information, press the save button at the top
-                    of the panel. You will add concepts to this set later. The new map set sould
+                    of the panel. You will add concepts to this set later. The new map set
+                    s<?oxy_insert_start author="linds" timestamp="20200402T145514-0400"?>h<?oxy_insert_end?>ould
                     appear in the left panel's Map Sets table. If you do not see it there, press the
                     Refresh button.</para>
             <simplesect>
@@ -306,14 +327,15 @@
                     </mediaobject></figure></para>
                 <para>After selecting the plus-icon, the table will fill with a row of droplists.
                         Type in the concepts you wish to link as the source and target descriptions.
-                        Adjust th equivalence type as necessary, add a comment as needed, and press
-                        the Save button to confirm your modifications.
-                         <figure xml:id="new-map-set2">
+                        Adjust
+                        th<?oxy_insert_start author="linds" timestamp="20200402T142357-0400"?>e<?oxy_insert_end?>
+                        equivalence type as necessary, add a comment as needed, and press the Save
+                        button to confirm your modifications. <figure xml:id="new-map-set2">
                             <title>Adding Concepts to a Map Set: Step 2</title>
                             <mediaobject>
                                 <imageobject>
-                                    <imagedata align="left" scalefit="1" width="40%" contentdepth="40%"
-                                        fileref="images/new-map-set-2.png"/>
+                                    <imagedata align="left" scalefit="1" width="40%"
+                                        contentdepth="40%" fileref="images/new-map-set-2.png"/>
                                 </imageobject>
                             </mediaobject>
                             <para>To remove a concept, press the X-icon on the very right of the map
@@ -455,15 +477,20 @@
         </section>
         <section><title>Classifier</title>
             <para>The Knowledge Editor integrates a high performance Classifier called SnoRocket
-                <link xlink:href="https://aehrc.com/snorocket/"
-            >https://aehrc.com/snorocket/</link>which supports OWL EL++ and Concrete Domains. The
-            classifier evaluates the stated relationships based on <emphasis role="italic"
-                >Description Logics </emphasis>upon which the terminology is defined and generates
-            the inferred relationships for each concept. The Knowledge Editor displays <emphasis
-                role="italic">stated and inferred </emphasis>views of the concept in the <emphasis
-                role="italic">Concept Details pane </emphasis>and the Taxonomy displays <emphasis
-                role="italic">stated and inferred </emphasis>is-a relationships based on the
-            Taxonomy display options.</para>
+                    <link xlink:href="https://aehrc.com/snorocket/"
+                    >https://aehrc.com/snorocket/</link><?oxy_insert_start author="linds" timestamp="20200402T142425-0400"?>
+                <?oxy_insert_end?>which supports OWL EL++ and Concrete Domains. The classifier
+                evaluates the stated
+                relationships<?oxy_insert_start author="linds" timestamp="20200402T142449-0400"?>,<?oxy_insert_end?>
+                based on <emphasis role="italic">Description Logics </emphasis>upon which the
+                terminology is
+                defined<?oxy_insert_start author="linds" timestamp="20200402T142452-0400"?>,<?oxy_insert_end?>
+                and generates the inferred relationships for each concept. The Knowledge Editor
+                displays <emphasis role="italic">stated and inferred </emphasis>views of the concept
+                in the <emphasis role="italic">Concept Details pane </emphasis>and the Taxonomy
+                displays <emphasis role="italic">stated and inferred
+                </emphasis><?oxy_delete author="linds" timestamp="20200402T142603-0400" content="i"?><?oxy_insert_start author="linds" timestamp="20200402T142603-0400"?>a<?oxy_insert_end?>s-a
+                relationships based on the Taxonomy display options.</para>
                 <section>
                     <title>Run the Classifier</title>
                     <para>There are two areas in the Knowledge Editor interface to initiate

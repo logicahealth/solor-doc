@@ -27,9 +27,10 @@
            pane:
            <itemizedlist>
                <listitem>
-                   <para>Link – the <emphasis>Concept Details</emphasis> pane can be <emphasis>"linked"</emphasis>
-                   with the <emphasis>Taxonomy</emphasis> or <emphasis>"unlinked"</emphasis> by toggling the 
-                   <emphasis>linkage icon</emphasis></para>
+                   <para>Link – the <emphasis>Concept Details</emphasis> pane can be
+                                <emphasis>"linked"</emphasis> with the <emphasis>Taxonomy</emphasis>
+                            or <emphasis>"unlinked"</emphasis> by toggling the <emphasis>linkage
+                                icon</emphasis>, refer to <xref linkend="linking"/></para>
                </listitem>
                <listitem>
                    <para>New Child Concept – a new concept is created that is the child of the concept
@@ -70,19 +71,58 @@
            </figure></para>
            
            <section><title>New Child Concept</title>
-               <para></para>
+               <para>When selected the <emphasis>New Child Concept</emphasis> will create a new
+                    concept that is a child of the selected concept. </para>
+               <example><title>New Child Concept Example</title>
+                   <para>In this example the concept selected in the taxonomy will become the
+                       <emphasis>parent</emphasis> of the new concept. <emphasis>Body Structure</emphasis>
+                       is automatically populated as the parent of in the <emphasis>new concept</emphasis> . 
+                       <mediaobject>
+                            <alt>Figure context menu in concept details pane</alt>
+                            <imageobject>
+                                <imagedata align="left" scalefit="1" width="45%" contentdepth="45%"
+                                    fileref="images/child-concept.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </para>
+               </example>
            </section>
            
            <section xml:id="edit-concept"><title>Edit Concept</title>
-               <para></para>
+               <para>When a user selects <emphasis>Edit Concept</emphasis> the user is able to edit
+                   the concept. When done modifying the user selects <emphasis>save</emphasis>.
+                   <figure>
+                       <title>Edit Concept</title>
+                       <mediaobject>
+                           <alt>Figure Edit Concept</alt>
+                           <imageobject>
+                               <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
+                                   fileref="images/edit-concept.png"/>
+                           </imageobject>
+                       </mediaobject>
+                   </figure>
+               </para>
            </section>
            
            <section><title>Clone</title>
-               <para></para>
+               <para>Selecting <emphasis>Clone</emphasis> creates a new concept with a parent of the 
+               selected concept.
+                   <figure>
+                       <title>Clone Concept</title>
+                       <mediaobject>
+                           <alt>Figure Clone Concept</alt>
+                           <imageobject>
+                               <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
+                                   fileref="images/clone-concept.png"/>
+                           </imageobject>
+                       </mediaobject>
+                   </figure></para>
+               
            </section>
            
            <section><title>Close</title>
-               <para></para>
+               <para>Selecting <emphasis>Close</emphasis> closes the 
+                   <emphasis>Concept Details</emphasis> pane.</para>
            </section>
        </section>
            
@@ -138,39 +178,23 @@
                </mediaobject>
            </figure>
         </para>
-           <para>The pane lists the general concept information such as STAMP (define STAMP), its
-            descriptions which include additional names it may be known by in other languages and
-            dialects, and the axiom history which illustrates its taxonomy relationship. Details
-            such as the inferred information or inactive items can be toggled on by selecting
-            "Display options" in the upper right corner, and its refset relationships and history
-            can be found in tabs within the same panel.</para>
-            <para><inlinemediaobject>
-                <alt>Figure of the Display Options modal from the Concept Details. Displays options
-                    such as "Show authors, language, modules, filter STAMP date," and more.</alt>
-                <imageobject>
-                    <imagedata fileref="images" width="750px"/>
-                </imageobject>
-                
-            </inlinemediaobject></para>
-        <para>Optionally another <emphasis role="bold">Concept Details</emphasis> pane can be opened
-            and will display on the far right side of the window. There are three alternatives to
-            open another Concept Details: </para>
-        <itemizedlist>
-            <listitem>
-                <para>Right-click the concept you wish to review and select "<emphasis role="bold"
-                        >open in new Concept Details</emphasis>". </para>
-            </listitem>
-            <listitem>
-                <para>Highlight the concept you want to see in a new viewer and press "<emphasis
-                        role="bold">keyboard shortcut tbd, e.g. ctrl+alt+n</emphasis> " to open a
-                    new Concept Details. </para>
-            </listitem>
-            <listitem>
-                <para>In the top navigation pane, select <emphasis role="bold"
-                        >"Authoring"</emphasis>, then <emphasis role="bold">"Launch Third
-                        View"</emphasis>.</para>
-            </listitem>
-        </itemizedlist> 
+            <section><title>Second Concept Details Pane</title>
+                <para>Optionally another <emphasis role="bold">Concept Details</emphasis> pane can be opened
+                    and will display on the far right side of the window. There are three alternatives to
+                    open another Concept Details: </para>
+                <itemizedlist>
+                      <listitem>
+                      <para>Right-click the concept you wish to review and select "
+                          <emphasis role="bold"> open in new Concept Details</emphasis>". </para>
+                       </listitem>
+                       <listitem>
+                            <para>Highlight the concept you want to see in a new concept 
+                                details pane and press "<emphasis role="bold"> keyboard
+                                shortcut tbd, e.g. ctrl+alt+n</emphasis> " to open a new 
+                                Concept Details. </para>
+                        </listitem>
+                </itemizedlist> 
+            </section>
        </section>
      
            

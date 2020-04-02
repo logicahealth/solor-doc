@@ -561,6 +561,77 @@
                     </para>
                 </section>
         </section>
+        <section>
+            <title>New Concepts</title>
+            <para> New concepts can be added to Knowledge in several steps, then classified to
+                create inferred relationships. </para>
+            <para>To begin creating a new concept, select the "New Concept" from either the taxonomy
+                tab or under the shortcuts menu (see figure <xref linkend="new-concept-1"/>). The
+                new concept form should appear in the concept panel.<figure xml:id="new-concept-1">
+                    <title>How to Add a New Concept: Step 1</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
+                                fileref="images/new-concept-buttons.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <para>On the New Concept form, you must fill out the following informaiton to create
+                    the concept:<itemizedlist>
+                        <listitem>
+                            <para>Parent - Select one or more parents that the concept will be
+                                related to. Begin typing to view a list of suggested parent
+                                concepts. Select "Add Parent" to add an additional one.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Concept name - Enter in the new concept's name</para>
+                        </listitem>
+                        <listitem>
+                            <para>"This is a Value Set" checkbox - If you are creating a
+                                <?oxy_comment_start author="mnham" timestamp="20200402T112426-0700" comment="Should we link to refsets section?"?>value
+                                set<?oxy_comment_end?> or simple assemblage, check this box.
+                                Otherwise, leave it unchecked.</para>
+                            <para>
+                                <figure xml:id="new-concept-2">
+                                    <title>How to Add a New Concept: Step 2</title>
+                                    <mediaobject>
+                                        <imageobject>
+                                            <imagedata align="left" scalefit="1"
+                                                fileref="images/new-concept-form.png"/>
+                                        </imageobject>
+                                    </mediaobject>
+                                </figure>
+                            </para>
+                        </listitem>
+                    </itemizedlist> Next, press "Create" to save the new concept. The application
+                    will ask you to confirm your changes because new concepts cannot be deleted
+                    after creation, they can only be deactivated.</para></para>
+            <para>Once the concept is created, the concept will display in edit-mode. Here, the
+                fully qualified name, regular name, and dialects are already pre-filled. Feel free
+                to add additional descriptions or names as needed, add or edit dialects, set active
+                statuses, and more. <figure xml:id="new-concept-3">
+                    <title>How to Add a New Concept: Step 3</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1"
+                                fileref="images/edit-new-concept.png"/></imageobject>
+                    </mediaobject>
+                </figure></para>
+            <para>For advanced users, the axiom can also be edited. Axioms display the stated and
+                inferred relationships of the concept. To view the available actions, select the
+                edit icon.
+                <figure xml:id="new-concept-4">
+                    <title>Editting Axioms</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1"
+                                fileref="images/edit-axiom.png"/></imageobject>
+                    </mediaobject>
+                    <para>Press "Save" at the top of the page to confirm all changes once edits are
+                        done.</para>
+                </figure></para>
+
+        </section>
          
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-qa.xml"
             xpointer="qa-section"/>

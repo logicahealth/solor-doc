@@ -3,33 +3,16 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.1">
-    <title>Exports and Versions</title>
-    <section xml:id="export">
-        <title>Exports and Versions</title>
-        <para>The Versions tab contains information such as:<itemizedlist>
-                <listitem>
-                    <para>Recent versions of modules</para>
-                </listitem>
-                <listitem>
-                    <para>Ability to export content</para>
-                </listitem>
-                <listitem>
-                    <para>Ability to create module versions</para>
-                </listitem>
-            </itemizedlist></para>
-        <para>Knowledge users with Content Manager permissions can create module versions; editors
-            can export content. The primary purpose of creating versions is to make releases and
-            exports available to the organization.</para>
-        <section>
-            <title>Export Content</title>
+    <title>Export and Version</title>
+    <section xml:id="export-and-version">
+        <title>Export</title>
             <para>There are two types of exports that can be created: a SNOMED CT RF2 file, and a
                 Solor.io compatible RF2 file. To export a file, select the modules and date range
                 that you want, select the remaining information in the form, then press "Create
                 Export".</para>
             <para>When an export is initiated, several steps happen in the background before a file
                 is packaged for download. Once it is ready, your browser will prompt you to download
-                the file to your computer. If another file is needed, go through the create export
-                form again.</para>
+                the file to your computer. </para>
             <para>The create an export form contains the following fields:<itemizedlist>
                     <listitem>
                         <para>Select modules - Select the modules that you want to export from. The
@@ -66,8 +49,24 @@
                     </mediaobject>
                 </figure>
             </para>
-        </section>
+    </section> 
         <section>
+            <title>Version</title>
+            <para>The Version tab contains information such as:<itemizedlist>
+                <listitem>
+                    <para>Recent versions of modules</para>
+                </listitem>
+                <listitem>
+                    <para>Ability to export content</para>
+                </listitem>
+                <listitem>
+                    <para>Ability to create module versions</para>
+                </listitem>
+            </itemizedlist></para>
+            <para>Knowledge users with Content Manager permissions can create module versions; editors
+                can export content. The primary purpose of creating versions is to make releases and
+                exports available to the organization.</para>
+            <section>
             <title>Creating a Release Version</title>
             <para>When a module is ready for a release, the content manager can go through the
                 Create a Version workflow to upload content to the repository.</para>
@@ -119,6 +118,7 @@
                     </listitem>
                 </itemizedlist></para>
             <para>Select "Create Version" to begin the backend versioning process.</para>
+            </section>
         </section>
-    </section>
+  
 </chapter>

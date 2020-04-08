@@ -6,23 +6,28 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Concept Details</title>
     <section xml:id="concept-details"><title>Concept Details</title>
-    <para>A Concept represents a clinical meaning. Each Concept has descriptions that describe the concept,
-            relationships that relate concepts to each other, and <emphasis>OWL axioms</emphasis>
-            that provide a logical definition to the concept. The logical definition (axiom) is used
-            by the <emphasis>Classifier</emphasis> to infer additional relationships between
-            concepts – this is the inferred axiom.</para>
+    <para>A Concept represents a clinical meaning. Each Concept has descriptions that describe the
+            concept, relationships that relate concepts to each other, and <emphasis>OWL
+                axioms</emphasis> that provide a logical definition to the concept. The logical
+            definition (axiom) is used by the <emphasis>Classifier</emphasis> to infer additional
+            relationships between concepts – this is
+            <?oxy_insert_start author="mnham" timestamp="20200408T122516-0700"?>known as
+            <?oxy_insert_end?>the inferred axiom.</para>
             
      <para>In <emphasis>Concept Details</emphasis> a user can view concept information, modify
-        display options, create a child concept, edit the concept, clone the concept, 
-        view value set membership, and display history of a concept. When a user
-        selects a concept from the <emphasis>taxonomy</emphasis>, <emphasis>search
-        results</emphasis>, or the <emphasis>briefcase</emphasis> concept this information is
-        displayed in the <emphasis>Concept Details</emphasis> pane, refer to 
-        <xref linkend="concept-details-overview"/>.
-      </para>
+            display options, create a child concept, edit the concept, clone the concept, view value
+            set membership, and display history of a concept. When a user selects a concept from the
+                <emphasis>taxonomy</emphasis>, <emphasis>search results</emphasis>, or the
+                <emphasis>briefcase</emphasis><?oxy_insert_start author="mnham" timestamp="20200408T122601-0700"?>,<?oxy_insert_end?>
+            <?oxy_delete author="mnham" timestamp="20200408T122558-0700" content="concept "?><?oxy_delete author="mnham" timestamp="20200408T122630-0700" content="this"?><?oxy_insert_start author="mnham" timestamp="20200408T122633-0700"?>its<?oxy_insert_end?>
+            information is displayed in the <emphasis>Concept Details</emphasis> pane, refer to
+                <xref linkend="concept-details-overview"
+            /><?oxy_insert_start author="mnham" timestamp="20200408T122824-0700"?> for an example of
+            the information displayed<?oxy_insert_end?>. </para>
       <para>The sections below describe the concept information displayed, and the functions
             available in the <emphasis>Concept Details</emphasis> pane.</para>
-       <section><title>Actions</title>
+       <section><title><?oxy_insert_start author="mnham" timestamp="20200408T122851-0700"?>Available
+                <?oxy_insert_end?>Actions</title>
            <para>There are several actions available in <emphasis>Concept Details</emphasis>
            pane:
            <itemizedlist>
@@ -33,8 +38,10 @@
                                 icon</emphasis>, refer to <xref linkend="linking"/></para>
                </listitem>
                <listitem>
-                   <para>New Child Concept – a new concept is created that is the child of the concept
-                   displayed.</para>
+                   <para>New Child Concept – a new concept is created
+                            <?oxy_delete author="mnham" timestamp="20200408T122926-0700" content="that "?><?oxy_insert_start author="mnham" timestamp="20200408T122926-0700"?>with
+                            the currently selected concept as its
+                            parent<?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200408T122939-0700" content="is the child of the concept displayed."?><?oxy_insert_start author="mnham" timestamp="20200408T122939-0700"?>.<?oxy_insert_end?></para>
                </listitem>
                <listitem>
                    <para>Edit Concept – enables the displayed concept to be modified.</para>
@@ -44,10 +51,17 @@
                </listitem>
                <listitem>
                    <para>Display Options - changes the display options for the <emphasis>Concept
-                       Details</emphasis> pane, refer to <xref linkend="display-options-section"/>.</para>
+                                Details</emphasis> pane, refer to <xref
+                                linkend="display-options-section"
+                            />.<?oxy_insert_start author="mnham" timestamp="20200408T123052-0700"?>
+                            Certain information can be hidden or shown using these
+                            options.<?oxy_insert_end?></para>
                </listitem>
                <listitem>
-                   <para>Close – closes the <emphasis>Concept Details</emphasis> pane.</para>
+                   <para>Close – closes the <emphasis>Concept Details</emphasis>
+                            pane.<?oxy_insert_start author="mnham" timestamp="20200408T123114-0700"?>
+                            Select a concept from the taxonomy tab to reopen a concept details
+                            pane.<?oxy_insert_end?></para>
                </listitem>
                     <listitem>
                         <para>Context Menu – the <emphasis>Context Menu</emphasis> is also available
@@ -71,8 +85,13 @@
            </figure></para>
            
            <section><title>New Child Concept</title>
-               <para>When selected the <emphasis>New Child Concept</emphasis> will create a new
-                    concept that is a child of the selected concept. </para>
+               <para>When
+                    selected<?oxy_insert_start author="mnham" timestamp="20200408T123239-0700"?>,<?oxy_insert_end?>
+                    the <emphasis>New Child Concept</emphasis> will create a new concept
+                    <?oxy_delete author="mnham" timestamp="20200408T123252-0700" content="that is a child of the"?><?oxy_insert_start author="mnham" timestamp="20200408T123252-0700"?>with
+                    the<?oxy_insert_end?> selected
+                    concept<?oxy_insert_start author="mnham" timestamp="20200408T123257-0700"?> as
+                    its parent<?oxy_insert_end?>. </para>
                <example><title>New Child Concept Example</title>
                    <para>In this example the concept selected in the taxonomy will become the
                        <emphasis>parent</emphasis> of the new concept. <emphasis>Body Structure</emphasis>
@@ -128,42 +147,49 @@
            
        <section>
            <title>General Info</title>
-            <para>The <emphasis>General Info</emphasis> area has three sections: concept properties,
-                descriptions and axiom. This view is configured with default display options 
-                <footnote><para>See <xref linkend="display-options-section"/>.</para>
-                </footnote>: 
-                <itemizedlist>
+            <para>The <emphasis>General
+                Info</emphasis><?oxy_insert_start author="mnham" timestamp="20200408T131648-0700"?>
+                tab<?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200408T131649-0700" content=" area"?>
+                has three sections: concept properties, descriptions and axiom. This view is
+                configured with default display options <footnote>
+                    <para>See <xref linkend="display-options-section"/>.</para>
+                </footnote>: <itemizedlist>
                     <listitem>
-                        <para>Concept Properties
-                            <itemizedlist>
+                        <para>Concept Properties <itemizedlist>
                                 <listitem>
-                                    <para>Concept Type – primitive or defined, refer to <xref linkend="concept-type"/>
+                                    <para>Concept Type –
+                                        <?oxy_insert_start author="mnham" timestamp="20200408T131716-0700"?>there
+                                        are two types of concepts: <?oxy_insert_end?>primitive or
+                                        defined, refer to <xref linkend="concept-type"/>
                                     </para>
                                 </listitem>
                                 <listitem>
-                                    <para>Status – defines whether the concept is active or inactive</para>
+                                    <para>Status – defines whether the concept is active or
+                                        inactive</para>
                                 </listitem>
                                 <listitem>
-                                    <para>Module – identifies which module the concept belongs in e.g. a SNOMED
-                                        CT concept is in SNOMED CT core module</para>
+                                    <para>Module – identifies which module the concept belongs in
+                                        e.g. a SNOMED CT concept is in SNOMED CT core module</para>
                                 </listitem>
                                 <listitem>
-                                    <para>ID - if the concept is a SNOMED concept then the SCTID is displayed.
-                                        If the concept is a LOINC term the LOINC ID is displayed.  </para>
+                                    <para><?oxy_insert_start author="mnham" timestamp="20200408T131743-0700"?>Terminology
+                                        <?oxy_insert_end?>ID - if the concept is a SNOMED concept
+                                        then the SCTID is displayed. If the concept is a LOINC term
+                                        the LOINC ID is displayed. </para>
                                 </listitem>
-                        </itemizedlist></para>
-                    </listitem>                        
-                    <listitem>
-                        <para>Fully Qualified Name (FQN) – human readable unique word or phrase
-                            which represents clinical meaning. </para>
+                            </itemizedlist></para>
                     </listitem>
                     <listitem>
-                        <para>Regular Name  – is a term of a specified type that describes the
+                        <para>Fully Qualified Name (FQN) –
+                            <?oxy_insert_start author="mnham" timestamp="20200408T131816-0700"?>The
+                            <?oxy_insert_end?>human readable unique word or phrase which represents
+                            clinical meaning. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Regular Name – is a term of a specified type that describes the
                             concept. A concept can have more than one Regular Name.</para>
                     </listitem>
-                    <listitem>
-                        <para/>
-                    </listitem>
+                    <listitem><?oxy_delete author="mnham" timestamp="20200408T131835-0700" content="&lt;para/&gt;"?></listitem>
                 </itemizedlist></para>
         <para/>
         <para>
@@ -178,22 +204,24 @@
                </mediaobject>
            </figure>
         </para>
-            <section><title>Second Concept Details Pane</title>
-                <para>Optionally another <emphasis role="bold">Concept Details</emphasis> pane can be opened
-                    and will display on the far right side of the window. There are three alternatives to
-                    open another Concept Details: </para>
+            <section>
+                <?oxy_comment_start author="mnham" timestamp="20200408T131914-0700" comment="This doesn&apos;t seem like it belongs under the General Info Tab"?>
+                <title>Second Concept Details Pane</title>
+                <para>Optionally another <emphasis role="bold">Concept Details</emphasis> pane can
+                    be opened and will display on the far right side of the window. There are three
+                    alternatives to open another Concept Details: </para>
                 <itemizedlist>
-                      <listitem>
-                      <para>Right-click the concept you wish to review and select "
-                          <emphasis role="bold"> open in new Concept Details</emphasis>". </para>
-                       </listitem>
-                       <listitem>
-                            <para>Highlight the concept you want to see in a new concept 
-                                details pane and press "<emphasis role="bold"> keyboard
-                                shortcut tbd, e.g. ctrl+alt+n</emphasis> " to open a new 
-                                Concept Details. </para>
-                        </listitem>
-                </itemizedlist> 
+                    <listitem>
+                        <para>Right-click the concept you wish to review and select " <emphasis
+                                role="bold"> open in new Concept Details</emphasis>". </para>
+                    </listitem>
+                    <listitem>
+                        <para>Highlight the concept you want to see in a new concept details pane
+                            and press "<emphasis role="bold"> keyboard shortcut tbd, e.g.
+                                ctrl+alt+n</emphasis> " to open a new Concept Details.
+                            <?oxy_comment_end?></para>
+                    </listitem>
+                </itemizedlist>
             </section>
        </section>
      
@@ -206,7 +234,9 @@
          <section><title>Value Sets</title>
              <para>The <emphasis>Value Sets</emphasis>
                  <footnote>
-                   <para>Value Sets, Reference Sets, Ref Sets are used interchangeably.</para>
+                   <para>Value Sets, Reference Sets, Ref
+                        Sets<?oxy_insert_start author="mnham" timestamp="20200408T131935-0700"?>,
+                        and Simple Assemblages<?oxy_insert_end?> are used interchangeably.</para>
                 </footnote> tab displays the <emphasis>value set(s)</emphasis> that a concept is a
                 member of. As show in <xref linkend="value-tab-sets"/> the concept <emphasis>Entire
                     middle clinoid process (body structure)</emphasis> is referenced in two value
@@ -214,7 +244,9 @@
                     <emphasis>susan value set</emphasis>.
               
                      <figure xml:id="value-tab-sets">
-                         <title>Value Sets</title>
+                         <title>Value
+                        Sets<?oxy_insert_start author="mnham" timestamp="20200408T132017-0700"?>
+                        Example<?oxy_insert_end?></title>
                          <mediaobject>
                              <alt>Figure of the Value Sets tab.</alt>
                              <imageobject>
@@ -240,10 +272,11 @@
             <para>The <emphasis>Members</emphasis> tab is available when a concept is a
                     <emphasis>Value Set</emphasis> concept. The concepts that are members of the
                     <emphasis>Wound Color Reference Set</emphasis> set are displayed in the table.
-                In this case the <emphasis>Wound Color Reference Set</emphasis> has 3 membersA user
-                can add the members to the briefcase by selecting <emphasis>Add all to
-                    Briefcase</emphasis> or by selecting briefcase icon in the table row. In
-                addition, a <emphasis>CSV</emphasis> file can be downloaded, see <xref
+                In this case the <emphasis>Wound Color Reference Set</emphasis> has 3
+                members<?oxy_insert_start author="mnham" timestamp="20200408T132127-0700"?>.
+                <?oxy_insert_end?>A user can add the members to the briefcase by selecting
+                    <emphasis>Add all to Briefcase</emphasis> or by selecting briefcase icon in the
+                table row. In addition, a <emphasis>CSV</emphasis> file can be downloaded, see <xref
                     linkend="csv-file"/>.</para>
             <figure xml:id="member-tab-sets">
                 <title>Member</title>
@@ -260,3 +293,4 @@
     </section>
 </chapter>
    
+<?oxy_options track_changes="on"?>

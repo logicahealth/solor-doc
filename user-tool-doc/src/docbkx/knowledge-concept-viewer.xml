@@ -199,13 +199,63 @@
      
            
          <section><title>Display Concept History</title>
-             <para></para>
+             <para>This area of the Knowledge Editor is under development. When development is
+                completed a user will be able to see  different versions of the concept </para>
          </section>
            
-         <section><title>Show Value Set Membership</title>
-               <para></para>
+         <section><title>Value Sets</title>
+             <para>The <emphasis>Value Sets</emphasis>
+                 <footnote>
+                   <para>Value Sets, Reference Sets, Ref Sets are used interchangeably.</para>
+                </footnote> tab displays the <emphasis>value set(s)</emphasis> that a concept is a
+                member of. As show in <xref linkend="value-tab-sets"/> the concept <emphasis>Entire
+                    middle clinoid process (body structure)</emphasis> is referenced in two value
+                sets <emphasis>Lateralizable body structure reference set</emphasis> and
+                    <emphasis>susan value set</emphasis>.
+              
+                     <figure xml:id="value-tab-sets">
+                         <title>Value Sets</title>
+                         <mediaobject>
+                             <alt>Figure of the Value Sets tab.</alt>
+                             <imageobject>
+                                 <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                     fileref="images/concept-view-value-sets.png"/>
+                             </imageobject>
+                         </mediaobject>
+                     </figure>
+                 </para>
+             <section xml:id="csv-file"><title>CSV</title> 
+                 <para>Selecting the <emphasis>CSV Export</emphasis>
+                     <footnote><para>A Comma Separated Values file is a plain text file that
+                       contains a list of data.</para></footnote>button will download a
+                    <emphasis>CSV</emphasis> formatted file with  <emphasis>term</emphasis>,
+                    <emphasis>terminology id</emphasis>, <emphasis>status</emphasis>, and
+                    <emphasis>module</emphasis> for each <emphasis>Value Set</emphasis> listed.
+                 </para>
+             </section>
+             
           </section>
-           
+        
+        <section><title>Members</title>
+            <para>The <emphasis>Members</emphasis> tab is available when a concept is a
+                    <emphasis>Value Set</emphasis> concept. The concepts that are members of the
+                    <emphasis>Wound Color Reference Set</emphasis> set are displayed in the table.
+                In this case the <emphasis>Wound Color Reference Set</emphasis> has 3 membersA user
+                can add the members to the briefcase by selecting <emphasis>Add all to
+                    Briefcase</emphasis> or by selecting briefcase icon in the table row. In
+                addition, a <emphasis>CSV</emphasis> file can be downloaded, see <xref
+                    linkend="csv-file"/>.</para>
+            <figure xml:id="member-tab-sets">
+                <title>Member</title>
+                <mediaobject>
+                    <alt>Figure of the Members tab.</alt>
+                    <imageobject>
+                        <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                            fileref="images/concept-viewer-members.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
      
     </section>
 </chapter>

@@ -7,19 +7,21 @@
     <title>Concept Details</title>
     <section xml:id="concept-details"><title>Concept Details</title>
     <para>A Concept represents a clinical meaning. Each Concept has descriptions that describe the
-            concept, relationships that relate concepts to each other, and <emphasis>OWL
-                axioms</emphasis> that provide a logical definition to the concept. The logical
-            definition (axiom) is used by the <emphasis>Classifier</emphasis> to infer additional
-            relationships between concepts – this is known as the inferred axiom.</para>
+            concept, relationships that
+            <?oxy_comment_start author="linds" timestamp="20200409T092443-0400" comment="Consider using a different word - &quot;relationships that relate...&quot; sounds repetitive. Possible options include connect, associates, links, correlates, etc "?>relate<?oxy_comment_end?>
+            concepts to each other, and <emphasis>OWL axioms</emphasis> that provide a logical
+            definition to the concept. The logical definition (axiom) is used by the
+                <emphasis>Classifier</emphasis> to infer additional relationships between concepts –
+            this is known as the inferred axiom.</para>
             
      <para>In <emphasis>Concept Details</emphasis> a user can view concept information, modify
             display options, create a child concept, edit the concept, clone the concept, view value
             set membership, and display history of a concept. When a user selects a concept from the
                 <emphasis>taxonomy</emphasis>, <emphasis>search results</emphasis>, or the
                 <emphasis>briefcase</emphasis>, its information is displayed in the
-                <emphasis>Concept Details</emphasis> pane, refer to <xref
+                <emphasis>Concept Details</emphasis> pane. Refer to <xref
                 linkend="concept-details-overview"/> for an example of the information displayed. </para>
-      <para>The sections below describe the concept information displayed, and the functions
+      <para>The sections below describe the concept information displayed and the functions
             available in the <emphasis>Concept Details</emphasis> pane.</para>
        <section><title>Available Actions</title>
            <para>There are several actions available in <emphasis>Concept Details</emphasis>
@@ -29,7 +31,7 @@
                    <para>Link – the <emphasis>Concept Details</emphasis> pane can be
                                 <emphasis>"linked"</emphasis> with the <emphasis>Taxonomy</emphasis>
                             or <emphasis>"unlinked"</emphasis> by toggling the <emphasis>linkage
-                                icon</emphasis>, refer to <xref linkend="linking"/></para>
+                                icon</emphasis>  (refer to <xref linkend="linking"/>)</para>
                </listitem>
                <listitem>
                    <para>New Child Concept – a new concept is created with the currently selected
@@ -77,9 +79,9 @@
                     concept with the selected concept as its parent. </para>
                <example><title>New Child Concept Example</title>
                    <para>In this example the concept selected in the taxonomy will become the
-                       <emphasis>parent</emphasis> of the new concept. <emphasis>Body Structure</emphasis>
-                       is automatically populated as the parent of in the <emphasis>new concept</emphasis> . 
-                       <mediaobject>
+                            <emphasis>parent</emphasis> of the new concept. <emphasis>Body
+                            Structure</emphasis> is automatically populated as the parent of the
+                            <emphasis>new concept</emphasis> . <mediaobject>
                             <alt>Figure context menu in concept details pane</alt>
                             <imageobject>
                                 <imagedata align="left" scalefit="1" width="45%" contentdepth="45%"
@@ -92,18 +94,17 @@
            
            <section xml:id="edit-concept"><title>Edit Concept</title>
                <para>When a user selects <emphasis>Edit Concept</emphasis> the user is able to edit
-                   the concept. When done modifying the user selects <emphasis>save</emphasis>.
-                   <figure>
-                       <title>Edit Concept</title>
-                       <mediaobject>
-                           <alt>Figure Edit Concept</alt>
-                           <imageobject>
-                               <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
-                                   fileref="images/edit-concept.png"/>
-                           </imageobject>
-                       </mediaobject>
-                   </figure>
-               </para>
+                    the concept. When done modifying, the user selects <emphasis>save</emphasis>. <figure>
+                        <title>Edit Concept</title>
+                        <mediaobject>
+                            <alt>Figure Edit Concept</alt>
+                            <imageobject>
+                                <imagedata align="left" scalefit="1" width="100%"
+                                    contentdepth="100%" fileref="images/edit-concept.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
            </section>
            
            <section><title>Clone</title>
@@ -131,7 +132,7 @@
        <section>
             <title>General Info</title>
             <para>The <emphasis>General Info</emphasis> tab has three sections: concept properties,
-                descriptions and axiom. This view is configured with default display options <footnote>
+                descriptions, and axiom. This view is configured with default display options <footnote>
                     <para>See <xref linkend="display-options-section"/>.</para>
                 </footnote>: <itemizedlist>
                     <listitem>
@@ -146,23 +147,34 @@
                                         inactive</para>
                                 </listitem>
                                 <listitem>
-                                    <para>Module – identifies which module the concept belongs in
-                                        e.g. a SNOMED CT concept is in SNOMED CT core module</para>
+                                    <para>Module – identifies
+                                        <?oxy_insert_start author="linds" timestamp="20200409T093104-0400"?>the
+                                        module in which the concept belongs
+                                        (<?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200409T093119-0400" content="which module the concept belongs in "?>e.g.
+                                        a SNOMED CT concept is in SNOMED CT core
+                                        module<?oxy_insert_start author="linds" timestamp="20200409T093127-0400"?>)<?oxy_insert_end?></para>
                                 </listitem>
                                 <listitem>
                                     <para>Terminology ID - if the concept is a SNOMED concept then
-                                        the SCTID is displayed. If the concept is a LOINC term the
-                                        LOINC ID is displayed. </para>
+                                        the SCTID is displayed. If the concept is a LOINC
+                                        term<?oxy_insert_start author="linds" timestamp="20200409T093144-0400"?>,<?oxy_insert_end?>
+                                        the LOINC ID is displayed. </para>
                                 </listitem>
                             </itemizedlist></para>
                     </listitem>
                     <listitem>
-                        <para>Fully Qualified Name (FQN) – The human readable unique word or phrase
-                            which represents clinical meaning. </para>
+                        <para>Fully Qualified Name (FQN) –
+                            <?oxy_delete author="linds" timestamp="20200409T093209-0400" content="T"?><?oxy_insert_start author="linds" timestamp="20200409T093209-0400"?>t<?oxy_insert_end?>he
+                            human readable unique word or phrase which represents clinical meaning.
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>Regular Name – is a term of a specified type that describes the
-                            concept. A concept can have more than one Regular Name.</para>
+                        <para>Regular Name –
+                            <?oxy_delete author="linds" timestamp="20200409T093213-0400" content="is"?>
+                            a term of a specified type that describes the
+                            concept<?oxy_insert_start author="linds" timestamp="20200409T093234-0400"?>;
+                            <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200409T093235-0400" content=". A"?><?oxy_insert_start author="linds" timestamp="20200409T093236-0400"?>a<?oxy_insert_end?>
+                            concept can have more than one Regular Name.</para>
                     </listitem>
                 </itemizedlist></para>
             <para>
@@ -182,7 +194,10 @@
            
          <section><title>Display Concept History</title>
              <para>This area of the Knowledge Editor is under development. When development is
-                completed a user will be able to see  different versions of the concept </para>
+                complete<?oxy_delete author="linds" timestamp="20200409T093253-0400" content="d"?><?oxy_insert_start author="linds" timestamp="20200409T093256-0400"?>,<?oxy_insert_end?>
+                a user will be able to see different versions of the
+                concept<?oxy_insert_start author="linds" timestamp="20200409T093301-0400"?>.<?oxy_insert_end?>
+            </para>
          </section>
            
          <section><title>Value Sets</title>
@@ -222,12 +237,15 @@
         <section><title>Members</title>
             <para>The <emphasis>Members</emphasis> tab is available when a concept is a
                     <emphasis>Value Set</emphasis> concept. The concepts that are members of the
-                    <emphasis>Wound Color Reference Set</emphasis> set are displayed in the table.
-                In this case the <emphasis>Wound Color Reference Set</emphasis> has 3 members. A
-                user can add the members to the briefcase by selecting <emphasis>Add all to
-                    Briefcase</emphasis> or by selecting briefcase icon in the table row. In
-                addition, a <emphasis>CSV</emphasis> file can be downloaded, see <xref
-                    linkend="csv-file"/>.</para>
+                    <emphasis>Wound Color Reference Set</emphasis>
+                <?oxy_delete author="linds" timestamp="20200409T093417-0400" content="set"?> are
+                displayed in the table. In this case the <emphasis>Wound Color Reference
+                    Set</emphasis> has 3 members. A user can add the members to the briefcase by
+                selecting <emphasis>Add all to Briefcase</emphasis> or by selecting briefcase icon
+                in the table row. In addition, a <emphasis>CSV</emphasis> file can be
+                downloaded<?oxy_insert_start author="linds" timestamp="20200409T093439-0400"?>.
+                <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200409T093439-0400" content=", s"?><?oxy_insert_start author="linds" timestamp="20200409T093443-0400"?>S<?oxy_insert_end?>ee
+                    <xref linkend="csv-file"/>.</para>
             <figure xml:id="member-tab-sets">
                 <title>Member</title>
                 <mediaobject>
@@ -244,3 +262,4 @@
 </chapter>
    
 
+<?oxy_options track_changes="on"?>

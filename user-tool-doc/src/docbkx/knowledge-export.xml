@@ -3,12 +3,18 @@
 <?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.1">
-    <title>Export and Version</title>
+    <title>Version and Export</title>
     <section xml:id="export-and-version">
         <title>Export and Version</title>
+        <para>Knowledge users with Content Manager or Administrator role can create versions or
+            export content and access this functionality from the <emphasis>Task Pane</emphasis>, 
+            see <xref linkend="export-admin"/>; Editors 
+            can export content only and access this functionality from the <emphasis>Short Cuts</emphasis> menu. 
+            The primary purpose of creating versions is to make releases and content available to internal and external
+            customers in release file format. </para>
             <para>
                 <figure>
-                    <title>Export and Version</title>
+                    <title xml:id="export-admin">Export and Version – Administrators and Content Managers</title>
                     <mediaobject>
                         <alt>Export and Version tab</alt>
                         <imageobject>
@@ -19,10 +25,9 @@
                 </figure>
             </para>
          <section><title>Export</title>
-            <para>There are two types of exports that can be created: a SNOMED CT RF2 file, and a
-                Solor.io compatible RF2 file. To export a file, select the modules and date range
-                that you want, select the remaining information in the form, then press "Create
-                Export".</para>
+            <para>Knowledge currently supports the generation of a SNOMED CT Release File Format 2
+                (RF2) release. Select the <emphasis>Export</emphasis> button, provide the
+                information needed and select the <emphasis>Create Export</emphasis> button.</para>
             <para>When an export is initiated, several steps happen in the background before a file
                 is packaged for download. Once it is ready, your browser will prompt you to download
                 the file to your computer. </para>
@@ -37,24 +42,23 @@
                             stamp will be updated to the selected start date.</para>
                     </listitem>
                     <listitem>
-                        <para>Generate SCTID for content with missing IDs - If there are any SNOMED
-                            content with missing SCTIDs, the system can generate them for you.
-                            Include the namespace identifier provided by SNOMED international when
-                            this option is selected.</para>
+                        <para>Generate SCTID for content with missing IDs - Select this option when
+                            SCTIDs should be added to any newly created SNOMED CT concepts that do not
+                            have SCTIDs. Include the namespace identifier provided by SNOMED international 
+                            when this option is selected.</para>
                     </listitem>
                     <listitem>
-                        <para>Export type - select the appropriate file type for the system to
-                            create.</para>
+                        <para>Export type - SNOMED CT RF2 is selected by default. The Solor RF2 compatible release
+                            will be available in a future Knowledge release.</para>
                     </listitem>
                 </itemizedlist></para>
             <para>
                 <figure>
                     <title>Export</title>
                     <mediaobject>
-                        <?oxy_comment_start author="mnham" timestamp="20190624T121747-0700" comment="Images are temporary, need new ones once features are developed." flag="done"?>
                         <alt>Create an Export modal displays a form with the following information:
                             select modules, content range, generate SCTIDs, namespace, export type,
-                            and buttons Create and Cancel.</alt><?oxy_comment_end?>
+                            and buttons Create and Cancel.</alt>
                         <imageobject>
                             <imagedata align="left" scalefit="1" width="40%" contentdepth="40%"
                                 fileref="images/export.png"/>
@@ -65,44 +69,31 @@
       </section> 
         <section>
             <title>Create a Version</title>
-            <para>The <emphasis>Create a Version</emphasis> tab contains information such as:<itemizedlist>
-                <listitem>
-                    <para>Recent versions of modules</para>
-                </listitem>
-                <listitem>
-                    <para>Ability to export content</para>
-                </listitem>
-                <listitem>
-                    <para>Ability to create module versions</para>
-                </listitem>
-            </itemizedlist></para>
-            <para>Knowledge users with Content Manager permissions can create module versions; editors
-                can export content. The primary purpose of creating versions is to make releases and
-                exports available to the organization.</para>
-            <section>
-            <title>Creating a Release Version</title>
-            <para>When a module is ready for a release, the content manager can go through the
-                Create a Version workflow to upload content to the repository.</para>
-            <para>To create a version release, go to the versions tab on the left panel and select
-                "Create a Release...". A form will appear asking for the following information:<itemizedlist>
+            <para>When content is ready to be released a <emphasis>Content Manager</emphasis> or
+                <emphasis>Administrator</emphasis> can create a version by selecting the  
+                <emphasis>Create a Version</emphasis> button. A form will appear asking for 
+                the following information:<itemizedlist>
                     <listitem>
                         <para>Module location - This is where the new version module will be located
-                            after creation.</para>
+                            in the taxonomy after creation.</para>
                     </listitem>
                     <listitem>
-                        <para>Version name</para>
+                        <para>Version name – the user specified name of the version module.</para>
                     </listitem>
                     <listitem>
                         <para>Content version date - This optional field will update the content
                             modification dates of the concepts to the date selected. If it is left
-                            blank, no changes will be made to the original dates on each
-                            concept.</para>
+                            blank, no changes will be made to the original dates on each concept.</para>
                     </listitem>
                     <listitem>
-                        <para>Content range - Select the date range for the content you want to
-                            create a version with. To better assist you, you can optionally select
-                            the "Select by version date" link to pick a date by previous
-                            versions.</para>
+                        <para>Content range – Select the date range for the content you want to
+                            create a version for. To better assist you, you can optionally select
+                            the "Select by version date" link to pick a date based on a previous
+                            version.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Run Classifier – Gives the  user the option to run the classifier as
+                            part generating a version.</para>
                     </listitem>
                     <listitem>
                         <para>Perform QA Test - QA tests are necessary to ensure accurate data. The
@@ -127,11 +118,16 @@
                     </listitem>
                     <listitem>
                         <para>Save a copy to the repository - Publishes the exported file into the
-                            repository server.</para>
+                            repository server<note><para>This is configurable for each customer and is not configured in the Knowledge demonstration
+                                    enviornment.</para></note>.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Export Type – SNOMED CT RF2 is supported at this time. <note><para>The Solor RF2 comptabible
+                        export will be supported in a future Knowledge release.</para></note></para>
                     </listitem>
                 </itemizedlist></para>
             <para>Select "Create Version" to begin the backend versioning process.</para>
             </section>
         </section>
-    </section>
+  
 </chapter>

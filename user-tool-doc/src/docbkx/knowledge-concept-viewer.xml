@@ -7,12 +7,10 @@
     <title>Concept Details</title>
     <section xml:id="concept-details"><title>Concept Details</title>
     <para>A Concept represents a clinical meaning. Each Concept has descriptions that describe the
-            concept, relationships that
-            <?oxy_comment_start author="linds" timestamp="20200409T092443-0400" comment="Consider using a different word - &quot;relationships that relate...&quot; sounds repetitive. Possible options include connect, associates, links, correlates, etc "?>relate<?oxy_comment_end?>
-            concepts to each other, and <emphasis>OWL axioms</emphasis> that provide a logical
-            definition to the concept. The logical definition (axiom) is used by the
-                <emphasis>Classifier</emphasis> to infer additional relationships between concepts –
-            this is known as the inferred axiom.</para>
+            concept, relationships that associates concepts to each other, and <emphasis>OWL
+                axioms</emphasis> that provide a logical definition to the concept. The logical
+            definition (axiom) is used by the <emphasis>Classifier</emphasis> to infer additional
+            relationships between concepts – this is known as the inferred axiom.</para>
             
      <para>In <emphasis>Concept Details</emphasis> a user can view concept information, modify
             display options, create a child concept, edit the concept, clone the concept, view value
@@ -147,34 +145,24 @@
                                         inactive</para>
                                 </listitem>
                                 <listitem>
-                                    <para>Module – identifies
-                                        <?oxy_insert_start author="linds" timestamp="20200409T093104-0400"?>the
-                                        module in which the concept belongs
-                                        (<?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200409T093119-0400" content="which module the concept belongs in "?>e.g.
-                                        a SNOMED CT concept is in SNOMED CT core
-                                        module<?oxy_insert_start author="linds" timestamp="20200409T093127-0400"?>)<?oxy_insert_end?></para>
+                                    <para>Module – identifies the module in which the concept
+                                        belongs (e.g. a SNOMED CT concept is in SNOMED CT core
+                                        module)</para>
                                 </listitem>
                                 <listitem>
                                     <para>Terminology ID - if the concept is a SNOMED concept then
-                                        the SCTID is displayed. If the concept is a LOINC
-                                        term<?oxy_insert_start author="linds" timestamp="20200409T093144-0400"?>,<?oxy_insert_end?>
-                                        the LOINC ID is displayed. </para>
+                                        the SCTID is displayed. If the concept is a LOINC term, the
+                                        LOINC ID is displayed. </para>
                                 </listitem>
                             </itemizedlist></para>
                     </listitem>
                     <listitem>
-                        <para>Fully Qualified Name (FQN) –
-                            <?oxy_delete author="linds" timestamp="20200409T093209-0400" content="T"?><?oxy_insert_start author="linds" timestamp="20200409T093209-0400"?>t<?oxy_insert_end?>he
-                            human readable unique word or phrase which represents clinical meaning.
-                        </para>
+                        <para>Fully Qualified Name (FQN) – the human readable unique word or phrase
+                            which represents clinical meaning. </para>
                     </listitem>
                     <listitem>
-                        <para>Regular Name –
-                            <?oxy_delete author="linds" timestamp="20200409T093213-0400" content="is"?>
-                            a term of a specified type that describes the
-                            concept<?oxy_insert_start author="linds" timestamp="20200409T093234-0400"?>;
-                            <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200409T093235-0400" content=". A"?><?oxy_insert_start author="linds" timestamp="20200409T093236-0400"?>a<?oxy_insert_end?>
-                            concept can have more than one Regular Name.</para>
+                        <para>Regular Name –  a term of a specified type that describes the concept;
+                            a concept can have more than one Regular Name.</para>
                     </listitem>
                 </itemizedlist></para>
             <para>
@@ -194,10 +182,7 @@
            
          <section><title>Display Concept History</title>
              <para>This area of the Knowledge Editor is under development. When development is
-                complete<?oxy_delete author="linds" timestamp="20200409T093253-0400" content="d"?><?oxy_insert_start author="linds" timestamp="20200409T093256-0400"?>,<?oxy_insert_end?>
-                a user will be able to see different versions of the
-                concept<?oxy_insert_start author="linds" timestamp="20200409T093301-0400"?>.<?oxy_insert_end?>
-            </para>
+                complete, a user will be able to see different versions of the concept. </para>
          </section>
            
          <section><title>Value Sets</title>
@@ -237,15 +222,12 @@
         <section><title>Members</title>
             <para>The <emphasis>Members</emphasis> tab is available when a concept is a
                     <emphasis>Value Set</emphasis> concept. The concepts that are members of the
-                    <emphasis>Wound Color Reference Set</emphasis>
-                <?oxy_delete author="linds" timestamp="20200409T093417-0400" content="set"?> are
-                displayed in the table. In this case the <emphasis>Wound Color Reference
-                    Set</emphasis> has 3 members. A user can add the members to the briefcase by
-                selecting <emphasis>Add all to Briefcase</emphasis> or by selecting briefcase icon
-                in the table row. In addition, a <emphasis>CSV</emphasis> file can be
-                downloaded<?oxy_insert_start author="linds" timestamp="20200409T093439-0400"?>.
-                <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200409T093439-0400" content=", s"?><?oxy_insert_start author="linds" timestamp="20200409T093443-0400"?>S<?oxy_insert_end?>ee
-                    <xref linkend="csv-file"/>.</para>
+                    <emphasis>Wound Color Reference Set</emphasis>  are displayed in the table. In
+                this case the <emphasis>Wound Color Reference Set</emphasis> has 3 members. A user
+                can add the members to the briefcase by selecting <emphasis>Add all to
+                    Briefcase</emphasis> or by selecting briefcase icon in the table row. In
+                addition, a <emphasis>CSV</emphasis> file can be downloaded. See <xref
+                    linkend="csv-file"/>.</para>
             <figure xml:id="member-tab-sets">
                 <title>Member</title>
                 <mediaobject>

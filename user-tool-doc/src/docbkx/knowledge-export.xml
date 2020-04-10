@@ -9,9 +9,9 @@
         <para>Knowledge users with Content Manager or Administrator role can create versions or
             export content and access this functionality from the <emphasis>Task Pane</emphasis>,
             see <xref linkend="export-admin"/>; Editors can export content only and access this
-            functionality from the <emphasis>Short Cuts</emphasis> menu, . The primary purpose of
-            creating versions is to make releases and content available to internal and external
-            customers in release file format. </para>
+            functionality from the <emphasis>Short Cuts</emphasis> menu, <xref linkend="shortcuts"/>. 
+            The primary purpose of creating versions is to make releases and content available to 
+            internal and external customers in release file format. </para>
             <para>
                 <figure>
                     <title xml:id="export-admin">Export and Version – Administrators and Content Managers</title>
@@ -62,18 +62,45 @@
                             select modules, content range, generate SCTIDs, namespace, export type,
                             and buttons Create and Cancel.</alt>
                         <imageobject>
-                            <imagedata align="left" scalefit="1" width="40%" contentdepth="40%"
+                            <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
                                 fileref="images/export.png"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
             </para>
+             <para>Once export is initiated a message is shown informing the user that an export is in process. 
+                When the export is complete another message is displayed and the user can download the file. 
+                The download is made available for 5 mins and then expires. If the download expires a
+                message is displayed, see <xref linkend="export-download-expired" />
+                 <figure>
+                     <title>Export</title>
+                     <mediaobject>
+                         <alt>Create an Export modal displays a form with the following information:
+                             select modules, content range, generate SCTIDs, namespace, export type,
+                             and buttons Create and Cancel.</alt>
+                         <imageobject>
+                             <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                 fileref="images/export-messages.png"/>
+                         </imageobject>
+                     </mediaobject>
+                 </figure>
+                 <figure>
+                     <title linkend="export-download-expired">Export Expired</title>
+                     <mediaobject>
+                         <alt>Message displayed when export file has timed out. Time out is 5 mins.</alt>
+                         <imageobject>
+                             <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                 fileref="images/export-download-expired.png"/>
+                         </imageobject>
+                     </mediaobject>
+                 </figure>
+             </para>
       </section> 
         <section>
             <title>Create a Version</title>
             <para>When content is ready to be released a <emphasis>Content Manager</emphasis> or
                 <emphasis>Administrator</emphasis> can create a version by selecting the  
-                <emphasis>Create a Version</emphasis> button. A form will appear asking for 
+                <emphasis>Create a Version</emphasis> button. A form () will appear asking for 
                 the following information:<itemizedlist>
                     <listitem>
                         <para>Module location - This is where the new version module will be located
@@ -120,16 +147,77 @@
                     </listitem>
                     <listitem>
                         <para>Save a copy to the repository - Publishes the exported file into the
-                            repository server<note><para>This is configurable for each customer and is not configured in the Knowledge demonstration
-                                    enviornment.</para></note>.</para>
+                            repository server.<note>
+                                <para>This is configurable for each customer and is not configured
+                                    in the Knowledge demonstration enviornment.</para>
+                            </note></para>
                     </listitem>
                     <listitem>
-                        <para>Export Type – SNOMED CT RF2 is supported at this time. <note><para>The Solor RF2 comptabible
-                        export will be supported in a future Knowledge release.</para></note></para>
+                        <para>Export Type<footnote><para>The Solor RF2 comptabible
+                            export will be supported in a future Knowledge release.</para></footnote> 
+                            – SNOMED CT RF2 is supported at this time. </para>
                     </listitem>
                 </itemizedlist></para>
-            <para>Select "Create Version" to begin the backend versioning process.</para>
-            </section>
+            <para>Select "Create Version" to begin the backend versioning process. A message is displayed
+                to indicate the versioning process has started, see The time to
+                create a version will depend on the options selected, such as classification, and
+                QA. When creating a version is complete the progress table is updated, see 
+                <xref linkend="version-export-progress" />
+                and the results of create version are displayed, 
+                see <xref linkend="gen-version-results" />.</para>
+            <para>
+                <figure>
+                    <title>Create a Version</title>
+                    <mediaobject>
+                        <alt>Create a Version modal displays a form with the following information:
+                            select modules, content range, perform QA test, perform classification,
+                            generate SCTIDs, namespace, export type, and buttons Create and Cancel.</alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="40%" contentdepth="40%"
+                                fileref="images/create-version.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+            <para><figure>
+                <title xml:id="gen-version-results">Version Results</title>
+                <mediaobject>
+                    <alt></alt>
+                    <imageobject>
+                        <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                            fileref="images/gen-version-results.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure></para>
+            <para>
+                <figure>
+                    <title>Version Initiated</title>
+                    <mediaobject>
+                        <alt></alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="600%" contentdepth="60%"
+                                fileref="images/version-initiated.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>  
         </section>
-  
+        <section><title>Version and Export Progress</title>
+            <para>When a Version or Export is initiated the table is updated with a new entry, 
+                see <xref linkend="version-export-progress"/>. The entries in this table will
+                update as the Export or Version progresses.</para>
+            <para>
+                <figure>
+                    <title xml:id="version-export-progress">Version or Export Progress</title>
+                    <mediaobject>
+                        <alt></alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="600%" contentdepth="60%"
+                                fileref="images/version-export-progress.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para></section>
+        
+    </section>
 </chapter>

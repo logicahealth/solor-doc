@@ -6,36 +6,54 @@
     <title>Version and Export</title>
     <section xml:id="export-and-version">
         <title>Export and Version</title>
-        <para>Knowledge users with Content Manager or Administrator role can create versions or
-            export content and access this functionality from the <emphasis>Task Pane</emphasis>,
-            see <xref linkend="export-admin"/>; Editors can export content only and access this
-            functionality from the <emphasis>Short Cuts</emphasis> menu, <xref linkend="shortcuts"/>. 
-            The primary purpose of creating versions is to make releases and content available to 
-            internal and external customers in release file format. </para>
+        <para>Knowledge users with Content Manager or Administrator
+            role<?oxy_insert_start author="mnham" timestamp="20200410T142223-0700"?>s<?oxy_insert_end?>
+            can create versions or export content and access this functionality from the
+                <emphasis>Task Pane</emphasis>, see <xref linkend="export-admin"/>; Editors can
+            export content only and access this functionality from the <emphasis>Short
+                Cuts</emphasis> menu, <xref linkend="shortcuts"/>. The primary purpose of creating
+            versions is to make releases and content available to internal and external customers in
+            release file format. </para>
             <para>
                 <figure>
                     <title xml:id="export-admin">Export and Version – Administrators and Content Managers</title>
                     <mediaobject>
                         <alt>Export and Version tab</alt>
                         <imageobject>
-                            <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
-                                fileref="images/export-and-version.png"/>
+                            <imagedata align="left"                                fileref="images/export-and-version.png"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
             </para>
-         <section><title>Export</title>
+         <section>
+            <title>Export</title>
             <para>Knowledge currently supports the generation of a SNOMED CT Release File Format 2
                 (RF2) release. Select the <emphasis>Export</emphasis> button, provide the
-                information needed and select the <emphasis>Create Export</emphasis> button. An
-                export form is presented, <xref linkend="export-admin"/></para>
+                information needed and select the <emphasis>Create Export</emphasis> button.
+                <?oxy_comment_start author="mnham" timestamp="20200410T150502-0700" comment="?"?>An
+                export form is presented, <xref linkend="export-admin"/><?oxy_comment_end?></para>
             <para>When an export is initiated, several steps happen in the background before a file
-                is packaged for download. Once the export is ready, your browser will prompt you to
-                download the file to your computer. </para>
-            <para>The create an export the user must provide the following information in the export form:<itemizedlist>
+                is packaged for download. Once the export is ready,
+                <?oxy_insert_start author="mnham" timestamp="20200410T150532-0700"?>knowledge will
+                notify you that the file is ready for download. Click on the export message, and
+                <?oxy_insert_end?>your browser will prompt you to download the file to your
+                computer. </para>
+            <?oxy_insert_start author="mnham" timestamp="20200410T150804-0700"?>
+            <para><inlinemediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/export-initiated.png"/>
+                    </imageobject>
+                </inlinemediaobject></para>
+            <?oxy_insert_end?>
+            <para><?oxy_delete author="mnham" timestamp="20200410T150835-0700" content="The create an export"?><?oxy_insert_start author="mnham" timestamp="20200410T150835-0700"?>On
+                the Create an Export modal,<?oxy_insert_end?> the user must provide the following
+                information in the <?oxy_delete author="mnham" timestamp="20200410T150848-0700" content="export "?>form:<itemizedlist>
                     <listitem>
                         <para>Select modules - Select the modules that you want to export from. The
-                            module that you have edits in is selected by default.</para>
+                            module that you have edits in is selected by
+                            default.<?oxy_insert_start author="mnham" timestamp="20200410T151009-0700"?>
+                            Select more than one by holding the CTRL key while selecting multiple
+                            modules.<?oxy_insert_end?></para>
                     </listitem>
                     <listitem>
                         <para>Content range - Select the date range for the content you are
@@ -68,40 +86,50 @@
                     </mediaobject>
                 </figure>
             </para>
-             <para>Once export is initiated a message is shown informing the user that an export is in process. 
-                When the export is complete another message is displayed and the user can download the file. 
-                The download is made available for 5 mins and then expires. If the download expires a
-                message is displayed, see <xref linkend="export-download-expired" />
-                 <figure>
-                     <title>Export</title>
-                     <mediaobject>
-                         <alt>Create an Export modal displays a form with the following information:
-                             select modules, content range, generate SCTIDs, namespace, export type,
-                             and buttons Create and Cancel.</alt>
-                         <imageobject>
-                             <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
-                                 fileref="images/export-messages.png"/>
-                         </imageobject>
-                     </mediaobject>
-                 </figure>
-                 <figure>
-                     <title linkend="export-download-expired">Export Expired</title>
-                     <mediaobject>
-                         <alt>Message displayed when export file has timed out. Time out is 5 mins.</alt>
-                         <imageobject>
-                             <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
-                                 fileref="images/export-download-expired.png"/>
-                         </imageobject>
-                     </mediaobject>
-                 </figure>
-             </para>
-      </section> 
+            <para>Once export is
+                initiated<?oxy_insert_start author="mnham" timestamp="20200413T104246-0700"?>,<?oxy_insert_end?>
+                a message
+                <?oxy_delete author="mnham" timestamp="20200413T104235-0700" content="is shown"?>
+                inform<?oxy_insert_start author="mnham" timestamp="20200413T104237-0700"?>s<?oxy_insert_end?><?oxy_delete author="mnham" timestamp="20200413T104237-0700" content="ing"?>
+                the user that an export is in process. When the export is complete another message
+                is displayed and the user can download the file. The download is made available for
+                5 mins and then expires. If the download expires a message is displayed, see <xref
+                    linkend="export-download-expired"/>
+                <figure>
+                    <title>Export</title>
+                    <mediaobject>
+                        <alt>Create an Export modal displays a form with the following information:
+                            select modules, content range, generate SCTIDs, namespace, export type,
+                            and buttons Create and Cancel.</alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                fileref="images/export-messages.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+                <figure>
+                    <title linkend="export-download-expired">Export Expired</title>
+                    <mediaobject>
+                        <alt>Message displayed when export file has timed out. Time out is 5
+                            mins.</alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                fileref="images/export-download-expired.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+        </section> 
         <section>
             <title>Create a Version</title>
-            <para>When content is ready to be released a <emphasis>Content Manager</emphasis> or
-                <emphasis>Administrator</emphasis> can create a version by selecting the  
-                <emphasis>Create a Version</emphasis> button. A form () will appear asking for 
-                the following information:<itemizedlist>
+            <para>When content is ready to be
+                released<?oxy_insert_start author="mnham" timestamp="20200413T104350-0700"?>,<?oxy_insert_end?>
+                a <emphasis>Content Manager</emphasis> or <emphasis>Administrator</emphasis> can
+                create a version by selecting the <emphasis>Create a Version</emphasis>
+                button<?oxy_insert_start author="mnham" timestamp="20200413T104401-0700"?> located
+                in the shortcuts menu or in the Export and Versions tab<?oxy_insert_end?>. A form
+                <?oxy_comment_start author="mnham" timestamp="20200413T104339-0700" comment="?"?>()<?oxy_comment_end?>
+                will appear asking for the following information:<itemizedlist>
                     <listitem>
                         <para>Module location - This is where the new version module will be located
                             in the taxonomy after creation.</para>
@@ -112,7 +140,8 @@
                     <listitem>
                         <para>Content version date - This optional field will update the content
                             modification dates of the concepts to the date selected. If it is left
-                            blank, no changes will be made to the original dates on each concept.</para>
+                            blank, no changes will be made to the original dates on each
+                            concept.</para>
                     </listitem>
                     <listitem>
                         <para>Content range – Select the date range for the content you want to
@@ -121,15 +150,25 @@
                             version.</para>
                     </listitem>
                     <listitem>
-                        <para>Run Classifier – Gives the  user the option to run the classifier as
-                            part generating a version.</para>
+                        <para>Run Classifier – Gives the user the option to run the classifier as
+                            <?oxy_insert_start author="mnham" timestamp="20200413T105603-0700"?>a
+                            <?oxy_insert_end?>part
+                            <?oxy_insert_start author="mnham" timestamp="20200413T105604-0700"?>of
+                            <?oxy_insert_end?>generating a version.</para>
                     </listitem>
                     <listitem>
                         <para>Perform QA Test - QA tests are necessary to ensure accurate data. The
-                            version may not be created if there is a QA error. You can perform the
-                            test independently before creating a version or run it in this process.
-                            If you run QA in this form and there are errors, the version will not be
-                            created and you will be taken to the QA results page.</para>
+                            version may not be created if there is
+                            a<?oxy_insert_start author="mnham" timestamp="20200413T105621-0700"?>
+                            critical<?oxy_insert_end?> QA error. You can perform the test
+                            independently before creating a version or run it in this process.
+                            <?oxy_comment_start author="mnham" timestamp="20200413T105711-0700" comment="Is this true right now, since I haven&apos;t seen any QA errors stopping version creation?"?>If
+                            you<?oxy_insert_start author="mnham" timestamp="20200413T105858-0700"?>
+                            choose to<?oxy_insert_end?> run QA in
+                            this<?oxy_insert_start author="mnham" timestamp="20200413T105902-0700"?>
+                            version creation<?oxy_insert_end?> form and there are
+                            errors,<?oxy_comment_end?> the version will not be created and you will
+                            be taken to the QA results page.</para>
                     </listitem>
                     <listitem>
                         <para>Generate SCTIDs for content with missing IDs - If there are any SNOMED
@@ -153,18 +192,23 @@
                             </note></para>
                     </listitem>
                     <listitem>
-                        <para>Export Type<footnote><para>The Solor RF2 comptabible
-                            export will be supported in a future Knowledge release.</para></footnote> 
-                            – SNOMED CT RF2 is supported at this time. </para>
+                        <para>Export Type<footnote>
+                                <para>The Solor RF2 comptabible export will be supported in a future
+                                    Knowledge release.</para>
+                            </footnote> – SNOMED CT RF2 is supported at this time. </para>
                     </listitem>
                 </itemizedlist></para>
-            <para>Select "Create Version" to begin the backend versioning process. A message is displayed
-                to indicate the versioning process has started, see The time to
-                create a version will depend on the options selected, such as classification, and
-                QA. When creating a version is complete the progress table is updated, see 
-                <xref linkend="version-export-progress" />
-                and the results of create version are displayed, 
-                see <xref linkend="gen-version-results" />.</para>
+            <para>Select "Create Version" to begin the backend versioning process. A message is
+                displayed to indicate the versioning process has started, see <?oxy_insert_start author="mnham" timestamp="20200413T110333-0700"?>
+                <xref linkend="version-initiated"/>. <?oxy_insert_end?>The time to create a version
+                will depend on the options selected, such as classification, and QA. When
+                <?oxy_delete author="mnham" timestamp="20200413T110333-0700" content="creating a version"?><?oxy_insert_start author="mnham" timestamp="20200413T110333-0700"?>version
+                creation<?oxy_insert_end?> is complete the progress table is updated, see <xref
+                    linkend="version-export-progress"/> and the results of create version are
+                displayed, see <xref linkend="gen-version-results"
+                />.<?oxy_insert_start author="mnham" timestamp="20200413T110600-0700"?> If a
+                classifier, QA, or export was performed as a part of the version creation sequence,
+                its results can be accessed through the version details.<?oxy_insert_end?></para>
             <para>
                 <figure>
                     <title>Create a Version</title>
@@ -179,6 +223,18 @@
                     </mediaobject>
                 </figure>
             </para>
+            <para>
+                <figure>
+                    <title xml:id="version-initiated">Version Initiated</title>
+                    <mediaobject>
+                        <alt></alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="600%" contentdepth="60%"
+                                fileref="images/version-initiated.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>  
             <para><figure>
                 <title xml:id="gen-version-results">Version Results</title>
                 <mediaobject>
@@ -189,19 +245,7 @@
                     </imageobject>
                 </mediaobject>
             </figure></para>
-            <para>
-                <figure>
-                    <title>Version Initiated</title>
-                    <mediaobject>
-                        <alt></alt>
-                        <imageobject>
-                            <imagedata align="left" scalefit="1" width="600%" contentdepth="60%"
-                                fileref="images/version-initiated.png"/>
-                        </imageobject>
-                    </mediaobject>
-                </figure>
-            </para>  
-        </section>
+         </section>
         <section><title>Version and Export Progress</title>
             <para>When a Version or Export is initiated the table is updated with a new entry, 
                 see <xref linkend="version-export-progress"/>. The entries in this table will
@@ -221,3 +265,6 @@
         
     </section>
 </chapter>
+
+
+<?oxy_options track_changes="on"?>

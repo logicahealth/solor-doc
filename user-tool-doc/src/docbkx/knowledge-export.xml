@@ -159,13 +159,9 @@
                             <para>Perform QA Test - QA tests are necessary to ensure accurate data.
                                 The version may not be created if there is a QA error. You can
                                 perform the test independently before creating a version or run it
-                                in this process.
-                                <?oxy_comment_start author="susancastillo" timestamp="20200413T205005-0700" comment="need to check this
-"?>If
-                                you choose to run QA in this version creation and
-                                <?oxy_delete author="mnham" timestamp="20200414T094539-0700" content="there are errors"?><?oxy_insert_start author="mnham" timestamp="20200414T094539-0700"?>QA
-                                is unable to complete<?oxy_insert_end?>, the version will not be
-                                created<?oxy_delete author="mnham" timestamp="20200414T094550-0700" content=" and you will be taken to the QA results page"?>.<?oxy_comment_end?></para>
+                                in this process. If you choose to run QA in this version creation
+                                and QA is unable to complete, the version will not be
+                                created.</para>
                         </listitem>
                         <listitem>
                             <para>Generate SCTIDs for content with missing IDs - If there are any
@@ -196,19 +192,6 @@
                                 </footnote> – SNOMED CT RF2 is supported at this time. </para>
                         </listitem>
                     </itemizedlist></para>
-            <para>Select "Create Version" to begin the backend versioning process. A message is
-                    displayed to indicate the versioning process has started, see <xref
-                        linkend="version-initated"
-                    /><?oxy_insert_start author="mnham" timestamp="20200414T094626-0700"?>.<?oxy_insert_end?>
-                    The time to create a version will depend on the options selected, such as
-                    classification<?oxy_delete author="mnham" timestamp="20200414T094636-0700" content=","?>
-                    and QA. When version creation is complete the progress table is updated, see
-                        <xref linkend="version-export-progress"
-                    /><?oxy_insert_start author="mnham" timestamp="20200414T094648-0700"?>,<?oxy_insert_end?>
-                    and the results of create version are displayed, see <xref
-                        linkend="gen-version-results"/>. To view the results of QA or Classification
-                    select the link and you will be brought to either the QA or Classifier
-                    results.</para>
             <para>
                 <figure>
                     <title xml:id="create-version-form">Create a Version</title>
@@ -223,42 +206,57 @@
                     </mediaobject>
                 </figure>
             </para>
-            <para>
-                <figure>
-                    <title xml:id="version-export-progress">Version or Export Progress</title>
-                    <mediaobject>
-                        <alt></alt>
-                        <imageobject>
-                            <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
-                                fileref="images/version-export-progress.png"/>
-                        </imageobject>
-                    </mediaobject>
-                </figure>
-            </para>
-            <para><figure>
-                <title xml:id="gen-version-results">Version Results</title>
-                <mediaobject>
-                    <alt></alt>
-                    <imageobject>
-                        <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
-                            fileref="images/gen-version-results.png"/>
-                    </imageobject>
-                </mediaobject>
-            </figure></para>
-            <para>
-                <figure>
-                    <title xml:id="version-initated">Version Initiated</title>
-                    <mediaobject>
-                        <alt></alt>
-                        <imageobject>
-                            <imagedata align="left" scalefit="1" width="600%" contentdepth="60%"
-                                fileref="images/version-initiated.png"/>
-                        </imageobject>
-                    </mediaobject>
-                </figure>
-            </para>              
+            <para>Select "Create Version" to begin the backend versioning process. A message is
+                    displayed to indicate the versioning process has started, see <xref
+                        linkend="version-initated"/>. The time to create a version will depend on
+                    the options selected, such as classification and QA. 
+              
+                    <figure>
+                        <title xml:id="version-initated">Version Initiated</title>
+                        <mediaobject>
+                            <alt></alt>
+                            <imageobject>
+                                <imagedata align="left" scalefit="1" width="600%" contentdepth="60%"
+                                    fileref="images/version-initiated.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
+                    <para>When version creation is complete the progress table is updated, see <xref
+                        linkend="version-export-progress"/>, and the results of create version are
+                    displayed, see <xref linkend="gen-version-results"/>. 
+                        <figure>
+                            <title xml:id="version-export-progress">Version or Export Progress</title>
+                            <mediaobject>
+                                <alt></alt>
+                                <imageobject>
+                                    <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                        fileref="images/version-export-progress.png"/>
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+                    </para>                      
+            <para>If <emphasis>Perform QA</emphasis> tests was selected and you wish to view the
+                    results select the <emphasis>Open QA Run</emphasis> link or if <emphasis>Run
+                        classifier</emphasis> was selected and you wish to view the classification
+                    results select the link <emphasis>Open Classifier run</emphasis>. You will be
+                    brought to either the QA or Classifier results depending on what was selected.
+                    If  <emphasis>create and download an export file</emphasis> was selected the
+                    export file can be downloaded to the user's computer by selecting the
+                        <emphasis>Release file available</emphasis> link. In the Knowledge
+                    demonstration environment the export results will be available for a limited
+                    time and is not uploaded to a repository. In a production Knowledge environment
+                    the customer can choose to include uploading a version export to a repository.<figure>
+                        <title xml:id="gen-version-results">Version Results</title>
+                        <mediaobject>
+                            <alt/>
+                            <imageobject>
+                                <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                    fileref="images/gen-version-results.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure></para>
+            
         </section>
       </section>
     </section>
 </chapter>
-<?oxy_options track_changes="on"?>

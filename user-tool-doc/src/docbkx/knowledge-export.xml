@@ -162,9 +162,10 @@
                                 in this process.
                                 <?oxy_comment_start author="susancastillo" timestamp="20200413T205005-0700" comment="need to check this
 "?>If
-                                you choose to run QA in this version creation and there are errors,
-                                the version will not be created and you will be taken to the QA
-                                results page.<?oxy_comment_end?></para>
+                                you choose to run QA in this version creation and
+                                <?oxy_delete author="mnham" timestamp="20200414T094539-0700" content="there are errors"?><?oxy_insert_start author="mnham" timestamp="20200414T094539-0700"?>QA
+                                is unable to complete<?oxy_insert_end?>, the version will not be
+                                created<?oxy_delete author="mnham" timestamp="20200414T094550-0700" content=" and you will be taken to the QA results page"?>.<?oxy_comment_end?></para>
                         </listitem>
                         <listitem>
                             <para>Generate SCTIDs for content with missing IDs - If there are any
@@ -197,13 +198,17 @@
                     </itemizedlist></para>
             <para>Select "Create Version" to begin the backend versioning process. A message is
                     displayed to indicate the versioning process has started, see <xref
-                        linkend="version-initated"/> The time to create a version will depend on the
-                    options selected, such as classification, and QA. When version creation is
-                    complete the progress table is updated, see <xref
-                        linkend="version-export-progress"/> and the results of create version are
-                    displayed, see <xref linkend="gen-version-results"/>. To view the results of QA
-                    or Classification select the link and you will be brought to either the QA or
-                    Classifier results.</para>
+                        linkend="version-initated"
+                    /><?oxy_insert_start author="mnham" timestamp="20200414T094626-0700"?>.<?oxy_insert_end?>
+                    The time to create a version will depend on the options selected, such as
+                    classification<?oxy_delete author="mnham" timestamp="20200414T094636-0700" content=","?>
+                    and QA. When version creation is complete the progress table is updated, see
+                        <xref linkend="version-export-progress"
+                    /><?oxy_insert_start author="mnham" timestamp="20200414T094648-0700"?>,<?oxy_insert_end?>
+                    and the results of create version are displayed, see <xref
+                        linkend="gen-version-results"/>. To view the results of QA or Classification
+                    select the link and you will be brought to either the QA or Classifier
+                    results.</para>
             <para>
                 <figure>
                     <title xml:id="create-version-form">Create a Version</title>

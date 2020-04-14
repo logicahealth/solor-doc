@@ -6,22 +6,24 @@
     <title>Version and Export</title>
     <section xml:id="export-and-version">
         <title>Export and Version</title>
-        <para>Knowledge users with Content Manager or Administrator role can create versions or
+        <para>Knowledge users with Content Manager or Administrator roles can create versions or
             export content and access this functionality from the <emphasis>Task Pane</emphasis>,
             see <xref linkend="export"/>; Editors can export content only and access this
-            functionality from the <emphasis>Short Cuts</emphasis> menu, <xref linkend="shortcuts"/>. 
-            The primary purpose of creating versions is to make releases and content available
+            functionality from the <emphasis>Short Cuts</emphasis> menu, <xref linkend="shortcuts"
+            />. The primary purpose of creating versions is to make releases and content available
             to internal and external customers in release file format. Currently Knowledge supports
             the generation of a SNOMED CT Release File Format 2 (RF2) release files.</para>
         
          <section xml:id="export-steps"><title>Export with Editor Role</title><subtitle>With Editor Role</subtitle>
-             <para>To create an export as an Editor select <emphasis>Export</emphasis> under the
-                 <emphasis>Short Cuts</emphasis> menu, <xref linkend="shortcuts"/> and provide the parameters
-                 specified in the <emphasis>Export Form</emphasis>, <xref linkend="export"/>:</para>
+             <para>To create an export with Editor role select <emphasis>Export</emphasis> under the
+                    <emphasis>Short Cuts</emphasis> menu, <xref linkend="shortcuts"/> and provide
+                the parameters specified in the <emphasis>Export Form</emphasis>, <xref
+                    linkend="export"/>:</para>
              <para><itemizedlist>
                  <listitem>
                      <para>Select modules - Select the modules that you want to export from. The
-                         module that you have edits in is selected by default.</para>
+                            edit module  is selected by default. Select more than one module by
+                            holding the CTRL key while selecting multiple modules.</para>
                  </listitem>
                  <listitem>
                      <para>Content range - Select the date range for the content you are
@@ -54,36 +56,36 @@
                      </mediaobject>
                  </figure>
              </para>
-             <para>When an export is initiated a message is shown informing the user that an export is in
-                process, see <xref linkend="messages-export"/>. When the export is complete another
-                message is displayed and the user can download the file. The download is made
-                available for 5 mins and then expires. If the download expires a message is
-                displayed, see <xref linkend="expired-download"/>
-                <figure>
-                  <title xml:id="messages-export">Export</title>
-                     <mediaobject>
-                         <alt>Create an Export modal displays a form with the following information:
-                           select modules, content range, generate SCTIDs, namespace, export type,
-                           and buttons Create and Cancel.</alt>
-                     <imageobject>
-                         <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
-                             fileref="images/export-messages.png"/>
-                     </imageobject>
+             <para>When an export is initiated a message is shown informing the user that an export
+                is in process, see <xref linkend="messages-export"/>. Once the export is ready,
+                Knowledge will notify you that the file is ready for download. Click on the export
+                message, and your browser will prompt you to download the file to your computer. The
+                download is made available for 5 mins and then expires,  see <xref
+                    linkend="expired-download"/>.<figure>
+                    <title xml:id="messages-export">Export</title>
+                    <mediaobject>
+                        <alt>Create an Export modal displays a form with the following information:
+                            select modules, content range, generate SCTIDs, namespace, export type,
+                            and buttons Create and Cancel.</alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                fileref="images/export-messages.png"/>
+                        </imageobject>
                     </mediaobject>
                 </figure>
                 <figure>
-                 <title xml:id="expired-download">Export Expired</title>
-                 <mediaobject>
-                     <alt>Message displayed when export file has timed out. Time out is 5
-                         mins.</alt>
-                     <imageobject>
+                    <title xml:id="expired-download">Export Expired</title>
+                    <mediaobject>
+                        <alt>Message displayed when export file has timed out. Time out is 5
+                            mins.</alt>
+                        <imageobject>
                             <?oxy_comment_start author="susancastillo" timestamp="20200413T202319-0700" comment="Need to update this screen shot after display bug is fixed"?>
                             <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
                                 fileref="images/export-download-expired.png"/><?oxy_comment_end?>
                         </imageobject>
-                 </mediaobject>
-             </figure>
-             </para>
+                    </mediaobject>
+                </figure>
+            </para>
          </section>
              
         <section><title>Create a Version and Export</title>
@@ -124,77 +126,84 @@
             </section>
             
         <section><title>Version</title>
-            <para>When content is ready to be released a <emphasis>Content Manager</emphasis> or
-                <emphasis>Administrator</emphasis> can create a version by selecting the
-                <emphasis>Create a Version</emphasis> button. A form will display,
-                <xref linkend="create-version-form" /> asking for the
-                following information:<itemizedlist>
-                    <listitem>
-                        <para>Module location - This is where the new version module will be located
-                            in the taxonomy after creation.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Version name – the user specified name of the version module.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Content version date - This optional field will update the content
-                            modification dates of the concepts to the date selected. If it is left
-                            blank, no changes will be made to the original dates on each
-                            concept.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Content range – Select the date range for the content you want to
-                            create a version for. To better assist you, you can optionally select
-                            the "Select by version date" link to pick a date based on a previous
-                            version.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Run Classifier – Gives the user the option to run the classifier as
-                            part generating a version.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Perform QA Test - QA tests are necessary to ensure accurate data. The
-                            version may not be created if there is a QA error. You can perform the
-                            test independently before creating a version or run it in this process.
-                            If you run QA in this form and there are errors, the version will not be
-                            created and you will be taken to the QA results page.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Generate SCTIDs for content with missing IDs - If there are any SNOMED
-                            content with missing SCTIDs, the system can generate them for you.
-                            Include the namespace identifier provided by SNOMED international when
-                            this option is selected.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Namespace - If you choose to generate SCTIDs, this is the SNOMED
-                            identifier that is provided to you by SNOMED CT.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Create and download and export file - Downloads a compressed file of
-                            all of the contents.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Save a copy to the repository - Publishes the exported file into the
-                            repository server.<note>
-                                <para>This is configurable for each customer and is not configured
-                                    in the Knowledge demonstration enviornment.</para>
-                            </note></para>
-                    </listitem>
-                    <listitem>
-                        <para>Export Type<footnote>
-                            <para>The Solor RF2 comptabible export will be supported in a future
-                                Knowledge release.</para>
-                        </footnote> – SNOMED CT RF2 is supported at this time. </para>
-                    </listitem>
-                </itemizedlist></para>
+            <para>When content is ready to be released, a <emphasis>Content Manager</emphasis> or
+                        <emphasis>Administrator</emphasis> can create a version by selecting the
+                        <emphasis>Create a Version</emphasis> located in the shortcuts menu or in
+                    the <emphasis>Export and Versions</emphasis> tab. A form will display, <xref
+                        linkend="create-version-form"/> asking for the following information:<itemizedlist>
+                        <listitem>
+                            <para>Module location - This is where the new version module will be
+                                located in the taxonomy after creation.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Version name – the user specified name of the version
+                                module.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Content version date - This optional field will update the content
+                                modification dates of the concepts to the date selected. If it is
+                                left blank, no changes will be made to the original dates on each
+                                concept.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Content range – Select the date range for the content you want to
+                                create a version for. To better assist you, you can optionally
+                                select the "Select by version date" link to pick a date based on a
+                                previous version.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Run Classifier – Gives the user the option to run the classifier
+                                as a step in generating a version.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Perform QA Test - QA tests are necessary to ensure accurate data.
+                                The version may not be created if there is a QA error. You can
+                                perform the test independently before creating a version or run it
+                                in this process.
+                                <?oxy_comment_start author="susancastillo" timestamp="20200413T205005-0700" comment="need to check this
+"?>If
+                                you choose to run QA in this version creation and there are errors,
+                                the version will not be created and you will be taken to the QA
+                                results page.<?oxy_comment_end?></para>
+                        </listitem>
+                        <listitem>
+                            <para>Generate SCTIDs for content with missing IDs - If there are any
+                                SNOMED content with missing SCTIDs, the system can generate them for
+                                you. Include the namespace identifier provided by SNOMED
+                                international when this option is selected.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Namespace - If you choose to generate SCTIDs, this is the SNOMED
+                                identifier that is provided to you by SNOMED CT.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Create and download and export file - Downloads a compressed file
+                                of all of the contents.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Save a copy to the repository - Publishes the exported file into
+                                the repository server.<note>
+                                    <para>This is configurable for each customer and is not
+                                        configured in the Knowledge demonstration
+                                        enviornment.</para>
+                                </note></para>
+                        </listitem>
+                        <listitem>
+                            <para>Export Type<footnote>
+                                    <para>The Solor RF2 comptabible export will be supported in a
+                                        future Knowledge release.</para>
+                                </footnote> – SNOMED CT RF2 is supported at this time. </para>
+                        </listitem>
+                    </itemizedlist></para>
             <para>Select "Create Version" to begin the backend versioning process. A message is
-                displayed to indicate the versioning process has started, see <xref
-                    linkend="version-initated"/> The time to create a version will depend on the
-                options selected, such as classification, and QA. When creating a version is
-                complete the progress table is updated, see <xref linkend="version-export-progress"
-                /> and the results of create version are displayed, see <xref
-                    linkend="gen-version-results"/>. To view the results of QA or Classification
-                select .</para>
+                    displayed to indicate the versioning process has started, see <xref
+                        linkend="version-initated"/> The time to create a version will depend on the
+                    options selected, such as classification, and QA. When version creation is
+                    complete the progress table is updated, see <xref
+                        linkend="version-export-progress"/> and the results of create version are
+                    displayed, see <xref linkend="gen-version-results"/>. To view the results of QA
+                    or Classification select the link and you will be brought to either the QA or
+                    Classifier results.</para>
             <para>
                 <figure>
                     <title xml:id="create-version-form">Create a Version</title>

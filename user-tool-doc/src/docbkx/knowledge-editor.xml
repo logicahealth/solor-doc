@@ -201,7 +201,7 @@
                     </para>
                 <simplesect>
                     <title>Adding Members to a Value Set</title>
-                    <para>To add members to a value set, select the value set in the table, and then
+                    <para>To add members to a value set, select the value set in the list and then
                         select <emphasis>Edit</emphasis> when viewing the value set's details
                         (located on the top right corner). This will take you the edit view where
                         concepts can be added to the value set, removed from the value set, or added
@@ -222,7 +222,7 @@
                         </figure>
                     </para>
                     <para>When you are ready to add the concepts in the Value Set Membership Changes
-                        table to the Members of this Value Set table, select Save. </para>
+                        list to the Members of this Value Set list, select Save. </para>
                     <para>If there are any conflicts, error notifications will display the
                         information to help you decide how to resolve them. </para>
                 </simplesect>
@@ -230,9 +230,9 @@
                     <title>Inactivating Value Set Members</title>
                     <para>To inactivate members from a refset, select the <emphasis>Edit
                             Members</emphasis> button when viewing the refset details. This will
-                        take you to Edit Mode, where you can remove members from the table by
+                        take you to Edit Mode, where you can remove members from the list by
                         selecting the <emphasis>X</emphasis> icon. The system will display your
-                        selection in the table <emphasis>Value Set membership Changes</emphasis> for
+                        selection in the list <emphasis>Value Set membership Changes</emphasis> for
                         review. Press Save to confirm your updates.</para>
                     <para>Members cannot be removed from the list, only deactivated. A user can
                         reactivate the concept anytime.</para>
@@ -249,7 +249,7 @@
                         <emphasis>View Group</emphasis> is set to <emphasis>Map Set</emphasis> and
                     select New to open the form.</para>
                     <para><figure xml:id="mapsets-table">
-                        <title>Map Sets Table</title><mediaobject>
+                        <title>Map Sets list</title><mediaobject>
                     <imageobject>
                         <imagedata align="left" scalefit="1" width="50%" contentdepth="50%" fileref="images/mapset-table.png"/>
                     </imageobject>
@@ -279,13 +279,13 @@
                     </itemizedlist>
                     <para>After entering all relevant information, press the save button at the top
                     of the panel. You will add concepts to this set later. The new map set should
-                    appear in the left panel's Map Sets table. If you do not see it there, press the
+                    appear in the left panel's Map Sets list. If you do not see it there, press the
                     Refresh button.</para>
             <simplesect>
                 <title>Adding concepts to a new Map Set</title>
                 <para>At this point, make sure that the map set you just created is open on the
                         right panel. Select <emphasis>Edit</emphasis> on the top right corner of the
-                        panel, then take a look at the Map Set Items table. There should be a
+                        panel, then take a look at the Map Set Items list. There should be a
                         plus-icon you can select to begin adding concepts to the list.</para>
                 <para><figure xml:id="new-map-set">
                     <title>Adding Concepts to a Map Set: Step 1</title><mediaobject>
@@ -293,40 +293,41 @@
                             <imagedata align="left" scalefit="1" width="40%" contentdepth="40%" fileref="images/new-map-set.png"/>
                         </imageobject>
                     </mediaobject></figure></para>
-                <para>After selecting the plus-icon, the table will fill with a row of droplists.
+                <para>After selecting the plus-icon, the list will fill with a row of droplists.
                         Type in the concepts you wish to link as the source and target descriptions.
                         Adjust the equivalence type as necessary, add a comment as needed, and press
                         the Save button to confirm your modifications. <figure xml:id="new-map-set2">
                             <title>Adding Concepts to a Map Set: Step 2</title>
                             <mediaobject>
                                 <imageobject>
-                                    <imagedata align="left" scalefit="1" width="40%" contentdepth="40%" fileref="images/new-map-set-2.png"/>
+                                    <imagedata align="left" scalefit="1" width="40%"
+                                        contentdepth="40%" fileref="images/new-map-set-2.png"/>
                                 </imageobject>
                             </mediaobject>
                             <para>To remove a concept, press the X-icon on the very right of the map
-                                set table.</para>
+                                set list.</para>
                         </figure></para>
             </simplesect>
             </section>
             </section>
             <section><title>Search</title>
-                <para>Knowledge has implemented Lucene, an open-source full-text search library,
-                    as one of its search engines. Search can be performed using keywords and 
-                    Lucene query syntax.  To begin searching, select the “Search” tab on the left
-                    panel, then fill in the fields as needed. Both Simple Search and Advanced 
-                    Search use Lucene. For more details on the Lucene search syntax refer to the 
-                    <link xlink:href="http://www.lucenetutorial.com"> Lucene tutorial</link>
-            <itemizedlist>
-                <listitem>
-                    <para>Simple Search – searches for descriptions that matches the search
-                        phrase</para>
-                </listitem>
-                <listitem>
-                    <para>Advanced Search – refines the search parameters further, e.g. searching for
-                        terminology id, description types (Fully qualified name, Regular name and
-                        Definition)</para>
-                </listitem>
-            </itemizedlist></para>
+                <para>Knowledge has implemented Lucene, an open-source full-text search library, as
+                one of its search engines. Search can be performed using keywords and Lucene query
+                syntax. To begin searching, select the <emphasis>Search</emphasis> tab on the left
+                panel, then fill in the fields as needed. Both Simple Search and Advanced Search use
+                Lucene. For more details on the Lucene search syntax refer to the <link
+                    xlink:href="http://www.lucenetutorial.com"> Lucene tutorial</link>
+                <itemizedlist>
+                    <listitem>
+                        <para>Simple Search – searches for descriptions that matches the search
+                            phrase</para>
+                    </listitem>
+                    <listitem>
+                        <para>Advanced Search – refines the search parameters further, e.g.
+                            searching for terminology id, description types (Fully qualified name,
+                            Regular name and Definition)</para>
+                    </listitem>
+                </itemizedlist></para>
             <section>
             <title>Simple Search</title>
             <para>Terminologies can be searched by keywords under the Search tab in the task pane.
@@ -393,8 +394,8 @@
                             <emphasis>Definition</emphasis>.</para>
                 </listitem>
                 <listitem>
-                    <para>CSV Export – when selected, the search results table will export the
-                        results table in CSV format.</para>
+                    <para>CSV Export – when selected, the search results list will export the
+                            results list in CSV format.</para>
                 </listitem>
             </itemizedlist>
             <para>Select the <emphasis>Search</emphasis> button in order to update the results when
@@ -402,10 +403,11 @@
             <example>
                 <title>Advanced Search Example</title>
                 <para>In this example, the search results are descriptions that contain
-                        <emphasis>hypertension</emphasis>
-                    <emphasis role="bold">and</emphasis>
-                    <emphasis>failure</emphasis>. The results table will contain a list of matching
-                    concept, description, the terminology identifier, and status, <xref linkend="advanced-search-results"/>.</para>
+                            <emphasis>hypertension</emphasis>
+                        <emphasis role="bold">and</emphasis>
+                        <emphasis>failure</emphasis>. The results list will contain a list of
+                        matching concept, description, the terminology identifier, and status, <xref
+                            linkend="advanced-search-results"/>.</para>
             </example>
             <para>
                 <figure xml:id="advanced-search-results">
@@ -432,9 +434,10 @@
                       the desired search from a dropdown list and press the Search button to pull
                       results.</para></simplesect>-->
             <section><title>Search Results</title>
-                <para>The search results are displayed in a table below the search criteria. The
-                default fields displayed in the search results table are matching concept, matching
-                description, terminology identifier, status, and module, see <xref linkend="advanced-search-results"/>.</para>
+                <para>The search results are displayed in a list below the search criteria. The
+                    default fields displayed in the search results list are matching concepts,
+                    matching descriptions, terminology identifier, status, and module, see <xref
+                        linkend="advanced-search-results"/>.</para>
             
             </section>
         </section>
@@ -460,9 +463,9 @@
                     <emphasis>Failed</emphasis>.</para>
                     <para>To start classification select the <emphasis>Run Classifier</emphasis>
                     button. An entry will be added to the <emphasis>Classifier Run List</emphasis>.
-                    Since the table does not update automatically when a classification is
-                    completed, the user can select the <emphasis>Refresh Run List</emphasis> to
-                    force an update of the run list table.</para>
+                    Since the list does not update automatically when a classification is completed,
+                    the user can select the <emphasis>Refresh Run List</emphasis> to force an update
+                    of the run list list.</para>
                     <figure xml:id="classifier-tab"><title>Classifier Details</title><mediaobject>
                         <imageobject>
                             <imagedata fileref="images/classifier-tab.png"/>
@@ -502,11 +505,10 @@
                                 </example>.</para>
                     </listitem>
                 </itemizedlist></para>
-                  <para>The concepts under each of these categories are displayed in a table by
-                    default. To hide the details of a category, select the caret symbol next to
-                    table name to toggle between expanding and collapsing the table view. You also
-                    have the option of adding concepts to your briefcase to correct any
-                    issues.</para>
+                  <para>The concepts under each of these categories are displayed in a list by
+                    default. To hide the details of a category, select the caret symbol next to list
+                    name to toggle between expanding and collapsing the list view. You also have the
+                    option of adding concepts to your briefcase to correct any issues.</para>
                     <para>
                         <figure xml:id="classifier-details"><title>Classifier Details</title>
                             <mediaobject>
@@ -624,7 +626,7 @@
             <title>Adding a concept to the Briefcase from the Taxonomy</title>
             <para>Concepts in the taxonomy can be added to the briefcase by right-clicking to view
                     the context menu, and selecting Add to Briefcase. Some of the concepts displayed
-                    in tables and the Concept Details panel can also be added by this method.</para>
+                    in lists and the Concept Details panel can also be added by this method.</para>
             <para><figure xml:id="context-menu"><title>Context Menu</title>
                     <mediaobject>
                         <imageobject>
@@ -635,9 +637,9 @@
         </section>
            <section><title>Adding a concept to the Briefcase from Classifier Results</title>
                <para>To add a terminology to the briefase from some lists such as classifier page,
-                    select the briefcase icon (not all tables have this feature). In the example
-                    below, there is an Add to Briefcase icon on the 5th column of the members table
-                    and an option to Add all to Briefcase above the table.</para>
+                    select the briefcase icon (not all lists have this feature). In the example
+                    below, there is an Add to Briefcase icon on the 5th column of the members list
+                    and an option to Add all to Briefcase above the list.</para>
                
            </section>
            
@@ -646,7 +648,7 @@
                    <figure xml:id="add-briefcase"><title>Add to Briefcase</title>
                        <mediaobject>
                            <alt>Members tab under the concept Lateralizable body structure reference
-                                set with a table that contains the option to add to briefcase in the
+                                set with a list that contains the option to add to briefcase in the
                                 5th column</alt>
                            <imageobject>
                                <imagedata align="left" scalefit="1" width="75" contentdepth="75%" fileref="images/add-to-briefcase.png"/>
@@ -677,7 +679,7 @@
     <section xml:id="context-menu-section"><title>Context Menu</title>
         <para>A context menu appears when users right-click on the concept name either on the
             taxonomy tree <xref linkend="taxonomy-context-menu"/> or in the title of concept details
-            panel <xref linkend="concept-details-context-menu"/>. Some tables contain a context menu
+            panel <xref linkend="concept-details-context-menu"/>. Some lists contain a context menu
             througout the application.</para>
         <para>The context menu contains the following options:
             <itemizedlist>

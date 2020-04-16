@@ -6,61 +6,80 @@
     <title>Version and Export</title>
     <section xml:id="export-and-version">
         <title>Export and Version</title>
-        <para>Knowledge users with Content Manager or Administrator roles can create versions or
-            export content and access this functionality from the <emphasis>Task Pane</emphasis>,
-            see <xref linkend="export"/>; Editors can export content only and access this
-            functionality from the <emphasis>Short Cuts</emphasis> menu, <xref linkend="shortcuts"
-            />. The primary purpose of creating versions is to make releases and content available
-            to internal and external customers in release file format. Currently Knowledge supports
-            the generation of a SNOMED CT Release File Format 2 (RF2) release files.</para>
+        <para><?oxy_comment_start author="linds" timestamp="20200416T145703-0400" comment="Suggested rewrite: Knowledge users with Content Manager or Administrator roles can create versions or export content. This feature can be accessed by selecting Export Content from the drop down Shortcuts menu in (whatever this bar is called, I can&apos;t remember) bar. *Note - may want to add a screenshot of this here, but maybe there are plenty others so the user should know where this drop down menu is?*  The Create Export pop-up will appear - see Figure 1.1 Export. The primary purpose of creating versions is to make releases and content available to internal and external customers in release file format. Currently Knowledge supports the generation of a SNOMED CT Release File Format 2 (RF2) release files."?>Knowledge
+            users with
+            <?oxy_comment_start author="linds" timestamp="20200416T150614-0400" comment="On things like this, we need to be consistent on which one we&apos;re listing first - it just flows better as readers are going through these instructions. Below some of the instances say &quot;Administrator or Content Mananger&quot; where here it says Content Manager or Administrator. "?>Content
+            Manager or Administrator<?oxy_comment_end?> roles can create versions or export content
+            <?oxy_delete author="linds" timestamp="20200416T130302-0400" content="and"?><?oxy_insert_start author="linds" timestamp="20200416T130302-0400"?>by<?oxy_insert_end?>
+            access<?oxy_insert_start author="linds" timestamp="20200416T130307-0400"?>ing<?oxy_insert_end?>
+            this functionality from the <emphasis>Task Pane</emphasis>,
+            <?oxy_comment_start author="linds" timestamp="20200416T144852-0400" comment="Consider making the the figures caption and name bold and italicized. The way it reads in PDF is -  see Figure 1.1, “Export”; 
+
+So it just looks confusing and reads weird. "?>see
+                <xref linkend="export"/><?oxy_comment_end?>; Editors can export content only and
+            access this functionality from the
+                <emphasis>Short<?oxy_insert_start author="linds" timestamp="20200416T130132-0400"?>c<?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200416T130129-0400" content=" C"?>uts</emphasis>
+            menu,
+                <?oxy_comment_start author="linds" timestamp="20200416T144352-0400" comment="In PDF format, this appears as &quot;???&quot; "?><xref
+                linkend="shortcuts"/><?oxy_comment_end?>. The primary purpose of creating versions
+            is to make releases and content available to internal and external customers in release
+            file format. Currently Knowledge supports the generation of a SNOMED CT Release File
+            Format 2 (RF2) release files.<?oxy_comment_end?></para>
         
-         <section xml:id="export-steps"><title>Export with Editor Role</title><subtitle>With Editor Role</subtitle>
-             <para>To create an export with Editor role select <emphasis>Export</emphasis> under the
-                    <emphasis>Short Cuts</emphasis> menu, <xref linkend="shortcuts"/> and provide
-                the parameters specified in the <emphasis>Export Form</emphasis>, <xref
-                    linkend="export"/>:</para>
-             <para><itemizedlist>
-                 <listitem>
-                     <para>Select modules - Select the modules that you want to export from. The
-                            edit module  is selected by default. Select more than one module by
+         <section xml:id="export-steps">
+            <title>Export with Editor Role</title>
+            <?oxy_comment_start author="linds" timestamp="20200416T144642-0400" comment="This seems confusing in PDF format - like there is no Export with Editor Role With any other role...if that doesnt make sense we can discuss. "?>
+            <subtitle>With Editor Role<?oxy_comment_end?></subtitle>
+            <para>To create an export with Editor role select <emphasis>Export</emphasis> under the
+                    <emphasis>Short<?oxy_insert_start author="linds" timestamp="20200416T130120-0400"?>c<?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200416T130118-0400" content=" C"?>uts</emphasis>
+                menu,
+                    <?oxy_comment_start author="linds" timestamp="20200416T144403-0400" comment="In PDF format, this appears as &quot;???&quot; "?><xref
+                    linkend="shortcuts"/><?oxy_comment_end?> and provide the parameters specified in
+                the <emphasis>Export Form</emphasis>, <xref linkend="export"/>:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Select modules - Select the modules that you want to export from. The
+                            edit module is selected by default. Select more than one module by
                             holding the CTRL key while selecting multiple modules.</para>
-                 </listitem>
-                 <listitem>
-                     <para>Content range - Select the date range for the content you are
-                         exporting. Note that when the files are exported, the content's date
-                         stamp will be updated to the selected start date.</para>
-                 </listitem>
-                 <listitem>
-                     <para>Generate SCTID for content with missing IDs - Select this option when
-                         SCTIDs should be added to any newly created SNOMED CT concepts that do
-                         not have SCTIDs. Include the namespace identifier provided by SNOMED
-                         international when this option is selected.</para>
-                 </listitem>
-                 <listitem>
-                     <para>Export type - SNOMED CT RF2 is selected by default. The Solor RF2
-                         compatible release will be available in a future Knowledge
-                         release.</para>
-                 </listitem>
-             </itemizedlist></para>
-             <para>
-                 <figure>
-                     <title xml:id="export">Export</title>
-                     <mediaobject>
-                         <alt>Create an Export modal displays a form with the following information:
-                             select modules, content range, generate SCTIDs, namespace, export type,
-                             and buttons Create and Cancel.</alt>
-                         <imageobject>
-                             <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
-                                 fileref="images/export.png"/>
-                         </imageobject>
-                     </mediaobject>
-                 </figure>
-             </para>
-             <para>When an export is initiated a message is shown informing the user that an export
+                    </listitem>
+                    <listitem>
+                        <para>Content range - Select the date range for the content you are
+                            exporting. Note that when the files are exported, the content's date
+                            stamp will be updated to the selected start date.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Generate SCTID for content with missing IDs - Select this option when
+                            SCTIDs should be added to any newly created SNOMED CT concepts that do
+                            not have SCTIDs. Include the namespace identifier provided by SNOMED
+                            international when this option is selected.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Export type - SNOMED CT RF2 is selected by default. The Solor RF2
+                            compatible release will be available in a future Knowledge
+                            release.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <figure>
+                    <title xml:id="export">Export</title>
+                    <mediaobject>
+                        <alt>Create an Export modal displays a form with the following information:
+                            select modules, content range, generate SCTIDs, namespace, export type,
+                            and buttons Create and Cancel.</alt>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="60%" contentdepth="60%"
+                                fileref="images/export.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure>
+            </para>
+            <para>When an export is initiated a message is shown informing the user that an export
                 is in process, see <xref linkend="messages-export"/>. Once the export is ready,
                 Knowledge will notify you that the file is ready for download. Click on the export
                 message, and your browser will prompt you to download the file to your computer. The
-                download is made available for 5 mins and then expires,  see <xref
+                download is made available for 5 mins and then expires, see <xref
                     linkend="expired-download"/>.<figure>
                     <title xml:id="messages-export">Export</title>
                     <mediaobject>
@@ -86,15 +105,16 @@
                     </mediaobject>
                 </figure>
             </para>
-         </section>
+        </section>
              
         <section><title>Create a Version and Export</title>
             <subtitle>With Administrator or Content Manager Role</subtitle>
-             <para>If the user has the role of <emphasis>Administrator</emphasis> or
-                <emphasis>Content Manager</emphasis> the <emphasis>Version and Export</emphasis> 
-                tab in the Task Pane is displayed. The <emphasis>Version and Export</emphasis> tab allows the user to 
-                create a version or initiate an export by selecting the version or export button. 
-                </para>
+             <para>If the user has the role of
+                    <emphasis><?oxy_comment_start author="linds" timestamp="20200416T150106-0400" comment="Are we going emphasize these? If so we need to do so throughout the file. I like the emphasis but it&apos;s not up to me! "?>Administrator</emphasis>
+                or <emphasis>Content Manager<?oxy_comment_end?></emphasis> the <emphasis>Version and
+                    Export</emphasis> tab in the Task Pane is displayed. The <emphasis>Version and
+                    Export</emphasis> tab allows the user to create a version or initiate an export
+                by selecting the version or export button. </para>
             <para>
                 <figure>
                     <title xml:id="export-or-version-admin">Version and Export</title>
@@ -119,10 +139,12 @@
             </para>
            
             <section><title>Export</title> <subtitle>As an Administrator or Content Manager</subtitle>
-                <para>An Administrator or Content Manager can initiate an export by selecting the 
-                    <emphasis>Export</emphasis> button in the Version and Export tab or selecting 
-                    <emphasis>Export</emphasis> from the shortcuts menu. The workflow is the same as 
-                    described in <xref linkend="export-steps" /> </para>
+                <para>An Administrator or Content Manager can initiate an export by selecting the
+                        <emphasis>Export</emphasis> button in the Version and Export tab or
+                    selecting <emphasis>Export</emphasis> from the
+                    <?oxy_comment_start author="linds" timestamp="20200416T150334-0400" comment="Are we using &quot;shortcuts&quot; or &quot;Shortcuts&quot; - and do we want to emphasize all of these mentions? This is mainly a note for me to remember to check all of these things when we do the full USer Guide review. "?>shortcuts<?oxy_comment_end?>
+                    menu. The workflow is the same as described in <xref linkend="export-steps"/>
+                </para>
             </section>
             
         <section><title>Version</title>
@@ -236,16 +258,21 @@
                         </figure>
                     </para>                      
             <para>If <emphasis>Perform QA</emphasis> tests was selected and you wish to view the
-                    results select the <emphasis>Open QA Run</emphasis> link or if <emphasis>Run
-                        classifier</emphasis> was selected and you wish to view the classification
-                    results select the link <emphasis>Open Classifier run</emphasis>. You will be
-                    brought to either the QA or Classifier results depending on what was selected.
-                    If  <emphasis>create and download an export file</emphasis> was selected the
-                    export file can be downloaded to the user's computer by selecting the
-                        <emphasis>Release file available</emphasis> link. In the Knowledge
+                    results<?oxy_insert_start author="linds" timestamp="20200416T151725-0400"?>,<?oxy_insert_end?>
+                    select the <emphasis>Open QA Run</emphasis>
+                    link<?oxy_insert_start author="linds" timestamp="20200416T151734-0400"?>.
+                    <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200416T151735-0400" content=" or i"?><?oxy_insert_start author="linds" timestamp="20200416T151737-0400"?>I<?oxy_insert_end?>f
+                        <emphasis>Run classifier</emphasis> was selected and you wish to view the
+                    classification results select the link <emphasis>Open Classifier run</emphasis>.
+                    You will be brought to either the QA or Classifier results depending on what was
+                    selected. If <emphasis>create and download an export file</emphasis> was
+                    selected the export file can be downloaded to the user's computer by selecting
+                    the <emphasis>Release file available</emphasis> link. In the Knowledge
                     demonstration environment the export results will be available for a limited
-                    time and is not uploaded to a repository. In a production Knowledge environment
-                    the customer can choose to include uploading a version export to a repository.<figure>
+                    time and
+                    <?oxy_delete author="linds" timestamp="20200416T151813-0400" content="is"?><?oxy_insert_start author="linds" timestamp="20200416T151813-0400"?>are<?oxy_insert_end?>
+                    not uploaded to a repository. In a production Knowledge environment the customer
+                    can choose to include uploading a version export to a repository.<figure>
                         <title xml:id="gen-version-results">Version Results</title>
                         <mediaobject>
                             <alt/>
@@ -260,3 +287,4 @@
       </section>
     </section>
 </chapter>
+<?oxy_options track_changes="on"?>

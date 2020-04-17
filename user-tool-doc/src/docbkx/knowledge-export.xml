@@ -6,36 +6,39 @@
     <title>Version and Export</title>
     <section xml:id="export-and-version">
         <title>Export and Version</title>
-        <para><?oxy_comment_start author="linds" timestamp="20200416T145703-0400" comment="Suggested rewrite: Knowledge users with Content Manager or Administrator roles can create versions or export content. This feature can be accessed by selecting Export Content from the drop down Shortcuts menu in (whatever this bar is called, I can&apos;t remember) bar. *Note - may want to add a screenshot of this here, but maybe there are plenty others so the user should know where this drop down menu is?*  The Create Export pop-up will appear - see Figure 1.1 Export. The primary purpose of creating versions is to make releases and content available to internal and external customers in release file format. Currently Knowledge supports the generation of a SNOMED CT Release File Format 2 (RF2) release files."?>Knowledge
+        <para>Knowledge users with Content Manager or Administrator roles can create versions 
+            or export content. This feature can be accessed by selecting Export Content from the 
+            drop down Shortcuts menu in the Navigation bar <xref linkend="shortcuts"/>  The Create Export 
+            pop-up will appear - see Figure 1.1 Export. The primary purpose of creating versions 
+            is to make releases and content available to internal and external customers in release 
+            file format. Currently Knowledge supports the generation of a SNOMED CT Release File 
+            Format 2 (RF2) release files.</para>
+        <para><?oxy_comment_start author="linds" timestamp="20200416T145703-0400" comment="Suggested rewrite: Knowledge users with Content Manager or Administrator roles can create versions or export content. This feature can be accessed by selecting Export Content from the drop down Shortcuts menu in (whatever this bar is called, I can&apos;t remember) bar. *Note - may want to add a screenshot of this here, but maybe there are plenty others so the user should know where this drop down menu is?*  The Create Export pop-up will appear - see Figure 1.1 Export. The primary purpose of creating versions is to make releases and content available to internal and external customers in release file format. Currently Knowledge supports the generation of a SNOMED CT Release File Format 2 (RF2) release files." flag="done"?>Knowledge
             users with
             <?oxy_comment_start author="linds" timestamp="20200416T150614-0400" comment="On things like this, we need to be consistent on which one we&apos;re listing first - it just flows better as readers are going through these instructions. Below some of the instances say &quot;Administrator or Content Mananger&quot; where here it says Content Manager or Administrator. "?>Content
             Manager or Administrator<?oxy_comment_end?> roles can create versions or export content
-            <?oxy_delete author="linds" timestamp="20200416T130302-0400" content="and"?><?oxy_insert_start author="linds" timestamp="20200416T130302-0400"?>by<?oxy_insert_end?>
-            access<?oxy_insert_start author="linds" timestamp="20200416T130307-0400"?>ing<?oxy_insert_end?>
-            this functionality from the <emphasis>Task Pane</emphasis>,
+            by accessing this functionality from the <emphasis>Task Pane</emphasis>,
             <?oxy_comment_start author="linds" timestamp="20200416T144852-0400" comment="Consider making the the figures caption and name bold and italicized. The way it reads in PDF is -  see Figure 1.1, “Export”; 
 
-So it just looks confusing and reads weird. "?>see
-                <xref linkend="export"/><?oxy_comment_end?>; Editors can export content only and
-            access this functionality from the
-                <emphasis>Short<?oxy_insert_start author="linds" timestamp="20200416T130132-0400"?>c<?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200416T130129-0400" content=" C"?>uts</emphasis>
-            menu,
-                <?oxy_comment_start author="linds" timestamp="20200416T144352-0400" comment="In PDF format, this appears as &quot;???&quot; "?><xref
-                linkend="shortcuts"/><?oxy_comment_end?>. The primary purpose of creating versions
-            is to make releases and content available to internal and external customers in release
-            file format. Currently Knowledge supports the generation of a SNOMED CT Release File
-            Format 2 (RF2) release files.<?oxy_comment_end?></para>
+So it just looks confusing and reads weird. " id="ukv_4rs_jlb"?><?oxy_comment_start author="susancastillo" timestamp="20200416T140512-0700" comment="We&apos;d have to do it manually. Changing the oxygen template is what is needed to make things bold, captioned, etc" parentID="ukv_4rs_jlb" mid="3"?>see
+                <xref linkend="export"/><?oxy_comment_end?><?oxy_comment_end mid="3"?>; Editors can
+            export content only and access this functionality from the
+                <emphasis>Short<?oxy_insert_start author="linds" timestamp="20200416T130132-0400"?>c<?oxy_insert_end?>uts</emphasis>
+            menu, <xref linkend="shortcuts"/>. The primary purpose of creating versions is to make
+            releases and content available to internal and external customers in release file
+            format. Currently Knowledge supports the generation of a SNOMED CT Release File Format 2
+            (RF2) release files.<?oxy_comment_end?></para>
         
          <section xml:id="export-steps">
             <title>Export with Editor Role</title>
             <?oxy_comment_start author="linds" timestamp="20200416T144642-0400" comment="This seems confusing in PDF format - like there is no Export with Editor Role With any other role...if that doesnt make sense we can discuss. "?>
             <subtitle>With Editor Role<?oxy_comment_end?></subtitle>
             <para>To create an export with Editor role select <emphasis>Export</emphasis> under the
-                    <emphasis>Short<?oxy_insert_start author="linds" timestamp="20200416T130120-0400"?>c<?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200416T130118-0400" content=" C"?>uts</emphasis>
-                menu,
-                    <?oxy_comment_start author="linds" timestamp="20200416T144403-0400" comment="In PDF format, this appears as &quot;???&quot; "?><xref
-                    linkend="shortcuts"/><?oxy_comment_end?> and provide the parameters specified in
-                the <emphasis>Export Form</emphasis>, <xref linkend="export"/>:</para>
+                    <emphasis>Shortcuts</emphasis> menu,
+                    <?oxy_comment_start author="linds" timestamp="20200416T144403-0400" comment="In PDF format, this appears as &quot;???&quot; " id="l5h_rrs_jlb"?><?oxy_comment_start author="susancastillo" timestamp="20200416T140555-0700" comment="if you don&apos;t create the whole user guide and a reference is in another file you get ???" parentID="l5h_rrs_jlb" mid="6"?><xref
+                    linkend="shortcuts"/><?oxy_comment_end?><?oxy_comment_end mid="6"?> and provide
+                the parameters specified in the <emphasis>Export Form</emphasis>, <xref
+                    linkend="export"/>:</para>
             <para>
                 <itemizedlist>
                     <listitem>
@@ -258,21 +261,16 @@ So it just looks confusing and reads weird. "?>see
                         </figure>
                     </para>                      
             <para>If <emphasis>Perform QA</emphasis> tests was selected and you wish to view the
-                    results<?oxy_insert_start author="linds" timestamp="20200416T151725-0400"?>,<?oxy_insert_end?>
-                    select the <emphasis>Open QA Run</emphasis>
-                    link<?oxy_insert_start author="linds" timestamp="20200416T151734-0400"?>.
-                    <?oxy_insert_end?><?oxy_delete author="linds" timestamp="20200416T151735-0400" content=" or i"?><?oxy_insert_start author="linds" timestamp="20200416T151737-0400"?>I<?oxy_insert_end?>f
-                        <emphasis>Run classifier</emphasis> was selected and you wish to view the
-                    classification results select the link <emphasis>Open Classifier run</emphasis>.
-                    You will be brought to either the QA or Classifier results depending on what was
-                    selected. If <emphasis>create and download an export file</emphasis> was
-                    selected the export file can be downloaded to the user's computer by selecting
-                    the <emphasis>Release file available</emphasis> link. In the Knowledge
+                    results, select the <emphasis>Open QA Run</emphasis> link. If <emphasis>Run
+                        classifier</emphasis> was selected and you wish to view the classification
+                    results select the link <emphasis>Open Classifier run</emphasis>. You will be
+                    brought to either the QA or Classifier results depending on what was selected.
+                    If <emphasis>create and download an export file</emphasis> was selected the
+                    export file can be downloaded to the user's computer by selecting the
+                        <emphasis>Release file available</emphasis> link. In the Knowledge
                     demonstration environment the export results will be available for a limited
-                    time and
-                    <?oxy_delete author="linds" timestamp="20200416T151813-0400" content="is"?><?oxy_insert_start author="linds" timestamp="20200416T151813-0400"?>are<?oxy_insert_end?>
-                    not uploaded to a repository. In a production Knowledge environment the customer
-                    can choose to include uploading a version export to a repository.<figure>
+                    time and are not uploaded to a repository. In a production Knowledge environment
+                    the customer can choose to include uploading a version export to a repository.<figure>
                         <title xml:id="gen-version-results">Version Results</title>
                         <mediaobject>
                             <alt/>
@@ -287,4 +285,5 @@ So it just looks confusing and reads weird. "?>see
       </section>
     </section>
 </chapter>
+
 <?oxy_options track_changes="on"?>

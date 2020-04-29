@@ -6,44 +6,41 @@
     <title>Logging In to Knowledge</title>
     <para>When the administrator creates an account for you, you will receive an email, which will
         contain login information (be sure to check your spam folder). If you do not receive an
-        email with your account and login information, please contact your Knowledge administrator. </para>
+        email with your account and login information, please contact your Knowledge Administrator. </para>
     <section>
         <title>User Roles</title>
         <para>A user is given at least one role and can also have more than one role in Knowledge.
             There are six roles in Knowledge: <itemizedlist>
                 <listitem>
-                    <para><emphasis>Read role</emphasis>: users with this role can view
+                    <para>Read : users with this role can view content</para>
+                </listitem>
+                <listitem>
+                    <para>Editor: user's can modify content, create new content, search, classify,
+                        and export content</para>
+                </listitem>
+                <listitem>
+                    <para>Content Manager: the Content Manager has all the capabilities of the
+                        Editor role, export content, and can release content</para>
+                </listitem>
+                <listitem>
+                    <para>System Manager: the System Manager can has administrative privileges to
+                        manage users and their roles</para>
+                </listitem>
+                <listitem>
+                    <para>Administrator: administrators can create user accounts, modify user
+                        accounts, edit content, create content, export content and release
                         content</para>
                 </listitem>
                 <listitem>
-                    <para><emphasis>Editor role</emphasis>: user's can modify content, create new
-                        content, search, classify, and export content</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis>Content Manager</emphasis>: the Content Manager has all the
-                        capabilities of the Editor role, export content, and can release
-                        content</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis>System Manager</emphasis>: the System Manager can has
-                        administrative privileges to manage users and their roles</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis>Administrator role</emphasis>: administrators can create user
-                        accounts, modify user accounts, edit content, create content, export content
-                        and release content</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis>Automated</emphasis>: This is a role used for system to system
-                        communication</para>
+                    <para>Automated: This is a role used for system to system communication</para>
                 </listitem>
             </itemizedlist></para>
     </section>
     <section>
         <title>Login</title>
-        <para>To Login enter your username (is not case sensitive) and password (is case sensitive).
-            If <emphasis>Remember my username</emphasis> is selected your username will be
-            remembered the next time you login.
+        <para>To login, enter your username (is not case sensitive) and password (is case
+            sensitive). If <emphasis>Remember My Username</emphasis> is selected your username will
+            be remembered the next time you login.
             <?oxy_comment_start author="susancastillo" timestamp="20200309T213834-0700" comment="need to confirm functionality with dan"?>If
             you forget your username or password select the appropriate link on the Knowledge Login
             screen and an email will be sent to you with your username or a link to reset your
@@ -65,29 +62,28 @@
                 in <xref linkend="author-login"/>. </para>
         <para>From this page you can: <itemizedlist>
                 <listitem>
-                    <para>select the <emphasis role="bold">Profile </emphasis> menu option to change
-                            your profile information</para>
+                    <para>select the <emphasis>Profile</emphasis> menu option to change your profile
+                            information</para>
                 </listitem>
                 <listitem>
                     <para><emphasis>add</emphasis> a user or <emphasis>modify</emphasis> a user's
-                            role if you are an <emphasis role="bold">administrator</emphasis></para>
+                            role if you are an Administrator</para>
                 </listitem>
                 <listitem>
-                    <para>select the <emphasis role="bold">Go To Editor</emphasis> button to go to
-                        the Knowledge Editor</para>
+                    <para>select the <emphasis>Go To Editor</emphasis> button to go to the Knowledge
+                            Editor</para>
                 </listitem>
                 <listitem>
-                    <para>select the <emphasis role="bold">Go To API</emphasis> button to view the
-                            Rest API documentation</para>
+                    <para>select the <emphasis>Go To API</emphasis> button to view the Rest API
+                            documentation</para>
                 </listitem>
                     <listitem>
-                        <para>select the <emphasis><emphasis role="bold">Go To Auth
-                                API</emphasis></emphasis> button to view the Authentication API
-                            documentaiton</para>
+                        <para>select the <emphasis>Go To Auth API </emphasis>button to view the
+                            Authentication API documentaiton</para>
                     </listitem>
                 <listitem>
-                    <para>select the <emphasis role="bold">Logout</emphasis> button to logout of the
-                        application</para>
+                    <para>select the <emphasis>Logout</emphasis> button to logout of the
+                            application</para>
                 </listitem></itemizedlist></para>
             <para><figure xml:id="author-login">
                 <title>Knowledge Homepage</title>
@@ -108,7 +104,7 @@
     </section>
     <section>
         <title>Edit Profile</title>
-        <para>To select the <emphasis>Profile</emphasis> menu option to change:<itemizedlist>
+        <para>Select the <emphasis>Profile</emphasis> menu option to change:<itemizedlist>
                 <listitem>
                     <para>Display name</para>
                 </listitem>
@@ -122,7 +118,7 @@
                     <para>Change password</para>
                 </listitem>
             </itemizedlist>To save changes select the <emphasis>Save</emphasis> button. Selecting
-            the <emphasis>Cancel</emphasis>button will discard changes made. <figure>
+            the Cancel button will discard changes made. <figure>
                 <title>User Profile</title>
                 <mediaobject>
                     <imageobject>

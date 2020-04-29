@@ -4,15 +4,15 @@
 <chapter xml:id="editor-chapter" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title>Knowledge Editor</title>
     
-    <para>The Editor allows users to view, modify, create concepts, modify concepts, classify,
-        create versions, export versions, create value sets and modify value sets. This chapter
-        provides an overview of the Editor layout and details of the editing functionality such as,
-        creating new content, modifying content, and exporting content.  All users in Knowledge are
-        able to see changes made by other users in real-time. </para>    
+    <para>The Editor allows users to view, create concepts, modify concepts, classify, create
+        versions, export versions, create value sets and modify value sets. This chapter provides an
+        overview of the Editor layout and details of the editing functionality such as, creating new
+        content, modifying content, and exporting content. All users in Knowledge are able to see
+        changes made by other users in real-time. </para>    
  
     <para>The Knowledge Editor is divided into three sections: the <emphasis role="italic">Task
             Pane</emphasis>, the <emphasis role="italic">Concept Details</emphasis>, and the
-            <emphasis>navigation</emphasis> bar, see <xref linkend="layout"/>: <orderedlist>
+            <emphasis>Navigation Bar</emphasis>, see <xref linkend="layout"/>: <orderedlist>
             <listitem>
                 <para><emphasis role="bold">Task Pane</emphasis> – The Task Pane consists of several
                     tabs that contain the following functionality: <orderedlist>
@@ -25,7 +25,7 @@
                         </listitem>
                         <listitem>
                             <para>Search – the search function enables the user to search for
-                                specific descriptions, ids and other values.</para>
+                                specific descriptions, IDs and other values.</para>
                         </listitem>
                         <listitem>
                             <para>Classifier – the user can run the classifier and view results of
@@ -51,8 +51,8 @@
                     displays details of the concept selected in the task pane.</para>
             </listitem>
             <listitem>
-                <para><emphasis role="bold">Navigation</emphasis> – The Navigation bar enables fast
-                    access to functions e.g. New Concept, Run Classifier, Modify global display
+                <para><emphasis role="bold">Navigation Bar</emphasis> – The Navigation bar enables
+                    fast access to functions e.g. New Concept, Run Classifier, Modify global display
                     options.</para>
             </listitem>
         </orderedlist>
@@ -60,7 +60,7 @@
             <title>Knowledge Editor Layout</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata align="left" scalefit="1" width="100%" contentdepth="100%" 
+                    <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
                         fileref="images/Editor-layout2.png"/>
                 </imageobject>
             </mediaobject>
@@ -77,11 +77,11 @@
             <para>The tree-like structure of the Taxonomy View allows users to navigate content from
                 a top-down view – users can navigate up or down the lineage of the content by
                 selecting the <emphasis>caret</emphasis> symbol on the left. The user can also
-                select to display the <emphasis role="italic">inferred</emphasis> or <emphasis
-                    role="italic">stated</emphasis> view of the content (the <emphasis role="italic"
-                    >inferred</emphasis> view displayed by default). The inferred view shows the
+                select to display the <emphasis role="italic">Inferred</emphasis> or <emphasis
+                    role="italic">Stated</emphasis> view of the content (the <emphasis role="italic"
+                    >Inferred</emphasis> view is displayed by default). The inferred view shows the
                 parent-child lineage that is derived by inferences through a set of logical rules
-                and related concepts; the <emphasis role="italic">stated</emphasis> view shows the
+                and related concepts; the <emphasis role="italic">Stated</emphasis> view shows the
                 parent-child lineage that is set by the editor when creating the concept. </para>
             <para><figure xml:id="taxonomy-view">
                 <title>Taxonomy</title>
@@ -95,12 +95,13 @@
         </para>
            
         <section><title>Status</title>
-                  <para>The Taxonomy Tree can display <emphasis role="italic">active</emphasis> only
-                    concepts or both <emphasis role="italic">active</emphasis> and <emphasis role="italic">inactive</emphasis> concepts. Inactive concepts will display
-                    in <emphasis>italics</emphasis>. The default is set to display
-                        only<emphasis>active</emphasis> concepts. To see both status types, change
-                    the settings under <emphasis>Display Options</emphasis> in the top right hand
-                    corner of the <emphasis>Task Pane</emphasis>.</para>
+                  <para>The Taxonomy Tree can display <emphasis role="italic">Active</emphasis> only
+                    concepts or both <emphasis role="italic">Active</emphasis> and <emphasis
+                        role="italic">Inactive</emphasis> concepts. <emphasis>Inactive</emphasis>
+                    concepts will display in <emphasis>italics</emphasis>. The default is set to
+                    display only <emphasis>Active</emphasis> concepts. To see both status types,
+                    change the settings under <emphasis>Display Options</emphasis> in the top right
+                    hand corner of the <emphasis>Task Pane</emphasis>.</para>
         </section>
 <!--   not currently easily changeble in UI will omit for now     <section><title>Display Type</title>
            <para>The user has an additional option to display concepts in the Taxonomy Tree by
@@ -113,8 +114,8 @@
                 expanded and the user would like to collapse them all.</para>
         </section>
         <section xml:id="concept-type"><title>Concept Type – Defined versus Primitive</title>
-            <para>In Knowledge, concepts are created as either a <emphasis>defined</emphasis> or
-                        <emphasis>primitive</emphasis>. <itemizedlist>
+            <para>In Knowledge, concepts are created as either a <emphasis>Defined</emphasis> or
+                        <emphasis>Primitive</emphasis>. <itemizedlist>
                         <listitem>
                             <para><inlinemediaobject>
                                     <imageobject>
@@ -124,7 +125,7 @@
                                         <phrase>Defined concept</phrase>
                                     </textobject>
                                 </inlinemediaobject>Defined – A concept that is
-                                    <emphasis>defined</emphasis> is represented by a green circle. A
+                                    <emphasis>Defined</emphasis> is represented by a green circle. A
                                 concept is considered defined by unique relationships between its
                                 relatives (e.g. siblings and parents).</para>
                         </listitem>
@@ -135,7 +136,7 @@
                                         <imagedata format="SVG" fileref="images/hexagon.svg"/>
                                     </imageobject>
                                 </inlinemediaobject>Primitive – A concept that is
-                                    <emphasis>primitive</emphasis> is represented by an orange
+                                    <emphasis>Primitive</emphasis> is represented by an orange
                                 hexagon and signifies that its attributes and parents composing the
                                 concept are non-definitive characteristics. </para>
                         </listitem>
@@ -169,21 +170,24 @@
          
         <section><title>Sets</title>
               <para> The <emphasis>Sets</emphasis> tab allows a user to create, view, and modify
-                both Value and Map sets. A Value Set is a collection of concepts used for a specific
-                purpose (e.g. Wound Color Value Set would contain the concepts needed to describe
-                the color of a wound). A Map Set provides link between one terminology and another
-                (e.g. SNOMED CT to LOINC mapping). </para> 
+                both Value and Map sets. A <emphasis>Value Set</emphasis> is a collection of
+                concepts used for a specific purpose (e.g. Wound Color Value Set would contain the
+                concepts needed to describe the color of a wound). A <emphasis>Map Set
+                </emphasis>provides link between one terminology and another (e.g. SNOMED CT to
+                LOINC mapping). </para> 
                 <section>
                 <title>Creating a Value Set</title>
-                    <para>A Value Set, also known as an assemblage or a reference set (refset), contains a
-                    collection of concepts used for a particular purpose determined by its author.
-                        <example><title>Value Set Usage</title><para>Lateralizable body structure reference
-                            set is a SNOMED CT refset that can be used to specify which arm a 
-                            blood pressure was taken.</para></example></para>
+                    <para>A <emphasis>Value Set</emphasis>, also known as an assemblage or a
+                    reference set (refset), contains a collection of concepts used for a particular
+                    purpose determined by its author. <example>
+                        <title>Value Set Usage</title>
+                        <para>Lateralizable body structure reference set is a SNOMED CT refset that
+                            can be used to specify which arm a blood pressure was taken.</para>
+                    </example></para>
                     <para>There are two ways to create a new value set: selecting <emphasis>New
                         Value Set</emphasis> under the Shortcuts navigation menu, or by selecting
                     the <emphasis>New</emphasis> button under the <emphasis>Sets</emphasis> tab in
-                    the <emphasis>Task</emphasis> pane. </para>
+                    the <emphasis>Task Pane</emphasis>. </para>
                 <para>To create a Value Set, select the Sets tab in the left panel, change the
                         <emphasis>View Group</emphasis> to <emphasis>Value Sets</emphasis> and
                     select <emphasis>New</emphasis> to create a concept for the Value Set, see 
@@ -206,13 +210,13 @@
                     <title>Adding Members to a Value Set</title>
                     <para>To add members to a value set, select the value set in the list and then
                         select <emphasis>Edit</emphasis> when viewing the value set's details
-                        (located on the top right corner). This will take you the edit view where
+                        (located on the top right corner). This will take you to the edit view where
                         concepts can be added to the value set, removed from the value set, or added
                         to the Briefcase, see <xref linkend="value-set-members"/>. If you do not see
                         the members, select the <emphasis>Members</emphasis> tab on the right panel
                         after opening the value set details.</para>
                     <para>Select <emphasis>Add Member</emphasis> to find concepts to add, select the
-                        remove icon to remove them, and select the add to briefcase icon to add any
+                        remove icon to remove them, and select the Add to Briefcase icon to add any
                         of them to your briefcase. </para>
                     <para>
                         <figure xml:id="value-set-members">
@@ -225,8 +229,9 @@
                             </mediaobject>
                         </figure>
                     </para>
-                    <para>When you are ready to add the concepts in the Value Set Membership Changes
-                        list to the Members of this Value Set list, select Save. </para>
+                    <para>When you are ready to add the concepts in the <emphasis>Value Set
+                            Membership Changes</emphasis> list to the <emphasis>Members of this
+                            Value Set</emphasis> list, select <emphasis>Save</emphasis>. </para>
                     <para>If there are any conflicts, error notifications will display the
                         information to help you decide how to resolve them. </para>
                 </simplesect>
@@ -234,10 +239,11 @@
                     <title>Inactivating Value Set Members</title>
                     <para>To inactivate members from a refset, select the <emphasis>Edit
                             Members</emphasis> button when viewing the refset details. This will
-                        take you to Edit Mode, where you can remove members from the list by
-                        selecting the <emphasis>X</emphasis> icon. The system will display your
-                        selection in the list <emphasis>Value Set membership Changes</emphasis> for
-                        review. Press Save to confirm your updates.</para>
+                        take you to <emphasis>Edit Mode</emphasis>, where you can remove members
+                        from the list by selecting the <emphasis>X</emphasis> icon. The system will
+                        display your selection in the list <emphasis>Value Set Membership
+                            Changes</emphasis> for review. Press <emphasis>Save</emphasis> to
+                        confirm your updates.</para>
                     <para>Members cannot be removed from the list, only deactivated. A user can
                         reactivate the concept anytime.</para>
                 </simplesect>
@@ -249,9 +255,9 @@
                         monitoring</emphasis> can be mapped to LOINC's <emphasis>Vital signs with
                         method details panel</emphasis> and <emphasis>Vital signs with smoking
                         status and pain scale [VSP]</emphasis>.</para>
-            <para>To create a map set, go to the Sets tab in the left panel, make sure that
-                        <emphasis>View Group</emphasis> is set to <emphasis>Map Set</emphasis> and
-                    select New to open the form.</para>
+            <para>To create a map set, go to the <emphasis>Sets</emphasis> tab in the left panel,
+                    make sure that <emphasis>View Group</emphasis> is set to <emphasis>Map
+                        Set</emphasis> and select <emphasis>New</emphasis> to open the form.</para>
                     <para><figure xml:id="mapsets-table">
                         <title>Map Sets list</title><mediaobject>
                     <imageobject>
@@ -259,19 +265,21 @@
                     </imageobject>
                         </mediaobject></figure></para>
                     <para>There are 3 tabs in the Concept Details panel for the user to fill out:
-                Definition, Item Fields, and Business Rules.</para>
+                        <emphasis>Definition</emphasis>, <emphasis>Item Fields</emphasis>, and
+                        <emphasis>Business Rules</emphasis>.</para>
                     <itemizedlist>
                         <listitem>
                             <para>Definition - Enter the name, purpose, and any additional
                             information that users may need for the new map set. You can add more
-                            fields, such as source code version, by selecting the Add More Fields
-                            button on the left.</para>
+                            fields, such as source code version, by selecting the <emphasis>Add More
+                                Fields</emphasis> button on the left.</para>
                         </listitem>
                         <listitem>
                             <para>Item Fields - These are column headers to display when you view
-                            the map sets. Source description, target description, and equivalence
-                            type are selected by default, but you may add more fields or rearrange
-                            the order of the columns displayed by selecting the <emphasis>Add More
+                            the map sets. <emphasis>Source Description</emphasis>, <emphasis>Target
+                                Description</emphasis>, and <emphasis>Equivalence Type</emphasis>
+                            are selected by default, but you may add more fields or rearrange the
+                            order of the columns displayed by selecting the <emphasis>Add More
                                 Fields</emphasis> to Map Set Items button.</para>
                         </listitem>
                         <listitem>
@@ -281,26 +289,29 @@
                                                    </listitem>
                         
                     </itemizedlist>
-                    <para>After entering all relevant information, press the save button at the top
-                    of the panel. You will add concepts to this set later. The new map set should
-                    appear in the left panel's Map Sets list. If you do not see it there, press the
-                    Refresh button.</para>
+                    <para>After entering all relevant information, press the
+                        <emphasis>Save</emphasis> button at the top of the panel. You will add
+                    concepts to this set later. The new map set should appear in the left panel's
+                        <emphasis>Map Sets</emphasis> list. If you do not see it there, press the
+                        <emphasis>Refresh</emphasis> button.</para>
             <simplesect>
                 <title>Adding concepts to a new Map Set</title>
                 <para>At this point, make sure that the map set you just created is open on the
                         right panel. Select <emphasis>Edit</emphasis> on the top right corner of the
-                        panel, then take a look at the Map Set Items list. There should be a
-                        plus-icon you can select to begin adding concepts to the list.</para>
+                        panel, then take a look at the <emphasis>Map Set Items</emphasis> list.
+                        There should be a <emphasis>plus-icon</emphasis> you can select to begin
+                        adding concepts to the list.</para>
                 <para><figure xml:id="new-map-set">
                     <title>Adding Concepts to a Map Set: Step 1</title><mediaobject>
                         <imageobject>
                             <imagedata align="left" scalefit="1" width="40%" contentdepth="40%" fileref="images/new-map-set.png"/>
                         </imageobject>
                     </mediaobject></figure></para>
-                <para>After selecting the plus-icon, the list will fill with a row of droplists.
-                        Type in the concepts you wish to link as the source and target descriptions.
-                        Adjust the equivalence type as necessary, add a comment as needed, and press
-                        the Save button to confirm your modifications. <figure xml:id="new-map-set2">
+                <para>After selecting the <emphasis>plus-icon</emphasis>, the list will fill with a
+                        row of droplists. Type in the concepts you wish to link as the source and
+                        target descriptions. Adjust the equivalence type as necessary, add a comment
+                        as needed, and press the <emphasis>Save</emphasis> button to confirm your
+                        modifications. <figure xml:id="new-map-set2">
                             <title>Adding Concepts to a Map Set: Step 2</title>
                             <mediaobject>
                                 <imageobject>
@@ -308,22 +319,23 @@
                                         contentdepth="40%" fileref="images/new-map-set-2.png"/>
                                 </imageobject>
                             </mediaobject>
-                            <para>To remove a concept, press the X-icon on the very right of the map
-                                set list.</para>
+                            <para>To remove a concept, press the <emphasis>X-icon</emphasis> on the
+                                very right of the map set list.</para>
                         </figure></para>
             </simplesect>
             </section>
             </section>
             <section><title>Search</title>
                 <para>Knowledge has implemented Lucene, an open-source full-text search library, as
-                one of its search engines. Search can be performed using keywords and Lucene query
+                one of its search engines. A search can be performed using keywords and Lucene query
                 syntax. To begin searching, select the <emphasis>Search</emphasis> tab on the left
-                panel, then fill in the fields as needed. Both Simple Search and Advanced Search use
-                Lucene. For more details on the Lucene search syntax refer to the <link
-                    xlink:href="http://www.lucenetutorial.com"> Lucene tutorial</link>
+                panel, then fill in the fields as needed. Both <emphasis>Simple Search</emphasis>
+                and <emphasis>Advanced Search</emphasis> use Lucene. For more details on the Lucene
+                search syntax refer to the <link xlink:href="http://www.lucenetutorial.com"> Lucene
+                    tutorial</link>
                 <itemizedlist>
                     <listitem>
-                        <para>Simple Search – searches for descriptions that matches the search
+                        <para>Simple Search – searches for descriptions that match the search
                             phrase</para>
                     </listitem>
                     <listitem>
@@ -334,19 +346,19 @@
                 </itemizedlist></para>
             <section>
             <title>Simple Search</title>
-            <para>Terminologies can be searched by keywords under the Search tab in the task pane.
-                    Type in keywords in the <emphasis>Search Text</emphasis> field, then select the
-                        <emphasis>Search</emphasis> button to start the search, <xref
-                        linkend="search-tab"/>. </para>
-            <para>Simple search allows users to search for the keywords typed in the search box.
-                    Selecting the search button will return all descriptions that match. Keywords
-                    used in simple search are single terms or phrases. A Single Term is a single
-                    word such as <emphasis>test</emphasis> or <emphasis>hello</emphasis>. A Phrase
-                    is a group of words surrounded by double quotes such as <emphasis>hello
-                        dolly</emphasis>. If a group of words without double quotes are used such as
-                        <emphasis>hello</emphasis>
+            <para>Terminologies can be searched by keywords under the <emphasis>Search</emphasis>
+                    tab in the task pane. Type in keywords in the <emphasis>Search Text</emphasis>
+                    field, then select the <emphasis>Search</emphasis> button to start the search,
+                        <xref linkend="search-tab"/>. </para>
+            <para><emphasis>Simple Search</emphasis> allows users to search for the keywords typed
+                    in the search box. Selecting the search button will return all descriptions that
+                    match. Keywords used in simple search are single terms or phrases. A single term
+                    is a single word such as <emphasis>test</emphasis> or
+                        <emphasis>hello.</emphasis> A phrase is a group of words surrounded by
+                    double quotes such as <emphasis>"hello dolly."</emphasis> If a group of words
+                    without double quotes are used such as <emphasis>hello</emphasis>
                     <emphasis>goodbye</emphasis>, then the results will display results that contain
-                    either “hello” or “goodbye”. Multiple terms can be combined with Boolean
+                    either “hello” or “goodbye.” Multiple terms can be combined with Boolean
                     operators to form a more complex query. Review Lucene query <link
                         xlink:href="http://www.lucenetutorial.com/lucene-query-syntax.html">keyword
                         matching</link>for more advanced search syntax. </para>
@@ -365,38 +377,42 @@
     
             <section>
             <title>Advanced Search</title>
-            <para>Search results can be filtered by using the Advanced Search section, see <xref linkend="advanced-search-results"/>. There are 4 options in the Advanced Search
-                section:</para>
+            <para>Search results can be filtered by using the <emphasis>Advanced Search</emphasis>
+                    section, see <xref linkend="advanced-search-results"/>. There are 4 options in
+                    the <emphasis>Advanced Search</emphasis> section:</para>
             <itemizedlist>
                 <listitem>
                     <para>Search In – This option narrows the search for Search Text to search in
-                            <emphasis>concept</emphasis>: <itemizedlist>
-                            <listitem>
-                                <para><emphasis>Descriptions</emphasis>,</para>
-                            </listitem>
-                            <listitem>
-                                <para><emphasis>Semantics</emphasis>, or</para>
-                            </listitem>
-                            <listitem>
-                                <para><emphasis>Identifiers</emphasis></para>
-                            </listitem>
-                        </itemizedlist> When <emphasis>Descriptions</emphasis> is selected the
-                        search will search-in the <emphasis>Descriptions</emphasis> of a
-                            <emphasis>concept</emphasis>. A search in <emphasis>Semantics</emphasis>
-                        searches the properties of a concept, and a search in
-                            <emphasis>Identifiers</emphasis> searches the alphanumeric IDs of a
-                        concept such as an SCTID or LOINC code.</para>
+                                <emphasis>concept</emphasis>: <itemizedlist>
+                                <listitem>
+                                    <para><emphasis>Descriptions</emphasis>,</para>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis>Semantics</emphasis>, or</para>
+                                </listitem>
+                                <listitem>
+                                    <para><emphasis>Identifiers</emphasis></para>
+                                </listitem>
+                            </itemizedlist><?oxy_comment_start author="watso" timestamp="20200429T151830-0400" comment="Susan would it be possible to move these descriptions up beside the italicized word? I think it might flow better. "?>
+                            When <emphasis>Descriptions</emphasis> is selected the search will
+                            search-in the <emphasis>Descriptions</emphasis> of a
+                                <emphasis>concept</emphasis>. A search in
+                                <emphasis>Semantics</emphasis> searches the properties of a concept,
+                            and a search in <emphasis>Identifiers</emphasis> searches the
+                            alphanumeric IDs of a concept such as an SCTID or LOINC
+                            code.<?oxy_comment_end?></para>
                 </listitem>
                 <listitem>
                     <para>Page size – select the number of results to display at a time.</para>
                 </listitem>
                 <listitem>
-                    <para>Description Type – the sytem restricts the search to a particular
-                        description type, such as <emphasis>Fully Qualified Name</emphasis> (FQN), a
-                            <emphasis>Regular Name</emphasis>, a <emphasis>Definition</emphasis> if
-                        selected. When <emphasis>All Types</emphasis> is selected the search will be
-                        performed on <emphasis>FQN</emphasis>,<emphasis>Regular Name</emphasis> and
-                            <emphasis>Definition</emphasis>.</para>
+                    <para>Description Type – the system restricts the search to a particular
+                            description type, such as <emphasis>Fully Qualified Name</emphasis>
+                            (FQN), a <emphasis>Regular Name</emphasis>, and
+                                <emphasis>Definition</emphasis> if selected. When <emphasis>All
+                                Types</emphasis> is selected the search will be performed on
+                                <emphasis>FQN</emphasis>,<emphasis>Regular Name,</emphasis> and
+                                <emphasis>Definition</emphasis>.</para>
                 </listitem>
                 <listitem>
                     <para>CSV Export – when selected, the search results list will export the
@@ -440,26 +456,28 @@
                       results.</para></simplesect>-->
             <section><title>Search Results</title>
                 <para>The search results are displayed in a list below the search criteria. The
-                    default fields displayed in the search results list are matching concepts,
-                    matching descriptions, terminology identifier, status, and module, see <xref
-                        linkend="advanced-search-results"/>.</para>
+                    default fields displayed in the search results list are <emphasis>Matching
+                        Concepts, Matching Descriptions, Terminology Identifier, Status, and
+                        Module</emphasis>, see <xref linkend="advanced-search-results"/>.</para>
             
             </section>
         </section>
         <section><title>Classifier</title>
             <para>The Knowledge Editor integrates a high performance Classifier called SnoRocket
-                    <link xlink:href="https://aehrc.com/snorocket/">https://aehrc.com/snorocket/</link> which supports OWL EL++ and Concrete
-                Domains. The classifier evaluates the stated relationships, based on <emphasis role="italic">Description Logics </emphasis>upon which the terminology is
+                    (<link xlink:href="https://aehrc.com/snorocket/"
+                    >https://aehrc.com/snorocket/</link>) which supports OWL EL++ and Concrete
+                Domains. The classifier evaluates the stated relationships, based on <emphasis
+                    role="italic">Description Logics </emphasis>upon which the terminology is
                 defined, and generates the inferred relationships for each concept. The Knowledge
-                Editor displays <emphasis role="italic">stated and inferred </emphasis>views of the
-                concept in the <emphasis role="italic">Concept Details pane </emphasis>and the
-                Taxonomy displays <emphasis role="italic">stated and inferred </emphasis>as-a
+                Editor displays <emphasis role="italic">Stated and Inferred </emphasis>views of the
+                concept in the <emphasis role="italic">Concept Details Pane </emphasis>and the
+                Taxonomy displays <emphasis role="italic">Stated and Inferred </emphasis>as-a
                 relationships based on the Taxonomy display options.</para>
                 <section>
                     <title>Run the Classifier</title>
                     <para>There are two areas in the Knowledge Editor interface to initiate
-                classification: the navigation menu <emphasis>Short Cuts</emphasis> and the
-                    <emphasis>Classifier</emphasis> tab, <xref linkend="classifier-tab"/>. </para>
+                    classification: the navigation menu <emphasis>Shortcuts</emphasis> and the
+                        <emphasis>Classifier</emphasis> tab, <xref linkend="classifier-tab"/>. </para>
                     <para>The first classification will evaluate all concepts in the environment,
                 subsequent classifications will evaluate only modified concepts. The first
                 classification duration will be less than 15 minutes, and subsequent classifications
@@ -470,7 +488,9 @@
                     button. An entry will be added to the <emphasis>Classifier Run List</emphasis>.
                     Since the list does not update automatically when a classification is completed,
                     the user can select the <emphasis>Refresh Run List</emphasis> to force an update
-                    of the run list list.</para>
+                    of
+                    the<?oxy_comment_start author="watso" timestamp="20200429T152305-0400" comment="check "?>
+                    Run List list.<?oxy_comment_end?></para>
                     <figure xml:id="classifier-tab"><title>Classifier Details</title><mediaobject>
                         <imageobject>
                             <imagedata fileref="images/classifier-tab.png"/>
@@ -507,7 +527,7 @@
                                     <para>If concept A's is-a definition is B and B is-a C, and C
                                         is-a A, this will flag a cycle error during
                                         classification</para>
-                                </example>.</para>
+                                </example></para>
                     </listitem>
                 </itemizedlist></para>
                   <para>The concepts under each of these categories are displayed in a list by
@@ -527,9 +547,11 @@
             <title>New Concepts</title>
             <para> New concepts can be added to Knowledge in several steps, then classified to
                 create inferred relationships. </para>
-            <para>To begin creating a new concept, select the New Concept from either the taxonomy
-                tab or under the shortcuts menu (see figure <xref linkend="new-concept-1"/>). The
-                new concept form should appear in the concept panel.<figure xml:id="new-concept-1">
+            <para>To begin creating a new concept, select the <emphasis>New Concept</emphasis> from
+                either the <emphasis>Taxonomy</emphasis> tab or under the
+                    <emphasis>Shortcuts</emphasis> menu (see figure <xref linkend="new-concept-1"
+                />). The <emphasis>New Concept Form</emphasis> should appear in the
+                    <emphasis>Concept Panel</emphasis>.<figure xml:id="new-concept-1">
                     <title>How to Add a New Concept: Step 1</title>
                     <mediaobject>
                         <imageobject>
@@ -542,16 +564,16 @@
                 the concept:<itemizedlist>
                     <listitem>
                         <para>Parent - Select one or more parents that the concept will be related
-                            to. Begin typing to view a list of suggested parent concepts. Select Add
-                            Parent to add an additional one.</para>
+                            to. Begin typing to view a list of suggested parent concepts. Select
+                                <emphasis>Add Parent</emphasis> to add an additional one.</para>
                     </listitem>
                     <listitem>
                         <para>Concept name - Enter in the new concept's name</para>
                     </listitem>
                     <listitem>
-                        <para>This is a Value Set checkbox - If you are creating a value set or
-                            simple assemblage, check this box, see <xref linkend="new-value-set"/>. Otherwise, leave it
-                            unchecked.</para>
+                        <para><emphasis>This concept is a Value Set</emphasis> checkbox - If you are
+                            creating a value set or simple assemblage, check this box, see <xref
+                                linkend="new-value-set"/>. Otherwise, leave it unchecked.</para>
                         <para>
                             <figure xml:id="new-concept-2">
                                 <title>How to Add a New Concept: Step 2</title>
@@ -564,36 +586,39 @@
                             </figure>
                         </para>
                     </listitem>
-                </itemizedlist>Next, press Create to save the new concept. The application will ask
-                you to confirm your changes because new concepts cannot be deleted after creation,
-                they can only be inactivated.</para>
-            <para>Once the concept is created, the concept will display in edit-mode. Here, the
-                fully qualified name, regular name, and dialects are already pre-filled. Feel free
-                to add additional descriptions or names as needed, add or edit dialects, set active
+                </itemizedlist>Next, press <emphasis>Create</emphasis> to save the new concept. The
+                application will ask you to confirm your changes because new concepts cannot be
+                deleted after creation, they can only be inactivated.</para>
+            <para>Once the concept is created, the concept will display in
+                    <emphasis>edit-mode</emphasis>. Here, the <emphasis>Fully Qualified Name,
+                    Regular Name, and Dialects</emphasis> are already pre-filled. Feel free to add
+                additional descriptions or names as needed, add or edit dialects, set active
                 statuses, and more. <figure xml:id="new-concept-3">
                     <title>How to Add a New Concept: Step 3</title>
                     <mediaobject>
                         <imageobject>
-                            <imagedata align="left" scalefit="1" 
-                                fileref="images/edit-new-concept.png"/></imageobject>
+                            <imagedata align="left" scalefit="1"
+                                fileref="images/edit-new-concept.png"/>
+                        </imageobject>
                     </mediaobject>
                 </figure></para>
-            <para>For advanced users, the axiom can also be edited. Axioms display the stated and
-                inferred relationships of the concept. To view the available actions, select the
-                edit icon. <figure xml:id="new-concept-4">
+            <para>For advanced users, the <emphasis>Axiom </emphasis>can also be edited. Axioms
+                display the stated and inferred relationships of the concept. To view the available
+                actions, select the <emphasis>Edit</emphasis> icon. <figure xml:id="new-concept-4">
                     <title>Editing Axioms</title>
                     <mediaobject>
                         <imageobject>
                             <imagedata align="left" scalefit="1" fileref="images/edit-axiom.png"/>
                         </imageobject>
                     </mediaobject>
-                    <para>Press Save at the top of the page to confirm all changes once edits are
-                        done.</para>
+                    <para>Press <emphasis>Save</emphasis> at the top of the page to confirm all
+                        changes once edits are done.</para>
+                    <?oxy_comment_start author="watso" timestamp="20200429T153116-0400" comment="Needs additional review "?>
                     <para>New concepts can only be found immediately in the taxnomy tree after
                         creation, the <emphasis>Taxonomy Tree</emphasis> view is set to
                             <emphasis>Stated</emphasis>if the . If you do not see it there, make
                         sure that the taxonomy tab is displaying Stated concepts, not
-                        inferred.</para>
+                        inferred.<?oxy_comment_end?></para>
                 </figure></para>
 
         </section>
@@ -603,36 +628,39 @@
             <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="knowledge-export.xml" xpointer="export-and-version"/>
         
        <section><title>Briefcase</title>
-           <para>The briefcase temporarily holds concepts that can be reviewed and/or edited later. 
-               For example, the briefcase can be used: </para>
+           <para>The <emphasis>Briefcase</emphasis> temporarily holds concepts that can be reviewed
+                and/or edited later. For example, the <emphasis>Briefcase</emphasis> can be used: </para>
            <itemizedlist>
                <listitem>
-                   <para>
-                       To hold equivalent (duplicates) concepts that are flagged as a result of
-                       classification. To edit and view the details of the equivalent concept you can add
-                       the concept to the briefcase.</para></listitem>
+                   <para> To hold equivalent (duplicates) concepts that are flagged as a result of
+                        classification. To edit and view the details of the equivalent concept you
+                        can add the concept to the <emphasis>Briefcase</emphasis>.</para></listitem>
                <listitem>
-                   <para>To add a concept from a Value Set to the briefcase</para></listitem></itemizedlist>
+                   <para>To add a concept from a <emphasis>Value Set </emphasis>to the
+                            <emphasis>Briefcase</emphasis></para></listitem></itemizedlist>
            
            
-           <para>The briefcase is viewable from the Task Pane of the Knowledge Editor, see screen
-                shot below.
-               <figure xml:id="briefcase"><title>Briefcase</title>
-                   <mediaobject>
-                       <alt>The briefcase options Select All Items, Remove Selected Items, and
+           <para>The <emphasis>Briefcase</emphasis> is viewable from the <emphasis>Task
+                    Pane</emphasis> of the Knowledge Editor, see screen shot below. <figure
+                    xml:id="briefcase">
+                    <title>Briefcase</title>
+                    <mediaobject>
+                        <alt>The briefcase options Select All Items, Remove Selected Items, and
                             Refresh List.</alt>
-                       <imageobject>
-                           <imagedata align="left" scalefit="1" width="75%" contentdepth="75%" 
-                               fileref="images/briefcase-panel.png"/>
-                       </imageobject>
-                   </mediaobject>
-               </figure></para>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="75%" contentdepth="75%"
+                                fileref="images/briefcase-panel.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </figure></para>
       
         <section>
             <title>Adding a concept to the Briefcase from the Taxonomy</title>
-            <para>Concepts in the taxonomy can be added to the briefcase by right-clicking to view
-                    the context menu, and selecting Add to Briefcase. Some of the concepts displayed
-                    in lists and the Concept Details panel can also be added by this method.</para>
+            <para>Concepts in the taxonomy can be added to the <emphasis>Briefcase</emphasis> by
+                    right-clicking to view the context menu, and selecting <emphasis>Add to
+                        Briefcase</emphasis>. Some of the concepts displayed in lists and the
+                        <emphasis>Concept Details Panel</emphasis> can also be added by this
+                    method.</para>
             <para><figure xml:id="context-menu"><title>Context Menu</title>
                     <mediaobject>
                         <imageobject>
@@ -643,10 +671,11 @@
                  </figure></para>
         </section>
            <section><title>Adding a concept to the Briefcase from Classifier Results</title>
-               <para>To add a terminology to the briefase from some lists such as classifier page,
-                    select the briefcase icon (not all lists have this feature). In the example
-                    below, there is an Add to Briefcase icon on the 5th column of the members list
-                    and an option to Add all to Briefcase above the list.</para>
+               <para>To add a terminology to the <emphasis>Briefcase</emphasis> from some lists such
+                    as Classifier page, select the briefcase icon (not all lists have this feature).
+                    In the example below, there is an <emphasis>Add to Briefcase</emphasis> icon on
+                    the 5th column of the members list and an option to <emphasis>Add all to
+                        Briefcase</emphasis> above the list.</para>
                
            </section>
            
@@ -668,12 +697,14 @@
                   <para>There are two options to remove concepts from the Briefcase:
                 <orderedlist>
                     <listitem>
-                        <para>Remove all concepts in the list by selecting the <emphasis>Select All Items</emphasis>button
-                        and then selecting the <emphasis>Remove Selected Items></emphasis></para></listitem>
+                        <para>Remove all concepts in the list by selecting the <emphasis>Select All
+                                    Items</emphasis> button and then selecting the <emphasis>Remove
+                                    Selected Items</emphasis>.</para></listitem>
                     <listitem>
-                        <para>To remove one or more concepts but <emphasis>not all</emphasis> concepts from the briefbase
-                            select the box to the right of the concept to be removed and select the
-                            <emphasis>Remove Selected Items</emphasis> button.</para></listitem>
+                        <para>To remove one or more concepts but <emphasis>not all</emphasis>
+                                concepts from the <emphasis>Briefcase</emphasis> select the box to
+                                the right of the concept to be removed and select the
+                                    <emphasis>Remove Selected Items</emphasis> button.</para></listitem>
                 </orderedlist></para></section>
                 <simplesect><title>Refreshing the Briefcase List</title>
                     <para>If you do not see the concept(s) just added, try refreshing the list by
@@ -695,8 +726,8 @@
                     <para>Open concept – opens the concept details information</para>
                 </listitem>
                 <listitem>
-                    <para>Open concept in new Concept Details – opens the concept details
-                        information in a third panel.</para>
+                    <para>Open concept in new Concept Viewer – opens the concept details information
+                        in a third panel.</para>
                 </listitem>
                 <listitem>
                     <para>Add to briefcase – add the concept to  briefcase, which can be viewed  in

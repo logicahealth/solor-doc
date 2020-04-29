@@ -4,27 +4,27 @@
 <chapter xml:id="manager-doc" xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
     <title xml:id="user-management-section">User Management</title>
-    <para>A user must have the <emphasis><emphasis role="bold">administration
-            role</emphasis></emphasis> to perform administrator functions, such as create a
-        new user account, assign role(s), and deactivate a users account. The following sections
+    <para>A user must have the Administrator role to perform administrator functions, such as create
+        a new user account, assign role(s), and deactivate a users account. The following sections
         describes these functions. </para>
     <section>
         <title>Create a New User</title>
-        <para>To add a new user, select the "View Users" option under the username, which in this
-            case is "<emphasis>admin</emphasis>" in the upper right hand corner, <xref
-                linkend="new-user-homepage"/>.</para>
+        <para>To add a new user, select the <emphasis>View Users</emphasis> option under the
+            username, which in this case is "<emphasis>admin</emphasis>" in the upper right hand
+            corner, <xref linkend="new-user-homepage"/>.</para>
         <para>
             <figure xml:id="new-user-homepage"><title>Knowledge Homepage</title>
                 <mediaobject>
                     <imageobject>
-                        <imagedata  align="left" scalefit="1" width="100%" contentdepth="100%" 
-                            fileref="images/admin-user-menu.png" />
+                        <?oxy_comment_start author="watso" timestamp="20200429T161704-0400" comment="Susan - this first screenshot shows RW not ADMIN. Also, there is no screenshot to show &quot;view users&quot; (1st sentence)"?>
+                        <imagedata align="left" scalefit="1" width="100%" contentdepth="100%"
+                            fileref="images/admin-user-menu.png"/><?oxy_comment_end?>
                     </imageobject>
                 </mediaobject>
             </figure></para>
         <para>The next page will display a list of all the user accounts in Knowledge, as show in
-                <xref linkend="user-list"/>. To create a new account select the "<emphasis>New
-                Account</emphasis>" button and enter the required information, refer to <xref
+                <xref linkend="user-list"/>. To create a new account select the <emphasis>New
+                Account</emphasis> button and enter the required information, refer to <xref
                 linkend="new-user-account"/>.</para>
         <para>
             <figure xml:id="user-list"><title>List of Users</title>
@@ -49,7 +49,7 @@
                         used to log in.</para>
                 </listitem>
                 <listitem>
-                    <para><emphasis>E-mail</emphasis> – enter the email address associated with the
+                    <para><emphasis>Email</emphasis> – enter the email address associated with the
                         user account. The user can also log in using this e-mail address.</para>
                 </listitem>
                 <listitem>
@@ -72,11 +72,12 @@
         
     </section>
     <section><title>Modifying a User's Role</title>
-        <para>An administrator can modify a user's role by selecting <emphasis>View Users</emphasis>
+        <para>An Administrator can modify a user's role by selecting <emphasis>View Users</emphasis>
             then selecting <emphasis>Edit</emphasis> next to the user's name in the list, refer to
                 <xref linkend="user-list"/>. This will bring you to the <emphasis>Edit Account
-                Profile</emphasis>, select <emphasis>Edit</emphasis> again under Project Roles. This
-            will direct you to <xref linkend="modify-role"/>for the user.</para>
+                Profile</emphasis>, select <emphasis>Edit</emphasis> again under <emphasis>Project
+                Roles</emphasis>. This will direct you to <xref linkend="modify-role"/>for the
+            user.</para>
         <para>
             <figure xml:id="edit-account"><title>Edit Account Profile</title>
                 <mediaobject>
@@ -104,10 +105,10 @@
     </section>
     <section>
         <title xml:id="disable-account-section">Disabling a User Account</title>
-        <para>The <emphasis>Administrator</emphasis> can also disable a user's account by selecting
-                <emphasis>View Users</emphasis> and then select <emphasis>Edit</emphasis> next to
-            the user to be disabled. This will direct the administrator to the <emphasis>Edit
-                Account Profile</emphasis> select the <emphasis>Disable Account</emphasis> checkbox.
+        <para>The Administrator can also disable a user's account by selecting <emphasis>View
+                Users</emphasis> and then select <emphasis>Edit</emphasis> next to the user to be
+            disabled. This will direct the administrator to the <emphasis>Edit Account
+                Profile</emphasis> select the <emphasis>Disable Account</emphasis> checkbox.
             Disabling will prevent the user from using their credentials to log in to Knowledge –
             they will no longer have any priviledges in Knowledge. Then select
                 <emphasis>Save</emphasis> to disable the account or select
@@ -125,13 +126,12 @@
     </section>
     <section>
         <title>Deleting a User</title>
-        <para>As another option, the administrator can permanently delete a user from the system.
+        <para>As another option, the Administrator can permanently delete a user from the system.
             Deleting an account will prevent the user from logging in permanently. If you want to
             temporarily suspend access, follow the steps for disabling a user account instead, <xref
-                linkend="disable-account-section"/>. To
-            delete a user, select <emphasis>View Users</emphasis> from the admin menu and review the
-            list of user accounts. On the right side of the list, there is a corresponding link to
-            remove the user.</para>
+                linkend="disable-account-section"/>. To delete a user, select <emphasis>View
+                Users</emphasis> from the admin menu and review the list of user accounts. On the
+            right side of the list, there is a corresponding link to remove the user.</para>
         <para><emphasis role="bold">Note: Deleting a user will permanently remove the account
             from the system. There is no way to undo this.</emphasis></para>
         <para><figure xml:id="delete-account"><title>Deleting a User Account</title>

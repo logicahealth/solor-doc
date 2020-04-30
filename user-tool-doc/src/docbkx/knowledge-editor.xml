@@ -385,22 +385,18 @@
                     <para>Search In – This option narrows the search for Search Text to search in
                                 <emphasis>concept</emphasis>: <itemizedlist>
                                 <listitem>
-                                    <para><emphasis>Descriptions</emphasis>,</para>
+                                    <para><emphasis>Descriptions</emphasis> will search-in the
+                                        descriptions of a concept,</para>
                                 </listitem>
                                 <listitem>
-                                    <para><emphasis>Semantics</emphasis>, or</para>
+                                    <para><emphasis>Semantics</emphasis> will search the properties
+                                        of a concept, or</para>
                                 </listitem>
                                 <listitem>
-                                    <para><emphasis>Identifiers</emphasis></para>
+                                    <para><emphasis>Identifiers</emphasis> searches the alphanumeric
+                                        IDs of a concept such as an SCTID or LOINC code.</para>
                                 </listitem>
-                            </itemizedlist><?oxy_comment_start author="watso" timestamp="20200429T151830-0400" comment="Susan would it be possible to move these descriptions up beside the italicized word? I think it might flow better. "?>
-                            When <emphasis>Descriptions</emphasis> is selected the search will
-                            search-in the <emphasis>Descriptions</emphasis> of a
-                                <emphasis>concept</emphasis>. A search in
-                                <emphasis>Semantics</emphasis> searches the properties of a concept,
-                            and a search in <emphasis>Identifiers</emphasis> searches the
-                            alphanumeric IDs of a concept such as an SCTID or LOINC
-                            code.<?oxy_comment_end?></para>
+                            </itemizedlist></para>
                 </listitem>
                 <listitem>
                     <para>Page size – select the number of results to display at a time.</para>
@@ -474,7 +470,7 @@
                 Taxonomy displays <emphasis role="italic">Stated and Inferred </emphasis>as-a
                 relationships based on the Taxonomy display options.</para>
                 <section>
-                    <title>Run the Classifier</title>
+                    <title xml:id="run-classifier">Run the Classifier</title>
                     <para>There are two areas in the Knowledge Editor interface to initiate
                     classification: the navigation menu <emphasis>Shortcuts</emphasis> and the
                         <emphasis>Classifier</emphasis> tab, <xref linkend="classifier-tab"/>. </para>
@@ -488,9 +484,7 @@
                     button. An entry will be added to the <emphasis>Classifier Run List</emphasis>.
                     Since the list does not update automatically when a classification is completed,
                     the user can select the <emphasis>Refresh Run List</emphasis> to force an update
-                    of
-                    the<?oxy_comment_start author="watso" timestamp="20200429T152305-0400" comment="check "?>
-                    Run List list.<?oxy_comment_end?></para>
+                    of the Run List list.</para>
                     <figure xml:id="classifier-tab"><title>Classifier Details</title><mediaobject>
                         <imageobject>
                             <imagedata fileref="images/classifier-tab.png"/>
@@ -613,12 +607,14 @@
                     </mediaobject>
                     <para>Press <emphasis>Save</emphasis> at the top of the page to confirm all
                         changes once edits are done.</para>
-                    <?oxy_comment_start author="watso" timestamp="20200429T153116-0400" comment="Needs additional review "?>
                     <para>New concepts can only be found immediately in the taxnomy tree after
-                        creation, the <emphasis>Taxonomy Tree</emphasis> view is set to
-                            <emphasis>Stated</emphasis>if the . If you do not see it there, make
-                        sure that the taxonomy tab is displaying Stated concepts, not
-                        inferred.<?oxy_comment_end?></para>
+                        creation, if the <emphasis>Taxonomy Tree</emphasis> view is set to
+                            <emphasis>Stated</emphasis>if the . If you do not see the concept, make
+                        sure that the taxonomy tab is displaying Stated concepts, not inferred. If
+                        the <emphasis>Taxonomy Tree</emphasis> is set to
+                            <emphasis>Inferred</emphasis> run the classifier, refer to <xref
+                            linkend="run-classifier"/> and upon completion of classification the
+                        concept is displayed in the <emphasis>Inferred</emphasis> view.</para>
                 </figure></para>
 
         </section>

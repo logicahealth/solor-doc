@@ -53,51 +53,62 @@
                         <phrase>Login Page</phrase>
                     </textobject>
                 </mediaobject>
-            </figure></para>
-        <simplesect><title>Knowledge Homepage</title>
-        <para>When you login into Knowledge you will see the Knowledge Manager Homepage as shown
+            </figure><?oxy_delete author="mnham" timestamp="20200501T084746-0700" content=" "?><?oxy_insert_start author="mnham" timestamp="20200501T080855-0700"?>You
+            have the options to log into Knowledge using a Google account or Microsoft 365 account
+            as well. The account must be associated with the main login in order to work properly
+            (visit your Profile Settings to update the e-mail address). If there is no account
+            linked to the Google or Microsoft e-mail that is used, Knowledge will automatically
+            create a new account and notify the administrator.<?oxy_insert_end?></para>
+        <?oxy_insert_start author="mnham" timestamp="20200501T081322-0700"?>
+        <para>If you have difficulty logging in, selecting the "Can't log in?" link to reset your
+            password. The system will lock the account after 5 failed attempts. At this point,
+            contact the application administrator in order to unlock your account.</para>
+        <?oxy_insert_end?>
+        <simplesect>
+            <title>Knowledge Homepage</title>
+            <para>When you login into Knowledge you will see the Knowledge Manager Homepage as shown
                 in <xref linkend="author-login"/>. </para>
-        <para>From this page you can: <itemizedlist>
-                <listitem>
-                    <para>select the <emphasis>Profile</emphasis> menu option to change your profile
-                            information</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis>add</emphasis> a user or <emphasis>modify</emphasis> a user's
-                            role if you are an Administrator</para>
-                </listitem>
-                <listitem>
-                    <para>select the <emphasis>Go To Editor</emphasis> button to go to the Knowledge
-                            Editor</para>
-                </listitem>
-                <listitem>
-                    <para>select the <emphasis>Go To API</emphasis> button to view the Rest API
+            <para>From this page you can: <itemizedlist>
+                    <listitem>
+                        <para>select the <emphasis>Profile</emphasis> menu option to change your
+                            profile information</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis>add</emphasis> a user or <emphasis>modify</emphasis> a
+                            user's role if you are an Administrator</para>
+                    </listitem>
+                    <listitem>
+                        <para>select the <emphasis>Go To Editor</emphasis> button to go to the
+                            Knowledge Editor</para>
+                    </listitem>
+                    <listitem>
+                        <para>select the <emphasis>Go To API</emphasis> button to view the Rest API
                             documentation</para>
-                </listitem>
+                    </listitem>
                     <listitem>
                         <para>select the <emphasis>Go To Auth API </emphasis>button to view the
                             Authentication API documentaiton</para>
                     </listitem>
-                <listitem>
-                    <para>select the <emphasis>Logout</emphasis> button to logout of the
+                    <listitem>
+                        <para>select the <emphasis>Logout</emphasis> button to logout of the
                             application</para>
-                </listitem></itemizedlist></para>
-            <para><figure xml:id="author-login">
-                <title>Knowledge Homepage</title>
-                <mediaobject>
-                    <imageobject>
-                        <imagedata 
-                            align="left" scalefit="1" width="50%" contentdepth="50%"
-                            fileref="images/knowledge-manager.png"/>
-                    </imageobject>
-                    <textobject>
-                        <phrase>Knowledge Manager Homepage</phrase>
-                    </textobject>
-                </mediaobject>
-            </figure></para>
-            
+                    </listitem>
+                </itemizedlist></para>
+            <para>
+                <figure xml:id="author-login">
+                    <title>Knowledge Homepage</title>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata align="left" scalefit="1" width="50%" contentdepth="50%"
+                                fileref="images/knowledge-manager.png"/>
+                        </imageobject>
+                        <textobject>
+                            <phrase>Knowledge Manager Homepage</phrase>
+                        </textobject>
+                    </mediaobject>
+                </figure>
+            </para>
         </simplesect>
-        
     </section>
     <section>
         <title>Edit Profile</title>
@@ -129,3 +140,5 @@
             </figure></para>
     </section>
 </chapter>
+
+<?oxy_options track_changes="on"?>
